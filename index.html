@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escape Things - The Thingelstad Family Escape Room Journey</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Escape Things</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="list.html">Rooms</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="stats.html">Stats</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container page-content">
+    <section class="hero">
+      <h1>Escape Things</h1>
+      <p class="subtitle">The Thingelstad Family Escape Room Journey</p>
+      <div class="stats-row" id="hero-stats">
+        <div class="stat-item"><span class="stat-number" id="stat-total">-</span><div class="stat-label">Rooms</div></div>
+        <div class="stat-item"><span class="stat-number" id="stat-wins">-</span><div class="stat-label">Wins</div></div>
+        <div class="stat-item"><span class="stat-number" id="stat-winrate">-</span><div class="stat-label">Win Rate</div></div>
+        <div class="stat-item"><span class="stat-number" id="stat-locations">-</span><div class="stat-label">Regions</div></div>
+        <div class="stat-item"><span class="stat-number" id="stat-countries">-</span><div class="stat-label">Countries</div></div>
+        <div class="stat-item"><span class="stat-number" id="stat-years">-</span><div class="stat-label">Years Active</div></div>
+      </div>
+    </section>
+
+    <section id="latest-room">
+      <div class="section-header">
+        <h2>Latest Room</h2>
+      </div>
+      <div id="latest-room-content" class="loading">Loading...</div>
+    </section>
+
+    <section id="upcoming-section" style="display: none;">
+      <div class="section-header">
+        <h2>Coming Up</h2>
+      </div>
+      <div id="upcoming-content" class="room-grid"></div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2>Explore</h2>
+      </div>
+      <div class="quick-links">
+        <a href="list.html" class="quick-link-card">
+          <span class="quick-link-icon">&#128218;</span>
+          <h3>All Rooms</h3>
+          <p>Browse, search, and filter every escape room we've done.</p>
+        </a>
+        <a href="map.html" class="quick-link-card">
+          <span class="quick-link-icon">&#127758;</span>
+          <h3>Map</h3>
+          <p>See our escape room journey across the globe.</p>
+        </a>
+        <a href="stats.html" class="quick-link-card">
+          <span class="quick-link-icon">&#128202;</span>
+          <h3>Stats</h3>
+          <p>Charts and numbers from years of escaping.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-countries">
+        <span class="footer-label">Visitors from</span>
+        <span class="tinylytics_countries"></span>
+      </div>
+      <div class="footer-meta">
+        <span class="footer-hits"><span class="tinylytics_hits"></span> visits</span>
+        <span class="footer-sep">&middot;</span>
+        <span>&copy; Thingelstad Family</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://tinylytics.app/embed/jDupbLUKfFyNMs5d5WjD.js?kudos&hits&countries" defer></script>
+  <script type="module">
+    import { getCompletedRooms, getPlannedRooms, getAllYears, getAllCountries, renderRoomCard, initNav } from './js/data.js';
+
+    initNav();
+
+    async function init() {
+      const completed = await getCompletedRooms();
+      const planned = await getPlannedRooms();
+      const years = await getAllYears();
+      const countries = await getAllCountries();
+
+      // Hero stats
+      const wins = completed.filter(r => r.win === true).length;
+      const winRate = completed.length > 0 ? Math.round((wins / completed.length) * 100) : 0;
+      const regions = new Set();
+      completed.forEach(r => {
+        if (r.location && r.location.region) regions.add(r.location.region);
+      });
+
+      document.getElementById('stat-total').textContent = completed.length;
+      document.getElementById('stat-wins').textContent = wins;
+      document.getElementById('stat-winrate').textContent = winRate + '%';
+      document.getElementById('stat-locations').textContent = regions.size;
+      document.getElementById('stat-countries').textContent = countries.length;
+      document.getElementById('stat-years').textContent = years.length;
+
+      // Latest room
+      const sorted = [...completed].sort((a, b) => b.date.localeCompare(a.date));
+      if (sorted.length > 0) {
+        document.getElementById('latest-room-content').innerHTML = renderRoomCard(sorted[0], { featured: true });
+      } else {
+        document.getElementById('latest-room-content').innerHTML = '<p class="empty-state">No rooms yet.</p>';
+      }
+
+      // Upcoming
+      if (planned.length > 0) {
+        const upcomingSection = document.getElementById('upcoming-section');
+        upcomingSection.style.display = '';
+        document.getElementById('upcoming-content').innerHTML = planned.map(r => renderRoomCard(r)).join('');
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>

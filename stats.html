@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stats - Escape Things</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Escape Things</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="list.html">Rooms</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="stats.html" class="active">Stats</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container page-content">
+    <section>
+      <div class="section-header">
+        <h2>Stats</h2>
+      </div>
+
+      <div class="stats-row" id="summary-stats">
+        <div class="stat-item"><span class="stat-number" id="stat-total">-</span><div class="stat-label">Rooms</div></div>
+        <div class="stat-item"><span class="stat-number" id="stat-wins">-</span><div class="stat-label">Wins</div></div>
+        <div class="stat-item"><span class="stat-number" id="stat-winrate">-</span><div class="stat-label">Win Rate</div></div>
+        <div class="stat-item"><span class="stat-number" id="stat-regions">-</span><div class="stat-label">Regions</div></div>
+        <div class="stat-item"><span class="stat-number" id="stat-countries">-</span><div class="stat-label">Countries</div></div>
+        <div class="stat-item"><span class="stat-number" id="stat-companies">-</span><div class="stat-label">Companies</div></div>
+        <div class="stat-item"><span class="stat-number" id="stat-years">-</span><div class="stat-label">Years Active</div></div>
+      </div>
+    </section>
+
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3>Rooms Per Year</h3>
+        <canvas id="chart-rooms-year"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <h3>Monthly Distribution</h3>
+        <canvas id="chart-monthly"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <h3>Rooms by Region / Country</h3>
+        <canvas id="chart-locations"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <h3>Top Companies</h3>
+        <canvas id="chart-companies"></canvas>
+      </div>
+
+      <div class="chart-card full-width">
+        <h3>Escape Times</h3>
+        <canvas id="chart-times"></canvas>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-countries">
+        <span class="footer-label">Visitors from</span>
+        <span class="tinylytics_countries"></span>
+      </div>
+      <div class="footer-meta">
+        <span class="footer-hits"><span class="tinylytics_hits"></span> visits</span>
+        <span class="footer-sep">&middot;</span>
+        <span>&copy; Thingelstad Family</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://tinylytics.app/embed/jDupbLUKfFyNMs5d5WjD.js?kudos&hits&countries" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script type="module" src="js/stats.js"></script>
+</body>
+</html>

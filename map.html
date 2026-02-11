@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map - Escape Things</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+</head>
+<body>
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Escape Things</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="list.html">Rooms</a></li>
+        <li><a href="map.html" class="active">Map</a></li>
+        <li><a href="stats.html">Stats</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="map-page">
+    <button class="map-filter-toggle open" id="filter-toggle">
+      <span class="toggle-arrow">&#9660;</span> Filters
+    </button>
+
+    <div class="map-filter-panel" id="filter-panel">
+      <div class="filter-row">
+        <div class="filter-group">
+          <label for="filter-search">Search</label>
+          <input type="text" id="filter-search" placeholder="Game, company, city...">
+        </div>
+        <div class="filter-group">
+          <label for="filter-tag">Tag</label>
+          <select id="filter-tag">
+            <option value="">All Tags</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-year">Year</label>
+          <select id="filter-year">
+            <option value="">All Years</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-status">Status</label>
+          <select id="filter-status">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="planned">Planned</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-country">Country</label>
+          <select id="filter-country">
+            <option value="">All Countries</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-player">Player</label>
+          <select id="filter-player">
+            <option value="">All Players</option>
+          </select>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-clear" id="clear-filters" style="display:none;">Clear All</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="map"></div>
+  </main>
+
+  <script src="https://tinylytics.app/embed/jDupbLUKfFyNMs5d5WjD.js?kudos&hits&countries" defer></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script type="module" src="js/map.js"></script>
+</body>
+</html>

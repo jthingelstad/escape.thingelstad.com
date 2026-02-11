@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Not Found - Escape Things</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Escape Things</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="list.html">Rooms</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="stats.html">Stats</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-404">
+    <div class="lock-icon-large">&#128274;</div>
+    <h1>404</h1>
+    <h2>This Room Doesn't Exist</h2>
+    <p>The door is locked and there's no puzzle to solve here. Looks like you wandered into a room that was never built. The clock is ticking &mdash; find your way back before time runs out.</p>
+    <a href="index.html" class="escape-btn">&#128275; Find Your Way Back</a>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-countries">
+        <span class="footer-label">Visitors from</span>
+        <span class="tinylytics_countries"></span>
+      </div>
+      <div class="footer-meta">
+        <span class="footer-hits"><span class="tinylytics_hits"></span> visits</span>
+        <span class="footer-sep">&middot;</span>
+        <span>&copy; Thingelstad Family</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://tinylytics.app/embed/jDupbLUKfFyNMs5d5WjD.js?kudos&hits&countries" defer></script>
+  <script type="module">
+    import { initNav } from './js/data.js';
+    initNav();
+  </script>
+</body>
+</html>

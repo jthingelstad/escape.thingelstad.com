@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Rooms - Escape Things</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Escape Things</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="list.html" class="active">Rooms</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="stats.html">Stats</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container page-content">
+    <section>
+      <div class="section-header">
+        <h2>All Rooms</h2>
+      </div>
+
+      <div class="filter-bar">
+        <div class="filter-row">
+          <div class="filter-group">
+            <label for="filter-search">Search</label>
+            <input type="text" id="filter-search" placeholder="Game, company, city...">
+          </div>
+          <div class="filter-group">
+            <label for="filter-tag">Tag</label>
+            <select id="filter-tag">
+              <option value="">All Tags</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-year">Year</label>
+            <select id="filter-year">
+              <option value="">All Years</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-status">Status</label>
+            <select id="filter-status">
+              <option value="all">All</option>
+              <option value="completed">Completed</option>
+              <option value="planned">Planned</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-win">Result</label>
+            <select id="filter-win">
+              <option value="all">All</option>
+              <option value="wins">Wins</option>
+              <option value="losses">Losses</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-country">Country</label>
+            <select id="filter-country">
+              <option value="">All Countries</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-player">Player</label>
+            <select id="filter-player">
+              <option value="">All Players</option>
+            </select>
+          </div>
+          <div class="filter-actions">
+            <button class="btn btn-clear" id="clear-filters" style="display:none;">Clear All</button>
+          </div>
+        </div>
+        <div class="active-filters" id="active-filters"></div>
+      </div>
+
+      <div class="sort-controls">
+        <span>Sort by:</span>
+        <button class="sort-btn active" data-sort="date" data-dir="desc">Date &#9660;</button>
+        <button class="sort-btn" data-sort="game">Game</button>
+        <button class="sort-btn" data-sort="company">Company</button>
+        <button class="sort-btn" data-sort="city">City</button>
+      </div>
+
+      <div class="results-count" id="results-count"></div>
+      <div class="room-grid" id="room-list">
+        <div class="loading">Loading...</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-countries">
+        <span class="footer-label">Visitors from</span>
+        <span class="tinylytics_countries"></span>
+      </div>
+      <div class="footer-meta">
+        <span class="footer-hits"><span class="tinylytics_hits"></span> visits</span>
+        <span class="footer-sep">&middot;</span>
+        <span>&copy; Thingelstad Family</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://tinylytics.app/embed/jDupbLUKfFyNMs5d5WjD.js?kudos&hits&countries" defer></script>
+  <script type="module" src="js/list.js"></script>
+</body>
+</html>

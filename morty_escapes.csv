@@ -1,0 +1,92 @@
+,date_played,game,company,location,escaped,time_elapsed,users,game_id
+0,2016−7−11,The Library,Trapped Puzzle Rooms,"Minneapolis, MN",True,,"jthingelstad, tkorocks",34804
+1,2016−7−29,The Maine Room,Maine Escape Games,"Portland, ME",False,,"jthingelstad, tkorocks",10292
+2,2016−8−24,Dupree’s Office,Escape MSP,"Minneapolis, MN",True,,"jthingelstad, tkorocks",11677
+3,2016−10−2,The Bunker,Fox in the Box,"Chicago, IL",False,,"jthingelstad, tkorocks",8254
+4,2016−12−22,James Bond,Escape the Room,"Minneapolis, MN",False,,"jthingelstad, tkorocks",2542
+5,2016−12−31,The Zen Room,Clue Pursuit,"Springfield, MO",False,,"jthingelstad, tkorocks",35179
+6,2017−1−15,Ivan’s Will,Kato Escape,"Mankato, MN",False,,"jthingelstad, tkorocks",
+7,2017−6−4,Mad Tea Party,Zero Hour Escape Rooms,"St. Paul, MN",False,,"jthingelstad, tkorocks",4896
+8,2017−6−29,Barber Shop,Grand Haven Room Escape,"Grand Haven, MI",True,57m 10s,"jthingelstad, tkorocks",4453
+9,2017−8−20,The Oval-ish Office,Red Herring Escape Room,"St. Louis, MO",False,,"jthingelstad, tkorocks",3927
+10,2017−12−10,A Very Potter Escape Room,Trapped Puzzle Rooms,"St. Paul, MN",True,54m 0s,"jthingelstad, tkorocks",10173
+11,2018−4−1,The Circus,D.O.A. Escape Rooms,"Wisconsin Dells, WI",True,,"jthingelstad, tkorocks",5032
+12,2018−4−5,Gold Rush,The Escape Game,"Chicago, IL",False,,"jthingelstad, tkorocks",5936
+13,2018−5−5,Enchanted Forest,Zero Hour Escape Rooms,"Duluth, MN",True,,"jthingelstad, tkorocks",40416
+14,2018−5−20,Mission: Mars,The Escape Game,"Chicago, IL",True,,"jthingelstad, tkorocks",2791
+15,2018−6−25,The Search for Atlantis,Escape Frenzy,"Edina, MN",True,,"jthingelstad, tkorocks",1014
+16,2018−7−27,Ruin Raiders,Missing Pieces Escape Games,"Edina, MN",True,,"jthingelstad, tkorocks",4593
+17,2018−8−12,The Wall,Enigma Escape Rooms,"Buffalo, NY",True,57m 53s,"jthingelstad, tkorocks",
+18,2018−9−9,It’s All Fun & Games,Trapped Puzzle Rooms,"Minneapolis, MN",False,,"jthingelstad, tkorocks",2255
+19,2018−11−24,Final Frontier,Missing Pieces Escape Games,"Edina, MN",False,,"jthingelstad, tkorocks",1470
+20,2018−11−24,Final Frontier,Missing Pieces Escape Games,"Edina, MN",False,,"jthingelstad, tkorocks",1470
+21,2019−1−6,Final Frontier,Missing Pieces Escape Games,"Edina, MN",True,,"jthingelstad, tkorocks",1470
+22,2019−1−6,Final Frontier,Missing Pieces Escape Games,"Edina, MN",True,,"jthingelstad, tkorocks",1470
+23,2018−12−5,Spies vs. Spies,Trapped Puzzle Rooms,"St. Paul, MN",False,,"jthingelstad, tkorocks",45488
+24,2018−12−5,Spies vs. Spies,Trapped Puzzle Rooms,"St. Paul, MN",False,,"jthingelstad, tkorocks",45488
+25,2018−12−20,Spies vs. Spies,Trapped Puzzle Rooms,"St. Paul, MN",False,,"jthingelstad, tkorocks",45488
+26,2018−12−20,Spies vs. Spies,Trapped Puzzle Rooms,"St. Paul, MN",False,,"jthingelstad, tkorocks",45488
+27,2019−1−5,Diagonal Alley,Trapped Puzzle Rooms,"Minneapolis, MN",False,,"jthingelstad, tkorocks",3409
+28,2019−1−19,Operation: Casino,Breakout Games,"Minneapolis, MN",True,45m 0s,"jthingelstad, tkorocks",2443
+29,2019−2−16,Quest for the Amulet at Windmere Castle,Escape MSP,"Lakeville, MN",False,,"jthingelstad, tkorocks",
+30,2019−4−27,Video Game Mayhem,Trapped Puzzle Rooms,"St. Paul, MN",True,53m 0s,"jthingelstad, tkorocks",10174
+31,2019−4−27,Video Game Mayhem,Trapped Puzzle Rooms,"St. Paul, MN",True,53m 0s,"jthingelstad, tkorocks",10174
+32,2022−2−12,Video Game Mayhem,Trapped Puzzle Rooms,"St. Paul, MN",True,56m 59s,"jthingelstad, tkorocks",10174
+33,2022−2−12,Video Game Mayhem,Trapped Puzzle Rooms,"St. Paul, MN",True,56m 59s,"jthingelstad, tkorocks",10174
+34,2019−7−22,The Toy Maker’s Shop,Escape Artists KC,Kansas City,True,,"jthingelstad, tkorocks",4192
+35,2019−7−23,Beasley’s Billions,Tick Tock Escape Games,Kansas City,False,,"jthingelstad, tkorocks",1690
+36,2019−12−7,Nutcracker Nightmare,Trapped Puzzle Rooms,"St. Paul, MN",True,,"jthingelstad, tkorocks",10177
+37,2020−1−5,The Vault,Puzzleworks,"Minneapolis, MN",False,,"jthingelstad, tkorocks",1566
+38,2021−2−14,Titanic Room,Escape Room Palm Springs,"Palm Springs, CA",True,44m 29s,"jthingelstad, tkorocks",3598
+39,2021−3−11,Evil Robot,Nemesis Club,"Phoenix, AZ",True,59m 29s,"jthingelstad, tkorocks",7362
+40,2021−8−8,Mona Lisa,Greatest Caper,"Montpelier, ME",True,56m 16s,"jthingelstad, tkorocks",3332
+41,2021−8−21,Rock’n the 50s,Itasca Historical Society,"Grand Rapids, MN",True,40m 0s,"jthingelstad, tkorocks",
+42,2021−10−22,Alice’s White Rabbit Rescue,Twisted Room Escapes,"Indianapolis, IN",True,56m 40s,"jthingelstad, tkorocks",1725
+43,2022−1−4,Robot Rampage,Trapped Puzzle Rooms,"St. Paul, MN",True,59m 36s,"jthingelstad, tkorocks",13380
+44,2022−2−26,Grandpa’s Workshop,Itasca Historical Society,"Grand Rapids, MN",False,,"jthingelstad, tkorocks",
+45,2022−3−21,Timeliner: Train Through Time,Escape Game,"Nashville, TN",False,,"jthingelstad, tkorocks",13067
+46,2022−6−6,Pursuit of Steam,Cryptex Branson Escape Rooms,"Branson, MO",False,,"jthingelstad, tkorocks",4129
+47,2022−6−6,Journey Through Elek’s Hollow,Escape Code,"Branson, MO",False,,"jthingelstad, tkorocks",7106
+48,2022−8−6,The Mafia,Reykjavik Escape,"Reykjavik, Iceland",True,38m 44s,"jthingelstad, tkorocks",26343
+49,2022−12−20,Cuckoo’s Clock,Missing Pieces Escape Games,"Edina, MN",True,46m 24s,"jthingelstad, tkorocks",1469
+50,2023−1−6,Diamond Dilemma,Missing Pieces Escape Games,"Edina, MN",True,42m 46s,"jthingelstad, tkorocks",4592
+51,2023−2−12,Countdown,Mission Manor,"Minneapolis, MN",True,45m 55s,"jthingelstad, tkorocks",9136
+52,2023−3−19,Sugar Rush,Exit Escape Room NYC,"New York, NY",True,56m 57s,"jthingelstad, tkorocks",7613
+53,2023−4−30,Playground,The Escape Game,"New York, NY",True,59m 0s,"jthingelstad, tkorocks",6027
+54,2023−6−14,Mad Tea Party,Zero Hour Escape Rooms,"Minneapolis, MN",False,,"jthingelstad, tkorocks",4896
+55,2023−7−22,Birth Machine,Mad Machines,"Milan, Italiy",True,,"jthingelstad, tkorocks",24742
+56,2023−7−23,Time Machine,Mad Machines,"Milan, Italiy",True,,"jthingelstad, tkorocks",24741
+57,2023−10−21,The Zeros,Escape Code,"Branson, MO",True,59m 59s,"jthingelstad, tkorocks",7108
+58,2023−11−18,Bigfoot’s Backyard Escape,Itasca Historical Society,"Grand Rapids, MN",True,,"jthingelstad, tkorocks",
+59,2024−3−26,Invasion,60 to Escape,"Milwaukee, WI",True,54m 23s,"jthingelstad, tkorocks",6778
+60,2024−4−27,Utopia,Lock & Key Escape Rooms,"Minneapolis, MN",False,,"jthingelstad, tkorocks",29629
+61,2024−6−12,Titanic: The Final Hour,Timescape,"Belfast, North Ireland",True,51m 28s,"jthingelstad, tkorocks",15970
+62,2024−10−18,Mystery Manor,60 to Escape,"Gurnee, IL",True,47m 30s,"jthingelstad, tkorocks",4029
+63,2024−12−22,Cosmic Crisis,The Escape Game,"Bloomington, MN",True,,"jthingelstad, tkorocks",49507
+64,2025−1−18,Granny’s Recipe Rescue,Copper Cat Escape,"Brainerd, MN",True,48m 18s,"jthingelstad, tkorocks",32786
+65,2025−1−19,Deep Woods Cabin,Copper Cat Escape,"Brainerd, MN",True,46m 52s,"jthingelstad, tkorocks",32785
+66,2025−1−20,The Museum,Puzzleworks,"St. Paul, MN",True,58m 48s,"jthingelstad, tkorocks",34674
+67,2025−2−1,Sherwood Forest,No Esc Puzzle Collective,"Shakopee, MN",True,59m 36s,"jthingelstad, tkorocks",40808
+68,2025−2−15,The Istanbul Gambit,Enigma Adventures,"Bloomington, MN",True,58m 21s,"jthingelstad, tkorocks",328
+69,2025−3−15,The Hospital,Puzzleworks,"St. Pual, MN",True,54m 47s,"jthingelstad, tkorocks",1567
+70,2025−4−5,Crazy Train,Doldrick’s Escape Room,"Orlando, FL",True,63m 25s,"jthingelstad, tkorocks",10115
+71,2025−4−26,The Dungeon,Puzzleworks,"St. Paul, MN",True,59m 34s,"jthingelstad, tkorocks",13681
+72,2025−4−27,The Anomaly,Puzzleworks,"St. Paul, MN",True,,"jthingelstad, tkorocks",13681
+73,2025−5−11,Pirates of the Spanish Main,Enigma Adventures,"Maple Grove, MN",False,61m 30s,"jthingelstad, tkorocks",13264
+74,2025−6−6,Mindmaster Industries,Escape City,Calgary,True,60m 9s,"jthingelstad, tkorocks",50553
+75,2025−6−18,Caper in the Escape Room,Solve Escape Rooms,"Waukesha, WI",False,,"jthingelstad, tkorocks",13476
+76,2025−6−18,14 Floors Below,Solve Escape Rooms,"Waukesha, WI",True,,"jthingelstad, tkorocks",13477
+77,2025−7−18,Gold Rush,Escape in Time,"Madison, WI",True,46m 45s,"jthingelstad, tkorocks",13395
+78,2025−7−28,The Dreamwalkers,Cabinet Mysteriis,Quebec,False,,"jthingelstad, tkorocks",10196
+79,2025−7−28,2002: The Bovine Odyssey,Cabinet Mysteriis,Quebec,True,54m 0s,"jthingelstad, tkorocks",10197
+80,2025−7−29,Screaming Metal,Cabinet Mysterlis,Quebec,True,,"jthingelstad, tkorocks",10195
+81,2025−7−30,Lost Island of the Voodoo Queen,Escaparium,Quebec,True,,"jthingelstad, tkorocks",9469
+82,2025−7−30,Wardrobe for sale,Escaparium,Quebec,True,,"jthingelstad, tkorocks",9589
+83,2025−8−2,Magnifico,Escaparium,Quebec,True,,"jthingelstad, tkorocks",51489
+84,2025−8−7,The Experiment,Escape Room Alexandria,Alexandria,True,53m 14s,"jthingelstad, tkorocks",13286
+85,2025−8−8,Time Machine,Puzzled Escape Rooms,Fargo,True,53m 11s,"jthingelstad, tkorocks",6168
+86,2025−8−9,Gemini Quantum Quest,Breakout ND,Bismarck,True,48m 45s,"jthingelstad, tkorocks",54990
+87,2025−12−22,Ruins: Forbidden Treasure,Escape Game,Nashville,True,55m 12s,"jthingelstad, tkorocks",
+88,2025−12−22,Yeti Escape Room,Escape Game,Nashville,True,57m 34s,"jthingelstad, tkorocks",
+89,2026−1−3,Loose Sleuth,Puzzleworks,Minneapolis,True,49m 5s,"jthingelstad, tkorocks",13321
+90,2026−1−10,Scooby-Doo™ and the Spooky Castle Adventure,Escapology,Burnsville,True,39m 46s,"jthingelstad, tkorocks",9603
