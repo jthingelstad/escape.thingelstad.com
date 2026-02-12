@@ -190,6 +190,10 @@ export function renderRoomCard(room, options = {}) {
     ? `<a href="${room.blogUrl}" class="blog-link" target="_blank" rel="noopener">Read post \u2192</a>`
     : '';
 
+  const mortyHtml = room.mortyId
+    ? `<a href="https://morty.app/attraction/${room.mortyId}" class="morty-link" target="_blank" rel="noopener">Morty \u2192</a>`
+    : '';
+
   const playersHtml = (room.players || []).length > 0
     ? `<div class="room-card-players"><span class="meta-icon">\ud83d\udc65</span> ${room.players.join(', ')}</div>`
     : '';
@@ -217,6 +221,7 @@ export function renderRoomCard(room, options = {}) {
       ${tagsHtml ? `<div class="room-card-tags">${tagsHtml}</div>` : ''}
       <div class="room-card-footer">
         ${blogHtml}
+        ${mortyHtml}
         <button class="tinylytics_kudos room-kudos" data-path="/room/${room.id}"></button>
       </div>
       ${notesHtml}

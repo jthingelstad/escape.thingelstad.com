@@ -84,6 +84,10 @@ function buildPopup(room) {
     ? `<a href="${room.blogUrl}" target="_blank" rel="noopener" style="color: #4fd1c5; font-size: 0.8rem;">Read post \u2192</a>`
     : '';
 
+  const mortyHtml = room.mortyId
+    ? `<a href="https://morty.app/attraction/${room.mortyId}" target="_blank" rel="noopener" style="color: #4fd1c5; font-size: 0.8rem;">Morty \u2192</a>`
+    : '';
+
   return `
     <div>
       <h3>#${room.id} ${room.game}</h3>
@@ -95,6 +99,7 @@ function buildPopup(room) {
       ${statusHtml}
       ${tagsHtml ? `<div class="popup-tags">${tagsHtml}</div>` : ''}
       ${blogHtml}
+      ${mortyHtml}
     </div>
   `;
 }

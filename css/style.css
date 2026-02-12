@@ -555,6 +555,19 @@ section {
   text-shadow: 0 0 12px var(--glow-teal);
 }
 
+.morty-link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent-teal);
+  white-space: nowrap;
+  transition: all var(--transition);
+}
+
+.morty-link:hover {
+  color: var(--accent-teal);
+  text-shadow: 0 0 12px var(--glow-teal);
+}
+
 /* ========== Status Badges ========== */
 .status-badge {
   display: inline-flex;
