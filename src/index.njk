@@ -20,13 +20,17 @@ permalink: /index.html
       </div>
     </section>
 
-    {% if stats.latestCompleted %}
-    <section id="latest-room">
+    {% if stats.recentCompleted and stats.recentCompleted.length > 0 %}
+    <section id="recent-rooms">
       <div class="section-header">
-        <h2>Latest Room</h2>
+        <h2>Recent Rooms</h2>
       </div>
-      {% from "room-card.njk" import roomCard %}
-      {{ roomCard(stats.latestCompleted, { featured: true }) }}
+      <div class="room-grid">
+        {% from "room-card.njk" import roomCard %}
+        {% for room in stats.recentCompleted %}
+          {{ roomCard(room) }}
+        {% endfor %}
+      </div>
     </section>
     {% endif %}
 
@@ -44,28 +48,30 @@ permalink: /index.html
     </section>
     {% endif %}
 
-    <section>
+    <section class="puzzle-trail">
       <div class="section-header">
-        <h2>Explore</h2>
+        <h2>Escape Trail</h2>
       </div>
-      <div class="quick-links">
-        <a href="/list/" class="quick-link-card">
-          <span class="quick-link-icon">&#128218;</span>
-          <h3>All Rooms</h3>
-          <p>Browse, search, and filter every escape room we've done.</p>
-        </a>
-        <a href="/map/" class="quick-link-card">
-          <span class="quick-link-icon">&#127758;</span>
-          <h3>Map</h3>
-          <p>See our escape room journey across the globe.</p>
-        </a>
-        <a href="/stats/" class="quick-link-card">
-          <span class="quick-link-icon">&#128202;</span>
-          <h3>Stats</h3>
-          <p>Charts and numbers from years of escaping.</p>
-        </a>
+      <div class="trail-grid">
+        <article class="trail-card">
+          <img class="trail-icon" src="/images/key.svg" alt="Key icon">
+          <h3>Find the Clues</h3>
+          <p>The map reveals every city where we have chased a final lock.</p>
+        </article>
+        <article class="trail-card">
+          <img class="trail-icon" src="/images/puzzle.svg" alt="Puzzle icon">
+          <h3>Cross-reference Rooms</h3>
+          <p>The room index helps us compare genres, companies, and outcomes.</p>
+        </article>
+        <article class="trail-card">
+          <img class="trail-icon" src="/images/lock.svg" alt="Lock icon">
+          <h3>Open the Vault</h3>
+          <p>Stats are intentionally locked behind a tiny puzzle, just for fun.</p>
+        </article>
       </div>
     </section>
+
+
   </main>
 {% endblock %}
 

@@ -39,8 +39,62 @@ const defaultChartOptions = {
   }
 };
 
+const VAULT_CODE = 'THINGS';
+const VAULT_STORAGE_KEY = 'escaping-things-stats-unlocked';
+
 async function init() {
   initNav();
+  setupVault();
+}
+
+function setupVault() {
+  const vault = document.getElementById('stats-vault');
+  const form = document.getElementById('vault-form');
+  const input = document.getElementById('vault-code');
+  const message = document.getElementById('vault-message');
+  const lockPanel = document.getElementById('vault-lock-panel');
+  const content = document.getElementById('vault-content');
+
+  if (!vault || !form || !input || !message || !lockPanel || !content) {
+    loadCharts();
+    return;
+  }
+
+  const unlockVault = async (persist = false) => {
+    vault.classList.remove('locked');
+    vault.classList.add('unlocked');
+    lockPanel.hidden = true;
+    content.hidden = false;
+    message.textContent = '';
+
+    if (persist) {
+      localStorage.setItem(VAULT_STORAGE_KEY, 'true');
+    }
+
+    await loadCharts();
+  };
+
+  if (localStorage.getItem(VAULT_STORAGE_KEY) === 'true') {
+    unlockVault();
+    return;
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const code = input.value.trim().toUpperCase();
+
+    if (code === VAULT_CODE) {
+      message.textContent = 'Vault unlocked. Welcome back, Escaping Things.';
+      await unlockVault(true);
+    } else {
+      message.textContent = 'Nope. Try the second word of the team name.';
+      vault.classList.add('shake');
+      setTimeout(() => vault.classList.remove('shake'), 450);
+    }
+  });
+}
+
+async function loadCharts() {
   const completed = await getCompletedRooms();
 
   renderRoomsPerYear(completed);
