@@ -2,7 +2,7 @@ let cachedRooms = null;
 
 export async function loadRooms() {
   if (cachedRooms) return cachedRooms;
-  const res = await fetch('data/rooms.json');
+  const res = await fetch('/data/rooms.json');
   const data = await res.json();
   cachedRooms = data.rooms;
   return cachedRooms;

@@ -5,15 +5,15 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://escape.thingelstad.com/list.html</loc>
+    <loc>https://escape.thingelstad.com/list/</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://escape.thingelstad.com/map.html</loc>
+    <loc>https://escape.thingelstad.com/map/</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://escape.thingelstad.com/stats.html</loc>
+    <loc>https://escape.thingelstad.com/stats/</loc>
     <priority>0.8</priority>
   </url>
 </urlset>

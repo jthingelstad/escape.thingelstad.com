@@ -1,26 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Rooms - Escaping Things</title>
-  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <nav class="main-nav">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">Escaping Things</a>
-      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="list.html" class="active">Rooms</a></li>
-        <li><a href="map.html">Map</a></li>
-        <li><a href="stats.html">Stats</a></li>
-      </ul>
-    </div>
-  </nav>
+---
+title: All Rooms
+description: Browse and filter all escape rooms.
+permalink: /list/
+---
+{% extends "base.njk" %}
 
+{% block content %}
   <main class="container page-content">
     <section>
       <div class="section-header">
@@ -94,22 +79,8 @@
       </div>
     </section>
   </main>
+{% endblock %}
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-countries">
-        <span class="footer-label">Visitors from</span>
-        <span class="tinylytics_countries"></span>
-      </div>
-      <div class="footer-meta">
-        <span class="footer-hits"><span class="tinylytics_hits"></span> visits</span>
-        <span class="footer-sep">&middot;</span>
-        <span>&copy; Thingelstad Family</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://tinylytics.app/embed/jDupbLUKfFyNMs5d5WjD.js?kudos=👍&hits&countries" defer></script>
-  <script type="module" src="js/list.js"></script>
-</body>
-</html>
+{% block scripts %}
+  <script type="module" src="/js/list.js"></script>
+{% endblock %}

@@ -1,0 +1,62 @@
+{#
+  Room card macro — server-side equivalent of renderRoomCard() in data.js
+  Usage: {{ roomCard(room, { featured: true, compact: false }) }}
+#}
+{% macro roomCard(room, options) %}
+{% set featured = options.featured if options else false %}
+{% set compact = options.compact if options else false %}
+<div class="room-card{{ ' featured' if featured }}" data-id="{{ room.id }}">
+  <div class="room-card-header">
+    <div class="room-card-title">
+      <span class="room-number">#{{ room.id }}</span>
+      <h3>{{ room.game }}</h3>
+    </div>
+    <span class="status-indicator">
+      {% if room.status == "planned" %}
+        <span class="status-badge status-planned">Planned</span>
+      {% elif room.win === true %}
+        <span class="status-badge status-win">✓ Escaped</span>
+      {% elif room.win === false %}
+        <span class="status-badge status-loss">✗ Locked Out</span>
+      {% endif %}
+    </span>
+  </div>
+  <div class="room-card-meta">
+    {% if room.companyUrl %}
+      <span class="company"><a href="{{ room.companyUrl }}" target="_blank" rel="noopener">{{ room.company }}</a></span>
+    {% else %}
+      <span class="company">{{ room.company }}</span>
+    {% endif %}
+    <span class="date"><span class="meta-icon">📅</span> {{ room.date | formatDate }}</span>
+    {% set loc = room.location | formatLocation %}
+    {% if loc %}
+      <span class="location"><span class="meta-icon">📍</span> {{ loc }}</span>
+    {% endif %}
+    {% if room.escapeTime %}
+      <span class="escape-time"><span class="meta-icon">⏱</span> {{ room.escapeTime }}</span>
+    {% endif %}
+  </div>
+  {% if room.players and room.players.length > 0 %}
+    <div class="room-card-players"><span class="meta-icon">👥</span> {{ room.players | join(', ') }}</div>
+  {% endif %}
+  {% if room.tags and room.tags.length > 0 %}
+    <div class="room-card-tags">
+      {% for tag in room.tags %}
+        <span class="tag tag-{{ tag | classifyTag }}" data-tag="{{ tag }}">{{ tag | formatTagLabel }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+  <div class="room-card-footer">
+    {% if room.blogUrl %}
+      <a href="{{ room.blogUrl }}" class="blog-link" target="_blank" rel="noopener">Read post →</a>
+    {% endif %}
+    {% if room.mortyId %}
+      <a href="https://morty.app/attraction/{{ room.mortyId }}" class="morty-link" target="_blank" rel="noopener">Morty →</a>
+    {% endif %}
+    <button class="tinylytics_kudos room-kudos" data-path="/room/{{ room.id }}"></button>
+  </div>
+  {% if room.notes and not compact %}
+    <div class="room-card-notes">{{ room.notes }}</div>
+  {% endif %}
+</div>
+{% endmacro %}
