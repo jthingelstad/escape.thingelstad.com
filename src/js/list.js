@@ -1,6 +1,5 @@
 import {
-  getRooms, getAllTags, getAllYears, getAllCountries, getAllPlayers,
-  filterRooms, renderRoomCard, getFilterParams, setFilterParams,
+  getRooms, filterRooms, renderRoomCard, getFilterParams, setFilterParams,
   initNav
 } from './data.js';
 
@@ -12,48 +11,8 @@ async function init() {
   initNav();
   allRooms = await getRooms();
 
-  await populateFilterOptions();
   applyUrlFilters();
   bindEvents();
-}
-
-async function populateFilterOptions() {
-  const tags = await getAllTags();
-  const years = await getAllYears();
-  const countries = await getAllCountries();
-  const players = await getAllPlayers();
-
-  const tagSelect = document.getElementById('filter-tag');
-  tags.forEach(tag => {
-    const opt = document.createElement('option');
-    opt.value = tag;
-    opt.textContent = tag;
-    tagSelect.appendChild(opt);
-  });
-
-  const yearSelect = document.getElementById('filter-year');
-  [...years].reverse().forEach(year => {
-    const opt = document.createElement('option');
-    opt.value = year;
-    opt.textContent = year;
-    yearSelect.appendChild(opt);
-  });
-
-  const countrySelect = document.getElementById('filter-country');
-  countries.forEach(country => {
-    const opt = document.createElement('option');
-    opt.value = country;
-    opt.textContent = country;
-    countrySelect.appendChild(opt);
-  });
-
-  const playerSelect = document.getElementById('filter-player');
-  players.forEach(player => {
-    const opt = document.createElement('option');
-    opt.value = player;
-    opt.textContent = player;
-    playerSelect.appendChild(opt);
-  });
 }
 
 function applyUrlFilters() {

@@ -1,6 +1,5 @@
 import {
-  getCompletedRooms, getAllYears, getAllCountries,
-  escapeTimeMinutes, formatDate, initNav
+  getCompletedRooms, escapeTimeMinutes, initNav
 } from './data.js';
 
 const chartColors = {
@@ -43,34 +42,12 @@ const defaultChartOptions = {
 async function init() {
   initNav();
   const completed = await getCompletedRooms();
-  const years = await getAllYears();
-  const countries = await getAllCountries();
 
-  renderSummary(completed, years, countries);
   renderRoomsPerYear(completed);
   renderMonthlyDistribution(completed);
   renderLocationChart(completed);
   renderCompanyChart(completed);
   renderEscapeTimesChart(completed);
-}
-
-function renderSummary(completed, years, countries) {
-  const wins = completed.filter(r => r.win === true).length;
-  const winRate = completed.length > 0 ? Math.round((wins / completed.length) * 100) : 0;
-  const regions = new Set();
-  const companies = new Set();
-  completed.forEach(r => {
-    if (r.location && r.location.region) regions.add(r.location.region);
-    if (r.company) companies.add(r.company);
-  });
-
-  document.getElementById('stat-total').textContent = completed.length;
-  document.getElementById('stat-wins').textContent = wins;
-  document.getElementById('stat-winrate').textContent = winRate + '%';
-  document.getElementById('stat-regions').textContent = regions.size;
-  document.getElementById('stat-countries').textContent = countries.length;
-  document.getElementById('stat-companies').textContent = companies.size;
-  document.getElementById('stat-years').textContent = years.length;
 }
 
 function renderRoomsPerYear(completed) {

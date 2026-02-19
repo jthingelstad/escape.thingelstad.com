@@ -1,0 +1,77 @@
+---
+title: The Thingelstad Family Escape Room Journey
+description: The Thingelstad family's escape room journey.
+permalink: /index.html
+---
+{% extends "base.njk" %}
+
+{% block content %}
+  <main class="container page-content">
+    <section class="hero">
+      <h1>Escaping Things</h1>
+      <p class="subtitle">The Thingelstad Family Escape Room Journey</p>
+      <div class="stats-row" id="hero-stats">
+        <div class="stat-item"><span class="stat-number">{{ stats.totalRooms }}</span><div class="stat-label">Rooms</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.totalWins }}</span><div class="stat-label">Wins</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.winRate }}%</span><div class="stat-label">Win Rate</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.regionCount }}</span><div class="stat-label">Regions</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.countryCount }}</span><div class="stat-label">Countries</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.yearsActive }}</span><div class="stat-label">Years Active</div></div>
+      </div>
+    </section>
+
+    {% if stats.latestCompleted %}
+    <section id="latest-room">
+      <div class="section-header">
+        <h2>Latest Room</h2>
+      </div>
+      {% from "room-card.njk" import roomCard %}
+      {{ roomCard(stats.latestCompleted, { featured: true }) }}
+    </section>
+    {% endif %}
+
+    {% if stats.planned.length > 0 %}
+    <section id="upcoming-section">
+      <div class="section-header">
+        <h2>Coming Up</h2>
+      </div>
+      <div class="room-grid">
+        {% from "room-card.njk" import roomCard %}
+        {% for room in stats.planned %}
+          {{ roomCard(room) }}
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    <section>
+      <div class="section-header">
+        <h2>Explore</h2>
+      </div>
+      <div class="quick-links">
+        <a href="/list/" class="quick-link-card">
+          <span class="quick-link-icon">&#128218;</span>
+          <h3>All Rooms</h3>
+          <p>Browse, search, and filter every escape room we've done.</p>
+        </a>
+        <a href="/map/" class="quick-link-card">
+          <span class="quick-link-icon">&#127758;</span>
+          <h3>Map</h3>
+          <p>See our escape room journey across the globe.</p>
+        </a>
+        <a href="/stats/" class="quick-link-card">
+          <span class="quick-link-icon">&#128202;</span>
+          <h3>Stats</h3>
+          <p>Charts and numbers from years of escaping.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script type="module">
+    import { initNav } from '/js/data.js';
+    initNav();
+  </script>
+{% endblock %}

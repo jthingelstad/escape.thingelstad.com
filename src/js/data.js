@@ -2,7 +2,7 @@ let cachedRooms = null;
 
 export async function loadRooms() {
   if (cachedRooms) return cachedRooms;
-  const res = await fetch('data/rooms.json');
+  const res = await fetch('/data/rooms.json');
   const data = await res.json();
   cachedRooms = data.rooms;
   return cachedRooms;
@@ -20,38 +20,6 @@ export async function getCompletedRooms() {
 export async function getPlannedRooms() {
   const rooms = await loadRooms();
   return rooms.filter(r => r.status === 'planned');
-}
-
-export async function getAllTags() {
-  const rooms = await loadRooms();
-  const tags = new Set();
-  rooms.forEach(r => (r.tags || []).forEach(t => tags.add(t)));
-  return [...tags].sort();
-}
-
-export async function getAllYears() {
-  const rooms = await loadRooms();
-  const years = new Set();
-  rooms.forEach(r => {
-    if (r.date) years.add(r.date.substring(0, 4));
-  });
-  return [...years].sort();
-}
-
-export async function getAllCountries() {
-  const rooms = await loadRooms();
-  const countries = new Set();
-  rooms.forEach(r => {
-    if (r.location && r.location.country) countries.add(r.location.country);
-  });
-  return [...countries].sort();
-}
-
-export async function getAllPlayers() {
-  const rooms = await loadRooms();
-  const players = new Set();
-  rooms.forEach(r => (r.players || []).forEach(p => players.add(p)));
-  return [...players].sort();
 }
 
 export async function filterRooms(filters = {}) {
@@ -139,7 +107,7 @@ export function classifyTag(tag) {
   if (tag === 'best') return 'best';
   if (tag.startsWith('terpeca-')) return 'terpeca';
   if (tag === 'online') return 'online';
-  if (/[a-z]+-\d{4}$/.test(tag)) return 'trip';
+  if (/^[a-z]+-\d{4}$/.test(tag)) return 'trip';
   return 'default';
 }
 
@@ -150,7 +118,7 @@ export function formatTagLabel(tag) {
     return 'TERPECA ' + year;
   }
   if (tag === 'online') return 'Online';
-  if (/[a-z]+-\d{4}$/.test(tag)) {
+  if (/^[a-z]+-\d{4}$/.test(tag)) {
     const [location, year] = tag.split('-');
     return location.charAt(0).toUpperCase() + location.slice(1) + ' ' + year;
   }

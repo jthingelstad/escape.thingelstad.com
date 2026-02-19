@@ -1,0 +1,35 @@
+---
+title: Map
+description: Explore escape room locations on an interactive map.
+permalink: /map/
+showFooter: false
+---
+{% extends "base.njk" %}
+
+{% block head %}
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+{% endblock %}
+
+{% block content %}
+  <main class="map-page">
+    <button class="map-filter-toggle open" id="filter-toggle">
+      <span class="toggle-arrow">&#9660;</span> Filters
+    </button>
+
+    <div class="map-filter-panel" id="filter-panel">
+      <div class="filter-row">
+        {% include "filter-bar.njk" %}
+      </div>
+    </div>
+
+    <div id="map"></div>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script type="module" src="/js/map.js"></script>
+{% endblock %}

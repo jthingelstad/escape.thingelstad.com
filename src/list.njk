@@ -1,0 +1,41 @@
+---
+title: All Rooms
+description: Browse and filter all escape rooms.
+permalink: /list/
+showWinFilter: true
+---
+{% extends "base.njk" %}
+
+{% block content %}
+  <main class="container page-content">
+    <section>
+      <div class="section-header">
+        <h2>All Rooms</h2>
+      </div>
+
+      <div class="filter-bar">
+        <div class="filter-row">
+          {% include "filter-bar.njk" %}
+        </div>
+        <div class="active-filters" id="active-filters"></div>
+      </div>
+
+      <div class="sort-controls">
+        <span>Sort by:</span>
+        <button class="sort-btn active" data-sort="date" data-dir="desc">Date &#9660;</button>
+        <button class="sort-btn" data-sort="game">Game</button>
+        <button class="sort-btn" data-sort="company">Company</button>
+        <button class="sort-btn" data-sort="city">City</button>
+      </div>
+
+      <div class="results-count" id="results-count"></div>
+      <div class="room-grid" id="room-list">
+        <div class="loading">Loading...</div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script type="module" src="/js/list.js"></script>
+{% endblock %}

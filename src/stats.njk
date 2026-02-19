@@ -1,0 +1,58 @@
+---
+title: Stats
+description: Charts and statistics about our escape room adventures.
+permalink: /stats/
+---
+{% extends "base.njk" %}
+
+{% block content %}
+  <main class="container page-content">
+    <section>
+      <div class="section-header">
+        <h2>Stats</h2>
+      </div>
+
+      <div class="stats-row" id="summary-stats">
+        <div class="stat-item"><span class="stat-number">{{ stats.totalRooms }}</span><div class="stat-label">Rooms</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.totalWins }}</span><div class="stat-label">Wins</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.winRate }}%</span><div class="stat-label">Win Rate</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.regionCount }}</span><div class="stat-label">Regions</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.countryCount }}</span><div class="stat-label">Countries</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.companyCount }}</span><div class="stat-label">Companies</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.yearsActive }}</span><div class="stat-label">Years Active</div></div>
+      </div>
+    </section>
+
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3>Rooms Per Year</h3>
+        <canvas id="chart-rooms-year"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <h3>Monthly Distribution</h3>
+        <canvas id="chart-monthly"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <h3>Rooms by Region / Country</h3>
+        <canvas id="chart-locations"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <h3>Top Companies</h3>
+        <canvas id="chart-companies"></canvas>
+      </div>
+
+      <div class="chart-card full-width">
+        <h3>Escape Times</h3>
+        <canvas id="chart-times"></canvas>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script type="module" src="/js/stats.js"></script>
+{% endblock %}

@@ -1,0 +1,66 @@
+{#
+  Shared filter controls for list and map pages.
+  Usage: {% include "filter-bar.njk" %}
+  Set showWinFilter = true in the calling template to include the Win/Loss dropdown.
+#}
+<div class="filter-group">
+  <label for="filter-search">Search</label>
+  <input type="text" id="filter-search" placeholder="Game, company, city...">
+</div>
+<div class="filter-group">
+  <label for="filter-tag">Tag</label>
+  <select id="filter-tag">
+    <option value="">All Tags</option>
+    {% for tag in filters.tags %}
+      <option value="{{ tag }}">{{ tag }}</option>
+    {% endfor %}
+  </select>
+</div>
+<div class="filter-group">
+  <label for="filter-year">Year</label>
+  <select id="filter-year">
+    <option value="">All Years</option>
+    {% for year in filters.years %}
+      <option value="{{ year }}">{{ year }}</option>
+    {% endfor %}
+  </select>
+</div>
+<div class="filter-group">
+  <label for="filter-status">Status</label>
+  <select id="filter-status">
+    <option value="all">All</option>
+    <option value="completed">Completed</option>
+    <option value="planned">Planned</option>
+  </select>
+</div>
+{% if showWinFilter %}
+<div class="filter-group">
+  <label for="filter-win">Result</label>
+  <select id="filter-win">
+    <option value="all">All</option>
+    <option value="wins">Wins</option>
+    <option value="losses">Losses</option>
+  </select>
+</div>
+{% endif %}
+<div class="filter-group">
+  <label for="filter-country">Country</label>
+  <select id="filter-country">
+    <option value="">All Countries</option>
+    {% for country in filters.countries %}
+      <option value="{{ country }}">{{ country }}</option>
+    {% endfor %}
+  </select>
+</div>
+<div class="filter-group">
+  <label for="filter-player">Player</label>
+  <select id="filter-player">
+    <option value="">All Players</option>
+    {% for player in filters.players %}
+      <option value="{{ player }}">{{ player }}</option>
+    {% endfor %}
+  </select>
+</div>
+<div class="filter-actions">
+  <button class="btn btn-clear" id="clear-filters" style="display:none;">Clear All</button>
+</div>
