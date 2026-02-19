@@ -18,7 +18,9 @@ module.exports = function() {
 
   const years = [...new Set(completed.map(r => r.date.slice(0, 4)))].sort();
 
-  const latestCompleted = [...completed].sort((a, b) => b.date.localeCompare(a.date))[0] || null;
+  const sortedCompleted = [...completed].sort((a, b) => b.date.localeCompare(a.date));
+  const latestCompleted = sortedCompleted[0] || null;
+  const recentCompleted = sortedCompleted.slice(0, 6);
 
   return {
     totalRooms: completed.length,
@@ -31,6 +33,7 @@ module.exports = function() {
     firstYear: years[0],
     lastYear: years[years.length - 1],
     latestCompleted,
+    recentCompleted,
     planned
   };
 };
