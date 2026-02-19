@@ -139,7 +139,7 @@ export function classifyTag(tag) {
   if (tag === 'best') return 'best';
   if (tag.startsWith('terpeca-')) return 'terpeca';
   if (tag === 'online') return 'online';
-  if (/[a-z]+-\d{4}$/.test(tag)) return 'trip';
+  if (/^[a-z]+-\d{4}$/.test(tag)) return 'trip';
   return 'default';
 }
 
@@ -150,7 +150,7 @@ export function formatTagLabel(tag) {
     return 'TERPECA ' + year;
   }
   if (tag === 'online') return 'Online';
-  if (/[a-z]+-\d{4}$/.test(tag)) {
+  if (/^[a-z]+-\d{4}$/.test(tag)) {
     const [location, year] = tag.split('-');
     return location.charAt(0).toUpperCase() + location.slice(1) + ' ' + year;
   }

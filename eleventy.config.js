@@ -1,4 +1,20 @@
+const htmlmin = require("html-minifier-terser");
+
 module.exports = function(eleventyConfig) {
+
+  // HTML minification in production
+  eleventyConfig.addTransform("htmlmin", async function(content) {
+    if ((this.page.outputPath || "").endsWith(".html")) {
+      return await htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+        minifyCSS: true,
+        minifyJS: true
+      });
+    }
+    return content;
+  });
 
   // Passthrough copy — static assets
   eleventyConfig.addPassthroughCopy("src/css");
@@ -7,7 +23,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/_data/rooms.json": "data/rooms.json" });
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
-  eleventyConfig.addPassthroughCopy({ "src/sitemap.xml": "sitemap.xml" });
 
   // --- Nunjucks Filters ---
 
