@@ -22,38 +22,6 @@ export async function getPlannedRooms() {
   return rooms.filter(r => r.status === 'planned');
 }
 
-export async function getAllTags() {
-  const rooms = await loadRooms();
-  const tags = new Set();
-  rooms.forEach(r => (r.tags || []).forEach(t => tags.add(t)));
-  return [...tags].sort();
-}
-
-export async function getAllYears() {
-  const rooms = await loadRooms();
-  const years = new Set();
-  rooms.forEach(r => {
-    if (r.date) years.add(r.date.substring(0, 4));
-  });
-  return [...years].sort();
-}
-
-export async function getAllCountries() {
-  const rooms = await loadRooms();
-  const countries = new Set();
-  rooms.forEach(r => {
-    if (r.location && r.location.country) countries.add(r.location.country);
-  });
-  return [...countries].sort();
-}
-
-export async function getAllPlayers() {
-  const rooms = await loadRooms();
-  const players = new Set();
-  rooms.forEach(r => (r.players || []).forEach(p => players.add(p)));
-  return [...players].sort();
-}
-
 export async function filterRooms(filters = {}) {
   const rooms = await loadRooms();
   return rooms.filter(room => {
