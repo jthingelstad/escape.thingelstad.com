@@ -637,10 +637,14 @@ section {
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 2rem;
+}
+
+.room-modal-backdrop.open {
+  display: flex;
 }
 
 .room-modal {

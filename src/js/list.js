@@ -361,13 +361,13 @@ function openModal(room) {
     </div>
   `;
 
-  backdrop.hidden = false;
+  backdrop.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
   const backdrop = document.getElementById('room-modal-backdrop');
-  backdrop.hidden = true;
+  backdrop.classList.remove('open');
   document.body.style.overflow = '';
 }
 
