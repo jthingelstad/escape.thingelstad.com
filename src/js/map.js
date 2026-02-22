@@ -78,26 +78,32 @@ function buildPopup(room) {
   const locationStr = formatLocation(room.location);
   const dateStr = formatDate(room.date);
 
+  const photoHtml = room.photoUrl
+    ? `<div class="popup-photo"><img src="/images/rooms/${room.id}.jpg" alt=""></div>`
+    : '';
+
   const blogHtml = room.blogUrl
-    ? `<a href="${room.blogUrl}" target="_blank" rel="noopener" style="color: #4fd1c5; font-size: 0.8rem;">Read post \u2192</a>`
+    ? `<a href="${room.blogUrl}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;">Read post \u2192</a>`
     : '';
 
   const mortyHtml = room.mortyId
-    ? `<a href="https://morty.app/attraction/${room.mortyId}" target="_blank" rel="noopener" style="color: #4fd1c5; font-size: 0.8rem;">Morty \u2192</a>`
+    ? `<a href="https://morty.app/attraction/${room.mortyId}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;">Morty \u2192</a>`
     : '';
 
   return `
-    <div>
-      <h3>#${room.id} ${room.game}</h3>
-      <div class="popup-meta">
-        ${room.companyUrl ? `<a href="${room.companyUrl}" target="_blank" rel="noopener" style="color: #4fd1c5;">${room.company}</a>` : room.company}<br>
-        ${dateStr}${locationStr ? ' &middot; ' + locationStr : ''}
-        ${room.escapeTime ? ' &middot; ' + room.escapeTime : ''}
+    <div class="popup-room">
+      ${photoHtml}
+      <div class="popup-content">
+        <h3>#${room.id} ${room.game}</h3>
+        <div class="popup-meta">
+          ${room.companyUrl ? `<a href="${room.companyUrl}" target="_blank" rel="noopener">${room.company}</a>` : room.company}<br>
+          ${dateStr}${locationStr ? ' &middot; ' + locationStr : ''}
+          ${room.escapeTime ? ' &middot; ' + room.escapeTime : ''}
+        </div>
+        ${statusHtml}
+        ${tagsHtml ? `<div class="popup-tags">${tagsHtml}</div>` : ''}
+        <div class="popup-links">${blogHtml} ${mortyHtml}</div>
       </div>
-      ${statusHtml}
-      ${tagsHtml ? `<div class="popup-tags">${tagsHtml}</div>` : ''}
-      ${blogHtml}
-      ${mortyHtml}
     </div>
   `;
 }

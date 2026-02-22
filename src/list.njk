@@ -30,7 +30,7 @@ permalink: /list/
       <div class="results-count" id="results-count"></div>
       <div class="room-grid" id="room-list">
         {% from "room-card.njk" import roomCard %}
-        {% for room in rooms.rooms %}
+        {% for room in rooms.rooms | reverse %}
           {{ roomCard(room) }}
         {% endfor %}
       </div>
