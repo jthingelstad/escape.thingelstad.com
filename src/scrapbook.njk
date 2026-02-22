@@ -1,0 +1,25 @@
+---
+title: Scrapbook
+description: A photo scrapbook of our escape room adventures.
+permalink: /scrapbook/
+---
+{% extends "base.njk" %}
+
+{% block content %}
+  <main class="container page-content">
+    <section class="section-header">
+      <h2>Scrapbook</h2>
+      <p>Photos from our escape room adventures, scattered like polaroids on a table.</p>
+    </section>
+
+    <div class="scrapbook-controls" id="scrapbook-controls"></div>
+
+    <div class="scrapbook-table" id="scrapbook-table">
+      <div class="loading">Loading photos</div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script type="module" src="/js/scrapbook.js"></script>
+{% endblock %}

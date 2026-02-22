@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee:wght@400&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee:wght@400&family=Caveat:wght@400;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
   --bg-primary: #060910;
@@ -1465,6 +1465,212 @@ section {
 
   .stat-label {
     font-size: 0.65rem;
+  }
+}
+
+/* ========== Scrapbook ========== */
+.scrapbook-table {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 0 2rem;
+  min-height: 400px;
+}
+
+.scrapbook-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.scrapbook-controls .sort-btn {
+  min-width: 100px;
+}
+
+.scrapbook-photo {
+  width: var(--size, 260px);
+  flex-shrink: 0;
+  background: #f5f1eb;
+  padding: 10px 10px 40px;
+  border-radius: 2px;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.3);
+  transform:
+    rotate(var(--rotation, 0deg))
+    translate(var(--offset-x, 0), var(--offset-y, 0));
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    z-index 0s;
+  animation: photo-drop 0.4s ease-out backwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+.scrapbook-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-radius: 1px;
+}
+
+.scrapbook-caption {
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2a2520;
+  text-align: center;
+  padding: 6px 4px 0;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scrapbook-photo.scrapbook-tidy {
+  --rotation: 0deg;
+  --offset-x: 0;
+  --offset-y: 0;
+  --size: 260px;
+}
+
+.scrapbook-photo.scrapbook-best {
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(255, 107, 159, 0.25);
+}
+
+.scrapbook-photo:hover,
+.scrapbook-photo.active {
+  transform: rotate(0deg) scale(1.3) translate(0, 0);
+  z-index: 100;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.6),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.scrapbook-photo.scrapbook-best:hover,
+.scrapbook-photo.scrapbook-best.active {
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.6),
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(255, 107, 159, 0.35);
+}
+
+/* Detail overlay */
+.scrapbook-detail {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  width: max-content;
+  max-width: 280px;
+  background: rgba(12, 16, 25, 0.92);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid var(--border-color-hover);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  z-index: 101;
+}
+
+.scrapbook-photo:hover .scrapbook-detail,
+.scrapbook-photo.active .scrapbook-detail {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scrapbook-detail-name {
+  font-family: 'Bungee', system-ui;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+}
+
+.scrapbook-detail-company {
+  color: var(--accent-teal);
+  margin-bottom: 0.25rem;
+}
+
+.scrapbook-detail-date,
+.scrapbook-detail-location {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+
+.scrapbook-detail-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.scrapbook-detail-time {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+
+.scrapbook-detail-link {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent-teal);
+}
+
+@keyframes photo-drop {
+  from {
+    opacity: 0;
+    transform:
+      rotate(var(--rotation, 0deg))
+      translate(var(--offset-x, 0), calc(var(--offset-y, 0px) - 30px));
+  }
+  to {
+    opacity: 1;
+    transform:
+      rotate(var(--rotation, 0deg))
+      translate(var(--offset-x, 0), var(--offset-y, 0));
+  }
+}
+
+@media (max-width: 768px) {
+  .scrapbook-photo {
+    --size: 160px !important;
+    padding: 6px 6px 24px;
+  }
+
+  .scrapbook-table {
+    gap: 0.25rem;
+  }
+
+  .scrapbook-photo:hover,
+  .scrapbook-photo.active {
+    transform: rotate(0deg) scale(1.5) translate(0, 0);
+  }
+
+  .scrapbook-detail {
+    max-width: 220px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .scrapbook-photo {
+    --size: 130px !important;
+    padding: 5px 5px 18px;
   }
 }
 
