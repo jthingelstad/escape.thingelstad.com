@@ -21,7 +21,8 @@ function applyUrlFilters() {
   document.getElementById('filter-search').value = filters.q;
   document.getElementById('filter-year').value = filters.year;
   document.getElementById('filter-status').value = filters.status || 'all';
-  document.getElementById('filter-win').value = filters.win || 'all';
+  const winEl = document.getElementById('filter-win');
+  if (winEl) winEl.value = filters.win || 'all';
   document.getElementById('filter-country').value = filters.country;
   document.getElementById('filter-player').value = filters.player;
 
@@ -40,7 +41,7 @@ function getCurrentFilters() {
     tag: document.getElementById('filter-tag').value,
     year: document.getElementById('filter-year').value,
     status: document.getElementById('filter-status').value,
-    win: document.getElementById('filter-win').value,
+    win: (document.getElementById('filter-win') || {}).value || 'all',
     country: document.getElementById('filter-country').value,
     player: document.getElementById('filter-player').value
   };
@@ -110,7 +111,8 @@ function updateActiveFilterPills(filters) {
   }
   if (filters.win && filters.win !== 'all') {
     pills.push(makePill(`Result: ${filters.win}`, () => {
-      document.getElementById('filter-win').value = 'all';
+      const winEl = document.getElementById('filter-win');
+      if (winEl) winEl.value = 'all';
       updateResults();
     }));
   }
@@ -178,7 +180,8 @@ function bindEvents() {
   });
 
   ['filter-tag', 'filter-year', 'filter-status', 'filter-win', 'filter-country', 'filter-player'].forEach(id => {
-    document.getElementById(id).addEventListener('change', updateResults);
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('change', updateResults);
   });
 
   document.getElementById('clear-filters').addEventListener('click', () => {
@@ -186,7 +189,8 @@ function bindEvents() {
     document.getElementById('filter-tag').value = '';
     document.getElementById('filter-year').value = '';
     document.getElementById('filter-status').value = 'all';
-    document.getElementById('filter-win').value = 'all';
+    const winEl = document.getElementById('filter-win');
+    if (winEl) winEl.value = 'all';
     document.getElementById('filter-country').value = '';
     document.getElementById('filter-player').value = '';
     updateResults();

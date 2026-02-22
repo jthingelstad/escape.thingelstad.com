@@ -7,62 +7,45 @@ permalink: /stats/
 
 {% block content %}
   <main class="container page-content">
-    <section class="vault-intro">
+    <section>
       <div class="section-header">
-        <h2>The Stats Vault</h2>
-      </div>
-      <p class="vault-copy">These records are tucked behind a light puzzle lock. Use the team name without the word <strong>Escaping</strong> to open it.</p>
-    </section>
-
-    <section id="stats-vault" class="stats-vault locked" aria-live="polite">
-      <div class="vault-lock-panel" id="vault-lock-panel">
-        <div class="vault-icon" aria-hidden="true">🔒</div>
-        <h3>Enter Access Code</h3>
-        <p>Hint: It's the second word in our team name.</p>
-        <form id="vault-form" class="vault-form">
-          <label for="vault-code" class="sr-only">Vault code</label>
-          <input id="vault-code" name="vault-code" type="text" autocomplete="off" maxlength="20" placeholder="Type code">
-          <button type="submit">Unlock Vault</button>
-        </form>
-        <p id="vault-message" class="vault-message" role="status"></p>
+        <h2>Stats</h2>
       </div>
 
-      <div class="vault-content" id="vault-content" hidden>
-        <div class="stats-row" id="summary-stats">
-          <div class="stat-item"><span class="stat-number">{{ stats.totalRooms }}</span><div class="stat-label">Rooms</div></div>
-          <div class="stat-item"><span class="stat-number">{{ stats.totalWins }}</span><div class="stat-label">Wins</div></div>
-          <div class="stat-item"><span class="stat-number">{{ stats.winRate }}%</span><div class="stat-label">Win Rate</div></div>
-          <div class="stat-item"><span class="stat-number">{{ stats.regionCount }}</span><div class="stat-label">Regions</div></div>
-          <div class="stat-item"><span class="stat-number">{{ stats.countryCount }}</span><div class="stat-label">Countries</div></div>
-          <div class="stat-item"><span class="stat-number">{{ stats.companyCount }}</span><div class="stat-label">Companies</div></div>
-          <div class="stat-item"><span class="stat-number">{{ stats.yearsActive }}</span><div class="stat-label">Years Active</div></div>
+      <div class="stats-row" id="summary-stats">
+        <div class="stat-item"><span class="stat-number">{{ stats.totalRooms }}</span><div class="stat-label">Rooms</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.totalWins }}</span><div class="stat-label">Wins</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.winRate }}%</span><div class="stat-label">Win Rate</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.regionCount }}</span><div class="stat-label">Regions</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.countryCount }}</span><div class="stat-label">Countries</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.companyCount }}</span><div class="stat-label">Companies</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.yearsActive }}</span><div class="stat-label">Years Active</div></div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>Rooms Per Year</h3>
+          <canvas id="chart-rooms-year"></canvas>
         </div>
 
-        <div class="charts-grid">
-          <div class="chart-card">
-            <h3>Rooms Per Year</h3>
-            <canvas id="chart-rooms-year"></canvas>
-          </div>
+        <div class="chart-card">
+          <h3>Monthly Distribution</h3>
+          <canvas id="chart-monthly"></canvas>
+        </div>
 
-          <div class="chart-card">
-            <h3>Monthly Distribution</h3>
-            <canvas id="chart-monthly"></canvas>
-          </div>
+        <div class="chart-card">
+          <h3>Rooms by Region / Country</h3>
+          <canvas id="chart-locations"></canvas>
+        </div>
 
-          <div class="chart-card">
-            <h3>Rooms by Region / Country</h3>
-            <canvas id="chart-locations"></canvas>
-          </div>
+        <div class="chart-card">
+          <h3>Top Companies</h3>
+          <canvas id="chart-companies"></canvas>
+        </div>
 
-          <div class="chart-card">
-            <h3>Top Companies</h3>
-            <canvas id="chart-companies"></canvas>
-          </div>
-
-          <div class="chart-card full-width">
-            <h3>Escape Times</h3>
-            <canvas id="chart-times"></canvas>
-          </div>
+        <div class="chart-card full-width">
+          <h3>Escape Times</h3>
+          <canvas id="chart-times"></canvas>
         </div>
       </div>
     </section>
