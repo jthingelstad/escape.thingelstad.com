@@ -629,6 +629,162 @@ section {
   gap: 1rem;
 }
 
+/* ========== Room Detail Modal ========== */
+.room-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.room-modal {
+  background: linear-gradient(160deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+  border: 1px solid var(--border-color-hover);
+  border-radius: 12px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(67, 230, 208, 0.05);
+}
+
+.room-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  z-index: 1;
+}
+
+.room-modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border-color: var(--border-color-hover);
+}
+
+.room-modal-photo {
+  width: 100%;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+
+.room-modal-photo img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  display: block;
+}
+
+.room-modal-info {
+  padding: 1.5rem;
+}
+
+.room-modal-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}
+
+.room-modal-header h3 {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.room-modal-company {
+  font-size: 0.95rem;
+  color: var(--accent-teal);
+  margin-bottom: 0.75rem;
+}
+
+.room-modal-company a {
+  color: var(--accent-teal);
+}
+
+.room-modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.room-modal-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.room-modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.room-modal-notes {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border-color);
+  margin-bottom: 0.5rem;
+}
+
+.room-modal-links {
+  display: flex;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+/* Make room cards look clickable */
+.room-card {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .room-modal-backdrop {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 4rem;
+  }
+
+  .room-modal-photo img {
+    max-height: 240px;
+  }
+
+  .room-modal-info {
+    padding: 1rem;
+  }
+
+  .room-modal-header h3 {
+    font-size: 1.1rem;
+  }
+}
+
 .room-list-single {
   display: flex;
   flex-direction: column;

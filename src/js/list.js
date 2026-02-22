@@ -1,11 +1,14 @@
 import {
-  getRooms, filterRooms, renderRoomCard, getFilterParams, setFilterParams,
-  initNav
+  getRooms, getFilterParams, setFilterParams,
+  initNav, formatDate, formatLocation, renderTag
 } from './data.js';
 
 let allRooms = [];
 let currentSort = 'date';
 let currentDir = 'desc';
+
+const container = document.getElementById('room-list');
+const allCards = [...container.querySelectorAll('.room-card')];
 
 async function init() {
   initNav();
@@ -26,7 +29,6 @@ function applyUrlFilters() {
   document.getElementById('filter-country').value = filters.country;
   document.getElementById('filter-player').value = filters.player;
 
-  // For tags, set the first tag in the select (multi-tag via URL still works for filtering)
   if (filters.tag) {
     const firstTag = filters.tag.split(',')[0];
     document.getElementById('filter-tag').value = firstTag;
@@ -54,7 +56,75 @@ function hasActiveFilters(filters) {
     filters.country || filters.player;
 }
 
-async function updateResults() {
+function cardMatchesFilters(card, filters) {
+  if (filters.q) {
+    const searchText = (card.dataset.search || '').toLowerCase();
+    if (!searchText.includes(filters.q.toLowerCase())) return false;
+  }
+
+  if (filters.tag) {
+    const filterTags = filters.tag.split(',').map(t => t.trim());
+    const cardTags = card.dataset.tags ? card.dataset.tags.split(',') : [];
+    if (!filterTags.every(ft => cardTags.includes(ft))) return false;
+  }
+
+  if (filters.year) {
+    const cardDate = card.dataset.date || '';
+    if (cardDate.substring(0, 4) !== filters.year) return false;
+  }
+
+  if (filters.status && filters.status !== 'all') {
+    if (card.dataset.status !== filters.status) return false;
+  }
+
+  if (filters.win && filters.win !== 'all') {
+    if (filters.win === 'wins' && card.dataset.win !== 'true') return false;
+    if (filters.win === 'losses' && card.dataset.win !== 'false') return false;
+  }
+
+  if (filters.country) {
+    if (card.dataset.country !== filters.country) return false;
+  }
+
+  if (filters.player) {
+    const cardPlayers = card.dataset.players ? card.dataset.players.split(',') : [];
+    if (!cardPlayers.includes(filters.player)) return false;
+  }
+
+  return true;
+}
+
+function sortCards(cards, field, dir) {
+  return [...cards].sort((a, b) => {
+    let valA, valB;
+    switch (field) {
+      case 'date':
+        valA = a.dataset.date || '';
+        valB = b.dataset.date || '';
+        break;
+      case 'game':
+        valA = a.dataset.game || '';
+        valB = b.dataset.game || '';
+        break;
+      case 'company':
+        valA = a.dataset.company || '';
+        valB = b.dataset.company || '';
+        break;
+      case 'city':
+        valA = a.dataset.city || '';
+        valB = b.dataset.city || '';
+        break;
+      default:
+        valA = a.dataset.date || '';
+        valB = b.dataset.date || '';
+    }
+    if (valA < valB) return dir === 'asc' ? -1 : 1;
+    if (valA > valB) return dir === 'asc' ? 1 : -1;
+    return 0;
+  });
+}
+
+function updateResults() {
   const filters = getCurrentFilters();
   setFilterParams(filters);
 
@@ -63,24 +133,40 @@ async function updateResults() {
 
   updateActiveFilterPills(filters);
 
-  let rooms = await filterRooms(filters);
-  rooms = sortRooms(rooms, currentSort, currentDir);
+  // Filter
+  const visible = [];
+  allCards.forEach(card => {
+    const matches = cardMatchesFilters(card, filters);
+    card.hidden = !matches;
+    if (matches) visible.push(card);
+  });
 
-  const total = allRooms.length;
-  const count = rooms.length;
+  // Sort and reorder DOM
+  const sorted = sortCards(visible, currentSort, currentDir);
+  sorted.forEach(card => container.appendChild(card));
+
+  const total = allCards.length;
+  const count = visible.length;
   document.getElementById('results-count').textContent =
     count === total ? `Showing all ${total} rooms` : `Showing ${count} of ${total} rooms`;
 
-  const container = document.getElementById('room-list');
-  if (rooms.length === 0) {
-    container.innerHTML = '<div class="empty-state">No rooms match your filters.</div>';
+  if (count === 0) {
+    let empty = container.querySelector('.empty-state');
+    if (!empty) {
+      empty = document.createElement('div');
+      empty.className = 'empty-state';
+      empty.textContent = 'No rooms match your filters.';
+      container.appendChild(empty);
+    }
+    empty.hidden = false;
   } else {
-    container.innerHTML = rooms.map(r => renderRoomCard(r)).join('');
+    const empty = container.querySelector('.empty-state');
+    if (empty) empty.hidden = true;
   }
 }
 
 function updateActiveFilterPills(filters) {
-  const container = document.getElementById('active-filters');
+  const pillContainer = document.getElementById('active-filters');
   const pills = [];
 
   if (filters.q) {
@@ -129,8 +215,8 @@ function updateActiveFilterPills(filters) {
     }));
   }
 
-  container.innerHTML = '';
-  pills.forEach(p => container.appendChild(p));
+  pillContainer.innerHTML = '';
+  pills.forEach(p => pillContainer.appendChild(p));
 }
 
 function makePill(text, onRemove) {
@@ -139,37 +225,6 @@ function makePill(text, onRemove) {
   pill.innerHTML = `${text} <button aria-label="Remove filter">&times;</button>`;
   pill.querySelector('button').addEventListener('click', onRemove);
   return pill;
-}
-
-function sortRooms(rooms, field, dir) {
-  const sorted = [...rooms].sort((a, b) => {
-    let valA, valB;
-    switch (field) {
-      case 'date':
-        valA = a.date || '';
-        valB = b.date || '';
-        break;
-      case 'game':
-        valA = (a.game || '').toLowerCase();
-        valB = (b.game || '').toLowerCase();
-        break;
-      case 'company':
-        valA = (a.company || '').toLowerCase();
-        valB = (b.company || '').toLowerCase();
-        break;
-      case 'city':
-        valA = (a.location?.city || '').toLowerCase();
-        valB = (b.location?.city || '').toLowerCase();
-        break;
-      default:
-        valA = a.date || '';
-        valB = b.date || '';
-    }
-    if (valA < valB) return dir === 'asc' ? -1 : 1;
-    if (valA > valB) return dir === 'asc' ? 1 : -1;
-    return 0;
-  });
-  return sorted;
 }
 
 function bindEvents() {
@@ -196,6 +251,25 @@ function bindEvents() {
     updateResults();
   });
 
+  // Room card clicks → open modal
+  container.addEventListener('click', (e) => {
+    const card = e.target.closest('.room-card');
+    if (!card) return;
+    if (e.target.closest('a') || e.target.closest('button')) return;
+    const roomId = parseInt(card.dataset.id);
+    const room = allRooms.find(r => r.id === roomId);
+    if (room) openModal(room);
+  });
+
+  // Modal close
+  document.getElementById('room-modal-close').addEventListener('click', closeModal);
+  document.getElementById('room-modal-backdrop').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+
   // Sort buttons
   document.querySelectorAll('.sort-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -218,6 +292,83 @@ function bindEvents() {
       updateResults();
     });
   });
+}
+
+function openModal(room) {
+  const backdrop = document.getElementById('room-modal-backdrop');
+  const body = document.getElementById('room-modal-body');
+
+  const photoHtml = room.photoUrl
+    ? `<div class="room-modal-photo"><img src="/images/rooms/${room.id}.jpg" alt="${room.game} at ${room.company}"></div>`
+    : '';
+
+  const statusBadge = room.status === 'planned'
+    ? '<span class="status-badge status-planned">Planned</span>'
+    : room.win === true
+      ? '<span class="status-badge status-win">\u2713 Escaped</span>'
+      : room.win === false
+        ? '<span class="status-badge status-loss">\u2717 Locked Out</span>'
+        : '';
+
+  const companyHtml = room.companyUrl
+    ? `<a href="${room.companyUrl}" target="_blank" rel="noopener">${room.company}</a>`
+    : room.company;
+
+  const locationStr = formatLocation(room.location);
+  const tagsHtml = (room.tags || []).map(renderTag).join('');
+
+  const escapeTimeHtml = room.escapeTime
+    ? `<div class="room-modal-meta-item">\u23f1 ${room.escapeTime}</div>`
+    : '';
+
+  const playersHtml = (room.players || []).length > 0
+    ? `<div class="room-modal-meta-item">\ud83d\udc65 ${room.players.join(', ')}</div>`
+    : '';
+
+  const notesHtml = room.notes
+    ? `<div class="room-modal-notes">${room.notes}</div>`
+    : '';
+
+  const blogHtml = room.blogUrl
+    ? `<a href="${room.blogUrl}" class="blog-link" target="_blank" rel="noopener">Read post \u2192</a>`
+    : '';
+
+  const mortyHtml = room.mortyId
+    ? `<a href="https://morty.app/attraction/${room.mortyId}" class="morty-link" target="_blank" rel="noopener">Morty \u2192</a>`
+    : '';
+
+  body.innerHTML = `
+    ${photoHtml}
+    <div class="room-modal-info">
+      <div class="room-modal-header">
+        <span class="room-number">#${room.id}</span>
+        <h3>${room.game}</h3>
+        ${statusBadge}
+      </div>
+      <div class="room-modal-company">${companyHtml}</div>
+      <div class="room-modal-meta">
+        <div class="room-modal-meta-item">\ud83d\udcc5 ${formatDate(room.date)}</div>
+        ${locationStr ? `<div class="room-modal-meta-item">\ud83d\udccd ${locationStr}</div>` : ''}
+        ${escapeTimeHtml}
+        ${playersHtml}
+      </div>
+      ${tagsHtml ? `<div class="room-modal-tags">${tagsHtml}</div>` : ''}
+      ${notesHtml}
+      <div class="room-modal-links">
+        ${blogHtml}
+        ${mortyHtml}
+      </div>
+    </div>
+  `;
+
+  backdrop.hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  const backdrop = document.getElementById('room-modal-backdrop');
+  backdrop.hidden = true;
+  document.body.style.overflow = '';
 }
 
 init();

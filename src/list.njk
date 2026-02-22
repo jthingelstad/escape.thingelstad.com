@@ -29,9 +29,19 @@ permalink: /list/
 
       <div class="results-count" id="results-count"></div>
       <div class="room-grid" id="room-list">
-        <div class="loading">Loading...</div>
+        {% from "room-card.njk" import roomCard %}
+        {% for room in rooms.rooms %}
+          {{ roomCard(room) }}
+        {% endfor %}
       </div>
     </section>
+
+    <div class="room-modal-backdrop" id="room-modal-backdrop" hidden>
+      <div class="room-modal" id="room-modal">
+        <button class="room-modal-close" id="room-modal-close" aria-label="Close">&times;</button>
+        <div class="room-modal-body" id="room-modal-body"></div>
+      </div>
+    </div>
   </main>
 {% endblock %}
 
