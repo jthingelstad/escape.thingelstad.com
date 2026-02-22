@@ -1,6 +1,24 @@
 const htmlmin = require("html-minifier-terser");
+const fs = require("fs");
+const path = require("path");
+const crypto = require("crypto");
 
 module.exports = function(eleventyConfig) {
+
+  // Cache-busting: compute content hash for static assets
+  const assetHashes = {};
+  eleventyConfig.addFilter("cacheBust", (url) => {
+    if (assetHashes[url]) return `${url}?v=${assetHashes[url]}`;
+    const filePath = path.join(__dirname, "src", url);
+    try {
+      const content = fs.readFileSync(filePath);
+      const hash = crypto.createHash("md5").update(content).digest("hex").slice(0, 8);
+      assetHashes[url] = hash;
+      return `${url}?v=${hash}`;
+    } catch {
+      return url;
+    }
+  });
 
   // HTML minification in production
   eleventyConfig.addTransform("htmlmin", async function(content) {

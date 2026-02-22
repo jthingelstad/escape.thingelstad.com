@@ -17,7 +17,7 @@ permalink: /404.html
 
 {% block scripts %}
   <script type="module">
-    import { initNav } from '/js/data.js';
+    import { initNav } from '{{ '/js/data.js' | cacheBust }}';
     initNav();
   </script>
 {% endblock %}

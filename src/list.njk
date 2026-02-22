@@ -46,5 +46,5 @@ permalink: /list/
 {% endblock %}
 
 {% block scripts %}
-  <script type="module" src="/js/list.js"></script>
+  <script type="module" src="{{ '/js/list.js' | cacheBust }}"></script>
 {% endblock %}
