@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Generate companies.csv and rooms.csv from rooms.json
- * for Airtable import. Normalizes company names and extracts
- * a separate companies table.
+ * Generate companies.csv, locations.csv, and rooms.csv from rooms.json
+ * for Airtable import. Normalizes data and extracts three related tables:
+ *   Company → Location → Room
  */
 
 const fs = require('fs');
@@ -12,14 +12,23 @@ const data = JSON.parse(
   fs.readFileSync(path.join(__dirname, '..', 'src', '_data', 'rooms.json'), 'utf8')
 );
 
-// --- Name normalization map (fix typos and inconsistencies) ---
+// --- Name normalization (fix typos and inconsistencies) ---
 const COMPANY_NAME_FIXES = {
   'Cabinet Mysterlis': 'Cabinet Mysteriis',
   'Escape Game': 'The Escape Game',
 };
 
+const CITY_NAME_FIXES = {
+  'St. Pual': 'St. Paul',
+};
+
 function normalizeCompanyName(name) {
   return COMPANY_NAME_FIXES[name] || name;
+}
+
+function normalizeCityName(name) {
+  if (!name) return name;
+  return CITY_NAME_FIXES[name] || name;
 }
 
 // --- Extract the base company URL (strip room-specific paths) ---
@@ -27,68 +36,17 @@ function baseUrl(url) {
   if (!url) return null;
   try {
     const u = new URL(url);
-    // Keep archive.org URLs intact (the archived site is the real URL)
     if (u.hostname === 'web.archive.org') return url;
-    // Return origin + "/" — the homepage
     return u.origin + '/';
   } catch {
     return url;
   }
 }
 
-// --- Build companies table ---
-// Group rooms by normalized company name, pick the best URL
-const companyMap = new Map(); // name -> { urls: Set, rooms: [] }
-
-for (const room of data.rooms) {
-  const name = normalizeCompanyName(room.company);
-  if (!companyMap.has(name)) {
-    companyMap.set(name, { urls: new Set(), companyUrls: [] });
-  }
-  const entry = companyMap.get(name);
-  if (room.companyUrl) {
-    entry.urls.add(room.companyUrl);
-    entry.companyUrls.push(room.companyUrl);
-  }
-}
-
-// For each company, derive the base homepage URL
-function pickBestUrl(entry) {
-  if (entry.urls.size === 0) return '';
-  // Collect base (homepage) URLs from all room-specific URLs
-  const bases = new Set();
-  for (const url of entry.urls) {
-    bases.add(baseUrl(url));
-  }
-  // If all URLs share the same base, use that; otherwise pick the shortest base
-  const sorted = [...bases].sort((a, b) => a.length - b.length);
-  return sorted[0];
-}
-
-// Sort companies alphabetically, assign IDs
-const companyNames = [...companyMap.keys()].sort((a, b) =>
-  a.toLowerCase().localeCompare(b.toLowerCase())
-);
-
-const companies = [];
-const companyIdByName = new Map();
-
-companyNames.forEach((name, index) => {
-  const id = index + 1;
-  const entry = companyMap.get(name);
-  companies.push({
-    id,
-    name,
-    url: pickBestUrl(entry),
-  });
-  companyIdByName.set(name, id);
-});
-
 // --- CSV helpers ---
 function escapeCsv(value) {
   if (value === null || value === undefined || value === '') return '';
   const str = String(value);
-  // Quote if contains comma, quote, or newline
   if (str.includes(',') || str.includes('"') || str.includes('\n') || str.includes('\r')) {
     return '"' + str.replace(/"/g, '""') + '"';
   }
@@ -99,74 +57,181 @@ function csvRow(fields) {
   return fields.map(escapeCsv).join(',');
 }
 
-// --- Write companies.csv ---
-const companiesHeader = ['id', 'name', 'url'];
-const companiesRows = [csvRow(companiesHeader)];
-for (const c of companies) {
-  companiesRows.push(csvRow([c.id, c.name, c.url]));
+function writeCsv(filePath, header, rows) {
+  const lines = [csvRow(header), ...rows.map(r => csvRow(r))];
+  fs.writeFileSync(filePath, lines.join('\n') + '\n');
+  return rows.length;
 }
 
-const companiesPath = path.join(__dirname, '..', 'data', 'companies.csv');
-fs.mkdirSync(path.dirname(companiesPath), { recursive: true });
-fs.writeFileSync(companiesPath, companiesRows.join('\n') + '\n');
-console.log(`Wrote ${companies.length} companies to ${companiesPath}`);
-
-// --- Write rooms.csv ---
-const roomsHeader = [
-  'id',
-  'game',
-  'company_id',
-  'company_name',
-  'date',
-  'status',
-  'win',
-  'escapeTime',
-  'city',
-  'region',
-  'country',
-  'lat',
-  'lng',
-  'companyUrl',
-  'blogUrl',
-  'mortyId',
-  'tags',
-  'players',
-  'notes',
-  'photoUrl',
-];
-const roomsRows = [csvRow(roomsHeader)];
+// =====================================================
+// 1. Build COMPANIES table
+// =====================================================
+const companyUrlMap = new Map(); // companyName -> Set of URLs
 
 for (const room of data.rooms) {
   const name = normalizeCompanyName(room.company);
-  const companyId = companyIdByName.get(name);
-  const loc = room.location || {};
-
-  roomsRows.push(
-    csvRow([
-      room.id,
-      room.game,
-      companyId,
-      name,
-      room.date,
-      room.status,
-      room.win === true ? 'true' : room.win === false ? 'false' : '',
-      room.escapeTime || '',
-      loc.city || '',
-      loc.region || '',
-      loc.country || '',
-      loc.lat != null ? loc.lat : '',
-      loc.lng != null ? loc.lng : '',
-      room.companyUrl || '',
-      room.blogUrl || '',
-      room.mortyId != null ? room.mortyId : '',
-      (room.tags || []).join(', '),
-      (room.players || []).join(', '),
-      room.notes || '',
-      room.photoUrl || '',
-    ])
-  );
+  if (!companyUrlMap.has(name)) {
+    companyUrlMap.set(name, new Set());
+  }
+  if (room.companyUrl) {
+    companyUrlMap.get(name).add(room.companyUrl);
+  }
 }
 
-const roomsPath = path.join(__dirname, '..', 'data', 'rooms.csv');
-fs.writeFileSync(roomsPath, roomsRows.join('\n') + '\n');
-console.log(`Wrote ${data.rooms.length} rooms to ${roomsPath}`);
+function pickBestUrl(urls) {
+  if (!urls || urls.size === 0) return '';
+  const bases = new Set();
+  for (const url of urls) {
+    bases.add(baseUrl(url));
+  }
+  const sorted = [...bases].sort((a, b) => a.length - b.length);
+  return sorted[0];
+}
+
+const companyNames = [...companyUrlMap.keys()].sort((a, b) =>
+  a.toLowerCase().localeCompare(b.toLowerCase())
+);
+
+const companies = [];
+const companyIdByName = new Map();
+
+companyNames.forEach((name, index) => {
+  const id = index + 1;
+  companies.push({
+    id,
+    name,
+    url: pickBestUrl(companyUrlMap.get(name)),
+  });
+  companyIdByName.set(name, id);
+});
+
+// =====================================================
+// 2. Build LOCATIONS table
+// =====================================================
+// A location is a unique (company, city, region, country) tuple.
+// Geo coordinates (lat/lng) are stored here, picked from the first room seen.
+
+const locationKeyMap = new Map(); // "companyName|city|region|country" -> location obj
+const locationList = [];
+
+function locationKey(companyName, city, region, country) {
+  return `${companyName}|${city || ''}|${region || ''}|${country || ''}`;
+}
+
+for (const room of data.rooms) {
+  const name = normalizeCompanyName(room.company);
+  const loc = room.location || {};
+  const city = normalizeCityName(loc.city) || null;
+  const region = loc.region || null;
+  const country = loc.country || null;
+  const key = locationKey(name, city, region, country);
+
+  if (!locationKeyMap.has(key)) {
+    const locObj = {
+      id: null, // assigned after sorting
+      companyName: name,
+      companyId: companyIdByName.get(name),
+      city,
+      region,
+      country,
+      lat: loc.lat,
+      lng: loc.lng,
+    };
+    locationKeyMap.set(key, locObj);
+    locationList.push(locObj);
+  }
+}
+
+// Sort locations by company name, then city
+locationList.sort((a, b) => {
+  const cmp = a.companyName.toLowerCase().localeCompare(b.companyName.toLowerCase());
+  if (cmp !== 0) return cmp;
+  return (a.city || '').localeCompare(b.city || '');
+});
+
+const locationIdByKey = new Map();
+locationList.forEach((loc, index) => {
+  loc.id = index + 1;
+  const key = locationKey(loc.companyName, loc.city, loc.region, loc.country);
+  locationIdByKey.set(key, loc.id);
+});
+
+// =====================================================
+// 3. Build ROOMS table
+// =====================================================
+const rooms = data.rooms.map(room => {
+  const name = normalizeCompanyName(room.company);
+  const loc = room.location || {};
+  const city = normalizeCityName(loc.city) || null;
+  const region = loc.region || null;
+  const country = loc.country || null;
+  const key = locationKey(name, city, region, country);
+
+  return {
+    id: room.id,
+    game: room.game,
+    locationId: locationIdByKey.get(key),
+    companyName: name,
+    locationLabel: [city, region, country].filter(Boolean).join(', '),
+    date: room.date,
+    status: room.status,
+    win: room.win === true ? 'true' : room.win === false ? 'false' : '',
+    escapeTime: room.escapeTime || '',
+    companyUrl: room.companyUrl || '',
+    blogUrl: room.blogUrl || '',
+    mortyId: room.mortyId != null ? room.mortyId : '',
+    tags: (room.tags || []).join(', '),
+    players: (room.players || []).join(', '),
+    notes: room.notes || '',
+    photoUrl: room.photoUrl || '',
+  };
+});
+
+// =====================================================
+// Write all three CSVs
+// =====================================================
+const outDir = path.join(__dirname, '..', 'data');
+fs.mkdirSync(outDir, { recursive: true });
+
+// companies.csv
+const companiesCount = writeCsv(
+  path.join(outDir, 'companies.csv'),
+  ['id', 'name', 'url'],
+  companies.map(c => [c.id, c.name, c.url])
+);
+console.log(`Wrote ${companiesCount} companies to data/companies.csv`);
+
+// locations.csv
+const locationsCount = writeCsv(
+  path.join(outDir, 'locations.csv'),
+  ['id', 'company_id', 'company_name', 'city', 'region', 'country', 'lat', 'lng'],
+  locationList.map(l => [
+    l.id,
+    l.companyId,
+    l.companyName,
+    l.city || '',
+    l.region || '',
+    l.country || '',
+    l.lat != null ? l.lat : '',
+    l.lng != null ? l.lng : '',
+  ])
+);
+console.log(`Wrote ${locationsCount} locations to data/locations.csv`);
+
+// rooms.csv
+const roomsCount = writeCsv(
+  path.join(outDir, 'rooms.csv'),
+  [
+    'id', 'game', 'location_id', 'company_name', 'location_label',
+    'date', 'status', 'win', 'escapeTime',
+    'companyUrl', 'blogUrl', 'mortyId',
+    'tags', 'players', 'notes', 'photoUrl',
+  ],
+  rooms.map(r => [
+    r.id, r.game, r.locationId, r.companyName, r.locationLabel,
+    r.date, r.status, r.win, r.escapeTime,
+    r.companyUrl, r.blogUrl, r.mortyId,
+    r.tags, r.players, r.notes, r.photoUrl,
+  ])
+);
+console.log(`Wrote ${roomsCount} rooms to data/rooms.csv`);
