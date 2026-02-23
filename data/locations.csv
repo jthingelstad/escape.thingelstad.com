@@ -1,58 +1,58 @@
-id,company_id,company_name,city,region,country,lat,lng
-1,1,60 to Escape,Gurnee,Illinois,US,42.391372,-87.958342
-2,1,60 to Escape,Milwaukee,Wisconsin,US,42.949241,-88.004283
-3,2,Breakout Games,Minneapolis,Minnesota,US,44.9778,-93.265
-4,3,Breakout ND,Bismarck,North Dakota,US,46.832906,-100.774248
-5,4,Cabinet Mysteriis,Quebec City,Quebec,CA,46.792333,-71.258633
-6,5,Clue Pursuit,Springfield,Missouri,US,37.209,-93.2923
-7,6,Copper Cat Escape,Brainerd,Minnesota,US,46.355982,-94.200255
-8,7,Cryptex Branson Escape Rooms,Branson,Missouri,US,36.6437,-93.2185
-9,8,D.O.A. Escape Rooms,Wisconsin Dells,Wisconsin,US,43.6275,-89.771
-10,9,Doldrick’s Escape Room,Orlando,Florida,US,28.335013,-81.478393
-11,10,Enigma Adventures,Bloomington,Minnesota,US,44.850893,-93.236632
-12,10,Enigma Adventures,Maple Grove,Minnesota,US,45.10157,-93.45427
-13,11,Enigma Escape Rooms,Buffalo,New York,US,42.8864,-78.8784
-14,12,Escaparium,Montreal,Quebec,CA,45.585974,-73.768325
-15,13,Escape Artists KC,Kansas City,Missouri,US,39.0997,-94.5786
-16,14,Escape City,Calgary,Alberta,CA,51.012594,-114.065152
-17,15,Escape Code,Branson,Missouri,US,36.6437,-93.2185
-18,16,Escape Frenzy,Edina,Minnesota,US,44.8897,-93.3499
-19,17,Escape in Time,Madison,Wisconsin,US,43.057218,-89.494541
-20,18,Escape MSP,Lakeville,Minnesota,US,44.6497,-93.2427
-21,18,Escape MSP,Minneapolis,Minnesota,US,44.9778,-93.265
-22,19,Escape Room Alexandria,Alexandria,Minnesota,US,45.883783,-95.376734
-23,20,Escape Room Palm Springs,Palm Springs,California,US,33.8303,-116.5453
-24,21,Escape the Room,Minneapolis,Minnesota,US,44.9778,-93.265
-25,22,Escapology,Burnsville,Minnesota,US,44.7677,-93.2777
-26,23,Exit Escape Room NYC,New York,New York,US,40.7128,-74.006
-27,24,Fox in the Box,Chicago,Illinois,US,41.8781,-87.6298
-28,25,Grand Haven Room Escape,Grand Haven,Michigan,US,43.0631,-86.2284
-29,26,Greatest Caper,Montpelier,Maine,US,44.2601,-69.817
-30,27,Itasca Historical Society,Grand Rapids,Minnesota,US,47.2372,-93.5302
-31,28,Kato Escape,Mankato,Minnesota,US,44.1636,-93.9994
-32,29,Lock & Key Escape Rooms,Minneapolis,Minnesota,US,44.881233,-93.324289
-33,30,Mad Machines,Milan,,IT,45.443494,9.155411
-34,31,Maine Escape Games,Portland,Maine,US,43.6591,-70.2568
-35,32,Missing Pieces Escape Games,Edina,Minnesota,US,44.862888,-93.356817
-36,33,Mission Manor,Minneapolis,Minnesota,US,44.9778,-93.265
-37,34,Nemesis Club,Phoenix,Arizona,US,33.4484,-112.074
-38,35,No Esc Puzzle Collective,Shakopee,Minnesota,US,44.784431,-93.554246
-39,36,Puzzled Escape Rooms,Fargo,North Dakota,US,46.830879,-96.801401
-40,37,Puzzleworks,Minneapolis,Minnesota,US,44.9778,-93.265
-41,37,Puzzleworks,St. Paul,Minnesota,US,44.96485,-93.183348
-42,38,Red Herring Escape Room,St. Louis,Missouri,US,38.627,-90.1994
-43,39,Reykjavik Escape,Reykjavik,,IS,64.1466,-21.9426
-44,40,Solve Escape Rooms,Waukesha,Wisconsin,US,43.018706,-88.200118
-45,41,The Escape Game,Bloomington,Minnesota,US,44.855442,-93.240047
-46,41,The Escape Game,Chicago,Illinois,US,41.8781,-87.6298
-47,41,The Escape Game,Nashville,Tennessee,US,36.1627,-86.7816
-48,41,The Escape Game,New York,New York,US,40.7128,-74.006
-49,42,Tick Tock Escape Games,Kansas City,Missouri,US,39.0997,-94.5786
-50,43,Timescape,Belfast,Northern Ireland,GB,54.602626,-5.930794
-51,44,Trapped Puzzle Rooms,,,,,
-52,44,Trapped Puzzle Rooms,Minneapolis,Minnesota,US,44.9778,-93.265
-53,44,Trapped Puzzle Rooms,St. Paul,Minnesota,US,44.9537,-93.09
-54,45,Twisted Room Escapes,Indianapolis,Indiana,US,39.7684,-86.1581
-55,46,Zero Hour Escape Rooms,Duluth,Minnesota,US,46.7867,-92.1005
-56,46,Zero Hour Escape Rooms,Minneapolis,Minnesota,US,44.9778,-93.265
-57,46,Zero Hour Escape Rooms,St. Paul,Minnesota,US,44.9537,-93.09
+id,company_id,company_name,city,region,country,lat,lng,url
+1,1,60 to Escape,Gurnee,Illinois,US,42.391372,-87.958342,https://www.62escape.com/
+2,1,60 to Escape,Milwaukee,Wisconsin,US,42.949241,-88.004283,https://www.62escape.com/wisconsin
+3,2,Breakout Games,Minneapolis,Minnesota,US,44.9778,-93.265,https://breakoutgames.com/minneapolis/rooms/#roomCasino
+4,3,Breakout ND,Bismarck,North Dakota,US,46.832906,-100.774248,https://www.breakoutnd.com/
+5,4,Cabinet Mysteriis,Quebec City,Quebec,CA,46.792333,-71.258633,https://cabinetmysteriis.ca/en/
+6,5,Clue Pursuit,Springfield,Missouri,US,37.209,-93.2923,
+7,6,Copper Cat Escape,Brainerd,Minnesota,US,46.355982,-94.200255,https://www.coppercatescape.com/
+8,7,Cryptex Branson Escape Rooms,Branson,Missouri,US,36.6437,-93.2185,
+9,8,D.O.A. Escape Rooms,Wisconsin Dells,Wisconsin,US,43.6275,-89.771,https://www.doaroomescape.com/the-rooms/
+10,9,Doldrick’s Escape Room,Orlando,Florida,US,28.335013,-81.478393,https://www.doldricksescaperoom.com/
+11,10,Enigma Adventures,Bloomington,Minnesota,US,44.850893,-93.236632,https://enigmaadventures.com/
+12,10,Enigma Adventures,Maple Grove,Minnesota,US,45.10157,-93.45427,https://enigmaadventures.com/
+13,11,Enigma Escape Rooms,Buffalo,New York,US,42.8864,-78.8784,https://enigmabuffalo.com/
+14,12,Escaparium,Montreal,Quebec,CA,45.585974,-73.768325,https://www.escaparium.ca/montreal-jeu-evasion/
+15,13,Escape Artists KC,Kansas City,Missouri,US,39.0997,-94.5786,
+16,14,Escape City,Calgary,Alberta,CA,51.012594,-114.065152,https://escapecity.ca/
+17,15,Escape Code,Branson,Missouri,US,36.6437,-93.2185,https://www.escapecode.tv/
+18,16,Escape Frenzy,Edina,Minnesota,US,44.8897,-93.3499,
+19,17,Escape in Time,Madison,Wisconsin,US,43.057218,-89.494541,https://www.escapeintimemadison.com/rooms
+20,18,Escape MSP,Lakeville,Minnesota,US,44.6497,-93.2427,
+21,18,Escape MSP,Minneapolis,Minnesota,US,44.9778,-93.265,
+22,19,Escape Room Alexandria,Alexandria,Minnesota,US,45.883783,-95.376734,https://www.escapealexandria.com
+23,20,Escape Room Palm Springs,Palm Springs,California,US,33.8303,-116.5453,https://escapeps.com/
+24,21,Escape the Room,Minneapolis,Minnesota,US,44.9778,-93.265,
+25,22,Escapology,Burnsville,Minnesota,US,44.7677,-93.2777,https://www.escapology.com/
+26,23,Exit Escape Room NYC,New York,New York,US,40.7128,-74.006,https://www.exitescaperoomnyc.com/sugar_rush.html
+27,24,Fox in the Box,Chicago,Illinois,US,41.8781,-87.6298,
+28,25,Grand Haven Room Escape,Grand Haven,Michigan,US,43.0631,-86.2284,
+29,26,Greatest Caper,Montpelier,Maine,US,44.2601,-69.817,https://thegreatestcaper.com/
+30,27,Itasca Historical Society,Grand Rapids,Minnesota,US,47.2372,-93.5302,https://www.grescaperooms.com/
+31,28,Kato Escape,Mankato,Minnesota,US,44.1636,-93.9994,
+32,29,Lock & Key Escape Rooms,Minneapolis,Minnesota,US,44.881233,-93.324289,https://lockandkeyescape.com/
+33,30,Mad Machines,Milan,,IT,45.443494,9.155411,https://madmachines.it/
+34,31,Maine Escape Games,Portland,Maine,US,43.6591,-70.2568,https://web.archive.org/web/20160320072900/http://maineescapegames.com/
+35,32,Missing Pieces Escape Games,Edina,Minnesota,US,44.862888,-93.356817,https://www.missingpiecesmn.com/
+36,33,Mission Manor,Minneapolis,Minnesota,US,44.9778,-93.265,https://www.missionmanor.com/
+37,34,Nemesis Club,Phoenix,Arizona,US,33.4484,-112.074,https://thenemesisclub.com/
+38,35,No Esc Puzzle Collective,Shakopee,Minnesota,US,44.784431,-93.554246,https://no-esc.com/
+39,36,Puzzled Escape Rooms,Fargo,North Dakota,US,46.830879,-96.801401,https://puzzledescaperooms.com/
+40,37,Puzzleworks,Minneapolis,Minnesota,US,44.9778,-93.265,https://www.puzzle.works/
+41,37,Puzzleworks,St. Paul,Minnesota,US,44.96485,-93.183348,https://www.puzzleworksmn.com/
+42,38,Red Herring Escape Room,St. Louis,Missouri,US,38.627,-90.1994,
+43,39,Reykjavik Escape,Reykjavik,,IS,64.1466,-21.9426,https://www.reykjavikescape.is/en/
+44,40,Solve Escape Rooms,Waukesha,Wisconsin,US,43.018706,-88.200118,https://solveescaperooms.com/
+45,41,The Escape Game,Bloomington,Minnesota,US,44.855442,-93.240047,https://theescapegame.com/minneapolis/
+46,41,The Escape Game,Chicago,Illinois,US,41.8781,-87.6298,https://theescapegamechicago.com/escape-rooms/mission-mars/
+47,41,The Escape Game,Nashville,Tennessee,US,36.1627,-86.7816,https://theescapegame.com/nashville/escape-rooms/ruins/
+48,41,The Escape Game,New York,New York,US,40.7128,-74.006,https://theescapegame.com/newyorkcity/escape-rooms/playground/
+49,42,Tick Tock Escape Games,Kansas City,Missouri,US,39.0997,-94.5786,
+50,43,Timescape,Belfast,Northern Ireland,GB,54.602626,-5.930794,https://timescapegames.com/room/titanic/
+51,44,Trapped Puzzle Rooms,,,,,,https://www.trappedpuzzlerooms.com/
+52,44,Trapped Puzzle Rooms,Minneapolis,Minnesota,US,44.9778,-93.265,https://www.trappedpuzzlerooms.com/
+53,44,Trapped Puzzle Rooms,St. Paul,Minnesota,US,44.9537,-93.09,https://www.trappedpuzzlerooms.com/
+54,45,Twisted Room Escapes,Indianapolis,Indiana,US,39.7684,-86.1581,https://www.twistedroomescapes.com/index.php/escape-rooms/alice
+55,46,Zero Hour Escape Rooms,Duluth,Minnesota,US,46.7867,-92.1005,
+56,46,Zero Hour Escape Rooms,Minneapolis,Minnesota,US,44.9778,-93.265,https://minneapolis.zerohourescaperooms.com/
+57,46,Zero Hour Escape Rooms,St. Paul,Minnesota,US,44.9537,-93.09,

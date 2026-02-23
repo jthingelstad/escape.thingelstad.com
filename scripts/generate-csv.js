@@ -136,9 +136,13 @@ for (const room of data.rooms) {
       country,
       lat: loc.lat,
       lng: loc.lng,
+      urls: new Set(),
     };
     locationKeyMap.set(key, locObj);
     locationList.push(locObj);
+  }
+  if (room.companyUrl) {
+    locationKeyMap.get(key).urls.add(room.companyUrl);
   }
 }
 
@@ -171,13 +175,10 @@ const rooms = data.rooms.map(room => {
     id: room.id,
     game: room.game,
     locationId: locationIdByKey.get(key),
-    companyName: name,
-    locationLabel: [city, region, country].filter(Boolean).join(', '),
     date: room.date,
     status: room.status,
     win: room.win === true ? 'true' : room.win === false ? 'false' : '',
     escapeTime: room.escapeTime || '',
-    companyUrl: room.companyUrl || '',
     blogUrl: room.blogUrl || '',
     mortyId: room.mortyId != null ? room.mortyId : '',
     tags: (room.tags || []).join(', '),
@@ -202,9 +203,16 @@ const companiesCount = writeCsv(
 console.log(`Wrote ${companiesCount} companies to data/companies.csv`);
 
 // locations.csv
+// Pick the best (shortest/most generic) companyUrl per location
+function pickLocationUrl(urls) {
+  if (!urls || urls.size === 0) return '';
+  const sorted = [...urls].sort((a, b) => a.length - b.length);
+  return sorted[0];
+}
+
 const locationsCount = writeCsv(
   path.join(outDir, 'locations.csv'),
-  ['id', 'company_id', 'company_name', 'city', 'region', 'country', 'lat', 'lng'],
+  ['id', 'company_id', 'company_name', 'city', 'region', 'country', 'lat', 'lng', 'url'],
   locationList.map(l => [
     l.id,
     l.companyId,
@@ -214,6 +222,7 @@ const locationsCount = writeCsv(
     l.country || '',
     l.lat != null ? l.lat : '',
     l.lng != null ? l.lng : '',
+    pickLocationUrl(l.urls),
   ])
 );
 console.log(`Wrote ${locationsCount} locations to data/locations.csv`);
@@ -222,15 +231,15 @@ console.log(`Wrote ${locationsCount} locations to data/locations.csv`);
 const roomsCount = writeCsv(
   path.join(outDir, 'rooms.csv'),
   [
-    'id', 'game', 'location_id', 'company_name', 'location_label',
+    'id', 'game', 'location_id',
     'date', 'status', 'win', 'escapeTime',
-    'companyUrl', 'blogUrl', 'mortyId',
+    'blogUrl', 'mortyId',
     'tags', 'players', 'notes', 'photoUrl',
   ],
   rooms.map(r => [
-    r.id, r.game, r.locationId, r.companyName, r.locationLabel,
+    r.id, r.game, r.locationId,
     r.date, r.status, r.win, r.escapeTime,
-    r.companyUrl, r.blogUrl, r.mortyId,
+    r.blogUrl, r.mortyId,
     r.tags, r.players, r.notes, r.photoUrl,
   ])
 );
