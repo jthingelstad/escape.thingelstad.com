@@ -14,12 +14,11 @@ permalink: /scrapbook/
 
     <div class="scrapbook-controls" id="scrapbook-controls"></div>
 
-    <div class="scrapbook-table" id="scrapbook-table">
-      <div class="loading">Loading photos</div>
-    </div>
+    <div class="scrapbook-table" id="scrapbook-table"></div>
   </main>
 {% endblock %}
 
 {% block scripts %}
+  <script id="scrapbook-data" type="application/json">{{ scrapbook | dump | safe }}</script>
   <script type="module" src="{{ '/js/scrapbook.js' | cacheBust }}"></script>
 {% endblock %}

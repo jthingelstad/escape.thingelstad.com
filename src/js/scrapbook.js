@@ -1,4 +1,4 @@
-import { getRooms, formatDate, formatLocation, initNav, statusBadgeHtml } from './data.js';
+import { formatDate, formatLocation, initNav, statusBadgeHtml } from './data.js';
 
 function shuffle(arr) {
   const a = [...arr];
@@ -117,11 +117,10 @@ function updateButtons(dateBtn, shuffleBtn) {
   }
 }
 
-async function init() {
+function init() {
   initNav();
 
-  const rooms = await getRooms();
-  const withPhotos = rooms.filter(r => r.photoUrl);
+  const withPhotos = JSON.parse(document.getElementById('scrapbook-data').textContent);
 
   const table = document.getElementById('scrapbook-table');
   const controls = document.getElementById('scrapbook-controls');
