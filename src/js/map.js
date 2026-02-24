@@ -1,12 +1,52 @@
 import {
-  filterRooms, formatDate, formatLocation, renderTag,
+  escapeHtml, formatDate, formatLocation, renderTag,
   getFilterParams, setFilterParams, initNav, statusBadgeHtml
 } from './data.js';
 
+const allRooms = JSON.parse(document.getElementById('map-rooms-data').textContent);
 let map;
 let markerClusterGroup;
 
-async function init() {
+function filterRooms(filters) {
+  return allRooms.filter(room => {
+    if (filters.q) {
+      const q = filters.q.toLowerCase();
+      const searchable = [
+        room.game,
+        room.company,
+        room.location?.city,
+        room.location?.region,
+        room.notes
+      ].filter(Boolean).join(' ').toLowerCase();
+      if (!searchable.includes(q)) return false;
+    }
+
+    if (filters.tag) {
+      const filterTags = filters.tag.split(',').map(t => t.trim());
+      if (!filterTags.every(ft => (room.tags || []).includes(ft))) return false;
+    }
+
+    if (filters.year) {
+      if (!room.date || room.date.substring(0, 4) !== filters.year) return false;
+    }
+
+    if (filters.status && filters.status !== 'all') {
+      if (room.status !== filters.status) return false;
+    }
+
+    if (filters.country) {
+      if (!room.location || room.location.country !== filters.country) return false;
+    }
+
+    if (filters.player) {
+      if (!(room.players || []).includes(filters.player)) return false;
+    }
+
+    return true;
+  });
+}
+
+function init() {
   initNav();
   initMap();
   applyUrlFilters();
@@ -34,12 +74,12 @@ function initMap() {
 }
 
 function getMarkerColor(room) {
-  if ((room.tags || []).includes('best')) return '#e6b84f';
+  if ((room.tags || []).includes('best')) return '#e8924f';
   switch (room.status) {
     case 'Escaped': return '#48d989';
     case 'Try again': return '#f06060';
     case 'Completed': return '#9a97a8';
-    case 'Scheduled': return '#60a5fa';
+    case 'Scheduled': return '#5a8bff';
     default: return '#9a97a8';
   }
 }
@@ -69,33 +109,35 @@ function createMarkerIcon(room) {
 }
 
 function buildPopup(room) {
+  const gameName = escapeHtml(room.game);
+  const companyName = escapeHtml(room.company);
   const statusHtml = statusBadgeHtml(room.status);
 
   const tagsHtml = (room.tags || []).map(renderTag).join('');
-  const locationStr = formatLocation(room.location);
+  const locationStr = escapeHtml(formatLocation(room.location));
   const dateStr = formatDate(room.date);
 
   const photoHtml = room.photoUrl
-    ? `<div class="popup-photo"><img src="${room.photoUrl}" alt="${room.game} at ${room.company}"></div>`
+    ? `<div class="popup-photo"><img src="${escapeHtml(room.photoUrl)}" alt="${gameName} at ${companyName}"></div>`
     : '';
 
   const blogHtml = room.blogUrl
-    ? `<a href="${room.blogUrl}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.blog-post" data-tinylytics-event-value="${room.game}">Read post \u2192</a>`
+    ? `<a href="${escapeHtml(room.blogUrl)}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.blog-post" data-tinylytics-event-value="${gameName}">Read post \u2192</a>`
     : '';
 
   const mortyHtml = room.mortyId
-    ? `<a href="https://morty.app/attraction/${room.mortyId}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.morty" data-tinylytics-event-value="${room.game}">Morty \u2192</a>`
+    ? `<a href="https://morty.app/attraction/${room.mortyId}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.morty" data-tinylytics-event-value="${gameName}">Morty \u2192</a>`
     : '';
 
   return `
     <div class="popup-room">
       ${photoHtml}
       <div class="popup-content">
-        <h3>#${room.id} ${room.game}</h3>
+        <h3>#${room.id} ${gameName}</h3>
         <div class="popup-meta">
-          ${room.companyUrl ? `<a href="${room.companyUrl}" target="_blank" rel="noopener" data-tinylytics-event="map.company" data-tinylytics-event-value="${room.company}">${room.company}</a>` : room.company}<br>
+          ${room.companyUrl ? `<a href="${escapeHtml(room.companyUrl)}" target="_blank" rel="noopener" data-tinylytics-event="map.company" data-tinylytics-event-value="${companyName}">${companyName}</a>` : companyName}<br>
           ${dateStr}${locationStr ? ' &middot; ' + locationStr : ''}
-          ${room.escapeTime ? ' &middot; ' + room.escapeTime : ''}
+          ${room.escapeTime ? ' &middot; ' + escapeHtml(room.escapeTime) : ''}
         </div>
         ${statusHtml}
         ${tagsHtml ? `<div class="popup-tags">${tagsHtml}</div>` : ''}
@@ -105,7 +147,7 @@ function buildPopup(room) {
   `;
 }
 
-async function updateMarkers() {
+function updateMarkers() {
   const filters = getCurrentFilters();
   setFilterParams(filters);
 
@@ -114,7 +156,7 @@ async function updateMarkers() {
     (filters.status && filters.status !== 'all') || filters.country || filters.player;
   clearBtn.style.display = hasFilters ? '' : 'none';
 
-  const rooms = await filterRooms(filters);
+  const rooms = filterRooms(filters);
   const mappable = rooms.filter(r => r.location && r.location.lat != null && r.location.lng != null);
 
   markerClusterGroup.clearLayers();

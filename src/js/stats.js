@@ -1,13 +1,13 @@
 import { initNav } from './data.js';
 
 const chartColors = {
-  gold: '#e6b84f',
-  teal: '#4fd1c5',
+  gold: '#e8924f',
+  teal: '#43e6d0',
   green: '#48d989',
   red: '#f06060',
-  purple: '#a78bfa',
-  blue: '#60a5fa',
-  cyan: '#22d3ee',
+  purple: '#9b7bff',
+  blue: '#5a8bff',
+  cyan: '#2de2ff',
   gray: '#9a97a8',
   text: '#9a97a8',
   textMuted: '#5c5a6b',

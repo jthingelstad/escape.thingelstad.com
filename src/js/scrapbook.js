@@ -1,4 +1,4 @@
-import { formatDate, formatLocation, initNav, statusBadgeHtml } from './data.js';
+import { escapeHtml, formatDate, formatLocation, initNav, statusBadgeHtml } from './data.js';
 
 function shuffle(arr) {
   const a = [...arr];
@@ -14,21 +14,22 @@ function randomBetween(min, max) {
 }
 
 function buildDetailHtml(room) {
+  const gameName = escapeHtml(room.game);
   const statusBadge = statusBadgeHtml(room.status);
 
   const escapeTime = room.escapeTime
-    ? `<div class="scrapbook-detail-time">\u23f1 ${room.escapeTime}</div>`
+    ? `<div class="scrapbook-detail-time">\u23f1 ${escapeHtml(room.escapeTime)}</div>`
     : '';
 
   const blogLink = room.blogUrl
-    ? `<a href="${room.blogUrl}" class="scrapbook-detail-link" target="_blank" rel="noopener" data-tinylytics-event="scrapbook.blog-post" data-tinylytics-event-value="${room.game}">Read post \u2192</a>`
+    ? `<a href="${escapeHtml(room.blogUrl)}" class="scrapbook-detail-link" target="_blank" rel="noopener" data-tinylytics-event="scrapbook.blog-post" data-tinylytics-event-value="${gameName}">Read post \u2192</a>`
     : '';
 
   return `
-    <div class="scrapbook-detail-name">${room.game}</div>
-    <div class="scrapbook-detail-company">${room.company}</div>
+    <div class="scrapbook-detail-name">${gameName}</div>
+    <div class="scrapbook-detail-company">${escapeHtml(room.company)}</div>
     <div class="scrapbook-detail-date">${formatDate(room.date)}</div>
-    <div class="scrapbook-detail-location">${formatLocation(room.location)}</div>
+    <div class="scrapbook-detail-location">${escapeHtml(formatLocation(room.location))}</div>
     <div class="scrapbook-detail-status">${statusBadge}${escapeTime}</div>
     ${blogLink}
   `;
