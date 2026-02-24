@@ -12,15 +12,6 @@ export async function getRooms() {
   return await loadRooms();
 }
 
-export async function getCompletedRooms() {
-  const rooms = await loadRooms();
-  return rooms.filter(r => r.status !== 'Scheduled');
-}
-
-export async function getPlannedRooms() {
-  const rooms = await loadRooms();
-  return rooms.filter(r => r.status === 'Scheduled');
-}
 
 export async function filterRooms(filters = {}) {
   const rooms = await loadRooms();
@@ -126,7 +117,7 @@ export function renderTag(tag) {
   return `<span class="tag tag-${type}" data-tag="${tag}">${label}</span>`;
 }
 
-function statusBadgeHtml(status) {
+export function statusBadgeHtml(status) {
   switch (status) {
     case 'Escaped':
       return '<span class="status-badge status-escaped">\u2713 Escaped</span>';

@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-A static website for "Escaping Things" at escape.thingelstad.com — a personal site showcasing the Thingelstad family's escape room journey. Built with 11ty (Eleventy) and hosted on GitHub Pages. Nunjucks templates, CSS, and JavaScript reading from a `data/rooms.json` file committed in the repo.
+A static website for "Escaping Things" at escape.thingelstad.com — a personal site showcasing the Thingelstad family's escape room journey. Built with 11ty (Eleventy) and hosted on GitHub Pages. Nunjucks templates, CSS, and JavaScript reading from a `data/rooms.json` file committed in the repo. Data is synced from Airtable.
 
 ## Tech Stack
 
@@ -12,7 +12,7 @@ A static website for "Escaping Things" at escape.thingelstad.com — a personal 
 - Leaflet.markercluster v1.5.3 via CDN for marker clustering
 - Chart.js v4.4.7 via CDN for stats charts
 - Google Fonts: Cinzel (headings) + Raleway (body)
-- Tinylytics for analytics (kudos, hit counter, visitor countries)
+- Tinylytics for analytics (kudos, hit counter, visitor countries, event tracking)
 - GitHub Pages hosting via GitHub Actions
 - `data/rooms.json` is the single data source, committed to the repo
 
@@ -33,29 +33,34 @@ npm run build        # Production build to _site/
 ├── CLAUDE.md
 ├── src/                      # 11ty input directory
 │   ├── index.njk             # Home page
-│   ├── list.njk              # Filterable room list
+│   ├── list.njk              # Filterable room list with detail modal
+│   ├── scrapbook.njk         # Photo scrapbook
 │   ├── map.njk               # Interactive map
 │   ├── stats.njk             # Charts and statistics
+│   ├── feed.njk              # Atom RSS feed (/feed.xml)
 │   ├── 404.njk               # Escape-room-themed 404 page
 │   ├── sitemap.njk           # Auto-generated sitemap from collections
 │   ├── _includes/            # Nunjucks partials & layouts
 │   │   ├── base.njk          # Base HTML layout (head, scripts, footer)
 │   │   ├── nav.njk           # Navigation bar
 │   │   ├── footer.njk        # Site footer
+│   │   ├── filter-bar.njk    # Shared filter controls (list + map pages)
 │   │   └── room-card.njk     # Reusable room card macro
 │   ├── _data/                # 11ty data files
-│   │   ├── rooms.json        # Room data (86+ rooms)
-│   │   ├── stats.js          # Computed stats (totals, win rate, latest room, planned)
+│   │   ├── rooms.json        # Room data (90+ rooms, synced from Airtable)
+│   │   ├── stats.js          # Computed stats (totals, win rate, recent rooms, planned)
 │   │   └── filters.js        # Filter options (tags, years, countries, players)
 │   ├── css/
-│   │   └── style.css         # Shared styles (~1500 lines)
+│   │   └── style.css         # Shared styles
 │   ├── js/
 │   │   ├── data.js           # Client-side: fetch rooms.json, filtering, card rendering
-│   │   ├── list.js           # List page logic (filter, sort, URL state)
+│   │   ├── list.js           # List page logic (filter, sort, URL state, modal)
 │   │   ├── map.js            # Map page logic (Leaflet, markers, filter panel)
+│   │   ├── scrapbook.js      # Scrapbook page logic (photo layout, shuffle/sort)
 │   │   └── stats.js          # Stats page logic (Chart.js charts)
 │   ├── images/
-│   │   └── favicon.svg       # Key-shaped gold SVG favicon
+│   │   ├── favicon.svg       # Key-shaped gold SVG favicon
+│   │   └── rooms/            # Room photos (NN.jpg)
 │   ├── CNAME                 # Contains: escape.thingelstad.com
 │   └── robots.txt            # Allows all crawlers, references sitemap
 ├── _site/                    # Built output (do not edit)
@@ -65,57 +70,60 @@ npm run build        # Production build to _site/
 
 ## Data Schema
 
-`src/_data/rooms.json` contains an array of room objects:
+`src/_data/rooms.json` contains an array of room objects. Data is synced from Airtable.
 
 ```json
 {
   "rooms": [
     {
-      "id": 79,
-      "game": "Magnifico",
-      "company": "Escaparium",
-      "date": "2025-08-02",
-      "status": "completed",
-      "win": true,
-      "escapeTime": "52m 30s",
+      "id": 86,
+      "airtableId": "recIifKoB4QBKlyCe",
+      "game": "Loose Sleuth",
+      "company": "Puzzleworks",
+      "date": "2026-01-03",
+      "status": "Escaped",
+      "escapeTime": "49m 5s",
       "location": {
-        "city": "Montreal",
-        "region": "Quebec",
-        "country": "CA",
-        "lat": 45.585974,
-        "lng": -73.768325
+        "city": "Minneapolis",
+        "region": "Minnesota",
+        "country": "United States",
+        "lat": 44.9778,
+        "lng": -93.265
       },
-      "companyUrl": "https://www.escaparium.ca/",
-      "blogUrl": "https://www.thingelstad.com/2025/08/02/magnifico-at-escaparium.html",
-      "mortyId": "abc123",
+      "companyUrl": "https://www.puzzle.works/",
+      "blogUrl": "https://www.thingelstad.com/2026/01/03/we-had-a-great-time.html",
+      "mortyId": 13321,
       "tags": ["best"],
       "players": ["Jamie", "Tammy", "Mazie", "Tyler"],
-      "notes": "Jamie & Mazie favorite of 2025"
+      "notes": "Great puzzles",
+      "photoUrl": "/images/rooms/85.jpg"
     }
   ]
 }
 ```
 
 Field notes:
-- `id` — Sequential integer (1–86+). Primary identifier.
+- `id` — Sequential integer (1–91+). Primary identifier.
+- `airtableId` — String like "recXXXXXX". Airtable record ID. Used for permalinks and kudos paths.
 - `date` — ISO 8601 (YYYY-MM-DD).
-- `status` — "completed" or "planned".
-- `win` — Boolean or null (null for planned rooms).
+- `status` — One of: `"Escaped"`, `"Try again"`, `"Completed"`, `"Scheduled"`. Win rate counts Escaped + Completed as wins.
 - `escapeTime` — String like "49m 5s" or null.
-- `location.region` — State (US), province (CA), or null (international). Not "state".
-- `location.lat` / `location.lng` — May be null for online rooms (don't render on map).
+- `location.region` — State (US), province (CA), or absent (international). Not "state".
+- `location.country` — Full country name (e.g. "United States", "Canada", "Iceland"). Not a country code.
+- `location.lat` / `location.lng` — May be null for online or scheduled rooms (don't render on map).
 - `companyUrl` / `blogUrl` — May be null.
-- `mortyId` — String or absent. Links to morty.app attraction page.
-- `tags` — Array of strings. May be empty. Values include "best", "online", terpeca tags ("terpeca-2024"), and trip tags ("quebec-2025").
+- `mortyId` — Integer or absent. Links to morty.app attraction page.
+- `tags` — Array of strings. May be empty. Values include "best", "online", "fun", terpeca tags ("terpeca-2024"), and trip tags ("quebec-2025").
 - `players` — Array of first names (capitalized). May be empty.
 - `notes` — May be null. Shown on cards.
+- `photoUrl` — Path like "/images/rooms/NN.jpg" or absent. Not all rooms have photos.
 
 ## 11ty Data Layer
 
 Data files in `src/_data/` are available globally in templates:
 
 - **`rooms.json`** — Raw room data. Accessed as `rooms.rooms` in templates.
-- **`stats.js`** — Computed at build time. Provides `stats.totalRooms`, `stats.totalWins`, `stats.winRate`, `stats.regionCount`, `stats.countryCount`, `stats.companyCount`, `stats.yearsActive`, `stats.latestCompleted`, `stats.planned`.
+- **`stats.js`** — Computed at build time. Provides `stats.totalRooms`, `stats.totalWins`, `stats.winRate`, `stats.regionCount`, `stats.countryCount`, `stats.companyCount`, `stats.yearsActive`, `stats.firstYear`, `stats.lastYear`, `stats.latestCompleted`, `stats.recentCompleted` (6 most recent), `stats.planned`.
 - **`filters.js`** — Computed at build time. Provides `filters.tags`, `filters.years`, `filters.countries`, `filters.players` for pre-populating filter dropdowns.
 
 ## 11ty Nunjucks Filters (eleventy.config.js)
@@ -124,13 +132,14 @@ Data files in `src/_data/` are available globally in templates:
 - `formatLocation` — location object → "City, Region, Country"
 - `classifyTag` — tag → CSS class: "best", "terpeca", "online", "trip", "default"
 - `formatTagLabel` — tag → display label: "best" → "★ Best", "terpeca-2024" → "TERPECA 2024"
+- `cacheBust` — Appends content hash to asset URLs for cache busting
 
 ## Design
 
 Dark, moody, immersive "escape room" aesthetic with atmospheric effects.
 
 - **Background:** Very dark (#060910) with SVG film grain noise texture overlay
-- **Accent colors:** Gold (#e6b84f) for highlights/best rooms, teal (#4fd1c5) for interactive elements, red (#f06060) for losses, blue (#60a5fa) for planned
+- **Accent colors:** Gold (#e6b84f) for highlights/best rooms, teal (#4fd1c5) for interactive elements, red (#f06060) for losses, blue (#60a5fa) for scheduled
 - **Typography:** Cinzel (display/headings — mysterious vintage feel), Raleway (body — clean sans-serif)
 - **Map tiles:** CartoDB Dark Matter
 - **Atmospheric effects:**
@@ -142,7 +151,6 @@ Dark, moody, immersive "escape room" aesthetic with atmospheric effects.
   - Spring cubic-bezier card transitions with animated teal glow on hover
   - Featured card with pulsing gold top-line
   - "Best" tags with pulsing glow animation
-  - Quick-link cards with per-card themed glow (gold/teal/purple)
   - 404 page with pulsing red ambient, lock wiggle, sweep-shine button
 - **Footer:** Gold gradient accent line, Tinylytics visitor countries, hit counter, copyright
 
@@ -150,25 +158,30 @@ Dark, moody, immersive "escape room" aesthetic with atmospheric effects.
 
 ### Navigation (nav.njk)
 
-Frosted glass navbar (backdrop-filter blur) on all pages. Links: Home, Rooms, Map, Stats. Active page highlighted via `page.url`. "Escaping Things" wordmark on left. Hamburger menu on mobile. Toggle initialized via `initNav()` from data.js.
+Frosted glass navbar (backdrop-filter blur) on all pages. Links: Home, Rooms, Scrapbook, Map, Stats. Active page highlighted via `page.url`. "Escaping Things" wordmark on left. Hamburger menu on mobile. Toggle initialized via `initNav()` from data.js.
 
 ### Room Card (room-card.njk)
 
-Nunjucks macro `roomCard(room, options)`. Server-rendered on home page, client-rendered on list/map. Shows:
+Nunjucks macro `roomCard(room, options)`. Server-rendered on home page and list page. Shows:
+- Photo thumbnail (if photoUrl exists)
 - Room number (#id) and game name as heading
 - Company name (linked to companyUrl if available)
 - Formatted date (e.g. "August 2, 2025")
 - Location (city, region, country)
-- Win/loss/planned status badge (✓ Escaped / ✗ Locked Out / Planned)
+- Status badge (✓ Escaped / ✗ Try Again / ✓ Completed / Scheduled)
 - Escape time with stopwatch icon (if available)
 - Players with 👥 icon (comma-separated, if available)
 - Tags as styled pills
-- Blog post link ("Read post →" if blogUrl exists)
-- Morty link ("Morty →" if mortyId exists)
-- Tinylytics kudos button (data-path="/room/{id}")
-- Notes (muted italic text, non-compact mode only)
+- Tinylytics kudos button (data-path="/room/{airtableId}")
 
 Options: `{ compact: boolean, featured: boolean }`
+
+### Filter Bar (filter-bar.njk)
+
+Shared filter controls included on list and map pages. Contains:
+- Search input (text, debounced in JS)
+- Tag, Year, Status, Country, Player dropdown selects (options server-rendered from filters data)
+- Clear All button (hidden when no filters active)
 
 ### Tag Rendering
 
@@ -185,24 +198,33 @@ Tags are visually categorized by `classifyTag()`:
 
 - **Hero:** Animated shimmer title "Escaping Things", keyhole motif, subtitle, breathing ambient light
 - **Stats row:** Server-rendered from `stats` data — total rooms, wins, win rate, regions, countries, years active
-- **Latest room:** Most recent completed room as featured card (server-rendered via room-card macro)
-- **Upcoming:** Conditional section showing planned rooms (hidden if none)
-- **Quick links:** Three themed cards (gold/teal/purple glow) linking to Rooms, Map, Stats
+- **Recent rooms:** Up to 6 most recent completed rooms as cards (server-rendered via room-card macro)
+- **Coming Up:** Conditional section showing scheduled rooms (hidden if none)
+- **Escape Trail:** Four themed cards with icons (key, puzzle, camera, lock) describing site sections
 
 ### List Page (list.njk)
 
-- **Filter bar:** Search input (debounced), Tag/Year/Country/Player dropdowns (server-rendered options), Status toggle, Win/Loss toggle, Clear All button
+- **Filter bar:** Search input (debounced), Tag/Year/Country/Player dropdowns (server-rendered options), Status toggle, Clear All button
 - **Active filter pills:** Dismissible pills showing current filters
 - **URL-driven:** All filters reflected in query params (`?tag=best&player=Tyler&year=2025`), applied on load, updated via replaceState
 - **Sort controls:** Date (default desc), Game, Company, City — click to toggle direction
-- **Results:** Count display ("Showing 12 of 86 rooms"), room cards in grid layout (client-rendered)
+- **Results:** Count display ("Showing 12 of 91 rooms"), room cards in grid layout (server-rendered, filtered/sorted client-side)
+- **Detail modal:** Click a card to open modal overlay with photo, full room details, blog/morty links, and copy permalink button
+
+### Scrapbook Page (scrapbook.njk)
+
+- **Photo scrapbook** of rooms that have photos
+- **Scattered layout** with random rotation, sizing, and offset (polaroid-on-table aesthetic)
+- **Controls:** Date sort (toggles newest/oldest) and Shuffle button
+- **Photo details:** Click a photo to expand and show room name, company, date, location, status, escape time, blog link
+- **"Best" rooms** highlighted with gold accent
 
 ### Map Page (map.njk)
 
 - **Full-viewport Leaflet map** with CartoDB Dark Matter tiles
-- **Custom SVG markers:** Green (win), red (loss), blue/dashed (planned), gold with star (best)
+- **Custom SVG markers:** Green (escaped), red (try again), gray (completed), blue/dashed (scheduled), gold with star (best)
 - **Marker clustering** via Leaflet.markercluster
-- **Popups:** Compact room info with game, company, date, location, status, tags, blog link
+- **Popups:** Compact room info with photo, game, company, date, location, status, tags, blog link, morty link
 - **Collapsible filter panel:** Search, Tag/Year/Country/Player dropdowns (server-rendered options), Status toggle
 - **URL-driven:** Same query param scheme as list page
 - **No footer** (full viewport layout)
@@ -211,11 +233,19 @@ Tags are visually categorized by `classifyTag()`:
 
 - **Summary stats row:** Server-rendered from `stats` data
 - **Charts (Chart.js, dark themed, client-rendered):**
-  1. Rooms per year — Stacked bar (wins/losses)
-  2. Monthly distribution — Bar chart (Jan–Dec aggregate)
-  3. Rooms by region/country — Horizontal bar, top 15
-  4. Top companies — Horizontal bar, top 10
-  5. Escape times — Scatter plot (room date vs. minutes), full-width
+  1. Escape times — Scatter plot (room date vs. minutes), full-width, shown first
+  2. Rooms per year — Stacked bar (escaped/try again/completed/scheduled)
+  3. Monthly distribution — Bar chart (Jan–Dec aggregate)
+  4. Rooms by state — Horizontal bar (US states only)
+  5. Rooms by country — Horizontal bar (all countries)
+  6. Top companies — Horizontal bar, top 10
+
+### Feed (feed.njk)
+
+- **Atom XML feed** at `/feed.xml`
+- Includes all non-Scheduled rooms in reverse chronological order
+- Each entry has room details as HTML content: status, company, date, location, escape time, players, tags, notes, blog/morty links, photo
+- Autodiscovery link in `<head>` of all pages
 
 ### 404 Page (404.njk)
 
@@ -227,8 +257,9 @@ Tags are visually categorized by `classifyTag()`:
 ## Analytics
 
 Tinylytics integration on all pages (loaded in base.njk):
-- **Embed script:** `https://tinylytics.app/embed/jDupbLUKfFyNMs5d5WjD.js?kudos&hits&countries`
-- **Kudos:** Per-room thumbs up on room cards via `data-path="/room/{id}"`
+- **Embed script:** `https://tinylytics.app/embed/jDupbLUKfFyNMs5d5WjD.js?kudos&hits&countries&events`
+- **Kudos:** Per-room thumbs up on room cards via `data-path="/room/{airtableId}"`
+- **Event tracking:** `data-tinylytics-event="category.action"` attributes on interactive elements. Categories match page names (nav, card, list, map, scrapbook, filter, 404). Optional `data-tinylytics-event-value` for context (company name, game name, sort field).
 - **Footer:** Visitor country flags (`tinylytics_countries`), hit counter (`tinylytics_hits`), copyright
 
 ## Server-Rendered vs Client-Rendered
@@ -236,11 +267,14 @@ Tinylytics integration on all pages (loaded in base.njk):
 | Feature | Rendered by |
 |---------|------------|
 | Stats rows (home, stats pages) | Server (11ty data) |
-| Latest room card (home) | Server (room-card macro) |
-| Planned room cards (home) | Server (room-card macro) |
+| Recent room cards (home) | Server (room-card macro) |
+| Scheduled room cards (home) | Server (room-card macro) |
+| Room cards on list page | Server (room-card macro, filtered/sorted client-side) |
+| Detail modal content (list) | Client (list.js) |
 | Filter dropdown options | Server (filters data) |
 | Sitemap | Server (11ty collections) |
-| Room cards on list page | Client (data.js) |
+| Atom feed | Server (11ty/Nunjucks) |
+| Scrapbook photos | Client (scrapbook.js) |
 | Map markers + popups | Client (map.js) |
 | Charts | Client (stats.js + Chart.js) |
 | Filtering/sorting/URL state | Client (list.js, map.js) |
@@ -251,8 +285,7 @@ Tinylytics integration on all pages (loaded in base.njk):
 
 Fetches `/data/rooms.json` once and caches it. Exports:
 - `loadRooms()`, `getRooms()`, `getCompletedRooms()`, `getPlannedRooms()`
-- `getAllTags()`, `getAllYears()`, `getAllCountries()`, `getAllPlayers()`
-- `filterRooms(filters)` — Takes `{q, tag, year, status, win, country, player}`, returns matching rooms
+- `filterRooms(filters)` — Takes `{q, tag, year, status, country, player}`, returns matching rooms
 - `parseEscapeTime(str)`, `escapeTimeMinutes(str)` — Parse "49m 5s" to seconds/minutes
 - `formatDate(dateStr)`, `formatLocation(location)`
 - `classifyTag(tag)`, `formatTagLabel(tag)`, `renderTag(tag)`

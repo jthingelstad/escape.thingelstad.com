@@ -643,7 +643,7 @@
         "lng": -93.265
       },
       "companyUrl": "https://breakoutgames.com/minneapolis/rooms/#roomCasino",
-      "blogUrl": "Jamie, Tammy, Hector, Michelle, Denny, Corinne, Max",
+      "blogUrl": "https://www.thingelstad.com/2019/01/21/tammys-sisters-and.html",
       "tags": [],
       "notes": "Olson Bros and Sisters",
       "players": [
@@ -2247,7 +2247,7 @@
         "lng": -93.324289
       },
       "companyUrl": "https://lockandkeyescape.com/",
-      "blogUrl": null,
+      "blogUrl": "https://www.thingelstad.com/2026/02/12/tyler-wanted-to-do-an.html",
       "tags": [
         "fun"
       ],
@@ -2256,7 +2256,8 @@
         "Jamie",
         "Tammy",
         "Tyler"
-      ]
+      ],
+      "photoUrl": "/images/rooms/excalibur.jpg"
     },
     {
       "id": 89,
@@ -2265,7 +2266,7 @@
       "company": "The Lodge of Lazarus Crowe",
       "date": "2026-02-22",
       "status": "Escaped",
-      "escapeTime": "65m 0s\n",
+      "escapeTime": "65m 0s",
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",

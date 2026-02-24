@@ -1,4 +1,4 @@
-import { getRooms, formatDate, formatLocation, initNav } from './data.js';
+import { getRooms, formatDate, formatLocation, initNav, statusBadgeHtml } from './data.js';
 
 function shuffle(arr) {
   const a = [...arr];
@@ -14,17 +14,7 @@ function randomBetween(min, max) {
 }
 
 function buildDetailHtml(room) {
-  let statusBadge = '';
-  switch (room.status) {
-    case 'Escaped':
-      statusBadge = '<span class="status-badge status-escaped">\u2713 Escaped</span>'; break;
-    case 'Try again':
-      statusBadge = '<span class="status-badge status-try-again">\u2717 Try Again</span>'; break;
-    case 'Completed':
-      statusBadge = '<span class="status-badge status-completed">\u2713 Completed</span>'; break;
-    case 'Scheduled':
-      statusBadge = '<span class="status-badge status-scheduled">Scheduled</span>'; break;
-  }
+  const statusBadge = statusBadgeHtml(room.status);
 
   const escapeTime = room.escapeTime
     ? `<div class="scrapbook-detail-time">\u23f1 ${room.escapeTime}</div>`

@@ -1,6 +1,6 @@
 import {
   getRooms, getFilterParams, setFilterParams,
-  initNav, formatDate, formatLocation, renderTag
+  initNav, formatDate, formatLocation, renderTag, statusBadgeHtml
 } from './data.js';
 
 let allRooms = [];
@@ -284,21 +284,6 @@ function bindEvents() {
   });
 }
 
-function statusBadgeHtml(status) {
-  switch (status) {
-    case 'Escaped':
-      return '<span class="status-badge status-escaped">\u2713 Escaped</span>';
-    case 'Try again':
-      return '<span class="status-badge status-try-again">\u2717 Try Again</span>';
-    case 'Completed':
-      return '<span class="status-badge status-completed">\u2713 Completed</span>';
-    case 'Scheduled':
-      return '<span class="status-badge status-scheduled">Scheduled</span>';
-    default:
-      return '';
-  }
-}
-
 function openModal(room) {
   const backdrop = document.getElementById('room-modal-backdrop');
   const body = document.getElementById('room-modal-body');
@@ -363,9 +348,13 @@ function openModal(room) {
 
   body.querySelector('.permalink-btn').addEventListener('click', (e) => {
     const url = e.currentTarget.dataset.permalink;
+    const btn = e.currentTarget;
     navigator.clipboard.writeText(url).then(() => {
-      e.currentTarget.textContent = 'Copied!';
-      setTimeout(() => { e.currentTarget.textContent = 'Copy link'; }, 1500);
+      btn.textContent = 'Copied!';
+      setTimeout(() => { btn.textContent = 'Copy link'; }, 1500);
+    }).catch(() => {
+      btn.textContent = 'Failed';
+      setTimeout(() => { btn.textContent = 'Copy link'; }, 1500);
     });
   });
 

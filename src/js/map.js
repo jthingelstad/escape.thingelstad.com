@@ -1,6 +1,6 @@
 import {
   filterRooms, formatDate, formatLocation, renderTag,
-  getFilterParams, setFilterParams, initNav
+  getFilterParams, setFilterParams, initNav, statusBadgeHtml
 } from './data.js';
 
 let map;
@@ -68,21 +68,6 @@ function createMarkerIcon(room) {
   });
 }
 
-function statusBadgeHtml(status) {
-  switch (status) {
-    case 'Escaped':
-      return '<span class="status-badge status-escaped">\u2713 Escaped</span>';
-    case 'Try again':
-      return '<span class="status-badge status-try-again">\u2717 Try Again</span>';
-    case 'Completed':
-      return '<span class="status-badge status-completed">\u2713 Completed</span>';
-    case 'Scheduled':
-      return '<span class="status-badge status-scheduled">Scheduled</span>';
-    default:
-      return '';
-  }
-}
-
 function buildPopup(room) {
   const statusHtml = statusBadgeHtml(room.status);
 
@@ -91,7 +76,7 @@ function buildPopup(room) {
   const dateStr = formatDate(room.date);
 
   const photoHtml = room.photoUrl
-    ? `<div class="popup-photo"><img src="${room.photoUrl}" alt=""></div>`
+    ? `<div class="popup-photo"><img src="${room.photoUrl}" alt="${room.game} at ${room.company}"></div>`
     : '';
 
   const blogHtml = room.blogUrl
@@ -191,7 +176,8 @@ function bindEvents() {
   });
 
   ['filter-tag', 'filter-year', 'filter-status', 'filter-country', 'filter-player'].forEach(id => {
-    document.getElementById(id).addEventListener('change', updateMarkers);
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('change', updateMarkers);
   });
 
   document.getElementById('clear-filters').addEventListener('click', () => {
