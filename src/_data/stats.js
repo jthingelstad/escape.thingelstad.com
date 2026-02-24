@@ -1,5 +1,15 @@
 const rooms = require('./rooms.json');
 
+function escapeTimeMinutes(str) {
+  if (!str) return null;
+  let totalSeconds = 0;
+  const minMatch = str.match(/(\d+)m/);
+  const secMatch = str.match(/(\d+)s/);
+  if (minMatch) totalSeconds += parseInt(minMatch[1]) * 60;
+  if (secMatch) totalSeconds += parseInt(secMatch[1]);
+  return totalSeconds / 60;
+}
+
 module.exports = function() {
   const allRooms = rooms.rooms;
   const played = allRooms.filter(r => r.status === 'Escaped' || r.status === 'Try again' || r.status === 'Completed');
@@ -28,6 +38,83 @@ module.exports = function() {
   const decidedCount = wins + tryAgain.length;
   const winRate = decidedCount > 0 ? Math.round((wins / decidedCount) * 100) : 0;
 
+  // Pre-compute chart datasets for the stats page
+
+  // Rooms per year (stacked bar: escaped, tryAgain, completed, scheduled)
+  const yearData = {};
+  allRooms.forEach(r => {
+    const year = r.date.substring(0, 4);
+    if (!yearData[year]) yearData[year] = { escaped: 0, tryAgain: 0, completed: 0, scheduled: 0 };
+    switch (r.status) {
+      case 'Escaped': yearData[year].escaped++; break;
+      case 'Try again': yearData[year].tryAgain++; break;
+      case 'Completed': yearData[year].completed++; break;
+      case 'Scheduled': yearData[year].scheduled++; break;
+    }
+  });
+  const sortedYears = Object.keys(yearData).sort();
+  const chartRoomsPerYear = {
+    labels: sortedYears,
+    escaped: sortedYears.map(y => yearData[y].escaped),
+    tryAgain: sortedYears.map(y => yearData[y].tryAgain),
+    completed: sortedYears.map(y => yearData[y].completed),
+    scheduled: sortedYears.map(y => yearData[y].scheduled)
+  };
+
+  // Monthly distribution (Jan-Dec aggregate, played rooms only)
+  const months = Array(12).fill(0);
+  played.forEach(r => {
+    if (r.date) {
+      const month = parseInt(r.date.substring(5, 7)) - 1;
+      months[month]++;
+    }
+  });
+  const chartMonthly = months;
+
+  // Rooms by state (US only, sorted desc)
+  const states = {};
+  played.forEach(r => {
+    if (r.location && r.location.country === 'United States' && r.location.region) {
+      states[r.location.region] = (states[r.location.region] || 0) + 1;
+    }
+  });
+  const chartStates = Object.entries(states)
+    .sort((a, b) => b[1] - a[1])
+    .map(([label, count]) => ({ label, count }));
+
+  // Rooms by country (sorted desc)
+  const countryCounts = {};
+  played.forEach(r => {
+    if (r.location && r.location.country) {
+      countryCounts[r.location.country] = (countryCounts[r.location.country] || 0) + 1;
+    }
+  });
+  const chartCountries = Object.entries(countryCounts)
+    .sort((a, b) => b[1] - a[1])
+    .map(([label, count]) => ({ label, count }));
+
+  // Top companies (top 10, sorted desc)
+  const companyCounts = {};
+  played.forEach(r => {
+    if (r.company) {
+      companyCounts[r.company] = (companyCounts[r.company] || 0) + 1;
+    }
+  });
+  const chartCompanies = Object.entries(companyCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([label, count]) => ({ label, count }));
+
+  // Escape times scatter data (sorted by date)
+  const chartEscapeTimes = played
+    .filter(r => r.escapeTime)
+    .sort((a, b) => a.date.localeCompare(b.date))
+    .map(r => ({
+      x: r.date,
+      y: parseFloat(escapeTimeMinutes(r.escapeTime).toFixed(2)),
+      label: `#${r.id} ${r.game}`
+    }));
+
   return {
     totalRooms: played.length,
     totalWins: wins,
@@ -40,6 +127,14 @@ module.exports = function() {
     lastYear: years[years.length - 1],
     latestCompleted,
     recentCompleted,
-    planned
+    planned,
+    charts: {
+      roomsPerYear: chartRoomsPerYear,
+      monthly: chartMonthly,
+      states: chartStates,
+      countries: chartCountries,
+      companies: chartCompanies,
+      escapeTimes: chartEscapeTimes
+    }
   };
 };
