@@ -14,13 +14,17 @@ function randomBetween(min, max) {
 }
 
 function buildDetailHtml(room) {
-  const statusBadge = room.status === 'planned'
-    ? '<span class="status-badge status-planned">Planned</span>'
-    : room.win === true
-      ? '<span class="status-badge status-win">\u2713 Escaped</span>'
-      : room.win === false
-        ? '<span class="status-badge status-loss">\u2717 Locked Out</span>'
-        : '';
+  let statusBadge = '';
+  switch (room.status) {
+    case 'Escaped':
+      statusBadge = '<span class="status-badge status-escaped">\u2713 Escaped</span>'; break;
+    case 'Try again':
+      statusBadge = '<span class="status-badge status-try-again">\u2717 Try Again</span>'; break;
+    case 'Completed':
+      statusBadge = '<span class="status-badge status-completed">\u2713 Completed</span>'; break;
+    case 'Scheduled':
+      statusBadge = '<span class="status-badge status-scheduled">Scheduled</span>'; break;
+  }
 
   const escapeTime = room.escapeTime
     ? `<div class="scrapbook-detail-time">\u23f1 ${room.escapeTime}</div>`
@@ -80,7 +84,7 @@ function renderPhotos(rooms, table, animate) {
     if (animate) el.style.setProperty('--delay', delay + 'ms');
 
     const img = document.createElement('img');
-    img.src = `/images/rooms/${room.id}.jpg`;
+    img.src = room.photoUrl;
     img.alt = `${room.game} at ${room.company}`;
     img.loading = 'lazy';
 

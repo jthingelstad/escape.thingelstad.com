@@ -572,19 +572,24 @@ section {
   text-transform: uppercase;
 }
 
-.status-win {
+.status-escaped {
   background: var(--accent-green-dim);
   color: var(--accent-green);
   box-shadow: 0 0 12px rgba(72, 217, 137, 0.1);
 }
 
-.status-loss {
+.status-try-again {
   background: var(--accent-red-dim);
   color: var(--accent-red);
   box-shadow: 0 0 12px rgba(240, 96, 96, 0.1);
 }
 
-.status-planned {
+.status-completed {
+  background: rgba(154, 151, 168, 0.1);
+  color: #9a97a8;
+}
+
+.status-scheduled {
   background: var(--accent-blue-dim);
   color: var(--accent-blue);
 }
@@ -774,8 +779,29 @@ section {
 
 .room-modal-links {
   display: flex;
+  align-items: center;
   gap: 1rem;
   padding-top: 0.5rem;
+}
+
+.permalink-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.25rem 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.permalink-btn:hover {
+  border-color: var(--accent-teal);
+  color: var(--accent-teal);
+  background: var(--accent-teal-dim);
 }
 
 /* Make room cards look clickable */

@@ -34,16 +34,19 @@ function initMap() {
 }
 
 function getMarkerColor(room) {
-  if (room.status === 'planned') return '#60a5fa';
   if ((room.tags || []).includes('best')) return '#e6b84f';
-  if (room.win === true) return '#48d989';
-  if (room.win === false) return '#f06060';
-  return '#9a97a8';
+  switch (room.status) {
+    case 'Escaped': return '#48d989';
+    case 'Try again': return '#f06060';
+    case 'Completed': return '#9a97a8';
+    case 'Scheduled': return '#60a5fa';
+    default: return '#9a97a8';
+  }
 }
 
 function createMarkerIcon(room) {
   const color = getMarkerColor(room);
-  const isPlanned = room.status === 'planned';
+  const isPlanned = room.status === 'Scheduled';
   const isBest = (room.tags || []).includes('best');
 
   const svg = `
@@ -65,21 +68,30 @@ function createMarkerIcon(room) {
   });
 }
 
+function statusBadgeHtml(status) {
+  switch (status) {
+    case 'Escaped':
+      return '<span class="status-badge status-escaped">\u2713 Escaped</span>';
+    case 'Try again':
+      return '<span class="status-badge status-try-again">\u2717 Try Again</span>';
+    case 'Completed':
+      return '<span class="status-badge status-completed">\u2713 Completed</span>';
+    case 'Scheduled':
+      return '<span class="status-badge status-scheduled">Scheduled</span>';
+    default:
+      return '';
+  }
+}
+
 function buildPopup(room) {
-  const statusHtml = room.status === 'planned'
-    ? '<span class="status-badge status-planned">Planned</span>'
-    : room.win === true
-      ? '<span class="status-badge status-win">\u2713 Escaped</span>'
-      : room.win === false
-        ? '<span class="status-badge status-loss">\u2717 Locked Out</span>'
-        : '';
+  const statusHtml = statusBadgeHtml(room.status);
 
   const tagsHtml = (room.tags || []).map(renderTag).join('');
   const locationStr = formatLocation(room.location);
   const dateStr = formatDate(room.date);
 
   const photoHtml = room.photoUrl
-    ? `<div class="popup-photo"><img src="/images/rooms/${room.id}.jpg" alt=""></div>`
+    ? `<div class="popup-photo"><img src="${room.photoUrl}" alt=""></div>`
     : '';
 
   const blogHtml = room.blogUrl

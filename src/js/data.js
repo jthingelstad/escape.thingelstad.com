@@ -14,12 +14,12 @@ export async function getRooms() {
 
 export async function getCompletedRooms() {
   const rooms = await loadRooms();
-  return rooms.filter(r => r.status === 'completed');
+  return rooms.filter(r => r.status !== 'Scheduled');
 }
 
 export async function getPlannedRooms() {
   const rooms = await loadRooms();
-  return rooms.filter(r => r.status === 'planned');
+  return rooms.filter(r => r.status === 'Scheduled');
 }
 
 export async function filterRooms(filters = {}) {
@@ -48,11 +48,6 @@ export async function filterRooms(filters = {}) {
 
     if (filters.status && filters.status !== 'all') {
       if (room.status !== filters.status) return false;
-    }
-
-    if (filters.win && filters.win !== 'all') {
-      if (filters.win === 'wins' && room.win !== true) return false;
-      if (filters.win === 'losses' && room.win !== false) return false;
     }
 
     if (filters.country) {
@@ -131,16 +126,25 @@ export function renderTag(tag) {
   return `<span class="tag tag-${type}" data-tag="${tag}">${label}</span>`;
 }
 
+function statusBadgeHtml(status) {
+  switch (status) {
+    case 'Escaped':
+      return '<span class="status-badge status-escaped">\u2713 Escaped</span>';
+    case 'Try again':
+      return '<span class="status-badge status-try-again">\u2717 Try Again</span>';
+    case 'Completed':
+      return '<span class="status-badge status-completed">\u2713 Completed</span>';
+    case 'Scheduled':
+      return '<span class="status-badge status-scheduled">Scheduled</span>';
+    default:
+      return '';
+  }
+}
+
 export function renderRoomCard(room, options = {}) {
   const { compact = false, featured = false } = options;
 
-  const statusBadge = room.status === 'planned'
-    ? '<span class="status-badge status-planned">Planned</span>'
-    : room.win === true
-      ? '<span class="status-badge status-win">\u2713 Escaped</span>'
-      : room.win === false
-        ? '<span class="status-badge status-loss">\u2717 Locked Out</span>'
-        : '';
+  const statusBadge = statusBadgeHtml(room.status);
 
   const companyHtml = room.companyUrl
     ? `<span class="company"><a href="${room.companyUrl}" target="_blank" rel="noopener">${room.company}</a></span>`
@@ -171,7 +175,7 @@ export function renderRoomCard(room, options = {}) {
     : '';
 
   return `
-    <div class="room-card${featured ? ' featured' : ''}" data-id="${room.id}">
+    <div class="room-card${featured ? ' featured' : ''}" id="${room.airtableId}" data-id="${room.id}">
       <div class="room-card-header">
         <div class="room-card-title">
           <span class="room-number">#${room.id}</span>
@@ -190,7 +194,7 @@ export function renderRoomCard(room, options = {}) {
       <div class="room-card-footer">
         ${blogHtml}
         ${mortyHtml}
-        <button class="tinylytics_kudos room-kudos" data-path="/room/${room.id}"></button>
+        <button class="tinylytics_kudos room-kudos" data-path="/room/${room.airtableId}"></button>
       </div>
       ${notesHtml}
     </div>
@@ -205,7 +209,6 @@ export function getFilterParams() {
     tag: params.get('tag') || '',
     year: params.get('year') || '',
     status: params.get('status') || 'all',
-    win: params.get('win') || 'all',
     country: params.get('country') || '',
     player: params.get('player') || ''
   };
@@ -217,7 +220,6 @@ export function setFilterParams(filters) {
   if (filters.tag) params.set('tag', filters.tag);
   if (filters.year) params.set('year', filters.year);
   if (filters.status && filters.status !== 'all') params.set('status', filters.status);
-  if (filters.win && filters.win !== 'all') params.set('win', filters.win);
   if (filters.country) params.set('country', filters.country);
   if (filters.player) params.set('player', filters.player);
   const search = params.toString();

@@ -2,16 +2,16 @@
   "rooms": [
     {
       "id": 1,
+      "airtableId": "rech7wyLHVLWdjYWU",
       "game": "The Library",
       "company": "Trapped Puzzle Rooms",
       "date": "2016-07-11",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9778,
         "lng": -93.265
       },
@@ -27,16 +27,16 @@
     },
     {
       "id": 2,
+      "airtableId": "recbvP2IVDLhhaEdc",
       "game": "The Maine Room",
       "company": "Maine Escape Games",
       "date": "2016-07-29",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Portland",
         "region": "Maine",
-        "country": "US",
+        "country": "United States",
         "lat": 43.6591,
         "lng": -70.2568
       },
@@ -53,16 +53,16 @@
     },
     {
       "id": 3,
+      "airtableId": "recWL7yk55j3P78y0",
       "game": "Dupree’s Office",
       "company": "Escape MSP",
       "date": "2016-08-24",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9778,
         "lng": -93.265
       },
@@ -70,21 +70,25 @@
       "blogUrl": null,
       "tags": [],
       "notes": "First room with Mazie",
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie"
+      ],
       "mortyId": 11677
     },
     {
       "id": 4,
+      "airtableId": "recQKGd7Lsx2KTR9C",
       "game": "The Bunker",
       "company": "Fox in the Box",
       "date": "2016-10-02",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Chicago",
         "region": "Illinois",
-        "country": "US",
+        "country": "United States",
         "lat": 41.8781,
         "lng": -87.6298
       },
@@ -92,21 +96,26 @@
       "blogUrl": null,
       "tags": [],
       "notes": "First room with Tyler",
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 8254
     },
     {
       "id": 5,
+      "airtableId": "rec6nkJuIG1mHtCQz",
       "game": "James Bond",
       "company": "Escape the Room",
       "date": "2016-12-22",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9778,
         "lng": -93.265
       },
@@ -114,21 +123,30 @@
       "blogUrl": null,
       "tags": [],
       "notes": "With Olson Family Adults",
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Michelle",
+        "Hector",
+        "Max",
+        "Angie",
+        "Corinne",
+        "Denny"
+      ],
       "mortyId": 2542
     },
     {
       "id": 6,
+      "airtableId": "receB5xQLCkwwVbjp",
       "game": "The Zen Room",
       "company": "Clue Pursuit",
       "date": "2016-12-31",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Springfield",
         "region": "Missouri",
-        "country": "US",
+        "country": "United States",
         "lat": 37.209,
         "lng": -93.2923
       },
@@ -145,16 +163,16 @@
     },
     {
       "id": 7,
+      "airtableId": "recVC9OC2Qkoksrk2",
       "game": "Ivan’s Will",
       "company": "Kato Escape",
       "date": "2017-01-15",
-      "status": "completed",
-      "win": false,
+      "status": "Completed",
       "escapeTime": null,
       "location": {
         "city": "Mankato",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.1636,
         "lng": -93.9994
       },
@@ -162,25 +180,24 @@
       "blogUrl": null,
       "tags": [],
       "notes": "With the Keatings",
-      "players": [],
-      "mortyId": null
+      "players": []
     },
     {
       "id": 8,
+      "airtableId": "rec6wiScpcV9B0SQ5",
       "game": "Mad Tea Party",
       "company": "Zero Hour Escape Rooms",
       "date": "2017-06-04",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9537,
         "lng": -93.09
       },
-      "companyUrl": null,
+      "companyUrl": "https://minneapolis.zerohourescaperooms.com/",
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -194,16 +211,16 @@
     },
     {
       "id": 9,
+      "airtableId": "reccays4vMSxg671z",
       "game": "Barber Shop",
       "company": "Grand Haven Room Escape",
       "date": "2017-06-29",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "57m 10s",
       "location": {
         "city": "Grand Haven",
         "region": "Michigan",
-        "country": "US",
+        "country": "United States",
         "lat": 43.0631,
         "lng": -86.2284
       },
@@ -211,22 +228,27 @@
       "blogUrl": "https://www.thingelstad.com/2017/06/29/180623.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 4453,
       "photoUrl": "/images/rooms/9.jpg"
     },
     {
       "id": 10,
+      "airtableId": "recMyGzjBP3QeNiOx",
       "game": "The Oval-ish Office",
       "company": "Red Herring Escape Room",
       "date": "2017-08-20",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "St. Louis",
         "region": "Missouri",
-        "country": "US",
+        "country": "United States",
         "lat": 38.627,
         "lng": -90.1994
       },
@@ -239,16 +261,16 @@
     },
     {
       "id": 11,
+      "airtableId": "recZCQLiIYJrNwOjB",
       "game": "A Very Potter Escape Room",
       "company": "Trapped Puzzle Rooms",
       "date": "2017-12-10",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "54m 0s",
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9537,
         "lng": -93.09
       },
@@ -261,16 +283,16 @@
     },
     {
       "id": 12,
+      "airtableId": "recCmnzgi38Nv4xys",
       "game": "The Circus",
       "company": "D.O.A. Escape Rooms",
       "date": "2018-04-01",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Wisconsin Dells",
         "region": "Wisconsin",
-        "country": "US",
+        "country": "United States",
         "lat": 43.6275,
         "lng": -89.771
       },
@@ -278,22 +300,27 @@
       "blogUrl": "https://www.thingelstad.com/2018/04/01/we-won-the.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 5032,
       "photoUrl": "/images/rooms/12.jpg"
     },
     {
       "id": 13,
+      "airtableId": "recCNb95D8eKwn8rg",
       "game": "Gold Rush",
       "company": "The Escape Game",
       "date": "2018-04-05",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Chicago",
         "region": "Illinois",
-        "country": "US",
+        "country": "United States",
         "lat": 41.8781,
         "lng": -87.6298
       },
@@ -306,39 +333,44 @@
     },
     {
       "id": 14,
+      "airtableId": "recnC0R8y2alGjaPi",
       "game": "Enchanted Forest",
       "company": "Zero Hour Escape Rooms",
       "date": "2018-05-05",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Duluth",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 46.7867,
         "lng": -92.1005
       },
-      "companyUrl": null,
+      "companyUrl": "https://minneapolis.zerohourescaperooms.com/",
       "blogUrl": "https://www.thingelstad.com/2018/05/05/we-escaped-from.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 40416,
       "photoUrl": "/images/rooms/14.jpg"
     },
     {
       "id": 15,
+      "airtableId": "rec11KrDEOtShXQmd",
       "game": "Mission: Mars",
       "company": "The Escape Game",
       "date": "2018-05-20",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Chicago",
         "region": "Illinois",
-        "country": "US",
+        "country": "United States",
         "lat": 41.8781,
         "lng": -87.6298
       },
@@ -354,16 +386,16 @@
     },
     {
       "id": 16,
+      "airtableId": "recbjX9nFMA7a69q8",
       "game": "The Search for Atlantis",
       "company": "Escape Frenzy",
       "date": "2018-06-25",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Edina",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.8897,
         "lng": -93.3499
       },
@@ -371,22 +403,26 @@
       "blogUrl": "https://www.thingelstad.com/2018/06/25/013826.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie"
+      ],
       "mortyId": 1014,
       "photoUrl": "/images/rooms/16.jpg"
     },
     {
       "id": 17,
+      "airtableId": "rec3gQgHTUWkT9AMu",
       "game": "Ruin Raiders",
       "company": "Missing Pieces Escape Games",
       "date": "2018-07-27",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Edina",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.862888,
         "lng": -93.356817
       },
@@ -394,22 +430,25 @@
       "blogUrl": "https://www.thingelstad.com/2018/07/27/041311.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy"
+      ],
       "mortyId": 4593,
       "photoUrl": "/images/rooms/17.jpg"
     },
     {
       "id": 18,
+      "airtableId": "rec8iYdn3TMfqa4kd",
       "game": "The Wall",
       "company": "Enigma Escape Rooms",
       "date": "2018-08-12",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "57m 53s",
       "location": {
         "city": "Buffalo",
         "region": "New York",
-        "country": "US",
+        "country": "United States",
         "lat": 42.8864,
         "lng": -78.8784
       },
@@ -417,22 +456,26 @@
       "blogUrl": "https://www.thingelstad.com/2018/08/12/we-finished-our.html",
       "tags": [],
       "notes": null,
-      "players": [],
-      "mortyId": null,
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "photoUrl": "/images/rooms/18.jpg"
     },
     {
       "id": 19,
+      "airtableId": "recQA2tgPPSuRoUHm",
       "game": "It’s All Fun & Games",
       "company": "Trapped Puzzle Rooms",
       "date": "2018-09-09",
-      "status": "completed",
-      "win": false,
+      "status": "Completed",
       "escapeTime": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9778,
         "lng": -93.265
       },
@@ -440,22 +483,27 @@
       "blogUrl": "https://www.thingelstad.com/2018/09/09/it-took-us.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 2255,
       "photoUrl": "/images/rooms/19.jpg"
     },
     {
       "id": 20,
+      "airtableId": "reckDpDvipCNPk5Fb",
       "game": "Final Frontier",
       "company": "Missing Pieces Escape Games",
       "date": "2018-11-24",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Edina",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.862888,
         "lng": -93.356817
       },
@@ -463,22 +511,27 @@
       "blogUrl": "https://www.thingelstad.com/2018/11/24/we-tried-the.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 1470,
       "photoUrl": "/images/rooms/20.jpg"
     },
     {
       "id": 21,
+      "airtableId": "recrJUAmF8FRns741",
       "game": "Spies vs. Spies",
       "company": "Trapped Puzzle Rooms",
       "date": "2018-12-05",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9537,
         "lng": -93.09
       },
@@ -491,16 +544,16 @@
     },
     {
       "id": 22,
+      "airtableId": "recZU96048MwIP7nv",
       "game": "Spies vs. Spies",
       "company": "Trapped Puzzle Rooms",
       "date": "2018-12-20",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9537,
         "lng": -93.09
       },
@@ -508,45 +561,24 @@
       "blogUrl": "https://www.thingelstad.com/2018/12/19/had-a-great.html",
       "tags": [],
       "notes": "SPS Team Event!",
-      "players": [],
+      "players": [
+        "Jamie"
+      ],
       "mortyId": 45488,
       "photoUrl": "/images/rooms/22.jpg"
     },
     {
       "id": 23,
-      "game": "Final Frontier",
-      "company": "Missing Pieces Escape Games",
-      "date": "2019-01-06",
-      "status": "completed",
-      "win": true,
-      "escapeTime": null,
-      "location": {
-        "city": "Edina",
-        "region": "Minnesota",
-        "country": "US",
-        "lat": 44.862888,
-        "lng": -93.356817
-      },
-      "companyUrl": "https://www.missingpiecesmn.com/",
-      "blogUrl": "https://www.thingelstad.com/2019/01/06/we-went-back.html",
-      "tags": [],
-      "notes": "Redo of Escape Room, jamie birthday",
-      "players": [],
-      "mortyId": 1470,
-      "photoUrl": "/images/rooms/23.jpg"
-    },
-    {
-      "id": 24,
+      "airtableId": "recpH0Ffa50kg6PyJ",
       "game": "Diagonal Alley",
       "company": "Trapped Puzzle Rooms",
       "date": "2019-01-05",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9778,
         "lng": -93.265
       },
@@ -554,45 +586,91 @@
       "blogUrl": "https://www.thingelstad.com/2019/01/06/family-friends-joined.html",
       "tags": [],
       "notes": "With Thiegs!",
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler",
+        "Lisa",
+        "Joe",
+        "Ellie",
+        "Samantha"
+      ],
       "mortyId": 3409,
       "photoUrl": "/images/rooms/24.jpg"
     },
     {
+      "id": 24,
+      "airtableId": "recc91InhowyqKUUH",
+      "game": "Final Frontier",
+      "company": "Missing Pieces Escape Games",
+      "date": "2019-01-06",
+      "status": "Escaped",
+      "escapeTime": null,
+      "location": {
+        "city": "Edina",
+        "region": "Minnesota",
+        "country": "United States",
+        "lat": 44.862888,
+        "lng": -93.356817
+      },
+      "companyUrl": "https://www.missingpiecesmn.com/",
+      "blogUrl": "https://www.thingelstad.com/2019/01/06/we-went-back.html",
+      "tags": [],
+      "notes": "Redo of Escape Room, jamie birthday",
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
+      "mortyId": 1470,
+      "photoUrl": "/images/rooms/23.jpg"
+    },
+    {
       "id": 25,
+      "airtableId": "recaaEELzDiEg95sS",
       "game": "Operation: Casino",
       "company": "Breakout Games",
       "date": "2019-01-19",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "45m 0s",
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9778,
         "lng": -93.265
       },
       "companyUrl": "https://breakoutgames.com/minneapolis/rooms/#roomCasino",
-      "blogUrl": "https://www.thingelstad.com/2019/01/21/tammys-sisters-and.html",
+      "blogUrl": "Jamie, Tammy, Hector, Michelle, Denny, Corinne, Max",
       "tags": [],
       "notes": "Olson Bros and Sisters",
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Hector",
+        "Michelle",
+        "Denny",
+        "Corinne",
+        "Max",
+        "Angie"
+      ],
       "mortyId": 2443,
       "photoUrl": "/images/rooms/25.jpg"
     },
     {
       "id": 26,
+      "airtableId": "recsB9j2WPez5QFs1",
       "game": "Quest for the Amulet at Windmere Castle",
       "company": "Escape MSP",
       "date": "2019-02-16",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Lakeville",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.6497,
         "lng": -93.2427
       },
@@ -600,22 +678,26 @@
       "blogUrl": "https://www.thingelstad.com/2019/02/16/we-played-quest.html",
       "tags": [],
       "notes": "Score 412.5",
-      "players": [],
-      "mortyId": null,
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "photoUrl": "/images/rooms/26.jpg"
     },
     {
       "id": 27,
+      "airtableId": "recpbtnWYPX2KDFzz",
       "game": "Video Game Mayhem",
       "company": "Trapped Puzzle Rooms",
       "date": "2019-04-27",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "53m 0s",
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9537,
         "lng": -93.09
       },
@@ -623,22 +705,27 @@
       "blogUrl": "https://www.thingelstad.com/2019/04/26/we-had-a.html",
       "tags": [],
       "notes": "Beta testing new room!",
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 10174,
       "photoUrl": "/images/rooms/27.jpg"
     },
     {
       "id": 28,
+      "airtableId": "recMqhVYX7BU87Uda",
       "game": "The Toy Maker’s Shop",
       "company": "Escape Artists KC",
       "date": "2019-07-22",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Kansas City",
         "region": "Missouri",
-        "country": "US",
+        "country": "United States",
         "lat": 39.0997,
         "lng": -94.5786
       },
@@ -652,16 +739,16 @@
     },
     {
       "id": 29,
+      "airtableId": "recM2tOvoeH29vOJD",
       "game": "Beasley’s Billions",
       "company": "Tick Tock Escape Games",
       "date": "2019-07-23",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Kansas City",
         "region": "Missouri",
-        "country": "US",
+        "country": "United States",
         "lat": 39.0997,
         "lng": -94.5786
       },
@@ -674,20 +761,20 @@
     },
     {
       "id": 30,
+      "airtableId": "recZ5nE5Ikw5nEwaS",
       "game": "Nutcracker Nightmare",
       "company": "Trapped Puzzle Rooms",
       "date": "2019-12-07",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9537,
         "lng": -93.09
       },
-      "companyUrl": null,
+      "companyUrl": "https://www.trappedpuzzlerooms.com/",
       "blogUrl": "https://www.thingelstad.com/2019/12/07/we-had-a.html",
       "tags": [],
       "notes": "Holiday room?",
@@ -697,20 +784,20 @@
     },
     {
       "id": 31,
+      "airtableId": "rectzVjblsWMr1PaH",
       "game": "The Vault",
       "company": "Puzzleworks",
       "date": "2020-01-05",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9778,
         "lng": -93.265
       },
-      "companyUrl": "https://www.puzzleworksmn.com/",
+      "companyUrl": "https://www.puzzle.works/",
       "blogUrl": "https://www.thingelstad.com/2020/01/05/we-had-a.html",
       "tags": [],
       "notes": "Did not complete.",
@@ -720,16 +807,13 @@
     },
     {
       "id": 32,
+      "airtableId": "recBHwx3kobncX31m",
       "game": "???",
       "company": "Trapped Puzzle Rooms",
       "date": "2020-04-26",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
-        "city": null,
-        "region": null,
-        "country": null,
         "lat": null,
         "lng": null
       },
@@ -739,21 +823,20 @@
         "online"
       ],
       "notes": null,
-      "players": [],
-      "mortyId": null
+      "players": []
     },
     {
       "id": 33,
+      "airtableId": "recPpP1IJnINvcKqw",
       "game": "Titanic Room",
       "company": "Escape Room Palm Springs",
       "date": "2021-02-14",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "44m 29s",
       "location": {
         "city": "Palm Springs",
         "region": "California",
-        "country": "US",
+        "country": "United States",
         "lat": 33.8303,
         "lng": -116.5453
       },
@@ -767,16 +850,16 @@
     },
     {
       "id": 34,
+      "airtableId": "recsgfeSuqNloH6yx",
       "game": "Evil Robot",
       "company": "Nemesis Club",
       "date": "2021-03-11",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "59m 29s",
       "location": {
         "city": "Phoenix",
         "region": "Arizona",
-        "country": "US",
+        "country": "United States",
         "lat": 33.4484,
         "lng": -112.074
       },
@@ -790,16 +873,16 @@
     },
     {
       "id": 35,
+      "airtableId": "rec6nQYyyh3IBDkna",
       "game": "Mona Lisa",
       "company": "Greatest Caper",
       "date": "2021-08-08",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "56m 16s",
       "location": {
         "city": "Montpelier",
         "region": "Maine",
-        "country": "US",
+        "country": "United States",
         "lat": 44.2601,
         "lng": -69.817
       },
@@ -813,16 +896,16 @@
     },
     {
       "id": 36,
+      "airtableId": "rec4AVbw39ODbAAaO",
       "game": "Rock’n the 50s",
       "company": "Itasca Historical Society",
       "date": "2021-08-21",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "40m 0s",
       "location": {
         "city": "Grand Rapids",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 47.2372,
         "lng": -93.5302
       },
@@ -831,21 +914,20 @@
       "tags": [],
       "notes": "Keatings",
       "players": [],
-      "mortyId": null,
       "photoUrl": "/images/rooms/36.jpg"
     },
     {
       "id": 37,
+      "airtableId": "recacVI8oAeyrT0pf",
       "game": "Alice’s White Rabbit Rescue",
       "company": "Twisted Room Escapes",
       "date": "2021-10-22",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "56m 40s",
       "location": {
         "city": "Indianapolis",
         "region": "Indiana",
-        "country": "US",
+        "country": "United States",
         "lat": 39.7684,
         "lng": -86.1581
       },
@@ -859,16 +941,16 @@
     },
     {
       "id": 38,
+      "airtableId": "recFOFdIh363Jv4Df",
       "game": "Robot Rampage",
       "company": "Trapped Puzzle Rooms",
       "date": "2022-01-04",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "59m 36s",
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9537,
         "lng": -93.09
       },
@@ -882,16 +964,16 @@
     },
     {
       "id": 39,
+      "airtableId": "recaAQdDD0iC8eYXB",
       "game": "Video Game Mayhem",
       "company": "Trapped Puzzle Rooms",
       "date": "2022-02-12",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "56m 59s",
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9537,
         "lng": -93.09
       },
@@ -905,16 +987,16 @@
     },
     {
       "id": 40,
+      "airtableId": "recJTZD3ecUiUdbwh",
       "game": "Grandpa’s Workshop",
       "company": "Itasca Historical Society",
       "date": "2022-02-26",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Grand Rapids",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 47.2372,
         "lng": -93.5302
       },
@@ -922,25 +1004,24 @@
       "blogUrl": null,
       "tags": [],
       "notes": "Keatings",
-      "players": [],
-      "mortyId": null
+      "players": []
     },
     {
       "id": 41,
+      "airtableId": "recVmPGqIoglZADoy",
       "game": "Timeliner: Train Through Time",
-      "company": "Escape Game",
+      "company": "The Escape Game",
       "date": "2022-03-21",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Nashville",
         "region": "Tennessee",
-        "country": "US",
+        "country": "United States",
         "lat": 36.1627,
         "lng": -86.7816
       },
-      "companyUrl": "https://theescapegame.com/nashville/escape-rooms/timeliner/",
+      "companyUrl": "https://theescapegame.com/nashville/escape-rooms/ruins/",
       "blogUrl": "https://www.thingelstad.com/2022/03/21/escape-game-timeliner.html",
       "tags": [],
       "notes": null,
@@ -949,16 +1030,41 @@
     },
     {
       "id": 42,
-      "game": "Pursuit of Steam",
-      "company": "Cryptex Branson Escape Rooms",
+      "airtableId": "recLWPaDtnmiVlUaZ",
+      "game": "Journey Through Elek’s Hollow",
+      "company": "Escape Code",
       "date": "2022-06-06",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Branson",
         "region": "Missouri",
-        "country": "US",
+        "country": "United States",
+        "lat": 36.6437,
+        "lng": -93.2185
+      },
+      "companyUrl": "https://www.escapecode.tv/",
+      "blogUrl": null,
+      "tags": [],
+      "notes": "Golden Birthday Trip",
+      "players": [
+        "Tammy",
+        "Tyler"
+      ],
+      "mortyId": 7106
+    },
+    {
+      "id": 43,
+      "airtableId": "rectPKJYjIk3haDDU",
+      "game": "Pursuit of Steam",
+      "company": "Cryptex Branson Escape Rooms",
+      "date": "2022-06-06",
+      "status": "Try again",
+      "escapeTime": null,
+      "location": {
+        "city": "Branson",
+        "region": "Missouri",
+        "country": "United States",
         "lat": 36.6437,
         "lng": -93.2185
       },
@@ -973,42 +1079,16 @@
       "mortyId": 4129
     },
     {
-      "id": 43,
-      "game": "Journey Through Elek’s Hollow",
-      "company": "Escape Code",
-      "date": "2022-06-06",
-      "status": "completed",
-      "win": false,
-      "escapeTime": null,
-      "location": {
-        "city": "Branson",
-        "region": "Missouri",
-        "country": "US",
-        "lat": 36.6437,
-        "lng": -93.2185
-      },
-      "companyUrl": null,
-      "blogUrl": null,
-      "tags": [],
-      "notes": "Golden Birthday Trip",
-      "players": [
-        "Tammy",
-        "Tyler"
-      ],
-      "mortyId": 7106
-    },
-    {
       "id": 44,
+      "airtableId": "recCMID7nL5hVlSaj",
       "game": "The Mafia",
       "company": "Reykjavik Escape",
       "date": "2022-08-06",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "38m 44s",
       "location": {
         "city": "Reykjavik",
-        "region": null,
-        "country": "IS",
+        "country": "Iceland",
         "lat": 64.1466,
         "lng": -21.9426
       },
@@ -1022,16 +1102,16 @@
     },
     {
       "id": 45,
+      "airtableId": "recc7XibqrT06Up8k",
       "game": "Cuckoo’s Clock",
       "company": "Missing Pieces Escape Games",
       "date": "2022-12-20",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "46m 24s",
       "location": {
         "city": "Edina",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.862888,
         "lng": -93.356817
       },
@@ -1045,16 +1125,16 @@
     },
     {
       "id": 46,
+      "airtableId": "recdlR1lFm1ggyKZ3",
       "game": "Diamond Dilemma",
       "company": "Missing Pieces Escape Games",
       "date": "2023-01-06",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "42m 46s",
       "location": {
         "city": "Edina",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.862888,
         "lng": -93.356817
       },
@@ -1068,16 +1148,16 @@
     },
     {
       "id": 47,
+      "airtableId": "recVf1fiC85jzkKCA",
       "game": "Countdown",
       "company": "Mission Manor",
       "date": "2023-02-12",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "45m 55s",
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9778,
         "lng": -93.265
       },
@@ -1091,16 +1171,16 @@
     },
     {
       "id": 48,
+      "airtableId": "rec2pwAZqeKV9EqKl",
       "game": "Sugar Rush",
       "company": "Exit Escape Room NYC",
       "date": "2023-03-19",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "56m 57s",
       "location": {
         "city": "New York",
         "region": "New York",
-        "country": "US",
+        "country": "United States",
         "lat": 40.7128,
         "lng": -74.006
       },
@@ -1117,16 +1197,16 @@
     },
     {
       "id": 49,
+      "airtableId": "recBIzUfedQWRULTu",
       "game": "Playground",
       "company": "The Escape Game",
       "date": "2023-04-30",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "59m 0s",
       "location": {
         "city": "New York",
         "region": "New York",
-        "country": "US",
+        "country": "United States",
         "lat": 40.7128,
         "lng": -74.006
       },
@@ -1140,16 +1220,16 @@
     },
     {
       "id": 50,
+      "airtableId": "recSDgzleVsHboeal",
       "game": "Mad Tea Party",
       "company": "Zero Hour Escape Rooms",
       "date": "2023-06-14",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9778,
         "lng": -93.265
       },
@@ -1163,16 +1243,15 @@
     },
     {
       "id": 51,
+      "airtableId": "rechGJ5U1gn1Ajxrt",
       "game": "Birth Machine",
       "company": "Mad Machines",
       "date": "2023-07-22",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Milan",
-        "region": null,
-        "country": "IT",
+        "country": "Italy",
         "lat": 45.443494,
         "lng": 9.155411
       },
@@ -1186,16 +1265,15 @@
     },
     {
       "id": 52,
+      "airtableId": "recgisAgQMDN41H2P",
       "game": "Time Machine",
       "company": "Mad Machines",
       "date": "2023-07-23",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Milan",
-        "region": null,
-        "country": "IT",
+        "country": "Italy",
         "lat": 45.443494,
         "lng": 9.155411
       },
@@ -1209,16 +1287,16 @@
     },
     {
       "id": 53,
+      "airtableId": "rec8Lti1xXMIqdpm3",
       "game": "The Zeros",
       "company": "Escape Code",
       "date": "2023-10-21",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "59m 59s",
       "location": {
         "city": "Branson",
         "region": "Missouri",
-        "country": "US",
+        "country": "United States",
         "lat": 36.6437,
         "lng": -93.2185
       },
@@ -1236,16 +1314,16 @@
     },
     {
       "id": 54,
+      "airtableId": "recr8b2m3JEe8wpnS",
       "game": "Bigfoot’s Backyard Escape",
       "company": "Itasca Historical Society",
       "date": "2023-11-18",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Grand Rapids",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 47.2372,
         "lng": -93.5302
       },
@@ -1254,21 +1332,46 @@
       "tags": [],
       "notes": "Keatings",
       "players": [],
-      "mortyId": null,
       "photoUrl": "/images/rooms/54.jpg"
     },
     {
       "id": 55,
+      "airtableId": "recDTs3Sn4ZWOUGvh",
+      "game": "The Apothecary",
+      "company": "The Lodge of Lazarus Crowe",
+      "date": "2023-12-20",
+      "status": "Escaped",
+      "escapeTime": null,
+      "location": {
+        "city": "St. Paul",
+        "region": "Minnesota",
+        "country": "United States",
+        "lat": null,
+        "lng": null
+      },
+      "companyUrl": "https://lazaruslodge.com/",
+      "blogUrl": null,
+      "tags": [],
+      "notes": null,
+      "players": [
+        "Tammy",
+        "Mazie",
+        "Ellie",
+        "Lisa"
+      ]
+    },
+    {
+      "id": 56,
+      "airtableId": "recomWxyMIJhHrs1G",
       "game": "Invasion",
       "company": "60 to Escape",
       "date": "2024-03-26",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "54m 23s",
       "location": {
         "city": "Milwaukee",
         "region": "Wisconsin",
-        "country": "US",
+        "country": "United States",
         "lat": 42.949241,
         "lng": -88.004283
       },
@@ -1281,17 +1384,17 @@
       "photoUrl": "/images/rooms/55.jpg"
     },
     {
-      "id": 56,
+      "id": 57,
+      "airtableId": "recAabEHKgVnh3SLF",
       "game": "Utopia",
       "company": "Lock & Key Escape Rooms",
       "date": "2024-04-27",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.881233,
         "lng": -93.324289
       },
@@ -1308,17 +1411,17 @@
       "photoUrl": "/images/rooms/56.jpg"
     },
     {
-      "id": 57,
+      "id": 58,
+      "airtableId": "recXB82zxkZdNGvDY",
       "game": "Titanic: The Final Hour",
       "company": "Timescape",
       "date": "2024-06-12",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "51m 28s",
       "location": {
         "city": "Belfast",
         "region": "Northern Ireland",
-        "country": "GB",
+        "country": "United Kingdom",
         "lat": 54.602626,
         "lng": -5.930794
       },
@@ -1331,17 +1434,17 @@
       "photoUrl": "/images/rooms/57.jpg"
     },
     {
-      "id": 58,
+      "id": 59,
+      "airtableId": "recahr4JTFP68NvG6",
       "game": "Mystery Manor",
       "company": "60 to Escape",
       "date": "2024-10-18",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "47m 30s",
       "location": {
         "city": "Gurnee",
         "region": "Illinois",
-        "country": "US",
+        "country": "United States",
         "lat": 42.391372,
         "lng": -87.958342
       },
@@ -1358,17 +1461,17 @@
       "photoUrl": "/images/rooms/58.jpg"
     },
     {
-      "id": 59,
+      "id": 60,
+      "airtableId": "recK5aGPCnSOC9OsP",
       "game": "Cosmic Crisis",
       "company": "The Escape Game",
       "date": "2024-12-22",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Bloomington",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.855442,
         "lng": -93.240047
       },
@@ -1381,17 +1484,17 @@
       "photoUrl": "/images/rooms/59.jpg"
     },
     {
-      "id": 60,
+      "id": 61,
+      "airtableId": "recIHjZXCO51GVA5T",
       "game": "Granny’s Recipe Rescue",
       "company": "Copper Cat Escape",
       "date": "2025-01-18",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "48m 18s",
       "location": {
         "city": "Brainerd",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 46.355982,
         "lng": -94.200255
       },
@@ -1408,17 +1511,17 @@
       "photoUrl": "/images/rooms/60.jpg"
     },
     {
-      "id": 61,
+      "id": 62,
+      "airtableId": "recEShUIu5S7hQnsy",
       "game": "Deep Woods Cabin",
       "company": "Copper Cat Escape",
       "date": "2025-01-19",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "46m 52s",
       "location": {
         "city": "Brainerd",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 46.355982,
         "lng": -94.200255
       },
@@ -1437,17 +1540,17 @@
       "photoUrl": "/images/rooms/61.jpg"
     },
     {
-      "id": 62,
+      "id": 63,
+      "airtableId": "recxDMebB9vmosXqJ",
       "game": "The Museum",
       "company": "Puzzleworks",
       "date": "2025-01-20",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "58m 48s",
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.96485,
         "lng": -93.183348
       },
@@ -1465,17 +1568,17 @@
       "photoUrl": "/images/rooms/62.jpg"
     },
     {
-      "id": 63,
+      "id": 64,
+      "airtableId": "recturIiYlqyzCt4y",
       "game": "Sherwood Forest",
       "company": "No Esc Puzzle Collective",
       "date": "2025-02-01",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "59m 36s",
       "location": {
         "city": "Shakopee",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.784431,
         "lng": -93.554246
       },
@@ -1491,17 +1594,17 @@
       "photoUrl": "/images/rooms/63.jpg"
     },
     {
-      "id": 64,
+      "id": 65,
+      "airtableId": "recZQqwxwTJ6LucwE",
       "game": "The Istanbul Gambit",
       "company": "Enigma Adventures",
       "date": "2025-02-15",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "58m 21s",
       "location": {
         "city": "Bloomington",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.850893,
         "lng": -93.236632
       },
@@ -1518,17 +1621,17 @@
       "photoUrl": "/images/rooms/64.jpg"
     },
     {
-      "id": 65,
+      "id": 66,
+      "airtableId": "recjtJa3QW4FXRfBb",
       "game": "The Hospital",
       "company": "Puzzleworks",
       "date": "2025-03-15",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "54m 47s",
       "location": {
-        "city": "St. Pual",
+        "city": "St. Paul",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.96485,
         "lng": -93.183348
       },
@@ -1545,17 +1648,17 @@
       "photoUrl": "/images/rooms/65.jpg"
     },
     {
-      "id": 66,
+      "id": 67,
+      "airtableId": "recyjtLq35KklMMgc",
       "game": "Crazy Train",
       "company": "Doldrick’s Escape Room",
       "date": "2025-04-05",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "63m 25s",
       "location": {
         "city": "Orlando",
         "region": "Florida",
-        "country": "US",
+        "country": "United States",
         "lat": 28.335013,
         "lng": -81.478393
       },
@@ -1573,17 +1676,17 @@
       "photoUrl": "/images/rooms/66.jpg"
     },
     {
-      "id": 67,
+      "id": 68,
+      "airtableId": "recoybbz8OHungxqh",
       "game": "The Dungeon",
       "company": "Puzzleworks",
       "date": "2025-04-26",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "59m 34s",
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.96485,
         "lng": -93.183348
       },
@@ -1596,17 +1699,17 @@
       "photoUrl": "/images/rooms/67.jpg"
     },
     {
-      "id": 68,
+      "id": 69,
+      "airtableId": "rec2mV2VTPueu9Yau",
       "game": "The Anomaly",
       "company": "Puzzleworks",
       "date": "2025-04-27",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.96485,
         "lng": -93.183348
       },
@@ -1625,17 +1728,17 @@
       "photoUrl": "/images/rooms/68.jpg"
     },
     {
-      "id": 69,
+      "id": 70,
+      "airtableId": "recNxduRu2bMUg67b",
       "game": "Pirates of the Spanish Main",
       "company": "Enigma Adventures",
       "date": "2025-05-11",
-      "status": "completed",
-      "win": false,
+      "status": "Completed",
       "escapeTime": "61m 30s",
       "location": {
         "city": "Maple Grove",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 45.10157,
         "lng": -93.45427
       },
@@ -1655,17 +1758,17 @@
       "photoUrl": "/images/rooms/69.jpg"
     },
     {
-      "id": 70,
+      "id": 71,
+      "airtableId": "recZIiN1UtlynA6W3",
       "game": "Mindmaster Industries",
       "company": "Escape City",
       "date": "2025-06-06",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "60m 9s",
       "location": {
         "city": "Calgary",
         "region": "Alberta",
-        "country": "CA",
+        "country": "Canada",
         "lat": 51.012594,
         "lng": -114.065152
       },
@@ -1681,17 +1784,17 @@
       "photoUrl": "/images/rooms/70.jpg"
     },
     {
-      "id": 71,
+      "id": 72,
+      "airtableId": "recSPihVvvRvcVO2F",
       "game": "Caper in the Escape Room",
       "company": "Solve Escape Rooms",
       "date": "2025-06-18",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Waukesha",
         "region": "Wisconsin",
-        "country": "US",
+        "country": "United States",
         "lat": 43.018706,
         "lng": -88.200118
       },
@@ -1706,17 +1809,17 @@
       "mortyId": 13476
     },
     {
-      "id": 72,
+      "id": 73,
+      "airtableId": "reciVEIDHFIo9tnfa",
       "game": "14 Floors Below",
       "company": "Solve Escape Rooms",
       "date": "2025-06-18",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Waukesha",
         "region": "Wisconsin",
-        "country": "US",
+        "country": "United States",
         "lat": 43.018706,
         "lng": -88.200118
       },
@@ -1731,17 +1834,17 @@
       "mortyId": 13477
     },
     {
-      "id": 73,
+      "id": 74,
+      "airtableId": "recwo5NQ3gWcWPaFM",
       "game": "Gold Rush",
       "company": "Escape in Time",
       "date": "2025-07-18",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "46m 45s",
       "location": {
         "city": "Madison",
         "region": "Wisconsin",
-        "country": "US",
+        "country": "United States",
         "lat": 43.057218,
         "lng": -89.494541
       },
@@ -1759,17 +1862,45 @@
       "photoUrl": "/images/rooms/73.jpg"
     },
     {
-      "id": 74,
+      "id": 75,
+      "airtableId": "recGHzPOir2KjtOjc",
+      "game": "2002: The Bovine Odyssey",
+      "company": "Cabinet Mysteriis",
+      "date": "2025-07-28",
+      "status": "Escaped",
+      "escapeTime": "54m 0s",
+      "location": {
+        "city": "Quebec City",
+        "region": "Quebec",
+        "country": "Canada",
+        "lat": 46.792333,
+        "lng": -71.258633
+      },
+      "companyUrl": "https://cabinetmysteriis.ca/en/",
+      "blogUrl": "https://www.thingelstad.com/2025/07/28/a-bovine-odyssey-at-cabinet.html",
+      "tags": [],
+      "notes": null,
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
+      "mortyId": 10197,
+      "photoUrl": "/images/rooms/75.jpg"
+    },
+    {
+      "id": 76,
+      "airtableId": "recHbYHiHv3kMBLfk",
       "game": "The Dreamwalkers",
       "company": "Cabinet Mysteriis",
       "date": "2025-07-28",
-      "status": "completed",
-      "win": false,
+      "status": "Try again",
       "escapeTime": null,
       "location": {
         "city": "Quebec City",
         "region": "Quebec",
-        "country": "CA",
+        "country": "Canada",
         "lat": 46.792333,
         "lng": -71.258633
       },
@@ -1789,45 +1920,17 @@
       "photoUrl": "/images/rooms/74.jpg"
     },
     {
-      "id": 75,
-      "game": "2002: The Bovine Odyssey",
-      "company": "Cabinet Mysteriis",
-      "date": "2025-07-28",
-      "status": "completed",
-      "win": true,
-      "escapeTime": "54m 0s",
-      "location": {
-        "city": "Quebec City",
-        "region": "Quebec",
-        "country": "CA",
-        "lat": 46.792333,
-        "lng": -71.258633
-      },
-      "companyUrl": "https://cabinetmysteriis.ca/en/",
-      "blogUrl": "https://www.thingelstad.com/2025/07/28/a-bovine-odyssey-at-cabinet.html",
-      "tags": [],
-      "notes": null,
-      "players": [
-        "Jamie",
-        "Tammy",
-        "Mazie",
-        "Tyler"
-      ],
-      "mortyId": 10197,
-      "photoUrl": "/images/rooms/75.jpg"
-    },
-    {
-      "id": 76,
+      "id": 77,
+      "airtableId": "recB2J7EL3m61TNLX",
       "game": "Screaming Metal",
-      "company": "Cabinet Mysterlis",
+      "company": "Cabinet Mysteriis",
       "date": "2025-07-29",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Quebec City",
         "region": "Quebec",
-        "country": "CA",
+        "country": "Canada",
         "lat": 46.792333,
         "lng": -71.258633
       },
@@ -1845,17 +1948,47 @@
       "photoUrl": "/images/rooms/76.jpg"
     },
     {
-      "id": 77,
-      "game": "Lost Island of the Voodoo Queen",
+      "id": 78,
+      "airtableId": "recRtLvjdXuPiqjbT",
+      "game": "Wardrobe for sale",
       "company": "Escaparium",
       "date": "2025-07-30",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Montreal",
         "region": "Quebec",
-        "country": "CA",
+        "country": "Canada",
+        "lat": 45.585974,
+        "lng": -73.768325
+      },
+      "companyUrl": "https://www.escaparium.ca/montreal-jeu-evasion/",
+      "blogUrl": "https://www.thingelstad.com/2025/07/30/wardrobe-for-sale-at-escaparium.html",
+      "tags": [
+        "best"
+      ],
+      "notes": "Tammy & Tyler favorite of 2025",
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
+      "mortyId": 9589,
+      "photoUrl": "/images/rooms/78.jpg"
+    },
+    {
+      "id": 79,
+      "airtableId": "recedfY1wMhA690Su",
+      "game": "Lost Island of the Voodoo Queen",
+      "company": "Escaparium",
+      "date": "2025-07-30",
+      "status": "Escaped",
+      "escapeTime": null,
+      "location": {
+        "city": "Montreal",
+        "region": "Quebec",
+        "country": "Canada",
         "lat": 45.585974,
         "lng": -73.768325
       },
@@ -1875,42 +2008,17 @@
       "photoUrl": "/images/rooms/77.jpg"
     },
     {
-      "id": 78,
-      "game": "Wardrobe for sale",
-      "company": "Escaparium",
-      "date": "2025-07-30",
-      "status": "completed",
-      "win": true,
-      "escapeTime": null,
-      "location": {
-        "city": "Montreal",
-        "region": "Quebec",
-        "country": "CA",
-        "lat": 45.585974,
-        "lng": -73.768325
-      },
-      "companyUrl": "https://www.escaparium.ca/montreal-jeu-evasion/",
-      "blogUrl": "https://www.thingelstad.com/2025/07/30/wardrobe-for-sale-at-escaparium.html",
-      "tags": [
-        "best"
-      ],
-      "notes": "Tammy & Tyler favorite of 2025",
-      "players": [],
-      "mortyId": 9589,
-      "photoUrl": "/images/rooms/78.jpg"
-    },
-    {
-      "id": 79,
+      "id": 80,
+      "airtableId": "recHh5GHLbeLSs808",
       "game": "Magnifico",
       "company": "Escaparium",
       "date": "2025-08-02",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": null,
       "location": {
         "city": "Montreal",
         "region": "Quebec",
-        "country": "CA",
+        "country": "Canada",
         "lat": 45.585974,
         "lng": -73.768325
       },
@@ -1920,22 +2028,27 @@
         "best"
       ],
       "notes": "Jamie & Mazie favorite of 2025",
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 51489,
       "photoUrl": "/images/rooms/79.jpg"
     },
     {
-      "id": 80,
+      "id": 81,
+      "airtableId": "recedfIiVxCHDi7BF",
       "game": "The Experiment",
       "company": "Escape Room Alexandria",
       "date": "2025-08-07",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "53m 14s",
       "location": {
         "city": "Alexandria",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 45.883783,
         "lng": -95.376734
       },
@@ -1953,17 +2066,17 @@
       "photoUrl": "/images/rooms/80.jpg"
     },
     {
-      "id": 81,
+      "id": 82,
+      "airtableId": "recjtoHyl9WZIk37S",
       "game": "Time Machine",
       "company": "Puzzled Escape Rooms",
       "date": "2025-08-08",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "53m 11s",
       "location": {
         "city": "Fargo",
         "region": "North Dakota",
-        "country": "US",
+        "country": "United States",
         "lat": 46.830879,
         "lng": -96.801401
       },
@@ -1981,17 +2094,17 @@
       "photoUrl": "/images/rooms/81.jpg"
     },
     {
-      "id": 82,
+      "id": 83,
+      "airtableId": "recSdmAOhUyf2p9m0",
       "game": "Gemini Quantum Quest",
       "company": "Breakout ND",
       "date": "2025-08-09",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "48m 45s",
       "location": {
         "city": "Bismarck",
         "region": "North Dakota",
-        "country": "US",
+        "country": "United States",
         "lat": 46.832906,
         "lng": -100.774248
       },
@@ -2009,17 +2122,44 @@
       "photoUrl": "/images/rooms/82.jpg"
     },
     {
-      "id": 83,
-      "game": "Ruins: Forbidden Treasure",
-      "company": "Escape Game",
+      "id": 84,
+      "airtableId": "rec05Cz2JvdnNLxo2",
+      "game": "Yeti Escape Room",
+      "company": "The Escape Game",
       "date": "2025-12-22",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
+      "escapeTime": "57m 34s",
+      "location": {
+        "city": "Nashville",
+        "region": "Tennessee",
+        "country": "United States",
+        "lat": 36.1627,
+        "lng": -86.7816
+      },
+      "companyUrl": "https://theescapegame.com/nashville/escape-rooms/ruins/",
+      "blogUrl": "https://www.thingelstad.com/2025/12/22/legend-of-the-yeti-escape.html",
+      "tags": [],
+      "notes": null,
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
+      "photoUrl": "/images/rooms/84.jpg"
+    },
+    {
+      "id": 85,
+      "airtableId": "rec53yK3nczTclkFC",
+      "game": "Ruins: Forbidden Treasure",
+      "company": "The Escape Game",
+      "date": "2025-12-22",
+      "status": "Escaped",
       "escapeTime": "55m 12s",
       "location": {
         "city": "Nashville",
         "region": "Tennessee",
-        "country": "US",
+        "country": "United States",
         "lat": 36.1627,
         "lng": -86.7816
       },
@@ -2033,49 +2173,20 @@
         "Mazie",
         "Tyler"
       ],
-      "mortyId": null,
       "photoUrl": "/images/rooms/83.jpg"
     },
     {
-      "id": 84,
-      "game": "Yeti Escape Room",
-      "company": "Escape Game",
-      "date": "2025-12-22",
-      "status": "completed",
-      "win": true,
-      "escapeTime": "57m 34s",
-      "location": {
-        "city": "Nashville",
-        "region": "Tennessee",
-        "country": "US",
-        "lat": 36.1627,
-        "lng": -86.7816
-      },
-      "companyUrl": "https://theescapegame.com/nashville/escape-rooms/legend-of-the-yeti/",
-      "blogUrl": "https://www.thingelstad.com/2025/12/22/legend-of-the-yeti-escape.html",
-      "tags": [],
-      "notes": null,
-      "players": [
-        "Jamie",
-        "Tammy",
-        "Mazie",
-        "Tyler"
-      ],
-      "mortyId": null,
-      "photoUrl": "/images/rooms/84.jpg"
-    },
-    {
-      "id": 85,
+      "id": 86,
+      "airtableId": "recIifKoB4QBKlyCe",
       "game": "Loose Sleuth",
       "company": "Puzzleworks",
       "date": "2026-01-03",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "49m 5s",
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.9778,
         "lng": -93.265
       },
@@ -2093,17 +2204,17 @@
       "photoUrl": "/images/rooms/85.jpg"
     },
     {
-      "id": 86,
+      "id": 87,
+      "airtableId": "recAvdJlOWTzlUk0X",
       "game": "Scooby-Doo™ and the Spooky Castle Adventure",
       "company": "Escapology",
       "date": "2026-01-10",
-      "status": "completed",
-      "win": true,
+      "status": "Escaped",
       "escapeTime": "39m 46s",
       "location": {
         "city": "Burnsville",
         "region": "Minnesota",
-        "country": "US",
+        "country": "United States",
         "lat": 44.7677,
         "lng": -93.2777
       },
@@ -2119,6 +2230,106 @@
       ],
       "mortyId": 9603,
       "photoUrl": "/images/rooms/86.jpg"
+    },
+    {
+      "id": 88,
+      "airtableId": "recQaIdtfk8nhtWrL",
+      "game": "Quest for Excalibur",
+      "company": "Lock & Key Escape Rooms",
+      "date": "2026-02-12",
+      "status": "Escaped",
+      "escapeTime": null,
+      "location": {
+        "city": "Minneapolis",
+        "region": "Minnesota",
+        "country": "United States",
+        "lat": 44.881233,
+        "lng": -93.324289
+      },
+      "companyUrl": "https://lockandkeyescape.com/",
+      "blogUrl": null,
+      "tags": [
+        "fun"
+      ],
+      "notes": "Tyler's Birthday Escape Room!\n",
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Tyler"
+      ]
+    },
+    {
+      "id": 89,
+      "airtableId": "recjd6IKGMey6IF9M",
+      "game": "The Founder's Secret",
+      "company": "The Lodge of Lazarus Crowe",
+      "date": "2026-02-22",
+      "status": "Escaped",
+      "escapeTime": "65m 0s\n",
+      "location": {
+        "city": "St. Paul",
+        "region": "Minnesota",
+        "country": "United States",
+        "lat": null,
+        "lng": null
+      },
+      "companyUrl": "https://lazaruslodge.com/",
+      "blogUrl": null,
+      "tags": [],
+      "notes": null,
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Tyler"
+      ]
+    },
+    {
+      "id": 90,
+      "airtableId": "rec4zecfSJ1FznQMB",
+      "game": "The Alchemist",
+      "company": "Sherlocked Amsterdam",
+      "date": "2026-03-15",
+      "status": "Scheduled",
+      "escapeTime": null,
+      "location": {
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "lat": null,
+        "lng": null
+      },
+      "companyUrl": null,
+      "blogUrl": null,
+      "tags": [],
+      "notes": null,
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Tyler"
+      ]
+    },
+    {
+      "id": 91,
+      "airtableId": "receASqfgMtmqSEHZ",
+      "game": "Molly's Game",
+      "company": "Untold Stories",
+      "date": "2026-03-16",
+      "status": "Scheduled",
+      "escapeTime": null,
+      "location": {
+        "city": "Voorburg",
+        "country": "Netherlands",
+        "lat": null,
+        "lng": null
+      },
+      "companyUrl": null,
+      "blogUrl": null,
+      "tags": [],
+      "notes": null,
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Tyler"
+      ]
     }
   ]
 }

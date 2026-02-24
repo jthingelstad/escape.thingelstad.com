@@ -16,6 +16,14 @@ async function init() {
 
   applyUrlFilters();
   bindEvents();
+  openFromHash();
+}
+
+function openFromHash() {
+  const hash = window.location.hash.slice(1);
+  if (!hash) return;
+  const room = allRooms.find(r => r.airtableId === hash);
+  if (room) openModal(room);
 }
 
 function applyUrlFilters() {
@@ -24,8 +32,6 @@ function applyUrlFilters() {
   document.getElementById('filter-search').value = filters.q;
   document.getElementById('filter-year').value = filters.year;
   document.getElementById('filter-status').value = filters.status || 'all';
-  const winEl = document.getElementById('filter-win');
-  if (winEl) winEl.value = filters.win || 'all';
   document.getElementById('filter-country').value = filters.country;
   document.getElementById('filter-player').value = filters.player;
 
@@ -43,7 +49,6 @@ function getCurrentFilters() {
     tag: document.getElementById('filter-tag').value,
     year: document.getElementById('filter-year').value,
     status: document.getElementById('filter-status').value,
-    win: (document.getElementById('filter-win') || {}).value || 'all',
     country: document.getElementById('filter-country').value,
     player: document.getElementById('filter-player').value
   };
@@ -52,7 +57,6 @@ function getCurrentFilters() {
 function hasActiveFilters(filters) {
   return filters.q || filters.tag || filters.year ||
     (filters.status && filters.status !== 'all') ||
-    (filters.win && filters.win !== 'all') ||
     filters.country || filters.player;
 }
 
@@ -75,11 +79,6 @@ function cardMatchesFilters(card, filters) {
 
   if (filters.status && filters.status !== 'all') {
     if (card.dataset.status !== filters.status) return false;
-  }
-
-  if (filters.win && filters.win !== 'all') {
-    if (filters.win === 'wins' && card.dataset.win !== 'true') return false;
-    if (filters.win === 'losses' && card.dataset.win !== 'false') return false;
   }
 
   if (filters.country) {
@@ -195,13 +194,6 @@ function updateActiveFilterPills(filters) {
       updateResults();
     }));
   }
-  if (filters.win && filters.win !== 'all') {
-    pills.push(makePill(`Result: ${filters.win}`, () => {
-      const winEl = document.getElementById('filter-win');
-      if (winEl) winEl.value = 'all';
-      updateResults();
-    }));
-  }
   if (filters.country) {
     pills.push(makePill(`Country: ${filters.country}`, () => {
       document.getElementById('filter-country').value = '';
@@ -234,7 +226,7 @@ function bindEvents() {
     searchTimeout = setTimeout(updateResults, 200);
   });
 
-  ['filter-tag', 'filter-year', 'filter-status', 'filter-win', 'filter-country', 'filter-player'].forEach(id => {
+  ['filter-tag', 'filter-year', 'filter-status', 'filter-country', 'filter-player'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.addEventListener('change', updateResults);
   });
@@ -244,8 +236,6 @@ function bindEvents() {
     document.getElementById('filter-tag').value = '';
     document.getElementById('filter-year').value = '';
     document.getElementById('filter-status').value = 'all';
-    const winEl = document.getElementById('filter-win');
-    if (winEl) winEl.value = 'all';
     document.getElementById('filter-country').value = '';
     document.getElementById('filter-player').value = '';
     updateResults();
@@ -294,21 +284,30 @@ function bindEvents() {
   });
 }
 
+function statusBadgeHtml(status) {
+  switch (status) {
+    case 'Escaped':
+      return '<span class="status-badge status-escaped">\u2713 Escaped</span>';
+    case 'Try again':
+      return '<span class="status-badge status-try-again">\u2717 Try Again</span>';
+    case 'Completed':
+      return '<span class="status-badge status-completed">\u2713 Completed</span>';
+    case 'Scheduled':
+      return '<span class="status-badge status-scheduled">Scheduled</span>';
+    default:
+      return '';
+  }
+}
+
 function openModal(room) {
   const backdrop = document.getElementById('room-modal-backdrop');
   const body = document.getElementById('room-modal-body');
 
   const photoHtml = room.photoUrl
-    ? `<div class="room-modal-photo"><img src="/images/rooms/${room.id}.jpg" alt="${room.game} at ${room.company}"></div>`
+    ? `<div class="room-modal-photo"><img src="${room.photoUrl}" alt="${room.game} at ${room.company}"></div>`
     : '';
 
-  const statusBadge = room.status === 'planned'
-    ? '<span class="status-badge status-planned">Planned</span>'
-    : room.win === true
-      ? '<span class="status-badge status-win">\u2713 Escaped</span>'
-      : room.win === false
-        ? '<span class="status-badge status-loss">\u2717 Locked Out</span>'
-        : '';
+  const statusBadge = statusBadgeHtml(room.status);
 
   const companyHtml = room.companyUrl
     ? `<a href="${room.companyUrl}" target="_blank" rel="noopener">${room.company}</a>`
@@ -357,18 +356,29 @@ function openModal(room) {
       <div class="room-modal-links">
         ${blogHtml}
         ${mortyHtml}
+        <button class="permalink-btn" data-permalink="${window.location.origin}/list/#${room.airtableId}">Copy link</button>
       </div>
     </div>
   `;
 
+  body.querySelector('.permalink-btn').addEventListener('click', (e) => {
+    const url = e.currentTarget.dataset.permalink;
+    navigator.clipboard.writeText(url).then(() => {
+      e.currentTarget.textContent = 'Copied!';
+      setTimeout(() => { e.currentTarget.textContent = 'Copy link'; }, 1500);
+    });
+  });
+
   backdrop.classList.add('open');
   document.body.style.overflow = 'hidden';
+  history.replaceState(null, '', '#' + room.airtableId);
 }
 
 function closeModal() {
   const backdrop = document.getElementById('room-modal-backdrop');
   backdrop.classList.remove('open');
   document.body.style.overflow = '';
+  history.replaceState(null, '', window.location.pathname + window.location.search);
 }
 
 init();

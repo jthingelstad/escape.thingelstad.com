@@ -1,7 +1,6 @@
 {#
   Shared filter controls for list and map pages.
   Usage: {% include "filter-bar.njk" %}
-  Set showWinFilter = true in the calling template to include the Win/Loss dropdown.
 #}
 <div class="filter-group">
   <label for="filter-search">Search</label>
@@ -29,20 +28,12 @@
   <label for="filter-status">Status</label>
   <select id="filter-status">
     <option value="all">All</option>
-    <option value="completed">Completed</option>
-    <option value="planned">Planned</option>
+    <option value="Escaped">Escaped</option>
+    <option value="Try again">Try Again</option>
+    <option value="Completed">Completed</option>
+    <option value="Scheduled">Scheduled</option>
   </select>
 </div>
-{% if showWinFilter %}
-<div class="filter-group">
-  <label for="filter-win">Result</label>
-  <select id="filter-win">
-    <option value="all">All</option>
-    <option value="wins">Wins</option>
-    <option value="losses">Losses</option>
-  </select>
-</div>
-{% endif %}
 <div class="filter-group">
   <label for="filter-country">Country</label>
   <select id="filter-country">

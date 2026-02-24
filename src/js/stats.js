@@ -1,5 +1,5 @@
 import {
-  getCompletedRooms, escapeTimeMinutes, initNav
+  getRooms, escapeTimeMinutes, initNav
 } from './data.js';
 
 const chartColors = {
@@ -10,6 +10,7 @@ const chartColors = {
   purple: '#a78bfa',
   blue: '#60a5fa',
   cyan: '#22d3ee',
+  gray: '#9a97a8',
   text: '#9a97a8',
   textMuted: '#5c5a6b',
   grid: 'rgba(255, 255, 255, 0.05)',
@@ -23,17 +24,17 @@ const defaultChartOptions = {
     legend: {
       labels: {
         color: chartColors.text,
-        font: { family: 'Raleway' }
+        font: { family: 'Space Grotesk' }
       }
     }
   },
   scales: {
     x: {
-      ticks: { color: chartColors.text, font: { family: 'Raleway' } },
+      ticks: { color: chartColors.text, font: { family: 'Space Grotesk' } },
       grid: { color: chartColors.grid }
     },
     y: {
-      ticks: { color: chartColors.text, font: { family: 'Raleway' } },
+      ticks: { color: chartColors.text, font: { family: 'Space Grotesk' } },
       grid: { color: chartColors.grid }
     }
   }
@@ -45,22 +46,27 @@ async function init() {
 }
 
 async function loadCharts() {
-  const completed = await getCompletedRooms();
+  const allRooms = await getRooms();
+  const played = allRooms.filter(r => r.status !== 'Scheduled');
 
-  renderRoomsPerYear(completed);
-  renderMonthlyDistribution(completed);
-  renderLocationChart(completed);
-  renderCompanyChart(completed);
-  renderEscapeTimesChart(completed);
+  renderRoomsPerYear(allRooms);
+  renderMonthlyDistribution(played);
+  renderLocationChart(played);
+  renderCompanyChart(played);
+  renderEscapeTimesChart(played);
 }
 
-function renderRoomsPerYear(completed) {
+function renderRoomsPerYear(allRooms) {
   const yearData = {};
-  completed.forEach(r => {
+  allRooms.forEach(r => {
     const year = r.date.substring(0, 4);
-    if (!yearData[year]) yearData[year] = { wins: 0, losses: 0 };
-    if (r.win === true) yearData[year].wins++;
-    else yearData[year].losses++;
+    if (!yearData[year]) yearData[year] = { escaped: 0, tryAgain: 0, completed: 0, scheduled: 0 };
+    switch (r.status) {
+      case 'Escaped': yearData[year].escaped++; break;
+      case 'Try again': yearData[year].tryAgain++; break;
+      case 'Completed': yearData[year].completed++; break;
+      case 'Scheduled': yearData[year].scheduled++; break;
+    }
   });
 
   const sortedYears = Object.keys(yearData).sort();
@@ -71,15 +77,27 @@ function renderRoomsPerYear(completed) {
       labels: sortedYears,
       datasets: [
         {
-          label: 'Wins',
-          data: sortedYears.map(y => yearData[y].wins),
+          label: 'Escaped',
+          data: sortedYears.map(y => yearData[y].escaped),
           backgroundColor: chartColors.green,
           borderRadius: 3
         },
         {
-          label: 'Losses',
-          data: sortedYears.map(y => yearData[y].losses),
+          label: 'Try Again',
+          data: sortedYears.map(y => yearData[y].tryAgain),
           backgroundColor: chartColors.red,
+          borderRadius: 3
+        },
+        {
+          label: 'Completed',
+          data: sortedYears.map(y => yearData[y].completed),
+          backgroundColor: chartColors.gray,
+          borderRadius: 3
+        },
+        {
+          label: 'Scheduled',
+          data: sortedYears.map(y => yearData[y].scheduled),
+          backgroundColor: chartColors.blue,
           borderRadius: 3
         }
       ]
@@ -103,9 +121,9 @@ function renderRoomsPerYear(completed) {
   });
 }
 
-function renderMonthlyDistribution(completed) {
+function renderMonthlyDistribution(played) {
   const months = Array(12).fill(0);
-  completed.forEach(r => {
+  played.forEach(r => {
     if (r.date) {
       const month = parseInt(r.date.substring(5, 7)) - 1;
       months[month]++;
@@ -147,9 +165,9 @@ function renderMonthlyDistribution(completed) {
   });
 }
 
-function renderLocationChart(completed) {
+function renderLocationChart(played) {
   const locations = {};
-  completed.forEach(r => {
+  played.forEach(r => {
     if (r.location) {
       const parts = [];
       if (r.location.region) parts.push(r.location.region);
@@ -202,9 +220,9 @@ function renderLocationChart(completed) {
   });
 }
 
-function renderCompanyChart(completed) {
+function renderCompanyChart(played) {
   const companies = {};
-  completed.forEach(r => {
+  played.forEach(r => {
     if (r.company) {
       companies[r.company] = (companies[r.company] || 0) + 1;
     }
@@ -253,8 +271,8 @@ function renderCompanyChart(completed) {
   });
 }
 
-function renderEscapeTimesChart(completed) {
-  const data = completed
+function renderEscapeTimesChart(played) {
+  const data = played
     .filter(r => r.escapeTime)
     .sort((a, b) => a.date.localeCompare(b.date))
     .map(r => ({

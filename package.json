@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy"
+    "build": "npx @11ty/eleventy",
+    "sync": "python3 scripts/sync_airtable.py"
   },
   "repository": {
     "type": "git",
