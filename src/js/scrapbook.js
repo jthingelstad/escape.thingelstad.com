@@ -31,7 +31,7 @@ function buildDetailHtml(room) {
     : '';
 
   const blogLink = room.blogUrl
-    ? `<a href="${room.blogUrl}" class="scrapbook-detail-link" target="_blank" rel="noopener">Read post \u2192</a>`
+    ? `<a href="${room.blogUrl}" class="scrapbook-detail-link" target="_blank" rel="noopener" data-tinylytics-event="scrapbook.blog-post" data-tinylytics-event-value="${room.game}">Read post \u2192</a>`
     : '';
 
   return `
@@ -140,10 +140,12 @@ async function init() {
   const dateBtn = document.createElement('button');
   dateBtn.className = 'sort-btn active';
   dateBtn.textContent = 'Date';
+  dateBtn.setAttribute('data-tinylytics-event', 'scrapbook.sort-date');
 
   const shuffleBtn = document.createElement('button');
   shuffleBtn.className = 'sort-btn active';
   shuffleBtn.textContent = 'Shuffle';
+  shuffleBtn.setAttribute('data-tinylytics-event', 'scrapbook.shuffle');
 
   controls.appendChild(dateBtn);
   controls.appendChild(shuffleBtn);

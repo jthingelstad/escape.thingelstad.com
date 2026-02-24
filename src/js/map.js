@@ -95,11 +95,11 @@ function buildPopup(room) {
     : '';
 
   const blogHtml = room.blogUrl
-    ? `<a href="${room.blogUrl}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;">Read post \u2192</a>`
+    ? `<a href="${room.blogUrl}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.blog-post" data-tinylytics-event-value="${room.game}">Read post \u2192</a>`
     : '';
 
   const mortyHtml = room.mortyId
-    ? `<a href="https://morty.app/attraction/${room.mortyId}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;">Morty \u2192</a>`
+    ? `<a href="https://morty.app/attraction/${room.mortyId}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.morty" data-tinylytics-event-value="${room.game}">Morty \u2192</a>`
     : '';
 
   return `
@@ -108,7 +108,7 @@ function buildPopup(room) {
       <div class="popup-content">
         <h3>#${room.id} ${room.game}</h3>
         <div class="popup-meta">
-          ${room.companyUrl ? `<a href="${room.companyUrl}" target="_blank" rel="noopener">${room.company}</a>` : room.company}<br>
+          ${room.companyUrl ? `<a href="${room.companyUrl}" target="_blank" rel="noopener" data-tinylytics-event="map.company" data-tinylytics-event-value="${room.company}">${room.company}</a>` : room.company}<br>
           ${dateStr}${locationStr ? ' &middot; ' + locationStr : ''}
           ${room.escapeTime ? ' &middot; ' + room.escapeTime : ''}
         </div>

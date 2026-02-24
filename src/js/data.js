@@ -147,7 +147,7 @@ export function renderRoomCard(room, options = {}) {
   const statusBadge = statusBadgeHtml(room.status);
 
   const companyHtml = room.companyUrl
-    ? `<span class="company"><a href="${room.companyUrl}" target="_blank" rel="noopener">${room.company}</a></span>`
+    ? `<span class="company"><a href="${room.companyUrl}" target="_blank" rel="noopener" data-tinylytics-event="card.company" data-tinylytics-event-value="${room.company}">${room.company}</a></span>`
     : `<span class="company">${room.company}</span>`;
 
   const locationStr = formatLocation(room.location);
@@ -159,11 +159,11 @@ export function renderRoomCard(room, options = {}) {
     : '';
 
   const blogHtml = room.blogUrl
-    ? `<a href="${room.blogUrl}" class="blog-link" target="_blank" rel="noopener">Read post \u2192</a>`
+    ? `<a href="${room.blogUrl}" class="blog-link" target="_blank" rel="noopener" data-tinylytics-event="card.blog-post" data-tinylytics-event-value="${room.game}">Read post \u2192</a>`
     : '';
 
   const mortyHtml = room.mortyId
-    ? `<a href="https://morty.app/attraction/${room.mortyId}" class="morty-link" target="_blank" rel="noopener">Morty \u2192</a>`
+    ? `<a href="https://morty.app/attraction/${room.mortyId}" class="morty-link" target="_blank" rel="noopener" data-tinylytics-event="card.morty" data-tinylytics-event-value="${room.game}">Morty \u2192</a>`
     : '';
 
   const playersHtml = (room.players || []).length > 0

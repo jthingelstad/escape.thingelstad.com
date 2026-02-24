@@ -3,11 +3,11 @@
     <a href="/" class="nav-logo">Escaping Things</a>
     <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
     <ul class="nav-links">
-      <li><a href="/"{% if page.url == "/" %} class="active"{% endif %}>Home</a></li>
-      <li><a href="/list/"{% if page.url == "/list/" %} class="active"{% endif %}>Rooms</a></li>
-      <li><a href="/scrapbook/"{% if page.url == "/scrapbook/" %} class="active"{% endif %}>Scrapbook</a></li>
-      <li><a href="/map/"{% if page.url == "/map/" %} class="active"{% endif %}>Map</a></li>
-      <li><a href="/stats/"{% if page.url == "/stats/" %} class="active"{% endif %}>Stats</a></li>
+      <li><a href="/"{% if page.url == "/" %} class="active"{% endif %} data-tinylytics-event="nav.home">Home</a></li>
+      <li><a href="/list/"{% if page.url == "/list/" %} class="active"{% endif %} data-tinylytics-event="nav.rooms">Rooms</a></li>
+      <li><a href="/scrapbook/"{% if page.url == "/scrapbook/" %} class="active"{% endif %} data-tinylytics-event="nav.scrapbook">Scrapbook</a></li>
+      <li><a href="/map/"{% if page.url == "/map/" %} class="active"{% endif %} data-tinylytics-event="nav.map">Map</a></li>
+      <li><a href="/stats/"{% if page.url == "/stats/" %} class="active"{% endif %} data-tinylytics-event="nav.stats">Stats</a></li>
     </ul>
   </div>
 </nav>

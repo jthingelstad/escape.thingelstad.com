@@ -310,7 +310,7 @@ function openModal(room) {
   const statusBadge = statusBadgeHtml(room.status);
 
   const companyHtml = room.companyUrl
-    ? `<a href="${room.companyUrl}" target="_blank" rel="noopener">${room.company}</a>`
+    ? `<a href="${room.companyUrl}" target="_blank" rel="noopener" data-tinylytics-event="list.company" data-tinylytics-event-value="${room.company}">${room.company}</a>`
     : room.company;
 
   const locationStr = formatLocation(room.location);
@@ -329,11 +329,11 @@ function openModal(room) {
     : '';
 
   const blogHtml = room.blogUrl
-    ? `<a href="${room.blogUrl}" class="blog-link" target="_blank" rel="noopener">Read post \u2192</a>`
+    ? `<a href="${room.blogUrl}" class="blog-link" target="_blank" rel="noopener" data-tinylytics-event="list.blog-post" data-tinylytics-event-value="${room.game}">Read post \u2192</a>`
     : '';
 
   const mortyHtml = room.mortyId
-    ? `<a href="https://morty.app/attraction/${room.mortyId}" class="morty-link" target="_blank" rel="noopener">Morty \u2192</a>`
+    ? `<a href="https://morty.app/attraction/${room.mortyId}" class="morty-link" target="_blank" rel="noopener" data-tinylytics-event="list.morty" data-tinylytics-event-value="${room.game}">Morty \u2192</a>`
     : '';
 
   body.innerHTML = `
@@ -356,7 +356,7 @@ function openModal(room) {
       <div class="room-modal-links">
         ${blogHtml}
         ${mortyHtml}
-        <button class="permalink-btn" data-permalink="${window.location.origin}/list/#${room.airtableId}">Copy link</button>
+        <button class="permalink-btn" data-permalink="${window.location.origin}/list/#${room.airtableId}" data-tinylytics-event="list.copy-link" data-tinylytics-event-value="${room.game}">Copy link</button>
       </div>
     </div>
   `;

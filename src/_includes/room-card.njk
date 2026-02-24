@@ -30,7 +30,7 @@
   </div>
   <div class="room-card-meta">
     {% if room.companyUrl %}
-      <span class="company"><a href="{{ room.companyUrl }}" target="_blank" rel="noopener">{{ room.company }}</a></span>
+      <span class="company"><a href="{{ room.companyUrl }}" target="_blank" rel="noopener" data-tinylytics-event="card.company" data-tinylytics-event-value="{{ room.company }}">{{ room.company }}</a></span>
     {% else %}
       <span class="company">{{ room.company }}</span>
     {% endif %}
