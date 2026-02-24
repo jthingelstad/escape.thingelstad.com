@@ -2,6 +2,7 @@
 title: The Thingelstad Family Escape Room Journey
 description: The Thingelstad family's escape room journey.
 permalink: /index.html
+bodyClass: page-home
 ---
 {% extends "base.njk" %}
 
@@ -10,6 +11,12 @@ permalink: /index.html
     <section class="hero">
       <h1>Escaping Things</h1>
       <p class="subtitle">The Thingelstad Family Escape Room Journey</p>
+      <nav class="hero-nav" aria-label="Quick navigation">
+        <a href="/list/" class="hero-nav-pill" data-tinylytics-event="nav.rooms">Rooms</a>
+        <a href="/scrapbook/" class="hero-nav-pill" data-tinylytics-event="nav.scrapbook">Scrapbook</a>
+        <a href="/map/" class="hero-nav-pill" data-tinylytics-event="nav.map">Map</a>
+        <a href="/stats/" class="hero-nav-pill" data-tinylytics-event="nav.stats">Stats</a>
+      </nav>
       <div class="stats-row" id="hero-stats">
         <div class="stat-item"><span class="stat-number">{{ stats.totalRooms }}</span><div class="stat-label">Rooms</div></div>
         <div class="stat-item"><span class="stat-number">{{ stats.totalWins }}</span><div class="stat-label">Wins</div></div>
@@ -53,26 +60,26 @@ permalink: /index.html
         <h2>Escape Trail</h2>
       </div>
       <div class="trail-grid">
-        <article class="trail-card">
+        <a href="/map/" class="trail-card" data-tinylytics-event="card.trail-map">
           <img class="trail-icon" src="/images/key.svg" alt="Key icon">
-          <h3>Find the Clues</h3>
-          <p>The map reveals every city where we have chased a final lock.</p>
-        </article>
-        <article class="trail-card">
+          <h3>Explore the Map</h3>
+          <p>Every city where we've taken on a room, pinned on a dark map.</p>
+        </a>
+        <a href="/list/" class="trail-card" data-tinylytics-event="card.trail-rooms">
           <img class="trail-icon" src="/images/puzzle.svg" alt="Puzzle icon">
-          <h3>Cross-reference Rooms</h3>
-          <p>The room index helps us compare genres, companies, and outcomes.</p>
-        </article>
-        <article class="trail-card">
+          <h3>Browse All Rooms</h3>
+          <p>Filter and sort every room by company, year, players, and more.</p>
+        </a>
+        <a href="/scrapbook/" class="trail-card" data-tinylytics-event="card.trail-scrapbook">
           <img class="trail-icon" src="/images/camera.svg" alt="Camera icon">
           <h3>Flip Through Photos</h3>
-          <p>The scrapbook scatters our room photos like polaroids on a table.</p>
-        </article>
-        <article class="trail-card">
+          <p>Our room photos scattered like polaroids on a table.</p>
+        </a>
+        <a href="/stats/" class="trail-card" data-tinylytics-event="card.trail-stats">
           <img class="trail-icon" src="/images/lock.svg" alt="Lock icon">
-          <h3>Open the Vault</h3>
-          <p>Stats are intentionally locked behind a tiny puzzle, just for fun.</p>
-        </article>
+          <h3>See the Stats</h3>
+          <p>Charts and numbers behind our escape room obsession.</p>
+        </a>
       </div>
     </section>
 

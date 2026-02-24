@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="{{ '/css/style.css' | cacheBust }}">
   {% block head %}{% endblock %}
 </head>
-<body>
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
   {% include "nav.njk" %}
 
   {% block content %}{% endblock %}
