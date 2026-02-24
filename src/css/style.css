@@ -1530,6 +1530,18 @@ section {
   color: var(--text-secondary);
 }
 
+.footer-license,
+.footer-github {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-license:hover,
+.footer-github:hover {
+  color: var(--gold);
+}
+
 /* ========== Page content wrapper ========== */
 .page-content {
   padding: 2rem 0 4rem;
@@ -1643,6 +1655,10 @@ section {
 
   .filter-row {
     flex-direction: column;
+  }
+
+  .filter-group {
+    width: 100%;
   }
 
   .filter-group input,
