@@ -29,9 +29,6 @@ eleventyExcludeFromCollections: true
     <id>tag:escape.thingelstad.com,{{ room.date }}:{{ room.airtableId }}</id>
     <updated>{{ room.date }}T00:00:00Z</updated>
     <content type="html"><![CDATA[
-      {%- if room.photoUrl %}
-      <p><img src="https://escape.thingelstad.com{{ room.photoUrl }}" alt="{{ room.game | e }}" style="max-width:100%;border-radius:8px;"></p>
-      {%- endif %}
       <p><strong>Status:</strong> {{ room.status }}</p>
       <p><strong>Company:</strong> {% if room.companyUrl %}<a href="{{ room.companyUrl }}">{{ room.company | e }}</a>{% else %}{{ room.company | e }}{% endif %}</p>
       <p><strong>Date:</strong> {{ room.date | formatDate }}</p>
@@ -53,6 +50,9 @@ eleventyExcludeFromCollections: true
       {%- endif %}
       {%- if room.mortyId %}
       <p><a href="https://morty.app/attractions/{{ room.mortyId }}">View on Morty &rarr;</a></p>
+      {%- endif %}
+      {%- if room.photoUrl %}
+      <p><img src="https://escape.thingelstad.com{{ room.photoUrl }}" alt="{{ room.game | e }}" style="max-width:100%;border-radius:8px;"></p>
       {%- endif %}
     ]]></content>
   </entry>

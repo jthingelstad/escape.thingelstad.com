@@ -51,7 +51,8 @@ async function loadCharts() {
 
   renderRoomsPerYear(allRooms);
   renderMonthlyDistribution(played);
-  renderLocationChart(played);
+  renderStateChart(played);
+  renderCountryChart(played);
   renderCompanyChart(played);
   renderEscapeTimesChart(played);
 }
@@ -165,30 +166,75 @@ function renderMonthlyDistribution(played) {
   });
 }
 
-function renderLocationChart(played) {
-  const locations = {};
+function renderStateChart(played) {
+  const states = {};
   played.forEach(r => {
-    if (r.location) {
-      const parts = [];
-      if (r.location.region) parts.push(r.location.region);
-      if (r.location.country) parts.push(r.location.country);
-      const key = parts.join(', ') || 'Unknown';
-      locations[key] = (locations[key] || 0) + 1;
+    if (r.location && r.location.country === 'United States' && r.location.region) {
+      states[r.location.region] = (states[r.location.region] || 0) + 1;
     }
   });
 
-  const sorted = Object.entries(locations)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 15);
+  const sorted = Object.entries(states)
+    .sort((a, b) => b[1] - a[1]);
 
-  new Chart(document.getElementById('chart-locations'), {
+  new Chart(document.getElementById('chart-states'), {
     type: 'bar',
     data: {
-      labels: sorted.map(([loc]) => loc),
+      labels: sorted.map(([state]) => state),
       datasets: [{
         label: 'Rooms',
         data: sorted.map(([, count]) => count),
         backgroundColor: chartColors.purple,
+        borderRadius: 3
+      }]
+    },
+    options: {
+      ...defaultChartOptions,
+      indexAxis: 'y',
+      plugins: {
+        ...defaultChartOptions.plugins,
+        legend: { display: false }
+      },
+      scales: {
+        x: {
+          ...defaultChartOptions.scales.x,
+          beginAtZero: true,
+          ticks: {
+            ...defaultChartOptions.scales.x.ticks,
+            stepSize: 1
+          }
+        },
+        y: {
+          ...defaultChartOptions.scales.y,
+          ticks: {
+            ...defaultChartOptions.scales.y.ticks,
+            autoSkip: false
+          }
+        }
+      }
+    }
+  });
+}
+
+function renderCountryChart(played) {
+  const countries = {};
+  played.forEach(r => {
+    if (r.location && r.location.country) {
+      countries[r.location.country] = (countries[r.location.country] || 0) + 1;
+    }
+  });
+
+  const sorted = Object.entries(countries)
+    .sort((a, b) => b[1] - a[1]);
+
+  new Chart(document.getElementById('chart-countries'), {
+    type: 'bar',
+    data: {
+      labels: sorted.map(([country]) => country),
+      datasets: [{
+        label: 'Rooms',
+        data: sorted.map(([, count]) => count),
+        backgroundColor: chartColors.teal,
         borderRadius: 3
       }]
     },
