@@ -328,15 +328,17 @@ function renderEscapeTimesChart(played) {
     }));
 
   new Chart(document.getElementById('chart-times'), {
-    type: 'scatter',
+    type: 'line',
     data: {
       datasets: [{
         label: 'Escape Time (min)',
         data: data,
         backgroundColor: chartColors.cyan,
         borderColor: chartColors.cyan,
-        pointRadius: 6,
-        pointHoverRadius: 9
+        pointRadius: 4,
+        pointHoverRadius: 7,
+        fill: false,
+        tension: 0.3
       }]
     },
     options: {
