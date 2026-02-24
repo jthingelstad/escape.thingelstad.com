@@ -262,36 +262,6 @@ img {
   margin-top: 1.5rem;
 }
 
-/* Hero quick-nav pills */
-.hero-nav {
-  display: flex;
-  justify-content: center;
-  gap: 0.6rem;
-  margin-bottom: 2.5rem;
-}
-
-.hero-nav-pill {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  padding: 0.45rem 1.1rem;
-  border: 1px solid var(--border-color-hover);
-  border-radius: 20px;
-  background: rgba(15, 21, 37, 0.6);
-  transition: all var(--transition);
-}
-
-.hero-nav-pill:hover {
-  color: var(--accent-teal);
-  border-color: var(--accent-teal);
-  background: var(--accent-teal-dim);
-  text-shadow: 0 0 12px var(--glow-teal);
-  box-shadow: 0 0 16px rgba(67, 230, 208, 0.1);
-}
-
 /* ========== Stats Row ========== */
 .stats-row {
   display: flex;
