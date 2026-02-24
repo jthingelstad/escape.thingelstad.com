@@ -46,5 +46,6 @@ permalink: /list/
 {% endblock %}
 
 {% block scripts %}
+  <script id="list-rooms-data" type="application/json">{{ listRooms | dump | safe }}</script>
   <script type="module" src="{{ '/js/list.js' | cacheBust }}"></script>
 {% endblock %}

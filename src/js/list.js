@@ -1,5 +1,5 @@
 import {
-  getRooms, getFilterParams, setFilterParams,
+  getFilterParams, setFilterParams,
   initNav, formatDate, formatLocation, renderTag, statusBadgeHtml
 } from './data.js';
 
@@ -10,9 +10,9 @@ let currentDir = 'desc';
 const container = document.getElementById('room-list');
 const allCards = [...container.querySelectorAll('.room-card')];
 
-async function init() {
+function init() {
   initNav();
-  allRooms = await getRooms();
+  allRooms = JSON.parse(document.getElementById('list-rooms-data').textContent);
 
   applyUrlFilters();
   bindEvents();
