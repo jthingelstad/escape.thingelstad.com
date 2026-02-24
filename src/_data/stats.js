@@ -23,13 +23,14 @@ module.exports = function() {
   const latestCompleted = sortedPlayed[0] || null;
   const recentCompleted = sortedPlayed.slice(0, 6);
 
-  // Win rate: Escaped / (Escaped + Try again) — exclude "Completed" (unknown outcome)
-  const decidedCount = escaped.length + tryAgain.length;
-  const winRate = decidedCount > 0 ? Math.round((escaped.length / decidedCount) * 100) : 0;
+  const completed = allRooms.filter(r => r.status === 'Completed');
+  const wins = escaped.length + completed.length;
+  const decidedCount = wins + tryAgain.length;
+  const winRate = decidedCount > 0 ? Math.round((wins / decidedCount) * 100) : 0;
 
   return {
     totalRooms: played.length,
-    totalWins: escaped.length,
+    totalWins: wins,
     winRate,
     regionCount: regions.size,
     countryCount: countries.size,
