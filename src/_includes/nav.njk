@@ -3,7 +3,7 @@
     <a href="/" class="nav-logo">Escaping Things</a>
     <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
     <ul class="nav-links">
-      <li><a href="/"{% if page.url == "/" %} class="active"{% endif %} data-tinylytics-event="nav.home">Home</a></li>
+      {% if page.url != "/" %}<li><a href="/" data-tinylytics-event="nav.home">Home</a></li>{% endif %}
       <li><a href="/list/"{% if page.url == "/list/" %} class="active"{% endif %} data-tinylytics-event="nav.rooms">Rooms</a></li>
       <li><a href="/scrapbook/"{% if page.url == "/scrapbook/" %} class="active"{% endif %} data-tinylytics-event="nav.scrapbook">Scrapbook</a></li>
       <li><a href="/map/"{% if page.url == "/map/" %} class="active"{% endif %} data-tinylytics-event="nav.map">Map</a></li>
