@@ -1,0 +1,61 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Escaping Things</title>
+  <subtitle>The Thingelstad family escape room journey</subtitle>
+  <link href="https://escape.thingelstad.com/"/>
+  <link href="https://escape.thingelstad.com/feed.xml" rel="self"/>
+  <id>https://escape.thingelstad.com/</id>
+  {%- set lastRoom = null -%}
+  {%- for room in rooms.rooms | reverse -%}
+    {%- if room.status !== "Scheduled" and not lastRoom -%}
+      {%- set lastRoom = room -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if lastRoom %}
+  <updated>{{ lastRoom.date }}T00:00:00Z</updated>
+  {%- endif %}
+  <author>
+    <name>Jamie Thingelstad</name>
+  </author>
+  {%- for room in rooms.rooms | reverse %}
+  {%- if room.status !== "Scheduled" %}
+  <entry>
+    <title>{{ ("#" + room.id + " " + room.game + " — " + room.company) | e }}</title>
+    <link href="https://escape.thingelstad.com/list/#{{ room.airtableId }}"/>
+    <id>tag:escape.thingelstad.com,{{ room.date }}:{{ room.airtableId }}</id>
+    <updated>{{ room.date }}T00:00:00Z</updated>
+    <content type="html"><![CDATA[
+      {%- if room.photoUrl %}
+      <p><img src="https://escape.thingelstad.com{{ room.photoUrl }}" alt="{{ room.game | e }}" style="max-width:100%;border-radius:8px;"></p>
+      {%- endif %}
+      <p><strong>Status:</strong> {{ room.status }}</p>
+      <p><strong>Company:</strong> {% if room.companyUrl %}<a href="{{ room.companyUrl }}">{{ room.company | e }}</a>{% else %}{{ room.company | e }}{% endif %}</p>
+      <p><strong>Date:</strong> {{ room.date | formatDate }}</p>
+      <p><strong>Location:</strong> {{ room.location | formatLocation }}</p>
+      {%- if room.escapeTime %}
+      <p><strong>Escape Time:</strong> {{ room.escapeTime | trim }}</p>
+      {%- endif %}
+      {%- if room.players and room.players.length > 0 %}
+      <p><strong>Players:</strong> {{ room.players | join(", ") }}</p>
+      {%- endif %}
+      {%- if room.tags and room.tags.length > 0 %}
+      <p><strong>Tags:</strong> {% for tag in room.tags %}{{ tag | formatTagLabel }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      {%- endif %}
+      {%- if room.notes %}
+      <p><em>{{ room.notes | e }}</em></p>
+      {%- endif %}
+      {%- if room.blogUrl %}
+      <p><a href="{{ room.blogUrl }}">Read blog post &rarr;</a></p>
+      {%- endif %}
+      {%- if room.mortyId %}
+      <p><a href="https://morty.app/attractions/{{ room.mortyId }}">View on Morty &rarr;</a></p>
+      {%- endif %}
+    ]]></content>
+  </entry>
+  {%- endif %}
+  {%- endfor %}
+</feed>
