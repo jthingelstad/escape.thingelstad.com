@@ -418,6 +418,22 @@ section {
   50% { opacity: 1; }
 }
 
+.room-card.deeplink-highlight {
+  border-color: rgba(67, 230, 208, 0.5);
+  box-shadow:
+    0 0 30px rgba(67, 230, 208, 0.15),
+    0 0 60px rgba(67, 230, 208, 0.08),
+    inset 0 1px 0 rgba(67, 230, 208, 0.15);
+  animation: deeplink-fade 2s ease-out 1s forwards;
+}
+
+@keyframes deeplink-fade {
+  to {
+    border-color: var(--border-color);
+    box-shadow: none;
+  }
+}
+
 .room-card-thumb {
   margin: -1.25rem -1.5rem 0.75rem;
   height: 120px;

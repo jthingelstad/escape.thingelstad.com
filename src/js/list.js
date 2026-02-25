@@ -23,7 +23,15 @@ function openFromHash() {
   const hash = window.location.hash.slice(1);
   if (!hash) return;
   const room = allRooms.find(r => r.airtableId === hash);
-  if (room) openModal(room);
+  if (!room) return;
+
+  const card = document.getElementById(hash);
+  if (card) {
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    card.classList.add('deeplink-highlight');
+  }
+
+  openModal(room);
 }
 
 function applyUrlFilters() {
