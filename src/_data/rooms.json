@@ -122,7 +122,7 @@
       "companyUrl": null,
       "blogUrl": null,
       "tags": [],
-      "notes": "With Olson Family Adults",
+      "notes": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -264,7 +264,12 @@
       "blogUrl": null,
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 3927
     },
     {
@@ -285,8 +290,18 @@
       "companyUrl": "https://www.trappedpuzzlerooms.com/",
       "blogUrl": null,
       "tags": [],
-      "notes": "With the Thiegs",
-      "players": [],
+      "notes": null,
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler",
+        "Lisa",
+        "Joe",
+        "Ellie",
+        "Samantha",
+        "Jake"
+      ],
       "mortyId": 10173
     },
     {
@@ -547,7 +562,11 @@
       "blogUrl": null,
       "tags": [],
       "notes": "Mazie’s Party",
-      "players": [],
+      "players": [
+        "Mazie",
+        "Gigi",
+        "Ava"
+      ],
       "mortyId": 45488
     },
     {
@@ -593,7 +612,7 @@
       "companyUrl": "https://www.trappedpuzzlerooms.com/",
       "blogUrl": "https://www.thingelstad.com/2019/01/06/family-friends-joined.html",
       "tags": [],
-      "notes": "With Thiegs!",
+      "notes": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -602,7 +621,8 @@
         "Lisa",
         "Joe",
         "Ellie",
-        "Samantha"
+        "Samantha",
+        "Jake"
       ],
       "mortyId": 3409,
       "photoUrl": "/images/rooms/24.jpg"
@@ -653,7 +673,7 @@
       "companyUrl": "https://breakoutgames.com/minneapolis/rooms/#roomCasino",
       "blogUrl": "https://www.thingelstad.com/2019/01/21/tammys-sisters-and.html",
       "tags": [],
-      "notes": "Olson Bros and Sisters",
+      "notes": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -741,7 +761,12 @@
       "blogUrl": "https://www.thingelstad.com/2019/07/22/we-solved-the.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 4192,
       "photoUrl": "/images/rooms/28.jpg"
     },
@@ -786,7 +811,12 @@
       "blogUrl": "https://www.thingelstad.com/2019/12/07/we-had-a.html",
       "tags": [],
       "notes": "Holiday room?",
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 10177,
       "photoUrl": "/images/rooms/30.jpg"
     },
@@ -808,8 +838,13 @@
       "companyUrl": "https://www.puzzle.works/",
       "blogUrl": "https://www.thingelstad.com/2020/01/05/we-had-a.html",
       "tags": [],
-      "notes": "Did not complete.",
-      "players": [],
+      "notes": null,
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 1566,
       "photoUrl": "/images/rooms/31.jpg"
     },
@@ -852,7 +887,12 @@
       "blogUrl": "https://www.thingelstad.com/2021/02/14/we-did-the.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 3598,
       "photoUrl": "/images/rooms/33.jpg"
     },
@@ -875,7 +915,12 @@
       "blogUrl": "https://www.thingelstad.com/2021/03/11/nemesis-club-evil.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 7362,
       "photoUrl": "/images/rooms/34.jpg"
     },
@@ -898,7 +943,12 @@
       "blogUrl": "https://www.thingelstad.com/2021/08/08/we-saved-the.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 3332,
       "photoUrl": "/images/rooms/35.jpg"
     },
@@ -951,7 +1001,12 @@
       "blogUrl": "https://www.thingelstad.com/2021/10/22/we-completed-alices.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 1725,
       "photoUrl": "/images/rooms/37.jpg"
     },
@@ -974,7 +1029,12 @@
       "blogUrl": "https://www.thingelstad.com/2022/01/03/we-just-barely.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 13380,
       "photoUrl": "/images/rooms/38.jpg"
     },
@@ -997,7 +1057,12 @@
       "blogUrl": "https://www.thingelstad.com/2022/02/12/we-escaped-video.html",
       "tags": [],
       "notes": "Not setup for kids? Says 2019 was setup for kids.",
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 10174,
       "photoUrl": "/images/rooms/39.jpg"
     },
@@ -1049,7 +1114,12 @@
       "blogUrl": "https://www.thingelstad.com/2022/03/21/escape-game-timeliner.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 13067
     },
     {
@@ -1120,7 +1190,12 @@
       "blogUrl": "https://www.thingelstad.com/2022/08/06/we-escaped-from.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 26343,
       "photoUrl": "/images/rooms/44.jpg"
     },
@@ -1143,7 +1218,16 @@
       "blogUrl": "https://www.thingelstad.com/2022/12/20/we-got-together.html",
       "tags": [],
       "notes": "With the Thiegs",
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler",
+        "Lisa",
+        "Ellie",
+        "Joe",
+        "Samantha"
+      ],
       "mortyId": 1469,
       "photoUrl": "/images/rooms/45.jpg"
     },
@@ -1166,7 +1250,13 @@
       "blogUrl": "https://www.thingelstad.com/2023/01/06/we-escaped-the.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler",
+        "Nora"
+      ],
       "mortyId": 4592,
       "photoUrl": "/images/rooms/46.jpg"
     },
@@ -1189,7 +1279,12 @@
       "blogUrl": "https://www.thingelstad.com/2023/02/12/countdown-at-mission.html",
       "tags": [],
       "notes": "Thought it was first no clues. 2,240 points.",
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 9136,
       "photoUrl": "/images/rooms/47.jpg"
     },
@@ -1238,7 +1333,12 @@
       "blogUrl": "https://www.thingelstad.com/2023/04/30/we-successfully-escaped.html",
       "tags": [],
       "notes": "Bono trip!",
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 6027,
       "photoUrl": "/images/rooms/49.jpg"
     },
@@ -1261,7 +1361,12 @@
       "blogUrl": "https://www.thingelstad.com/2023/06/14/mazie-turns.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 4896,
       "photoUrl": "/images/rooms/50.jpg"
     },
@@ -1281,9 +1386,16 @@
       },
       "companyUrl": "https://madmachines.it/",
       "blogUrl": "https://www.thingelstad.com/2023/07/22/we-completed-the.html",
-      "tags": [],
+      "tags": [
+        "TERPECA"
+      ],
       "notes": "4th ranked room in world!",
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 24742,
       "photoUrl": "/images/rooms/51.jpg"
     },
@@ -1303,9 +1415,16 @@
       },
       "companyUrl": "https://madmachines.it/",
       "blogUrl": "https://www.thingelstad.com/2023/07/23/we-went-back.html",
-      "tags": [],
+      "tags": [
+        "TERPECA"
+      ],
       "notes": "39th in the world",
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 24741,
       "photoUrl": "/images/rooms/52.jpg"
     },
@@ -1354,8 +1473,16 @@
       "companyUrl": "https://www.grescaperooms.com/",
       "blogUrl": "https://www.thingelstad.com/2023/11/18/we-successfully-solved.html",
       "tags": [],
-      "notes": "Keatings",
-      "players": [],
+      "notes": null,
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler",
+        "Isaiah",
+        "Tiffany",
+        "Andrew"
+      ],
       "photoUrl": "/images/rooms/54.jpg"
     },
     {
@@ -1382,7 +1509,8 @@
         "Mazie",
         "Ellie",
         "Lisa"
-      ]
+      ],
+      "mortyId": 44425
     },
     {
       "id": 56,
@@ -1403,7 +1531,12 @@
       "blogUrl": "https://www.thingelstad.com/2024/03/26/we-had-a.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 6778,
       "photoUrl": "/images/rooms/55.jpg"
     },
@@ -1453,7 +1586,12 @@
       "blogUrl": "https://www.thingelstad.com/2024/06/12/we-solved-the.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 15970,
       "photoUrl": "/images/rooms/57.jpg"
     },
@@ -1503,7 +1641,12 @@
       "blogUrl": "https://www.thingelstad.com/2024/12/22/we-completed-the-cosmic-crisis.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 49507,
       "photoUrl": "/images/rooms/59.jpg"
     },
@@ -1720,7 +1863,12 @@
       "blogUrl": "https://www.thingelstad.com/2025/04/26/we-had-a-great-time.html",
       "tags": [],
       "notes": null,
-      "players": [],
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler"
+      ],
       "mortyId": 13681,
       "photoUrl": "/images/rooms/67.jpg"
     },
