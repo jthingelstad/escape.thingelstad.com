@@ -6,7 +6,9 @@ Requires env vars:
   AIRTABLE_BASE_ID   — Airtable Base ID (starts with "app")
 
 Usage:
-  AIRTABLE_PAT=pat... AIRTABLE_BASE_ID=app... python3 scripts/sync_airtable.py
+  python3 scripts/sync_airtable.py
+
+Reads from .env file in the project root if present.
 """
 
 import json
@@ -14,6 +16,20 @@ import os
 import sys
 import urllib.request
 import urllib.error
+
+# Load .env file from project root if it exists
+_env_path = os.path.join(os.path.dirname(__file__), "..", ".env")
+if os.path.isfile(_env_path):
+    with open(_env_path) as _f:
+        for _line in _f:
+            _line = _line.strip()
+            if not _line or _line.startswith("#"):
+                continue
+            if "=" in _line:
+                _key, _, _value = _line.partition("=")
+                _key = _key.strip()
+                _value = _value.strip().strip("'\"")
+                os.environ.setdefault(_key, _value)
 
 API_BASE = "https://api.airtable.com/v0"
 OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "src", "_data", "rooms.json")
