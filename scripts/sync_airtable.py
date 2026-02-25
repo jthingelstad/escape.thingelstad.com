@@ -72,14 +72,36 @@ def build_lookup(records):
     return {r["id"]: r.get("fields", {}) for r in records}
 
 
-def transform_room(room_fields, company_lookup, location_lookup):
-    """Transform an Airtable Room record into a rooms.json entry."""
-    entry = {}
+VALID_STATUSES = {"Escaped", "Try again", "Completed", "Scheduled"}
 
-    entry["game"] = room_fields.get("Game", "")
-    entry["date"] = room_fields.get("When") or None
-    entry["status"] = room_fields.get("Status", "Completed")
+
+def transform_room(room_fields, airtable_id, company_lookup, location_lookup):
+    """Transform an Airtable Room record into a rooms.json entry.
+
+    Returns (entry, warnings) where warnings is a list of strings.
+    """
+    entry = {}
+    warnings = []
+
+    game = room_fields.get("Game", "")
+    entry["game"] = game
+    date = room_fields.get("When") or None
+    entry["date"] = date
+    status = room_fields.get("Status", "Completed")
+    entry["status"] = status
     entry["escapeTime"] = room_fields.get("Escape Time") or None
+
+    # Room label for warning messages
+    label = f"\"{game}\"" if game else f"[{airtable_id}]"
+    if date:
+        label += f" ({date})"
+
+    if not game:
+        warnings.append("Missing game name")
+    if not date:
+        warnings.append("Missing date")
+    if status not in VALID_STATUSES:
+        warnings.append(f"Unexpected status \"{status}\"")
 
     # Resolve Location -> Company chain
     location_ids = room_fields.get("Location", [])
@@ -90,10 +112,19 @@ def transform_room(room_fields, company_lookup, location_lookup):
         loc_id = location_ids[0] if isinstance(location_ids, list) else location_ids
         loc_fields = location_lookup.get(loc_id, {})
 
+        if not loc_fields:
+            warnings.append(f"Location record {loc_id} not found")
+
         company_ids = loc_fields.get("Company", [])
         if company_ids:
             comp_id = company_ids[0] if isinstance(company_ids, list) else company_ids
             comp_fields = company_lookup.get(comp_id, {})
+            if not comp_fields:
+                warnings.append(f"Company record {comp_id} not found")
+        else:
+            warnings.append("Location has no linked company")
+    else:
+        warnings.append("No location linked")
 
     entry["company"] = comp_fields.get("Company", "")
 
@@ -108,10 +139,28 @@ def transform_room(room_fields, company_lookup, location_lookup):
     country = loc_fields.get("Country")
     if country:
         location["country"] = country
-    lat = loc_fields.get("lat")
-    lng = loc_fields.get("lng")
-    location["lat"] = lat
-    location["lng"] = lng
+    else:
+        if loc_fields:
+            warnings.append("Location missing country")
+
+    coords = loc_fields.get("Coordinates")
+    if coords:
+        parts = [p.strip() for p in coords.split(",")]
+        if len(parts) == 2 and parts[0] and parts[1]:
+            try:
+                location["lat"] = float(parts[0])
+                location["lng"] = float(parts[1])
+            except ValueError:
+                warnings.append(f"Malformed coordinates \"{coords}\"")
+                location["lat"] = None
+                location["lng"] = None
+        else:
+            warnings.append(f"Malformed coordinates \"{coords}\"")
+            location["lat"] = None
+            location["lng"] = None
+    else:
+        location["lat"] = None
+        location["lng"] = None
     entry["location"] = location
 
     # companyUrl: prefer Location URL, fall back to Company URL
@@ -140,7 +189,7 @@ def transform_room(room_fields, company_lookup, location_lookup):
     if photo_path:
         entry["photoUrl"] = photo_path
 
-    return entry
+    return entry, warnings, label
 
 
 def main():
@@ -168,11 +217,17 @@ def main():
 
     # Transform all rooms
     entries = []
+    warning_count = 0
     for record in rooms:
         fields = record.get("fields", {})
-        entry = transform_room(fields, company_lookup, location_lookup)
+        entry, warnings, label = transform_room(fields, record["id"], company_lookup, location_lookup)
         entry["airtableId"] = record["id"]
         entries.append(entry)
+        if warnings:
+            warning_count += len(warnings)
+            print(f"\n  ⚠ {label}")
+            for w in warnings:
+                print(f"    - {w}")
 
     # Sort by date ascending, then by Airtable creation order for ties
     entries.sort(key=lambda r: r.get("date") or "9999-99-99")
@@ -209,6 +264,8 @@ def main():
         f.write("\n")
 
     print(f"\nWrote {len(ordered_entries)} rooms to {output_path}")
+    if warning_count:
+        print(f"⚠ {warning_count} data warning(s) — review above for details")
 
 
 if __name__ == "__main__":

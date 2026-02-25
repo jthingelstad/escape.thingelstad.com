@@ -12,8 +12,8 @@
         "city": "Minneapolis",
         "region": "Minnesota",
         "country": "United States",
-        "lat": 44.9778,
-        "lng": -93.265
+        "lat": 44.953224,
+        "lng": -93.287803
       },
       "companyUrl": "https://www.trappedpuzzlerooms.com/",
       "blogUrl": null,
@@ -81,7 +81,7 @@
       "id": 4,
       "airtableId": "recQKGd7Lsx2KTR9C",
       "game": "The Bunker",
-      "company": "Fox in the Box",
+      "company": "Fox in a Box",
       "date": "2016-10-02",
       "status": "Try again",
       "escapeTime": null,
@@ -89,10 +89,10 @@
         "city": "Chicago",
         "region": "Illinois",
         "country": "United States",
-        "lat": 41.8781,
-        "lng": -87.6298
+        "lat": 41.872068,
+        "lng": -87.629255
       },
-      "companyUrl": null,
+      "companyUrl": "https://www.foxinaboxchicago.com",
       "blogUrl": null,
       "tags": [],
       "notes": "First room with Tyler",
@@ -179,8 +179,16 @@
       "companyUrl": null,
       "blogUrl": null,
       "tags": [],
-      "notes": "With the Keatings",
-      "players": []
+      "notes": null,
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler",
+        "Isaiah",
+        "Tiffany",
+        "Andrew"
+      ]
     },
     {
       "id": 8,
@@ -271,8 +279,8 @@
         "city": "St. Paul",
         "region": "Minnesota",
         "country": "United States",
-        "lat": 44.9537,
-        "lng": -93.09
+        "lat": 44.924561,
+        "lng": -93.167266
       },
       "companyUrl": "https://www.trappedpuzzlerooms.com/",
       "blogUrl": null,
@@ -476,8 +484,8 @@
         "city": "Minneapolis",
         "region": "Minnesota",
         "country": "United States",
-        "lat": 44.9778,
-        "lng": -93.265
+        "lat": 44.953224,
+        "lng": -93.287803
       },
       "companyUrl": "https://www.trappedpuzzlerooms.com/",
       "blogUrl": "https://www.thingelstad.com/2018/09/09/it-took-us.html",
@@ -532,8 +540,8 @@
         "city": "St. Paul",
         "region": "Minnesota",
         "country": "United States",
-        "lat": 44.9537,
-        "lng": -93.09
+        "lat": 44.924561,
+        "lng": -93.167266
       },
       "companyUrl": "https://www.trappedpuzzlerooms.com/",
       "blogUrl": null,
@@ -548,14 +556,14 @@
       "game": "Spies vs. Spies",
       "company": "Trapped Puzzle Rooms",
       "date": "2018-12-20",
-      "status": "Try again",
+      "status": "Completed",
       "escapeTime": null,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
         "country": "United States",
-        "lat": 44.9537,
-        "lng": -93.09
+        "lat": 44.924561,
+        "lng": -93.167266
       },
       "companyUrl": "https://www.trappedpuzzlerooms.com/",
       "blogUrl": "https://www.thingelstad.com/2018/12/19/had-a-great.html",
@@ -579,8 +587,8 @@
         "city": "Minneapolis",
         "region": "Minnesota",
         "country": "United States",
-        "lat": 44.9778,
-        "lng": -93.265
+        "lat": 44.953224,
+        "lng": -93.287803
       },
       "companyUrl": "https://www.trappedpuzzlerooms.com/",
       "blogUrl": "https://www.thingelstad.com/2019/01/06/family-friends-joined.html",
@@ -698,8 +706,8 @@
         "city": "St. Paul",
         "region": "Minnesota",
         "country": "United States",
-        "lat": 44.9537,
-        "lng": -93.09
+        "lat": 44.924561,
+        "lng": -93.167266
       },
       "companyUrl": "https://www.trappedpuzzlerooms.com/",
       "blogUrl": "https://www.thingelstad.com/2019/04/26/we-had-a.html",
@@ -741,7 +749,7 @@
       "id": 29,
       "airtableId": "recM2tOvoeH29vOJD",
       "game": "Beasley’s Billions",
-      "company": "Tick Tock Escape Games",
+      "company": "Tick Tock Escape Rooms",
       "date": "2019-07-23",
       "status": "Try again",
       "escapeTime": null,
@@ -749,10 +757,10 @@
         "city": "Kansas City",
         "region": "Missouri",
         "country": "United States",
-        "lat": 39.0997,
-        "lng": -94.5786
+        "lat": 38.927925,
+        "lng": -94.660115
       },
-      "companyUrl": null,
+      "companyUrl": "https://ticktockescaperoom.com",
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -771,8 +779,8 @@
         "city": "St. Paul",
         "region": "Minnesota",
         "country": "United States",
-        "lat": 44.9537,
-        "lng": -93.09
+        "lat": 44.924561,
+        "lng": -93.167266
       },
       "companyUrl": "https://www.trappedpuzzlerooms.com/",
       "blogUrl": "https://www.thingelstad.com/2019/12/07/we-had-a.html",
@@ -860,8 +868,8 @@
         "city": "Phoenix",
         "region": "Arizona",
         "country": "United States",
-        "lat": 33.4484,
-        "lng": -112.074
+        "lat": 33.676212,
+        "lng": -111.965571
       },
       "companyUrl": "https://thenemesisclub.com/",
       "blogUrl": "https://www.thingelstad.com/2021/03/11/nemesis-club-evil.html",
@@ -912,8 +920,16 @@
       "companyUrl": "https://www.grescaperooms.com/",
       "blogUrl": "https://www.thingelstad.com/2021/08/21/we-won-the.html",
       "tags": [],
-      "notes": "Keatings",
-      "players": [],
+      "notes": null,
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler",
+        "Isaiah",
+        "Tiffany",
+        "Andrew"
+      ],
       "photoUrl": "/images/rooms/36.jpg"
     },
     {
@@ -951,8 +967,8 @@
         "city": "St. Paul",
         "region": "Minnesota",
         "country": "United States",
-        "lat": 44.9537,
-        "lng": -93.09
+        "lat": 44.924561,
+        "lng": -93.167266
       },
       "companyUrl": "https://www.trappedpuzzlerooms.com/",
       "blogUrl": "https://www.thingelstad.com/2022/01/03/we-just-barely.html",
@@ -974,8 +990,8 @@
         "city": "St. Paul",
         "region": "Minnesota",
         "country": "United States",
-        "lat": 44.9537,
-        "lng": -93.09
+        "lat": 44.924561,
+        "lng": -93.167266
       },
       "companyUrl": "https://www.trappedpuzzlerooms.com/",
       "blogUrl": "https://www.thingelstad.com/2022/02/12/we-escaped-video.html",
@@ -991,7 +1007,7 @@
       "game": "Grandpa’s Workshop",
       "company": "Itasca Historical Society",
       "date": "2022-02-26",
-      "status": "Try again",
+      "status": "Completed",
       "escapeTime": null,
       "location": {
         "city": "Grand Rapids",
@@ -1003,8 +1019,16 @@
       "companyUrl": "https://www.grescaperooms.com/",
       "blogUrl": null,
       "tags": [],
-      "notes": "Keatings",
-      "players": []
+      "notes": null,
+      "players": [
+        "Jamie",
+        "Tammy",
+        "Mazie",
+        "Tyler",
+        "Isaiah",
+        "Tiffany",
+        "Andrew"
+      ]
     },
     {
       "id": 41,
@@ -1089,8 +1113,8 @@
       "location": {
         "city": "Reykjavik",
         "country": "Iceland",
-        "lat": 64.1466,
-        "lng": -21.9426
+        "lat": 64.144953,
+        "lng": -21.911806
       },
       "companyUrl": "https://www.reykjavikescape.is/en/",
       "blogUrl": "https://www.thingelstad.com/2022/08/06/we-escaped-from.html",
@@ -1346,8 +1370,8 @@
         "city": "St. Paul",
         "region": "Minnesota",
         "country": "United States",
-        "lat": null,
-        "lng": null
+        "lat": 44.935735,
+        "lng": -93.114455
       },
       "companyUrl": "https://lazaruslodge.com/",
       "blogUrl": null,
@@ -1528,7 +1552,7 @@
       "companyUrl": "https://www.coppercatescape.com/",
       "blogUrl": "https://www.thingelstad.com/2025/01/19/deep-woods-cabin-escape-room.html",
       "tags": [
-        "best"
+        "Best"
       ],
       "notes": null,
       "players": [
@@ -1664,7 +1688,9 @@
       },
       "companyUrl": "https://www.doldricksescaperoom.com/",
       "blogUrl": "https://www.thingelstad.com/2025/04/04/crazy-train-escape-room.html",
-      "tags": [],
+      "tags": [
+        "TERPECA"
+      ],
       "notes": null,
       "players": [
         "Jamie",
@@ -1745,7 +1771,7 @@
       "companyUrl": "https://enigmaadventures.com/",
       "blogUrl": "https://www.thingelstad.com/2025/05/11/pirates-of-the-spanish-main.html",
       "tags": [
-        "best"
+        "Best"
       ],
       "notes": null,
       "players": [
@@ -1795,8 +1821,8 @@
         "city": "Waukesha",
         "region": "Wisconsin",
         "country": "United States",
-        "lat": 43.018706,
-        "lng": -88.200118
+        "lat": 43.018744,
+        "lng": -88.200357
       },
       "companyUrl": "https://solveescaperooms.com/",
       "blogUrl": null,
@@ -1820,8 +1846,8 @@
         "city": "Waukesha",
         "region": "Wisconsin",
         "country": "United States",
-        "lat": 43.018706,
-        "lng": -88.200118
+        "lat": 43.018744,
+        "lng": -88.200357
       },
       "companyUrl": "https://solveescaperooms.com/",
       "blogUrl": null,
@@ -1878,7 +1904,9 @@
       },
       "companyUrl": "https://cabinetmysteriis.ca/en/",
       "blogUrl": "https://www.thingelstad.com/2025/07/28/a-bovine-odyssey-at-cabinet.html",
-      "tags": [],
+      "tags": [
+        "Canada 2025"
+      ],
       "notes": null,
       "players": [
         "Jamie",
@@ -1907,7 +1935,8 @@
       "companyUrl": "https://cabinetmysteriis.ca/en/",
       "blogUrl": "https://www.thingelstad.com/2025/07/28/the-dreamwalkers-at-cabinet-mysteriis.html",
       "tags": [
-        "best"
+        "Best",
+        "Canada 2025"
       ],
       "notes": null,
       "players": [
@@ -1936,7 +1965,9 @@
       },
       "companyUrl": "https://cabinetmysteriis.ca/en/",
       "blogUrl": "https://www.thingelstad.com/2025/07/29/screaming-metal-at-cabinet-mysteriis.html",
-      "tags": [],
+      "tags": [
+        "Canada 2025"
+      ],
       "notes": null,
       "players": [
         "Jamie",
@@ -1965,7 +1996,8 @@
       "companyUrl": "https://www.escaparium.ca/montreal-jeu-evasion/",
       "blogUrl": "https://www.thingelstad.com/2025/07/30/wardrobe-for-sale-at-escaparium.html",
       "tags": [
-        "best"
+        "Best",
+        "Canada 2025"
       ],
       "notes": "Tammy & Tyler favorite of 2025",
       "players": [
@@ -1995,7 +2027,9 @@
       "companyUrl": "https://www.escaparium.ca/montreal-jeu-evasion/",
       "blogUrl": "https://www.thingelstad.com/2025/07/30/lost-island-of-the-voodoo.html",
       "tags": [
-        "best"
+        "Best",
+        "Canada 2025",
+        "Room of the Year"
       ],
       "notes": null,
       "players": [
@@ -2025,7 +2059,10 @@
       "companyUrl": "https://www.escaparium.ca/montreal-jeu-evasion/",
       "blogUrl": "https://www.thingelstad.com/2025/08/02/magnifico-at-escaparium.html",
       "tags": [
-        "best"
+        "Best",
+        "Canada 2025",
+        "TERPECA",
+        "Room of the Year"
       ],
       "notes": "Jamie & Mazie favorite of 2025",
       "players": [
@@ -2077,8 +2114,8 @@
         "city": "Fargo",
         "region": "North Dakota",
         "country": "United States",
-        "lat": 46.830879,
-        "lng": -96.801401
+        "lat": 46.830745,
+        "lng": -96.800999
       },
       "companyUrl": "https://puzzledescaperooms.com/",
       "blogUrl": "https://www.thingelstad.com/2025/08/08/time-machine-at-puzzled-escape.html",
@@ -2248,9 +2285,7 @@
       },
       "companyUrl": "https://lockandkeyescape.com/",
       "blogUrl": "https://www.thingelstad.com/2026/02/12/tyler-wanted-to-do-an.html",
-      "tags": [
-        "fun"
-      ],
+      "tags": [],
       "notes": "Tyler's Birthday Escape Room!\n",
       "players": [
         "Jamie",
@@ -2271,8 +2306,8 @@
         "city": "St. Paul",
         "region": "Minnesota",
         "country": "United States",
-        "lat": null,
-        "lng": null
+        "lat": 44.935735,
+        "lng": -93.114455
       },
       "companyUrl": "https://lazaruslodge.com/",
       "blogUrl": null,
@@ -2288,17 +2323,17 @@
       "id": 90,
       "airtableId": "rec4zecfSJ1FznQMB",
       "game": "The Alchemist",
-      "company": "Sherlocked Amsterdam",
+      "company": "Sherlocked",
       "date": "2026-03-15",
       "status": "Scheduled",
       "escapeTime": null,
       "location": {
         "city": "Amsterdam",
         "country": "Netherlands",
-        "lat": null,
-        "lng": null
+        "lat": 52.374599,
+        "lng": 4.895488
       },
-      "companyUrl": null,
+      "companyUrl": "https://www.sherlocked.nl",
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -2312,17 +2347,17 @@
       "id": 91,
       "airtableId": "receASqfgMtmqSEHZ",
       "game": "Molly's Game",
-      "company": "Untold Stories",
+      "company": "Untold Stories Experiences",
       "date": "2026-03-16",
       "status": "Scheduled",
       "escapeTime": null,
       "location": {
         "city": "Voorburg",
         "country": "Netherlands",
-        "lat": null,
-        "lng": null
+        "lat": 52.08486,
+        "lng": 4.362005
       },
-      "companyUrl": null,
+      "companyUrl": "https://ustories.nl/en/home-en/",
       "blogUrl": null,
       "tags": [],
       "notes": null,
