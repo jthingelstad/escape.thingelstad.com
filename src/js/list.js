@@ -14,13 +14,14 @@ function init() {
   initNav();
   allRooms = JSON.parse(document.getElementById('list-rooms-data').textContent);
 
+  const initialHash = window.location.hash.slice(1);
+
   applyUrlFilters();
   bindEvents();
-  openFromHash();
+  openFromHash(initialHash);
 }
 
-function openFromHash() {
-  const hash = window.location.hash.slice(1);
+function openFromHash(hash) {
   if (!hash) return;
   const room = allRooms.find(r => r.airtableId === hash);
   if (!room) return;
