@@ -1,15 +1,13 @@
-import {
-  getRooms, escapeTimeMinutes, initNav
-} from './data.js';
+import { initNav } from './data.js';
 
 const chartColors = {
-  gold: '#e6b84f',
-  teal: '#4fd1c5',
+  gold: '#e8924f',
+  teal: '#43e6d0',
   green: '#48d989',
   red: '#f06060',
-  purple: '#a78bfa',
-  blue: '#60a5fa',
-  cyan: '#22d3ee',
+  purple: '#9b7bff',
+  blue: '#5a8bff',
+  cyan: '#2de2ff',
   gray: '#9a97a8',
   text: '#9a97a8',
   textMuted: '#5c5a6b',
@@ -40,64 +38,44 @@ const defaultChartOptions = {
   }
 };
 
-async function init() {
+function init() {
   initNav();
-  await loadCharts();
+  const data = JSON.parse(document.getElementById('chart-data').textContent);
+  renderRoomsPerYear(data.roomsPerYear);
+  renderMonthlyDistribution(data.monthly);
+  renderStateChart(data.states);
+  renderCountryChart(data.countries);
+  renderCompanyChart(data.companies);
+  renderEscapeTimesChart(data.escapeTimes);
 }
 
-async function loadCharts() {
-  const allRooms = await getRooms();
-  const played = allRooms.filter(r => r.status !== 'Scheduled');
-
-  renderRoomsPerYear(allRooms);
-  renderMonthlyDistribution(played);
-  renderStateChart(played);
-  renderCountryChart(played);
-  renderCompanyChart(played);
-  renderEscapeTimesChart(played);
-}
-
-function renderRoomsPerYear(allRooms) {
-  const yearData = {};
-  allRooms.forEach(r => {
-    const year = r.date.substring(0, 4);
-    if (!yearData[year]) yearData[year] = { escaped: 0, tryAgain: 0, completed: 0, scheduled: 0 };
-    switch (r.status) {
-      case 'Escaped': yearData[year].escaped++; break;
-      case 'Try again': yearData[year].tryAgain++; break;
-      case 'Completed': yearData[year].completed++; break;
-      case 'Scheduled': yearData[year].scheduled++; break;
-    }
-  });
-
-  const sortedYears = Object.keys(yearData).sort();
-
+function renderRoomsPerYear(data) {
   new Chart(document.getElementById('chart-rooms-year'), {
     type: 'bar',
     data: {
-      labels: sortedYears,
+      labels: data.labels,
       datasets: [
         {
           label: 'Escaped',
-          data: sortedYears.map(y => yearData[y].escaped),
+          data: data.escaped,
           backgroundColor: chartColors.green,
           borderRadius: 3
         },
         {
           label: 'Try Again',
-          data: sortedYears.map(y => yearData[y].tryAgain),
+          data: data.tryAgain,
           backgroundColor: chartColors.red,
           borderRadius: 3
         },
         {
           label: 'Completed',
-          data: sortedYears.map(y => yearData[y].completed),
+          data: data.completed,
           backgroundColor: chartColors.gray,
           borderRadius: 3
         },
         {
           label: 'Scheduled',
-          data: sortedYears.map(y => yearData[y].scheduled),
+          data: data.scheduled,
           backgroundColor: chartColors.blue,
           borderRadius: 3
         }
@@ -122,15 +100,7 @@ function renderRoomsPerYear(allRooms) {
   });
 }
 
-function renderMonthlyDistribution(played) {
-  const months = Array(12).fill(0);
-  played.forEach(r => {
-    if (r.date) {
-      const month = parseInt(r.date.substring(5, 7)) - 1;
-      months[month]++;
-    }
-  });
-
+function renderMonthlyDistribution(months) {
   const monthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -166,24 +136,14 @@ function renderMonthlyDistribution(played) {
   });
 }
 
-function renderStateChart(played) {
-  const states = {};
-  played.forEach(r => {
-    if (r.location && r.location.country === 'United States' && r.location.region) {
-      states[r.location.region] = (states[r.location.region] || 0) + 1;
-    }
-  });
-
-  const sorted = Object.entries(states)
-    .sort((a, b) => b[1] - a[1]);
-
+function renderStateChart(data) {
   new Chart(document.getElementById('chart-states'), {
     type: 'bar',
     data: {
-      labels: sorted.map(([state]) => state),
+      labels: data.map(d => d.label),
       datasets: [{
         label: 'Rooms',
-        data: sorted.map(([, count]) => count),
+        data: data.map(d => d.count),
         backgroundColor: chartColors.purple,
         borderRadius: 3
       }]
@@ -216,24 +176,14 @@ function renderStateChart(played) {
   });
 }
 
-function renderCountryChart(played) {
-  const countries = {};
-  played.forEach(r => {
-    if (r.location && r.location.country) {
-      countries[r.location.country] = (countries[r.location.country] || 0) + 1;
-    }
-  });
-
-  const sorted = Object.entries(countries)
-    .sort((a, b) => b[1] - a[1]);
-
+function renderCountryChart(data) {
   new Chart(document.getElementById('chart-countries'), {
     type: 'bar',
     data: {
-      labels: sorted.map(([country]) => country),
+      labels: data.map(d => d.label),
       datasets: [{
         label: 'Rooms',
-        data: sorted.map(([, count]) => count),
+        data: data.map(d => d.count),
         backgroundColor: chartColors.teal,
         borderRadius: 3
       }]
@@ -266,25 +216,14 @@ function renderCountryChart(played) {
   });
 }
 
-function renderCompanyChart(played) {
-  const companies = {};
-  played.forEach(r => {
-    if (r.company) {
-      companies[r.company] = (companies[r.company] || 0) + 1;
-    }
-  });
-
-  const sorted = Object.entries(companies)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 10);
-
+function renderCompanyChart(data) {
   new Chart(document.getElementById('chart-companies'), {
     type: 'bar',
     data: {
-      labels: sorted.map(([name]) => name),
+      labels: data.map(d => d.label),
       datasets: [{
         label: 'Rooms',
-        data: sorted.map(([, count]) => count),
+        data: data.map(d => d.count),
         backgroundColor: chartColors.gold,
         borderRadius: 3
       }]
@@ -317,16 +256,7 @@ function renderCompanyChart(played) {
   });
 }
 
-function renderEscapeTimesChart(played) {
-  const data = played
-    .filter(r => r.escapeTime)
-    .sort((a, b) => a.date.localeCompare(b.date))
-    .map(r => ({
-      x: r.date,
-      y: escapeTimeMinutes(r.escapeTime),
-      label: `#${r.id} ${r.game}`
-    }));
-
+function renderEscapeTimesChart(data) {
   new Chart(document.getElementById('chart-times'), {
     type: 'line',
     data: {

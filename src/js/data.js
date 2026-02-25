@@ -1,72 +1,6 @@
-let cachedRooms = null;
-
-export async function loadRooms() {
-  if (cachedRooms) return cachedRooms;
-  const res = await fetch('/data/rooms.json');
-  const data = await res.json();
-  cachedRooms = data.rooms;
-  return cachedRooms;
-}
-
-export async function getRooms() {
-  return await loadRooms();
-}
-
-
-export async function filterRooms(filters = {}) {
-  const rooms = await loadRooms();
-  return rooms.filter(room => {
-    if (filters.q) {
-      const q = filters.q.toLowerCase();
-      const searchable = [
-        room.game,
-        room.company,
-        room.location?.city,
-        room.location?.region,
-        room.notes
-      ].filter(Boolean).join(' ').toLowerCase();
-      if (!searchable.includes(q)) return false;
-    }
-
-    if (filters.tag) {
-      const filterTags = filters.tag.split(',').map(t => t.trim());
-      if (!filterTags.every(ft => (room.tags || []).includes(ft))) return false;
-    }
-
-    if (filters.year) {
-      if (!room.date || room.date.substring(0, 4) !== filters.year) return false;
-    }
-
-    if (filters.status && filters.status !== 'all') {
-      if (room.status !== filters.status) return false;
-    }
-
-    if (filters.country) {
-      if (!room.location || room.location.country !== filters.country) return false;
-    }
-
-    if (filters.player) {
-      if (!(room.players || []).includes(filters.player)) return false;
-    }
-
-    return true;
-  });
-}
-
-export function parseEscapeTime(str) {
-  if (!str) return null;
-  let totalSeconds = 0;
-  const minMatch = str.match(/(\d+)m/);
-  const secMatch = str.match(/(\d+)s/);
-  if (minMatch) totalSeconds += parseInt(minMatch[1]) * 60;
-  if (secMatch) totalSeconds += parseInt(secMatch[1]);
-  return totalSeconds;
-}
-
-export function escapeTimeMinutes(str) {
-  const seconds = parseEscapeTime(str);
-  if (seconds === null) return null;
-  return seconds / 60;
+export function escapeHtml(str) {
+  if (!str) return '';
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 export function formatDate(dateStr) {
@@ -89,7 +23,7 @@ export function formatLocation(location) {
   return parts.join(', ');
 }
 
-export function classifyTag(tag) {
+function classifyTag(tag) {
   if (tag === 'best') return 'best';
   if (tag.startsWith('terpeca-')) return 'terpeca';
   if (tag === 'online') return 'online';
@@ -97,7 +31,7 @@ export function classifyTag(tag) {
   return 'default';
 }
 
-export function formatTagLabel(tag) {
+function formatTagLabel(tag) {
   if (tag === 'best') return '\u2605 Best';
   if (tag.startsWith('terpeca-')) {
     const year = tag.replace('terpeca-', '');
@@ -114,7 +48,7 @@ export function formatTagLabel(tag) {
 export function renderTag(tag) {
   const type = classifyTag(tag);
   const label = formatTagLabel(tag);
-  return `<span class="tag tag-${type}" data-tag="${tag}">${label}</span>`;
+  return `<span class="tag tag-${type}" data-tag="${escapeHtml(tag)}">${escapeHtml(label)}</span>`;
 }
 
 export function statusBadgeHtml(status) {
@@ -130,66 +64,6 @@ export function statusBadgeHtml(status) {
     default:
       return '';
   }
-}
-
-export function renderRoomCard(room, options = {}) {
-  const { compact = false, featured = false } = options;
-
-  const statusBadge = statusBadgeHtml(room.status);
-
-  const companyHtml = room.companyUrl
-    ? `<span class="company"><a href="${room.companyUrl}" target="_blank" rel="noopener" data-tinylytics-event="card.company" data-tinylytics-event-value="${room.company}">${room.company}</a></span>`
-    : `<span class="company">${room.company}</span>`;
-
-  const locationStr = formatLocation(room.location);
-  const dateStr = formatDate(room.date);
-  const tagsHtml = (room.tags || []).map(renderTag).join('');
-
-  const escapeTimeHtml = room.escapeTime
-    ? `<span class="escape-time"><span class="meta-icon">\u23f1</span> ${room.escapeTime}</span>`
-    : '';
-
-  const blogHtml = room.blogUrl
-    ? `<a href="${room.blogUrl}" class="blog-link" target="_blank" rel="noopener" data-tinylytics-event="card.blog-post" data-tinylytics-event-value="${room.game}">Read post \u2192</a>`
-    : '';
-
-  const mortyHtml = room.mortyId
-    ? `<a href="https://morty.app/attraction/${room.mortyId}" class="morty-link" target="_blank" rel="noopener" data-tinylytics-event="card.morty" data-tinylytics-event-value="${room.game}">Morty \u2192</a>`
-    : '';
-
-  const playersHtml = (room.players || []).length > 0
-    ? `<div class="room-card-players"><span class="meta-icon">\ud83d\udc65</span> ${room.players.join(', ')}</div>`
-    : '';
-
-  const notesHtml = room.notes && !compact
-    ? `<div class="room-card-notes">${room.notes}</div>`
-    : '';
-
-  return `
-    <div class="room-card${featured ? ' featured' : ''}" id="${room.airtableId}" data-id="${room.id}">
-      <div class="room-card-header">
-        <div class="room-card-title">
-          <span class="room-number">#${room.id}</span>
-          <h3>${room.game}</h3>
-        </div>
-        <span class="status-indicator">${statusBadge}</span>
-      </div>
-      <div class="room-card-meta">
-        ${companyHtml}
-        <span class="date"><span class="meta-icon">\ud83d\udcc5</span> ${dateStr}</span>
-        ${locationStr ? `<span class="location"><span class="meta-icon">\ud83d\udccd</span> ${locationStr}</span>` : ''}
-        ${escapeTimeHtml}
-      </div>
-      ${playersHtml}
-      ${tagsHtml ? `<div class="room-card-tags">${tagsHtml}</div>` : ''}
-      <div class="room-card-footer">
-        ${blogHtml}
-        ${mortyHtml}
-        <button class="tinylytics_kudos room-kudos" data-path="/room/${room.airtableId}"></button>
-      </div>
-      ${notesHtml}
-    </div>
-  `;
 }
 
 // URL filter helpers

@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-A static website for "Escaping Things" at escape.thingelstad.com — a personal site showcasing the Thingelstad family's escape room journey. Built with 11ty (Eleventy) and hosted on GitHub Pages. Nunjucks templates, CSS, and JavaScript reading from a `data/rooms.json` file committed in the repo. Data is synced from Airtable.
+A static website for "Escaping Things" at escape.thingelstad.com — a personal site showcasing the Thingelstad family's escape room journey. Built with 11ty (Eleventy) and hosted on GitHub Pages. Nunjucks templates, CSS, and JavaScript with room data pre-computed and inlined at build time. Source data in `src/_data/rooms.json` is synced from Airtable.
 
 ## Tech Stack
 
@@ -11,10 +11,10 @@ A static website for "Escaping Things" at escape.thingelstad.com — a personal 
 - Leaflet.js v1.9.4 via CDN for maps
 - Leaflet.markercluster v1.5.3 via CDN for marker clustering
 - Chart.js v4.4.7 via CDN for stats charts
-- Google Fonts: Cinzel (headings) + Raleway (body)
+- Google Fonts: Bungee (headings) + Space Grotesk (body) + Caveat (scrapbook details)
 - Tinylytics for analytics (kudos, hit counter, visitor countries, event tracking)
 - GitHub Pages hosting via GitHub Actions
-- `data/rooms.json` is the single data source, committed to the repo
+- `src/_data/rooms.json` is the single data source, committed to the repo; per-page data files pre-compute and inline subsets at build time
 
 ## Build & Development
 
@@ -48,12 +48,15 @@ npm run build        # Production build to _site/
 │   │   └── room-card.njk     # Reusable room card macro
 │   ├── _data/                # 11ty data files
 │   │   ├── rooms.json        # Room data (90+ rooms, synced from Airtable)
-│   │   ├── stats.js          # Computed stats (totals, win rate, recent rooms, planned)
-│   │   └── filters.js        # Filter options (tags, years, countries, players)
+│   │   ├── stats.js          # Computed stats + chart datasets (inlined on stats page)
+│   │   ├── filters.js        # Filter options (tags, years, countries, players)
+│   │   ├── listRooms.js      # Trimmed room data for list modal (no lat/lng)
+│   │   ├── scrapbook.js      # Photo rooms with display fields only
+│   │   └── mapRooms.js       # Room data for map (all fields including lat/lng)
 │   ├── css/
 │   │   └── style.css         # Shared styles
 │   ├── js/
-│   │   ├── data.js           # Client-side: fetch rooms.json, filtering, card rendering
+│   │   ├── data.js           # Shared client-side utilities (formatting, escaping, nav, URL state)
 │   │   ├── list.js           # List page logic (filter, sort, URL state, modal)
 │   │   ├── map.js            # Map page logic (Leaflet, markers, filter panel)
 │   │   ├── scrapbook.js      # Scrapbook page logic (photo layout, shuffle/sort)
@@ -122,9 +125,12 @@ Field notes:
 
 Data files in `src/_data/` are available globally in templates:
 
-- **`rooms.json`** — Raw room data. Accessed as `rooms.rooms` in templates.
-- **`stats.js`** — Computed at build time. Provides `stats.totalRooms`, `stats.totalWins`, `stats.winRate`, `stats.regionCount`, `stats.countryCount`, `stats.companyCount`, `stats.yearsActive`, `stats.firstYear`, `stats.lastYear`, `stats.latestCompleted`, `stats.recentCompleted` (6 most recent), `stats.planned`.
+- **`rooms.json`** — Raw room data. Accessed as `rooms.rooms` in templates. Source of truth for all other data files.
+- **`stats.js`** — Computed at build time. Provides `stats.totalRooms`, `stats.totalWins`, `stats.winRate`, `stats.regionCount`, `stats.countryCount`, `stats.companyCount`, `stats.yearsActive`, `stats.firstYear`, `stats.lastYear`, `stats.latestCompleted`, `stats.recentCompleted` (6 most recent), `stats.planned`, and `stats.charts` (pre-computed chart datasets: `roomsPerYear`, `monthly`, `states`, `countries`, `companies`, `escapeTimes`).
 - **`filters.js`** — Computed at build time. Provides `filters.tags`, `filters.years`, `filters.countries`, `filters.players` for pre-populating filter dropdowns.
+- **`listRooms.js`** — Pre-computes room data for the list page detail modal. Strips `lat`/`lng` from locations. Inlined as JSON in `list.njk`.
+- **`scrapbook.js`** — Filters to rooms with photos and trims to display-only fields. Inlined as JSON in `scrapbook.njk`.
+- **`mapRooms.js`** — All rooms with full location data (including `lat`/`lng`) for map markers. Inlined as JSON in `map.njk`.
 
 ## 11ty Nunjucks Filters (eleventy.config.js)
 
@@ -139,8 +145,8 @@ Data files in `src/_data/` are available globally in templates:
 Dark, moody, immersive "escape room" aesthetic with atmospheric effects.
 
 - **Background:** Very dark (#060910) with SVG film grain noise texture overlay
-- **Accent colors:** Gold (#e6b84f) for highlights/best rooms, teal (#4fd1c5) for interactive elements, red (#f06060) for losses, blue (#60a5fa) for scheduled
-- **Typography:** Cinzel (display/headings — mysterious vintage feel), Raleway (body — clean sans-serif)
+- **Accent colors:** Gold (#e8924f) for highlights/best rooms, teal (#43e6d0) for interactive elements, red (#f06060) for losses, blue (#5a8bff) for scheduled
+- **Typography:** Bungee (display/headings — bold retro feel), Space Grotesk (body — clean sans-serif), Caveat (scrapbook captions — handwritten feel)
 - **Map tiles:** CartoDB Dark Matter
 - **Atmospheric effects:**
   - Film grain noise texture via SVG data URI filter
@@ -233,7 +239,7 @@ Tags are visually categorized by `classifyTag()`:
 
 - **Summary stats row:** Server-rendered from `stats` data
 - **Charts (Chart.js, dark themed, client-rendered):**
-  1. Escape times — Scatter plot (room date vs. minutes), full-width, shown first
+  1. Escape times — Line chart (room date vs. minutes), full-width, shown first
   2. Rooms per year — Stacked bar (escaped/try again/completed/scheduled)
   3. Monthly distribution — Bar chart (Jan–Dec aggregate)
   4. Rooms by state — Horizontal bar (US states only)
@@ -264,36 +270,38 @@ Tinylytics integration on all pages (loaded in base.njk):
 
 ## Server-Rendered vs Client-Rendered
 
-| Feature | Rendered by |
-|---------|------------|
-| Stats rows (home, stats pages) | Server (11ty data) |
-| Recent room cards (home) | Server (room-card macro) |
-| Scheduled room cards (home) | Server (room-card macro) |
-| Room cards on list page | Server (room-card macro, filtered/sorted client-side) |
-| Detail modal content (list) | Client (list.js) |
-| Filter dropdown options | Server (filters data) |
-| Sitemap | Server (11ty collections) |
-| Atom feed | Server (11ty/Nunjucks) |
-| Scrapbook photos | Client (scrapbook.js) |
-| Map markers + popups | Client (map.js) |
-| Charts | Client (stats.js + Chart.js) |
-| Filtering/sorting/URL state | Client (list.js, map.js) |
+| Feature | Rendered by | Data source |
+|---------|------------|-------------|
+| Stats rows (home, stats pages) | Server (11ty data) | stats.js |
+| Recent room cards (home) | Server (room-card macro) | stats.js |
+| Scheduled room cards (home) | Server (room-card macro) | stats.js |
+| Room cards on list page | Server (room-card macro, filtered/sorted client-side) | rooms.json |
+| Detail modal content (list) | Client (list.js) | Inlined listRooms JSON |
+| Filter dropdown options | Server (filters data) | filters.js |
+| Sitemap | Server (11ty collections) | — |
+| Atom feed | Server (11ty/Nunjucks) | rooms.json |
+| Scrapbook photos | Client (scrapbook.js) | Inlined scrapbook JSON |
+| Map markers + popups | Client (map.js) | Inlined mapRooms JSON |
+| Charts | Client (stats.js + Chart.js) | Inlined stats.charts JSON |
+| Filtering/sorting/URL state | Client (list.js, map.js) | DOM data attrs / inlined JSON |
 
 ## Implementation Notes
 
-### data.js — Client-Side Data Layer
+### data.js — Shared Client-Side Utilities
 
-Fetches `/data/rooms.json` once and caches it. Exports:
-- `loadRooms()`, `getRooms()`, `getCompletedRooms()`, `getPlannedRooms()`
-- `filterRooms(filters)` — Takes `{q, tag, year, status, country, player}`, returns matching rooms
-- `parseEscapeTime(str)`, `escapeTimeMinutes(str)` — Parse "49m 5s" to seconds/minutes
-- `formatDate(dateStr)`, `formatLocation(location)`
-- `classifyTag(tag)`, `formatTagLabel(tag)`, `renderTag(tag)`
-- `renderRoomCard(room, options)` — Full card HTML generation (for client-side rendering)
+Lightweight utility module with no data fetching. All room data is inlined at build time via `<script type="application/json">` blocks in each page template. Exports:
+- `escapeHtml(str)` — HTML entity escaping for safe template literal interpolation
+- `formatDate(dateStr)`, `formatLocation(location)` — Display formatting
+- `renderTag(tag)` — Tag pill HTML (uses internal `classifyTag` and `formatTagLabel`)
+- `statusBadgeHtml(status)` — Status badge HTML
 - `getFilterParams()`, `setFilterParams(filters)` — URL query param helpers
 - `initNav()` — Hamburger menu toggle
 
 All pages use ES modules (`type="module"` in script tags).
+
+### Inlined Data Pattern
+
+Each page that needs room data has a corresponding `src/_data/*.js` file that pre-computes a trimmed dataset at build time. The template inlines it as `<script id="..." type="application/json">{{ data | dump | safe }}</script>`, and the client JS reads it synchronously via `JSON.parse(document.getElementById('...').textContent)`. This eliminates runtime `fetch()` calls and ensures pages render immediately with data.
 
 ### URL-driven Filter State
 

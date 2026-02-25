@@ -1,5 +1,5 @@
 import {
-  getRooms, getFilterParams, setFilterParams,
+  escapeHtml, getFilterParams, setFilterParams,
   initNav, formatDate, formatLocation, renderTag, statusBadgeHtml
 } from './data.js';
 
@@ -10,9 +10,9 @@ let currentDir = 'desc';
 const container = document.getElementById('room-list');
 const allCards = [...container.querySelectorAll('.room-card')];
 
-async function init() {
+function init() {
   initNav();
-  allRooms = await getRooms();
+  allRooms = JSON.parse(document.getElementById('list-rooms-data').textContent);
 
   applyUrlFilters();
   bindEvents();
@@ -288,37 +288,40 @@ function openModal(room) {
   const backdrop = document.getElementById('room-modal-backdrop');
   const body = document.getElementById('room-modal-body');
 
+  const gameName = escapeHtml(room.game);
+  const companyName = escapeHtml(room.company);
+
   const photoHtml = room.photoUrl
-    ? `<div class="room-modal-photo"><img src="${room.photoUrl}" alt="${room.game} at ${room.company}"></div>`
+    ? `<div class="room-modal-photo"><img src="${escapeHtml(room.photoUrl)}" alt="${gameName} at ${companyName}"></div>`
     : '';
 
   const statusBadge = statusBadgeHtml(room.status);
 
   const companyHtml = room.companyUrl
-    ? `<a href="${room.companyUrl}" target="_blank" rel="noopener" data-tinylytics-event="list.company" data-tinylytics-event-value="${room.company}">${room.company}</a>`
-    : room.company;
+    ? `<a href="${escapeHtml(room.companyUrl)}" target="_blank" rel="noopener" data-tinylytics-event="list.company" data-tinylytics-event-value="${companyName}">${companyName}</a>`
+    : companyName;
 
-  const locationStr = formatLocation(room.location);
+  const locationStr = escapeHtml(formatLocation(room.location));
   const tagsHtml = (room.tags || []).map(renderTag).join('');
 
   const escapeTimeHtml = room.escapeTime
-    ? `<div class="room-modal-meta-item">\u23f1 ${room.escapeTime}</div>`
+    ? `<div class="room-modal-meta-item">\u23f1 ${escapeHtml(room.escapeTime)}</div>`
     : '';
 
   const playersHtml = (room.players || []).length > 0
-    ? `<div class="room-modal-meta-item">\ud83d\udc65 ${room.players.join(', ')}</div>`
+    ? `<div class="room-modal-meta-item">\ud83d\udc65 ${room.players.map(escapeHtml).join(', ')}</div>`
     : '';
 
   const notesHtml = room.notes
-    ? `<div class="room-modal-notes">${room.notes}</div>`
+    ? `<div class="room-modal-notes">${escapeHtml(room.notes)}</div>`
     : '';
 
   const blogHtml = room.blogUrl
-    ? `<a href="${room.blogUrl}" class="blog-link" target="_blank" rel="noopener" data-tinylytics-event="list.blog-post" data-tinylytics-event-value="${room.game}">Read post \u2192</a>`
+    ? `<a href="${escapeHtml(room.blogUrl)}" class="blog-link" target="_blank" rel="noopener" data-tinylytics-event="list.blog-post" data-tinylytics-event-value="${gameName}">Read post \u2192</a>`
     : '';
 
   const mortyHtml = room.mortyId
-    ? `<a href="https://morty.app/attraction/${room.mortyId}" class="morty-link" target="_blank" rel="noopener" data-tinylytics-event="list.morty" data-tinylytics-event-value="${room.game}">Morty \u2192</a>`
+    ? `<a href="https://morty.app/attraction/${room.mortyId}" class="morty-link" target="_blank" rel="noopener" data-tinylytics-event="list.morty" data-tinylytics-event-value="${gameName}">Morty \u2192</a>`
     : '';
 
   body.innerHTML = `
@@ -326,7 +329,7 @@ function openModal(room) {
     <div class="room-modal-info">
       <div class="room-modal-header">
         <span class="room-number">#${room.id}</span>
-        <h3>${room.game}</h3>
+        <h3>${gameName}</h3>
         ${statusBadge}
       </div>
       <div class="room-modal-company">${companyHtml}</div>
@@ -341,7 +344,7 @@ function openModal(room) {
       <div class="room-modal-links">
         ${blogHtml}
         ${mortyHtml}
-        <button class="permalink-btn" data-permalink="${window.location.origin}/list/#${room.airtableId}" data-tinylytics-event="list.copy-link" data-tinylytics-event-value="${room.game}">Copy link</button>
+        <button class="permalink-btn" data-permalink="${window.location.origin}/list/#${room.airtableId}" data-tinylytics-event="list.copy-link" data-tinylytics-event-value="${gameName}">Copy link</button>
       </div>
     </div>
   `;
