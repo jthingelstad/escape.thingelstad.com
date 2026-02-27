@@ -852,12 +852,13 @@
     {
       "id": 32,
       "airtableId": "recBHwx3kobncX31m",
-      "game": "???",
+      "game": "Escape At Home",
       "company": "Trapped Puzzle Rooms",
       "date": "2020-04-26",
       "status": "Try again",
       "timeLeft": null,
       "location": {
+        "city": "Online",
         "lat": null,
         "lng": null
       },
@@ -866,7 +867,7 @@
       "tags": [
         "online"
       ],
-      "notes": null,
+      "notes": "Game played online using Discord during the pandemic. ",
       "players": []
     },
     {
