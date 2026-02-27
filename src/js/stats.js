@@ -270,6 +270,15 @@ function renderTimeLeftChart(data) {
     },
     options: {
       ...defaultChartOptions,
+      onHover: (event, elements) => {
+        event.native.target.style.cursor = elements.length ? 'pointer' : 'default';
+      },
+      onClick: (event, elements) => {
+        if (elements.length) {
+          const point = data[elements[0].index];
+          window.location.href = `/list/#${point.airtableId}`;
+        }
+      },
       scales: {
         x: {
           ...defaultChartOptions.scales.x,

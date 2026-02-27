@@ -102,7 +102,8 @@ module.exports = function() {
     .map(r => ({
       x: `#${r.id}`,
       y: parseFloat(r.timeLeft.toFixed(2)),
-      label: `#${r.id} ${r.game}`
+      label: `#${r.id} ${r.game}`,
+      airtableId: r.airtableId
     }));
 
   return {
