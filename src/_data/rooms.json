@@ -251,8 +251,8 @@
       "game": "The Oval-ish Office",
       "company": "Red Herring Escape Room",
       "date": "2017-08-20",
-      "status": "Try again",
-      "timeLeft": null,
+      "status": "Escaped",
+      "timeLeft": 0.2,
       "location": {
         "city": "St. Louis",
         "region": "Missouri",
@@ -270,7 +270,8 @@
         "Mazie",
         "Tyler"
       ],
-      "mortyId": 3927
+      "mortyId": 3927,
+      "photoUrl": "/images/rooms/ovalish.jpg"
     },
     {
       "id": 11,
@@ -311,7 +312,7 @@
       "company": "D.O.A. Escape Rooms",
       "date": "2018-04-01",
       "status": "Escaped",
-      "timeLeft": null,
+      "timeLeft": 5.0,
       "location": {
         "city": "Wisconsin Dells",
         "region": "Wisconsin",
