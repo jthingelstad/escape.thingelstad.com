@@ -1,6 +1,7 @@
 import {
   escapeHtml, getFilterParams, setFilterParams,
-  initNav, formatDate, formatLocation, renderTag, statusBadgeHtml
+  initNav, formatDate, formatLocation, renderTag, statusBadgeHtml,
+  formatTimeLeft
 } from './data.js';
 
 let allRooms = [];
@@ -313,8 +314,8 @@ function openModal(room) {
   const locationStr = escapeHtml(formatLocation(room.location));
   const tagsHtml = (room.tags || []).map(renderTag).join('');
 
-  const escapeTimeHtml = room.escapeTime
-    ? `<div class="room-modal-meta-item">\u23f1 ${escapeHtml(room.escapeTime)}</div>`
+  const timeLeftHtml = room.timeLeft != null
+    ? `<div class="room-modal-meta-item">\u23f1 ${escapeHtml(formatTimeLeft(room.timeLeft))}</div>`
     : '';
 
   const playersHtml = (room.players || []).length > 0
@@ -345,7 +346,7 @@ function openModal(room) {
       <div class="room-modal-meta">
         <div class="room-modal-meta-item">\ud83d\udcc5 ${formatDate(room.date)}</div>
         ${locationStr ? `<div class="room-modal-meta-item">\ud83d\udccd ${locationStr}</div>` : ''}
-        ${escapeTimeHtml}
+        ${timeLeftHtml}
         ${playersHtml}
       </div>
       ${tagsHtml ? `<div class="room-modal-tags">${tagsHtml}</div>` : ''}

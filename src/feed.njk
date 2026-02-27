@@ -33,8 +33,8 @@ eleventyExcludeFromCollections: true
       <p><strong>Company:</strong> {% if room.companyUrl %}<a href="{{ room.companyUrl }}">{{ room.company | e }}</a>{% else %}{{ room.company | e }}{% endif %}</p>
       <p><strong>Date:</strong> {{ room.date | formatDate }}</p>
       <p><strong>Location:</strong> {{ room.location | formatLocation }}</p>
-      {%- if room.escapeTime %}
-      <p><strong>Escape Time:</strong> {{ room.escapeTime | trim }}</p>
+      {%- if room.timeLeft != null %}
+      <p><strong>Time Left:</strong> {{ room.timeLeft | formatTimeLeft }}</p>
       {%- endif %}
       {%- if room.players and room.players.length > 0 %}
       <p><strong>Players:</strong> {{ room.players | join(", ") }}</p>

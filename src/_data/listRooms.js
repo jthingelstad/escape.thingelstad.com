@@ -9,7 +9,7 @@ module.exports = function() {
     companyUrl: r.companyUrl || null,
     date: r.date,
     status: r.status,
-    escapeTime: r.escapeTime || null,
+    timeLeft: r.timeLeft ?? null,
     location: r.location ? {
       city: r.location.city || null,
       region: r.location.region || null,

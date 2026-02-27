@@ -89,7 +89,8 @@ def transform_room(room_fields, airtable_id, company_lookup, location_lookup):
     entry["date"] = date
     status = room_fields.get("Status", "Completed")
     entry["status"] = status
-    entry["escapeTime"] = room_fields.get("Escape Time") or None
+    time_left = room_fields.get("Time Left")
+    entry["timeLeft"] = float(time_left) if time_left is not None else None
 
     # Room label for warning messages
     label = f"\"{game}\"" if game else f"[{airtable_id}]"
@@ -245,7 +246,7 @@ def main():
         ordered["company"] = entry.pop("company")
         ordered["date"] = entry.pop("date")
         ordered["status"] = entry.pop("status")
-        ordered["escapeTime"] = entry.pop("escapeTime")
+        ordered["timeLeft"] = entry.pop("timeLeft")
         ordered["location"] = entry.pop("location")
         ordered["companyUrl"] = entry.pop("companyUrl")
         ordered["blogUrl"] = entry.pop("blogUrl")

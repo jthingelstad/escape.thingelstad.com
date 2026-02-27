@@ -9,7 +9,7 @@ module.exports = function() {
       date: r.date,
       location: r.location,
       status: r.status,
-      escapeTime: r.escapeTime || null,
+      timeLeft: r.timeLeft ?? null,
       blogUrl: r.blogUrl || null,
       tags: r.tags || [],
       photoUrl: r.photoUrl

@@ -1,6 +1,7 @@
 import {
   escapeHtml, formatDate, formatLocation, renderTag,
-  getFilterParams, setFilterParams, initNav, statusBadgeHtml
+  getFilterParams, setFilterParams, initNav, statusBadgeHtml,
+  formatTimeLeft
 } from './data.js';
 
 const allRooms = JSON.parse(document.getElementById('map-rooms-data').textContent);
@@ -137,7 +138,7 @@ function buildPopup(room) {
         <div class="popup-meta">
           ${room.companyUrl ? `<a href="${escapeHtml(room.companyUrl)}" target="_blank" rel="noopener" data-tinylytics-event="map.company" data-tinylytics-event-value="${companyName}">${companyName}</a>` : companyName}<br>
           ${dateStr}${locationStr ? ' &middot; ' + locationStr : ''}
-          ${room.escapeTime ? ' &middot; ' + escapeHtml(room.escapeTime) : ''}
+          ${room.timeLeft != null ? ' &middot; ' + escapeHtml(formatTimeLeft(room.timeLeft)) : ''}
         </div>
         ${statusHtml}
         ${tagsHtml ? `<div class="popup-tags">${tagsHtml}</div>` : ''}

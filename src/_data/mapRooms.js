@@ -8,7 +8,7 @@ module.exports = function() {
     companyUrl: r.companyUrl || null,
     date: r.date,
     status: r.status,
-    escapeTime: r.escapeTime || null,
+    timeLeft: r.timeLeft ?? null,
     location: r.location || null,
     tags: r.tags || [],
     players: r.players || [],

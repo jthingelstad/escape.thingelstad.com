@@ -500,7 +500,7 @@ section {
 
 .room-card-meta .date,
 .room-card-meta .location,
-.room-card-meta .escape-time {
+.room-card-meta .time-left {
   display: flex;
   align-items: center;
   gap: 0.3rem;
@@ -1326,9 +1326,15 @@ section {
 .chart-card h3 {
   font-size: 1rem;
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+.chart-subtitle {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
   font-weight: 600;
 }
 

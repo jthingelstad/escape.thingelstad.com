@@ -85,7 +85,7 @@ npm run build        # Production build to _site/
       "company": "Puzzleworks",
       "date": "2026-01-03",
       "status": "Escaped",
-      "escapeTime": "49m 5s",
+      "timeLeft": 10.92,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
@@ -110,7 +110,7 @@ Field notes:
 - `airtableId` — String like "recXXXXXX". Airtable record ID. Used for permalinks and kudos paths.
 - `date` — ISO 8601 (YYYY-MM-DD).
 - `status` — One of: `"Escaped"`, `"Try again"`, `"Completed"`, `"Scheduled"`. Win rate counts Escaped + Completed as wins.
-- `escapeTime` — String like "49m 5s" or null.
+- `timeLeft` — Number (minutes remaining, can be negative) or null. Displayed as "Xm Ys left" or "Xm Ys over".
 - `location.region` — State (US), province (CA), or absent (international). Not "state".
 - `location.country` — Full country name (e.g. "United States", "Canada", "Iceland"). Not a country code.
 - `location.lat` / `location.lng` — May be null for online or scheduled rooms (don't render on map).
@@ -126,7 +126,7 @@ Field notes:
 Data files in `src/_data/` are available globally in templates:
 
 - **`rooms.json`** — Raw room data. Accessed as `rooms.rooms` in templates. Source of truth for all other data files.
-- **`stats.js`** — Computed at build time. Provides `stats.totalRooms`, `stats.totalWins`, `stats.winRate`, `stats.regionCount`, `stats.countryCount`, `stats.companyCount`, `stats.yearsActive`, `stats.firstYear`, `stats.lastYear`, `stats.latestCompleted`, `stats.recentCompleted` (6 most recent), `stats.planned`, and `stats.charts` (pre-computed chart datasets: `roomsPerYear`, `monthly`, `states`, `countries`, `companies`, `escapeTimes`).
+- **`stats.js`** — Computed at build time. Provides `stats.totalRooms`, `stats.totalWins`, `stats.winRate`, `stats.regionCount`, `stats.countryCount`, `stats.companyCount`, `stats.yearsActive`, `stats.firstYear`, `stats.lastYear`, `stats.latestCompleted`, `stats.recentCompleted` (6 most recent), `stats.planned`, and `stats.charts` (pre-computed chart datasets: `roomsPerYear`, `monthly`, `states`, `countries`, `companies`, `timeLeft`).
 - **`filters.js`** — Computed at build time. Provides `filters.tags`, `filters.years`, `filters.countries`, `filters.players` for pre-populating filter dropdowns.
 - **`listRooms.js`** — Pre-computes room data for the list page detail modal. Strips `lat`/`lng` from locations. Inlined as JSON in `list.njk`.
 - **`scrapbook.js`** — Filters to rooms with photos and trims to display-only fields. Inlined as JSON in `scrapbook.njk`.
@@ -136,6 +136,7 @@ Data files in `src/_data/` are available globally in templates:
 
 - `formatDate` — "2025-08-02" → "August 2, 2025"
 - `formatLocation` — location object → "City, Region, Country"
+- `formatTimeLeft` — number (minutes) → "5m 46s left" (positive) or "2m 30s over" (negative), empty string for null
 - `classifyTag` — tag → CSS class: "best", "terpeca", "online", "trip", "default"
 - `formatTagLabel` — tag → display label: "best" → "★ Best", "terpeca-2024" → "TERPECA 2024"
 - `cacheBust` — Appends content hash to asset URLs for cache busting
@@ -175,7 +176,7 @@ Nunjucks macro `roomCard(room, options)`. Server-rendered on home page and list 
 - Formatted date (e.g. "August 2, 2025")
 - Location (city, region, country)
 - Status badge (✓ Escaped / ✗ Try Again / ✓ Completed / Scheduled)
-- Escape time with stopwatch icon (if available)
+- Time left with stopwatch icon (if available)
 - Players with 👥 icon (comma-separated, if available)
 - Tags as styled pills
 - Tinylytics kudos button (data-path="/room/{airtableId}")
@@ -222,7 +223,7 @@ Tags are visually categorized by `classifyTag()`:
 - **Photo scrapbook** of rooms that have photos
 - **Scattered layout** with random rotation, sizing, and offset (polaroid-on-table aesthetic)
 - **Controls:** Date sort (toggles newest/oldest) and Shuffle button
-- **Photo details:** Click a photo to expand and show room name, company, date, location, status, escape time, blog link
+- **Photo details:** Click a photo to expand and show room name, company, date, location, status, time left, blog link
 - **"Best" rooms** highlighted with gold accent
 
 ### Map Page (map.njk)
@@ -239,7 +240,7 @@ Tags are visually categorized by `classifyTag()`:
 
 - **Summary stats row:** Server-rendered from `stats` data
 - **Charts (Chart.js, dark themed, client-rendered):**
-  1. Escape times — Line chart (room date vs. minutes), full-width, shown first
+  1. Time left — Bar chart (room date vs. minutes left, allows negatives), full-width, shown first
   2. Rooms per year — Stacked bar (escaped/try again/completed/scheduled)
   3. Monthly distribution — Bar chart (Jan–Dec aggregate)
   4. Rooms by state — Horizontal bar (US states only)
@@ -250,7 +251,7 @@ Tags are visually categorized by `classifyTag()`:
 
 - **Atom XML feed** at `/feed.xml`
 - Includes all non-Scheduled rooms in reverse chronological order
-- Each entry has room details as HTML content: status, company, date, location, escape time, players, tags, notes, blog/morty links, photo
+- Each entry has room details as HTML content: status, company, date, location, time left, players, tags, notes, blog/morty links, photo
 - Autodiscovery link in `<head>` of all pages
 
 ### 404 Page (404.njk)

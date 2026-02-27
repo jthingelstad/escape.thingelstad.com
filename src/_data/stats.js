@@ -1,15 +1,5 @@
 const rooms = require('./rooms.json');
 
-function escapeTimeMinutes(str) {
-  if (!str) return null;
-  let totalSeconds = 0;
-  const minMatch = str.match(/(\d+)m/);
-  const secMatch = str.match(/(\d+)s/);
-  if (minMatch) totalSeconds += parseInt(minMatch[1]) * 60;
-  if (secMatch) totalSeconds += parseInt(secMatch[1]);
-  return totalSeconds / 60;
-}
-
 module.exports = function() {
   const allRooms = rooms.rooms;
   const played = allRooms.filter(r => r.status === 'Escaped' || r.status === 'Try again' || r.status === 'Completed');
@@ -105,13 +95,13 @@ module.exports = function() {
     .slice(0, 10)
     .map(([label, count]) => ({ label, count }));
 
-  // Escape times scatter data (sorted by date)
-  const chartEscapeTimes = played
-    .filter(r => r.escapeTime)
+  // Time left chart data (sorted by date)
+  const chartTimeLeft = played
+    .filter(r => r.timeLeft != null)
     .sort((a, b) => a.date.localeCompare(b.date))
     .map(r => ({
-      x: r.date,
-      y: parseFloat(escapeTimeMinutes(r.escapeTime).toFixed(2)),
+      x: `#${r.id}`,
+      y: parseFloat(r.timeLeft.toFixed(2)),
       label: `#${r.id} ${r.game}`
     }));
 
@@ -134,7 +124,7 @@ module.exports = function() {
       states: chartStates,
       countries: chartCountries,
       companies: chartCompanies,
-      escapeTimes: chartEscapeTimes
+      timeLeft: chartTimeLeft
     }
   };
 };

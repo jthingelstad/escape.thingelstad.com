@@ -66,6 +66,15 @@ export function statusBadgeHtml(status) {
   }
 }
 
+export function formatTimeLeft(val) {
+  if (val == null) return '';
+  const abs = Math.abs(val);
+  const mins = Math.floor(abs);
+  const secs = Math.round((abs - mins) * 60);
+  const suffix = val < 0 ? 'over' : 'left';
+  return `${mins}m ${secs}s ${suffix}`;
+}
+
 // URL filter helpers
 export function getFilterParams() {
   const params = new URLSearchParams(window.location.search);

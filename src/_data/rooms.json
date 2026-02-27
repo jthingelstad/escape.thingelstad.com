@@ -7,7 +7,7 @@
       "company": "Trapped Puzzle Rooms",
       "date": "2016-07-11",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
@@ -32,7 +32,7 @@
       "company": "Maine Escape Games",
       "date": "2016-07-29",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Portland",
         "region": "Maine",
@@ -58,7 +58,7 @@
       "company": "Escape MSP",
       "date": "2016-08-24",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
@@ -84,7 +84,7 @@
       "company": "Fox in a Box",
       "date": "2016-10-02",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Chicago",
         "region": "Illinois",
@@ -111,7 +111,7 @@
       "company": "Escape the Room",
       "date": "2016-12-22",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
@@ -142,7 +142,7 @@
       "company": "Clue Pursuit",
       "date": "2016-12-31",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Springfield",
         "region": "Missouri",
@@ -168,7 +168,7 @@
       "company": "Kato Escape",
       "date": "2017-01-15",
       "status": "Completed",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Mankato",
         "region": "Minnesota",
@@ -197,7 +197,7 @@
       "company": "Zero Hour Escape Rooms",
       "date": "2017-06-04",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
@@ -224,7 +224,7 @@
       "company": "Grand Haven Room Escape",
       "date": "2017-06-29",
       "status": "Escaped",
-      "escapeTime": "57m 10s",
+      "timeLeft": 2.8333333333333335,
       "location": {
         "city": "Grand Haven",
         "region": "Michigan",
@@ -252,7 +252,7 @@
       "company": "Red Herring Escape Room",
       "date": "2017-08-20",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "St. Louis",
         "region": "Missouri",
@@ -279,7 +279,7 @@
       "company": "Trapped Puzzle Rooms",
       "date": "2017-12-10",
       "status": "Escaped",
-      "escapeTime": "54m 0s",
+      "timeLeft": 6.0,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
@@ -311,7 +311,7 @@
       "company": "D.O.A. Escape Rooms",
       "date": "2018-04-01",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Wisconsin Dells",
         "region": "Wisconsin",
@@ -339,7 +339,7 @@
       "company": "The Escape Game",
       "date": "2018-04-05",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Chicago",
         "region": "Illinois",
@@ -361,7 +361,7 @@
       "company": "Zero Hour Escape Rooms",
       "date": "2018-05-05",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Duluth",
         "region": "Minnesota",
@@ -389,7 +389,7 @@
       "company": "The Escape Game",
       "date": "2018-05-20",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Chicago",
         "region": "Illinois",
@@ -414,7 +414,7 @@
       "company": "Escape Frenzy",
       "date": "2018-06-25",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Edina",
         "region": "Minnesota",
@@ -441,7 +441,7 @@
       "company": "Missing Pieces Escape Games",
       "date": "2018-07-27",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Edina",
         "region": "Minnesota",
@@ -467,7 +467,7 @@
       "company": "Enigma Escape Rooms",
       "date": "2018-08-12",
       "status": "Escaped",
-      "escapeTime": "57m 53s",
+      "timeLeft": 2.1166666666666667,
       "location": {
         "city": "Buffalo",
         "region": "New York",
@@ -494,7 +494,7 @@
       "company": "Trapped Puzzle Rooms",
       "date": "2018-09-09",
       "status": "Completed",
-      "escapeTime": null,
+      "timeLeft": -5.0,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
@@ -522,7 +522,7 @@
       "company": "Missing Pieces Escape Games",
       "date": "2018-11-24",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Edina",
         "region": "Minnesota",
@@ -550,7 +550,7 @@
       "company": "Trapped Puzzle Rooms",
       "date": "2018-12-05",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
@@ -576,7 +576,7 @@
       "company": "Trapped Puzzle Rooms",
       "date": "2018-12-20",
       "status": "Completed",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
@@ -601,7 +601,7 @@
       "company": "Trapped Puzzle Rooms",
       "date": "2019-01-05",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
@@ -634,7 +634,7 @@
       "company": "Missing Pieces Escape Games",
       "date": "2019-01-06",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Edina",
         "region": "Minnesota",
@@ -662,7 +662,7 @@
       "company": "Breakout Games",
       "date": "2019-01-19",
       "status": "Escaped",
-      "escapeTime": "45m 0s",
+      "timeLeft": 15.0,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
@@ -694,7 +694,7 @@
       "company": "Escape MSP",
       "date": "2019-02-16",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Lakeville",
         "region": "Minnesota",
@@ -721,7 +721,7 @@
       "company": "Trapped Puzzle Rooms",
       "date": "2019-04-27",
       "status": "Escaped",
-      "escapeTime": "53m 0s",
+      "timeLeft": 7.0,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
@@ -749,7 +749,7 @@
       "company": "Escape Artists KC",
       "date": "2019-07-22",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Kansas City",
         "region": "Missouri",
@@ -777,7 +777,7 @@
       "company": "Tick Tock Escape Rooms",
       "date": "2019-07-23",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Kansas City",
         "region": "Missouri",
@@ -799,7 +799,7 @@
       "company": "Trapped Puzzle Rooms",
       "date": "2019-12-07",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
@@ -827,7 +827,7 @@
       "company": "Puzzleworks",
       "date": "2020-01-05",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
@@ -855,7 +855,7 @@
       "company": "Trapped Puzzle Rooms",
       "date": "2020-04-26",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "lat": null,
         "lng": null
@@ -875,7 +875,7 @@
       "company": "Escape Room Palm Springs",
       "date": "2021-02-14",
       "status": "Escaped",
-      "escapeTime": "44m 29s",
+      "timeLeft": 15.516666666666667,
       "location": {
         "city": "Palm Springs",
         "region": "California",
@@ -903,7 +903,7 @@
       "company": "Nemesis Club",
       "date": "2021-03-11",
       "status": "Escaped",
-      "escapeTime": "59m 29s",
+      "timeLeft": 0.5166666666666667,
       "location": {
         "city": "Phoenix",
         "region": "Arizona",
@@ -931,7 +931,7 @@
       "company": "Greatest Caper",
       "date": "2021-08-08",
       "status": "Escaped",
-      "escapeTime": "56m 16s",
+      "timeLeft": 3.7333333333333334,
       "location": {
         "city": "Montpelier",
         "region": "Maine",
@@ -959,7 +959,7 @@
       "company": "Itasca Historical Society",
       "date": "2021-08-21",
       "status": "Escaped",
-      "escapeTime": "40m 0s",
+      "timeLeft": 20.0,
       "location": {
         "city": "Grand Rapids",
         "region": "Minnesota",
@@ -989,7 +989,7 @@
       "company": "Twisted Room Escapes",
       "date": "2021-10-22",
       "status": "Escaped",
-      "escapeTime": "56m 40s",
+      "timeLeft": 3.3333333333333335,
       "location": {
         "city": "Indianapolis",
         "region": "Indiana",
@@ -1017,7 +1017,7 @@
       "company": "Trapped Puzzle Rooms",
       "date": "2022-01-04",
       "status": "Escaped",
-      "escapeTime": "59m 36s",
+      "timeLeft": 0.4,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
@@ -1045,7 +1045,7 @@
       "company": "Trapped Puzzle Rooms",
       "date": "2022-02-12",
       "status": "Escaped",
-      "escapeTime": "56m 59s",
+      "timeLeft": 3.0166666666666666,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
@@ -1073,7 +1073,7 @@
       "company": "Itasca Historical Society",
       "date": "2022-02-26",
       "status": "Completed",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Grand Rapids",
         "region": "Minnesota",
@@ -1102,7 +1102,7 @@
       "company": "The Escape Game",
       "date": "2022-03-21",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Nashville",
         "region": "Tennessee",
@@ -1129,7 +1129,7 @@
       "company": "Escape Code",
       "date": "2022-06-06",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Branson",
         "region": "Missouri",
@@ -1154,7 +1154,7 @@
       "company": "Cryptex Branson Escape Rooms",
       "date": "2022-06-06",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Branson",
         "region": "Missouri",
@@ -1179,7 +1179,7 @@
       "company": "Reykjavik Escape",
       "date": "2022-08-06",
       "status": "Escaped",
-      "escapeTime": "38m 44s",
+      "timeLeft": 21.266666666666666,
       "location": {
         "city": "Reykjavik",
         "country": "Iceland",
@@ -1206,7 +1206,7 @@
       "company": "Missing Pieces Escape Games",
       "date": "2022-12-20",
       "status": "Escaped",
-      "escapeTime": "46m 24s",
+      "timeLeft": 13.6,
       "location": {
         "city": "Edina",
         "region": "Minnesota",
@@ -1238,7 +1238,7 @@
       "company": "Missing Pieces Escape Games",
       "date": "2023-01-06",
       "status": "Escaped",
-      "escapeTime": "42m 46s",
+      "timeLeft": 17.233333333333334,
       "location": {
         "city": "Edina",
         "region": "Minnesota",
@@ -1267,7 +1267,7 @@
       "company": "Mission Manor",
       "date": "2023-02-12",
       "status": "Escaped",
-      "escapeTime": "45m 55s",
+      "timeLeft": 14.083333333333334,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
@@ -1295,7 +1295,7 @@
       "company": "Exit Escape Room NYC",
       "date": "2023-03-19",
       "status": "Escaped",
-      "escapeTime": "56m 57s",
+      "timeLeft": 3.05,
       "location": {
         "city": "New York",
         "region": "New York",
@@ -1321,7 +1321,7 @@
       "company": "The Escape Game",
       "date": "2023-04-30",
       "status": "Escaped",
-      "escapeTime": "59m 0s",
+      "timeLeft": 1.0,
       "location": {
         "city": "New York",
         "region": "New York",
@@ -1349,7 +1349,7 @@
       "company": "Zero Hour Escape Rooms",
       "date": "2023-06-14",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
@@ -1377,7 +1377,7 @@
       "company": "Mad Machines",
       "date": "2023-07-22",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Milan",
         "country": "Italy",
@@ -1406,7 +1406,7 @@
       "company": "Mad Machines",
       "date": "2023-07-23",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Milan",
         "country": "Italy",
@@ -1435,7 +1435,7 @@
       "company": "Escape Code",
       "date": "2023-10-21",
       "status": "Escaped",
-      "escapeTime": "59m 59s",
+      "timeLeft": 0.016666666666666666,
       "location": {
         "city": "Branson",
         "region": "Missouri",
@@ -1462,7 +1462,7 @@
       "company": "Itasca Historical Society",
       "date": "2023-11-18",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Grand Rapids",
         "region": "Minnesota",
@@ -1492,7 +1492,7 @@
       "company": "The Lodge of Lazarus Crowe",
       "date": "2023-12-20",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
@@ -1519,7 +1519,7 @@
       "company": "60 to Escape",
       "date": "2024-03-26",
       "status": "Escaped",
-      "escapeTime": "54m 23s",
+      "timeLeft": 5.616666666666666,
       "location": {
         "city": "Milwaukee",
         "region": "Wisconsin",
@@ -1547,7 +1547,7 @@
       "company": "Lock & Key Escape Rooms",
       "date": "2024-04-27",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
@@ -1574,7 +1574,7 @@
       "company": "Timescape",
       "date": "2024-06-12",
       "status": "Escaped",
-      "escapeTime": "51m 28s",
+      "timeLeft": 8.533333333333333,
       "location": {
         "city": "Belfast",
         "region": "Northern Ireland",
@@ -1602,7 +1602,7 @@
       "company": "60 to Escape",
       "date": "2024-10-18",
       "status": "Escaped",
-      "escapeTime": "47m 30s",
+      "timeLeft": 12.5,
       "location": {
         "city": "Gurnee",
         "region": "Illinois",
@@ -1629,7 +1629,7 @@
       "company": "The Escape Game",
       "date": "2024-12-22",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Bloomington",
         "region": "Minnesota",
@@ -1657,7 +1657,7 @@
       "company": "Copper Cat Escape",
       "date": "2025-01-18",
       "status": "Escaped",
-      "escapeTime": "48m 18s",
+      "timeLeft": 11.7,
       "location": {
         "city": "Brainerd",
         "region": "Minnesota",
@@ -1684,7 +1684,7 @@
       "company": "Copper Cat Escape",
       "date": "2025-01-19",
       "status": "Escaped",
-      "escapeTime": "46m 52s",
+      "timeLeft": 13.133333333333333,
       "location": {
         "city": "Brainerd",
         "region": "Minnesota",
@@ -1713,7 +1713,7 @@
       "company": "Puzzleworks",
       "date": "2025-01-20",
       "status": "Escaped",
-      "escapeTime": "58m 48s",
+      "timeLeft": 1.2,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
@@ -1741,7 +1741,7 @@
       "company": "No Esc Puzzle Collective",
       "date": "2025-02-01",
       "status": "Escaped",
-      "escapeTime": "59m 36s",
+      "timeLeft": 0.4,
       "location": {
         "city": "Shakopee",
         "region": "Minnesota",
@@ -1767,7 +1767,7 @@
       "company": "Enigma Adventures",
       "date": "2025-02-15",
       "status": "Escaped",
-      "escapeTime": "58m 21s",
+      "timeLeft": 1.65,
       "location": {
         "city": "Bloomington",
         "region": "Minnesota",
@@ -1794,7 +1794,7 @@
       "company": "Puzzleworks",
       "date": "2025-03-15",
       "status": "Escaped",
-      "escapeTime": "54m 47s",
+      "timeLeft": 5.216666666666667,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
@@ -1821,7 +1821,7 @@
       "company": "Doldrick’s Escape Room",
       "date": "2025-04-05",
       "status": "Escaped",
-      "escapeTime": "63m 25s",
+      "timeLeft": -3.4166666666666665,
       "location": {
         "city": "Orlando",
         "region": "Florida",
@@ -1851,7 +1851,7 @@
       "company": "Puzzleworks",
       "date": "2025-04-26",
       "status": "Escaped",
-      "escapeTime": "59m 34s",
+      "timeLeft": 0.43333333333333335,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
@@ -1879,7 +1879,7 @@
       "company": "Puzzleworks",
       "date": "2025-04-27",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
@@ -1908,7 +1908,7 @@
       "company": "Enigma Adventures",
       "date": "2025-05-11",
       "status": "Completed",
-      "escapeTime": "61m 30s",
+      "timeLeft": -1.5,
       "location": {
         "city": "Maple Grove",
         "region": "Minnesota",
@@ -1938,7 +1938,7 @@
       "company": "Escape City",
       "date": "2025-06-06",
       "status": "Escaped",
-      "escapeTime": "60m 9s",
+      "timeLeft": -0.15,
       "location": {
         "city": "Calgary",
         "region": "Alberta",
@@ -1964,7 +1964,7 @@
       "company": "Solve Escape Rooms",
       "date": "2025-06-18",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Waukesha",
         "region": "Wisconsin",
@@ -1989,7 +1989,7 @@
       "company": "Solve Escape Rooms",
       "date": "2025-06-18",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Waukesha",
         "region": "Wisconsin",
@@ -2014,7 +2014,7 @@
       "company": "Escape in Time",
       "date": "2025-07-18",
       "status": "Escaped",
-      "escapeTime": "46m 45s",
+      "timeLeft": 13.25,
       "location": {
         "city": "Madison",
         "region": "Wisconsin",
@@ -2042,7 +2042,7 @@
       "company": "Cabinet Mysteriis",
       "date": "2025-07-28",
       "status": "Escaped",
-      "escapeTime": "54m 0s",
+      "timeLeft": 6.0,
       "location": {
         "city": "Quebec City",
         "region": "Quebec",
@@ -2072,7 +2072,7 @@
       "company": "Cabinet Mysteriis",
       "date": "2025-07-28",
       "status": "Try again",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Quebec City",
         "region": "Quebec",
@@ -2103,7 +2103,7 @@
       "company": "Cabinet Mysteriis",
       "date": "2025-07-29",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Quebec City",
         "region": "Quebec",
@@ -2133,7 +2133,7 @@
       "company": "Escaparium",
       "date": "2025-07-30",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Montreal",
         "region": "Quebec",
@@ -2164,7 +2164,7 @@
       "company": "Escaparium",
       "date": "2025-07-30",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Montreal",
         "region": "Quebec",
@@ -2196,7 +2196,7 @@
       "company": "Escaparium",
       "date": "2025-08-02",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Montreal",
         "region": "Quebec",
@@ -2229,7 +2229,7 @@
       "company": "Escape Room Alexandria",
       "date": "2025-08-07",
       "status": "Escaped",
-      "escapeTime": "53m 14s",
+      "timeLeft": 6.766666666666667,
       "location": {
         "city": "Alexandria",
         "region": "Minnesota",
@@ -2257,7 +2257,7 @@
       "company": "Puzzled Escape Rooms",
       "date": "2025-08-08",
       "status": "Escaped",
-      "escapeTime": "53m 11s",
+      "timeLeft": 6.816666666666666,
       "location": {
         "city": "Fargo",
         "region": "North Dakota",
@@ -2285,7 +2285,7 @@
       "company": "Breakout ND",
       "date": "2025-08-09",
       "status": "Escaped",
-      "escapeTime": "48m 45s",
+      "timeLeft": 11.25,
       "location": {
         "city": "Bismarck",
         "region": "North Dakota",
@@ -2313,7 +2313,7 @@
       "company": "The Escape Game",
       "date": "2025-12-22",
       "status": "Escaped",
-      "escapeTime": "57m 34s",
+      "timeLeft": 2.433333333333333,
       "location": {
         "city": "Nashville",
         "region": "Tennessee",
@@ -2340,7 +2340,7 @@
       "company": "The Escape Game",
       "date": "2025-12-22",
       "status": "Escaped",
-      "escapeTime": "55m 12s",
+      "timeLeft": 4.8,
       "location": {
         "city": "Nashville",
         "region": "Tennessee",
@@ -2367,7 +2367,7 @@
       "company": "Puzzleworks",
       "date": "2026-01-03",
       "status": "Escaped",
-      "escapeTime": "49m 5s",
+      "timeLeft": 10.916666666666666,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
@@ -2395,7 +2395,7 @@
       "company": "Escapology",
       "date": "2026-01-10",
       "status": "Escaped",
-      "escapeTime": "39m 46s",
+      "timeLeft": 20.233333333333334,
       "location": {
         "city": "Burnsville",
         "region": "Minnesota",
@@ -2423,7 +2423,7 @@
       "company": "Lock & Key Escape Rooms",
       "date": "2026-02-12",
       "status": "Escaped",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
@@ -2449,7 +2449,7 @@
       "company": "The Lodge of Lazarus Crowe",
       "date": "2026-02-22",
       "status": "Escaped",
-      "escapeTime": "65m 0s",
+      "timeLeft": 10.0,
       "location": {
         "city": "St. Paul",
         "region": "Minnesota",
@@ -2474,7 +2474,7 @@
       "company": "Sherlocked",
       "date": "2026-03-15",
       "status": "Scheduled",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Amsterdam",
         "country": "Netherlands",
@@ -2498,7 +2498,7 @@
       "company": "Untold Stories Experiences",
       "date": "2026-03-16",
       "status": "Scheduled",
-      "escapeTime": null,
+      "timeLeft": null,
       "location": {
         "city": "Voorburg",
         "country": "Netherlands",

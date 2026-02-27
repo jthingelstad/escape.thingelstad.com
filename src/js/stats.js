@@ -46,7 +46,7 @@ function init() {
   renderStateChart(data.states);
   renderCountryChart(data.countries);
   renderCompanyChart(data.companies);
-  renderEscapeTimesChart(data.escapeTimes);
+  renderTimeLeftChart(data.timeLeft);
 }
 
 function renderRoomsPerYear(data) {
@@ -256,19 +256,16 @@ function renderCompanyChart(data) {
   });
 }
 
-function renderEscapeTimesChart(data) {
+function renderTimeLeftChart(data) {
   new Chart(document.getElementById('chart-times'), {
-    type: 'line',
+    type: 'bar',
     data: {
+      labels: data.map(d => d.x),
       datasets: [{
-        label: 'Escape Time (min)',
-        data: data,
-        backgroundColor: chartColors.cyan,
-        borderColor: chartColors.cyan,
-        pointRadius: 4,
-        pointHoverRadius: 7,
-        fill: false,
-        tension: 0.3
+        label: 'Time Left (min)',
+        data: data.map(d => d.y),
+        backgroundColor: data.map(d => d.y >= 0 ? chartColors.teal : chartColors.red),
+        borderRadius: 3
       }]
     },
     options: {
@@ -276,8 +273,6 @@ function renderEscapeTimesChart(data) {
       scales: {
         x: {
           ...defaultChartOptions.scales.x,
-          type: 'category',
-          labels: data.map(d => d.x),
           ticks: {
             ...defaultChartOptions.scales.x.ticks,
             maxRotation: 45
@@ -285,10 +280,9 @@ function renderEscapeTimesChart(data) {
         },
         y: {
           ...defaultChartOptions.scales.y,
-          beginAtZero: true,
           title: {
             display: true,
-            text: 'Minutes',
+            text: 'Minutes Left',
             color: chartColors.text
           }
         }
@@ -299,7 +293,10 @@ function renderEscapeTimesChart(data) {
           callbacks: {
             label: (ctx) => {
               const point = data[ctx.dataIndex];
-              return `${point.label}: ${point.y.toFixed(1)} min`;
+              const abs = Math.abs(point.y).toFixed(1);
+              return point.y >= 0
+                ? `${point.label}: ${abs} min left`
+                : `${point.label}: ${abs} min over`;
             }
           }
         },

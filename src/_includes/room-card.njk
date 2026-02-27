@@ -39,8 +39,8 @@
     {% if loc %}
       <span class="location"><span class="meta-icon">📍</span> {{ loc }}</span>
     {% endif %}
-    {% if room.escapeTime %}
-      <span class="escape-time"><span class="meta-icon">⏱</span> {{ room.escapeTime }}</span>
+    {% if room.timeLeft != null %}
+      <span class="time-left"><span class="meta-icon">⏱</span> {{ room.timeLeft | formatTimeLeft }}</span>
     {% endif %}
   </div>
   {% if room.players and room.players.length > 0 %}

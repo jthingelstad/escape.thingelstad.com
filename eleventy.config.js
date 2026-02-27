@@ -74,6 +74,16 @@ module.exports = function(eleventyConfig) {
     return 'default';
   });
 
+  // Format timeLeft (minutes remaining) to "Xm Ys left" or "Xm Ys over"
+  eleventyConfig.addFilter("formatTimeLeft", (val) => {
+    if (val == null) return '';
+    const abs = Math.abs(val);
+    const mins = Math.floor(abs);
+    const secs = Math.round((abs - mins) * 60);
+    const suffix = val < 0 ? 'over' : 'left';
+    return `${mins}m ${secs}s ${suffix}`;
+  });
+
   // Format tag for display label
   eleventyConfig.addFilter("formatTagLabel", (tag) => {
     if (tag === 'best') return '\u2605 Best';

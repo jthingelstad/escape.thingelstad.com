@@ -1,4 +1,4 @@
-import { escapeHtml, formatDate, formatLocation, initNav, statusBadgeHtml } from './data.js';
+import { escapeHtml, formatDate, formatLocation, initNav, statusBadgeHtml, formatTimeLeft } from './data.js';
 
 function shuffle(arr) {
   const a = [...arr];
@@ -17,8 +17,8 @@ function buildDetailHtml(room) {
   const gameName = escapeHtml(room.game);
   const statusBadge = statusBadgeHtml(room.status);
 
-  const escapeTime = room.escapeTime
-    ? `<div class="scrapbook-detail-time">\u23f1 ${escapeHtml(room.escapeTime)}</div>`
+  const timeLeftHtml = room.timeLeft != null
+    ? `<div class="scrapbook-detail-time">\u23f1 ${escapeHtml(formatTimeLeft(room.timeLeft))}</div>`
     : '';
 
   const blogLink = room.blogUrl
@@ -30,7 +30,7 @@ function buildDetailHtml(room) {
     <div class="scrapbook-detail-company">${escapeHtml(room.company)}</div>
     <div class="scrapbook-detail-date">${formatDate(room.date)}</div>
     <div class="scrapbook-detail-location">${escapeHtml(formatLocation(room.location))}</div>
-    <div class="scrapbook-detail-status">${statusBadge}${escapeTime}</div>
+    <div class="scrapbook-detail-status">${statusBadge}${timeLeftHtml}</div>
     ${blogLink}
   `;
 }
