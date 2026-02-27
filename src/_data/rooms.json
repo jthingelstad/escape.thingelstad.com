@@ -37,8 +37,8 @@
         "city": "Portland",
         "region": "Maine",
         "country": "United States",
-        "lat": 43.6591,
-        "lng": -70.2568
+        "lat": 43.629435,
+        "lng": -70.328747
       },
       "companyUrl": "https://web.archive.org/web/20160320072900/http://maineescapegames.com/",
       "blogUrl": "https://www.thingelstad.com/2016/07/30/025230.html",
@@ -147,8 +147,8 @@
         "city": "Springfield",
         "region": "Missouri",
         "country": "United States",
-        "lat": 37.209,
-        "lng": -93.2923
+        "lat": 37.184793,
+        "lng": -93.295487
       },
       "companyUrl": null,
       "blogUrl": null,
@@ -229,8 +229,8 @@
         "city": "Grand Haven",
         "region": "Michigan",
         "country": "United States",
-        "lat": 43.0631,
-        "lng": -86.2284
+        "lat": 43.067342,
+        "lng": -86.216261
       },
       "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2017/06/29/180623.html",
@@ -344,8 +344,8 @@
         "city": "Chicago",
         "region": "Illinois",
         "country": "United States",
-        "lat": 41.8781,
-        "lng": -87.6298
+        "lat": 41.8934,
+        "lng": -87.626383
       },
       "companyUrl": "https://theescapegamechicago.com/escape-rooms/mission-mars/",
       "blogUrl": null,
@@ -394,8 +394,8 @@
         "city": "Chicago",
         "region": "Illinois",
         "country": "United States",
-        "lat": 41.8781,
-        "lng": -87.6298
+        "lat": 41.8934,
+        "lng": -87.626383
       },
       "companyUrl": "https://theescapegamechicago.com/escape-rooms/mission-mars/",
       "blogUrl": "https://www.thingelstad.com/2018/05/20/just-finished-the.html",
@@ -964,8 +964,8 @@
         "city": "Grand Rapids",
         "region": "Minnesota",
         "country": "United States",
-        "lat": 47.2372,
-        "lng": -93.5302
+        "lat": 47.234047,
+        "lng": -93.528742
       },
       "companyUrl": "https://www.grescaperooms.com/",
       "blogUrl": "https://www.thingelstad.com/2021/08/21/we-won-the.html",
@@ -994,8 +994,8 @@
         "city": "Indianapolis",
         "region": "Indiana",
         "country": "United States",
-        "lat": 39.7684,
-        "lng": -86.1581
+        "lat": 39.692815,
+        "lng": -86.110239
       },
       "companyUrl": "https://www.twistedroomescapes.com/index.php/escape-rooms/alice",
       "blogUrl": "https://www.thingelstad.com/2021/10/22/we-completed-alices.html",
@@ -1078,8 +1078,8 @@
         "city": "Grand Rapids",
         "region": "Minnesota",
         "country": "United States",
-        "lat": 47.2372,
-        "lng": -93.5302
+        "lat": 47.234047,
+        "lng": -93.528742
       },
       "companyUrl": "https://www.grescaperooms.com/",
       "blogUrl": null,
@@ -1107,8 +1107,8 @@
         "city": "Nashville",
         "region": "Tennessee",
         "country": "United States",
-        "lat": 36.1627,
-        "lng": -86.7816
+        "lat": 36.163498,
+        "lng": -86.777078
       },
       "companyUrl": "https://theescapegame.com/nashville/escape-rooms/ruins/",
       "blogUrl": "https://www.thingelstad.com/2022/03/21/escape-game-timeliner.html",
@@ -1159,8 +1159,8 @@
         "city": "Branson",
         "region": "Missouri",
         "country": "United States",
-        "lat": 36.6437,
-        "lng": -93.2185
+        "lat": 36.6429,
+        "lng": -93.250695
       },
       "companyUrl": null,
       "blogUrl": null,
@@ -1272,8 +1272,8 @@
         "city": "Minneapolis",
         "region": "Minnesota",
         "country": "United States",
-        "lat": 44.9778,
-        "lng": -93.265
+        "lat": 44.991939,
+        "lng": -93.243836
       },
       "companyUrl": "https://www.missionmanor.com/",
       "blogUrl": "https://www.thingelstad.com/2023/02/12/countdown-at-mission.html",
@@ -1326,8 +1326,8 @@
         "city": "New York",
         "region": "New York",
         "country": "United States",
-        "lat": 40.7128,
-        "lng": -74.006
+        "lat": 40.761097,
+        "lng": -73.984514
       },
       "companyUrl": "https://theescapegame.com/newyorkcity/escape-rooms/playground/",
       "blogUrl": "https://www.thingelstad.com/2023/04/30/we-successfully-escaped.html",
@@ -1467,8 +1467,8 @@
         "city": "Grand Rapids",
         "region": "Minnesota",
         "country": "United States",
-        "lat": 47.2372,
-        "lng": -93.5302
+        "lat": 47.234047,
+        "lng": -93.528742
       },
       "companyUrl": "https://www.grescaperooms.com/",
       "blogUrl": "https://www.thingelstad.com/2023/11/18/we-successfully-solved.html",
@@ -1634,8 +1634,8 @@
         "city": "Bloomington",
         "region": "Minnesota",
         "country": "United States",
-        "lat": 44.855442,
-        "lng": -93.240047
+        "lat": 44.855492,
+        "lng": -93.240154
       },
       "companyUrl": "https://theescapegame.com/minneapolis/",
       "blogUrl": "https://www.thingelstad.com/2024/12/22/we-completed-the-cosmic-crisis.html",
@@ -2135,7 +2135,7 @@
       "status": "Escaped",
       "timeLeft": null,
       "location": {
-        "city": "Montreal",
+        "city": "Laval",
         "region": "Quebec",
         "country": "Canada",
         "lat": 45.585974,
@@ -2166,7 +2166,7 @@
       "status": "Escaped",
       "timeLeft": null,
       "location": {
-        "city": "Montreal",
+        "city": "Laval",
         "region": "Quebec",
         "country": "Canada",
         "lat": 45.585974,
@@ -2198,7 +2198,7 @@
       "status": "Escaped",
       "timeLeft": null,
       "location": {
-        "city": "Montreal",
+        "city": "Laval",
         "region": "Quebec",
         "country": "Canada",
         "lat": 45.585974,
@@ -2318,8 +2318,8 @@
         "city": "Nashville",
         "region": "Tennessee",
         "country": "United States",
-        "lat": 36.1627,
-        "lng": -86.7816
+        "lat": 36.163498,
+        "lng": -86.777078
       },
       "companyUrl": "https://theescapegame.com/nashville/escape-rooms/ruins/",
       "blogUrl": "https://www.thingelstad.com/2025/12/22/legend-of-the-yeti-escape.html",
@@ -2342,13 +2342,13 @@
       "status": "Escaped",
       "timeLeft": 4.8,
       "location": {
-        "city": "Nashville",
+        "city": "Berry Hill",
         "region": "Tennessee",
         "country": "United States",
-        "lat": 36.1627,
-        "lng": -86.7816
+        "lat": 36.116701,
+        "lng": -86.763313
       },
-      "companyUrl": "https://theescapegame.com/nashville/escape-rooms/ruins/",
+      "companyUrl": "https://theescapegame.com/",
       "blogUrl": "https://www.thingelstad.com/2025/12/22/we-completed-the-ruins-forbidden.html",
       "tags": [],
       "notes": null,
@@ -2485,11 +2485,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": null,
-      "players": [
-        "Jamie",
-        "Tammy",
-        "Tyler"
-      ]
+      "players": []
     },
     {
       "id": 91,
@@ -2509,11 +2505,187 @@
       "blogUrl": null,
       "tags": [],
       "notes": null,
-      "players": [
-        "Jamie",
-        "Tammy",
-        "Tyler"
-      ]
+      "players": []
+    },
+    {
+      "id": 92,
+      "airtableId": "rec33iDver9l2s39y",
+      "game": "The Vanishing Act",
+      "company": "Escape World",
+      "date": "2026-03-17",
+      "status": "Scheduled",
+      "timeLeft": null,
+      "location": {
+        "city": "Utrecht",
+        "country": "Netherlands",
+        "lat": 52.09606,
+        "lng": 5.114035
+      },
+      "companyUrl": "https://escapeworld.nl/escape-room-utrecht/",
+      "blogUrl": null,
+      "tags": [],
+      "notes": null,
+      "players": []
+    },
+    {
+      "id": 93,
+      "airtableId": "reca6bIeAIt6OxCx3",
+      "game": "Botanist Manor",
+      "company": "Escape Rush",
+      "date": "2026-03-18",
+      "status": "Scheduled",
+      "timeLeft": null,
+      "location": {
+        "city": "Brussels",
+        "country": "Belgium",
+        "lat": 50.819619,
+        "lng": 4.388889
+      },
+      "companyUrl": "https://escaperush.com",
+      "blogUrl": null,
+      "tags": [],
+      "notes": null,
+      "players": []
+    },
+    {
+      "id": 94,
+      "airtableId": "recrQ7mSj8HrOoZJS",
+      "game": "Zoltar Speaks",
+      "company": "The Escape Cafe",
+      "date": "2026-03-19",
+      "status": "Scheduled",
+      "timeLeft": null,
+      "location": {
+        "city": "Hilversum",
+        "country": "Netherlands",
+        "lat": 52.224663,
+        "lng": 5.17815
+      },
+      "companyUrl": "https://escapecafehilversum.nl",
+      "blogUrl": null,
+      "tags": [],
+      "notes": null,
+      "players": []
+    },
+    {
+      "id": 95,
+      "airtableId": "rec0tsuiSuEyxaXMX",
+      "game": "Revolt At The Lock",
+      "company": "Lock Academy",
+      "date": "2026-03-20",
+      "status": "Scheduled",
+      "timeLeft": null,
+      "location": {
+        "city": "Paris",
+        "country": "France",
+        "lat": 48.868273,
+        "lng": 2.353125
+      },
+      "companyUrl": "https://lockacademy.com",
+      "blogUrl": null,
+      "tags": [],
+      "notes": null,
+      "players": []
+    },
+    {
+      "id": 96,
+      "airtableId": "recrCIDLym8KGALiH",
+      "game": "Galactic Mission",
+      "company": "Majestic Escape Game",
+      "date": "2026-03-23",
+      "status": "Scheduled",
+      "timeLeft": null,
+      "location": {
+        "city": "Paris",
+        "country": "France",
+        "lat": 48.863811,
+        "lng": 2.34759
+      },
+      "companyUrl": "https://majestic-escapegame.paris/",
+      "blogUrl": null,
+      "tags": [],
+      "notes": null,
+      "players": []
+    },
+    {
+      "id": 97,
+      "airtableId": "recjFTVzz57eYe9IE",
+      "game": "The Taxidermist",
+      "company": "Deep Inside",
+      "date": "2026-03-24",
+      "status": "Scheduled",
+      "timeLeft": null,
+      "location": {
+        "city": "Paris",
+        "country": "France",
+        "lat": 48.884487,
+        "lng": 2.369941
+      },
+      "companyUrl": "https://deepinsideparis.fr/en/",
+      "blogUrl": null,
+      "tags": [],
+      "notes": null,
+      "players": []
+    },
+    {
+      "id": 98,
+      "airtableId": "recWpSyu5BjABRk9T",
+      "game": "The Brewery",
+      "company": "Enigmik",
+      "date": "2026-03-25",
+      "status": "Scheduled",
+      "timeLeft": null,
+      "location": {
+        "city": "Barcelona",
+        "country": "Spain",
+        "lat": 41.409802,
+        "lng": 2.179651
+      },
+      "companyUrl": "https://www.enigmik.com/en/",
+      "blogUrl": null,
+      "tags": [],
+      "notes": null,
+      "players": []
+    },
+    {
+      "id": 99,
+      "airtableId": "reciuo9m2OZxXl4JT",
+      "game": "Jurassic Escape Room",
+      "company": "Golden Pop",
+      "date": "2026-03-26",
+      "status": "Scheduled",
+      "timeLeft": null,
+      "location": {
+        "city": "Barcelona",
+        "country": "Spain",
+        "lat": 41.390835,
+        "lng": 2.175974
+      },
+      "companyUrl": "https://goldenpop.es",
+      "blogUrl": null,
+      "tags": [],
+      "notes": null,
+      "players": []
+    },
+    {
+      "id": 100,
+      "airtableId": "recqOzcN7BNq8EomV",
+      "game": "Londium",
+      "company": "Londium",
+      "date": "2026-03-27",
+      "status": "Scheduled",
+      "timeLeft": null,
+      "location": {
+        "city": "Barcelona",
+        "country": "Spain",
+        "lat": 41.495278,
+        "lng": 2.180616
+      },
+      "companyUrl": "https://londiumescaperoom.com/escape-room/",
+      "blogUrl": null,
+      "tags": [],
+      "notes": null,
+      "players": []
     }
   ]
 }
