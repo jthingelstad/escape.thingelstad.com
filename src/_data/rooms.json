@@ -293,7 +293,9 @@
       },
       "companyUrl": "https://www.trappedpuzzlerooms.com/",
       "blogUrl": null,
-      "tags": [],
+      "tags": [
+        "Favorite Things"
+      ],
       "notes": null,
       "players": [
         "Jamie",
@@ -649,7 +651,9 @@
       },
       "companyUrl": "https://www.missingpiecesmn.com/",
       "blogUrl": "https://www.thingelstad.com/2019/01/06/we-went-back.html",
-      "tags": [],
+      "tags": [
+        "Favorite Things"
+      ],
       "notes": "Redo of Escape Room, jamie birthday",
       "players": [
         "Jamie",
@@ -920,7 +924,9 @@
       },
       "companyUrl": "https://thenemesisclub.com/",
       "blogUrl": "https://www.thingelstad.com/2021/03/11/nemesis-club-evil.html",
-      "tags": [],
+      "tags": [
+        "Favorite Things"
+      ],
       "notes": null,
       "players": [
         "Jamie",
@@ -1120,7 +1126,9 @@
       },
       "companyUrl": "https://theescapegame.com/nashville/escape-rooms/ruins/",
       "blogUrl": "https://www.thingelstad.com/2022/03/21/escape-game-timeliner.html",
-      "tags": [],
+      "tags": [
+        "Favorite Things"
+      ],
       "notes": null,
       "players": [
         "Jamie",
@@ -1398,7 +1406,10 @@
       "companyUrl": "https://madmachines.it/",
       "blogUrl": "https://www.thingelstad.com/2023/07/22/we-completed-the.html",
       "tags": [
-        "TERPECA"
+        "TERPECA",
+        "Best of Morty",
+        "Golden Lock",
+        "Favorite Things"
       ],
       "notes": "4th ranked room in world!",
       "players": [
@@ -1427,7 +1438,8 @@
       "companyUrl": "https://madmachines.it/",
       "blogUrl": "https://www.thingelstad.com/2023/07/23/we-went-back.html",
       "tags": [
-        "TERPECA"
+        "TERPECA",
+        "Best of Morty"
       ],
       "notes": "39th in the world",
       "players": [
@@ -1706,7 +1718,7 @@
       "companyUrl": "https://www.coppercatescape.com/",
       "blogUrl": "https://www.thingelstad.com/2025/01/19/deep-woods-cabin-escape-room.html",
       "tags": [
-        "Things Favorite"
+        "Favorite Things"
       ],
       "notes": null,
       "players": [
@@ -1734,7 +1746,9 @@
       },
       "companyUrl": "https://www.puzzleworksmn.com/",
       "blogUrl": "https://www.thingelstad.com/2025/01/20/we-completed-the-museum-at.html",
-      "tags": [],
+      "tags": [
+        "Favorite Things"
+      ],
       "notes": null,
       "players": [
         "Jamie",
@@ -1843,7 +1857,8 @@
       "companyUrl": "https://www.doldricksescaperoom.com/",
       "blogUrl": "https://www.thingelstad.com/2025/04/04/crazy-train-escape-room.html",
       "tags": [
-        "TERPECA"
+        "TERPECA",
+        "Favorite Things"
       ],
       "notes": null,
       "players": [
@@ -1930,7 +1945,7 @@
       "companyUrl": "https://enigmaadventures.com/",
       "blogUrl": "https://www.thingelstad.com/2025/05/11/pirates-of-the-spanish-main.html",
       "tags": [
-        "Things Favorite"
+        "Favorite Things"
       ],
       "notes": null,
       "players": [
@@ -1959,7 +1974,9 @@
       },
       "companyUrl": "https://escapecity.ca/",
       "blogUrl": "https://www.thingelstad.com/2025/06/06/we-found-escape-city-in.html",
-      "tags": [],
+      "tags": [
+        "Favorite Things"
+      ],
       "notes": null,
       "players": [
         "Jamie",
@@ -2066,7 +2083,8 @@
       "companyUrl": "https://cabinetmysteriis.ca/en/",
       "blogUrl": "https://www.thingelstad.com/2025/07/28/a-bovine-odyssey-at-cabinet.html",
       "tags": [
-        "Canada 2025"
+        "Canada 2025",
+        "TERPECA"
       ],
       "notes": null,
       "players": [
@@ -2096,8 +2114,11 @@
       "companyUrl": "https://cabinetmysteriis.ca/en/",
       "blogUrl": "https://www.thingelstad.com/2025/07/28/the-dreamwalkers-at-cabinet-mysteriis.html",
       "tags": [
-        "Things Favorite",
-        "Canada 2025"
+        "Favorite Things",
+        "Canada 2025",
+        "TERPECA",
+        "Best of Morty",
+        "Golden Lock"
       ],
       "notes": null,
       "players": [
@@ -2127,7 +2148,9 @@
       "companyUrl": "https://cabinetmysteriis.ca/en/",
       "blogUrl": "https://www.thingelstad.com/2025/07/29/screaming-metal-at-cabinet-mysteriis.html",
       "tags": [
-        "Canada 2025"
+        "Canada 2025",
+        "TERPECA",
+        "Best of Morty"
       ],
       "notes": null,
       "players": [
@@ -2157,8 +2180,10 @@
       "companyUrl": "https://www.escaparium.ca/montreal-jeu-evasion/",
       "blogUrl": "https://www.thingelstad.com/2025/07/30/wardrobe-for-sale-at-escaparium.html",
       "tags": [
-        "Things Favorite",
-        "Canada 2025"
+        "Favorite Things",
+        "Canada 2025",
+        "TERPECA",
+        "Golden Lock"
       ],
       "notes": "Tammy & Tyler favorite of 2025",
       "players": [
@@ -2188,9 +2213,10 @@
       "companyUrl": "https://www.escaparium.ca/montreal-jeu-evasion/",
       "blogUrl": "https://www.thingelstad.com/2025/07/30/lost-island-of-the-voodoo.html",
       "tags": [
-        "Things Favorite",
+        "Favorite Things",
         "Canada 2025",
-        "Room of the Year"
+        "Best of Morty",
+        "Golden Lock"
       ],
       "notes": null,
       "players": [
@@ -2220,10 +2246,11 @@
       "companyUrl": "https://www.escaparium.ca/montreal-jeu-evasion/",
       "blogUrl": "https://www.thingelstad.com/2025/08/02/magnifico-at-escaparium.html",
       "tags": [
-        "Things Favorite",
+        "Favorite Things",
         "Canada 2025",
         "TERPECA",
-        "Room of the Year"
+        "Best of Morty",
+        "Golden Lock"
       ],
       "notes": "Jamie & Mazie favorite of 2025",
       "players": [
@@ -2252,7 +2279,9 @@
       },
       "companyUrl": "https://www.escapealexandria.com",
       "blogUrl": "https://www.thingelstad.com/2025/08/07/the-experiment-at-escape-room.html",
-      "tags": [],
+      "tags": [
+        "Favorite Things"
+      ],
       "notes": null,
       "players": [
         "Jamie",
@@ -2364,7 +2393,9 @@
       },
       "companyUrl": "https://theescapegame.com/nashville/escape-rooms/ruins/",
       "blogUrl": "https://www.thingelstad.com/2025/12/22/we-completed-the-ruins-forbidden.html",
-      "tags": [],
+      "tags": [
+        "Favorite Things"
+      ],
       "notes": null,
       "players": [
         "Jamie",
@@ -2476,7 +2507,8 @@
       "companyUrl": "https://lazaruslodge.com/",
       "blogUrl": null,
       "tags": [
-        "TERPECA"
+        "TERPECA",
+        "Favorite Things"
       ],
       "notes": null,
       "players": [
