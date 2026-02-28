@@ -164,10 +164,11 @@ def transform_room(room_fields, airtable_id, company_lookup, location_lookup):
         location["lng"] = None
     entry["location"] = location
 
-    # companyUrl: prefer Location URL, fall back to Company URL
-    loc_url = loc_fields.get("URL")
-    comp_url = comp_fields.get("URL")
-    entry["companyUrl"] = loc_url or comp_url or None
+    # companyUrl: Room URL > Location URL > Company URL
+    room_url = room_fields.get("Room URL")
+    loc_url = loc_fields.get("Location URL")
+    comp_url = comp_fields.get("Company URL")
+    entry["companyUrl"] = room_url or loc_url or comp_url or None
 
     entry["blogUrl"] = room_fields.get("Blog URL") or None
 

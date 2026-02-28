@@ -114,7 +114,8 @@ Field notes:
 - `location.region` — State (US), province (CA), or absent (international). Not "state".
 - `location.country` — Full country name (e.g. "United States", "Canada", "Iceland"). Not a country code.
 - `location.lat` / `location.lng` — May be null for online or scheduled rooms (don't render on map).
-- `companyUrl` / `blogUrl` — May be null.
+- `companyUrl` — May be null. Resolved during sync as: Room URL → Location URL → Company URL (first non-empty wins).
+- `blogUrl` — May be null.
 - `mortyId` — Integer or absent. Links to morty.app attraction page.
 - `tags` — Array of strings. May be empty. Values include "best", "online", "fun", terpeca tags ("terpeca-2024"), and trip tags ("quebec-2025").
 - `players` — Array of first names (capitalized). May be empty.
