@@ -871,9 +871,7 @@
       },
       "companyUrl": "https://www.trappedpuzzlerooms.com/",
       "blogUrl": null,
-      "tags": [
-        "online"
-      ],
+      "tags": [],
       "notes": "Game played online using Discord during the pandemic. ",
       "players": []
     },
@@ -1708,7 +1706,7 @@
       "companyUrl": "https://www.coppercatescape.com/",
       "blogUrl": "https://www.thingelstad.com/2025/01/19/deep-woods-cabin-escape-room.html",
       "tags": [
-        "Best"
+        "Things Favorite"
       ],
       "notes": null,
       "players": [
@@ -1932,7 +1930,7 @@
       "companyUrl": "https://enigmaadventures.com/",
       "blogUrl": "https://www.thingelstad.com/2025/05/11/pirates-of-the-spanish-main.html",
       "tags": [
-        "Best"
+        "Things Favorite"
       ],
       "notes": null,
       "players": [
@@ -2098,7 +2096,7 @@
       "companyUrl": "https://cabinetmysteriis.ca/en/",
       "blogUrl": "https://www.thingelstad.com/2025/07/28/the-dreamwalkers-at-cabinet-mysteriis.html",
       "tags": [
-        "Best",
+        "Things Favorite",
         "Canada 2025"
       ],
       "notes": null,
@@ -2159,7 +2157,7 @@
       "companyUrl": "https://www.escaparium.ca/montreal-jeu-evasion/",
       "blogUrl": "https://www.thingelstad.com/2025/07/30/wardrobe-for-sale-at-escaparium.html",
       "tags": [
-        "Best",
+        "Things Favorite",
         "Canada 2025"
       ],
       "notes": "Tammy & Tyler favorite of 2025",
@@ -2190,7 +2188,7 @@
       "companyUrl": "https://www.escaparium.ca/montreal-jeu-evasion/",
       "blogUrl": "https://www.thingelstad.com/2025/07/30/lost-island-of-the-voodoo.html",
       "tags": [
-        "Best",
+        "Things Favorite",
         "Canada 2025",
         "Room of the Year"
       ],
@@ -2222,7 +2220,7 @@
       "companyUrl": "https://www.escaparium.ca/montreal-jeu-evasion/",
       "blogUrl": "https://www.thingelstad.com/2025/08/02/magnifico-at-escaparium.html",
       "tags": [
-        "Best",
+        "Things Favorite",
         "Canada 2025",
         "TERPECA",
         "Room of the Year"
@@ -2477,7 +2475,9 @@
       },
       "companyUrl": "https://lazaruslodge.com/",
       "blogUrl": null,
-      "tags": [],
+      "tags": [
+        "TERPECA"
+      ],
       "notes": null,
       "players": [
         "Jamie",
@@ -2503,7 +2503,12 @@
       },
       "companyUrl": "https://www.sherlocked.nl",
       "blogUrl": null,
-      "tags": [],
+      "tags": [
+        "TERPECA",
+        "Best of Morty",
+        "Golden Lock",
+        "Europe 2026"
+      ],
       "notes": null,
       "players": [],
       "mortyId": 37429
@@ -2524,7 +2529,12 @@
       },
       "companyUrl": "https://ustories.nl/en/home-en/",
       "blogUrl": null,
-      "tags": [],
+      "tags": [
+        "Best of Morty",
+        "TERPECA",
+        "Golden Lock",
+        "Europe 2026"
+      ],
       "notes": null,
       "players": [],
       "mortyId": 11847
@@ -2545,7 +2555,10 @@
       },
       "companyUrl": "https://escapeworld.nl/escape-room-utrecht/",
       "blogUrl": null,
-      "tags": [],
+      "tags": [
+        "TERPECA",
+        "Europe 2026"
+      ],
       "notes": null,
       "players": [],
       "mortyId": 52611
@@ -2566,7 +2579,12 @@
       },
       "companyUrl": "https://escaperush.com/botanist-manor-escape-game-bruxelles",
       "blogUrl": null,
-      "tags": [],
+      "tags": [
+        "TERPECA",
+        "Golden Lock",
+        "Best of Morty",
+        "Europe 2026"
+      ],
       "notes": null,
       "players": [],
       "mortyId": 49265
@@ -2587,7 +2605,11 @@
       },
       "companyUrl": "https://escapecafehilversum.nl",
       "blogUrl": null,
-      "tags": [],
+      "tags": [
+        "TERPECA",
+        "Golden Lock",
+        "Europe 2026"
+      ],
       "notes": null,
       "players": [],
       "mortyId": 51061
@@ -2608,7 +2630,11 @@
       },
       "companyUrl": "https://lockacademy.com/en/mystery/escape-room-paris-revolt-at-lock-academy/",
       "blogUrl": null,
-      "tags": [],
+      "tags": [
+        "Best of Morty",
+        "TERPECA",
+        "Europe 2026"
+      ],
       "notes": null,
       "players": [],
       "mortyId": 25957
@@ -2629,7 +2655,10 @@
       },
       "companyUrl": "https://majestic-escapegame.paris/",
       "blogUrl": null,
-      "tags": [],
+      "tags": [
+        "TERPECA",
+        "Europe 2026"
+      ],
       "notes": null,
       "players": [],
       "mortyId": 52056
@@ -2650,7 +2679,12 @@
       },
       "companyUrl": "https://deepinsideparis.fr/en/the-taxidermist/",
       "blogUrl": null,
-      "tags": [],
+      "tags": [
+        "Best of Morty",
+        "TERPECA",
+        "Golden Lock",
+        "Europe 2026"
+      ],
       "notes": null,
       "players": [],
       "mortyId": 54828
@@ -2671,7 +2705,11 @@
       },
       "companyUrl": "https://www.enigmik.com/en/",
       "blogUrl": null,
-      "tags": [],
+      "tags": [
+        "Best of Morty",
+        "TERPECA",
+        "Europe 2026"
+      ],
       "notes": null,
       "players": [],
       "mortyId": 6656
@@ -2692,7 +2730,11 @@
       },
       "companyUrl": "https://goldenpop.es",
       "blogUrl": null,
-      "tags": [],
+      "tags": [
+        "Best of Morty",
+        "TERPECA",
+        "Europe 2026"
+      ],
       "notes": null,
       "players": [],
       "mortyId": 48286
@@ -2713,7 +2755,11 @@
       },
       "companyUrl": "https://londiumescaperoom.com/escape-room/",
       "blogUrl": null,
-      "tags": [],
+      "tags": [
+        "Best of Morty",
+        "TERPECA",
+        "Europe 2026"
+      ],
       "notes": null,
       "players": [],
       "mortyId": 64482
