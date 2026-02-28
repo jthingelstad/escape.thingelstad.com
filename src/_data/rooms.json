@@ -23,7 +23,8 @@
         "Jamie",
         "Tammy"
       ],
-      "mortyId": 34804
+      "mortyId": 34804,
+      "photoUrl": "/images/rooms/library.jpg"
     },
     {
       "id": 2,
@@ -133,7 +134,8 @@
         "Corinne",
         "Denny"
       ],
-      "mortyId": 2542
+      "mortyId": 2542,
+      "photoUrl": "/images/rooms/jamesbond.jpg"
     },
     {
       "id": 6,
@@ -159,7 +161,8 @@
         "Lisa",
         "Rachel"
       ],
-      "mortyId": 35179
+      "mortyId": 35179,
+      "photoUrl": "/images/rooms/zen.jpg"
     },
     {
       "id": 7,
@@ -303,7 +306,8 @@
         "Samantha",
         "Jake"
       ],
-      "mortyId": 10173
+      "mortyId": 10173,
+      "photoUrl": "/images/rooms/potter.jpg"
     },
     {
       "id": 12,
@@ -791,7 +795,8 @@
       "tags": [],
       "notes": null,
       "players": [],
-      "mortyId": 1690
+      "mortyId": 1690,
+      "photoUrl": "/images/rooms/beasleys.jpg"
     },
     {
       "id": 30,
@@ -1095,7 +1100,8 @@
         "Isaiah",
         "Tiffany",
         "Andrew"
-      ]
+      ],
+      "photoUrl": "/images/rooms/grandpa.jpg"
     },
     {
       "id": 41,
@@ -1122,7 +1128,8 @@
         "Mazie",
         "Tyler"
       ],
-      "mortyId": 13067
+      "mortyId": 13067,
+      "photoUrl": "/images/rooms/timeliner.jpg"
     },
     {
       "id": 42,
