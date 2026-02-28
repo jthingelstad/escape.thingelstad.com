@@ -170,7 +170,7 @@ def transform_room(room_fields, airtable_id, company_lookup, location_lookup):
     comp_url = comp_fields.get("Company URL")
     entry["companyUrl"] = room_url or loc_url or comp_url or None
 
-    entry["blogUrl"] = room_fields.get("Blog URL") or None
+    entry["blogUrl"] = room_fields.get("thingelstad.com URL") or None
 
     # Tags (multi-select comes as a list)
     tags = room_fields.get("Tags")
