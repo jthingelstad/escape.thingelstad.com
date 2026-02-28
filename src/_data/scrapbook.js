@@ -2,7 +2,7 @@ const rooms = require('./rooms.json');
 
 module.exports = function() {
   return rooms.rooms
-    .filter(r => r.photoUrl)
+    .filter(r => r.photo)
     .map(r => ({
       game: r.game,
       company: r.company,
@@ -12,6 +12,6 @@ module.exports = function() {
       timeLeft: r.timeLeft ?? null,
       blogUrl: r.blogUrl || null,
       tags: r.tags || [],
-      photoUrl: r.photoUrl
+      photo: r.photo
     }));
 };

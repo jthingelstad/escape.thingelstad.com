@@ -15,6 +15,6 @@ module.exports = function() {
     notes: r.notes || null,
     blogUrl: r.blogUrl || null,
     mortyId: r.mortyId || null,
-    photoUrl: r.photoUrl || null
+    photo: r.photo || null
   }));
 };

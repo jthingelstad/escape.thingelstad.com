@@ -301,8 +301,8 @@ function openModal(room) {
   const gameName = escapeHtml(room.game);
   const companyName = escapeHtml(room.company);
 
-  const photoHtml = room.photoUrl
-    ? `<div class="room-modal-photo"><img src="${escapeHtml(room.photoUrl)}" alt="${gameName} at ${companyName}"></div>`
+  const photoHtml = room.photo
+    ? `<div class="room-modal-photo"><img src="/images/rooms/${escapeHtml(room.photo)}" alt="${gameName} at ${companyName}"></div>`
     : '';
 
   const statusBadge = statusBadgeHtml(room.status);

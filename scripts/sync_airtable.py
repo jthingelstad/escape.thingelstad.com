@@ -186,9 +186,9 @@ def transform_room(room_fields, airtable_id, company_lookup, location_lookup):
     if morty_id:
         entry["mortyId"] = morty_id
 
-    photo_path = room_fields.get("Photo Path")
-    if photo_path:
-        entry["photoUrl"] = photo_path
+    photo = room_fields.get("Photo")
+    if photo:
+        entry["photo"] = photo
 
     return entry, warnings, label
 
@@ -256,6 +256,21 @@ def main():
         # Remaining optional keys
         ordered.update(entry)
         ordered_entries.append(ordered)
+
+    # Validate that photo files exist on disk
+    images_dir = os.path.join(os.path.dirname(__file__), "..", "src", "images", "rooms")
+    missing_photos = []
+    for entry in ordered_entries:
+        photo = entry.get("photo")
+        if photo:
+            photo_path = os.path.join(images_dir, photo)
+            if not os.path.isfile(photo_path):
+                missing_photos.append(f"  #{entry['id']} \"{entry['game']}\": {photo}")
+    if missing_photos:
+        print(f"\n✗ {len(missing_photos)} missing photo file(s):", file=sys.stderr)
+        for m in missing_photos:
+            print(m, file=sys.stderr)
+        sys.exit(1)
 
     output = {"rooms": ordered_entries}
     output_path = os.path.normpath(OUTPUT_PATH)

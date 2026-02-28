@@ -75,7 +75,7 @@ function renderPhotos(rooms, table, animate) {
     if (animate) el.style.setProperty('--delay', delay + 'ms');
 
     const img = document.createElement('img');
-    img.src = room.photoUrl;
+    img.src = `/images/rooms/${room.photo}`;
     img.alt = `${room.game} at ${room.company}`;
     img.loading = 'lazy';
 

@@ -99,7 +99,7 @@ npm run build        # Production build to _site/
       "tags": ["best"],
       "players": ["Jamie", "Tammy", "Mazie", "Tyler"],
       "notes": "Great puzzles",
-      "photoUrl": "/images/rooms/85.jpg"
+      "photo": "85.jpg"
     }
   ]
 }
@@ -119,7 +119,7 @@ Field notes:
 - `tags` — Array of strings. May be empty. Values include "best", "online", "fun", terpeca tags ("terpeca-2024"), and trip tags ("quebec-2025").
 - `players` — Array of first names (capitalized). May be empty.
 - `notes` — May be null. Shown on cards.
-- `photoUrl` — Path like "/images/rooms/NN.jpg" or absent. Not all rooms have photos.
+- `photo` — Filename like "85.jpg" or absent. The `/images/rooms/` prefix is applied at the point of use (templates, JS). Not all rooms have photos.
 
 ## 11ty Data Layer
 
@@ -170,7 +170,7 @@ Frosted glass navbar (backdrop-filter blur) on all pages. Links: Home, Rooms, Sc
 ### Room Card (room-card.njk)
 
 Nunjucks macro `roomCard(room, options)`. Server-rendered on home page and list page. Shows:
-- Photo thumbnail (if photoUrl exists)
+- Photo thumbnail (if photo exists)
 - Room number (#id) and game name as heading
 - Company name (linked to companyUrl if available)
 - Formatted date (e.g. "August 2, 2025")

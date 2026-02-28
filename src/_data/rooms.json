@@ -15,7 +15,7 @@
         "lat": 44.953224,
         "lng": -93.287803
       },
-      "companyUrl": "https://www.trappedpuzzlerooms.com/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -24,7 +24,7 @@
         "Tammy"
       ],
       "mortyId": 34804,
-      "photoUrl": "/images/rooms/library.jpg"
+      "photo": "library.jpg"
     },
     {
       "id": 2,
@@ -41,7 +41,7 @@
         "lat": 43.629435,
         "lng": -70.328747
       },
-      "companyUrl": "https://web.archive.org/web/20160320072900/http://maineescapegames.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2016/07/30/025230.html",
       "tags": [],
       "notes": null,
@@ -50,7 +50,7 @@
         "Tammy"
       ],
       "mortyId": 10292,
-      "photoUrl": "/images/rooms/2.jpg"
+      "photo": "2.jpg"
     },
     {
       "id": 3,
@@ -93,7 +93,7 @@
         "lat": 41.872068,
         "lng": -87.629255
       },
-      "companyUrl": "https://www.foxinaboxchicago.com",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": "First room with Tyler",
@@ -135,7 +135,7 @@
         "Denny"
       ],
       "mortyId": 2542,
-      "photoUrl": "/images/rooms/jamesbond.jpg"
+      "photo": "jamesbond.jpg"
     },
     {
       "id": 6,
@@ -162,7 +162,7 @@
         "Rachel"
       ],
       "mortyId": 35179,
-      "photoUrl": "/images/rooms/zen.jpg"
+      "photo": "zen.jpg"
     },
     {
       "id": 7,
@@ -208,7 +208,7 @@
         "lat": 44.9537,
         "lng": -93.09
       },
-      "companyUrl": "https://minneapolis.zerohourescaperooms.com/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -246,7 +246,7 @@
         "Tyler"
       ],
       "mortyId": 4453,
-      "photoUrl": "/images/rooms/9.jpg"
+      "photo": "9.jpg"
     },
     {
       "id": 10,
@@ -274,7 +274,7 @@
         "Tyler"
       ],
       "mortyId": 3927,
-      "photoUrl": "/images/rooms/ovalish.jpg"
+      "photo": "ovalish.jpg"
     },
     {
       "id": 11,
@@ -291,7 +291,7 @@
         "lat": 44.924561,
         "lng": -93.167266
       },
-      "companyUrl": "https://www.trappedpuzzlerooms.com/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -307,7 +307,7 @@
         "Jake"
       ],
       "mortyId": 10173,
-      "photoUrl": "/images/rooms/potter.jpg"
+      "photo": "potter.jpg"
     },
     {
       "id": 12,
@@ -324,7 +324,7 @@
         "lat": 43.6275,
         "lng": -89.771
       },
-      "companyUrl": "https://www.doaroomescape.com/the-rooms/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2018/04/01/we-won-the.html",
       "tags": [],
       "notes": null,
@@ -335,7 +335,7 @@
         "Tyler"
       ],
       "mortyId": 5032,
-      "photoUrl": "/images/rooms/12.jpg"
+      "photo": "12.jpg"
     },
     {
       "id": 13,
@@ -352,7 +352,7 @@
         "lat": 41.8934,
         "lng": -87.626383
       },
-      "companyUrl": "https://theescapegamechicago.com/escape-rooms/mission-mars/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -374,7 +374,7 @@
         "lat": 46.7867,
         "lng": -92.1005
       },
-      "companyUrl": "https://minneapolis.zerohourescaperooms.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2018/05/05/we-escaped-from.html",
       "tags": [],
       "notes": null,
@@ -385,7 +385,7 @@
         "Tyler"
       ],
       "mortyId": 40416,
-      "photoUrl": "/images/rooms/14.jpg"
+      "photo": "14.jpg"
     },
     {
       "id": 15,
@@ -402,7 +402,7 @@
         "lat": 41.8934,
         "lng": -87.626383
       },
-      "companyUrl": "https://theescapegamechicago.com/escape-rooms/mission-mars/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2018/05/20/just-finished-the.html",
       "tags": [],
       "notes": null,
@@ -437,7 +437,7 @@
         "Mazie"
       ],
       "mortyId": 1014,
-      "photoUrl": "/images/rooms/16.jpg"
+      "photo": "16.jpg"
     },
     {
       "id": 17,
@@ -454,7 +454,7 @@
         "lat": 44.862888,
         "lng": -93.356817
       },
-      "companyUrl": "https://www.missingpiecesmn.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2018/07/27/041311.html",
       "tags": [],
       "notes": null,
@@ -463,7 +463,7 @@
         "Tammy"
       ],
       "mortyId": 4593,
-      "photoUrl": "/images/rooms/17.jpg"
+      "photo": "17.jpg"
     },
     {
       "id": 18,
@@ -480,7 +480,7 @@
         "lat": 42.8864,
         "lng": -78.8784
       },
-      "companyUrl": "https://enigmabuffalo.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2018/08/12/we-finished-our.html",
       "tags": [],
       "notes": null,
@@ -490,7 +490,7 @@
         "Mazie",
         "Tyler"
       ],
-      "photoUrl": "/images/rooms/18.jpg"
+      "photo": "18.jpg"
     },
     {
       "id": 19,
@@ -507,7 +507,7 @@
         "lat": 44.953224,
         "lng": -93.287803
       },
-      "companyUrl": "https://www.trappedpuzzlerooms.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2018/09/09/it-took-us.html",
       "tags": [],
       "notes": null,
@@ -518,7 +518,7 @@
         "Tyler"
       ],
       "mortyId": 2255,
-      "photoUrl": "/images/rooms/19.jpg"
+      "photo": "19.jpg"
     },
     {
       "id": 20,
@@ -535,7 +535,7 @@
         "lat": 44.862888,
         "lng": -93.356817
       },
-      "companyUrl": "https://www.missingpiecesmn.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2018/11/24/we-tried-the.html",
       "tags": [],
       "notes": null,
@@ -546,7 +546,7 @@
         "Tyler"
       ],
       "mortyId": 1470,
-      "photoUrl": "/images/rooms/20.jpg"
+      "photo": "20.jpg"
     },
     {
       "id": 21,
@@ -563,7 +563,7 @@
         "lat": 44.924561,
         "lng": -93.167266
       },
-      "companyUrl": "https://www.trappedpuzzlerooms.com/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": "Mazie’s Party",
@@ -589,7 +589,7 @@
         "lat": 44.924561,
         "lng": -93.167266
       },
-      "companyUrl": "https://www.trappedpuzzlerooms.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2018/12/19/had-a-great.html",
       "tags": [],
       "notes": "SPS Team Event!",
@@ -597,7 +597,7 @@
         "Jamie"
       ],
       "mortyId": 45488,
-      "photoUrl": "/images/rooms/22.jpg"
+      "photo": "22.jpg"
     },
     {
       "id": 23,
@@ -614,7 +614,7 @@
         "lat": 44.953224,
         "lng": -93.287803
       },
-      "companyUrl": "https://www.trappedpuzzlerooms.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2019/01/06/family-friends-joined.html",
       "tags": [],
       "notes": null,
@@ -630,7 +630,7 @@
         "Jake"
       ],
       "mortyId": 3409,
-      "photoUrl": "/images/rooms/24.jpg"
+      "photo": "24.jpg"
     },
     {
       "id": 24,
@@ -647,7 +647,7 @@
         "lat": 44.862888,
         "lng": -93.356817
       },
-      "companyUrl": "https://www.missingpiecesmn.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2019/01/06/we-went-back.html",
       "tags": [],
       "notes": "Redo of Escape Room, jamie birthday",
@@ -658,7 +658,7 @@
         "Tyler"
       ],
       "mortyId": 1470,
-      "photoUrl": "/images/rooms/23.jpg"
+      "photo": "23.jpg"
     },
     {
       "id": 25,
@@ -675,7 +675,7 @@
         "lat": 44.9778,
         "lng": -93.265
       },
-      "companyUrl": "https://breakoutgames.com/minneapolis/rooms/#roomCasino",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2019/01/21/tammys-sisters-and.html",
       "tags": [],
       "notes": null,
@@ -690,7 +690,7 @@
         "Angie"
       ],
       "mortyId": 2443,
-      "photoUrl": "/images/rooms/25.jpg"
+      "photo": "25.jpg"
     },
     {
       "id": 26,
@@ -717,7 +717,7 @@
         "Mazie",
         "Tyler"
       ],
-      "photoUrl": "/images/rooms/26.jpg"
+      "photo": "26.jpg"
     },
     {
       "id": 27,
@@ -734,7 +734,7 @@
         "lat": 44.924561,
         "lng": -93.167266
       },
-      "companyUrl": "https://www.trappedpuzzlerooms.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2019/04/26/we-had-a.html",
       "tags": [],
       "notes": "Beta testing new room!",
@@ -745,7 +745,7 @@
         "Tyler"
       ],
       "mortyId": 10174,
-      "photoUrl": "/images/rooms/27.jpg"
+      "photo": "27.jpg"
     },
     {
       "id": 28,
@@ -773,7 +773,7 @@
         "Tyler"
       ],
       "mortyId": 4192,
-      "photoUrl": "/images/rooms/28.jpg"
+      "photo": "28.jpg"
     },
     {
       "id": 29,
@@ -790,13 +790,13 @@
         "lat": 38.927925,
         "lng": -94.660115
       },
-      "companyUrl": "https://ticktockescaperoom.com",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
       "players": [],
       "mortyId": 1690,
-      "photoUrl": "/images/rooms/beasleys.jpg"
+      "photo": "beasleys.jpg"
     },
     {
       "id": 30,
@@ -813,7 +813,7 @@
         "lat": 44.924561,
         "lng": -93.167266
       },
-      "companyUrl": "https://www.trappedpuzzlerooms.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2019/12/07/we-had-a.html",
       "tags": [],
       "notes": "Holiday room?",
@@ -824,7 +824,7 @@
         "Tyler"
       ],
       "mortyId": 10177,
-      "photoUrl": "/images/rooms/30.jpg"
+      "photo": "30.jpg"
     },
     {
       "id": 31,
@@ -841,7 +841,7 @@
         "lat": 44.9778,
         "lng": -93.265
       },
-      "companyUrl": "https://www.puzzle.works/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2020/01/05/we-had-a.html",
       "tags": [],
       "notes": null,
@@ -852,7 +852,7 @@
         "Tyler"
       ],
       "mortyId": 1566,
-      "photoUrl": "/images/rooms/31.jpg"
+      "photo": "31.jpg"
     },
     {
       "id": 32,
@@ -867,7 +867,7 @@
         "lat": null,
         "lng": null
       },
-      "companyUrl": "https://www.trappedpuzzlerooms.com/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [
         "online"
@@ -890,7 +890,7 @@
         "lat": 33.8303,
         "lng": -116.5453
       },
-      "companyUrl": "https://escapeps.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2021/02/14/we-did-the.html",
       "tags": [],
       "notes": null,
@@ -901,7 +901,7 @@
         "Tyler"
       ],
       "mortyId": 3598,
-      "photoUrl": "/images/rooms/33.jpg"
+      "photo": "33.jpg"
     },
     {
       "id": 34,
@@ -918,7 +918,7 @@
         "lat": 33.676212,
         "lng": -111.965571
       },
-      "companyUrl": "https://thenemesisclub.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2021/03/11/nemesis-club-evil.html",
       "tags": [],
       "notes": null,
@@ -929,7 +929,7 @@
         "Tyler"
       ],
       "mortyId": 7362,
-      "photoUrl": "/images/rooms/34.jpg"
+      "photo": "34.jpg"
     },
     {
       "id": 35,
@@ -946,7 +946,7 @@
         "lat": 44.2601,
         "lng": -69.817
       },
-      "companyUrl": "https://thegreatestcaper.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2021/08/08/we-saved-the.html",
       "tags": [],
       "notes": null,
@@ -957,7 +957,7 @@
         "Tyler"
       ],
       "mortyId": 3332,
-      "photoUrl": "/images/rooms/35.jpg"
+      "photo": "35.jpg"
     },
     {
       "id": 36,
@@ -974,7 +974,7 @@
         "lat": 47.234047,
         "lng": -93.528742
       },
-      "companyUrl": "https://www.grescaperooms.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2021/08/21/we-won-the.html",
       "tags": [],
       "notes": null,
@@ -987,7 +987,7 @@
         "Tiffany",
         "Andrew"
       ],
-      "photoUrl": "/images/rooms/36.jpg"
+      "photo": "36.jpg"
     },
     {
       "id": 37,
@@ -1004,7 +1004,7 @@
         "lat": 39.692815,
         "lng": -86.110239
       },
-      "companyUrl": "https://www.twistedroomescapes.com/index.php/escape-rooms/alice",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2021/10/22/we-completed-alices.html",
       "tags": [],
       "notes": null,
@@ -1015,7 +1015,7 @@
         "Tyler"
       ],
       "mortyId": 1725,
-      "photoUrl": "/images/rooms/37.jpg"
+      "photo": "37.jpg"
     },
     {
       "id": 38,
@@ -1032,7 +1032,7 @@
         "lat": 44.924561,
         "lng": -93.167266
       },
-      "companyUrl": "https://www.trappedpuzzlerooms.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2022/01/03/we-just-barely.html",
       "tags": [],
       "notes": null,
@@ -1043,7 +1043,7 @@
         "Tyler"
       ],
       "mortyId": 13380,
-      "photoUrl": "/images/rooms/38.jpg"
+      "photo": "38.jpg"
     },
     {
       "id": 39,
@@ -1060,7 +1060,7 @@
         "lat": 44.924561,
         "lng": -93.167266
       },
-      "companyUrl": "https://www.trappedpuzzlerooms.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2022/02/12/we-escaped-video.html",
       "tags": [],
       "notes": "Not setup for kids? Says 2019 was setup for kids.",
@@ -1071,7 +1071,7 @@
         "Tyler"
       ],
       "mortyId": 10174,
-      "photoUrl": "/images/rooms/39.jpg"
+      "photo": "39.jpg"
     },
     {
       "id": 40,
@@ -1088,7 +1088,7 @@
         "lat": 47.234047,
         "lng": -93.528742
       },
-      "companyUrl": "https://www.grescaperooms.com/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -1101,7 +1101,7 @@
         "Tiffany",
         "Andrew"
       ],
-      "photoUrl": "/images/rooms/grandpa.jpg"
+      "photo": "grandpa.jpg"
     },
     {
       "id": 41,
@@ -1118,7 +1118,7 @@
         "lat": 36.163498,
         "lng": -86.777078
       },
-      "companyUrl": "https://theescapegame.com/nashville/escape-rooms/ruins/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2022/03/21/escape-game-timeliner.html",
       "tags": [],
       "notes": null,
@@ -1129,7 +1129,7 @@
         "Tyler"
       ],
       "mortyId": 13067,
-      "photoUrl": "/images/rooms/timeliner.jpg"
+      "photo": "timeliner.jpg"
     },
     {
       "id": 42,
@@ -1155,7 +1155,7 @@
         "Tyler"
       ],
       "mortyId": 4129,
-      "photoUrl": "/images/rooms/42.jpg"
+      "photo": "42.jpg"
     },
     {
       "id": 43,
@@ -1172,7 +1172,7 @@
         "lat": 36.6437,
         "lng": -93.2185
       },
-      "companyUrl": "https://www.escapecode.tv/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": "Golden Birthday Trip",
@@ -1181,7 +1181,7 @@
         "Tyler"
       ],
       "mortyId": 7106,
-      "photoUrl": "/images/rooms/43.jpg"
+      "photo": "43.jpg"
     },
     {
       "id": 44,
@@ -1197,7 +1197,7 @@
         "lat": 64.144953,
         "lng": -21.911806
       },
-      "companyUrl": "https://www.reykjavikescape.is/en/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2022/08/06/we-escaped-from.html",
       "tags": [],
       "notes": null,
@@ -1208,7 +1208,7 @@
         "Tyler"
       ],
       "mortyId": 26343,
-      "photoUrl": "/images/rooms/44.jpg"
+      "photo": "44.jpg"
     },
     {
       "id": 45,
@@ -1225,7 +1225,7 @@
         "lat": 44.862888,
         "lng": -93.356817
       },
-      "companyUrl": "https://www.missingpiecesmn.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2022/12/20/we-got-together.html",
       "tags": [],
       "notes": "With the Thiegs",
@@ -1240,7 +1240,7 @@
         "Samantha"
       ],
       "mortyId": 1469,
-      "photoUrl": "/images/rooms/45.jpg"
+      "photo": "45.jpg"
     },
     {
       "id": 46,
@@ -1257,7 +1257,7 @@
         "lat": 44.862888,
         "lng": -93.356817
       },
-      "companyUrl": "https://www.missingpiecesmn.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2023/01/06/we-escaped-the.html",
       "tags": [],
       "notes": null,
@@ -1269,7 +1269,7 @@
         "Nora"
       ],
       "mortyId": 4592,
-      "photoUrl": "/images/rooms/46.jpg"
+      "photo": "46.jpg"
     },
     {
       "id": 47,
@@ -1286,7 +1286,7 @@
         "lat": 44.991939,
         "lng": -93.243836
       },
-      "companyUrl": "https://www.missionmanor.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2023/02/12/countdown-at-mission.html",
       "tags": [],
       "notes": "Thought it was first no clues. 2,240 points.",
@@ -1297,7 +1297,7 @@
         "Tyler"
       ],
       "mortyId": 9136,
-      "photoUrl": "/images/rooms/47.jpg"
+      "photo": "47.jpg"
     },
     {
       "id": 48,
@@ -1314,7 +1314,7 @@
         "lat": 40.7128,
         "lng": -74.006
       },
-      "companyUrl": "https://www.exitescaperoomnyc.com/sugar_rush.html",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2023/03/19/tyler-and-i.html",
       "tags": [],
       "notes": null,
@@ -1323,7 +1323,7 @@
         "Tyler"
       ],
       "mortyId": 7613,
-      "photoUrl": "/images/rooms/48.jpg"
+      "photo": "48.jpg"
     },
     {
       "id": 49,
@@ -1340,7 +1340,7 @@
         "lat": 40.761097,
         "lng": -73.984514
       },
-      "companyUrl": "https://theescapegame.com/newyorkcity/escape-rooms/playground/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2023/04/30/we-successfully-escaped.html",
       "tags": [],
       "notes": "Bono trip!",
@@ -1351,7 +1351,7 @@
         "Tyler"
       ],
       "mortyId": 6027,
-      "photoUrl": "/images/rooms/49.jpg"
+      "photo": "49.jpg"
     },
     {
       "id": 50,
@@ -1368,7 +1368,7 @@
         "lat": 44.9778,
         "lng": -93.265
       },
-      "companyUrl": "https://minneapolis.zerohourescaperooms.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2023/06/14/mazie-turns.html",
       "tags": [],
       "notes": null,
@@ -1379,7 +1379,7 @@
         "Tyler"
       ],
       "mortyId": 4896,
-      "photoUrl": "/images/rooms/50.jpg"
+      "photo": "50.jpg"
     },
     {
       "id": 51,
@@ -1395,7 +1395,7 @@
         "lat": 45.443494,
         "lng": 9.155411
       },
-      "companyUrl": "https://madmachines.it/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2023/07/22/we-completed-the.html",
       "tags": [
         "TERPECA"
@@ -1408,7 +1408,7 @@
         "Tyler"
       ],
       "mortyId": 24742,
-      "photoUrl": "/images/rooms/51.jpg"
+      "photo": "51.jpg"
     },
     {
       "id": 52,
@@ -1424,7 +1424,7 @@
         "lat": 45.443494,
         "lng": 9.155411
       },
-      "companyUrl": "https://madmachines.it/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2023/07/23/we-went-back.html",
       "tags": [
         "TERPECA"
@@ -1437,7 +1437,7 @@
         "Tyler"
       ],
       "mortyId": 24741,
-      "photoUrl": "/images/rooms/52.jpg"
+      "photo": "52.jpg"
     },
     {
       "id": 53,
@@ -1454,7 +1454,7 @@
         "lat": 36.6437,
         "lng": -93.2185
       },
-      "companyUrl": "https://www.escapecode.tv/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2023/10/21/we-successfully-finished.html",
       "tags": [],
       "notes": null,
@@ -1464,7 +1464,7 @@
         "Tyler"
       ],
       "mortyId": 7108,
-      "photoUrl": "/images/rooms/53.jpg"
+      "photo": "53.jpg"
     },
     {
       "id": 54,
@@ -1481,7 +1481,7 @@
         "lat": 47.234047,
         "lng": -93.528742
       },
-      "companyUrl": "https://www.grescaperooms.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2023/11/18/we-successfully-solved.html",
       "tags": [],
       "notes": null,
@@ -1494,7 +1494,7 @@
         "Tiffany",
         "Andrew"
       ],
-      "photoUrl": "/images/rooms/54.jpg"
+      "photo": "54.jpg"
     },
     {
       "id": 55,
@@ -1511,7 +1511,7 @@
         "lat": 44.935735,
         "lng": -93.114455
       },
-      "companyUrl": "https://lazaruslodge.com/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -1538,7 +1538,7 @@
         "lat": 42.949241,
         "lng": -88.004283
       },
-      "companyUrl": "https://www.62escape.com/wisconsin",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2024/03/26/we-had-a.html",
       "tags": [],
       "notes": null,
@@ -1549,7 +1549,7 @@
         "Tyler"
       ],
       "mortyId": 6778,
-      "photoUrl": "/images/rooms/55.jpg"
+      "photo": "55.jpg"
     },
     {
       "id": 57,
@@ -1566,7 +1566,7 @@
         "lat": 44.881233,
         "lng": -93.324289
       },
-      "companyUrl": "https://lockandkeyescape.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2024/04/27/we-attempted-to.html",
       "tags": [],
       "notes": null,
@@ -1576,7 +1576,7 @@
         "Tyler"
       ],
       "mortyId": 29629,
-      "photoUrl": "/images/rooms/56.jpg"
+      "photo": "56.jpg"
     },
     {
       "id": 58,
@@ -1593,7 +1593,7 @@
         "lat": 54.602626,
         "lng": -5.930794
       },
-      "companyUrl": "https://timescapegames.com/room/titanic/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2024/06/12/we-solved-the.html",
       "tags": [],
       "notes": null,
@@ -1604,7 +1604,7 @@
         "Tyler"
       ],
       "mortyId": 15970,
-      "photoUrl": "/images/rooms/57.jpg"
+      "photo": "57.jpg"
     },
     {
       "id": 59,
@@ -1621,7 +1621,7 @@
         "lat": 42.391372,
         "lng": -87.958342
       },
-      "companyUrl": "https://www.62escape.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2024/10/18/after-our-flight.html",
       "tags": [],
       "notes": null,
@@ -1631,7 +1631,7 @@
         "Tyler"
       ],
       "mortyId": 4029,
-      "photoUrl": "/images/rooms/58.jpg"
+      "photo": "58.jpg"
     },
     {
       "id": 60,
@@ -1648,7 +1648,7 @@
         "lat": 44.855492,
         "lng": -93.240154
       },
-      "companyUrl": "https://theescapegame.com/minneapolis/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2024/12/22/we-completed-the-cosmic-crisis.html",
       "tags": [],
       "notes": null,
@@ -1659,7 +1659,7 @@
         "Tyler"
       ],
       "mortyId": 49507,
-      "photoUrl": "/images/rooms/59.jpg"
+      "photo": "59.jpg"
     },
     {
       "id": 61,
@@ -1676,7 +1676,7 @@
         "lat": 46.355982,
         "lng": -94.200255
       },
-      "companyUrl": "https://www.coppercatescape.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/01/18/we-had-a-great-time.html",
       "tags": [],
       "notes": null,
@@ -1686,7 +1686,7 @@
         "Tyler"
       ],
       "mortyId": 32786,
-      "photoUrl": "/images/rooms/60.jpg"
+      "photo": "60.jpg"
     },
     {
       "id": 62,
@@ -1703,7 +1703,7 @@
         "lat": 46.355982,
         "lng": -94.200255
       },
-      "companyUrl": "https://www.coppercatescape.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/01/19/deep-woods-cabin-escape-room.html",
       "tags": [
         "Best"
@@ -1715,7 +1715,7 @@
         "Tyler"
       ],
       "mortyId": 32785,
-      "photoUrl": "/images/rooms/61.jpg"
+      "photo": "61.jpg"
     },
     {
       "id": 63,
@@ -1732,7 +1732,7 @@
         "lat": 44.96485,
         "lng": -93.183348
       },
-      "companyUrl": "https://www.puzzleworksmn.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/01/20/we-completed-the-museum-at.html",
       "tags": [],
       "notes": null,
@@ -1743,7 +1743,7 @@
         "Levi"
       ],
       "mortyId": 34674,
-      "photoUrl": "/images/rooms/62.jpg"
+      "photo": "62.jpg"
     },
     {
       "id": 64,
@@ -1760,7 +1760,7 @@
         "lat": 44.784431,
         "lng": -93.554246
       },
-      "companyUrl": "https://no-esc.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/02/01/tammy-and-i-rescued-robin.html",
       "tags": [],
       "notes": null,
@@ -1769,7 +1769,7 @@
         "Tammy"
       ],
       "mortyId": 40808,
-      "photoUrl": "/images/rooms/63.jpg"
+      "photo": "63.jpg"
     },
     {
       "id": 65,
@@ -1786,7 +1786,7 @@
         "lat": 44.850893,
         "lng": -93.236632
       },
-      "companyUrl": "https://enigmaadventures.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/02/15/instanbul-gambit-at-enigma-adventure.html",
       "tags": [],
       "notes": null,
@@ -1796,7 +1796,7 @@
         "Tyler"
       ],
       "mortyId": 328,
-      "photoUrl": "/images/rooms/64.jpg"
+      "photo": "64.jpg"
     },
     {
       "id": 66,
@@ -1813,7 +1813,7 @@
         "lat": 44.96485,
         "lng": -93.183348
       },
-      "companyUrl": "https://www.puzzleworksmn.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/03/15/the-hospital-at-puzzleworks.html",
       "tags": [],
       "notes": null,
@@ -1823,7 +1823,7 @@
         "Tyler"
       ],
       "mortyId": 1567,
-      "photoUrl": "/images/rooms/65.jpg"
+      "photo": "65.jpg"
     },
     {
       "id": 67,
@@ -1840,7 +1840,7 @@
         "lat": 28.335013,
         "lng": -81.478393
       },
-      "companyUrl": "https://www.doldricksescaperoom.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/04/04/crazy-train-escape-room.html",
       "tags": [
         "TERPECA"
@@ -1853,7 +1853,7 @@
         "Tyler"
       ],
       "mortyId": 10115,
-      "photoUrl": "/images/rooms/66.jpg"
+      "photo": "66.jpg"
     },
     {
       "id": 68,
@@ -1870,7 +1870,7 @@
         "lat": 44.96485,
         "lng": -93.183348
       },
-      "companyUrl": "https://www.puzzleworksmn.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/04/26/we-had-a-great-time.html",
       "tags": [],
       "notes": null,
@@ -1881,7 +1881,7 @@
         "Tyler"
       ],
       "mortyId": 13681,
-      "photoUrl": "/images/rooms/67.jpg"
+      "photo": "67.jpg"
     },
     {
       "id": 69,
@@ -1898,7 +1898,7 @@
         "lat": 44.96485,
         "lng": -93.183348
       },
-      "companyUrl": "https://www.puzzleworksmn.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/04/27/the-anomaly-at-puzzleworks.html",
       "tags": [],
       "notes": null,
@@ -1910,7 +1910,7 @@
         "Quinn"
       ],
       "mortyId": 13681,
-      "photoUrl": "/images/rooms/68.jpg"
+      "photo": "68.jpg"
     },
     {
       "id": 70,
@@ -1927,7 +1927,7 @@
         "lat": 45.10157,
         "lng": -93.45427
       },
-      "companyUrl": "https://enigmaadventures.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/05/11/pirates-of-the-spanish-main.html",
       "tags": [
         "Best"
@@ -1940,7 +1940,7 @@
         "Tyler"
       ],
       "mortyId": 13264,
-      "photoUrl": "/images/rooms/69.jpg"
+      "photo": "69.jpg"
     },
     {
       "id": 71,
@@ -1957,7 +1957,7 @@
         "lat": 51.012594,
         "lng": -114.065152
       },
-      "companyUrl": "https://escapecity.ca/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/06/06/we-found-escape-city-in.html",
       "tags": [],
       "notes": null,
@@ -1966,7 +1966,7 @@
         "Tammy"
       ],
       "mortyId": 50553,
-      "photoUrl": "/images/rooms/70.jpg"
+      "photo": "70.jpg"
     },
     {
       "id": 72,
@@ -1983,7 +1983,7 @@
         "lat": 43.018744,
         "lng": -88.200357
       },
-      "companyUrl": "https://solveescaperooms.com/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -1992,7 +1992,7 @@
         "Tyler"
       ],
       "mortyId": 13476,
-      "photoUrl": "/images/rooms/caper.jpg"
+      "photo": "caper.jpg"
     },
     {
       "id": 73,
@@ -2009,7 +2009,7 @@
         "lat": 43.018744,
         "lng": -88.200357
       },
-      "companyUrl": "https://solveescaperooms.com/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -2018,7 +2018,7 @@
         "Tyler"
       ],
       "mortyId": 13477,
-      "photoUrl": "/images/rooms/14floors.jpg"
+      "photo": "14floors.jpg"
     },
     {
       "id": 74,
@@ -2035,7 +2035,7 @@
         "lat": 43.057218,
         "lng": -89.494541
       },
-      "companyUrl": "https://www.escapeintimemadison.com/rooms",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/07/18/gold-rush-at-escape-in.html",
       "tags": [],
       "notes": null,
@@ -2046,7 +2046,7 @@
         "Tyler"
       ],
       "mortyId": 13395,
-      "photoUrl": "/images/rooms/73.jpg"
+      "photo": "73.jpg"
     },
     {
       "id": 75,
@@ -2063,7 +2063,7 @@
         "lat": 46.792333,
         "lng": -71.258633
       },
-      "companyUrl": "https://cabinetmysteriis.ca/en/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/07/28/a-bovine-odyssey-at-cabinet.html",
       "tags": [
         "Canada 2025"
@@ -2076,7 +2076,7 @@
         "Tyler"
       ],
       "mortyId": 10197,
-      "photoUrl": "/images/rooms/75.jpg"
+      "photo": "75.jpg"
     },
     {
       "id": 76,
@@ -2093,7 +2093,7 @@
         "lat": 46.792333,
         "lng": -71.258633
       },
-      "companyUrl": "https://cabinetmysteriis.ca/en/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/07/28/the-dreamwalkers-at-cabinet-mysteriis.html",
       "tags": [
         "Best",
@@ -2107,7 +2107,7 @@
         "Tyler"
       ],
       "mortyId": 10196,
-      "photoUrl": "/images/rooms/74.jpg"
+      "photo": "74.jpg"
     },
     {
       "id": 77,
@@ -2124,7 +2124,7 @@
         "lat": 46.792333,
         "lng": -71.258633
       },
-      "companyUrl": "https://cabinetmysteriis.ca/en/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/07/29/screaming-metal-at-cabinet-mysteriis.html",
       "tags": [
         "Canada 2025"
@@ -2137,7 +2137,7 @@
         "Tyler"
       ],
       "mortyId": 10195,
-      "photoUrl": "/images/rooms/76.jpg"
+      "photo": "76.jpg"
     },
     {
       "id": 78,
@@ -2154,7 +2154,7 @@
         "lat": 45.585974,
         "lng": -73.768325
       },
-      "companyUrl": "https://www.escaparium.ca/montreal-jeu-evasion/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/07/30/wardrobe-for-sale-at-escaparium.html",
       "tags": [
         "Best",
@@ -2168,7 +2168,7 @@
         "Tyler"
       ],
       "mortyId": 9589,
-      "photoUrl": "/images/rooms/78.jpg"
+      "photo": "78.jpg"
     },
     {
       "id": 79,
@@ -2185,7 +2185,7 @@
         "lat": 45.585974,
         "lng": -73.768325
       },
-      "companyUrl": "https://www.escaparium.ca/montreal-jeu-evasion/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/07/30/lost-island-of-the-voodoo.html",
       "tags": [
         "Best",
@@ -2200,7 +2200,7 @@
         "Tyler"
       ],
       "mortyId": 9469,
-      "photoUrl": "/images/rooms/77.jpg"
+      "photo": "77.jpg"
     },
     {
       "id": 80,
@@ -2217,7 +2217,7 @@
         "lat": 45.585974,
         "lng": -73.768325
       },
-      "companyUrl": "https://www.escaparium.ca/montreal-jeu-evasion/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/08/02/magnifico-at-escaparium.html",
       "tags": [
         "Best",
@@ -2233,7 +2233,7 @@
         "Tyler"
       ],
       "mortyId": 51489,
-      "photoUrl": "/images/rooms/79.jpg"
+      "photo": "79.jpg"
     },
     {
       "id": 81,
@@ -2250,7 +2250,7 @@
         "lat": 45.883783,
         "lng": -95.376734
       },
-      "companyUrl": "https://www.escapealexandria.com",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/08/07/the-experiment-at-escape-room.html",
       "tags": [],
       "notes": null,
@@ -2261,7 +2261,7 @@
         "Tyler"
       ],
       "mortyId": 13286,
-      "photoUrl": "/images/rooms/80.jpg"
+      "photo": "80.jpg"
     },
     {
       "id": 82,
@@ -2278,7 +2278,7 @@
         "lat": 46.830745,
         "lng": -96.800999
       },
-      "companyUrl": "https://puzzledescaperooms.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/08/08/time-machine-at-puzzled-escape.html",
       "tags": [],
       "notes": null,
@@ -2289,7 +2289,7 @@
         "Tyler"
       ],
       "mortyId": 6168,
-      "photoUrl": "/images/rooms/81.jpg"
+      "photo": "81.jpg"
     },
     {
       "id": 83,
@@ -2306,7 +2306,7 @@
         "lat": 46.832906,
         "lng": -100.774248
       },
-      "companyUrl": "https://www.breakoutnd.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/08/09/gemini-quantum-quest-breakout-nd.html",
       "tags": [],
       "notes": null,
@@ -2317,12 +2317,12 @@
         "Tyler"
       ],
       "mortyId": 54990,
-      "photoUrl": "/images/rooms/82.jpg"
+      "photo": "82.jpg"
     },
     {
       "id": 84,
       "airtableId": "rec05Cz2JvdnNLxo2",
-      "game": "Yeti Escape Room",
+      "game": "Legend of the Yeti",
       "company": "The Escape Game",
       "date": "2025-12-22",
       "status": "Escaped",
@@ -2334,7 +2334,7 @@
         "lat": 36.163498,
         "lng": -86.777078
       },
-      "companyUrl": "https://theescapegame.com/nashville/escape-rooms/ruins/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/12/22/legend-of-the-yeti-escape.html",
       "tags": [],
       "notes": null,
@@ -2344,7 +2344,8 @@
         "Mazie",
         "Tyler"
       ],
-      "photoUrl": "/images/rooms/84.jpg"
+      "mortyId": 58944,
+      "photo": "84.jpg"
     },
     {
       "id": 85,
@@ -2361,7 +2362,7 @@
         "lat": 36.116701,
         "lng": -86.763313
       },
-      "companyUrl": "https://theescapegame.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2025/12/22/we-completed-the-ruins-forbidden.html",
       "tags": [],
       "notes": null,
@@ -2371,7 +2372,8 @@
         "Mazie",
         "Tyler"
       ],
-      "photoUrl": "/images/rooms/83.jpg"
+      "mortyId": 6779,
+      "photo": "83.jpg"
     },
     {
       "id": 86,
@@ -2388,7 +2390,7 @@
         "lat": 44.9778,
         "lng": -93.265
       },
-      "companyUrl": "https://www.puzzle.works/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2026/01/03/we-had-a-great-time.html",
       "tags": [],
       "notes": null,
@@ -2399,7 +2401,7 @@
         "Tyler"
       ],
       "mortyId": 13321,
-      "photoUrl": "/images/rooms/85.jpg"
+      "photo": "85.jpg"
     },
     {
       "id": 87,
@@ -2416,7 +2418,7 @@
         "lat": 44.7677,
         "lng": -93.2777
       },
-      "companyUrl": "https://www.escapology.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2026/01/10/we-had-a-great-time.html",
       "tags": [],
       "notes": null,
@@ -2427,7 +2429,7 @@
         "Tyler"
       ],
       "mortyId": 9603,
-      "photoUrl": "/images/rooms/86.jpg"
+      "photo": "86.jpg"
     },
     {
       "id": 88,
@@ -2436,7 +2438,7 @@
       "company": "Lock & Key Escape Rooms",
       "date": "2026-02-12",
       "status": "Escaped",
-      "timeLeft": null,
+      "timeLeft": 11.116666666666667,
       "location": {
         "city": "Minneapolis",
         "region": "Minnesota",
@@ -2444,7 +2446,7 @@
         "lat": 44.881233,
         "lng": -93.324289
       },
-      "companyUrl": "https://lockandkeyescape.com/",
+      "companyUrl": null,
       "blogUrl": "https://www.thingelstad.com/2026/02/12/tyler-wanted-to-do-an.html",
       "tags": [],
       "notes": "Tyler's Birthday Escape Room!\n",
@@ -2453,7 +2455,8 @@
         "Tammy",
         "Tyler"
       ],
-      "photoUrl": "/images/rooms/excalibur.jpg"
+      "mortyId": 66353,
+      "photo": "excalibur.jpg"
     },
     {
       "id": 89,
@@ -2470,7 +2473,7 @@
         "lat": 44.935735,
         "lng": -93.114455
       },
-      "companyUrl": "https://lazaruslodge.com/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -2479,7 +2482,8 @@
         "Tammy",
         "Tyler"
       ],
-      "photoUrl": "/images/rooms/founders.jpg"
+      "mortyId": 44426,
+      "photo": "founders.jpg"
     },
     {
       "id": 90,
@@ -2495,7 +2499,7 @@
         "lat": 52.374599,
         "lng": 4.895488
       },
-      "companyUrl": "https://www.sherlocked.nl",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -2515,7 +2519,7 @@
         "lat": 52.08486,
         "lng": 4.362005
       },
-      "companyUrl": "https://ustories.nl/en/home-en/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -2535,7 +2539,7 @@
         "lat": 52.09606,
         "lng": 5.114035
       },
-      "companyUrl": "https://escapeworld.nl/escape-room-utrecht/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -2555,7 +2559,7 @@
         "lat": 50.819619,
         "lng": 4.388889
       },
-      "companyUrl": "https://escaperush.com",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -2575,7 +2579,7 @@
         "lat": 52.224663,
         "lng": 5.17815
       },
-      "companyUrl": "https://escapecafehilversum.nl",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -2595,7 +2599,7 @@
         "lat": 48.868273,
         "lng": 2.353125
       },
-      "companyUrl": "https://lockacademy.com",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -2615,7 +2619,7 @@
         "lat": 48.863811,
         "lng": 2.34759
       },
-      "companyUrl": "https://majestic-escapegame.paris/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -2635,7 +2639,7 @@
         "lat": 48.884487,
         "lng": 2.369941
       },
-      "companyUrl": "https://deepinsideparis.fr/en/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -2655,7 +2659,7 @@
         "lat": 41.409802,
         "lng": 2.179651
       },
-      "companyUrl": "https://www.enigmik.com/en/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -2675,7 +2679,7 @@
         "lat": 41.390835,
         "lng": 2.175974
       },
-      "companyUrl": "https://goldenpop.es",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,
@@ -2695,7 +2699,7 @@
         "lat": 41.495278,
         "lng": 2.180616
       },
-      "companyUrl": "https://londiumescaperoom.com/escape-room/",
+      "companyUrl": null,
       "blogUrl": null,
       "tags": [],
       "notes": null,

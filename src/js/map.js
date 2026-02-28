@@ -118,8 +118,8 @@ function buildPopup(room) {
   const locationStr = escapeHtml(formatLocation(room.location));
   const dateStr = formatDate(room.date);
 
-  const photoHtml = room.photoUrl
-    ? `<div class="popup-photo"><img src="${escapeHtml(room.photoUrl)}" alt="${gameName} at ${companyName}"></div>`
+  const photoHtml = room.photo
+    ? `<div class="popup-photo"><img src="/images/rooms/${escapeHtml(room.photo)}" alt="${gameName} at ${companyName}"></div>`
     : '';
 
   const blogHtml = room.blogUrl

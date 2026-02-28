@@ -6,9 +6,9 @@
 {% set featured = options.featured if options else false %}
 {% set compact = options.compact if options else false %}
 <div class="room-card{{ ' featured' if featured }}" id="{{ room.airtableId }}" data-id="{{ room.id }}" data-game="{{ room.game | lower }}" data-company="{{ room.company | lower }}" data-date="{{ room.date }}" data-city="{{ room.location.city | lower if room.location and room.location.city else '' }}" data-status="{{ room.status }}" data-tags="{{ room.tags | join(',') if room.tags else '' }}" data-players="{{ room.players | join(',') if room.players else '' }}" data-country="{{ room.location.country if room.location and room.location.country else '' }}" data-search="{{ room.game }} {{ room.company }} {{ room.location.city if room.location and room.location.city else '' }} {{ room.notes if room.notes else '' }}">
-  {% if room.photoUrl %}
+  {% if room.photo %}
     <div class="room-card-thumb">
-      <img src="{{ room.photoUrl }}" alt="" loading="lazy">
+      <img src="/images/rooms/{{ room.photo }}" alt="" loading="lazy">
     </div>
   {% endif %}
   <div class="room-card-header">

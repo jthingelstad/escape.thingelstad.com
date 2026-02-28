@@ -51,8 +51,8 @@ eleventyExcludeFromCollections: true
       {%- if room.mortyId %}
       <p><a href="https://morty.app/attraction/{{ room.mortyId }}">View on Morty &rarr;</a></p>
       {%- endif %}
-      {%- if room.photoUrl %}
-      <p><img src="https://escape.thingelstad.com{{ room.photoUrl }}" alt="{{ room.game | e }}" style="max-width:100%;border-radius:8px;"></p>
+      {%- if room.photo %}
+      <p><img src="https://escape.thingelstad.com/images/rooms/{{ room.photo }}" alt="{{ room.game | e }}" style="max-width:100%;border-radius:8px;"></p>
       {%- endif %}
     ]]></content>
   </entry>
