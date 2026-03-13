@@ -1,10 +1,11 @@
 {#
-  Room card macro — server-side equivalent of renderRoomCard() in data.js
+  Room card macro — server-side rendered card linking to detail page
   Usage: {{ roomCard(room, { featured: true, compact: false }) }}
 #}
 {% macro roomCard(room, options) %}
 {% set featured = options.featured if options else false %}
 {% set compact = options.compact if options else false %}
+<a href="/room/{{ room.airtableId }}/" class="room-card-link" data-tinylytics-event="card.view-room" data-tinylytics-event-value="{{ room.game }}">
 <div class="room-card{{ ' featured' if featured }}" id="{{ room.airtableId }}" data-id="{{ room.id }}" data-game="{{ room.game | lower }}" data-company="{{ room.company | lower }}" data-date="{{ room.date }}" data-city="{{ room.location.city | lower if room.location and room.location.city else '' }}" data-status="{{ room.status }}" data-tags="{{ room.tags | join(',') if room.tags else '' }}" data-players="{{ room.players | join(',') if room.players else '' }}" data-country="{{ room.location.country if room.location and room.location.country else '' }}" data-search="{{ room.game }} {{ room.company }} {{ room.location.city if room.location and room.location.city else '' }} {{ room.notes if room.notes else '' }}">
   {% if room.photo %}
     <div class="room-card-thumb">
@@ -29,11 +30,7 @@
     </span>
   </div>
   <div class="room-card-meta">
-    {% if room.companyUrl %}
-      <span class="company"><a href="{{ room.companyUrl }}" target="_blank" rel="noopener" data-tinylytics-event="card.company" data-tinylytics-event-value="{{ room.company }}">{{ room.company }}</a></span>
-    {% else %}
-      <span class="company">{{ room.company }}</span>
-    {% endif %}
+    <span class="company">{{ room.company }}</span>
     <span class="date"><span class="meta-icon">📅</span> {{ room.date | formatDate }}</span>
     {% set loc = room.location | formatLocation %}
     {% if loc %}
@@ -57,4 +54,5 @@
     <button class="tinylytics_kudos room-kudos" data-path="/room/{{ room.airtableId }}"></button>
   </div>
 </div>
+</a>
 {% endmacro %}

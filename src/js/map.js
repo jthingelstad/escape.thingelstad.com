@@ -130,11 +130,13 @@ function buildPopup(room) {
     ? `<a href="https://morty.app/attraction/${room.mortyId}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.morty" data-tinylytics-event-value="${gameName}">Morty \u2192</a>`
     : '';
 
+  const detailUrl = `/room/${escapeHtml(room.airtableId)}/`;
+
   return `
     <div class="popup-room">
       ${photoHtml}
       <div class="popup-content">
-        <h3>#${room.id} ${gameName}</h3>
+        <h3><a href="${detailUrl}" style="color: inherit; text-decoration: none;" data-tinylytics-event="map.view-room" data-tinylytics-event-value="${gameName}">#${room.id} ${gameName}</a></h3>
         <div class="popup-meta">
           ${room.companyUrl ? `<a href="${escapeHtml(room.companyUrl)}" target="_blank" rel="noopener" data-tinylytics-event="map.company" data-tinylytics-event-value="${companyName}">${companyName}</a>` : companyName}<br>
           ${dateStr}${locationStr ? ' &middot; ' + locationStr : ''}
@@ -142,7 +144,10 @@ function buildPopup(room) {
         </div>
         ${statusHtml}
         ${tagsHtml ? `<div class="popup-tags">${tagsHtml}</div>` : ''}
-        <div class="popup-links">${blogHtml} ${mortyHtml}</div>
+        <div class="popup-links">
+          <a href="${detailUrl}" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.view-room" data-tinylytics-event-value="${gameName}">View details &rarr;</a>
+          ${blogHtml} ${mortyHtml}
+        </div>
       </div>
     </div>
   `;

@@ -1,0 +1,328 @@
+---
+pagination:
+  data: roomDetail
+  size: 1
+  alias: room
+  addAllPagesToCollections: true
+permalink: /room/{{ room.airtableId }}/
+eleventyComputed:
+  title: "{{ room.game }} — {{ room.company }}"
+  description: "{{ room.game }} at {{ room.company }}{% if room.location %}, {{ room.location | formatLocation }}{% endif %}. {{ room.status }}{% if room.timeLeft != null %} with {{ room.timeLeft | formatTimeLeft }}{% endif %}."
+---
+{% extends "base.njk" %}
+
+{% block head %}
+  <meta property="og:title" content="{{ room.game }} — {{ room.company }} - Escaping Things">
+  <meta property="og:description" content="{{ room.game }} at {{ room.company }}{% if room.location %}, {{ room.location | formatLocation }}{% endif %}. {{ room.status }}{% if room.timeLeft != null %} with {{ room.timeLeft | formatTimeLeft }}{% endif %}.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://escape.thingelstad.com/room/{{ room.airtableId }}/">
+  {% if room.photo %}
+  <meta property="og:image" content="https://escape.thingelstad.com/images/rooms/{{ room.photo }}">
+  {% else %}
+  <meta property="og:image" content="https://escape.thingelstad.com/images/favicon.svg">
+  {% endif %}
+  <meta property="og:site_name" content="Escaping Things">
+  <meta name="twitter:card" content="summary_large_image">
+  {% if room.location and room.location.lat != null %}
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <main class="container page-content room-detail-page">
+
+    {# Navigation between rooms #}
+    <nav class="room-nav" aria-label="Room navigation">
+      {% if room.nav.prev %}
+        <a href="/room/{{ room.nav.prev.airtableId }}/" class="room-nav-link room-nav-prev" data-tinylytics-event="room.nav-prev">
+          <span class="room-nav-arrow">&larr;</span>
+          <span class="room-nav-label">
+            <span class="room-nav-dir">Previous</span>
+            <span class="room-nav-name">#{{ room.nav.prev.id }} {{ room.nav.prev.game }}</span>
+          </span>
+        </a>
+      {% else %}
+        <span class="room-nav-link room-nav-prev disabled"></span>
+      {% endif %}
+      <a href="/list/" class="room-nav-all" data-tinylytics-event="room.back-to-list">All Rooms</a>
+      {% if room.nav.next %}
+        <a href="/room/{{ room.nav.next.airtableId }}/" class="room-nav-link room-nav-next" data-tinylytics-event="room.nav-next">
+          <span class="room-nav-label">
+            <span class="room-nav-dir">Next</span>
+            <span class="room-nav-name">#{{ room.nav.next.id }} {{ room.nav.next.game }}</span>
+          </span>
+          <span class="room-nav-arrow">&rarr;</span>
+        </a>
+      {% else %}
+        <span class="room-nav-link room-nav-next disabled"></span>
+      {% endif %}
+    </nav>
+
+    {# Hero Section #}
+    <section class="room-hero">
+      {% if room.photo %}
+      <div class="room-hero-photo">
+        <img src="/images/rooms/{{ room.photo }}" alt="{{ room.game }} at {{ room.company }}">
+      </div>
+      {% endif %}
+      <div class="room-hero-info">
+        <div class="room-hero-header">
+          <span class="room-number">#{{ room.id }}</span>
+          <h1>{{ room.game }}</h1>
+        </div>
+        <div class="room-hero-company">
+          {% if room.companyUrl %}
+            <a href="{{ room.companyUrl }}" target="_blank" rel="noopener" data-tinylytics-event="room.company" data-tinylytics-event-value="{{ room.company }}">{{ room.company }}</a>
+          {% else %}
+            {{ room.company }}
+          {% endif %}
+        </div>
+        <div class="room-hero-meta">
+          <span class="room-hero-meta-item">
+            <span class="meta-icon">📅</span> {{ room.date | formatDate }}
+          </span>
+          {% set loc = room.location | formatLocation %}
+          {% if loc %}
+          <span class="room-hero-meta-item">
+            <span class="meta-icon">📍</span> {{ loc }}
+          </span>
+          {% endif %}
+        </div>
+
+        <div class="room-hero-status-row">
+          {% if room.status == "Escaped" %}
+            <span class="status-badge status-escaped">✓ Escaped</span>
+          {% elif room.status == "Try again" %}
+            <span class="status-badge status-try-again">✗ Try Again</span>
+          {% elif room.status == "Completed" %}
+            <span class="status-badge status-completed">✓ Completed</span>
+          {% elif room.status == "Scheduled" %}
+            <span class="status-badge status-scheduled">Scheduled</span>
+          {% endif %}
+          {% if room.timeLeft != null %}
+            <span class="room-hero-time">
+              <span class="meta-icon">⏱</span> {{ room.timeLeft | formatTimeLeft }}
+            </span>
+          {% endif %}
+        </div>
+
+        {% if room.players and room.players.length > 0 %}
+        <div class="room-hero-players">
+          <span class="meta-icon">👥</span> {{ room.players | join(', ') }}
+        </div>
+        {% endif %}
+
+        {% if room.tags and room.tags.length > 0 %}
+        <div class="room-hero-tags">
+          {% for tag in room.tags %}
+            <span class="tag tag-{{ tag | classifyTag }}" data-tag="{{ tag }}">{{ tag | formatTagLabel }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if room.notes %}
+        <div class="room-hero-notes">{{ room.notes }}</div>
+        {% endif %}
+
+        <div class="room-hero-links">
+          {% if room.blogUrl %}
+            <a href="{{ room.blogUrl }}" class="room-link room-link-blog" target="_blank" rel="noopener" data-tinylytics-event="room.blog-post" data-tinylytics-event-value="{{ room.game }}">
+              Read Blog Post &rarr;
+            </a>
+          {% endif %}
+          {% if room.mortyId %}
+            <a href="https://morty.app/attraction/{{ room.mortyId }}" class="room-link room-link-morty" target="_blank" rel="noopener" data-tinylytics-event="room.morty" data-tinylytics-event-value="{{ room.game }}">
+              View on Morty &rarr;
+            </a>
+          {% endif %}
+          <button class="permalink-btn" id="copy-link-btn" data-tinylytics-event="room.copy-link" data-tinylytics-event-value="{{ room.game }}">Copy Link</button>
+        </div>
+
+        <div class="room-hero-kudos">
+          <button class="tinylytics_kudos room-kudos" data-path="/room/{{ room.airtableId }}"></button>
+        </div>
+      </div>
+    </section>
+
+    {# Stats Comparison Section #}
+    {% if room.status !== "Scheduled" %}
+    <section class="room-stats-section">
+      <div class="section-header">
+        <h2>How We Did</h2>
+      </div>
+      <div class="room-stats-grid">
+        {% if room.timeLeft != null %}
+        <div class="room-stat-card">
+          <div class="room-stat-value{% if room.timeLeft >= 0 %} stat-positive{% else %} stat-negative{% endif %}">
+            {{ room.timeLeft | formatTimeLeft }}
+          </div>
+          <div class="room-stat-label">Time Result</div>
+          {% if room.stats.avgTimeLeft != null %}
+          <div class="room-stat-compare">
+            Avg across all rooms: {{ room.stats.avgTimeLeft | formatTimeLeft }}
+          </div>
+          {% endif %}
+        </div>
+        <div class="room-stat-card">
+          <div class="room-stat-value">{{ room.stats.timePercentile }}%</div>
+          <div class="room-stat-label">Time Percentile</div>
+          <div class="room-stat-compare">
+            {% if room.stats.timePercentile >= 75 %}
+              Top performer — better than most rooms
+            {% elif room.stats.timePercentile >= 50 %}
+              Above average time result
+            {% elif room.stats.timePercentile >= 25 %}
+              Below average time result
+            {% else %}
+              A tough one — bottom quartile
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+
+        <div class="room-stat-card">
+          <div class="room-stat-value">
+            {% if room.status == "Escaped" or room.status == "Completed" %}
+              ✓ Win
+            {% else %}
+              ✗ Loss
+            {% endif %}
+          </div>
+          <div class="room-stat-label">Result</div>
+          <div class="room-stat-compare">
+            Overall win rate: {{ room.stats.overallWinRate }}% across {{ room.stats.totalPlayed }} rooms
+          </div>
+        </div>
+
+        {% if room.stats.companyTotal > 1 %}
+        <div class="room-stat-card">
+          <div class="room-stat-value">{{ room.stats.companyWins }}/{{ room.stats.companyTotal }}</div>
+          <div class="room-stat-label">Wins at {{ room.company }}</div>
+          <div class="room-stat-compare">
+            {{ ((room.stats.companyWins / room.stats.companyTotal) * 100) | round }}% win rate at this company
+          </div>
+        </div>
+        {% endif %}
+
+        {% if room.players and room.players.length > 0 %}
+        <div class="room-stat-card">
+          <div class="room-stat-value">{{ room.players.length }}</div>
+          <div class="room-stat-label">Players</div>
+          <div class="room-stat-compare">
+            {{ room.players | join(', ') }}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+    {% endif %}
+
+    {# Map Section #}
+    {% if room.location and room.location.lat != null %}
+    <section class="room-map-section">
+      <div class="section-header">
+        <h2>Location</h2>
+      </div>
+      <div class="room-map-container" id="room-map"></div>
+    </section>
+    {% endif %}
+
+    {# Other rooms at same company #}
+    {% if room.stats.otherCompanyRooms.length > 0 %}
+    <section class="room-related-section">
+      <div class="section-header">
+        <h2>More at {{ room.company }}</h2>
+      </div>
+      <div class="room-related-list">
+        {% for other in room.stats.otherCompanyRooms %}
+        <a href="/room/{{ other.airtableId }}/" class="room-related-item" data-tinylytics-event="room.related" data-tinylytics-event-value="{{ other.game }}">
+          <span class="room-number">#{{ other.id }}</span>
+          <span class="room-related-name">{{ other.game }}</span>
+          {% if other.status == "Escaped" %}
+            <span class="status-badge status-escaped">✓</span>
+          {% elif other.status == "Try again" %}
+            <span class="status-badge status-try-again">✗</span>
+          {% elif other.status == "Completed" %}
+            <span class="status-badge status-completed">✓</span>
+          {% elif other.status == "Scheduled" %}
+            <span class="status-badge status-scheduled">⏳</span>
+          {% endif %}
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {# Same-day rooms #}
+    {% if room.stats.sameDayRooms.length > 0 %}
+    <section class="room-related-section">
+      <div class="section-header">
+        <h2>Also on {{ room.date | formatDate }}</h2>
+      </div>
+      <div class="room-related-list">
+        {% for other in room.stats.sameDayRooms %}
+        <a href="/room/{{ other.airtableId }}/" class="room-related-item" data-tinylytics-event="room.same-day" data-tinylytics-event-value="{{ other.game }}">
+          <span class="room-number">#{{ other.id }}</span>
+          <span class="room-related-name">{{ other.game }}</span>
+          <span class="room-related-company">{{ other.company }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script type="module">
+    import { initNav } from '{{ '/js/data.js' | cacheBust }}';
+    initNav();
+
+    // Copy link button
+    const copyBtn = document.getElementById('copy-link-btn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          copyBtn.textContent = 'Copied!';
+          setTimeout(() => { copyBtn.textContent = 'Copy Link'; }, 1500);
+        }).catch(() => {
+          copyBtn.textContent = 'Failed';
+          setTimeout(() => { copyBtn.textContent = 'Copy Link'; }, 1500);
+        });
+      });
+    }
+
+    {% if room.location and room.location.lat != null %}
+    // Mini map
+    const map = L.map('room-map', {
+      zoomControl: true,
+      scrollWheelZoom: false,
+      dragging: true,
+      attributionControl: true
+    }).setView([{{ room.location.lat }}, {{ room.location.lng }}], 13);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    const color = '{{ "#e8924f" if "best" in room.tags else ("#48d989" if room.status == "Escaped" else ("#f06060" if room.status == "Try again" else ("#5a8bff" if room.status == "Scheduled" else "#9a97a8"))) }}';
+    const svg = `<svg width="28" height="40" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14 0C6.268 0 0 6.268 0 14c0 10.5 14 26 14 26s14-15.5 14-26C28 6.268 21.732 0 14 0z" fill="${color}"/>
+      <circle cx="14" cy="14" r="6" fill="#0f0f1a"/>
+    </svg>`;
+
+    const icon = L.divIcon({
+      html: svg,
+      className: 'custom-marker',
+      iconSize: [28, 40],
+      iconAnchor: [14, 40]
+    });
+
+    L.marker([{{ room.location.lat }}, {{ room.location.lng }}], { icon }).addTo(map);
+    {% endif %}
+  </script>
+{% endblock %}

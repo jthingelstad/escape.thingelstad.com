@@ -25,12 +25,17 @@ function buildDetailHtml(room) {
     ? `<a href="${escapeHtml(room.blogUrl)}" class="scrapbook-detail-link" target="_blank" rel="noopener" data-tinylytics-event="scrapbook.blog-post" data-tinylytics-event-value="${gameName}">Read post \u2192</a>`
     : '';
 
+  const detailLink = room.airtableId
+    ? `<a href="/room/${escapeHtml(room.airtableId)}/" class="scrapbook-detail-link" data-tinylytics-event="scrapbook.view-room" data-tinylytics-event-value="${gameName}">View details &rarr;</a>`
+    : '';
+
   return `
     <div class="scrapbook-detail-name">${gameName}</div>
     <div class="scrapbook-detail-company">${escapeHtml(room.company)}</div>
     <div class="scrapbook-detail-date">${formatDate(room.date)}</div>
     <div class="scrapbook-detail-location">${escapeHtml(formatLocation(room.location))}</div>
     <div class="scrapbook-detail-status">${statusBadge}${timeLeftHtml}</div>
+    ${detailLink}
     ${blogLink}
   `;
 }

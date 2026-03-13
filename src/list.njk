@@ -36,16 +36,18 @@ permalink: /list/
       </div>
     </section>
 
-    <div class="room-modal-backdrop" id="room-modal-backdrop">
-      <div class="room-modal" id="room-modal">
-        <button class="room-modal-close" id="room-modal-close" aria-label="Close">&times;</button>
-        <div class="room-modal-body" id="room-modal-body"></div>
-      </div>
-    </div>
   </main>
 {% endblock %}
 
 {% block scripts %}
-  <script id="list-rooms-data" type="application/json">{{ listRooms | dump | safe }}</script>
+  <script>
+    // Redirect old /list/#airtableId URLs to /room/airtableId/
+    (function() {
+      var hash = window.location.hash.slice(1);
+      if (hash && hash.startsWith('rec')) {
+        window.location.replace('/room/' + hash + '/');
+      }
+    })();
+  </script>
   <script type="module" src="{{ '/js/list.js' | cacheBust }}"></script>
 {% endblock %}
