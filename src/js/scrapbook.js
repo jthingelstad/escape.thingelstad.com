@@ -1,4 +1,4 @@
-import { escapeHtml, formatDate, formatLocation, initNav, statusBadgeHtml, formatTimeLeft } from './data.js';
+import { escapeHtml, formatDate, formatLocation, initNav, statusBadgeHtml, formatTimeLeft, roomUrl } from './data.js';
 
 function shuffle(arr) {
   const a = [...arr];
@@ -25,8 +25,8 @@ function buildDetailHtml(room) {
     ? `<a href="${escapeHtml(room.blogUrl)}" class="scrapbook-detail-link" target="_blank" rel="noopener" data-tinylytics-event="scrapbook.blog-post" data-tinylytics-event-value="${gameName}">Read post \u2192</a>`
     : '';
 
-  const detailLink = room.airtableId
-    ? `<a href="/room/${escapeHtml(room.airtableId)}/" class="scrapbook-detail-link" data-tinylytics-event="scrapbook.view-room" data-tinylytics-event-value="${gameName}">View details &rarr;</a>`
+  const detailLink = room.id
+    ? `<a href="${roomUrl(room)}" class="scrapbook-detail-link" data-tinylytics-event="scrapbook.view-room" data-tinylytics-event-value="${gameName}">View details &rarr;</a>`
     : '';
 
   return `

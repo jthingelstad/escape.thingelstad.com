@@ -4,7 +4,7 @@ module.exports = function() {
   return rooms.rooms
     .filter(r => r.photo)
     .map(r => ({
-      airtableId: r.airtableId,
+      id: r.id,
       game: r.game,
       company: r.company,
       date: r.date,

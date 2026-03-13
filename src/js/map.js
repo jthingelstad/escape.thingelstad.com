@@ -1,7 +1,7 @@
 import {
   escapeHtml, formatDate, formatLocation, renderTag,
   getFilterParams, setFilterParams, initNav, statusBadgeHtml,
-  formatTimeLeft
+  formatTimeLeft, roomUrl
 } from './data.js';
 
 const allRooms = JSON.parse(document.getElementById('map-rooms-data').textContent);
@@ -130,7 +130,7 @@ function buildPopup(room) {
     ? `<a href="https://morty.app/attraction/${room.mortyId}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.morty" data-tinylytics-event-value="${gameName}">Morty \u2192</a>`
     : '';
 
-  const detailUrl = `/room/${escapeHtml(room.airtableId)}/`;
+  const detailUrl = roomUrl(room);
 
   return `
     <div class="popup-room">

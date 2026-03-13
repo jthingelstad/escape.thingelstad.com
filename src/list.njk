@@ -41,11 +41,15 @@ permalink: /list/
 
 {% block scripts %}
   <script>
-    // Redirect old /list/#airtableId URLs to /room/airtableId/
+    // Redirect old /list/#airtableId URLs to new slug-based room pages
     (function() {
       var hash = window.location.hash.slice(1);
       if (hash && hash.startsWith('rec')) {
-        window.location.replace('/room/' + hash + '/');
+        var card = document.getElementById(hash);
+        if (card) {
+          var link = card.closest('a');
+          if (link) { window.location.replace(link.href); return; }
+        }
       }
     })();
   </script>

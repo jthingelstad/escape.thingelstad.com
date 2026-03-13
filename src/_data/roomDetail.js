@@ -1,5 +1,17 @@
 const rooms = require('./rooms.json');
 
+function slugify(str) {
+  return str
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')   // strip accents
+    .replace(/[^a-z0-9]+/g, '-')                        // non-alphanum → hyphen
+    .replace(/^-+|-+$/g, '');                            // trim leading/trailing hyphens
+}
+
+function roomSlug(room) {
+  return `${room.id}-${slugify(room.game)}`;
+}
+
 module.exports = function() {
   const allRooms = rooms.rooms;
   const played = allRooms.filter(r =>
@@ -52,22 +64,23 @@ module.exports = function() {
     const companyRoomIds = companyInfo ? companyInfo.rooms.filter(id => id !== room.id) : [];
     const otherCompanyRooms = companyRoomIds.map(id => {
       const r = allRooms.find(rr => rr.id === id);
-      return r ? { id: r.id, airtableId: r.airtableId, game: r.game, status: r.status, date: r.date } : null;
+      return r ? { id: r.id, slug: roomSlug(r), game: r.game, status: r.status, date: r.date } : null;
     }).filter(Boolean);
 
     // Prev/next rooms (chronological by date, all rooms)
     const allSorted = [...allRooms].sort((a, b) => a.date.localeCompare(b.date));
     const idx = allSorted.findIndex(r => r.id === room.id);
-    const prevRoom = idx > 0 ? { id: allSorted[idx - 1].id, airtableId: allSorted[idx - 1].airtableId, game: allSorted[idx - 1].game } : null;
-    const nextRoom = idx < allSorted.length - 1 ? { id: allSorted[idx + 1].id, airtableId: allSorted[idx + 1].airtableId, game: allSorted[idx + 1].game } : null;
+    const prevRoom = idx > 0 ? { id: allSorted[idx - 1].id, slug: roomSlug(allSorted[idx - 1]), game: allSorted[idx - 1].game } : null;
+    const nextRoom = idx < allSorted.length - 1 ? { id: allSorted[idx + 1].id, slug: roomSlug(allSorted[idx + 1]), game: allSorted[idx + 1].game } : null;
 
     // Same-day rooms
     const sameDayRooms = allRooms
       .filter(r => r.date === room.date && r.id !== room.id)
-      .map(r => ({ id: r.id, airtableId: r.airtableId, game: r.game, company: r.company }));
+      .map(r => ({ id: r.id, slug: roomSlug(r), game: r.game, company: r.company }));
 
     return {
       ...room,
+      slug: roomSlug(room),
       stats: {
         avgTimeLeft: avgTimeLeft != null ? parseFloat(avgTimeLeft.toFixed(2)) : null,
         timePercentile,

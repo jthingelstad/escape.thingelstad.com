@@ -43,6 +43,17 @@ module.exports = function(eleventyConfig) {
 
   // --- Nunjucks Filters ---
 
+  // Generate room URL slug: "86-loose-sleuth"
+  eleventyConfig.addFilter("roomSlug", (room) => {
+    if (!room || !room.id || !room.game) return '';
+    const slug = room.game
+      .toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+    return `${room.id}-${slug}`;
+  });
+
   // Format ISO date string to "August 2, 2025"
   eleventyConfig.addFilter("formatDate", (dateStr) => {
     if (!dateStr) return '';

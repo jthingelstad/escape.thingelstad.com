@@ -4,7 +4,7 @@ pagination:
   size: 1
   alias: room
   addAllPagesToCollections: true
-permalink: /room/{{ room.airtableId }}/
+permalink: /room/{{ room.slug }}/
 eleventyComputed:
   title: "{{ room.game }} — {{ room.company }}"
   description: "{{ room.game }} at {{ room.company }}{% if room.location %}, {{ room.location | formatLocation }}{% endif %}. {{ room.status }}{% if room.timeLeft != null %} with {{ room.timeLeft | formatTimeLeft }}{% endif %}."
@@ -15,7 +15,7 @@ eleventyComputed:
   <meta property="og:title" content="{{ room.game }} — {{ room.company }} - Escaping Things">
   <meta property="og:description" content="{{ room.game }} at {{ room.company }}{% if room.location %}, {{ room.location | formatLocation }}{% endif %}. {{ room.status }}{% if room.timeLeft != null %} with {{ room.timeLeft | formatTimeLeft }}{% endif %}.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://escape.thingelstad.com/room/{{ room.airtableId }}/">
+  <meta property="og:url" content="https://escape.thingelstad.com/room/{{ room.slug }}/">
   {% if room.photo %}
   <meta property="og:image" content="https://escape.thingelstad.com/images/rooms/{{ room.photo }}">
   {% else %}
@@ -35,7 +35,7 @@ eleventyComputed:
     {# Navigation between rooms #}
     <nav class="room-nav" aria-label="Room navigation">
       {% if room.nav.prev %}
-        <a href="/room/{{ room.nav.prev.airtableId }}/" class="room-nav-link room-nav-prev" data-tinylytics-event="room.nav-prev">
+        <a href="/room/{{ room.nav.prev.slug }}/" class="room-nav-link room-nav-prev" data-tinylytics-event="room.nav-prev">
           <span class="room-nav-arrow">&larr;</span>
           <span class="room-nav-label">
             <span class="room-nav-dir">Previous</span>
@@ -47,7 +47,7 @@ eleventyComputed:
       {% endif %}
       <a href="/list/" class="room-nav-all" data-tinylytics-event="room.back-to-list">All Rooms</a>
       {% if room.nav.next %}
-        <a href="/room/{{ room.nav.next.airtableId }}/" class="room-nav-link room-nav-next" data-tinylytics-event="room.nav-next">
+        <a href="/room/{{ room.nav.next.slug }}/" class="room-nav-link room-nav-next" data-tinylytics-event="room.nav-next">
           <span class="room-nav-label">
             <span class="room-nav-dir">Next</span>
             <span class="room-nav-name">#{{ room.nav.next.id }} {{ room.nav.next.game }}</span>
@@ -236,7 +236,7 @@ eleventyComputed:
       </div>
       <div class="room-related-list">
         {% for other in room.stats.otherCompanyRooms %}
-        <a href="/room/{{ other.airtableId }}/" class="room-related-item" data-tinylytics-event="room.related" data-tinylytics-event-value="{{ other.game }}">
+        <a href="/room/{{ other.slug }}/" class="room-related-item" data-tinylytics-event="room.related" data-tinylytics-event-value="{{ other.game }}">
           <span class="room-number">#{{ other.id }}</span>
           <span class="room-related-name">{{ other.game }}</span>
           {% if other.status == "Escaped" %}
@@ -262,7 +262,7 @@ eleventyComputed:
       </div>
       <div class="room-related-list">
         {% for other in room.stats.sameDayRooms %}
-        <a href="/room/{{ other.airtableId }}/" class="room-related-item" data-tinylytics-event="room.same-day" data-tinylytics-event-value="{{ other.game }}">
+        <a href="/room/{{ other.slug }}/" class="room-related-item" data-tinylytics-event="room.same-day" data-tinylytics-event-value="{{ other.game }}">
           <span class="room-number">#{{ other.id }}</span>
           <span class="room-related-name">{{ other.game }}</span>
           <span class="room-related-company">{{ other.company }}</span>

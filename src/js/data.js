@@ -75,6 +75,16 @@ export function formatTimeLeft(val) {
   return `${mins}m ${secs}s ${suffix}`;
 }
 
+// Room URL slug: "86-loose-sleuth"
+export function roomUrl(room) {
+  const slug = room.game
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  return `/room/${room.id}-${slug}/`;
+}
+
 // URL filter helpers
 export function getFilterParams() {
   const params = new URLSearchParams(window.location.search);
