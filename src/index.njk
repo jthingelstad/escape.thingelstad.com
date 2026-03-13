@@ -85,12 +85,5 @@ bodyClass: page-home
   <script type="module">
     import { initNav } from '{{ '/js/data.js' | cacheBust }}';
     initNav();
-
-    document.querySelectorAll('.room-card').forEach(card => {
-      card.addEventListener('click', (e) => {
-        if (e.target.closest('a') || e.target.closest('button')) return;
-        window.location.href = '/list/#' + card.id;
-      });
-    });
   </script>
 {% endblock %}

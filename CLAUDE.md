@@ -33,7 +33,8 @@ npm run build        # Production build to _site/
 ├── CLAUDE.md
 ├── src/                      # 11ty input directory
 │   ├── index.njk             # Home page
-│   ├── list.njk              # Filterable room list with detail modal
+│   ├── list.njk              # Filterable room list (cards link to detail pages)
+│   ├── room.njk              # Room detail page template (11ty pagination, one per room)
 │   ├── scrapbook.njk         # Photo scrapbook
 │   ├── map.njk               # Interactive map
 │   ├── stats.njk             # Charts and statistics
@@ -50,14 +51,14 @@ npm run build        # Production build to _site/
 │   │   ├── rooms.json        # Room data (90+ rooms, synced from Airtable)
 │   │   ├── stats.js          # Computed stats + chart datasets (inlined on stats page)
 │   │   ├── filters.js        # Filter options (tags, years, countries, players)
-│   │   ├── listRooms.js      # Trimmed room data for list modal (no lat/lng)
+│   │   ├── roomDetail.js     # Per-room data with comparative stats, nav, related rooms
 │   │   ├── scrapbook.js      # Photo rooms with display fields only
 │   │   └── mapRooms.js       # Room data for map (all fields including lat/lng)
 │   ├── css/
 │   │   └── style.css         # Shared styles
 │   ├── js/
-│   │   ├── data.js           # Shared client-side utilities (formatting, escaping, nav, URL state)
-│   │   ├── list.js           # List page logic (filter, sort, URL state, modal)
+│   │   ├── data.js           # Shared client-side utilities (formatting, escaping, nav, URL state, roomUrl)
+│   │   ├── list.js           # List page logic (filter, sort, URL state)
 │   │   ├── map.js            # Map page logic (Leaflet, markers, filter panel)
 │   │   ├── scrapbook.js      # Scrapbook page logic (photo layout, shuffle/sort)
 │   │   └── stats.js          # Stats page logic (Chart.js charts)
@@ -107,7 +108,7 @@ npm run build        # Production build to _site/
 
 Field notes:
 - `id` — Sequential integer (1–91+). Primary identifier.
-- `airtableId` — String like "recXXXXXX". Airtable record ID. Used for permalinks and kudos paths.
+- `airtableId` — String like "recXXXXXX". Airtable record ID. Used for kudos paths.
 - `date` — ISO 8601 (YYYY-MM-DD).
 - `status` — One of: `"Escaped"`, `"Try again"`, `"Completed"`, `"Scheduled"`. Win rate counts Escaped + Completed as wins.
 - `timeLeft` — Number (minutes remaining, can be negative) or null. Displayed as "Xm Ys left" or "Xm Ys over".
@@ -129,12 +130,13 @@ Data files in `src/_data/` are available globally in templates:
 - **`rooms.json`** — Raw room data. Accessed as `rooms.rooms` in templates. Source of truth for all other data files.
 - **`stats.js`** — Computed at build time. Provides `stats.totalRooms`, `stats.totalWins`, `stats.winRate`, `stats.regionCount`, `stats.countryCount`, `stats.companyCount`, `stats.yearsActive`, `stats.firstYear`, `stats.lastYear`, `stats.latestCompleted`, `stats.recentCompleted` (6 most recent), `stats.planned`, and `stats.charts` (pre-computed chart datasets: `roomsPerYear`, `monthly`, `states`, `countries`, `companies`, `timeLeft`).
 - **`filters.js`** — Computed at build time. Provides `filters.tags`, `filters.years`, `filters.countries`, `filters.players` for pre-populating filter dropdowns.
-- **`listRooms.js`** — Pre-computes room data for the list page detail modal. Strips `lat`/`lng` from locations. Inlined as JSON in `list.njk`.
+- **`roomDetail.js`** — Pre-computes per-room data for detail pages via 11ty pagination. Includes comparative stats (time percentile, win rate, company stats), prev/next navigation, related rooms at same company, and same-day rooms. Each room gets a `slug` field (e.g. "86-loose-sleuth") for URL generation.
 - **`scrapbook.js`** — Filters to rooms with photos and trims to display-only fields. Inlined as JSON in `scrapbook.njk`.
 - **`mapRooms.js`** — All rooms with full location data (including `lat`/`lng`) for map markers. Inlined as JSON in `map.njk`.
 
 ## 11ty Nunjucks Filters (eleventy.config.js)
 
+- `roomSlug` — room object → URL slug: "86-loose-sleuth" (id + slugified game name)
 - `formatDate` — "2025-08-02" → "August 2, 2025"
 - `formatLocation` — location object → "City, Region, Country"
 - `formatTimeLeft` — number (minutes) → "5m 46s left" (positive) or "2m 30s over" (negative), empty string for null
@@ -170,10 +172,10 @@ Frosted glass navbar (backdrop-filter blur) on all pages. Links: Home, Rooms, Sc
 
 ### Room Card (room-card.njk)
 
-Nunjucks macro `roomCard(room, options)`. Server-rendered on home page and list page. Shows:
+Nunjucks macro `roomCard(room, options)`. Server-rendered on home page and list page. Each card is wrapped in an `<a>` tag linking to the room's detail page at `/room/{id}-{slug}/`. Shows:
 - Photo thumbnail (if photo exists)
 - Room number (#id) and game name as heading
-- Company name (linked to companyUrl if available)
+- Company name
 - Formatted date (e.g. "August 2, 2025")
 - Location (city, region, country)
 - Status badge (✓ Escaped / ✗ Try Again / ✓ Completed / Scheduled)
@@ -217,7 +219,25 @@ Tags are visually categorized by `classifyTag()`:
 - **URL-driven:** All filters reflected in query params (`?tag=best&player=Tyler&year=2025`), applied on load, updated via replaceState
 - **Sort controls:** Date (default desc), Game, Company, City — click to toggle direction
 - **Results:** Count display ("Showing 12 of 91 rooms"), room cards in grid layout (server-rendered, filtered/sorted client-side)
-- **Detail modal:** Click a card to open modal overlay with photo, full room details, blog/morty links, and copy permalink button
+- **Card links:** Each card links to the room's detail page at `/room/{id}-{slug}/`
+- **Legacy redirect:** Old `/list/#airtableId` URLs are redirected to the corresponding room detail page via inline script
+
+### Room Detail Page (room.njk)
+
+Generated via 11ty pagination — one page per room at `/room/{id}-{slug}/` (e.g. `/room/86-loose-sleuth/`). Uses `roomDetail.js` data.
+
+- **Open Graph metadata:** Per-room title, description, image for rich social sharing
+- **Prev/next navigation:** Chronological links to adjacent rooms, "All Rooms" link back to list
+- **Hero section:** Photo (if available), room number, game name (h1, Bungee font), company (linked), date, location, status badge, time left, players, tags, notes, blog/Morty links, copy permalink button, kudos
+- **"How We Did" stats section** (non-scheduled rooms only):
+  - Time result vs. overall average (color-coded positive/negative)
+  - Time percentile ranking with contextual message
+  - Win/loss result vs. overall win rate
+  - Company-specific win rate (when multiple rooms at same company)
+  - Player count
+- **Mini Leaflet map** (rooms with lat/lng): Dark-themed map with colored status marker
+- **Related rooms:** "More at {Company}" section linking to other rooms at same company
+- **Same-day rooms:** "Also on {Date}" section linking to rooms done on the same day
 
 ### Scrapbook Page (scrapbook.njk)
 
@@ -278,7 +298,7 @@ Tinylytics integration on all pages (loaded in base.njk):
 | Recent room cards (home) | Server (room-card macro) | stats.js |
 | Scheduled room cards (home) | Server (room-card macro) | stats.js |
 | Room cards on list page | Server (room-card macro, filtered/sorted client-side) | rooms.json |
-| Detail modal content (list) | Client (list.js) | Inlined listRooms JSON |
+| Room detail pages | Server (11ty pagination) | roomDetail.js |
 | Filter dropdown options | Server (filters data) | filters.js |
 | Sitemap | Server (11ty collections) | — |
 | Atom feed | Server (11ty/Nunjucks) | rooms.json |
@@ -296,6 +316,7 @@ Lightweight utility module with no data fetching. All room data is inlined at bu
 - `formatDate(dateStr)`, `formatLocation(location)` — Display formatting
 - `renderTag(tag)` — Tag pill HTML (uses internal `classifyTag` and `formatTagLabel`)
 - `statusBadgeHtml(status)` — Status badge HTML
+- `roomUrl(room)` — Generates room detail page URL: `/room/86-loose-sleuth/`
 - `getFilterParams()`, `setFilterParams(filters)` — URL query param helpers
 - `initNav()` — Hamburger menu toggle
 

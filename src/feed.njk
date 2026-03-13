@@ -25,7 +25,7 @@ eleventyExcludeFromCollections: true
   {%- if room.status !== "Scheduled" %}
   <entry>
     <title>{{ ("#" + room.id + " " + room.game + " — " + room.company) | e }}</title>
-    <link href="https://escape.thingelstad.com/list/#{{ room.airtableId }}"/>
+    <link href="https://escape.thingelstad.com/room/{{ room | roomSlug }}/"/>
     <id>tag:escape.thingelstad.com,{{ room.date }}:{{ room.airtableId }}</id>
     <updated>{{ room.date }}T00:00:00Z</updated>
     <content type="html"><![CDATA[

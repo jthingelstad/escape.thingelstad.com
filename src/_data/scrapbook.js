@@ -4,6 +4,7 @@ module.exports = function() {
   return rooms.rooms
     .filter(r => r.photo)
     .map(r => ({
+      id: r.id,
       game: r.game,
       company: r.company,
       date: r.date,

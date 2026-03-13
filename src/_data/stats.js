@@ -99,12 +99,18 @@ module.exports = function() {
   const chartTimeLeft = played
     .filter(r => r.timeLeft != null)
     .sort((a, b) => a.date.localeCompare(b.date))
-    .map(r => ({
-      x: `#${r.id}`,
-      y: parseFloat(r.timeLeft.toFixed(2)),
-      label: `#${r.id} ${r.game}`,
-      airtableId: r.airtableId
-    }));
+    .map(r => {
+      const slug = r.game.toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+      return {
+        x: `#${r.id}`,
+        y: parseFloat(r.timeLeft.toFixed(2)),
+        label: `#${r.id} ${r.game}`,
+        slug: `${r.id}-${slug}`
+      };
+    });
 
   return {
     totalRooms: played.length,

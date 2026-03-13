@@ -276,7 +276,7 @@ function renderTimeLeftChart(data) {
       onClick: (event, elements) => {
         if (elements.length) {
           const point = data[elements[0].index];
-          window.location.href = `/list/#${point.airtableId}`;
+          window.location.href = `/room/${point.slug}/`;
         }
       },
       scales: {
