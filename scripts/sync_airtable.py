@@ -128,6 +128,108 @@ def build_lookup(records):
     return {r["id"]: r.get("fields", {}) for r in records}
 
 
+def normalize_numeric_rating(value):
+    """Normalize an Airtable numeric rating to float or None."""
+    if value is None:
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def build_ratings_lookup(records):
+    """Build a dict mapping room Airtable IDs to normalized rating records."""
+    ratings_by_room = {}
+    warnings = []
+
+    for record in records:
+        fields = record.get("fields", {})
+        room_links = fields.get("Room") or []
+        if not isinstance(room_links, list):
+            room_links = [room_links]
+
+        if len(room_links) != 1:
+            warnings.append(f"Rating {record['id']} skipped: expected exactly one linked room")
+            continue
+
+        who = fields.get("Who")
+        if not who:
+            warnings.append(f"Rating {record['id']} skipped: missing Who")
+            continue
+
+        room_id = room_links[0]
+        rating = {
+            "_recordId": record["id"],
+            "who": who,
+            "rating": normalize_numeric_rating(fields.get("Rating")),
+            "gameplay": fields.get("Gameplay") or None,
+            "atmosphere": fields.get("Atmosphere") or None,
+            "experience": fields.get("Experience") or None,
+            "bestThings": bool(fields.get("Best Things")),
+            "comments": fields.get("Comments") or None,
+            "createdAt": fields.get("Created at") or None,
+            "modifiedAt": fields.get("Modified at") or None,
+        }
+
+        room_bucket = ratings_by_room.setdefault(room_id, {})
+        existing = room_bucket.get(who)
+        if existing:
+            existing_stamp = existing.get("modifiedAt") or existing.get("createdAt") or ""
+            incoming_stamp = rating.get("modifiedAt") or rating.get("createdAt") or ""
+            if incoming_stamp >= existing_stamp:
+                warnings.append(
+                    f'Rating duplicate for room {room_id} and "{who}": '
+                    f'using {record["id"]} over {existing["_recordId"]}'
+                )
+                room_bucket[who] = rating
+            else:
+                warnings.append(
+                    f'Rating duplicate for room {room_id} and "{who}": '
+                    f'keeping {existing["_recordId"]} over {record["id"]}'
+                )
+            continue
+
+        room_bucket[who] = rating
+
+    return ratings_by_room, warnings
+
+
+def attach_ratings(entry, ratings_lookup):
+    """Attach sorted per-room ratings and summary data to a room entry."""
+    room_ratings = list(ratings_lookup.get(entry["airtableId"], {}).values())
+    room_ratings.sort(key=lambda r: (
+        r["createdAt"] or "",
+        r["who"].lower(),
+    ))
+
+    normalized = []
+    for rating in room_ratings:
+        normalized.append({
+            "who": rating["who"],
+            "rating": rating["rating"],
+            "gameplay": rating["gameplay"],
+            "atmosphere": rating["atmosphere"],
+            "experience": rating["experience"],
+            "bestThings": rating["bestThings"],
+            "comments": rating["comments"],
+            "createdAt": rating["createdAt"],
+            "modifiedAt": rating["modifiedAt"],
+        })
+
+    numeric_ratings = [r["rating"] for r in normalized if r["rating"] is not None]
+    average = None
+    if numeric_ratings:
+        average = round(sum(numeric_ratings) / len(numeric_ratings), 1)
+
+    entry["ratings"] = normalized
+    entry["ratingSummary"] = {
+        "count": len(normalized),
+        "average": average,
+        "bestThingsCount": sum(1 for r in normalized if r["bestThings"]),
+    }
+
+
 VALID_STATUSES = {"Escaped", "Try again", "Completed", "Scheduled"}
 
 
@@ -289,8 +391,13 @@ def main():
     rooms = fetch_all_records(base_id, "Rooms", token)
     print(f"  {len(rooms)} rooms")
 
+    print("Fetching Ratings...")
+    ratings = fetch_all_records(base_id, "Ratings", token)
+    print(f"  {len(ratings)} ratings")
+
     company_lookup = build_lookup(companies)
     location_lookup = build_lookup(locations)
+    ratings_lookup, ratings_warnings = build_ratings_lookup(ratings)
 
     # Transform all rooms
     images_dir = os.path.join(os.path.dirname(__file__), "..", "src", "images", "rooms")
@@ -323,6 +430,12 @@ def main():
     # Assign sequential IDs
     for i, entry in enumerate(entries, start=1):
         entry["id"] = i
+        attach_ratings(entry, ratings_lookup)
+
+    if ratings_warnings:
+        warning_count += len(ratings_warnings)
+        for warning in ratings_warnings:
+            print(f"\n  ⚠ {warning}")
 
     # Reorder keys for readability: id first, then the rest
     ordered_entries = []
@@ -341,6 +454,8 @@ def main():
         ordered["notes"] = entry.pop("notes")
         ordered["commentary"] = entry.pop("commentary")
         ordered["players"] = entry.pop("players")
+        ordered["ratings"] = entry.pop("ratings")
+        ordered["ratingSummary"] = entry.pop("ratingSummary")
         # Remaining optional keys
         entry.pop("sortOrder", None)
         entry.pop("_sourceIndex", None)

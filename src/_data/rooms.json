@@ -24,6 +24,12 @@
         "Jamie",
         "Tammy"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 34804,
       "photo": "team_rech7wyLHVLWdjYWU.jpg"
     },
@@ -51,6 +57,12 @@
         "Jamie",
         "Tammy"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 10292,
       "photo": "team_recbvP2IVDLhhaEdc.jpg"
     },
@@ -79,6 +91,12 @@
         "Tammy",
         "Mazie"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 11677
     },
     {
@@ -107,6 +125,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 8254
     },
     {
@@ -139,6 +163,12 @@
         "Corinne",
         "Denny"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 2542,
       "photo": "team_rec6nkJuIG1mHtCQz.jpg"
     },
@@ -167,6 +197,12 @@
         "Lisa",
         "Rachel"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 35179,
       "photo": "team_receB5xQLCkwwVbjp.jpg"
     },
@@ -198,7 +234,13 @@
         "Isaiah",
         "Tiffany",
         "Andrew"
-      ]
+      ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      }
     },
     {
       "id": 8,
@@ -226,6 +268,12 @@
         "Ellie",
         "Anna"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 4896
     },
     {
@@ -254,6 +302,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 4453,
       "photo": "team_reccays4vMSxg671z.jpg"
     },
@@ -283,6 +337,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 3927,
       "photo": "team_recMyGzjBP3QeNiOx.jpg"
     },
@@ -319,6 +379,12 @@
         "Samantha",
         "Jake"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 10173,
       "photo": "team_recZCQLiIYJrNwOjB.jpg"
     },
@@ -348,6 +414,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 5032,
       "photo": "team_recCmnzgi38Nv4xys.jpg"
     },
@@ -372,6 +444,12 @@
       "notes": null,
       "commentary": null,
       "players": [],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 5936
     },
     {
@@ -400,6 +478,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 40416,
       "photo": "team_recnC0R8y2alGjaPi.jpg"
     },
@@ -427,6 +511,12 @@
         "Jamie",
         "Isaiah"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 2791
     },
     {
@@ -454,6 +544,12 @@
         "Tammy",
         "Mazie"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 1014,
       "photo": "team_recbjX9nFMA7a69q8.jpg"
     },
@@ -481,6 +577,12 @@
         "Jamie",
         "Tammy"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 4593,
       "photo": "team_rec3gQgHTUWkT9AMu.jpg"
     },
@@ -510,6 +612,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "photo": "team_rec8iYdn3TMfqa4kd.jpg"
     },
     {
@@ -538,6 +646,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 2255,
       "photo": "team_recQA2tgPPSuRoUHm.jpg"
     },
@@ -567,6 +681,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 1470,
       "photo": "team_reckDpDvipCNPk5Fb.jpg"
     },
@@ -595,6 +715,12 @@
         "Gigi",
         "Ava"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 45488
     },
     {
@@ -620,6 +746,12 @@
       "players": [
         "Jamie"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 45488,
       "photo": "team_recZU96048MwIP7nv.jpg"
     },
@@ -654,6 +786,12 @@
         "Samantha",
         "Jake"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 3409,
       "photo": "team_recpH0Ffa50kg6PyJ.jpg"
     },
@@ -685,6 +823,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 1470,
       "photo": "team_recc91InhowyqKUUH.jpg"
     },
@@ -718,6 +862,12 @@
         "Max",
         "Angie"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 2443,
       "photo": "team_recaaEELzDiEg95sS.jpg"
     },
@@ -747,6 +897,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "photo": "team_recsB9j2WPez5QFs1.jpg"
     },
     {
@@ -775,6 +931,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 10174,
       "photo": "team_recpbtnWYPX2KDFzz.jpg"
     },
@@ -804,6 +966,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 4192,
       "photo": "team_recMqhVYX7BU87Uda.jpg"
     },
@@ -828,6 +996,12 @@
       "notes": null,
       "commentary": null,
       "players": [],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 1690,
       "photo": "team_recM2tOvoeH29vOJD.jpg"
     },
@@ -857,6 +1031,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 10177,
       "photo": "team_recZ5nE5Ikw5nEwaS.jpg"
     },
@@ -886,6 +1066,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 1566,
       "photo": "team_rectzVjblsWMr1PaH.jpg"
     },
@@ -909,7 +1095,13 @@
       "tags": [],
       "notes": "Game played online using Discord during the pandemic. ",
       "commentary": null,
-      "players": []
+      "players": [],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      }
     },
     {
       "id": 33,
@@ -937,6 +1129,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 3598,
       "photo": "team_recPpP1IJnINvcKqw.jpg"
     },
@@ -968,6 +1166,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 7362,
       "photo": "team_recsgfeSuqNloH6yx.jpg"
     },
@@ -997,6 +1201,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 3332,
       "photo": "team_rec6nQYyyh3IBDkna.jpg"
     },
@@ -1026,6 +1236,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 1725,
       "photo": "team_recacVI8oAeyrT0pf.jpg"
     },
@@ -1055,6 +1271,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 13380,
       "photo": "team_recFOFdIh363Jv4Df.jpg"
     },
@@ -1084,6 +1306,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 10174,
       "photo": "team_recaAQdDD0iC8eYXB.jpg"
     },
@@ -1116,6 +1344,12 @@
         "Tiffany",
         "Andrew"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "photo": "team_recJTZD3ecUiUdbwh.jpg"
     },
     {
@@ -1146,6 +1380,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 13067,
       "photo": "team_recVmPGqIoglZADoy.jpg"
     },
@@ -1173,6 +1413,12 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 4129,
       "photo": "team_rectPKJYjIk3haDDU.jpg"
     },
@@ -1200,6 +1446,12 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 7106,
       "photo": "team_recLWPaDtnmiVlUaZ.jpg"
     },
@@ -1228,6 +1480,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 26343,
       "photo": "team_recCMID7nL5hVlSaj.jpg"
     },
@@ -1261,6 +1519,12 @@
         "Joe",
         "Samantha"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 1469,
       "photo": "team_recc7XibqrT06Up8k.jpg"
     },
@@ -1291,6 +1555,12 @@
         "Tyler",
         "Nora"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 4592,
       "photo": "team_recdlR1lFm1ggyKZ3.jpg"
     },
@@ -1320,6 +1590,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 9136,
       "photo": "team_recVf1fiC85jzkKCA.jpg"
     },
@@ -1347,6 +1623,12 @@
         "Jamie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 7613,
       "photo": "team_rec2pwAZqeKV9EqKl.jpg"
     },
@@ -1376,6 +1658,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 6027,
       "photo": "team_recBIzUfedQWRULTu.jpg"
     },
@@ -1405,6 +1693,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 4896,
       "photo": "team_recSDgzleVsHboeal.jpg"
     },
@@ -1438,6 +1732,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 24742,
       "photo": "team_rechGJ5U1gn1Ajxrt.jpg"
     },
@@ -1469,6 +1769,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 24741,
       "photo": "team_recgisAgQMDN41H2P.jpg"
     },
@@ -1497,6 +1803,12 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 7108,
       "photo": "team_rec8Lti1xXMIqdpm3.jpg"
     },
@@ -1529,6 +1841,12 @@
         "Tiffany",
         "Andrew"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "photo": "team_recr8b2m3JEe8wpnS.jpg"
     },
     {
@@ -1557,6 +1875,12 @@
         "Ellie",
         "Lisa"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 44425
     },
     {
@@ -1585,6 +1909,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 6778,
       "photo": "team_recomWxyMIJhHrs1G.jpg"
     },
@@ -1613,6 +1943,12 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 29629,
       "photo": "team_recAabEHKgVnh3SLF.jpg"
     },
@@ -1642,6 +1978,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 15970,
       "photo": "team_recXB82zxkZdNGvDY.jpg"
     },
@@ -1670,6 +2012,12 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 4029,
       "photo": "team_recahr4JTFP68NvG6.jpg"
     },
@@ -1699,6 +2047,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 49507,
       "photo": "team_recK5aGPCnSOC9OsP.jpg"
     },
@@ -1727,6 +2081,12 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 32786,
       "photo": "team_recIHjZXCO51GVA5T.jpg"
     },
@@ -1757,6 +2117,12 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 32785,
       "photo": "team_recEShUIu5S7hQnsy.jpg"
     },
@@ -1788,6 +2154,12 @@
         "Tyler",
         "Levi"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 34674,
       "photo": "team_recxDMebB9vmosXqJ.jpg"
     },
@@ -1815,6 +2187,12 @@
         "Jamie",
         "Tammy"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 40808,
       "photo": "team_recturIiYlqyzCt4y.jpg"
     },
@@ -1843,6 +2221,12 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 328,
       "photo": "team_recZQqwxwTJ6LucwE.jpg"
     },
@@ -1871,6 +2255,12 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 1567,
       "photo": "team_recjtJa3QW4FXRfBb.jpg"
     },
@@ -1903,6 +2293,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 10115,
       "photo": "team_recyjtLq35KklMMgc.jpg"
     },
@@ -1932,6 +2328,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 13681,
       "photo": "team_recoybbz8OHungxqh.jpg"
     },
@@ -1962,6 +2364,12 @@
         "Nora",
         "Quinn"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 13681,
       "photo": "team_rec2mV2VTPueu9Yau.jpg"
     },
@@ -1993,6 +2401,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 13264,
       "photo": "team_recNxduRu2bMUg67b.jpg"
     },
@@ -2022,6 +2436,12 @@
         "Jamie",
         "Tammy"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 50553,
       "photo": "team_recZIiN1UtlynA6W3.jpg"
     },
@@ -2049,6 +2469,12 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 13476,
       "photo": "team_recSPihVvvRvcVO2F.jpg"
     },
@@ -2076,6 +2502,12 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 13477,
       "photo": "team_reciVEIDHFIo9tnfa.jpg"
     },
@@ -2105,6 +2537,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 13395,
       "photo": "team_recwo5NQ3gWcWPaFM.jpg"
     },
@@ -2140,6 +2578,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 10196,
       "photo": "team_recHbYHiHv3kMBLfk.jpg"
     },
@@ -2172,6 +2616,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 10197,
       "photo": "team_recGHzPOir2KjtOjc.jpg"
     },
@@ -2205,6 +2655,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 10195,
       "photo": "team_recB2J7EL3m61TNLX.jpg"
     },
@@ -2239,6 +2695,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 9469,
       "photo": "team_recedfY1wMhA690Su.jpg"
     },
@@ -2273,6 +2735,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 9589,
       "photo": "team_recRtLvjdXuPiqjbT.jpg"
     },
@@ -2308,6 +2776,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 51489,
       "photo": "team_recHh5GHLbeLSs808.jpg"
     },
@@ -2339,6 +2813,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 13286,
       "photo": "team_recedfIiVxCHDi7BF.jpg"
     },
@@ -2368,6 +2848,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 6168,
       "photo": "team_recjtoHyl9WZIk37S.jpg"
     },
@@ -2397,6 +2883,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 54990,
       "photo": "team_recSdmAOhUyf2p9m0.jpg"
     },
@@ -2428,6 +2920,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 6779,
       "photo": "team_rec53yK3nczTclkFC.jpg"
     },
@@ -2457,6 +2955,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 58944,
       "photo": "team_rec05Cz2JvdnNLxo2.jpg"
     },
@@ -2486,6 +2990,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 13321,
       "photo": "team_recIifKoB4QBKlyCe.jpg"
     },
@@ -2515,6 +3025,12 @@
         "Mazie",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 9603,
       "photo": "team_recAvdJlOWTzlUk0X.jpg"
     },
@@ -2543,6 +3059,12 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 66353,
       "photo": "team_recQaIdtfk8nhtWrL.jpg"
     },
@@ -2574,6 +3096,12 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 44426,
       "photo": "team_recjd6IKGMey6IF9M.jpg"
     },
@@ -2606,6 +3134,46 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [
+        {
+          "who": "Jamie",
+          "rating": 5.0,
+          "gameplay": "Loved",
+          "atmosphere": "Loved",
+          "experience": "Loved",
+          "bestThings": true,
+          "comments": null,
+          "createdAt": "2026-03-17T08:42:17.000Z",
+          "modifiedAt": "2026-03-17T08:54:13.000Z"
+        },
+        {
+          "who": "Tammy",
+          "rating": 5.0,
+          "gameplay": "Loved",
+          "atmosphere": "Loved",
+          "experience": "Loved",
+          "bestThings": true,
+          "comments": "It’s a little hard to rate this room because we were both jet lagged and sleep deprived, but no matter how you feel going in there is no debating that this is a top room experience.  There is a cohesive story with an almost endless number of rooms, straight forward puzzle work (that we maybe found more challenging due to our mental state), immersive set and impressive finale.  \n\nThis room was similar to Magnico in Laval, Canada, but instead of immersive, live theater with escape room elements, it was a straight up escape room.  My enjoyment of playing the room didn’t match the excellence of the room.  While the whole time I was very impressed and thought the scene and set were amazing, I wasn’t as engaged as would be expected.  I chalk it up to my tired and jet lagged self, but there is no way to know for sure.  No matter, I am very happy to have experienced the room.\n\nIf you live in or around Amsterdam or are in the area, I would 100% recommend checking out this room.  From start to finish it is a remarkable accomplishment.  \n",
+          "createdAt": "2026-03-17T11:06:09.000Z",
+          "modifiedAt": "2026-03-17T19:39:11.000Z"
+        },
+        {
+          "who": "Tyler",
+          "rating": 5.0,
+          "gameplay": "Liked",
+          "atmosphere": "Loved",
+          "experience": "Loved",
+          "bestThings": true,
+          "comments": "I think this escape room can take my number one spot. It is fully an escape room but it has so many different rooms and stories. No room was the same as the other but they all worked together seamlessly. They did keep the spooky and secretive vibe that the escape room had but at no point was it ever truly terrifying. My only issue with the room was some of the puzzles were too easy and felt like something to just get to the next puzzle and they did have a tasting puzzle which feels too subjective and took awhile. Another positive and negative was that most rooms where quite short which made you have to go into some many different rooms but it always kept your surrounding new and allowed for there to be more content. Overall I think it all works super well together and the mechanics are amazing with how rooms move and flip. There is never a dull moment.\n",
+          "createdAt": "2026-03-17T13:34:05.000Z",
+          "modifiedAt": "2026-03-17T19:39:11.000Z"
+        }
+      ],
+      "ratingSummary": {
+        "count": 3,
+        "average": 5.0,
+        "bestThingsCount": 3
+      },
       "mortyId": 11847,
       "photo": "team_receASqfgMtmqSEHZ.jpg"
     },
@@ -2636,6 +3204,24 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [
+        {
+          "who": "Jamie",
+          "rating": 5.0,
+          "gameplay": "Loved",
+          "atmosphere": "Loved",
+          "experience": "Loved",
+          "bestThings": true,
+          "comments": null,
+          "createdAt": "2026-03-17T13:07:48.000Z",
+          "modifiedAt": "2026-03-17T13:08:23.000Z"
+        }
+      ],
+      "ratingSummary": {
+        "count": 1,
+        "average": 5.0,
+        "bestThingsCount": 1
+      },
       "mortyId": 52611,
       "photo": "team_rec33iDver9l2s39y.jpg"
     },
@@ -2663,6 +3249,12 @@
         "Tammy",
         "Tyler"
       ],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "photo": "team_recFsAH2073sxvJvL.jpg"
     },
     {
@@ -2690,6 +3282,12 @@
       "notes": null,
       "commentary": null,
       "players": [],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 49265
     },
     {
@@ -2717,6 +3315,12 @@
       "notes": null,
       "commentary": null,
       "players": [],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 37429
     },
     {
@@ -2743,6 +3347,12 @@
       "notes": null,
       "commentary": null,
       "players": [],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 51061
     },
     {
@@ -2769,6 +3379,12 @@
       "notes": null,
       "commentary": null,
       "players": [],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 25957
     },
     {
@@ -2794,6 +3410,12 @@
       "notes": null,
       "commentary": null,
       "players": [],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 52056
     },
     {
@@ -2821,6 +3443,12 @@
       "notes": null,
       "commentary": null,
       "players": [],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 54828
     },
     {
@@ -2847,6 +3475,12 @@
       "notes": null,
       "commentary": null,
       "players": [],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 6656
     },
     {
@@ -2873,6 +3507,12 @@
       "notes": null,
       "commentary": null,
       "players": [],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 48286
     },
     {
@@ -2899,6 +3539,12 @@
       "notes": null,
       "commentary": null,
       "players": [],
+      "ratings": [],
+      "ratingSummary": {
+        "count": 0,
+        "average": null,
+        "bestThingsCount": 0
+      },
       "mortyId": 64482
     }
   ]

@@ -113,6 +113,14 @@ module.exports = function(eleventyConfig) {
     return tag;
   });
 
+  // Format a numeric rating for display.
+  eleventyConfig.addFilter("formatRating", (value) => {
+    if (value == null || value === '') return '';
+    const num = Number(value);
+    if (Number.isNaN(num)) return '';
+    return Number.isInteger(num) ? String(num) : num.toFixed(1);
+  });
+
   return {
     dir: {
       input: "src",

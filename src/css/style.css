@@ -523,6 +523,35 @@ section {
   opacity: 0.7;
 }
 
+.room-card-ratings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.6rem;
+}
+
+.room-rating-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(232, 146, 79, 0.12);
+  border: 1px solid rgba(232, 146, 79, 0.25);
+  color: var(--text-secondary);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.room-rating-pill-score {
+  color: var(--accent-orange);
+}
+
+.room-rating-pill-best {
+  background: rgba(232, 146, 79, 0.18);
+  color: var(--accent-orange);
+}
+
 .room-card-tags {
   display: flex;
   flex-wrap: wrap;
@@ -2265,6 +2294,111 @@ section {
   line-height: 1.4;
 }
 
+/* Ratings section */
+.room-ratings-section {
+  margin-bottom: 2.5rem;
+}
+
+.room-ratings-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.room-rating-summary-card {
+  background: linear-gradient(160deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+}
+
+.room-rating-summary-value {
+  font-family: 'Bungee', cursive;
+  font-size: 1.2rem;
+  color: var(--accent-orange);
+  margin-bottom: 0.25rem;
+}
+
+.room-rating-summary-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.room-ratings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.room-rating-card {
+  background: linear-gradient(165deg, var(--bg-card) 0%, rgba(232, 146, 79, 0.08) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.15rem;
+}
+
+.room-rating-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.room-rating-card-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.room-rating-card-date {
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.room-rating-card-score {
+  flex-shrink: 0;
+  font-family: 'Bungee', cursive;
+  font-size: 1rem;
+  color: var(--accent-orange);
+}
+
+.room-rating-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.75rem;
+}
+
+.room-rating-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(90, 139, 255, 0.12);
+  border: 1px solid rgba(90, 139, 255, 0.22);
+  color: var(--text-secondary);
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.room-rating-chip-best {
+  background: rgba(232, 146, 79, 0.18);
+  border-color: rgba(232, 146, 79, 0.28);
+  color: var(--accent-orange);
+}
+
+.room-rating-comments {
+  font-size: 0.92rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
 /* Map section */
 .room-map-section {
   margin-bottom: 2.5rem;
@@ -2350,6 +2484,11 @@ section {
 
   .room-stats-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .room-ratings-summary,
+  .room-ratings-grid {
+    grid-template-columns: 1fr;
   }
 
   .room-map-container {

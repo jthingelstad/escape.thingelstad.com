@@ -5,6 +5,7 @@
 {% macro roomCard(room, options) %}
 {% set featured = options.featured if options else false %}
 {% set compact = options.compact if options else false %}
+{% set showRatingSummary = options.showRatingSummary if options else false %}
 <a href="/room/{{ room | roomSlug }}/" class="room-card-link" data-tinylytics-event="card.view-room" data-tinylytics-event-value="{{ room.game }}">
 <div class="room-card{{ ' featured' if featured }}" id="{{ room.airtableId }}" data-id="{{ room.id }}" data-game="{{ room.game | lower }}" data-company="{{ room.company | lower }}" data-date="{{ room.date }}" data-city="{{ room.location.city | lower if room.location and room.location.city else '' }}" data-status="{{ room.status }}" data-tags="{{ room.tags | join(',') if room.tags else '' }}" data-players="{{ room.players | join(',') if room.players else '' }}" data-country="{{ room.location.country if room.location and room.location.country else '' }}" data-search="{{ room.game }} {{ room.company }} {{ room.location.city if room.location and room.location.city else '' }} {{ room.commentary if room.commentary else '' }} {{ room.notes if room.notes else '' }}">
   {% if room.photo %}
@@ -42,6 +43,17 @@
   </div>
   {% if room.players and room.players.length > 0 %}
     <div class="room-card-players"><span class="meta-icon">👥</span> {{ room.players | join(', ') }}</div>
+  {% endif %}
+  {% if showRatingSummary and room.ratingSummary and room.ratingSummary.count > 0 %}
+    <div class="room-card-ratings">
+      {% if room.ratingSummary.average != null %}
+        <span class="room-rating-pill room-rating-pill-score">{{ room.ratingSummary.average | formatRating }}/5</span>
+      {% endif %}
+      <span class="room-rating-pill">{{ room.ratingSummary.count }} rating{{ '' if room.ratingSummary.count == 1 else 's' }}</span>
+      {% if room.ratingSummary.bestThingsCount > 0 %}
+        <span class="room-rating-pill room-rating-pill-best">{{ room.ratingSummary.bestThingsCount }} favorite vote{{ '' if room.ratingSummary.bestThingsCount == 1 else 's' }}</span>
+      {% endif %}
+    </div>
   {% endif %}
   {% if room.tags and room.tags.length > 0 %}
     <div class="room-card-tags">

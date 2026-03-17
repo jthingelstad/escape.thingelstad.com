@@ -222,6 +222,63 @@ permalink: /room/{{ room.slug }}/
     </section>
     {% endif %}
 
+    {% if room.ratings and room.ratings.length > 0 %}
+    <section class="room-ratings-section">
+      <div class="section-header">
+        <h2>Family Ratings</h2>
+      </div>
+      <div class="room-ratings-summary">
+        {% if room.ratingSummary.average != null %}
+        <div class="room-rating-summary-card">
+          <div class="room-rating-summary-value">{{ room.ratingSummary.average | formatRating }}/5</div>
+          <div class="room-rating-summary-label">Average Rating</div>
+        </div>
+        {% endif %}
+        <div class="room-rating-summary-card">
+          <div class="room-rating-summary-value">{{ room.ratingSummary.count }}</div>
+          <div class="room-rating-summary-label">Family Ratings</div>
+        </div>
+        {% if room.ratingSummary.bestThingsCount > 0 %}
+        <div class="room-rating-summary-card">
+          <div class="room-rating-summary-value">{{ room.ratingSummary.bestThingsCount }}</div>
+          <div class="room-rating-summary-label">Favorite Votes</div>
+        </div>
+        {% endif %}
+      </div>
+      <div class="room-ratings-grid">
+        {% for rating in room.ratings %}
+        <article class="room-rating-card">
+          <div class="room-rating-card-header">
+            <div>
+              <h3>{{ rating.who }}</h3>
+            </div>
+            {% if rating.rating != null %}
+            <div class="room-rating-card-score">{{ rating.rating | formatRating }}/5</div>
+            {% endif %}
+          </div>
+          <div class="room-rating-chip-row">
+            {% if rating.gameplay %}
+            <span class="room-rating-chip">Gameplay: {{ rating.gameplay }}</span>
+            {% endif %}
+            {% if rating.atmosphere %}
+            <span class="room-rating-chip">Atmosphere: {{ rating.atmosphere }}</span>
+            {% endif %}
+            {% if rating.experience %}
+            <span class="room-rating-chip">Experience: {{ rating.experience }}</span>
+            {% endif %}
+            {% if rating.bestThings %}
+            <span class="room-rating-chip room-rating-chip-best">Best Things</span>
+            {% endif %}
+          </div>
+          {% if rating.comments %}
+          <div class="room-rating-comments">{{ rating.comments }}</div>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
     {# Map Section #}
     {% if room.location and room.location.lat != null %}
     <section class="room-map-section">
