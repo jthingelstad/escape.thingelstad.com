@@ -257,6 +257,17 @@ def transform_room(room_fields, airtable_id, company_lookup, location_lookup, im
     return entry, warnings, label
 
 
+def sort_order_value(entry):
+    """Return the sort value for same-day room ordering."""
+    value = entry.get("sortOrder")
+    if value is None:
+        return float("inf")
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return float("inf")
+
+
 def main():
     token = os.environ.get("AIRTABLE_PAT")
     base_id = os.environ.get("AIRTABLE_BASE_ID")
@@ -283,11 +294,17 @@ def main():
     # Transform all rooms
     images_dir = os.path.join(os.path.dirname(__file__), "..", "src", "images", "rooms")
     entries = []
+    hidden_count = 0
     warning_count = 0
-    for record in rooms:
+    for index, record in enumerate(rooms):
         fields = record.get("fields", {})
+        if fields.get("Hide"):
+            hidden_count += 1
+            continue
         entry, warnings, label = transform_room(fields, record["id"], company_lookup, location_lookup, images_dir)
         entry["airtableId"] = record["id"]
+        entry["sortOrder"] = fields.get("Order")
+        entry["_sourceIndex"] = index
         entries.append(entry)
         if warnings:
             warning_count += len(warnings)
@@ -295,8 +312,12 @@ def main():
             for w in warnings:
                 print(f"    - {w}")
 
-    # Sort by date ascending, then by Airtable creation order for ties
-    entries.sort(key=lambda r: r.get("date") or "9999-99-99")
+    # Sort by date ascending, Airtable Order for same-day rooms, then source order for ties.
+    entries.sort(key=lambda r: (
+        r.get("date") or "9999-99-99",
+        sort_order_value(r),
+        r["_sourceIndex"],
+    ))
 
     # Assign sequential IDs
     for i, entry in enumerate(entries, start=1):
@@ -320,6 +341,8 @@ def main():
         ordered["commentary"] = entry.pop("commentary")
         ordered["players"] = entry.pop("players")
         # Remaining optional keys
+        entry.pop("sortOrder", None)
+        entry.pop("_sourceIndex", None)
         ordered.update(entry)
         ordered_entries.append(ordered)
 
@@ -345,6 +368,8 @@ def main():
         f.write("\n")
 
     print(f"\nWrote {len(ordered_entries)} rooms to {output_path}")
+    if hidden_count:
+        print(f"Skipped {hidden_count} hidden room(s)")
     if warning_count:
         print(f"⚠ {warning_count} data warning(s) — review above for details")
 
