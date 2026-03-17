@@ -19,9 +19,8 @@ module.exports = function() {
 
   const years = [...new Set(played.map(r => r.date.slice(0, 4)))].sort();
 
-  const sortedPlayed = [...played].sort((a, b) => b.date.localeCompare(a.date));
-  const latestCompleted = sortedPlayed[0] || null;
-  const recentCompleted = sortedPlayed.slice(0, 6);
+  const latestCompleted = played[played.length - 1] || null;
+  const recentCompleted = played.slice(-6).reverse();
 
   const completed = allRooms.filter(r => r.status === 'Completed');
   const wins = escaped.length + completed.length;
@@ -100,7 +99,6 @@ module.exports = function() {
   const CHART_TIME_FLOOR = -10;
   const chartTimeLeft = played
     .filter(r => r.timeLeft != null)
-    .sort((a, b) => a.date.localeCompare(b.date))
     .map(r => {
       const slug = r.game.toLowerCase()
         .normalize('NFD').replace(/[\u0300-\u036f]/g, '')

@@ -48,8 +48,7 @@ module.exports = function() {
   // Build per-room detail data
   return allRooms.map(room => {
     // Room's position in the chronological list
-    const playedSorted = played.sort((a, b) => a.date.localeCompare(b.date));
-    const chronIndex = playedSorted.findIndex(r => r.id === room.id);
+    const chronIndex = played.findIndex(r => r.id === room.id);
     const roomNumber = chronIndex >= 0 ? chronIndex + 1 : null;
 
     // Time left percentile
@@ -67,11 +66,10 @@ module.exports = function() {
       return r ? { id: r.id, slug: roomSlug(r), game: r.game, status: r.status, date: r.date } : null;
     }).filter(Boolean);
 
-    // Prev/next rooms (chronological by date, all rooms)
-    const allSorted = [...allRooms].sort((a, b) => a.date.localeCompare(b.date));
-    const idx = allSorted.findIndex(r => r.id === room.id);
-    const prevRoom = idx > 0 ? { id: allSorted[idx - 1].id, slug: roomSlug(allSorted[idx - 1]), game: allSorted[idx - 1].game } : null;
-    const nextRoom = idx < allSorted.length - 1 ? { id: allSorted[idx + 1].id, slug: roomSlug(allSorted[idx + 1]), game: allSorted[idx + 1].game } : null;
+    // Prev/next rooms follow the canonical order from rooms.json.
+    const idx = allRooms.findIndex(r => r.id === room.id);
+    const prevRoom = idx > 0 ? { id: allRooms[idx - 1].id, slug: roomSlug(allRooms[idx - 1]), game: allRooms[idx - 1].game } : null;
+    const nextRoom = idx < allRooms.length - 1 ? { id: allRooms[idx + 1].id, slug: roomSlug(allRooms[idx + 1]), game: allRooms[idx + 1].game } : null;
 
     // Same-day rooms
     const sameDayRooms = allRooms

@@ -52,7 +52,7 @@ function deactivate() {
 
 function orderRooms(rooms, mode) {
   if (mode === 'shuffle') return shuffle(rooms);
-  const sorted = [...rooms].sort((a, b) => a.date.localeCompare(b.date));
+  const sorted = [...rooms];
   if (mode === 'newest') sorted.reverse();
   return sorted;
 }
