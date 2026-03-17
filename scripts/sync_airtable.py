@@ -67,6 +67,36 @@ def fetch_all_records(base_id, table_name, token):
     return records
 
 
+def download_team_photo(attachment, airtable_id, images_dir):
+    """Download a Team Photo attachment from Airtable.
+
+    Returns the filename (e.g. 'team_recXXX.jpg') on success, or None on failure.
+    Skips download if the file already exists on disk.
+    """
+    ext = os.path.splitext(attachment.get("filename", "photo.jpg"))[1] or ".jpg"
+    filename = f"team_{airtable_id}{ext}"
+    dest = os.path.join(images_dir, filename)
+
+    if os.path.isfile(dest):
+        return filename
+
+    url = attachment.get("url")
+    if not url:
+        print(f"  Warning: Team Photo for {airtable_id} has no URL", file=sys.stderr)
+        return None
+
+    try:
+        req = urllib.request.Request(url)
+        with urllib.request.urlopen(req) as resp:
+            with open(dest, "wb") as f:
+                f.write(resp.read())
+        print(f"  Downloaded team photo: {filename}")
+        return filename
+    except (urllib.error.URLError, OSError) as e:
+        print(f"  Warning: Failed to download team photo for {airtable_id}: {e}", file=sys.stderr)
+        return None
+
+
 def build_lookup(records):
     """Build a dict mapping record ID to fields."""
     return {r["id"]: r.get("fields", {}) for r in records}
@@ -75,7 +105,7 @@ def build_lookup(records):
 VALID_STATUSES = {"Escaped", "Try again", "Completed", "Scheduled"}
 
 
-def transform_room(room_fields, airtable_id, company_lookup, location_lookup):
+def transform_room(room_fields, airtable_id, company_lookup, location_lookup, images_dir):
     """Transform an Airtable Room record into a rooms.json entry.
 
     Returns (entry, warnings) where warnings is a list of strings.
@@ -190,6 +220,12 @@ def transform_room(room_fields, airtable_id, company_lookup, location_lookup):
     photo = room_fields.get("Photo")
     if photo:
         entry["photo"] = photo
+    else:
+        team_photo = room_fields.get("Team Photo")
+        if team_photo and isinstance(team_photo, list) and team_photo:
+            downloaded = download_team_photo(team_photo[0], airtable_id, images_dir)
+            if downloaded:
+                entry["photo"] = downloaded
 
     return entry, warnings, label
 
@@ -218,11 +254,12 @@ def main():
     location_lookup = build_lookup(locations)
 
     # Transform all rooms
+    images_dir = os.path.join(os.path.dirname(__file__), "..", "src", "images", "rooms")
     entries = []
     warning_count = 0
     for record in rooms:
         fields = record.get("fields", {})
-        entry, warnings, label = transform_room(fields, record["id"], company_lookup, location_lookup)
+        entry, warnings, label = transform_room(fields, record["id"], company_lookup, location_lookup, images_dir)
         entry["airtableId"] = record["id"]
         entries.append(entry)
         if warnings:
@@ -259,7 +296,6 @@ def main():
         ordered_entries.append(ordered)
 
     # Validate that photo files exist on disk
-    images_dir = os.path.join(os.path.dirname(__file__), "..", "src", "images", "rooms")
     missing_photos = []
     for entry in ordered_entries:
         photo = entry.get("photo")
