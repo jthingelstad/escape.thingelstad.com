@@ -96,6 +96,8 @@ module.exports = function() {
     .map(([label, count]) => ({ label, count }));
 
   // Time left chart data (sorted by date)
+  // Clamp extreme negative values so one outlier doesn't compress the chart
+  const CHART_TIME_FLOOR = -10;
   const chartTimeLeft = played
     .filter(r => r.timeLeft != null)
     .sort((a, b) => a.date.localeCompare(b.date))
@@ -104,9 +106,12 @@ module.exports = function() {
         .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-+|-+$/g, '');
+      const clamped = r.timeLeft < CHART_TIME_FLOOR;
       return {
         x: `#${r.id}`,
-        y: parseFloat(r.timeLeft.toFixed(2)),
+        y: parseFloat(Math.max(CHART_TIME_FLOOR, r.timeLeft).toFixed(2)),
+        raw: parseFloat(r.timeLeft.toFixed(2)),
+        clamped,
         label: `#${r.id} ${r.game}`,
         slug: `${r.id}-${slug}`
       };

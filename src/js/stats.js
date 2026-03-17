@@ -256,15 +256,46 @@ function renderCompanyChart(data) {
   });
 }
 
+function createStripedPattern(color) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 10;
+  canvas.height = 10;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = color;
+  ctx.fillRect(0, 0, 10, 10);
+  ctx.strokeStyle = 'rgba(0, 0, 0, 0.4)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(0, 10);
+  ctx.lineTo(10, 0);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(-2, 2);
+  ctx.lineTo(2, -2);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(8, 12);
+  ctx.lineTo(12, 8);
+  ctx.stroke();
+  return ctx.createPattern(canvas, 'repeat');
+}
+
 function renderTimeLeftChart(data) {
-  new Chart(document.getElementById('chart-times'), {
+  const chartCanvas = document.getElementById('chart-times');
+  const chartCtx = chartCanvas.getContext('2d');
+  const stripedRed = createStripedPattern(chartColors.red);
+
+  new Chart(chartCanvas, {
     type: 'bar',
     data: {
       labels: data.map(d => d.x),
       datasets: [{
         label: 'Time Left (min)',
         data: data.map(d => d.y),
-        backgroundColor: data.map(d => d.y >= 0 ? chartColors.teal : chartColors.red),
+        backgroundColor: data.map(d => {
+          if (d.clamped) return stripedRed;
+          return d.y >= 0 ? chartColors.teal : chartColors.red;
+        }),
         borderRadius: 3
       }]
     },
@@ -302,8 +333,8 @@ function renderTimeLeftChart(data) {
           callbacks: {
             label: (ctx) => {
               const point = data[ctx.dataIndex];
-              const abs = Math.abs(point.y).toFixed(1);
-              return point.y >= 0
+              const abs = Math.abs(point.raw).toFixed(1);
+              return point.raw >= 0
                 ? `${point.label}: ${abs} min left`
                 : `${point.label}: ${abs} min over`;
             }
