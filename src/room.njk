@@ -5,11 +5,11 @@ pagination:
   alias: room
   addAllPagesToCollections: true
 permalink: /room/{{ room.slug }}/
-eleventyComputed:
-  title: "{{ room.game }} — {{ room.company }}"
-  description: "{{ room.game }} at {{ room.company }}{% if room.location %}, {{ room.location | formatLocation }}{% endif %}. {{ room.status }}{% if room.timeLeft != null %} with {{ room.timeLeft | formatTimeLeft }}{% endif %}."
 ---
 {% extends "base.njk" %}
+
+{% block pageTitle %}{{ room.game | safe }} — {{ room.company | safe }}{% endblock %}
+{% block metaDescription %}{{ room.game | safe }} at {{ room.company | safe }}{% if room.location %}, {{ room.location | formatLocation | safe }}{% endif %}. {{ room.status | safe }}{% if room.timeLeft != null %} with {{ room.timeLeft | formatTimeLeft | safe }}{% endif %}.{% endblock %}
 
 {% block head %}
   <meta property="og:title" content="{{ room.game }} — {{ room.company }} - Escaping Things">

@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }} - Escaping Things</title>
-  {% if description %}
-  <meta name="description" content="{{ description }}">
-  {% endif %}
+  <title>{% block pageTitle %}{{ title }}{% endblock %} - Escaping Things</title>
+  <meta name="description" content="{% block metaDescription %}{{ description }}{% endblock %}">
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/atom+xml" title="Escaping Things" href="/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">

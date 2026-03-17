@@ -244,15 +244,16 @@ def transform_room(room_fields, airtable_id, company_lookup, location_lookup, im
     if morty_id:
         entry["mortyId"] = morty_id
 
-    photo = room_fields.get("Photo")
-    if photo:
-        entry["photo"] = photo
-    else:
-        team_photo = room_fields.get("Team Photo")
-        if team_photo and isinstance(team_photo, list) and team_photo:
-            downloaded = download_team_photo(team_photo[0], airtable_id, images_dir)
-            if downloaded:
-                entry["photo"] = downloaded
+    team_photo = room_fields.get("Team Photo")
+    if team_photo and isinstance(team_photo, list) and team_photo:
+        downloaded = download_team_photo(team_photo[0], airtable_id, images_dir)
+        if downloaded:
+            entry["photo"] = downloaded
+
+    if "photo" not in entry:
+        photo = room_fields.get("Photo")
+        if photo:
+            entry["photo"] = photo
 
     return entry, warnings, label
 
