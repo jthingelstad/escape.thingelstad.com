@@ -19,6 +19,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy"
@@ -45,6 +46,7 @@
       "blogUrl": "https://www.thingelstad.com/2016/07/30/025230.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy"
@@ -71,6 +73,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": "First room with Mazie",
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -97,6 +100,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": "First room with Tyler",
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -124,6 +128,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -156,6 +161,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Eric",
         "Lisa",
@@ -183,6 +189,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -212,6 +219,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Mazie",
         "Gigi",
@@ -239,6 +247,7 @@
       "blogUrl": "https://www.thingelstad.com/2017/06/29/180623.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -267,6 +276,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -297,6 +307,7 @@
         "Favorite Things"
       ],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -330,6 +341,7 @@
       "blogUrl": "https://www.thingelstad.com/2018/04/01/we-won-the.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -358,6 +370,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [],
       "mortyId": 5936
     },
@@ -380,6 +393,7 @@
       "blogUrl": "https://www.thingelstad.com/2018/05/05/we-escaped-from.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -408,6 +422,7 @@
       "blogUrl": "https://www.thingelstad.com/2018/05/20/just-finished-the.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Isaiah"
@@ -433,6 +448,7 @@
       "blogUrl": "https://www.thingelstad.com/2018/06/25/013826.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -460,6 +476,7 @@
       "blogUrl": "https://www.thingelstad.com/2018/07/27/041311.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy"
@@ -486,6 +503,7 @@
       "blogUrl": "https://www.thingelstad.com/2018/08/12/we-finished-our.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -513,6 +531,7 @@
       "blogUrl": "https://www.thingelstad.com/2018/09/09/it-took-us.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -541,6 +560,7 @@
       "blogUrl": "https://www.thingelstad.com/2018/11/24/we-tried-the.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -569,6 +589,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": "Mazie’s Party",
+      "commentary": null,
       "players": [
         "Mazie",
         "Gigi",
@@ -595,6 +616,7 @@
       "blogUrl": "https://www.thingelstad.com/2018/12/19/had-a-great.html",
       "tags": [],
       "notes": "SPS Team Event!",
+      "commentary": null,
       "players": [
         "Jamie"
       ],
@@ -620,6 +642,7 @@
       "blogUrl": "https://www.thingelstad.com/2019/01/06/family-friends-joined.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -655,6 +678,7 @@
         "Favorite Things"
       ],
       "notes": "Redo of Escape Room, jamie birthday",
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -683,6 +707,7 @@
       "blogUrl": "https://www.thingelstad.com/2019/01/21/tammys-sisters-and.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -715,6 +740,7 @@
       "blogUrl": "https://www.thingelstad.com/2019/02/16/we-played-quest.html",
       "tags": [],
       "notes": "Score 412.5",
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -742,6 +768,7 @@
       "blogUrl": "https://www.thingelstad.com/2019/04/26/we-had-a.html",
       "tags": [],
       "notes": "Beta testing new room!",
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -770,6 +797,7 @@
       "blogUrl": "https://www.thingelstad.com/2019/07/22/we-solved-the.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -798,6 +826,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [],
       "mortyId": 1690,
       "photo": "beasleys.jpg"
@@ -821,6 +850,7 @@
       "blogUrl": "https://www.thingelstad.com/2019/12/07/we-had-a.html",
       "tags": [],
       "notes": "Holiday room?",
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -849,6 +879,7 @@
       "blogUrl": "https://www.thingelstad.com/2020/01/05/we-had-a.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -877,6 +908,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": "Game played online using Discord during the pandemic. ",
+      "commentary": null,
       "players": []
     },
     {
@@ -898,6 +930,7 @@
       "blogUrl": "https://www.thingelstad.com/2021/02/14/we-did-the.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -928,6 +961,7 @@
         "Favorite Things"
       ],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -956,6 +990,7 @@
       "blogUrl": "https://www.thingelstad.com/2021/08/08/we-saved-the.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -984,6 +1019,7 @@
       "blogUrl": "https://www.thingelstad.com/2021/08/21/we-won-the.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1014,6 +1050,7 @@
       "blogUrl": "https://www.thingelstad.com/2021/10/22/we-completed-alices.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1042,6 +1079,7 @@
       "blogUrl": "https://www.thingelstad.com/2022/01/03/we-just-barely.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1070,6 +1108,7 @@
       "blogUrl": "https://www.thingelstad.com/2022/02/12/we-escaped-video.html",
       "tags": [],
       "notes": "Not setup for kids? Says 2019 was setup for kids.",
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1098,6 +1137,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1130,6 +1170,7 @@
         "Favorite Things"
       ],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1158,6 +1199,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": "Golden Birthday Trip",
+      "commentary": null,
       "players": [
         "Tammy",
         "Tyler"
@@ -1184,6 +1226,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": "Golden Birthday Trip",
+      "commentary": null,
       "players": [
         "Tammy",
         "Tyler"
@@ -1209,6 +1252,7 @@
       "blogUrl": "https://www.thingelstad.com/2022/08/06/we-escaped-from.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1237,6 +1281,7 @@
       "blogUrl": "https://www.thingelstad.com/2022/12/20/we-got-together.html",
       "tags": [],
       "notes": "With the Thiegs",
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1269,6 +1314,7 @@
       "blogUrl": "https://www.thingelstad.com/2023/01/06/we-escaped-the.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1298,6 +1344,7 @@
       "blogUrl": "https://www.thingelstad.com/2023/02/12/countdown-at-mission.html",
       "tags": [],
       "notes": "Thought it was first no clues. 2,240 points.",
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1326,6 +1373,7 @@
       "blogUrl": "https://www.thingelstad.com/2023/03/19/tyler-and-i.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tyler"
@@ -1352,6 +1400,7 @@
       "blogUrl": "https://www.thingelstad.com/2023/04/30/we-successfully-escaped.html",
       "tags": [],
       "notes": "Bono trip!",
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1380,6 +1429,7 @@
       "blogUrl": "https://www.thingelstad.com/2023/06/14/mazie-turns.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1412,6 +1462,7 @@
         "Favorite Things"
       ],
       "notes": "4th ranked room in world!",
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1442,6 +1493,7 @@
         "Best of Morty"
       ],
       "notes": "39th in the world",
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1470,6 +1522,7 @@
       "blogUrl": "https://www.thingelstad.com/2023/10/21/we-successfully-finished.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1497,6 +1550,7 @@
       "blogUrl": "https://www.thingelstad.com/2023/11/18/we-successfully-solved.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1527,6 +1581,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Tammy",
         "Mazie",
@@ -1554,6 +1609,7 @@
       "blogUrl": "https://www.thingelstad.com/2024/03/26/we-had-a.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1582,6 +1638,7 @@
       "blogUrl": "https://www.thingelstad.com/2024/04/27/we-attempted-to.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1609,6 +1666,7 @@
       "blogUrl": "https://www.thingelstad.com/2024/06/12/we-solved-the.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1637,6 +1695,7 @@
       "blogUrl": "https://www.thingelstad.com/2024/10/18/after-our-flight.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1664,6 +1723,7 @@
       "blogUrl": "https://www.thingelstad.com/2024/12/22/we-completed-the-cosmic-crisis.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1692,6 +1752,7 @@
       "blogUrl": "https://www.thingelstad.com/2025/01/18/we-had-a-great-time.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1721,6 +1782,7 @@
         "Favorite Things"
       ],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1750,6 +1812,7 @@
         "Favorite Things"
       ],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1778,6 +1841,7 @@
       "blogUrl": "https://www.thingelstad.com/2025/02/01/tammy-and-i-rescued-robin.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy"
@@ -1804,6 +1868,7 @@
       "blogUrl": "https://www.thingelstad.com/2025/02/15/instanbul-gambit-at-enigma-adventure.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1831,6 +1896,7 @@
       "blogUrl": "https://www.thingelstad.com/2025/03/15/the-hospital-at-puzzleworks.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1861,6 +1927,7 @@
         "Favorite Things"
       ],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1889,6 +1956,7 @@
       "blogUrl": "https://www.thingelstad.com/2025/04/26/we-had-a-great-time.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1917,6 +1985,7 @@
       "blogUrl": "https://www.thingelstad.com/2025/04/27/the-anomaly-at-puzzleworks.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1948,6 +2017,7 @@
         "Favorite Things"
       ],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -1978,6 +2048,7 @@
         "Favorite Things"
       ],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy"
@@ -2004,6 +2075,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Tammy",
         "Tyler"
@@ -2030,6 +2102,7 @@
       "blogUrl": null,
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Tammy",
         "Tyler"
@@ -2056,6 +2129,7 @@
       "blogUrl": "https://www.thingelstad.com/2025/07/18/gold-rush-at-escape-in.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2087,6 +2161,7 @@
         "TERPECA"
       ],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2121,6 +2196,7 @@
         "Golden Lock"
       ],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2153,6 +2229,7 @@
         "Best of Morty"
       ],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2186,6 +2263,7 @@
         "Golden Lock"
       ],
       "notes": "Tammy & Tyler favorite of 2025",
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2219,6 +2297,7 @@
         "Golden Lock"
       ],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2253,6 +2332,7 @@
         "Golden Lock"
       ],
       "notes": "Jamie & Mazie favorite of 2025",
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2283,6 +2363,7 @@
         "Favorite Things"
       ],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2311,6 +2392,7 @@
       "blogUrl": "https://www.thingelstad.com/2025/08/08/time-machine-at-puzzled-escape.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2339,6 +2421,7 @@
       "blogUrl": "https://www.thingelstad.com/2025/08/09/gemini-quantum-quest-breakout-nd.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2367,6 +2450,7 @@
       "blogUrl": "https://www.thingelstad.com/2025/12/22/legend-of-the-yeti-escape.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2397,6 +2481,7 @@
         "Favorite Things"
       ],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2425,6 +2510,7 @@
       "blogUrl": "https://www.thingelstad.com/2026/01/03/we-had-a-great-time.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2453,6 +2539,7 @@
       "blogUrl": "https://www.thingelstad.com/2026/01/10/we-had-a-great-time.html",
       "tags": [],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2481,6 +2568,7 @@
       "blogUrl": "https://www.thingelstad.com/2026/02/12/tyler-wanted-to-do-an.html",
       "tags": [],
       "notes": "Tyler's Birthday Escape Room!\n",
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2511,6 +2599,7 @@
         "Favorite Things"
       ],
       "notes": null,
+      "commentary": null,
       "players": [
         "Jamie",
         "Tammy",
@@ -2542,6 +2631,7 @@
         "Europe 2026"
       ],
       "notes": "Super tired and jet lagged from travel. Think that hit us toward the end of the room.",
+      "commentary": "Amazing and completely immersive experience!",
       "players": [
         "Jamie",
         "Tammy",
@@ -2571,6 +2661,7 @@
         "Europe 2026"
       ],
       "notes": null,
+      "commentary": null,
       "players": [],
       "mortyId": 52611
     },
@@ -2597,6 +2688,7 @@
         "Europe 2026"
       ],
       "notes": null,
+      "commentary": null,
       "players": [],
       "mortyId": 49265
     },
@@ -2623,6 +2715,7 @@
         "Europe 2026"
       ],
       "notes": null,
+      "commentary": null,
       "players": [],
       "mortyId": 37429
     },
@@ -2648,6 +2741,7 @@
         "Europe 2026"
       ],
       "notes": null,
+      "commentary": null,
       "players": [],
       "mortyId": 51061
     },
@@ -2673,6 +2767,7 @@
         "Europe 2026"
       ],
       "notes": null,
+      "commentary": null,
       "players": [],
       "mortyId": 25957
     },
@@ -2697,6 +2792,7 @@
         "Europe 2026"
       ],
       "notes": null,
+      "commentary": null,
       "players": [],
       "mortyId": 52056
     },
@@ -2723,6 +2819,7 @@
         "Europe 2026"
       ],
       "notes": null,
+      "commentary": null,
       "players": [],
       "mortyId": 54828
     },
@@ -2748,6 +2845,7 @@
         "Europe 2026"
       ],
       "notes": null,
+      "commentary": null,
       "players": [],
       "mortyId": 6656
     },
@@ -2773,6 +2871,7 @@
         "Europe 2026"
       ],
       "notes": null,
+      "commentary": null,
       "players": [],
       "mortyId": 48286
     },
@@ -2798,6 +2897,7 @@
         "Europe 2026"
       ],
       "notes": null,
+      "commentary": null,
       "players": [],
       "mortyId": 64482
     }
