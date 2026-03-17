@@ -67,6 +67,31 @@ def fetch_all_records(base_id, table_name, token):
     return records
 
 
+MAX_PHOTO_DIMENSION = 1600
+
+
+def resize_photo(path):
+    """Resize a photo so its longest side is at most MAX_PHOTO_DIMENSION pixels.
+
+    Requires Pillow. Skips if the image is already within bounds.
+    """
+    from PIL import Image
+
+    with Image.open(path) as img:
+        w, h = img.size
+        if max(w, h) <= MAX_PHOTO_DIMENSION:
+            return
+        if w >= h:
+            new_w = MAX_PHOTO_DIMENSION
+            new_h = int(h * MAX_PHOTO_DIMENSION / w)
+        else:
+            new_h = MAX_PHOTO_DIMENSION
+            new_w = int(w * MAX_PHOTO_DIMENSION / h)
+        resized = img.resize((new_w, new_h), Image.LANCZOS)
+        resized.save(path, quality=85)
+        print(f"  Resized {os.path.basename(path)}: {w}x{h} → {new_w}x{new_h}")
+
+
 def download_team_photo(attachment, airtable_id, images_dir):
     """Download a Team Photo attachment from Airtable.
 
@@ -91,6 +116,7 @@ def download_team_photo(attachment, airtable_id, images_dir):
             with open(dest, "wb") as f:
                 f.write(resp.read())
         print(f"  Downloaded team photo: {filename}")
+        resize_photo(dest)
         return filename
     except (urllib.error.URLError, OSError) as e:
         print(f"  Warning: Failed to download team photo for {airtable_id}: {e}", file=sys.stderr)
