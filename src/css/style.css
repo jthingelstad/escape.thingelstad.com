@@ -2160,6 +2160,14 @@ section {
   gap: 0.4rem;
 }
 
+.room-hero-commentary {
+  font-size: 1.05rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
 .room-hero-notes {
   font-size: 0.9rem;
   color: var(--text-muted);

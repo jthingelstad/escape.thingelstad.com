@@ -121,6 +121,10 @@ eleventyComputed:
         </div>
         {% endif %}
 
+        {% if room.commentary %}
+        <div class="room-hero-commentary">{{ room.commentary }}</div>
+        {% endif %}
+
         {% if room.notes %}
         <div class="room-hero-notes">{{ room.notes }}</div>
         {% endif %}

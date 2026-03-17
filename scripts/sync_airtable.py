@@ -233,6 +233,7 @@ def transform_room(room_fields, airtable_id, company_lookup, location_lookup, im
     entry["tags"] = tags if isinstance(tags, list) else []
 
     entry["notes"] = room_fields.get("Notes") or None
+    entry["commentary"] = room_fields.get("Commentary") or None
 
     # Players (multi-select or linked records)
     players = room_fields.get("Players")
@@ -316,6 +317,7 @@ def main():
         ordered["blogUrl"] = entry.pop("blogUrl")
         ordered["tags"] = entry.pop("tags")
         ordered["notes"] = entry.pop("notes")
+        ordered["commentary"] = entry.pop("commentary")
         ordered["players"] = entry.pop("players")
         # Remaining optional keys
         ordered.update(entry)

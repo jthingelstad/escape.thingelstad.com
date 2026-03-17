@@ -42,6 +42,9 @@ eleventyExcludeFromCollections: true
       {%- if room.tags and room.tags.length > 0 %}
       <p><strong>Tags:</strong> {% for tag in room.tags %}{{ tag | formatTagLabel }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
       {%- endif %}
+      {%- if room.commentary %}
+      <p>{{ room.commentary | e }}</p>
+      {%- endif %}
       {%- if room.notes %}
       <p><em>{{ room.notes | e }}</em></p>
       {%- endif %}
