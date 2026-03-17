@@ -1,4 +1,4 @@
-import { escapeHtml, formatDate, formatLocation, initNav, statusBadgeHtml, formatTimeLeft, roomUrl } from './data.js';
+import { escapeHtml, formatDate, formatLocation, initNav, statusBadgeHtml, formatTimeLeft, roomUrl, isFeaturedRoom } from './data.js';
 
 function shuffle(arr) {
   const a = [...arr];
@@ -69,7 +69,7 @@ function renderPhotos(rooms, table, animate) {
     const offsetY = isScattered ? randomBetween(-6, 6) : 0;
     const delay = animate ? i * 40 : 0;
 
-    const isBest = (room.tags || []).includes('best');
+    const isBest = isFeaturedRoom(room);
 
     const el = document.createElement('div');
     el.className = 'scrapbook-photo' + (isBest ? ' scrapbook-best' : '') + (isScattered ? '' : ' scrapbook-tidy');

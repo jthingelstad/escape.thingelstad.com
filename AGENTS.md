@@ -30,7 +30,7 @@ npm run build        # Production build to _site/
 /
 ├── eleventy.config.js        # 11ty config: passthrough, filters, HTML minification
 ├── package.json
-├── CLAUDE.md
+├── AGENTS.md
 ├── src/                      # 11ty input directory
 │   ├── index.njk             # Home page
 │   ├── list.njk              # Filterable room list (cards link to detail pages)

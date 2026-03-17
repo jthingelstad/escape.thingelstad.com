@@ -313,7 +313,7 @@ eleventyComputed:
       maxZoom: 19
     }).addTo(map);
 
-    const color = '{{ "#e8924f" if "best" in room.tags else ("#48d989" if room.status == "Escaped" else ("#f06060" if room.status == "Try again" else ("#5a8bff" if room.status == "Scheduled" else "#9a97a8"))) }}';
+    const color = '{{ "#e8924f" if "best" in room.tags or "Favorite Things" in room.tags else ("#48d989" if room.status == "Escaped" else ("#f06060" if room.status == "Try again" else ("#5a8bff" if room.status == "Scheduled" else "#9a97a8"))) }}';
     const svg = `<svg width="28" height="40" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg">
       <path d="M14 0C6.268 0 0 6.268 0 14c0 10.5 14 26 14 26s14-15.5 14-26C28 6.268 21.732 0 14 0z" fill="${color}"/>
       <circle cx="14" cy="14" r="6" fill="#0f0f1a"/>

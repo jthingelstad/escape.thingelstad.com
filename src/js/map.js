@@ -1,7 +1,7 @@
 import {
   escapeHtml, formatDate, formatLocation, renderTag,
   getFilterParams, setFilterParams, initNav, statusBadgeHtml,
-  formatTimeLeft, roomUrl
+  formatTimeLeft, roomUrl, isFeaturedRoom
 } from './data.js';
 
 const allRooms = JSON.parse(document.getElementById('map-rooms-data').textContent);
@@ -75,7 +75,7 @@ function initMap() {
 }
 
 function getMarkerColor(room) {
-  if ((room.tags || []).includes('best')) return '#e8924f';
+  if (isFeaturedRoom(room)) return '#e8924f';
   switch (room.status) {
     case 'Escaped': return '#48d989';
     case 'Try again': return '#f06060';
@@ -88,7 +88,7 @@ function getMarkerColor(room) {
 function createMarkerIcon(room) {
   const color = getMarkerColor(room);
   const isPlanned = room.status === 'Scheduled';
-  const isBest = (room.tags || []).includes('best');
+  const isBest = isFeaturedRoom(room);
 
   const svg = `
     <svg width="28" height="40" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg">

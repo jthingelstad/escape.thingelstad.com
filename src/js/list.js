@@ -105,6 +105,12 @@ function sortCards(cards, field, dir) {
     }
     if (valA < valB) return dir === 'asc' ? -1 : 1;
     if (valA > valB) return dir === 'asc' ? 1 : -1;
+    if (field === 'date') {
+      const idA = parseInt(a.dataset.id || '0', 10);
+      const idB = parseInt(b.dataset.id || '0', 10);
+      if (idA < idB) return dir === 'asc' ? -1 : 1;
+      if (idA > idB) return dir === 'asc' ? 1 : -1;
+    }
     return 0;
   });
 }

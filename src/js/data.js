@@ -23,21 +23,42 @@ export function formatLocation(location) {
   return parts.join(', ');
 }
 
+function isBestTag(tag) {
+  return tag === 'best' || tag === 'Favorite Things';
+}
+
+function isTerpecaTag(tag) {
+  return tag === 'TERPECA' || tag.startsWith('terpeca-');
+}
+
+function isTripTag(tag) {
+  return /^[A-Za-z][A-Za-z ]+\d{4}$/.test(tag) || /^[a-z]+-\d{4}$/.test(tag);
+}
+
+export function isFeaturedRoom(room) {
+  return (room.tags || []).some(isBestTag);
+}
+
 function classifyTag(tag) {
-  if (tag === 'best') return 'best';
-  if (tag.startsWith('terpeca-')) return 'terpeca';
+  if (isBestTag(tag)) return 'best';
+  if (isTerpecaTag(tag)) return 'terpeca';
   if (tag === 'online') return 'online';
-  if (/^[a-z]+-\d{4}$/.test(tag)) return 'trip';
+  if (isTripTag(tag)) return 'trip';
   return 'default';
 }
 
 function formatTagLabel(tag) {
   if (tag === 'best') return '\u2605 Best';
+  if (tag === 'Favorite Things') return '\u2605 Favorite Things';
+  if (tag === 'TERPECA') return 'TERPECA';
   if (tag.startsWith('terpeca-')) {
     const year = tag.replace('terpeca-', '');
     return 'TERPECA ' + year;
   }
   if (tag === 'online') return 'Online';
+  if (/^[A-Za-z][A-Za-z ]+\d{4}$/.test(tag)) {
+    return tag;
+  }
   if (/^[a-z]+-\d{4}$/.test(tag)) {
     const [location, year] = tag.split('-');
     return location.charAt(0).toUpperCase() + location.slice(1) + ' ' + year;

@@ -4,6 +4,9 @@ const path = require("path");
 const crypto = require("crypto");
 
 module.exports = function(eleventyConfig) {
+  const isBestTag = (tag) => tag === "best" || tag === "Favorite Things";
+  const isTerpecaTag = (tag) => tag === "TERPECA" || tag.startsWith("terpeca-");
+  const isTripTag = (tag) => /^[A-Za-z][A-Za-z ]+\d{4}$/.test(tag) || /^[a-z]+-\d{4}$/.test(tag);
 
   // Cache-busting: compute content hash for static assets
   const assetHashes = {};
@@ -78,10 +81,10 @@ module.exports = function(eleventyConfig) {
 
   // Classify tag for CSS class
   eleventyConfig.addFilter("classifyTag", (tag) => {
-    if (tag === 'best') return 'best';
-    if (tag.startsWith('terpeca-')) return 'terpeca';
+    if (isBestTag(tag)) return 'best';
+    if (isTerpecaTag(tag)) return 'terpeca';
     if (tag === 'online') return 'online';
-    if (/^[a-z]+-\d{4}$/.test(tag)) return 'trip';
+    if (isTripTag(tag)) return 'trip';
     return 'default';
   });
 
@@ -98,8 +101,11 @@ module.exports = function(eleventyConfig) {
   // Format tag for display label
   eleventyConfig.addFilter("formatTagLabel", (tag) => {
     if (tag === 'best') return '\u2605 Best';
+    if (tag === 'Favorite Things') return '\u2605 Favorite Things';
+    if (tag === 'TERPECA') return 'TERPECA';
     if (tag.startsWith('terpeca-')) return 'TERPECA ' + tag.split('-')[1];
     if (tag === 'online') return 'Online';
+    if (/^[A-Za-z][A-Za-z ]+\d{4}$/.test(tag)) return tag;
     if (/^[a-z]+-\d{4}$/.test(tag)) {
       const parts = tag.split('-');
       return parts[0].charAt(0).toUpperCase() + parts[0].slice(1) + ' ' + parts[1];
