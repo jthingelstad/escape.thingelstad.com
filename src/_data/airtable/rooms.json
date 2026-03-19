@@ -1,6 +1,6 @@
 {
   "table": "Rooms",
-  "syncedAt": "2026-03-19T21:02:05.426256+00:00",
+  "syncedAt": "2026-03-19T21:09:47.397426+00:00",
   "count": 101,
   "records": [
     {
@@ -4896,9 +4896,37 @@
         "Time Available": 4500,
         "Time Left": -8,
         "Morty URL": "https://morty.app/attraction/51061/",
+        "Team Photo": [
+          {
+            "id": "attApnu7oyJvy2yyV",
+            "width": 720,
+            "height": 1280,
+            "url": "https://v5.airtableusercontent.com/v3/u/51/51/1773964800000/EebJkEC8Q-vPm1SuNtIRyw/fksqVRNpMusWdxRT_qYaeFu381wsJrL5Sul_yz-XH1aoDZlvR-O0HiYEEg9rdMxQQbQF4n7ShuCBVC8QeSP1A8oO6WRZ2ssCM6hpq3wa2-TCN9hNiK8BvmJLfkxck9K5c1aHsuHEpUkJJFoUlbud2RID0p-ItfI6bcV2T9lvRYw/Zceuo9Gp1x3zedOOVevi-SP_VnuOUws21bckHK3dY_w",
+            "filename": "unnamed.png",
+            "size": 1667267,
+            "type": "image/png",
+            "thumbnails": {
+              "small": {
+                "url": "https://v5.airtableusercontent.com/v3/u/51/51/1773964800000/N5x4lPhxJXRmmsJ_UGYFMg/Hooe2KXigyKulzXSTvPLzkrM00VP3pkJQTxgT2slNgnNEzeURH7aYRAztrqPVXk9E12ecRN-Zj064lnRCNLK25w9QkkjUekNByhlUxwOOmOglHzt8MTEZunwy1zo26GTnK1RdBRuae2dbmZuSClHSA/4qqFffoqlpp9muq1CM1y4aYD12fecgQPaetheyPkk1U",
+                "width": 20,
+                "height": 36
+              },
+              "large": {
+                "url": "https://v5.airtableusercontent.com/v3/u/51/51/1773964800000/Hnhbwgv87H-OK2640etdbQ/gX0tcoVUSlkwDNRJKZ9gKoOXCq867MEnY8qYFkdrrZszkXkOFNNTipn9B5Zz47AQhQQvvP7Lh4xSXL9PZTyB2FvVgvlYv41its3839Oy02Mn1vxzoZg023SQNU5HhM5qtjt9opJe4R4jOWJXL7iF0w/nobWwOFfcsKSOuDKu_X9tWZWDRLamwtVeBOUktKQPog",
+                "width": 512,
+                "height": 910
+              },
+              "full": {
+                "url": "https://v5.airtableusercontent.com/v3/u/51/51/1773964800000/C5duSqcb17sYWN7xi59IUw/sDNMKJfi5ZroyCdzEbpWOZNORyy32b7n5dXCE_A0Pg31Tuw6MKcbi6JOFJ2MxjkktAFoTl8qUHfk8LxPiNZn_95Vz-P7vzkYnAqrGaHgLsDp2m-HhLJb37Yr81O37y23zHi5pIogpfRPYRhrxIObUQ/AiRxq9btPJodXr__Meow4js6HQH1PEC9zB2ru7q1Kyw",
+                "width": 720,
+                "height": 1280
+              }
+            }
+          }
+        ],
         "Order": 2,
         "Created at": "2026-02-27T01:29:48.000Z",
-        "Modified at": "2026-03-19T20:04:54.000Z",
+        "Modified at": "2026-03-19T21:09:07.000Z",
         "Trips": [
           "recJqpVCHFrsjb8iR"
         ],
