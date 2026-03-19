@@ -3153,11 +3153,45 @@
         "Tammy",
         "Tyler"
       ],
-      "ratings": [],
+      "ratings": [
+        {
+          "who": "Tammy",
+          "rating": 5.0,
+          "gameplay": "Loved",
+          "atmosphere": "Loved",
+          "experience": "Loved",
+          "bestThings": true,
+          "comments": "It’s a little hard to rate this room because we were both jet lagged and sleep deprived, but no matter how you feel going in there is no debating that this is a top room experience.  There is a cohesive story with an almost endless number of rooms, straight forward puzzle work (that we maybe found more challenging due to our mental state), immersive set and impressive finale.  \n\nThis room was similar to Magnico in Laval, Canada, but instead of immersive, live theater with escape room elements, it was a straight up escape room.  My enjoyment of playing the room didn’t match the excellence of the room.  While the whole time I was very impressed and thought the scene and set were amazing, I wasn’t as engaged as would be expected.  I chalk it up to my tired and jet lagged self, but there is no way to know for sure.  No matter, I am very happy to have experienced the room.\n\nIf you live in or around Amsterdam or are in the area, I would 100% recommend checking out this room.  From start to finish it is a remarkable accomplishment.  \n",
+          "createdAt": "2026-03-17T11:06:09.000Z",
+          "modifiedAt": "2026-03-19T06:29:51.000Z"
+        },
+        {
+          "who": "Tyler",
+          "rating": 5.0,
+          "gameplay": "Liked",
+          "atmosphere": "Loved",
+          "experience": "Loved",
+          "bestThings": true,
+          "comments": "I think this escape room can take my number one spot. It is fully an escape room but it has so many different rooms and stories. No room was the same as the other but they all worked together seamlessly. They did keep the spooky and secretive vibe that the escape room had but at no point was it ever truly terrifying. My only issue with the room was some of the puzzles were too easy and felt like something to just get to the next puzzle and they did have a tasting puzzle which feels too subjective and took awhile. Another positive and negative was that most rooms where quite short which made you have to go into some many different rooms but it always kept your surrounding new and allowed for there to be more content. Overall I think it all works super well together and the mechanics are amazing with how rooms move and flip. There is never a dull moment.\n",
+          "createdAt": "2026-03-17T13:34:05.000Z",
+          "modifiedAt": "2026-03-19T06:30:06.000Z"
+        },
+        {
+          "who": "Jamie",
+          "rating": 5.0,
+          "gameplay": "Loved",
+          "atmosphere": "Loved",
+          "experience": "Loved",
+          "bestThings": true,
+          "comments": "Impressive room and extremely immersive, including a couple of times where we were genuinely confused how they configured the rooms to do what it did. Consistently dark room with cool effects. Creepy for sure but not too scary. We were tired from travel and it took more hints than would have liked but it was super cool to finish the room and very nice of the game master to let us run long. \n",
+          "createdAt": "2026-03-18T08:01:02.000Z",
+          "modifiedAt": "2026-03-19T06:30:35.000Z"
+        }
+      ],
       "ratingSummary": {
-        "count": 0,
-        "average": null,
-        "bestThingsCount": 0
+        "count": 3,
+        "average": 5.0,
+        "bestThingsCount": 3
       },
       "mortyId": 11847,
       "photo": "team_receASqfgMtmqSEHZ.jpg"
@@ -3189,11 +3223,34 @@
         "Tammy",
         "Tyler"
       ],
-      "ratings": [],
+      "ratings": [
+        {
+          "who": "Tammy",
+          "rating": 5.0,
+          "gameplay": "Loved",
+          "atmosphere": "Loved",
+          "experience": "Loved",
+          "bestThings": true,
+          "comments": "The perfect escape room.  60 minute experience, great puzzles, immersive set, a fun “perfect” surprise and just an all around excellent room.  It uses the parameters of a traditional escape room and knocks each element out of the park.  \n",
+          "createdAt": "2026-03-18T08:01:02.000Z",
+          "modifiedAt": "2026-03-19T06:30:21.000Z"
+        },
+        {
+          "who": "Jamie",
+          "rating": 5.0,
+          "gameplay": "Loved",
+          "atmosphere": "Loved",
+          "experience": "Loved",
+          "bestThings": true,
+          "comments": "This room was simply amazing. There were multiple rooms and it felt like we got off to a slow start. The first room was harder than expected. We got rolling after that. This room featured one of the coolest “wow” moments of any room we’ve done. The final room was full of fun and very unique puzzles.\n\nThis room brought incredible theatrics and immersive experience and didn’t forego any of the puzzle aspects \n",
+          "createdAt": "2026-03-18T08:05:19.000Z",
+          "modifiedAt": "2026-03-19T06:30:42.000Z"
+        }
+      ],
       "ratingSummary": {
-        "count": 0,
-        "average": null,
-        "bestThingsCount": 0
+        "count": 2,
+        "average": 5.0,
+        "bestThingsCount": 2
       },
       "mortyId": 52611,
       "photo": "team_rec33iDver9l2s39y.jpg"
@@ -3222,10 +3279,22 @@
         "Tammy",
         "Tyler"
       ],
-      "ratings": [],
+      "ratings": [
+        {
+          "who": "Jamie",
+          "rating": 5.0,
+          "gameplay": "Loved",
+          "atmosphere": "Loved",
+          "experience": "Loved",
+          "bestThings": false,
+          "comments": "Train themes work really well in escape rooms and this one was top notch. Difficult puzzles and multiple rooms with very immersive puzzles. The time keeping and clue system was also very well designed.\n",
+          "createdAt": "2026-03-18T08:09:51.000Z",
+          "modifiedAt": "2026-03-19T06:30:49.000Z"
+        }
+      ],
       "ratingSummary": {
-        "count": 0,
-        "average": null,
+        "count": 1,
+        "average": 5.0,
         "bestThingsCount": 0
       },
       "photo": "team_recFsAH2073sxvJvL.jpg"

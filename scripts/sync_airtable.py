@@ -166,7 +166,7 @@ def normalize_numeric_rating(value):
         return None
 
 
-def build_ratings_lookup(records):
+def build_ratings_lookup(records, players_lookup):
     """Build a dict mapping room Airtable IDs to normalized rating records."""
     ratings_by_room = {}
     warnings = []
@@ -181,9 +181,17 @@ def build_ratings_lookup(records):
             warnings.append(f"Rating {record['id']} skipped: expected exactly one linked room")
             continue
 
-        who = fields.get("Who")
+        player_links = fields.get("Player") or []
+        if not isinstance(player_links, list):
+            player_links = [player_links]
+
+        if len(player_links) != 1:
+            warnings.append(f"Rating {record['id']} skipped: expected exactly one linked player")
+            continue
+
+        who = players_lookup.get(player_links[0])
         if not who:
-            warnings.append(f"Rating {record['id']} skipped: missing Who")
+            warnings.append(f"Rating {record['id']} skipped: linked player {player_links[0]} not found")
             continue
 
         room_id = room_links[0]
@@ -449,7 +457,7 @@ def main():
     location_lookup = build_lookup(locations)
     awards_lookup = build_name_lookup(awards)
     players_lookup = build_name_lookup(players)
-    ratings_lookup, ratings_warnings = build_ratings_lookup(ratings)
+    ratings_lookup, ratings_warnings = build_ratings_lookup(ratings, players_lookup)
 
     # Transform all rooms
     images_dir = os.path.join(os.path.dirname(__file__), "..", "src", "images", "rooms")
