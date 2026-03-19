@@ -1,0 +1,137 @@
+{
+  "table": "List Items",
+  "syncedAt": "2026-03-19T20:21:42.173994+00:00",
+  "count": 6,
+  "records": [
+    {
+      "id": "rec1kuYcssxMnegcp",
+      "createdTime": "2026-03-19T19:55:59.000Z",
+      "fields": {
+        "Notes": "Very meta and a completely amazing experience. \n",
+        "List": [
+          "recfSbUCFg9HAUgV3"
+        ],
+        "Room": [
+          "reca6bIeAIt6OxCx3"
+        ],
+        "Order": 4,
+        "Created by": {
+          "id": "usrPRXBiw0ssEPAYI",
+          "email": "punk.desk3188@thingelstad.com",
+          "name": "Jamie Thingelstad"
+        },
+        "Created at": "2026-03-19T19:55:59.000Z",
+        "List Item ID": 4,
+        "Field Key": "Jamie's Escape in Europe Favorites (4)"
+      }
+    },
+    {
+      "id": "rec99uSngd7Hcbh6y",
+      "createdTime": "2026-03-19T20:04:42.000Z",
+      "fields": {
+        "List": [
+          "recfSbUCFg9HAUgV3"
+        ],
+        "Room": [
+          "recrQ7mSj8HrOoZJS"
+        ],
+        "Order": 6,
+        "Created by": {
+          "id": "usrPRXBiw0ssEPAYI",
+          "email": "punk.desk3188@thingelstad.com",
+          "name": "Jamie Thingelstad"
+        },
+        "Created at": "2026-03-19T20:04:42.000Z",
+        "List Item ID": 6,
+        "Field Key": "Jamie's Escape in Europe Favorites (6)"
+      }
+    },
+    {
+      "id": "recKRQ1P4SKVDhm8S",
+      "createdTime": "2026-03-19T15:26:17.000Z",
+      "fields": {
+        "Notes": "Simply amazing room.\n",
+        "List": [
+          "recfSbUCFg9HAUgV3"
+        ],
+        "Room": [
+          "rec4zecfSJ1FznQMB"
+        ],
+        "Order": 1,
+        "Created by": {
+          "id": "usrPRXBiw0ssEPAYI",
+          "email": "punk.desk3188@thingelstad.com",
+          "name": "Jamie Thingelstad"
+        },
+        "Created at": "2026-03-19T15:26:17.000Z",
+        "List Item ID": 1,
+        "Field Key": "Jamie's Escape in Europe Favorites (1)"
+      }
+    },
+    {
+      "id": "recLwjeGy2O1jYQX0",
+      "createdTime": "2026-03-19T19:55:42.000Z",
+      "fields": {
+        "Notes": "Creepy but amazing.\n",
+        "List": [
+          "recfSbUCFg9HAUgV3"
+        ],
+        "Room": [
+          "receASqfgMtmqSEHZ"
+        ],
+        "Order": 3,
+        "Created by": {
+          "id": "usrPRXBiw0ssEPAYI",
+          "email": "punk.desk3188@thingelstad.com",
+          "name": "Jamie Thingelstad"
+        },
+        "Created at": "2026-03-19T19:55:42.000Z",
+        "List Item ID": 3,
+        "Field Key": "Jamie's Escape in Europe Favorites (3)"
+      }
+    },
+    {
+      "id": "recXhkuiShKAeIpm9",
+      "createdTime": "2026-03-19T20:04:24.000Z",
+      "fields": {
+        "List": [
+          "recfSbUCFg9HAUgV3"
+        ],
+        "Room": [
+          "recFsAH2073sxvJvL"
+        ],
+        "Order": 5,
+        "Created by": {
+          "id": "usrPRXBiw0ssEPAYI",
+          "email": "punk.desk3188@thingelstad.com",
+          "name": "Jamie Thingelstad"
+        },
+        "Created at": "2026-03-19T20:04:24.000Z",
+        "List Item ID": 5,
+        "Field Key": "Jamie's Escape in Europe Favorites (5)"
+      }
+    },
+    {
+      "id": "recih0hukezoGiwVw",
+      "createdTime": "2026-03-19T19:55:15.000Z",
+      "fields": {
+        "Notes": "Some incredible sections.\n",
+        "List": [
+          "recfSbUCFg9HAUgV3"
+        ],
+        "Room": [
+          "rec33iDver9l2s39y"
+        ],
+        "Order": 2,
+        "Created by": {
+          "id": "usrPRXBiw0ssEPAYI",
+          "email": "punk.desk3188@thingelstad.com",
+          "name": "Jamie Thingelstad"
+        },
+        "Created at": "2026-03-19T19:55:15.000Z",
+        "List Item ID": 2,
+        "Field Key": "Jamie's Escape in Europe Favorites (2)"
+      }
+    }
+  ]
+}

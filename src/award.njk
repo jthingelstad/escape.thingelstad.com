@@ -1,0 +1,56 @@
+---
+pagination:
+  data: awardPages
+  size: 1
+  alias: award
+  addAllPagesToCollections: true
+permalink: /award/{{ award.slug }}/
+---
+{% extends "base.njk" %}
+
+{% block pageTitle %}{{ award.name }} — Featured Award{% endblock %}
+{% block metaDescription %}Featured award page for {{ award.name }} with the rooms attached to it.{% endblock %}
+
+{% block content %}
+  <main class="container page-content featured-detail-page">
+    <section class="featured-detail-hero">
+      <div class="feature-tile-kicker">Featured Award</div>
+      <h1>{{ award.name }}</h1>
+      {% if award.notes %}
+      <p class="featured-detail-copy">{{ award.notes }}</p>
+      {% endif %}
+      <div class="featured-detail-stats">
+        <div class="stat-item"><span class="stat-number">{{ award.roomCount }}</span><div class="stat-label">Rooms</div></div>
+        <div class="stat-item"><span class="stat-number">{{ award.countries.length }}</span><div class="stat-label">Countries</div></div>
+      </div>
+      <div class="section-link-row">
+        <a href="/list/?award={{ award.slug | queryValue }}" class="room-link" data-tinylytics-event="award.view-filter" data-tinylytics-event-value="{{ award.name }}">Open Filtered List &rarr;</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2>Rooms</h2>
+      </div>
+      {% if award.rooms.length > 0 %}
+      <div class="room-grid">
+        {% from "room-card.njk" import roomCard %}
+        {% for room in award.rooms | reverse %}
+          {{ roomCard(room, { showRatingSummary: true }) }}
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="empty-state-card">
+        <p>No public rooms are attached to this featured award yet.</p>
+      </div>
+      {% endif %}
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script type="module">
+    import { initNav } from '{{ '/js/data.js' | cacheBust }}';
+    initNav();
+  </script>
+{% endblock %}

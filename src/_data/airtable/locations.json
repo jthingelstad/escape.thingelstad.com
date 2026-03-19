@@ -1,0 +1,1586 @@
+{
+  "table": "Locations",
+  "syncedAt": "2026-03-19T20:21:42.171366+00:00",
+  "count": 70,
+  "records": [
+    {
+      "id": "rec0ugHLMNt3uzAiN",
+      "createdTime": "2026-02-27T01:32:14.000Z",
+      "fields": {
+        "Location": "Lock Academy (Paris)",
+        "City": "Paris",
+        "Country": "France",
+        "Location URL": "https://lockacademy.com",
+        "Company": [
+          "recGEx6X0fQNa2pwX"
+        ],
+        "Rooms": [
+          "rec0tsuiSuEyxaXMX"
+        ],
+        "Room Count": 1,
+        "Coordinates": "48.868273, 2.353125",
+        "Audit": true,
+        "Created at": "2026-02-27T01:32:14.000Z",
+        "Modified at": "2026-02-27T01:34:02.000Z",
+        "Location ID": 38
+      }
+    },
+    {
+      "id": "rec1dCg9ctL0yaIm3",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Trapped Puzzle Rooms (Minneapolis)",
+        "City": "Minneapolis",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://www.trappedpuzzlerooms.com/",
+        "Company": [
+          "recQoXVuN7zSM9Sbk"
+        ],
+        "Rooms": [
+          "rech7wyLHVLWdjYWU",
+          "recQA2tgPPSuRoUHm",
+          "recpH0Ffa50kg6PyJ"
+        ],
+        "Room Count": 3,
+        "Coordinates": "44.953224, -93.287803",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T20:59:46.000Z",
+        "Location ID": 63
+      }
+    },
+    {
+      "id": "rec3teww1R2GhguRJ",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "D.O.A. Escape Rooms (Wisconsin Dells)",
+        "City": "Wisconsin Dells",
+        "Region": "Wisconsin",
+        "Country": "United States",
+        "Location URL": "https://www.doaroomescape.com/the-rooms/",
+        "Company": [
+          "reccP0b9bEXrnMOLU"
+        ],
+        "Rooms": [
+          "recCmnzgi38Nv4xys"
+        ],
+        "Room Count": 1,
+        "Coordinates": "43.6275, -89.771",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 9
+      }
+    },
+    {
+      "id": "rec4kprzefRewTegO",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "No Esc Puzzle Collective (Shakopee)",
+        "City": "Shakopee",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://no-esc.com/",
+        "Company": [
+          "recq47lCAAjZmUcRk"
+        ],
+        "Rooms": [
+          "recturIiYlqyzCt4y"
+        ],
+        "Room Count": 1,
+        "Coordinates": "44.784431, -93.554246",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T21:05:00.000Z",
+        "Location ID": 46
+      }
+    },
+    {
+      "id": "rec5KZ7jR3JoUhION",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Escape Code (Branson)",
+        "City": "Branson",
+        "Region": "Missouri",
+        "Country": "United States",
+        "Location URL": "https://www.escapecode.tv/",
+        "Company": [
+          "recj1rMcmNoIDMcqg"
+        ],
+        "Rooms": [
+          "recLWPaDtnmiVlUaZ",
+          "rec8Lti1xXMIqdpm3"
+        ],
+        "Room Count": 2,
+        "Coordinates": "36.6437, -93.2185",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 19
+      }
+    },
+    {
+      "id": "rec5S3wmOUtzRWtyc",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Trapped Puzzle Rooms (St. Paul)",
+        "City": "St. Paul",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://www.trappedpuzzlerooms.com/",
+        "Company": [
+          "recQoXVuN7zSM9Sbk"
+        ],
+        "Rooms": [
+          "recZCQLiIYJrNwOjB",
+          "recrJUAmF8FRns741",
+          "recZU96048MwIP7nv",
+          "recpbtnWYPX2KDFzz",
+          "recZ5nE5Ikw5nEwaS",
+          "recFOFdIh363Jv4Df",
+          "recaAQdDD0iC8eYXB"
+        ],
+        "Room Count": 7,
+        "Coordinates": "44.924561, -93.167266",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T20:59:16.000Z",
+        "Location ID": 65
+      }
+    },
+    {
+      "id": "rec5ZJXo9ACsmhh7Q",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Copper Cat Escape (Brainerd)",
+        "City": "Brainerd",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://www.coppercatescape.com/",
+        "Company": [
+          "recWkb9pOBfivW18B"
+        ],
+        "Rooms": [
+          "recIHjZXCO51GVA5T",
+          "recEShUIu5S7hQnsy"
+        ],
+        "Room Count": 2,
+        "Coordinates": "46.355982, -94.200255",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T02:07:28.000Z",
+        "Location ID": 7
+      }
+    },
+    {
+      "id": "rec6CH4peK601eA9I",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Mad Machines (Milan)",
+        "City": "Milan",
+        "Country": "Italy",
+        "Location URL": "https://madmachines.it/",
+        "Company": [
+          "rec2DKPze0HHtzcaV"
+        ],
+        "Rooms": [
+          "rechGJ5U1gn1Ajxrt",
+          "recgisAgQMDN41H2P"
+        ],
+        "Room Count": 2,
+        "Coordinates": "45.443494, 9.155411",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T02:04:45.000Z",
+        "Location ID": 40
+      }
+    },
+    {
+      "id": "rec6KyeYgwy3ZMOEr",
+      "createdTime": "2026-02-27T01:45:05.000Z",
+      "fields": {
+        "Location": "Golden Pop (Barcelona)",
+        "City": "Barcelona",
+        "Country": "Spain",
+        "Company": [
+          "recFSmkIes4pr9ili"
+        ],
+        "Rooms": [
+          "reciuo9m2OZxXl4JT"
+        ],
+        "Room Count": 1,
+        "Coordinates": "41.390835, 2.175974",
+        "Audit": true,
+        "Created at": "2026-02-27T01:45:05.000Z",
+        "Modified at": "2026-02-27T01:45:35.000Z",
+        "Location ID": 32
+      }
+    },
+    {
+      "id": "rec6TCyv7Tno1mFyy",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Escape City (Calgary)",
+        "City": "Calgary",
+        "Region": "Alberta",
+        "Country": "Canada",
+        "Location URL": "https://escapecity.ca/",
+        "Company": [
+          "rec0Mh2XfDYRXjiYV"
+        ],
+        "Rooms": [
+          "recZIiN1UtlynA6W3"
+        ],
+        "Room Count": 1,
+        "Coordinates": "51.012594, -114.065152",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:42.000Z",
+        "Location ID": 18
+      }
+    },
+    {
+      "id": "rec6cKz2v3iwntKlh",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Missing Pieces Escape Games (Edina)",
+        "City": "Edina",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://www.missingpiecesmn.com/",
+        "Company": [
+          "recTTHTaIaLPfbq5m"
+        ],
+        "Rooms": [
+          "rec3gQgHTUWkT9AMu",
+          "reckDpDvipCNPk5Fb",
+          "recc91InhowyqKUUH",
+          "recc7XibqrT06Up8k",
+          "recdlR1lFm1ggyKZ3"
+        ],
+        "Room Count": 5,
+        "Coordinates": "44.862888, -93.356817",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T02:04:02.000Z",
+        "Location ID": 43
+      }
+    },
+    {
+      "id": "rec7NNJtNg9TcGiDu",
+      "createdTime": "2026-02-27T01:24:00.000Z",
+      "fields": {
+        "Location": "Escape World (Utrecht)",
+        "City": "Utrecht",
+        "Country": "Netherlands",
+        "Location URL": "https://escapeworld.nl/escape-room-utrecht/",
+        "Company": [
+          "recNvBcwlFGNAHudh"
+        ],
+        "Rooms": [
+          "rec33iDver9l2s39y",
+          "recFsAH2073sxvJvL"
+        ],
+        "Room Count": 2,
+        "Coordinates": "52.096060, 5.114035",
+        "Audit": true,
+        "Created at": "2026-02-27T01:24:00.000Z",
+        "Modified at": "2026-03-17T18:39:18.000Z",
+        "Location ID": 28
+      }
+    },
+    {
+      "id": "rec7R2PCX3BydPejf",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Escape Room Alexandria (Alexandria)",
+        "City": "Alexandria",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://www.escapealexandria.com",
+        "Company": [
+          "rec4rpkUCGZ3ZFh3Z"
+        ],
+        "Rooms": [
+          "recedfIiVxCHDi7BF"
+        ],
+        "Room Count": 1,
+        "Coordinates": "45.883783, -95.376734",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 24
+      }
+    },
+    {
+      "id": "rec8G7IPsJvx5JjVK",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Breakout Games (Minneapolis)",
+        "City": "Minneapolis",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://breakoutgames.com/minneapolis/rooms/#roomCasino",
+        "Company": [
+          "recwFLBpa2OaXGpnN"
+        ],
+        "Rooms": [
+          "recaaEELzDiEg95sS"
+        ],
+        "Room Count": 1,
+        "Coordinates": "44.9778, -93.265",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 3
+      }
+    },
+    {
+      "id": "rec8VnKmeWl1dsuxt",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Trapped Puzzle Rooms (Online)",
+        "City": "Online",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://www.trappedpuzzlerooms.com/",
+        "Company": [
+          "recQoXVuN7zSM9Sbk"
+        ],
+        "Rooms": [
+          "recBHwx3kobncX31m"
+        ],
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-28T15:50:23.000Z",
+        "Location ID": 64
+      }
+    },
+    {
+      "id": "rec8fX9wbwBhUN6GF",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Exit Escape Room NYC (New York)",
+        "City": "New York",
+        "Region": "New York",
+        "Country": "United States",
+        "Location URL": "https://www.exitescaperoomnyc.com/sugar_rush.html",
+        "Company": [
+          "recLinCxZoQk8dQDt"
+        ],
+        "Rooms": [
+          "rec2pwAZqeKV9EqKl"
+        ],
+        "Room Count": 1,
+        "Coordinates": "40.7128, -74.006",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 30
+      }
+    },
+    {
+      "id": "recAQrb2SFJbGcptj",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Grand Haven Room Escape (Grand Haven)",
+        "City": "Grand Haven",
+        "Region": "Michigan",
+        "Country": "United States",
+        "Company": [
+          "recMV3vVaVgpBvkOb"
+        ],
+        "Rooms": [
+          "reccays4vMSxg671z"
+        ],
+        "Room Count": 1,
+        "Coordinates": "43.067342, -86.216261",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T02:05:33.000Z",
+        "Location ID": 33
+      }
+    },
+    {
+      "id": "recAVjW9IFy5yObKO",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Escape Frenzy (Edina)",
+        "City": "Edina",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Company": [
+          "recneYVd8zX6DmX5O"
+        ],
+        "Rooms": [
+          "recbjX9nFMA7a69q8"
+        ],
+        "Room Count": 1,
+        "Coordinates": "44.8897, -93.3499",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 20
+      }
+    },
+    {
+      "id": "recAXjkRXZIBtJcVQ",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Reykjavik Escape (Reykjavik)",
+        "City": "Reykjavik",
+        "Country": "Iceland",
+        "Location URL": "https://www.reykjavikescape.is/en/",
+        "Company": [
+          "reciGGLNkgA8AKfRV"
+        ],
+        "Rooms": [
+          "recCMID7nL5hVlSaj"
+        ],
+        "Room Count": 1,
+        "Coordinates": "64.144953, -21.911806",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T21:03:19.000Z",
+        "Location ID": 51
+      }
+    },
+    {
+      "id": "recBm8Blbym4HsFAG",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Escape Artists KC (Kansas City)",
+        "City": "Kansas City",
+        "Region": "Missouri",
+        "Country": "United States",
+        "Company": [
+          "recVEukaY7BrnoJET"
+        ],
+        "Rooms": [
+          "recMqhVYX7BU87Uda"
+        ],
+        "Room Count": 1,
+        "Coordinates": "39.0997, -94.5786",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 17
+      }
+    },
+    {
+      "id": "recBtF8umqrSdPAXW",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "The Escape Game (Chicago)",
+        "City": "Chicago",
+        "Region": "Illinois",
+        "Country": "United States",
+        "Location URL": "https://theescapegamechicago.com/escape-rooms/mission-mars/",
+        "Company": [
+          "recaqH6D2pXSa7YFz"
+        ],
+        "Rooms": [
+          "recCNb95D8eKwn8rg",
+          "rec11KrDEOtShXQmd"
+        ],
+        "Room Count": 2,
+        "Coordinates": "41.893400, -87.626383",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T02:02:41.000Z",
+        "Location ID": 57
+      }
+    },
+    {
+      "id": "recDMY1tA75EPfCL9",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "The Escape Game (New York)",
+        "City": "New York",
+        "Region": "New York",
+        "Country": "United States",
+        "Location URL": "https://theescapegame.com/newyorkcity/escape-rooms/playground/",
+        "Company": [
+          "recaqH6D2pXSa7YFz"
+        ],
+        "Rooms": [
+          "recBIzUfedQWRULTu"
+        ],
+        "Room Count": 1,
+        "Coordinates": "40.761097, -73.984514",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T01:55:37.000Z",
+        "Location ID": 59
+      }
+    },
+    {
+      "id": "recGDPIH1ZH1HIKS6",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Solve Escape Rooms (Waukesha)",
+        "City": "Waukesha",
+        "Region": "Wisconsin",
+        "Country": "United States",
+        "Location URL": "https://solveescaperooms.com/",
+        "Company": [
+          "recRMJmiTzWmpPtdc"
+        ],
+        "Rooms": [
+          "recSPihVvvRvcVO2F",
+          "reciVEIDHFIo9tnfa"
+        ],
+        "Room Count": 2,
+        "Coordinates": "43.018744, -88.200357",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T21:02:43.000Z",
+        "Location ID": 53
+      }
+    },
+    {
+      "id": "recH6sJNi7seHQUav",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Escape in Time (Madison)",
+        "City": "Madison",
+        "Region": "Wisconsin",
+        "Country": "United States",
+        "Location URL": "https://www.escapeintimemadison.com/rooms",
+        "Company": [
+          "recKUcIw022SpTG8A"
+        ],
+        "Rooms": [
+          "recwo5NQ3gWcWPaFM"
+        ],
+        "Room Count": 1,
+        "Coordinates": "43.057218, -89.494541",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 21
+      }
+    },
+    {
+      "id": "recJ1RA8HY9IncnFz",
+      "createdTime": "2026-02-27T01:43:04.000Z",
+      "fields": {
+        "Location": "Enigmik (Barcelona)",
+        "City": "Barcelona",
+        "Country": "Spain",
+        "Location URL": "https://www.enigmik.com/en/",
+        "Company": [
+          "recx8AB8VuUHTc6Od"
+        ],
+        "Rooms": [
+          "recWpSyu5BjABRk9T"
+        ],
+        "Room Count": 1,
+        "Coordinates": "41.409802, 2.179651",
+        "Audit": true,
+        "Created at": "2026-02-27T01:43:04.000Z",
+        "Modified at": "2026-02-27T01:43:39.000Z",
+        "Location ID": 15
+      }
+    },
+    {
+      "id": "recJNnv8lbI3hmcgZ",
+      "createdTime": "2026-02-27T01:26:20.000Z",
+      "fields": {
+        "Location": "Escape Rush (Brussels)",
+        "City": "Brussels",
+        "Country": "Belgium",
+        "Location URL": "https://escaperush.com",
+        "Company": [
+          "rec7IjP4tcwWDmmPz"
+        ],
+        "Rooms": [
+          "reca6bIeAIt6OxCx3"
+        ],
+        "Room Count": 1,
+        "Coordinates": "50.819619, 4.388889",
+        "Audit": true,
+        "Created at": "2026-02-27T01:26:20.000Z",
+        "Modified at": "2026-02-27T01:27:40.000Z",
+        "Location ID": 26
+      }
+    },
+    {
+      "id": "recJnmkukSVz0tQxu",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Zero Hour Escape Rooms (St. Paul)",
+        "City": "St. Paul",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Company": [
+          "rec5dOTiEHvayv7hW"
+        ],
+        "Rooms": [
+          "rec6wiScpcV9B0SQ5"
+        ],
+        "Room Count": 1,
+        "Coordinates": "44.9537, -93.09",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 70
+      }
+    },
+    {
+      "id": "recK9rs2oGsPQ33Qz",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Maine Escape Games (Portland)",
+        "City": "Portland",
+        "Region": "Maine",
+        "Country": "United States",
+        "Location URL": "https://web.archive.org/web/20160320072900/http://maineescapegames.com/",
+        "Company": [
+          "recNehjQ0oubPAUKM"
+        ],
+        "Rooms": [
+          "recbvP2IVDLhhaEdc"
+        ],
+        "Room Count": 1,
+        "Coordinates": "43.629435, -70.328747",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T02:04:27.000Z",
+        "Location ID": 41
+      }
+    },
+    {
+      "id": "recKpYtmxxN3RcwlW",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Zero Hour Escape Rooms (Duluth)",
+        "City": "Duluth",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Company": [
+          "rec5dOTiEHvayv7hW"
+        ],
+        "Rooms": [
+          "recnC0R8y2alGjaPi"
+        ],
+        "Room Count": 1,
+        "Coordinates": "46.7867, -92.1005",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 68
+      }
+    },
+    {
+      "id": "recLe886CQELS95cV",
+      "createdTime": "2026-02-27T01:49:02.000Z",
+      "fields": {
+        "Location": "Londium (Barcelona)",
+        "City": "Barcelona",
+        "Country": "Spain",
+        "Location URL": "https://londiumescaperoom.com/escape-room/",
+        "Company": [
+          "reco0DNzUNl4oQULn"
+        ],
+        "Rooms": [
+          "recqOzcN7BNq8EomV"
+        ],
+        "Room Count": 1,
+        "Coordinates": "41.495278, 2.180616",
+        "Audit": true,
+        "Created at": "2026-02-27T01:49:02.000Z",
+        "Modified at": "2026-02-27T01:49:35.000Z",
+        "Location ID": 39
+      }
+    },
+    {
+      "id": "recM90KRdnXVdQGOC",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "The Escape Game (Nashville)",
+        "City": "Nashville",
+        "Region": "Tennessee",
+        "Country": "United States",
+        "Location URL": "https://theescapegame.com/nashville/escape-rooms/ruins/",
+        "Company": [
+          "recaqH6D2pXSa7YFz"
+        ],
+        "Rooms": [
+          "recVmPGqIoglZADoy",
+          "rec05Cz2JvdnNLxo2"
+        ],
+        "Room Count": 2,
+        "Coordinates": "36.163498, -86.777078",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T02:01:34.000Z",
+        "Location ID": 58
+      }
+    },
+    {
+      "id": "recN2RQ7ANokrn7Lt",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Breakout ND (Bismarck)",
+        "City": "Bismarck",
+        "Region": "North Dakota",
+        "Country": "United States",
+        "Location URL": "https://www.breakoutnd.com/",
+        "Company": [
+          "recIz5bD29XloAotG"
+        ],
+        "Rooms": [
+          "recSdmAOhUyf2p9m0"
+        ],
+        "Room Count": 1,
+        "Coordinates": "46.832906, -100.774248",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 4
+      }
+    },
+    {
+      "id": "recNBD44sUFEg2xDC",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Timescape (Belfast)",
+        "City": "Belfast",
+        "Region": "Northern Ireland",
+        "Country": "United Kingdom",
+        "Location URL": "https://timescapegames.com/room/titanic/",
+        "Company": [
+          "recJgmSJsha6Ltbfi"
+        ],
+        "Rooms": [
+          "recXB82zxkZdNGvDY"
+        ],
+        "Room Count": 1,
+        "Coordinates": "54.602626, -5.930794",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T20:59:57.000Z",
+        "Location ID": 62
+      }
+    },
+    {
+      "id": "recNIhjhHCjMvDlx1",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "60 to Escape (Gurnee)",
+        "City": "Gurnee",
+        "Region": "Illinois",
+        "Country": "United States",
+        "Location URL": "https://www.62escape.com/",
+        "Company": [
+          "recUIlM3M9uSWyMF1"
+        ],
+        "Rooms": [
+          "recahr4JTFP68NvG6"
+        ],
+        "Room Count": 1,
+        "Coordinates": "42.391372, -87.958342",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 1
+      }
+    },
+    {
+      "id": "recOPpAJYfs6ibRgH",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Mission Manor (Minneapolis)",
+        "City": "Minneapolis",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://www.missionmanor.com/",
+        "Company": [
+          "recsg8B2IT5rbWfM8"
+        ],
+        "Rooms": [
+          "recVf1fiC85jzkKCA"
+        ],
+        "Room Count": 1,
+        "Coordinates": "44.991939, -93.243836",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T02:03:45.000Z",
+        "Location ID": 44
+      }
+    },
+    {
+      "id": "recQBZLX6oR2mpMTc",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Nemesis Club (Phoenix)",
+        "City": "Phoenix",
+        "Region": "Arizona",
+        "Country": "United States",
+        "Location URL": "https://thenemesisclub.com/",
+        "Company": [
+          "recmaaqIIiuzIzyIg"
+        ],
+        "Rooms": [
+          "recsgfeSuqNloH6yx"
+        ],
+        "Room Count": 1,
+        "Coordinates": "33.676212, -111.965571",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T21:05:13.000Z",
+        "Location ID": 45
+      }
+    },
+    {
+      "id": "recSnM39h6a1QtoJ6",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Cabinet Mysteriis (Quebec City)",
+        "City": "Quebec City",
+        "Region": "Quebec",
+        "Country": "Canada",
+        "Location URL": "https://cabinetmysteriis.ca/en/",
+        "Company": [
+          "rectjvmnQQO08oMh8"
+        ],
+        "Rooms": [
+          "recHbYHiHv3kMBLfk",
+          "recGHzPOir2KjtOjc",
+          "recB2J7EL3m61TNLX"
+        ],
+        "Room Count": 3,
+        "Coordinates": "46.792333, -71.258633",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T02:08:22.000Z",
+        "Location ID": 5
+      }
+    },
+    {
+      "id": "recW2WBOgyA41a9jK",
+      "createdTime": "2026-02-27T01:39:47.000Z",
+      "fields": {
+        "Location": "Deep Inside (Paris)",
+        "City": "Paris",
+        "Country": "France",
+        "Location URL": "https://deepinsideparis.fr/en/",
+        "Company": [
+          "rec1JkJ08ZZ8aoZQ3"
+        ],
+        "Rooms": [
+          "recjFTVzz57eYe9IE"
+        ],
+        "Room Count": 1,
+        "Coordinates": "48.884487, 2.369941",
+        "Audit": true,
+        "Created at": "2026-02-27T01:39:47.000Z",
+        "Modified at": "2026-02-27T01:40:17.000Z",
+        "Location ID": 10
+      }
+    },
+    {
+      "id": "recW8IfIVIy25aJwl",
+      "createdTime": "2026-02-24T01:40:03.000Z",
+      "fields": {
+        "Location": "Untold Stories Experiences (Voorburg)",
+        "City": "Voorburg",
+        "Country": "Netherlands",
+        "Company": [
+          "recYn2yRt1djriOOV"
+        ],
+        "Rooms": [
+          "receASqfgMtmqSEHZ"
+        ],
+        "Room Count": 1,
+        "Coordinates": "52.084860, 4.362005",
+        "Audit": true,
+        "Created at": "2026-02-24T01:40:03.000Z",
+        "Modified at": "2026-02-27T01:52:38.000Z",
+        "Location ID": 67
+      }
+    },
+    {
+      "id": "recXbWYecr2rc7FVI",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Red Herring Escape Room (St. Louis)",
+        "City": "St. Louis",
+        "Region": "Missouri",
+        "Country": "United States",
+        "Company": [
+          "recuKSXTETjChDPg4"
+        ],
+        "Rooms": [
+          "recMyGzjBP3QeNiOx"
+        ],
+        "Room Count": 1,
+        "Coordinates": "38.627, -90.1994",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 50
+      }
+    },
+    {
+      "id": "recYAYT6uKu8OQHfw",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Escape Room Palm Springs (Palm Springs)",
+        "City": "Palm Springs",
+        "Region": "California",
+        "Country": "United States",
+        "Location URL": "https://escapeps.com/",
+        "Company": [
+          "recX9eiTnNd4ANHdR"
+        ],
+        "Rooms": [
+          "recPpP1IJnINvcKqw"
+        ],
+        "Room Count": 1,
+        "Coordinates": "33.8303, -116.5453",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 25
+      }
+    },
+    {
+      "id": "recYSVPrnvS9Lv7jo",
+      "createdTime": "2026-02-24T01:38:08.000Z",
+      "fields": {
+        "Location": "Sherlocked (Amsterdam)",
+        "City": "Amsterdam",
+        "Country": "Netherlands",
+        "Company": [
+          "reckMAf60Vvnf8jqi"
+        ],
+        "Rooms": [
+          "rec4zecfSJ1FznQMB"
+        ],
+        "Room Count": 1,
+        "Coordinates": "52.374599, 4.895488",
+        "Audit": true,
+        "Created at": "2026-02-24T01:38:08.000Z",
+        "Modified at": "2026-02-24T21:02:47.000Z",
+        "Location ID": 52
+      }
+    },
+    {
+      "id": "recaGpV8pgyK5Csg9",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Puzzleworks (Minneapolis)",
+        "City": "Minneapolis",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://www.puzzle.works/",
+        "Company": [
+          "reccLCoyLG850h4c1"
+        ],
+        "Rooms": [
+          "rectzVjblsWMr1PaH",
+          "recIifKoB4QBKlyCe"
+        ],
+        "Room Count": 2,
+        "Coordinates": "44.9778, -93.265",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 48
+      }
+    },
+    {
+      "id": "recaeHuToCcnr9rt2",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Itasca Historical Society (Grand Rapids)",
+        "City": "Grand Rapids",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://www.grescaperooms.com/",
+        "Company": [
+          "recsPfg2oa5k4amjr"
+        ],
+        "Rooms": [
+          "rec4AVbw39ODbAAaO",
+          "recJTZD3ecUiUdbwh",
+          "recr8b2m3JEe8wpnS"
+        ],
+        "Room Count": 3,
+        "Coordinates": "47.234047, -93.528742",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T02:05:07.000Z",
+        "Location ID": 35
+      }
+    },
+    {
+      "id": "reccAU6q2IKxF41f5",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Tick Tock Escape Rooms (Kansas City)",
+        "City": "Kansas City",
+        "Region": "Missouri",
+        "Country": "United States",
+        "Company": [
+          "recEWcNqf0FZgEagC"
+        ],
+        "Rooms": [
+          "recM2tOvoeH29vOJD"
+        ],
+        "Room Count": 1,
+        "Coordinates": "38.927925, -94.660115",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T21:01:06.000Z",
+        "Location ID": 61
+      }
+    },
+    {
+      "id": "recebLkRdmi6LJAD9",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "The Escape Game (Bloomington)",
+        "City": "Bloomington",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://theescapegame.com/minneapolis/",
+        "Company": [
+          "recaqH6D2pXSa7YFz"
+        ],
+        "Rooms": [
+          "recK5aGPCnSOC9OsP"
+        ],
+        "Room Count": 1,
+        "Coordinates": "44.855492, -93.240154",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T02:03:19.000Z",
+        "Location ID": 56
+      }
+    },
+    {
+      "id": "recfNqgESCa81ccUx",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Enigma Escape Rooms (Buffalo)",
+        "City": "Buffalo",
+        "Region": "New York",
+        "Country": "United States",
+        "Location URL": "https://enigmabuffalo.com/",
+        "Company": [
+          "rectvHHXzpxt67ULO"
+        ],
+        "Rooms": [
+          "rec8iYdn3TMfqa4kd"
+        ],
+        "Room Count": 1,
+        "Coordinates": "42.8864, -78.8784",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 14
+      }
+    },
+    {
+      "id": "recfQ571MDa01pD40",
+      "createdTime": "2026-02-27T02:00:11.000Z",
+      "fields": {
+        "Location": "The Escape Game (Berry Hill)",
+        "City": "Berry Hill",
+        "Region": "Tennessee",
+        "Country": "United States",
+        "Company": [
+          "recaqH6D2pXSa7YFz"
+        ],
+        "Rooms": [
+          "rec53yK3nczTclkFC"
+        ],
+        "Room Count": 1,
+        "Coordinates": "36.116701, -86.763313",
+        "Audit": true,
+        "Created at": "2026-02-27T02:00:11.000Z",
+        "Modified at": "2026-02-27T02:00:42.000Z",
+        "Location ID": 55
+      }
+    },
+    {
+      "id": "rechxuvE3gWvHLDFn",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Zero Hour Escape Rooms (Minneapolis)",
+        "City": "Minneapolis",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://minneapolis.zerohourescaperooms.com/",
+        "Company": [
+          "rec5dOTiEHvayv7hW"
+        ],
+        "Rooms": [
+          "recSDgzleVsHboeal"
+        ],
+        "Room Count": 1,
+        "Coordinates": "44.9778, -93.265",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 69
+      }
+    },
+    {
+      "id": "recisZaA0PB51Zy3A",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Enigma Adventures (Bloomington)",
+        "City": "Bloomington",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://enigmaadventures.com/",
+        "Company": [
+          "recKdiJobxFPpYN2Q"
+        ],
+        "Rooms": [
+          "recZQqwxwTJ6LucwE"
+        ],
+        "Room Count": 1,
+        "Coordinates": "44.850893, -93.236632",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 12
+      }
+    },
+    {
+      "id": "reck3WMbFFQZfVJMv",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Clue Pursuit (Springfield)",
+        "City": "Springfield",
+        "Region": "Missouri",
+        "Country": "United States",
+        "Company": [
+          "rec6hHJygkxGRsb1o"
+        ],
+        "Rooms": [
+          "receB5xQLCkwwVbjp"
+        ],
+        "Room Count": 1,
+        "Coordinates": "37.184793, -93.295487",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T02:07:54.000Z",
+        "Location ID": 6
+      }
+    },
+    {
+      "id": "reclm2krHkNPweij2",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Puzzled Escape Rooms (Fargo)",
+        "City": "Fargo",
+        "Region": "North Dakota",
+        "Country": "United States",
+        "Location URL": "https://puzzledescaperooms.com/",
+        "Company": [
+          "recGAM2Ek819Dbbw2"
+        ],
+        "Rooms": [
+          "recjtoHyl9WZIk37S"
+        ],
+        "Room Count": 1,
+        "Coordinates": "46.830745, -96.800999",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T21:04:42.000Z",
+        "Location ID": 47
+      }
+    },
+    {
+      "id": "reclnnh7XZeschPro",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Fox in a Box (Chicago)",
+        "City": "Chicago",
+        "Region": "Illinois",
+        "Country": "United States",
+        "Location URL": "https://www.foxinaboxchicago.com",
+        "Company": [
+          "recZK3jmOf4cMngfa"
+        ],
+        "Rooms": [
+          "recQKGd7Lsx2KTR9C"
+        ],
+        "Room Count": 1,
+        "Coordinates": "41.872068, -87.629255",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T02:05:51.000Z",
+        "Location ID": 31
+      }
+    },
+    {
+      "id": "recmoILM3NTdpzq2h",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Enigma Adventures (Maple Grove)",
+        "City": "Maple Grove",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://enigmaadventures.com/",
+        "Company": [
+          "recKdiJobxFPpYN2Q"
+        ],
+        "Rooms": [
+          "recNxduRu2bMUg67b"
+        ],
+        "Room Count": 1,
+        "Coordinates": "45.10157, -93.45427",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 13
+      }
+    },
+    {
+      "id": "recntJKYJaunybnCP",
+      "createdTime": "2026-02-27T01:29:58.000Z",
+      "fields": {
+        "Location": "The Escape Cafe (Hilversum)",
+        "City": "Hilversum",
+        "Country": "Netherlands",
+        "Location URL": "https://escapecafehilversum.nl",
+        "Company": [
+          "recSgEcHQeFAHeLbs"
+        ],
+        "Rooms": [
+          "recrQ7mSj8HrOoZJS"
+        ],
+        "Room Count": 1,
+        "Coordinates": "52.224663, 5.178150",
+        "Audit": true,
+        "Created at": "2026-02-27T01:29:58.000Z",
+        "Modified at": "2026-02-27T01:31:13.000Z",
+        "Location ID": 54
+      }
+    },
+    {
+      "id": "recpIbzvK8SIfnX1k",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Twisted Room Escapes (Indianapolis)",
+        "City": "Indianapolis",
+        "Region": "Indiana",
+        "Country": "United States",
+        "Location URL": "https://www.twistedroomescapes.com/index.php/escape-rooms/alice",
+        "Company": [
+          "recYTqXqNajstet2y"
+        ],
+        "Rooms": [
+          "recacVI8oAeyrT0pf"
+        ],
+        "Room Count": 1,
+        "Coordinates": "39.692815, -86.110239",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T01:53:48.000Z",
+        "Location ID": 66
+      }
+    },
+    {
+      "id": "recqLBPReU9PULqvp",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Escaparium (Laval)",
+        "City": "Laval",
+        "Region": "Quebec",
+        "Country": "Canada",
+        "Location URL": "https://www.escaparium.ca/montreal-jeu-evasion/",
+        "Company": [
+          "recqYdwqT1ZYKaWtu"
+        ],
+        "Rooms": [
+          "recedfY1wMhA690Su",
+          "recRtLvjdXuPiqjbT",
+          "recHh5GHLbeLSs808"
+        ],
+        "Room Count": 3,
+        "Coordinates": "45.585974, -73.768325",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T02:06:58.000Z",
+        "Location ID": 16
+      }
+    },
+    {
+      "id": "recqZ6Jw90HF09W8m",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Escapology (Burnsville)",
+        "City": "Burnsville",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://www.escapology.com/",
+        "Company": [
+          "recemExFMPMXsd3NA"
+        ],
+        "Rooms": [
+          "recAvdJlOWTzlUk0X"
+        ],
+        "Room Count": 1,
+        "Coordinates": "44.7677, -93.2777",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 29
+      }
+    },
+    {
+      "id": "recrReMJcDqvsZngy",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Escape MSP (Minneapolis)",
+        "City": "Minneapolis",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Company": [
+          "recVuIL5fQPeXNF88"
+        ],
+        "Rooms": [
+          "recWL7yk55j3P78y0"
+        ],
+        "Room Count": 1,
+        "Coordinates": "44.9778, -93.265",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 23
+      }
+    },
+    {
+      "id": "recs5LSrArbY3NqPe",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Greatest Caper (Montpelier)",
+        "City": "Montpelier",
+        "Region": "Maine",
+        "Country": "United States",
+        "Location URL": "https://thegreatestcaper.com/",
+        "Company": [
+          "reckF9ZRJgFOBAZJy"
+        ],
+        "Rooms": [
+          "rec6nQYyyh3IBDkna"
+        ],
+        "Room Count": 1,
+        "Coordinates": "44.2601, -69.817",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 34
+      }
+    },
+    {
+      "id": "recsYpExMUo04h60I",
+      "createdTime": "2026-02-24T00:44:46.000Z",
+      "fields": {
+        "Location": "The Lodge of Lazarus Crowe (St. Paul)",
+        "City": "St. Paul",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://lazaruslodge.com/",
+        "Company": [
+          "recPF0vBbfbe3UM6I"
+        ],
+        "Rooms": [
+          "recjd6IKGMey6IF9M",
+          "recDTs3Sn4ZWOUGvh"
+        ],
+        "Room Count": 2,
+        "Coordinates": "44.935735, -93.114455",
+        "Audit": true,
+        "Created at": "2026-02-24T00:44:46.000Z",
+        "Modified at": "2026-02-24T21:01:07.000Z",
+        "Location ID": 60
+      }
+    },
+    {
+      "id": "recsgGAUhghwzQNz0",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Escape the Room (Minneapolis)",
+        "City": "Minneapolis",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Company": [
+          "reciHFm406pRztYpO"
+        ],
+        "Rooms": [
+          "rec6nkJuIG1mHtCQz"
+        ],
+        "Room Count": 1,
+        "Coordinates": "44.9778, -93.265",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 27
+      }
+    },
+    {
+      "id": "recsr35Ty2VXFdTcu",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Cryptex Branson Escape Rooms (Branson)",
+        "City": "Branson",
+        "Region": "Missouri",
+        "Country": "United States",
+        "Company": [
+          "rec9nC1z3hpq76DlT"
+        ],
+        "Rooms": [
+          "rectPKJYjIk3haDDU"
+        ],
+        "Room Count": 1,
+        "Coordinates": "36.642900, -93.250695",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-27T02:07:25.000Z",
+        "Location ID": 8
+      }
+    },
+    {
+      "id": "recuUJJtiLHwkFB95",
+      "createdTime": "2026-02-27T01:37:04.000Z",
+      "fields": {
+        "Location": "Majestic Escape Game (Paris)",
+        "City": "Paris",
+        "Country": "France",
+        "Company": [
+          "recS1Fth1J36JXhIB"
+        ],
+        "Rooms": [
+          "recrCIDLym8KGALiH"
+        ],
+        "Room Count": 1,
+        "Coordinates": "48.863811, 2.347590",
+        "Audit": true,
+        "Created at": "2026-02-27T01:37:04.000Z",
+        "Modified at": "2026-02-27T01:38:39.000Z",
+        "Location ID": 42
+      }
+    },
+    {
+      "id": "recwavLHj8JcOgT7t",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Puzzleworks (St. Paul)",
+        "City": "St. Paul",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://www.puzzleworksmn.com/",
+        "Company": [
+          "reccLCoyLG850h4c1"
+        ],
+        "Rooms": [
+          "recxDMebB9vmosXqJ",
+          "recjtJa3QW4FXRfBb",
+          "recoybbz8OHungxqh",
+          "rec2mV2VTPueu9Yau"
+        ],
+        "Room Count": 4,
+        "Coordinates": "44.964850, -93.183348",
+        "Audit": true,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T21:04:05.000Z",
+        "Location ID": 49
+      }
+    },
+    {
+      "id": "recxgdIw1xYr1rOHl",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Lock & Key Escape Rooms (Minneapolis)",
+        "City": "Minneapolis",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Location URL": "https://lockandkeyescape.com/",
+        "Company": [
+          "recT5VEasHiBEs7PJ"
+        ],
+        "Rooms": [
+          "recAabEHKgVnh3SLF",
+          "recQaIdtfk8nhtWrL"
+        ],
+        "Room Count": 2,
+        "Coordinates": "44.881233, -93.324289",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 37
+      }
+    },
+    {
+      "id": "recxk2LfQWcB53ENY",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Escape MSP (Lakeville)",
+        "City": "Lakeville",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Company": [
+          "recVuIL5fQPeXNF88"
+        ],
+        "Rooms": [
+          "recsB9j2WPez5QFs1"
+        ],
+        "Room Count": 1,
+        "Coordinates": "44.6497, -93.2427",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 22
+      }
+    },
+    {
+      "id": "recxuAEOfQDvuLrES",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Kato Escape (Mankato)",
+        "City": "Mankato",
+        "Region": "Minnesota",
+        "Country": "United States",
+        "Company": [
+          "recZYQC18wkg0laZP"
+        ],
+        "Rooms": [
+          "recVC9OC2Qkoksrk2"
+        ],
+        "Room Count": 1,
+        "Coordinates": "44.1636, -93.9994",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 36
+      }
+    },
+    {
+      "id": "recy6Ai1mGgLVG3gt",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "Doldrick’s Escape Room (Orlando)",
+        "City": "Orlando",
+        "Region": "Florida",
+        "Country": "United States",
+        "Location URL": "https://www.doldricksescaperoom.com/",
+        "Company": [
+          "reckj3S2mur8Q2cbT"
+        ],
+        "Rooms": [
+          "recyjtLq35KklMMgc"
+        ],
+        "Room Count": 1,
+        "Coordinates": "28.335013, -81.478393",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 11
+      }
+    },
+    {
+      "id": "recyElQwqupvOmTOt",
+      "createdTime": "2026-02-23T19:23:51.000Z",
+      "fields": {
+        "Location": "60 to Escape (Milwaukee)",
+        "City": "Milwaukee",
+        "Region": "Wisconsin",
+        "Country": "United States",
+        "Location URL": "https://www.62escape.com/wisconsin",
+        "Company": [
+          "recUIlM3M9uSWyMF1"
+        ],
+        "Rooms": [
+          "recomWxyMIJhHrs1G"
+        ],
+        "Room Count": 1,
+        "Coordinates": "42.949241, -88.004283",
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-02-24T01:41:33.000Z",
+        "Location ID": 2
+      }
+    }
+  ]
+}

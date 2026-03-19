@@ -1,4 +1,4 @@
-import { escapeHtml, formatDate, formatLocation, initNav, statusBadgeHtml, formatTimeLeft, roomUrl, isFeaturedRoom } from './data.js';
+import { escapeHtml, formatDate, formatLocation, initNav, statusBadgeHtml, formatTimeLeft, roomUrl } from './data.js';
 
 function shuffle(arr) {
   const a = [...arr];
@@ -16,6 +16,9 @@ function randomBetween(min, max) {
 function buildDetailHtml(room) {
   const gameName = escapeHtml(room.game);
   const statusBadge = statusBadgeHtml(room.status);
+  const listsHtml = room.lists?.length
+    ? `<div class="scrapbook-detail-lists">${room.lists.map((list) => `<span class="scrapbook-detail-list">${escapeHtml(list.name)}</span>`).join('')}</div>`
+    : '';
 
   const timeLeftHtml = room.timeLeft != null
     ? `<div class="scrapbook-detail-time">\u23f1 ${escapeHtml(formatTimeLeft(room.timeLeft))}</div>`
@@ -25,17 +28,23 @@ function buildDetailHtml(room) {
     ? `<a href="${escapeHtml(room.blogUrl)}" class="scrapbook-detail-link" target="_blank" rel="noopener" data-tinylytics-event="scrapbook.blog-post" data-tinylytics-event-value="${gameName}">Read post \u2192</a>`
     : '';
 
+  const officialLink = room.officialUrl
+    ? `<a href="${escapeHtml(room.officialUrl)}" class="scrapbook-detail-link" target="_blank" rel="noopener" data-tinylytics-event="scrapbook.official-site" data-tinylytics-event-value="${gameName}">Official site \u2192</a>`
+    : '';
+
   const detailLink = room.id
     ? `<a href="${roomUrl(room)}" class="scrapbook-detail-link" data-tinylytics-event="scrapbook.view-room" data-tinylytics-event-value="${gameName}">View details &rarr;</a>`
     : '';
 
   return `
     <div class="scrapbook-detail-name">${gameName}</div>
-    <div class="scrapbook-detail-company">${escapeHtml(room.company)}</div>
+    <div class="scrapbook-detail-company">${escapeHtml(room.company?.name || '')}</div>
     <div class="scrapbook-detail-date">${formatDate(room.date)}</div>
     <div class="scrapbook-detail-location">${escapeHtml(formatLocation(room.location))}</div>
     <div class="scrapbook-detail-status">${statusBadge}${timeLeftHtml}</div>
+    ${listsHtml}
     ${detailLink}
+    ${officialLink}
     ${blogLink}
   `;
 }
@@ -69,10 +78,10 @@ function renderPhotos(rooms, table, animate) {
     const offsetY = isScattered ? randomBetween(-6, 6) : 0;
     const delay = animate ? i * 40 : 0;
 
-    const isBest = isFeaturedRoom(room);
-
     const el = document.createElement('div');
-    el.className = 'scrapbook-photo' + (isBest ? ' scrapbook-best' : '') + (isScattered ? '' : ' scrapbook-tidy');
+    el.className = 'scrapbook-photo'
+      + (isScattered ? '' : ' scrapbook-tidy')
+      + (room.lists?.length ? ' scrapbook-listed' : '');
     el.style.setProperty('--rotation', rotation + 'deg');
     el.style.setProperty('--size', size + 'px');
     el.style.setProperty('--offset-x', offsetX + 'px');
@@ -81,7 +90,7 @@ function renderPhotos(rooms, table, animate) {
 
     const img = document.createElement('img');
     img.src = `/images/rooms/${room.photo}`;
-    img.alt = `${room.game} at ${room.company}`;
+    img.alt = `${room.game} at ${room.company?.name || 'Unknown Company'}`;
     img.loading = 'lazy';
 
     const caption = document.createElement('div');

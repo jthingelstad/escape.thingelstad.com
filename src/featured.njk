@@ -1,0 +1,67 @@
+---
+title: Featured
+description: Featured players, awards, and trips from our escape room journey.
+permalink: /featured/
+---
+{% extends "base.njk" %}
+
+{% block content %}
+  <main class="container page-content">
+    <section class="section-header">
+      <h2>Featured</h2>
+      <p>The standout people, trips, and awards that get their own front door on the site.</p>
+    </section>
+
+    <section class="featured-section">
+      <div class="section-header">
+        <h2>Trips</h2>
+      </div>
+      <div class="featured-entity-grid">
+        {% for trip in catalog.featured.trips %}
+          <a href="{{ trip | entityUrl('trip') }}" class="feature-tile feature-tile-trip" data-tinylytics-event="featured.trip" data-tinylytics-event-value="{{ trip.name }}">
+            <div class="feature-tile-kicker">Trip</div>
+            <h3>{{ trip.name }}</h3>
+            <p>{{ trip.roomCount }} room{{ '' if trip.roomCount == 1 else 's' }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="featured-section">
+      <div class="section-header">
+        <h2>Awards</h2>
+      </div>
+      <div class="featured-entity-grid">
+        {% for award in catalog.featured.awards %}
+          <a href="{{ award | entityUrl('award') }}" class="feature-tile feature-tile-award" data-tinylytics-event="featured.award" data-tinylytics-event-value="{{ award.name }}">
+            <div class="feature-tile-kicker">Award</div>
+            <h3>{{ award.name }}</h3>
+            <p>{{ award.roomCount }} room{{ '' if award.roomCount == 1 else 's' }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="featured-section">
+      <div class="section-header">
+        <h2>Players</h2>
+      </div>
+      <div class="featured-entity-grid">
+        {% for player in catalog.featured.players %}
+          <a href="{{ player | entityUrl('player') }}" class="feature-tile feature-tile-player" data-tinylytics-event="featured.player" data-tinylytics-event-value="{{ player.name }}">
+            <div class="feature-tile-kicker">Player</div>
+            <h3>{{ player.name }}</h3>
+            <p>{{ player.roomCount }} room{{ '' if player.roomCount == 1 else 's' }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script type="module">
+    import { initNav } from '{{ '/js/data.js' | cacheBust }}';
+    initNav();
+  </script>
+{% endblock %}

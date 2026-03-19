@@ -361,22 +361,28 @@ section {
   display: block;
 }
 
-.room-card-link:hover .room-card {
-  border-color: var(--border-color-hover);
-  box-shadow:
-    0 0 20px rgba(67, 230, 208, 0.06),
-    0 8px 32px rgba(0, 0, 0, 0.3);
-  transform: translateY(-2px);
-}
-
 .room-card {
   background: linear-gradient(160deg, var(--bg-card) 0%, rgba(15, 21, 37, 0.6) 100%);
   border: 1px solid var(--border-color);
   border-radius: 10px;
-  padding: 1.25rem 1.5rem;
+  padding: 0;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: hidden;
+}
+
+.room-card.listed {
+  border-color: rgba(232, 146, 79, 0.24);
+  box-shadow: inset 0 1px 0 rgba(232, 146, 79, 0.08);
+}
+
+.room-card.listed::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--accent-gold), rgba(232, 146, 79, 0.16));
+  pointer-events: none;
 }
 
 /* Subtle inner light edge */
@@ -404,32 +410,20 @@ section {
   background: linear-gradient(160deg, var(--bg-card-hover) 0%, rgba(15, 21, 37, 0.7) 100%);
 }
 
-.room-card:hover::before {
-  background: linear-gradient(160deg, rgba(67, 230, 208, 0.1), transparent 40%);
-}
-
-.room-card.featured {
-  border-color: rgba(232, 146, 79, 0.3);
+.room-card.listed:hover {
+  border-color: rgba(232, 146, 79, 0.34);
   box-shadow:
-    0 4px 30px rgba(0, 0, 0, 0.3),
-    0 0 50px rgba(232, 146, 79, 0.08),
+    0 8px 40px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(232, 146, 79, 0.08),
     inset 0 1px 0 rgba(232, 146, 79, 0.12);
 }
 
-.room-card.featured::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 10%, var(--accent-gold) 50%, transparent 90%);
-  animation: featured-glow 3s ease-in-out infinite;
+.room-card-link {
+  padding: 1.25rem 1.5rem 0;
 }
 
-@keyframes featured-glow {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
+.room-card:hover::before {
+  background: linear-gradient(160deg, rgba(67, 230, 208, 0.1), transparent 40%);
 }
 
 
@@ -544,19 +538,12 @@ section {
 }
 
 .room-rating-pill-score {
-  color: var(--accent-orange);
+  color: var(--accent-gold);
 }
 
 .room-rating-pill-best {
   background: rgba(232, 146, 79, 0.18);
-  color: var(--accent-orange);
-}
-
-.room-card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 0.5rem;
+  color: var(--accent-gold);
 }
 
 .room-card-footer {
@@ -565,6 +552,7 @@ section {
   justify-content: space-between;
   gap: 1rem;
   margin-top: 0.75rem;
+  padding: 0 1.5rem 1.25rem;
 }
 
 .room-card-notes {
@@ -1124,7 +1112,7 @@ section {
   margin-bottom: 0.4rem;
 }
 
-.leaflet-popup-content .popup-tags {
+.leaflet-popup-content .popup-entities {
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem;
@@ -1169,6 +1157,38 @@ section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+}
+
+.stats-page {
+  display: grid;
+  gap: 2rem;
+}
+
+.stats-insight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stats-insight-card {
+  padding: 1.2rem;
+  background:
+    radial-gradient(circle at top right, rgba(232, 146, 79, 0.06), transparent 42%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)),
+    var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+}
+
+.stats-insight-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+}
+
+.stats-insight-card p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
 }
 
 .chart-card {
@@ -1671,6 +1691,13 @@ section {
   animation-delay: var(--delay, 0ms);
 }
 
+.scrapbook-photo.scrapbook-listed {
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 0 0 3px rgba(232, 146, 79, 0.18);
+}
+
 .scrapbook-photo img {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -1699,13 +1726,6 @@ section {
   --size: 260px;
 }
 
-.scrapbook-photo.scrapbook-best {
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.4),
-    0 1px 3px rgba(0, 0, 0, 0.3),
-    0 0 15px rgba(230, 184, 79, 0.3);
-}
-
 .scrapbook-photo:hover,
 .scrapbook-photo.active {
   transform: rotate(0deg) scale(1.3) translate(0, 0);
@@ -1713,14 +1733,6 @@ section {
   box-shadow:
     0 12px 40px rgba(0, 0, 0, 0.6),
     0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.scrapbook-photo.scrapbook-best:hover,
-.scrapbook-photo.scrapbook-best.active {
-  box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.6),
-    0 4px 12px rgba(0, 0, 0, 0.4),
-    0 0 25px rgba(230, 184, 79, 0.4);
 }
 
 /* Detail overlay */
@@ -1774,6 +1786,26 @@ section {
   align-items: center;
   gap: 0.5rem;
   margin-top: 0.35rem;
+}
+
+.scrapbook-detail-lists {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.45rem;
+}
+
+.scrapbook-detail-list {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(232, 146, 79, 0.12);
+  border: 1px solid rgba(232, 146, 79, 0.24);
+  color: var(--accent-gold);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
 }
 
 .scrapbook-detail-time {
@@ -2183,15 +2215,9 @@ section {
   color: var(--text-secondary);
 }
 
-.room-hero-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
 .room-hero-commentary {
   font-size: 1.05rem;
-  color: var(--text-color);
+  color: var(--text-primary);
   line-height: 1.6;
   padding: 0.5rem 0;
   border-top: 1px solid var(--border-color);
@@ -2316,7 +2342,7 @@ section {
 .room-rating-summary-value {
   font-family: 'Bungee', cursive;
   font-size: 1.2rem;
-  color: var(--accent-orange);
+  color: var(--accent-gold);
   margin-bottom: 0.25rem;
 }
 
@@ -2364,7 +2390,7 @@ section {
   flex-shrink: 0;
   font-family: 'Bungee', cursive;
   font-size: 1rem;
-  color: var(--accent-orange);
+  color: var(--accent-gold);
 }
 
 .room-rating-chip-row {
@@ -2389,12 +2415,12 @@ section {
 .room-rating-chip-best {
   background: rgba(232, 146, 79, 0.18);
   border-color: rgba(232, 146, 79, 0.28);
-  color: var(--accent-orange);
+  color: var(--accent-gold);
 }
 
 .room-rating-comments {
   font-size: 0.92rem;
-  color: var(--text-color);
+  color: var(--text-primary);
   line-height: 1.6;
   white-space: pre-line;
 }
@@ -2493,5 +2519,422 @@ section {
 
   .room-map-container {
     height: 240px;
+  }
+}
+
+/* ========== Typed Entities ========== */
+.entity-group {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.8rem;
+}
+
+.entity-group-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+}
+
+.entity-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.entity-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.34rem 0.72rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.entity-chip:hover {
+  text-shadow: none;
+}
+
+.entity-chip-award {
+  background: rgba(232, 146, 79, 0.12);
+  border-color: rgba(232, 146, 79, 0.24);
+}
+
+.entity-chip-trip {
+  background: rgba(67, 230, 208, 0.11);
+  border-color: rgba(67, 230, 208, 0.25);
+}
+
+.entity-chip-theme {
+  background: rgba(90, 139, 255, 0.1);
+  border-color: rgba(90, 139, 255, 0.22);
+}
+
+.entity-chip-player {
+  background: rgba(155, 123, 255, 0.12);
+  border-color: rgba(155, 123, 255, 0.24);
+}
+
+.entity-chip-list {
+  background: rgba(232, 146, 79, 0.12);
+  border-color: rgba(232, 146, 79, 0.24);
+  color: var(--accent-gold-bright);
+}
+
+.entity-chip-featured {
+  color: var(--text-primary);
+}
+
+.room-card .entity-group {
+  margin-top: 0.7rem;
+}
+
+.room-card .entity-group-label {
+  font-size: 0.66rem;
+}
+
+.room-card .entity-chip {
+  padding: 0.28rem 0.58rem;
+  font-size: 0.7rem;
+}
+
+.room-hero-entities {
+  margin-top: 1rem;
+}
+
+.room-hero-players a {
+  color: var(--accent-teal);
+}
+
+.popup-entities .entity-chip {
+  padding: 0.28rem 0.56rem;
+  font-size: 0.68rem;
+}
+
+.list-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.list-summary-card {
+  display: block;
+  padding: 1.15rem 1.2rem;
+  background:
+    linear-gradient(180deg, rgba(232, 146, 79, 0.06), rgba(255, 255, 255, 0.02)),
+    var(--bg-card);
+  border: 1px solid rgba(232, 146, 79, 0.18);
+  border-radius: 14px;
+  color: var(--text-primary);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.list-summary-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(232, 146, 79, 0.32);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28), 0 0 24px rgba(232, 146, 79, 0.08);
+  text-shadow: none;
+}
+
+.list-summary-card h3 {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin: 0.35rem 0 0.4rem;
+}
+
+.list-summary-card p {
+  color: var(--text-secondary);
+}
+
+.list-summary-meta {
+  margin-top: 0.55rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.list-entry-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.list-entry-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.list-entry-rank {
+  min-width: 3rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(232, 146, 79, 0.14);
+  border: 1px solid rgba(232, 146, 79, 0.24);
+  color: var(--accent-gold);
+  font-family: 'Bungee', system-ui;
+  font-size: 0.85rem;
+  text-align: center;
+  line-height: 1;
+}
+
+.list-entry-body {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.list-entry-note {
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-secondary);
+}
+
+/* ========== Featured Surfaces ========== */
+.featured-entities-section,
+.featured-section {
+  margin-bottom: 3rem;
+}
+
+.featured-entity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.feature-tile {
+  display: block;
+  padding: 1.2rem;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+    var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  color: var(--text-primary);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.feature-tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-color-hover);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
+  text-shadow: none;
+}
+
+.feature-tile-kicker {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  margin-bottom: 0.65rem;
+}
+
+.feature-tile h3 {
+  font-size: 1rem;
+  margin-bottom: 0.45rem;
+}
+
+.feature-tile p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+.feature-tile-award {
+  box-shadow: inset 0 1px 0 rgba(232, 146, 79, 0.14);
+}
+
+.feature-tile-trip {
+  box-shadow: inset 0 1px 0 rgba(67, 230, 208, 0.12);
+}
+
+.feature-tile-player {
+  box-shadow: inset 0 1px 0 rgba(155, 123, 255, 0.12);
+}
+
+.section-link-row {
+  margin-top: 1rem;
+}
+
+.featured-detail-page {
+  display: grid;
+  gap: 2.25rem;
+}
+
+.featured-detail-hero {
+  display: grid;
+  gap: 1rem;
+  padding: 1.8rem;
+  background:
+    radial-gradient(circle at top right, rgba(232, 146, 79, 0.08), transparent 40%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)),
+    var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+}
+
+.featured-detail-hero h1 {
+  font-size: 2rem;
+}
+
+.featured-detail-copy {
+  color: var(--text-secondary);
+  max-width: 60ch;
+}
+
+.trip-route-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.trip-map-container {
+  height: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: inset 0 1px 0 rgba(232, 146, 79, 0.08);
+}
+
+.trip-route-stop-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.trip-route-stop {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  padding: 0.95rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+}
+
+.trip-route-stop-number {
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(232, 146, 79, 0.14);
+  border: 1px solid rgba(232, 146, 79, 0.24);
+  color: var(--accent-gold);
+  font-family: 'Bungee', system-ui;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.trip-route-stop-body h3 {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.trip-route-stop-body p,
+.trip-route-stop-meta {
+  color: var(--text-secondary);
+}
+
+.trip-route-stop-meta {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.trip-route-marker-wrapper {
+  background: transparent;
+  border: 0;
+}
+
+.trip-route-marker {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bungee', system-ui;
+  font-size: 0.82rem;
+  color: #0a0d14;
+  border: 2px solid rgba(10, 13, 20, 0.8);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+}
+
+.trip-route-marker span {
+  transform: translateY(1px);
+}
+
+.trip-route-marker-escaped {
+  background: var(--accent-green);
+}
+
+.trip-route-marker-try-again {
+  background: var(--accent-red);
+}
+
+.trip-route-marker-completed {
+  background: #9a97a8;
+}
+
+.trip-route-marker-scheduled {
+  background: var(--accent-blue);
+}
+
+.featured-detail-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.9rem;
+}
+
+.featured-quote-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.featured-quote-card,
+.empty-state-card {
+  padding: 1rem 1.1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.featured-quote-card h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+.featured-quote-meta {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  margin-bottom: 0.6rem;
+}
+
+.featured-quote-card p,
+.empty-state-card p {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .featured-detail-hero {
+    padding: 1.25rem;
+  }
+
+  .featured-detail-hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .featured-detail-stats,
+  .featured-entity-grid,
+  .featured-quote-grid {
+    grid-template-columns: 1fr;
   }
 }

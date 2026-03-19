@@ -1,0 +1,30 @@
+{
+  "table": "Lists",
+  "syncedAt": "2026-03-19T20:21:42.173875+00:00",
+  "count": 1,
+  "records": [
+    {
+      "id": "recfSbUCFg9HAUgV3",
+      "createdTime": "2026-03-19T11:08:47.000Z",
+      "fields": {
+        "Name": "Jamie's Escape in Europe Favorites",
+        "Notes": "In 2026 we travelled around Europe and did a number of rooms. My favorites in order!\n",
+        "Player": [
+          "recfd6DZt87SxQurn"
+        ],
+        "List Items": [
+          "recKRQ1P4SKVDhm8S",
+          "recih0hukezoGiwVw",
+          "recLwjeGy2O1jYQX0",
+          "rec1kuYcssxMnegcp",
+          "recXhkuiShKAeIpm9",
+          "rec99uSngd7Hcbh6y"
+        ],
+        "Trip": [
+          "recJqpVCHFrsjb8iR"
+        ],
+        "List ID": 1
+      }
+    }
+  ]
+}

@@ -1,18 +1,23 @@
-const rooms = require('./rooms.json');
+const catalog = require('./catalog');
 
 module.exports = function() {
-  return rooms.rooms
-    .filter(r => r.photo)
-    .map(r => ({
-      id: r.id,
-      game: r.game,
-      company: r.company,
-      date: r.date,
-      location: r.location,
-      status: r.status,
-      timeLeft: r.timeLeft ?? null,
-      blogUrl: r.blogUrl || null,
-      tags: r.tags || [],
-      photo: r.photo
+  return catalog().rooms
+    .filter((room) => room.photo)
+    .map((room) => ({
+      id: room.id,
+      slug: room.slug,
+      game: room.game,
+      company: room.company,
+      location: room.location,
+      date: room.date,
+      status: room.status,
+      timeLeft: room.timeLeft,
+      blogUrl: room.blogUrl,
+      officialUrl: room.officialUrl,
+      awards: room.awards,
+      trips: room.trips,
+      lists: room.lists,
+      themes: room.themes,
+      photo: room.photo
     }));
 };

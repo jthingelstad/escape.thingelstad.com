@@ -1,0 +1,39 @@
+---
+title: Lists
+description: Curated lists of escape rooms.
+permalink: /lists/
+---
+{% extends "base.njk" %}
+
+{% block content %}
+  <main class="container page-content">
+    <section class="section-header">
+      <h2>Lists</h2>
+      <p>Curated room collections attached to players, trips, or standing on their own.</p>
+    </section>
+
+    <section>
+      <div class="list-summary-grid">
+        {% for list in catalog.lists %}
+        <a href="{{ list | entityUrl('list') }}" class="list-summary-card" data-tinylytics-event="lists.view-list" data-tinylytics-event-value="{{ list.name }}">
+          <div class="feature-tile-kicker">List</div>
+          <h3>{{ list.name }}</h3>
+          <p>{{ list.roomCount }} room{{ '' if list.roomCount == 1 else 's' }}</p>
+          {% if list.player or list.trip %}
+          <div class="list-summary-meta">
+            {% if list.player %}{{ list.player.name }}{% endif %}{% if list.player and list.trip %} • {% endif %}{% if list.trip %}{{ list.trip.name }}{% endif %}
+          </div>
+          {% endif %}
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script type="module">
+    import { initNav } from '{{ '/js/data.js' | cacheBust }}';
+    initNav();
+  </script>
+{% endblock %}

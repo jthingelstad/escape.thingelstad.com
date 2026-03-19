@@ -1,50 +1,28 @@
 import {
-  escapeHtml, formatDate, formatLocation, renderTag,
-  getFilterParams, setFilterParams, initNav, statusBadgeHtml,
-  formatTimeLeft, roomUrl, isFeaturedRoom
+  applyFiltersToControls,
+  bindFilterControls,
+  escapeHtml,
+  formatDate,
+  formatLocation,
+  getFilterParams,
+  initNav,
+  statusBadgeHtml,
+  formatTimeLeft,
+  roomUrl,
+  entityFilterUrl,
+  readFiltersFromControls,
+  roomMatchesFilters,
+  setFilterParams,
+  hasActiveFilters,
+  renderEntityChip
 } from './data.js';
 
-const allRooms = JSON.parse(document.getElementById('map-rooms-data').textContent);
+const allRooms = JSON.parse(document.getElementById('room-index-data').textContent);
 let map;
 let markerClusterGroup;
 
 function filterRooms(filters) {
-  return allRooms.filter(room => {
-    if (filters.q) {
-      const q = filters.q.toLowerCase();
-      const searchable = [
-        room.game,
-        room.company,
-        room.location?.city,
-        room.location?.region,
-        room.notes
-      ].filter(Boolean).join(' ').toLowerCase();
-      if (!searchable.includes(q)) return false;
-    }
-
-    if (filters.tag) {
-      const filterTags = filters.tag.split(',').map(t => t.trim());
-      if (!filterTags.every(ft => (room.tags || []).includes(ft))) return false;
-    }
-
-    if (filters.year) {
-      if (!room.date || room.date.substring(0, 4) !== filters.year) return false;
-    }
-
-    if (filters.status && filters.status !== 'all') {
-      if (room.status !== filters.status) return false;
-    }
-
-    if (filters.country) {
-      if (!room.location || room.location.country !== filters.country) return false;
-    }
-
-    if (filters.player) {
-      if (!(room.players || []).includes(filters.player)) return false;
-    }
-
-    return true;
-  });
+  return allRooms.filter((room) => roomMatchesFilters(room, filters));
 }
 
 function init() {
@@ -75,20 +53,23 @@ function initMap() {
 }
 
 function getMarkerColor(room) {
-  if (isFeaturedRoom(room)) return '#e8924f';
   switch (room.status) {
-    case 'Escaped': return '#48d989';
-    case 'Try again': return '#f06060';
-    case 'Completed': return '#9a97a8';
-    case 'Scheduled': return '#5a8bff';
-    default: return '#9a97a8';
+    case 'Escaped':
+      return '#48d989';
+    case 'Try again':
+      return '#f06060';
+    case 'Completed':
+      return '#9a97a8';
+    case 'Scheduled':
+      return '#5a8bff';
+    default:
+      return '#9a97a8';
   }
 }
 
 function createMarkerIcon(room) {
   const color = getMarkerColor(room);
   const isPlanned = room.status === 'Scheduled';
-  const isBest = isFeaturedRoom(room);
 
   const svg = `
     <svg width="28" height="40" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg">
@@ -97,7 +78,6 @@ function createMarkerIcon(room) {
         stroke="${isPlanned ? color : 'none'}" stroke-width="${isPlanned ? 2 : 0}"
         stroke-dasharray="${isPlanned ? '4,3' : 'none'}"/>
       <circle cx="14" cy="14" r="6" fill="${isPlanned ? 'transparent' : '#0f0f1a'}"/>
-      ${isBest ? '<text x="14" y="18" text-anchor="middle" font-size="12" fill="#0f0f1a">\u2605</text>' : ''}
     </svg>`;
 
   return L.divIcon({
@@ -111,15 +91,26 @@ function createMarkerIcon(room) {
 
 function buildPopup(room) {
   const gameName = escapeHtml(room.game);
-  const companyName = escapeHtml(room.company);
+  const companyName = escapeHtml(room.company?.name || 'Unknown Company');
   const statusHtml = statusBadgeHtml(room.status);
-
-  const tagsHtml = (room.tags || []).map(renderTag).join('');
-  const locationStr = escapeHtml(formatLocation(room.location));
   const dateStr = formatDate(room.date);
+  const locationStr = escapeHtml(formatLocation(room.location));
+  const detailUrl = roomUrl(room);
+  const locationHtml = room.location
+    ? `<a href="${entityFilterUrl('location', room.location)}" data-tinylytics-event="map.location-filter" data-tinylytics-event-value="${locationStr}">${locationStr}</a>`
+    : locationStr;
+
+  const awardsHtml = (room.awards || []).map((award) => renderEntityChip('award', award)).join('');
+  const tripsHtml = (room.trips || []).map((trip) => renderEntityChip('trip', trip)).join('');
+  const listsHtml = (room.lists || []).map((list) => renderEntityChip('list', list)).join('');
+  const themesHtml = (room.themes || []).map((theme) => renderEntityChip('theme', theme)).join('');
 
   const photoHtml = room.photo
     ? `<div class="popup-photo"><img src="/images/rooms/${escapeHtml(room.photo)}" alt="${gameName} at ${companyName}"></div>`
+    : '';
+
+  const officialHtml = room.officialUrl
+    ? `<a href="${escapeHtml(room.officialUrl)}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.official-site" data-tinylytics-event-value="${gameName}">Official site \u2192</a>`
     : '';
 
   const blogHtml = room.blogUrl
@@ -130,7 +121,9 @@ function buildPopup(room) {
     ? `<a href="https://morty.app/attraction/${room.mortyId}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.morty" data-tinylytics-event-value="${gameName}">Morty \u2192</a>`
     : '';
 
-  const detailUrl = roomUrl(room);
+  const companyFilter = room.company
+    ? `<a href="${entityFilterUrl('company', room.company)}" data-tinylytics-event="map.company-filter" data-tinylytics-event-value="${companyName}">${companyName}</a>`
+    : companyName;
 
   return `
     <div class="popup-room">
@@ -138,19 +131,26 @@ function buildPopup(room) {
       <div class="popup-content">
         <h3><a href="${detailUrl}" style="color: inherit; text-decoration: none;" data-tinylytics-event="map.view-room" data-tinylytics-event-value="${gameName}">#${room.id} ${gameName}</a></h3>
         <div class="popup-meta">
-          ${room.companyUrl ? `<a href="${escapeHtml(room.companyUrl)}" target="_blank" rel="noopener" data-tinylytics-event="map.company" data-tinylytics-event-value="${companyName}">${companyName}</a>` : companyName}<br>
-          ${dateStr}${locationStr ? ' &middot; ' + locationStr : ''}
+          ${companyFilter}<br>
+          ${dateStr}${locationHtml ? ' &middot; ' + locationHtml : ''}
           ${room.timeLeft != null ? ' &middot; ' + escapeHtml(formatTimeLeft(room.timeLeft)) : ''}
         </div>
         ${statusHtml}
-        ${tagsHtml ? `<div class="popup-tags">${tagsHtml}</div>` : ''}
+        ${awardsHtml ? `<div class="popup-entities">${awardsHtml}</div>` : ''}
+        ${tripsHtml ? `<div class="popup-entities">${tripsHtml}</div>` : ''}
+        ${listsHtml ? `<div class="popup-entities">${listsHtml}</div>` : ''}
+        ${themesHtml ? `<div class="popup-entities">${themesHtml}</div>` : ''}
         <div class="popup-links">
           <a href="${detailUrl}" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.view-room" data-tinylytics-event-value="${gameName}">View details &rarr;</a>
-          ${blogHtml} ${mortyHtml}
+          ${officialHtml} ${blogHtml} ${mortyHtml}
         </div>
       </div>
     </div>
   `;
+}
+
+function getCurrentFilters() {
+  return readFiltersFromControls();
 }
 
 function updateMarkers() {
@@ -158,20 +158,18 @@ function updateMarkers() {
   setFilterParams(filters);
 
   const clearBtn = document.getElementById('clear-filters');
-  const hasFilters = filters.q || filters.tag || filters.year ||
-    (filters.status && filters.status !== 'all') || filters.country || filters.player;
+  const hasFilters = hasActiveFilters(filters);
   clearBtn.style.display = hasFilters ? '' : 'none';
 
   const rooms = filterRooms(filters);
-  const mappable = rooms.filter(r => r.location && r.location.lat != null && r.location.lng != null);
+  const mappable = rooms.filter((room) => room.location?.lat != null && room.location?.lng != null);
 
   markerClusterGroup.clearLayers();
-
-  mappable.forEach(room => {
+  mappable.forEach((room) => {
     const marker = L.marker([room.location.lat, room.location.lng], {
       icon: createMarkerIcon(room)
     });
-    marker.bindPopup(buildPopup(room), { maxWidth: 300 });
+    marker.bindPopup(buildPopup(room), { maxWidth: 320 });
     markerClusterGroup.addLayer(marker);
   });
 
@@ -181,34 +179,12 @@ function updateMarkers() {
   }
 }
 
-function getCurrentFilters() {
-  return {
-    q: document.getElementById('filter-search').value.trim(),
-    tag: document.getElementById('filter-tag').value,
-    year: document.getElementById('filter-year').value,
-    status: document.getElementById('filter-status').value,
-    country: document.getElementById('filter-country').value,
-    player: document.getElementById('filter-player').value
-  };
-}
-
 function applyUrlFilters() {
-  const filters = getFilterParams();
-  document.getElementById('filter-search').value = filters.q;
-  document.getElementById('filter-year').value = filters.year;
-  document.getElementById('filter-status').value = filters.status || 'all';
-  document.getElementById('filter-country').value = filters.country;
-  document.getElementById('filter-player').value = filters.player;
-
-  if (filters.tag) {
-    document.getElementById('filter-tag').value = filters.tag.split(',')[0];
-  }
-
+  applyFiltersToControls(getFilterParams());
   updateMarkers();
 }
 
 function bindEvents() {
-  // Filter panel toggle
   const toggleBtn = document.getElementById('filter-toggle');
   const panel = document.getElementById('filter-panel');
   toggleBtn.addEventListener('click', () => {
@@ -217,26 +193,7 @@ function bindEvents() {
     setTimeout(() => map.invalidateSize(), 350);
   });
 
-  let searchTimeout;
-  document.getElementById('filter-search').addEventListener('input', () => {
-    clearTimeout(searchTimeout);
-    searchTimeout = setTimeout(updateMarkers, 200);
-  });
-
-  ['filter-tag', 'filter-year', 'filter-status', 'filter-country', 'filter-player'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.addEventListener('change', updateMarkers);
-  });
-
-  document.getElementById('clear-filters').addEventListener('click', () => {
-    document.getElementById('filter-search').value = '';
-    document.getElementById('filter-tag').value = '';
-    document.getElementById('filter-year').value = '';
-    document.getElementById('filter-status').value = 'all';
-    document.getElementById('filter-country').value = '';
-    document.getElementById('filter-player').value = '';
-    updateMarkers();
-  });
+  bindFilterControls(updateMarkers);
 }
 
 init();

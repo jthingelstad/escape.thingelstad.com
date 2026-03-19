@@ -1,0 +1,105 @@
+---
+pagination:
+  data: playerPages
+  size: 1
+  alias: player
+  addAllPagesToCollections: true
+permalink: /player/{{ player.slug }}/
+---
+{% extends "base.njk" %}
+
+{% block pageTitle %}{{ player.name }} — Featured Player{% endblock %}
+{% block metaDescription %}Featured player page for {{ player.name }} with room history, recent plays, and notes.{% endblock %}
+
+{% block content %}
+  <main class="container page-content featured-detail-page">
+    <section class="featured-detail-hero">
+      <div class="feature-tile-kicker">Featured Player</div>
+      <h1>{{ player.name }}</h1>
+      <div class="featured-detail-stats">
+        <div class="stat-item"><span class="stat-number">{{ player.roomCount }}</span><div class="stat-label">Rooms</div></div>
+        <div class="stat-item"><span class="stat-number">{{ player.wins }}</span><div class="stat-label">Wins</div></div>
+        <div class="stat-item"><span class="stat-number">{{ player.winRate }}%</span><div class="stat-label">Win Rate</div></div>
+      </div>
+      <div class="section-link-row">
+        <a href="/list/?player={{ player.slug | queryValue }}" class="room-link" data-tinylytics-event="player.view-filter" data-tinylytics-event-value="{{ player.name }}">Open Filtered List &rarr;</a>
+      </div>
+    </section>
+
+    {% if player.recentRooms.length > 0 %}
+    <section>
+      <div class="section-header">
+        <h2>Recent Rooms</h2>
+      </div>
+      <div class="room-grid">
+        {% from "room-card.njk" import roomCard %}
+        {% for room in player.recentRooms %}
+          {{ roomCard(room, { showRatingSummary: true }) }}
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if player.lists.length > 0 %}
+    <section>
+      <div class="section-header">
+        <h2>Lists</h2>
+      </div>
+      <div class="list-summary-grid">
+        {% for list in player.lists %}
+        <a href="{{ list | entityUrl('list') }}" class="list-summary-card" data-tinylytics-event="player.list" data-tinylytics-event-value="{{ list.name }}">
+          <div class="feature-tile-kicker">List</div>
+          <h3>{{ list.name }}</h3>
+          <p>{{ list.roomCount }} room{{ '' if list.roomCount == 1 else 's' }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if player.comments.length > 0 %}
+    <section class="featured-quotes-section">
+      <div class="section-header">
+        <h2>Recent Notes</h2>
+      </div>
+      <div class="featured-quote-grid">
+        {% for experience in player.comments %}
+          {% set room = catalog.lookups.rooms.byAirtableId[experience.roomAirtableId] %}
+          <article class="featured-quote-card">
+            <h3>{% if room %}<a href="{{ room | roomPath }}">{{ room.game }}</a>{% else %}Room Note{% endif %}</h3>
+            {% if room and room.company %}
+            <div class="featured-quote-meta">{{ room.company.name }} • {{ room.date | formatDate }}</div>
+            {% endif %}
+            <p>{{ experience.comments }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    <section>
+      <div class="section-header">
+        <h2>All Rooms</h2>
+      </div>
+      {% if player.rooms.length > 0 %}
+      <div class="room-grid">
+        {% from "room-card.njk" import roomCard %}
+        {% for room in player.rooms | reverse %}
+          {{ roomCard(room, { showRatingSummary: true }) }}
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="empty-state-card">
+        <p>No public rooms are attached to this featured player yet.</p>
+      </div>
+      {% endif %}
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script type="module">
+    import { initNav } from '{{ '/js/data.js' | cacheBust }}';
+    initNav();
+  </script>
+{% endblock %}

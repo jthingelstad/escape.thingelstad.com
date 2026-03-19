@@ -7,15 +7,16 @@ pagination:
 permalink: /room/{{ room.slug }}/
 ---
 {% extends "base.njk" %}
+{% from "entity-chips.njk" import entityGroup %}
 
-{% block pageTitle %}{{ room.game | safe }} — {{ room.company | safe }}{% endblock %}
-{% block metaDescription %}{{ room.game | safe }} at {{ room.company | safe }}{% if room.location %}, {{ room.location | formatLocation | safe }}{% endif %}. {{ room.status | safe }}{% if room.timeLeft != null %} with {{ room.timeLeft | formatTimeLeft | safe }}{% endif %}.{% endblock %}
+{% block pageTitle %}{{ room.game | safe }} — {{ room.company.name if room.company else 'Unknown Company' }}{% endblock %}
+{% block metaDescription %}{{ room.game | safe }} at {{ room.company.name if room.company else 'Unknown Company' }}{% if room.location %}, {{ room.location | formatLocation | safe }}{% endif %}. {{ room.status | safe }}{% if room.timeLeft != null %} with {{ room.timeLeft | formatTimeLeft | safe }}{% endif %}.{% endblock %}
 
 {% block head %}
-  <meta property="og:title" content="{{ room.game }} — {{ room.company }} - Escaping Things">
-  <meta property="og:description" content="{{ room.game }} at {{ room.company }}{% if room.location %}, {{ room.location | formatLocation }}{% endif %}. {{ room.status }}{% if room.timeLeft != null %} with {{ room.timeLeft | formatTimeLeft }}{% endif %}.">
+  <meta property="og:title" content="{{ room.game }} — {{ room.company.name if room.company else 'Unknown Company' }} - Escaping Things">
+  <meta property="og:description" content="{{ room.game }} at {{ room.company.name if room.company else 'Unknown Company' }}{% if room.location %}, {{ room.location | formatLocation }}{% endif %}. {{ room.status }}{% if room.timeLeft != null %} with {{ room.timeLeft | formatTimeLeft }}{% endif %}.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://escape.thingelstad.com/room/{{ room.slug }}/">
+  <meta property="og:url" content="https://escape.thingelstad.com{{ room | roomPath }}">
   {% if room.photo %}
   <meta property="og:image" content="https://escape.thingelstad.com/images/rooms/{{ room.photo }}">
   {% else %}
@@ -31,8 +32,6 @@ permalink: /room/{{ room.slug }}/
 
 {% block content %}
   <main class="container page-content room-detail-page">
-
-    {# Navigation between rooms #}
     <nav class="room-nav" aria-label="Room navigation">
       {% if room.nav.prev %}
         <a href="/room/{{ room.nav.prev.slug }}/" class="room-nav-link room-nav-prev" data-tinylytics-event="room.nav-prev">
@@ -59,11 +58,10 @@ permalink: /room/{{ room.slug }}/
       {% endif %}
     </nav>
 
-    {# Hero Section #}
     <section class="room-hero">
       {% if room.photo %}
       <div class="room-hero-photo">
-        <img src="/images/rooms/{{ room.photo }}" alt="{{ room.game }} at {{ room.company }}">
+        <img src="/images/rooms/{{ room.photo }}" alt="{{ room.game }} at {{ room.company.name if room.company else 'Unknown Company' }}">
       </div>
       {% endif %}
       <div class="room-hero-info">
@@ -71,13 +69,11 @@ permalink: /room/{{ room.slug }}/
           <span class="room-number">#{{ room.id }}</span>
           <h1>{{ room.game }}</h1>
         </div>
+        {% if room.company %}
         <div class="room-hero-company">
-          {% if room.companyUrl %}
-            <a href="{{ room.companyUrl }}" target="_blank" rel="noopener" data-tinylytics-event="room.company" data-tinylytics-event-value="{{ room.company }}">{{ room.company }}</a>
-          {% else %}
-            {{ room.company }}
-          {% endif %}
+          <a href="{{ room.company | entityFilterUrl('company') }}" data-tinylytics-event="room.company-filter" data-tinylytics-event-value="{{ room.company.name }}">{{ room.company.name }}</a>
         </div>
+        {% endif %}
         <div class="room-hero-meta">
           <span class="room-hero-meta-item">
             <span class="meta-icon">📅</span> {{ room.date | formatDate }}
@@ -85,7 +81,12 @@ permalink: /room/{{ room.slug }}/
           {% set loc = room.location | formatLocation %}
           {% if loc %}
           <span class="room-hero-meta-item">
-            <span class="meta-icon">📍</span> {{ loc }}
+            <span class="meta-icon">📍</span>
+            {% if room.location %}
+              <a href="{{ room.location | entityFilterUrl('location') }}" data-tinylytics-event="room.location-filter" data-tinylytics-event-value="{{ loc }}">{{ loc }}</a>
+            {% else %}
+              {{ loc }}
+            {% endif %}
           </span>
           {% endif %}
         </div>
@@ -109,17 +110,19 @@ permalink: /room/{{ room.slug }}/
 
         {% if room.players and room.players.length > 0 %}
         <div class="room-hero-players">
-          <span class="meta-icon">👥</span> {{ room.players | join(', ') }}
-        </div>
-        {% endif %}
-
-        {% if room.tags and room.tags.length > 0 %}
-        <div class="room-hero-tags">
-          {% for tag in room.tags %}
-            <span class="tag tag-{{ tag | classifyTag }}" data-tag="{{ tag }}">{{ tag | formatTagLabel }}</span>
+          <span class="meta-icon">👥</span>
+          {% for player in room.players %}
+            <a href="{{ player | entityUrl('player') }}" data-tinylytics-event="room.player" data-tinylytics-event-value="{{ player.name }}">{{ player.name }}</a>{% if not loop.last %}, {% endif %}
           {% endfor %}
         </div>
         {% endif %}
+
+        <div class="room-hero-entities">
+          {{ entityGroup('Lists', room.lists, 'list', 'room.list') }}
+          {{ entityGroup('Awards', room.awards, 'award', 'room.award') }}
+          {{ entityGroup('Trips', room.trips, 'trip', 'room.trip') }}
+          {{ entityGroup('Themes', room.themes, 'theme', 'room.theme') }}
+        </div>
 
         {% if room.commentary %}
         <div class="room-hero-commentary">{{ room.commentary }}</div>
@@ -130,6 +133,11 @@ permalink: /room/{{ room.slug }}/
         {% endif %}
 
         <div class="room-hero-links">
+          {% if room.officialUrl %}
+            <a href="{{ room.officialUrl }}" class="room-link room-link-official" target="_blank" rel="noopener" data-tinylytics-event="room.official-site" data-tinylytics-event-value="{{ room.game }}">
+              Official Site &rarr;
+            </a>
+          {% endif %}
           {% if room.blogUrl %}
             <a href="{{ room.blogUrl }}" class="room-link room-link-blog" target="_blank" rel="noopener" data-tinylytics-event="room.blog-post" data-tinylytics-event-value="{{ room.game }}">
               Read Blog Post &rarr;
@@ -149,7 +157,6 @@ permalink: /room/{{ room.slug }}/
       </div>
     </section>
 
-    {# Stats Comparison Section #}
     {% if room.status !== "Scheduled" %}
     <section class="room-stats-section">
       <div class="section-header">
@@ -199,10 +206,10 @@ permalink: /room/{{ room.slug }}/
           </div>
         </div>
 
-        {% if room.stats.companyTotal > 1 %}
+        {% if room.stats.companyTotal > 1 and room.company %}
         <div class="room-stat-card">
           <div class="room-stat-value">{{ room.stats.companyWins }}/{{ room.stats.companyTotal }}</div>
-          <div class="room-stat-label">Wins at {{ room.company }}</div>
+          <div class="room-stat-label">Wins at {{ room.company.name }}</div>
           <div class="room-stat-compare">
             {{ ((room.stats.companyWins / room.stats.companyTotal) * 100) | round }}% win rate at this company
           </div>
@@ -214,7 +221,7 @@ permalink: /room/{{ room.slug }}/
           <div class="room-stat-value">{{ room.players.length }}</div>
           <div class="room-stat-label">Players</div>
           <div class="room-stat-compare">
-            {{ room.players | join(', ') }}
+            {% for player in room.players %}{{ player.name }}{% if not loop.last %}, {% endif %}{% endfor %}
           </div>
         </div>
         {% endif %}
@@ -222,7 +229,7 @@ permalink: /room/{{ room.slug }}/
     </section>
     {% endif %}
 
-    {% if room.ratings and room.ratings.length > 0 %}
+    {% if room.experiences and room.experiences.length > 0 %}
     <section class="room-ratings-section">
       <div class="section-header">
         <h2>Family Ratings</h2>
@@ -246,32 +253,32 @@ permalink: /room/{{ room.slug }}/
         {% endif %}
       </div>
       <div class="room-ratings-grid">
-        {% for rating in room.ratings %}
+        {% for experience in room.experiences %}
         <article class="room-rating-card">
           <div class="room-rating-card-header">
             <div>
-              <h3>{{ rating.who }}</h3>
+              <h3>{{ experience.player.name }}</h3>
             </div>
-            {% if rating.rating != null %}
-            <div class="room-rating-card-score">{{ rating.rating | formatRating }}/5</div>
+            {% if experience.rating != null %}
+            <div class="room-rating-card-score">{{ experience.rating | formatRating }}/5</div>
             {% endif %}
           </div>
           <div class="room-rating-chip-row">
-            {% if rating.gameplay %}
-            <span class="room-rating-chip">Gameplay: {{ rating.gameplay }}</span>
+            {% if experience.gameplay %}
+            <span class="room-rating-chip">Gameplay: {{ experience.gameplay }}</span>
             {% endif %}
-            {% if rating.atmosphere %}
-            <span class="room-rating-chip">Atmosphere: {{ rating.atmosphere }}</span>
+            {% if experience.atmosphere %}
+            <span class="room-rating-chip">Atmosphere: {{ experience.atmosphere }}</span>
             {% endif %}
-            {% if rating.experience %}
-            <span class="room-rating-chip">Experience: {{ rating.experience }}</span>
+            {% if experience.experience %}
+            <span class="room-rating-chip">Experience: {{ experience.experience }}</span>
             {% endif %}
-            {% if rating.bestThings %}
+            {% if experience.bestThings %}
             <span class="room-rating-chip room-rating-chip-best">Best Things</span>
             {% endif %}
           </div>
-          {% if rating.comments %}
-          <div class="room-rating-comments">{{ rating.comments }}</div>
+          {% if experience.comments %}
+          <div class="room-rating-comments">{{ experience.comments }}</div>
           {% endif %}
         </article>
         {% endfor %}
@@ -279,7 +286,6 @@ permalink: /room/{{ room.slug }}/
     </section>
     {% endif %}
 
-    {# Map Section #}
     {% if room.location and room.location.lat != null %}
     <section class="room-map-section">
       <div class="section-header">
@@ -289,11 +295,10 @@ permalink: /room/{{ room.slug }}/
     </section>
     {% endif %}
 
-    {# Other rooms at same company #}
-    {% if room.stats.otherCompanyRooms.length > 0 %}
+    {% if room.stats.otherCompanyRooms.length > 0 and room.company %}
     <section class="room-related-section">
       <div class="section-header">
-        <h2>More at {{ room.company }}</h2>
+        <h2>More at {{ room.company.name }}</h2>
       </div>
       <div class="room-related-list">
         {% for other in room.stats.otherCompanyRooms %}
@@ -315,7 +320,6 @@ permalink: /room/{{ room.slug }}/
     </section>
     {% endif %}
 
-    {# Same-day rooms #}
     {% if room.stats.sameDayRooms.length > 0 %}
     <section class="room-related-section">
       <div class="section-header">
@@ -326,13 +330,14 @@ permalink: /room/{{ room.slug }}/
         <a href="/room/{{ other.slug }}/" class="room-related-item" data-tinylytics-event="room.same-day" data-tinylytics-event-value="{{ other.game }}">
           <span class="room-number">#{{ other.id }}</span>
           <span class="room-related-name">{{ other.game }}</span>
-          <span class="room-related-company">{{ other.company }}</span>
+          {% if other.company %}
+          <span class="room-related-company">{{ other.company.name }}</span>
+          {% endif %}
         </a>
         {% endfor %}
       </div>
     </section>
     {% endif %}
-
   </main>
 {% endblock %}
 
@@ -341,7 +346,6 @@ permalink: /room/{{ room.slug }}/
     import { initNav } from '{{ '/js/data.js' | cacheBust }}';
     initNav();
 
-    // Copy link button
     const copyBtn = document.getElementById('copy-link-btn');
     if (copyBtn) {
       copyBtn.addEventListener('click', () => {
@@ -356,11 +360,8 @@ permalink: /room/{{ room.slug }}/
     }
 
     {% if room.location and room.location.lat != null %}
-    // Mini map
     const map = L.map('room-map', {
       zoomControl: true,
-      scrollWheelZoom: false,
-      dragging: true,
       attributionControl: true
     }).setView([{{ room.location.lat }}, {{ room.location.lng }}], 13);
 
@@ -370,14 +371,15 @@ permalink: /room/{{ room.slug }}/
       maxZoom: 19
     }).addTo(map);
 
-    const color = '{{ "#e8924f" if "best" in room.tags or "Favorite Things" in room.tags else ("#48d989" if room.status == "Escaped" else ("#f06060" if room.status == "Try again" else ("#5a8bff" if room.status == "Scheduled" else "#9a97a8"))) }}';
-    const svg = `<svg width="28" height="40" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg">
-      <path d="M14 0C6.268 0 0 6.268 0 14c0 10.5 14 26 14 26s14-15.5 14-26C28 6.268 21.732 0 14 0z" fill="${color}"/>
-      <circle cx="14" cy="14" r="6" fill="#0f0f1a"/>
-    </svg>`;
-
+    const color = '{{ "#48d989" if room.status == "Escaped" else ("#f06060" if room.status == "Try again" else ("#5a8bff" if room.status == "Scheduled" else "#9a97a8")) }}';
     const icon = L.divIcon({
-      html: svg,
+      html: `
+        <svg width="28" height="40" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 0C6.268 0 0 6.268 0 14c0 10.5 14 26 14 26s14-15.5 14-26C28 6.268 21.732 0 14 0z"
+            fill="${color}"/>
+          <circle cx="14" cy="14" r="6" fill="#0f0f1a"/>
+        </svg>
+      `,
       className: 'custom-marker',
       iconSize: [28, 40],
       iconAnchor: [14, 40]

@@ -1,86 +1,87 @@
-const rooms = require('./rooms.json');
-
-function slugify(str) {
-  return str
-    .toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')   // strip accents
-    .replace(/[^a-z0-9]+/g, '-')                        // non-alphanum → hyphen
-    .replace(/^-+|-+$/g, '');                            // trim leading/trailing hyphens
-}
-
-function roomSlug(room) {
-  return `${room.id}-${slugify(room.game)}`;
-}
+const catalog = require('./catalog');
 
 module.exports = function() {
-  const allRooms = rooms.rooms;
-  const played = allRooms.filter(r =>
-    r.status === 'Escaped' || r.status === 'Try again' || r.status === 'Completed'
-  );
+  const data = catalog();
+  const allRooms = data.rooms;
+  const roomsById = Object.fromEntries(allRooms.map((room) => [room.id, room]));
+  const played = allRooms.filter((room) => room.status !== 'Scheduled');
+  const wins = played.filter((room) => room.status === 'Escaped' || room.status === 'Completed');
+  const timesWithValues = played.filter((room) => room.timeLeft != null);
 
-  // Pre-compute aggregate stats for comparison
-  const timesWithValues = played.filter(r => r.timeLeft != null);
   const avgTimeLeft = timesWithValues.length > 0
-    ? timesWithValues.reduce((sum, r) => sum + r.timeLeft, 0) / timesWithValues.length
+    ? timesWithValues.reduce((sum, room) => sum + room.timeLeft, 0) / timesWithValues.length
     : null;
 
-  // Time left percentile rankings (higher = better)
   const sortedTimes = timesWithValues
-    .map(r => r.timeLeft)
-    .sort((a, b) => a - b);
+    .map((room) => room.timeLeft)
+    .sort((left, right) => left - right);
 
-  // Company stats
-  const companyCounts = {};
-  played.forEach(r => {
-    if (r.company) {
-      if (!companyCounts[r.company]) companyCounts[r.company] = { total: 0, wins: 0, rooms: [] };
-      companyCounts[r.company].total++;
-      if (r.status === 'Escaped' || r.status === 'Completed') companyCounts[r.company].wins++;
-      companyCounts[r.company].rooms.push(r.id);
+  const companyStats = {};
+  played.forEach((room) => {
+    const companyId = room.company?.airtableId;
+    if (!companyId) return;
+
+    companyStats[companyId] ||= { total: 0, wins: 0, roomIds: [] };
+    companyStats[companyId].total += 1;
+    if (room.status === 'Escaped' || room.status === 'Completed') {
+      companyStats[companyId].wins += 1;
     }
+    companyStats[companyId].roomIds.push(room.id);
   });
 
-  // Overall win rate
-  const wins = allRooms.filter(r => r.status === 'Escaped' || r.status === 'Completed').length;
-  const decided = wins + allRooms.filter(r => r.status === 'Try again').length;
-  const overallWinRate = decided > 0 ? Math.round((wins / decided) * 100) : 0;
+  const overallWinRate = played.length
+    ? Math.round((wins.length / played.length) * 100)
+    : 0;
 
-  // Build per-room detail data
-  return allRooms.map(room => {
-    // Room's position in the chronological list
-    const chronIndex = played.findIndex(r => r.id === room.id);
-    const roomNumber = chronIndex >= 0 ? chronIndex + 1 : null;
+  const sameDayRoomIds = {};
+  allRooms.forEach((room) => {
+    sameDayRoomIds[room.date] ||= [];
+    sameDayRoomIds[room.date].push(room.id);
+  });
 
-    // Time left percentile
+  return allRooms.map((room, index) => {
+    const companyInfo = room.company ? companyStats[room.company.airtableId] : null;
+    const otherCompanyRooms = companyInfo
+      ? companyInfo.roomIds
+        .filter((id) => id !== room.id)
+        .map((id) => roomsById[id])
+        .filter(Boolean)
+        .map((candidate) => ({
+          id: candidate.id,
+          slug: candidate.slug,
+          game: candidate.game,
+          status: candidate.status,
+          date: candidate.date
+        }))
+      : [];
+
     let timePercentile = null;
     if (room.timeLeft != null && sortedTimes.length > 0) {
-      const rank = sortedTimes.filter(t => t <= room.timeLeft).length;
+      const rank = sortedTimes.filter((value) => value <= room.timeLeft).length;
       timePercentile = Math.round((rank / sortedTimes.length) * 100);
     }
 
-    // Rooms at same company
-    const companyInfo = companyCounts[room.company] || null;
-    const companyRoomIds = companyInfo ? companyInfo.rooms.filter(id => id !== room.id) : [];
-    const otherCompanyRooms = companyRoomIds.map(id => {
-      const r = allRooms.find(rr => rr.id === id);
-      return r ? { id: r.id, slug: roomSlug(r), game: r.game, status: r.status, date: r.date } : null;
-    }).filter(Boolean);
+    const sameDayRooms = (sameDayRoomIds[room.date] || [])
+      .filter((id) => id !== room.id)
+      .map((id) => roomsById[id])
+      .map((candidate) => ({
+        id: candidate.id,
+        slug: candidate.slug,
+        game: candidate.game,
+        company: candidate.company
+      }));
 
-    // Prev/next rooms follow the canonical order from rooms.json.
-    const idx = allRooms.findIndex(r => r.id === room.id);
-    const prevRoom = idx > 0 ? { id: allRooms[idx - 1].id, slug: roomSlug(allRooms[idx - 1]), game: allRooms[idx - 1].game } : null;
-    const nextRoom = idx < allRooms.length - 1 ? { id: allRooms[idx + 1].id, slug: roomSlug(allRooms[idx + 1]), game: allRooms[idx + 1].game } : null;
-
-    // Same-day rooms
-    const sameDayRooms = allRooms
-      .filter(r => r.date === room.date && r.id !== room.id)
-      .map(r => ({ id: r.id, slug: roomSlug(r), game: r.game, company: r.company }));
+    const previousRoom = index > 0
+      ? { id: allRooms[index - 1].id, slug: allRooms[index - 1].slug, game: allRooms[index - 1].game }
+      : null;
+    const nextRoom = index < allRooms.length - 1
+      ? { id: allRooms[index + 1].id, slug: allRooms[index + 1].slug, game: allRooms[index + 1].game }
+      : null;
 
     return {
       ...room,
-      slug: roomSlug(room),
       stats: {
-        avgTimeLeft: avgTimeLeft != null ? parseFloat(avgTimeLeft.toFixed(2)) : null,
+        avgTimeLeft: avgTimeLeft != null ? Number(avgTimeLeft.toFixed(2)) : null,
         timePercentile,
         overallWinRate,
         totalPlayed: played.length,
@@ -89,7 +90,10 @@ module.exports = function() {
         otherCompanyRooms,
         sameDayRooms
       },
-      nav: { prev: prevRoom, next: nextRoom }
+      nav: {
+        prev: previousRoom,
+        next: nextRoom
+      }
     };
   });
 };

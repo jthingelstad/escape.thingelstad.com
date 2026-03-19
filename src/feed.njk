@@ -10,7 +10,7 @@ eleventyExcludeFromCollections: true
   <link href="https://escape.thingelstad.com/feed.xml" rel="self"/>
   <id>https://escape.thingelstad.com/</id>
   {%- set lastRoom = null -%}
-  {%- for room in rooms.rooms | reverse -%}
+  {%- for room in catalog.rooms | reverse -%}
     {%- if room.status !== "Scheduled" and not lastRoom -%}
       {%- set lastRoom = room -%}
     {%- endif -%}
@@ -21,26 +21,35 @@ eleventyExcludeFromCollections: true
   <author>
     <name>Jamie Thingelstad</name>
   </author>
-  {%- for room in rooms.rooms | reverse %}
+  {%- for room in catalog.rooms | reverse %}
   {%- if room.status !== "Scheduled" %}
   <entry>
-    <title>{{ ("#" + room.id + " " + room.game + " — " + room.company) | e }}</title>
-    <link href="https://escape.thingelstad.com/room/{{ room | roomSlug }}/"/>
+    <title>{{ ("#" + room.id + " " + room.game + " — " + (room.company.name if room.company else "Unknown Company")) | e }}</title>
+    <link href="https://escape.thingelstad.com{{ room | roomPath }}"/>
     <id>tag:escape.thingelstad.com,{{ room.date }}:{{ room.airtableId }}</id>
     <updated>{{ room.date }}T00:00:00Z</updated>
     <content type="html"><![CDATA[
       <p><strong>Status:</strong> {{ room.status }}</p>
-      <p><strong>Company:</strong> {% if room.companyUrl %}<a href="{{ room.companyUrl }}">{{ room.company | e }}</a>{% else %}{{ room.company | e }}{% endif %}</p>
+      <p><strong>Company:</strong> {% if room.officialUrl %}<a href="{{ room.officialUrl }}">{{ room.company.name if room.company else "Unknown Company" }}</a>{% else %}{{ room.company.name if room.company else "Unknown Company" }}{% endif %}</p>
       <p><strong>Date:</strong> {{ room.date | formatDate }}</p>
       <p><strong>Location:</strong> {{ room.location | formatLocation }}</p>
       {%- if room.timeLeft != null %}
       <p><strong>Time Left:</strong> {{ room.timeLeft | formatTimeLeft }}</p>
       {%- endif %}
       {%- if room.players and room.players.length > 0 %}
-      <p><strong>Players:</strong> {{ room.players | join(", ") }}</p>
+      <p><strong>Players:</strong> {% for player in room.players %}{{ player.name }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
       {%- endif %}
-      {%- if room.tags and room.tags.length > 0 %}
-      <p><strong>Tags:</strong> {% for tag in room.tags %}{{ tag | formatTagLabel }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      {%- if room.awards and room.awards.length > 0 %}
+      <p><strong>Awards:</strong> {% for award in room.awards %}{{ award.name }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      {%- endif %}
+      {%- if room.trips and room.trips.length > 0 %}
+      <p><strong>Trips:</strong> {% for trip in room.trips %}{{ trip.name }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      {%- endif %}
+      {%- if room.lists and room.lists.length > 0 %}
+      <p><strong>Lists:</strong> {% for list in room.lists %}{{ list.name }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      {%- endif %}
+      {%- if room.themes and room.themes.length > 0 %}
+      <p><strong>Themes:</strong> {% for theme in room.themes %}{{ theme.name }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
       {%- endif %}
       {%- if room.commentary %}
       <p>{{ room.commentary | e }}</p>

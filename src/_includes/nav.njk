@@ -5,6 +5,8 @@
     <ul class="nav-links">
       {% if page.url != "/" %}<li><a href="/" data-tinylytics-event="nav.home">Home</a></li>{% endif %}
       <li><a href="/list/"{% if page.url == "/list/" %} class="active"{% endif %} data-tinylytics-event="nav.rooms">Rooms</a></li>
+      <li><a href="/lists/"{% if page.url == "/lists/" or (page.url.startsWith("/list/") and page.url != "/list/") %} class="active"{% endif %} data-tinylytics-event="nav.lists">Lists</a></li>
+      <li><a href="/featured/"{% if page.url == "/featured/" or page.url.startsWith("/player/") or page.url.startsWith("/award/") or page.url.startsWith("/trip/") %} class="active"{% endif %} data-tinylytics-event="nav.featured">Featured</a></li>
       <li><a href="/scrapbook/"{% if page.url == "/scrapbook/" %} class="active"{% endif %} data-tinylytics-event="nav.scrapbook">Scrapbook</a></li>
       <li><a href="/map/"{% if page.url == "/map/" %} class="active"{% endif %} data-tinylytics-event="nav.map">Map</a></li>
       <li><a href="/stats/"{% if page.url == "/stats/" %} class="active"{% endif %} data-tinylytics-event="nav.stats">Stats</a></li>

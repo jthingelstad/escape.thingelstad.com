@@ -1,0 +1,268 @@
+{
+  "table": "Awards",
+  "syncedAt": "2026-03-19T20:21:42.173562+00:00",
+  "count": 8,
+  "records": [
+    {
+      "id": "rec6LAueH8JTJB7hY",
+      "createdTime": "2026-03-19T06:43:58.000Z",
+      "fields": {
+        "Name": "Europe 2026",
+        "Rooms": [
+          "rec0tsuiSuEyxaXMX",
+          "rec33iDver9l2s39y",
+          "rec4zecfSJ1FznQMB",
+          "recWpSyu5BjABRk9T",
+          "reca6bIeAIt6OxCx3",
+          "receASqfgMtmqSEHZ",
+          "reciuo9m2OZxXl4JT",
+          "recjFTVzz57eYe9IE",
+          "recqOzcN7BNq8EomV",
+          "recrCIDLym8KGALiH",
+          "recrQ7mSj8HrOoZJS"
+        ],
+        "Game (from Rooms)": [
+          "Revolt At The Lock",
+          "The Vanishing Act",
+          "The Alchemist",
+          "The Brewery",
+          "Botanist Manor",
+          "Molly's Game",
+          "Jurassic Escape Room",
+          "The Taxidermist",
+          "Londium",
+          "Galactic Mission",
+          "Zoltar Speaks"
+        ],
+        "Room Count": 11,
+        "Award ID": 5
+      }
+    },
+    {
+      "id": "recTdLQCuYidyt9i7",
+      "createdTime": "2026-03-19T06:43:58.000Z",
+      "fields": {
+        "Name": "Golden Lock",
+        "Rooms": [
+          "rec4zecfSJ1FznQMB",
+          "recHbYHiHv3kMBLfk",
+          "recHh5GHLbeLSs808",
+          "recRtLvjdXuPiqjbT",
+          "reca6bIeAIt6OxCx3",
+          "receASqfgMtmqSEHZ",
+          "recedfY1wMhA690Su",
+          "rechGJ5U1gn1Ajxrt",
+          "recjFTVzz57eYe9IE",
+          "recrQ7mSj8HrOoZJS"
+        ],
+        "Game (from Rooms)": [
+          "The Alchemist",
+          "The Dreamwalkers",
+          "Magnifico",
+          "Wardrobe for sale",
+          "Botanist Manor",
+          "Molly's Game",
+          "Lost Island of the Voodoo Queen",
+          "Birth Machine",
+          "The Taxidermist",
+          "Zoltar Speaks"
+        ],
+        "Room Count": 10,
+        "Award ID": 6
+      }
+    },
+    {
+      "id": "recTqxhLxeFybxaUL",
+      "createdTime": "2026-03-19T06:43:58.000Z",
+      "fields": {
+        "Name": "Favorite Things",
+        "Rooms": [
+          "rec53yK3nczTclkFC",
+          "recEShUIu5S7hQnsy",
+          "recHbYHiHv3kMBLfk",
+          "recHh5GHLbeLSs808",
+          "recNxduRu2bMUg67b",
+          "recRtLvjdXuPiqjbT",
+          "recVmPGqIoglZADoy",
+          "recZCQLiIYJrNwOjB",
+          "recZIiN1UtlynA6W3",
+          "recc91InhowyqKUUH",
+          "recedfIiVxCHDi7BF",
+          "recedfY1wMhA690Su",
+          "rechGJ5U1gn1Ajxrt",
+          "recjd6IKGMey6IF9M",
+          "recsgfeSuqNloH6yx",
+          "recxDMebB9vmosXqJ",
+          "recyjtLq35KklMMgc"
+        ],
+        "Game (from Rooms)": [
+          "Ruins: Forbidden Treasure",
+          "Deep Woods Cabin",
+          "The Dreamwalkers",
+          "Magnifico",
+          "Pirates of the Spanish Main",
+          "Wardrobe for sale",
+          "Timeliner: Train Through Time",
+          "A Very Potter Escape Room",
+          "Mindmaster Industries",
+          "Final Frontier",
+          "The Experiment",
+          "Lost Island of the Voodoo Queen",
+          "Birth Machine",
+          "The Founder's Secret",
+          "Evil Robot",
+          "The Museum",
+          "Crazy Train"
+        ],
+        "Room Count": 17,
+        "Award ID": 7
+      }
+    },
+    {
+      "id": "reclfTaRlgTsDo7FX",
+      "createdTime": "2026-03-19T06:43:58.000Z",
+      "fields": {
+        "Name": "Best of Morty",
+        "Rooms": [
+          "rec0tsuiSuEyxaXMX",
+          "rec4zecfSJ1FznQMB",
+          "recB2J7EL3m61TNLX",
+          "recHbYHiHv3kMBLfk",
+          "recHh5GHLbeLSs808",
+          "recWpSyu5BjABRk9T",
+          "reca6bIeAIt6OxCx3",
+          "receASqfgMtmqSEHZ",
+          "recedfY1wMhA690Su",
+          "recgisAgQMDN41H2P",
+          "rechGJ5U1gn1Ajxrt",
+          "reciuo9m2OZxXl4JT",
+          "recjFTVzz57eYe9IE",
+          "recqOzcN7BNq8EomV"
+        ],
+        "Game (from Rooms)": [
+          "Revolt At The Lock",
+          "The Alchemist",
+          "Screaming Metal",
+          "The Dreamwalkers",
+          "Magnifico",
+          "The Brewery",
+          "Botanist Manor",
+          "Molly's Game",
+          "Lost Island of the Voodoo Queen",
+          "Time Machine",
+          "Birth Machine",
+          "Jurassic Escape Room",
+          "The Taxidermist",
+          "Londium"
+        ],
+        "Room Count": 14,
+        "Award ID": 3
+      }
+    },
+    {
+      "id": "recnYxCpaeZa5iDEO",
+      "createdTime": "2026-03-19T06:43:58.000Z",
+      "fields": {
+        "Name": "TERPECA",
+        "Rooms": [
+          "rec0tsuiSuEyxaXMX",
+          "rec33iDver9l2s39y",
+          "rec4zecfSJ1FznQMB",
+          "recB2J7EL3m61TNLX",
+          "recGHzPOir2KjtOjc",
+          "recHbYHiHv3kMBLfk",
+          "recHh5GHLbeLSs808",
+          "recRtLvjdXuPiqjbT",
+          "recWpSyu5BjABRk9T",
+          "reca6bIeAIt6OxCx3",
+          "receASqfgMtmqSEHZ",
+          "recgisAgQMDN41H2P",
+          "rechGJ5U1gn1Ajxrt",
+          "reciuo9m2OZxXl4JT",
+          "recjFTVzz57eYe9IE",
+          "recjd6IKGMey6IF9M",
+          "recqOzcN7BNq8EomV",
+          "recrCIDLym8KGALiH",
+          "recrQ7mSj8HrOoZJS",
+          "recyjtLq35KklMMgc"
+        ],
+        "Game (from Rooms)": [
+          "Revolt At The Lock",
+          "The Vanishing Act",
+          "The Alchemist",
+          "Screaming Metal",
+          "2002: The Bovine Odyssey",
+          "The Dreamwalkers",
+          "Magnifico",
+          "Wardrobe for sale",
+          "The Brewery",
+          "Botanist Manor",
+          "Molly's Game",
+          "Time Machine",
+          "Birth Machine",
+          "Jurassic Escape Room",
+          "The Taxidermist",
+          "The Founder's Secret",
+          "Londium",
+          "Galactic Mission",
+          "Zoltar Speaks",
+          "Crazy Train"
+        ],
+        "Room Count": 20,
+        "Award ID": 4
+      }
+    },
+    {
+      "id": "recqW1FhNdF2gWDoV",
+      "createdTime": "2026-03-18T05:36:46.000Z",
+      "fields": {
+        "Name": "Best Things Twin Cities",
+        "Notes": "The best rooms in the Twin Cities according to us. ",
+        "Rooms": [
+          "recjd6IKGMey6IF9M"
+        ],
+        "Game (from Rooms)": [
+          "The Founder's Secret"
+        ],
+        "Room Count": 1,
+        "Featured": true,
+        "Award ID": 2
+      }
+    },
+    {
+      "id": "rectYC9lBU0Q6fYGI",
+      "createdTime": "2026-03-19T06:43:58.000Z",
+      "fields": {
+        "Name": "Canada 2025",
+        "Rooms": [
+          "recB2J7EL3m61TNLX",
+          "recGHzPOir2KjtOjc",
+          "recHbYHiHv3kMBLfk",
+          "recHh5GHLbeLSs808",
+          "recRtLvjdXuPiqjbT",
+          "recedfY1wMhA690Su"
+        ],
+        "Game (from Rooms)": [
+          "Screaming Metal",
+          "2002: The Bovine Odyssey",
+          "The Dreamwalkers",
+          "Magnifico",
+          "Wardrobe for sale",
+          "Lost Island of the Voodoo Queen"
+        ],
+        "Room Count": 6,
+        "Award ID": 8
+      }
+    },
+    {
+      "id": "recwnFwPeUGufayfp",
+      "createdTime": "2026-03-18T05:36:46.000Z",
+      "fields": {
+        "Name": "Best Things",
+        "Room Count": 0,
+        "Featured": true,
+        "Award ID": 1
+      }
+    }
+  ]
+}

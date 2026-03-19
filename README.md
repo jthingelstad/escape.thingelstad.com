@@ -6,12 +6,12 @@ The Thingelstad family's escape room journey — tracking every room, every win,
 
 ## What is this?
 
-A static website that catalogs our family's escape room adventures. Browse the full list, explore locations on a map, and dig into stats and charts.
+A static website that catalogs the family's escape room adventures with typed Airtable-backed data for rooms, players, awards, trips, themes, locations, companies, and experiences.
 
-- **100 rooms** across the US, Canada, UK, Iceland, Italy, Belgium, France, the Netherlands, and Spain
-- Interactive filterable list with search, tags, and player filters
-- Leaflet map with custom markers and clustering
-- Charts showing rooms per year, monthly trends, top companies, and escape times
+- **100 public rooms** across the US, Canada, UK, Iceland, Italy, Belgium, France, the Netherlands, and Spain
+- Interactive filterable list and map with typed facets for companies, players, awards, trips, and themes
+- Featured hub plus standalone featured pages for selected players, awards, and trips
+- Charts, room detail pages, and a scrapbook powered by a normalized site catalog
 
 ## Tech
 
@@ -23,7 +23,7 @@ Built with [Eleventy (11ty)](https://www.11ty.dev/) v3, plain CSS, and vanilla J
 - **Analytics:** Tinylytics
 - **Hosting:** GitHub Pages (deployed via GitHub Actions)
 
-All room data lives in `src/_data/rooms.json` and is synced from Airtable via `scripts/sync_airtable.py`.
+Raw Airtable snapshots live in `src/_data/airtable/*.json` and are synced via `scripts/sync_airtable.py`. Eleventy then builds a normalized catalog in `src/_data/catalog.js`.
 
 ## Development
 
@@ -31,7 +31,8 @@ All room data lives in `src/_data/rooms.json` and is synced from Airtable via `s
 npm install
 npm start       # http://localhost:8080 with live reload
 npm run build   # Production build to _site/
-npm run sync    # Refresh src/_data/rooms.json from Airtable
+npm run sync    # Refresh raw Airtable snapshots under src/_data/airtable/
+npm test        # Run catalog contract tests
 ```
 
 ## License

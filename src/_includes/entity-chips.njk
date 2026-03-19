@@ -1,0 +1,23 @@
+{% macro entityLinks(items, type, eventPrefix) %}
+  {% for item in items %}
+    <a
+      href="{{ item | entityUrl(type) }}"
+      class="{{ item | entityChipClass(type) }}"
+      data-tinylytics-event="{{ eventPrefix }}"
+      data-tinylytics-event-value="{{ item.name }}"
+    >
+      {{ item.name }}
+    </a>
+  {% endfor %}
+{% endmacro %}
+
+{% macro entityGroup(label, items, type, eventPrefix) %}
+  {% if items and items.length > 0 %}
+    <div class="entity-group entity-group-{{ type }}">
+      <div class="entity-group-label">{{ label }}</div>
+      <div class="entity-chip-row">
+        {{ entityLinks(items, type, eventPrefix) }}
+      </div>
+    </div>
+  {% endif %}
+{% endmacro %}

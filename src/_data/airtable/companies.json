@@ -1,0 +1,931 @@
+{
+  "table": "Companies",
+  "syncedAt": "2026-03-19T20:21:42.170497+00:00",
+  "count": 58,
+  "records": [
+    {
+      "id": "rec0Mh2XfDYRXjiYV",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Escape City",
+        "Company URL": "https://escapecity.ca/",
+        "Locations": [
+          "rec6TCyv7Tno1mFyy"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:44:07.000Z",
+        "Company ID": 16
+      }
+    },
+    {
+      "id": "rec1JkJ08ZZ8aoZQ3",
+      "createdTime": "2026-02-27T01:39:50.000Z",
+      "fields": {
+        "Company": "Deep Inside",
+        "Company URL": "https://deepinsideparis.fr/en/",
+        "Locations": [
+          "recW2WBOgyA41a9jK"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-27T01:39:50.000Z",
+        "Modified at": "2026-02-27T01:39:59.000Z",
+        "Company ID": 9
+      }
+    },
+    {
+      "id": "rec2DKPze0HHtzcaV",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Mad Machines",
+        "Company URL": "https://madmachines.it/",
+        "Locations": [
+          "rec6CH4peK601eA9I"
+        ],
+        "Location Count": 1,
+        "Room Count": 2,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:19:08.000Z",
+        "Company ID": 37
+      }
+    },
+    {
+      "id": "rec4rpkUCGZ3ZFh3Z",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Escape Room Alexandria",
+        "Company URL": "https://www.escapealexandria.com/",
+        "Locations": [
+          "rec7R2PCX3BydPejf"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:44:36.000Z",
+        "Company ID": 21
+      }
+    },
+    {
+      "id": "rec5dOTiEHvayv7hW",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Zero Hour Escape Rooms",
+        "Company URL": "https://minneapolis.zerohourescaperooms.com/",
+        "Locations": [
+          "recKpYtmxxN3RcwlW",
+          "rechxuvE3gWvHLDFn",
+          "recJnmkukSVz0tQxu"
+        ],
+        "Location Count": 3,
+        "Room Count": 3,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:17:47.000Z",
+        "Company ID": 58
+      }
+    },
+    {
+      "id": "rec6hHJygkxGRsb1o",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Clue Pursuit",
+        "Locations": [
+          "reck3WMbFFQZfVJMv"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:43:18.000Z",
+        "Company ID": 5
+      }
+    },
+    {
+      "id": "rec7IjP4tcwWDmmPz",
+      "createdTime": "2026-02-27T01:26:30.000Z",
+      "fields": {
+        "Company": "Escape Rush",
+        "Locations": [
+          "recJNnv8lbI3hmcgZ"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-27T01:26:30.000Z",
+        "Modified at": "2026-02-27T01:26:30.000Z",
+        "Company ID": 23
+      }
+    },
+    {
+      "id": "rec9nC1z3hpq76DlT",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Cryptex Branson Escape Rooms",
+        "Locations": [
+          "recsr35Ty2VXFdTcu"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:43:34.000Z",
+        "Company ID": 7
+      }
+    },
+    {
+      "id": "recEWcNqf0FZgEagC",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Tick Tock Escape Rooms",
+        "Company URL": "https://ticktockescaperoom.com",
+        "Locations": [
+          "reccAU6q2IKxF41f5"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-24T21:01:59.000Z",
+        "Company ID": 53
+      }
+    },
+    {
+      "id": "recFSmkIes4pr9ili",
+      "createdTime": "2026-02-27T01:45:35.000Z",
+      "fields": {
+        "Company": "Golden Pop",
+        "Company URL": "https://goldenpop.es",
+        "Locations": [
+          "rec6KyeYgwy3ZMOEr"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-27T01:45:35.000Z",
+        "Modified at": "2026-02-27T01:46:01.000Z",
+        "Company ID": 29
+      }
+    },
+    {
+      "id": "recGAM2Ek819Dbbw2",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Puzzled Escape Rooms",
+        "Company URL": "https://puzzledescaperooms.com/",
+        "Locations": [
+          "reclm2krHkNPweij2"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:19:25.000Z",
+        "Company ID": 44
+      }
+    },
+    {
+      "id": "recGEx6X0fQNa2pwX",
+      "createdTime": "2026-02-27T01:32:38.000Z",
+      "fields": {
+        "Company": "Lock Academy",
+        "Locations": [
+          "rec0ugHLMNt3uzAiN"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-27T01:32:38.000Z",
+        "Modified at": "2026-02-27T01:34:51.000Z",
+        "Company ID": 35
+      }
+    },
+    {
+      "id": "recIz5bD29XloAotG",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Breakout ND",
+        "Company URL": "https://www.breakoutnd.com/",
+        "Locations": [
+          "recN2RQ7ANokrn7Lt"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:43:08.000Z",
+        "Company ID": 3
+      }
+    },
+    {
+      "id": "recJgmSJsha6Ltbfi",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Timescape",
+        "Company URL": "https://timescapegames.com/",
+        "Locations": [
+          "recNBD44sUFEg2xDC"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:18:13.000Z",
+        "Company ID": 54
+      }
+    },
+    {
+      "id": "recKUcIw022SpTG8A",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Escape in Time",
+        "Company URL": "https://www.escapeintimemadison.com/",
+        "Locations": [
+          "recH6sJNi7seHQUav"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:44:20.000Z",
+        "Company ID": 19
+      }
+    },
+    {
+      "id": "recKdiJobxFPpYN2Q",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Enigma Adventures",
+        "Company URL": "https://enigmaadventures.com/",
+        "Locations": [
+          "recisZaA0PB51Zy3A",
+          "recmoILM3NTdpzq2h"
+        ],
+        "Location Count": 2,
+        "Room Count": 2,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:43:51.000Z",
+        "Company ID": 11
+      }
+    },
+    {
+      "id": "recLinCxZoQk8dQDt",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Exit Escape Room NYC",
+        "Company URL": "https://www.exitescaperoomnyc.com/",
+        "Locations": [
+          "rec8fX9wbwBhUN6GF"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:18:43.000Z",
+        "Company ID": 27
+      }
+    },
+    {
+      "id": "recMV3vVaVgpBvkOb",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Grand Haven Room Escape",
+        "Locations": [
+          "recAQrb2SFJbGcptj"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:18:48.000Z",
+        "Company ID": 30
+      }
+    },
+    {
+      "id": "recNehjQ0oubPAUKM",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Maine Escape Games",
+        "Company URL": "https://web.archive.org/web/20160320072900/http://maineescapegames.com/",
+        "Locations": [
+          "recK9rs2oGsPQ33Qz"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:19:11.000Z",
+        "Company ID": 38
+      }
+    },
+    {
+      "id": "recNvBcwlFGNAHudh",
+      "createdTime": "2026-02-27T01:24:09.000Z",
+      "fields": {
+        "Company": "Escape World",
+        "Locations": [
+          "rec7NNJtNg9TcGiDu"
+        ],
+        "Location Count": 1,
+        "Room Count": 2,
+        "Created at": "2026-02-27T01:24:09.000Z",
+        "Modified at": "2026-02-27T01:24:09.000Z",
+        "Company ID": 25
+      }
+    },
+    {
+      "id": "recPF0vBbfbe3UM6I",
+      "createdTime": "2026-02-24T00:45:05.000Z",
+      "fields": {
+        "Company": "The Lodge of Lazarus Crowe",
+        "Company URL": "https://lazaruslodge.com/",
+        "Locations": [
+          "recsYpExMUo04h60I"
+        ],
+        "Location Count": 1,
+        "Room Count": 2,
+        "Created at": "2026-02-24T00:45:05.000Z",
+        "Modified at": "2026-02-24T00:46:38.000Z",
+        "Company ID": 52
+      }
+    },
+    {
+      "id": "recQoXVuN7zSM9Sbk",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Trapped Puzzle Rooms",
+        "Company URL": "https://www.trappedpuzzlerooms.com/",
+        "Locations": [
+          "rec8VnKmeWl1dsuxt",
+          "rec1dCg9ctL0yaIm3",
+          "rec5S3wmOUtzRWtyc"
+        ],
+        "Location Count": 3,
+        "Room Count": 11,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:17:59.000Z",
+        "Company ID": 55
+      }
+    },
+    {
+      "id": "recRMJmiTzWmpPtdc",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Solve Escape Rooms",
+        "Company URL": "https://solveescaperooms.com/",
+        "Locations": [
+          "recGDPIH1ZH1HIKS6"
+        ],
+        "Location Count": 1,
+        "Room Count": 2,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:18:16.000Z",
+        "Company ID": 49
+      }
+    },
+    {
+      "id": "recS1Fth1J36JXhIB",
+      "createdTime": "2026-02-27T01:37:25.000Z",
+      "fields": {
+        "Company": "Majestic Escape Game",
+        "Company URL": "https://majestic-escapegame.paris/",
+        "Locations": [
+          "recuUJJtiLHwkFB95"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-27T01:37:25.000Z",
+        "Modified at": "2026-02-27T01:37:40.000Z",
+        "Company ID": 39
+      }
+    },
+    {
+      "id": "recSgEcHQeFAHeLbs",
+      "createdTime": "2026-02-27T01:30:22.000Z",
+      "fields": {
+        "Company": "The Escape Cafe",
+        "Locations": [
+          "recntJKYJaunybnCP"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-27T01:30:22.000Z",
+        "Modified at": "2026-02-27T01:30:23.000Z",
+        "Company ID": 50
+      }
+    },
+    {
+      "id": "recT5VEasHiBEs7PJ",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Lock & Key Escape Rooms",
+        "Company URL": "https://lockandkeyescape.com/",
+        "Locations": [
+          "recxgdIw1xYr1rOHl"
+        ],
+        "Location Count": 1,
+        "Room Count": 2,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:19:05.000Z",
+        "Company ID": 34
+      }
+    },
+    {
+      "id": "recTTHTaIaLPfbq5m",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Missing Pieces Escape Games",
+        "Company URL": "https://www.missingpiecesmn.com/",
+        "Locations": [
+          "rec6cKz2v3iwntKlh"
+        ],
+        "Location Count": 1,
+        "Room Count": 5,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:19:13.000Z",
+        "Company ID": 40
+      }
+    },
+    {
+      "id": "recUIlM3M9uSWyMF1",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "60 to Escape",
+        "Company URL": "https://www.62escape.com/",
+        "Locations": [
+          "recNIhjhHCjMvDlx1",
+          "recyElQwqupvOmTOt"
+        ],
+        "Location Count": 2,
+        "Room Count": 2,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:42:50.000Z",
+        "Company ID": 1
+      }
+    },
+    {
+      "id": "recVEukaY7BrnoJET",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Escape Artists KC",
+        "Locations": [
+          "recBm8Blbym4HsFAG"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:44:03.000Z",
+        "Company ID": 15
+      }
+    },
+    {
+      "id": "recVuIL5fQPeXNF88",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Escape MSP",
+        "Locations": [
+          "recxk2LfQWcB53ENY",
+          "recrReMJcDqvsZngy"
+        ],
+        "Location Count": 2,
+        "Room Count": 2,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:44:32.000Z",
+        "Company ID": 20
+      }
+    },
+    {
+      "id": "recWkb9pOBfivW18B",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Copper Cat Escape",
+        "Company URL": "https://www.coppercatescape.com/",
+        "Locations": [
+          "rec5ZJXo9ACsmhh7Q"
+        ],
+        "Location Count": 1,
+        "Room Count": 2,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:43:22.000Z",
+        "Company ID": 6
+      }
+    },
+    {
+      "id": "recX9eiTnNd4ANHdR",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Escape Room Palm Springs",
+        "Company URL": "https://escapeps.com/",
+        "Locations": [
+          "recYAYT6uKu8OQHfw"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:17:14.000Z",
+        "Company ID": 22
+      }
+    },
+    {
+      "id": "recYTqXqNajstet2y",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Twisted Room Escapes",
+        "Company URL": "https://www.twistedroomescapes.com/",
+        "Locations": [
+          "recpIbzvK8SIfnX1k"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:17:54.000Z",
+        "Company ID": 56
+      }
+    },
+    {
+      "id": "recYn2yRt1djriOOV",
+      "createdTime": "2026-02-24T01:40:11.000Z",
+      "fields": {
+        "Company": "Untold Stories Experiences",
+        "Company URL": "https://ustories.nl/en/home-en/",
+        "Locations": [
+          "recW8IfIVIy25aJwl"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-24T01:40:11.000Z",
+        "Modified at": "2026-02-24T16:51:57.000Z",
+        "Company ID": 57
+      }
+    },
+    {
+      "id": "recZK3jmOf4cMngfa",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Fox in a Box",
+        "Locations": [
+          "reclnnh7XZeschPro"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-24T17:02:22.000Z",
+        "Company ID": 28
+      }
+    },
+    {
+      "id": "recZYQC18wkg0laZP",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Kato Escape",
+        "Locations": [
+          "recxuAEOfQDvuLrES"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:18:59.000Z",
+        "Company ID": 33
+      }
+    },
+    {
+      "id": "recaqH6D2pXSa7YFz",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "The Escape Game",
+        "Company URL": "https://theescapegame.com/",
+        "Locations": [
+          "recebLkRdmi6LJAD9",
+          "recBtF8umqrSdPAXW",
+          "recM90KRdnXVdQGOC",
+          "recDMY1tA75EPfCL9",
+          "recfQ571MDa01pD40"
+        ],
+        "Location Count": 5,
+        "Room Count": 7,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-27T02:00:42.000Z",
+        "Company ID": 51
+      }
+    },
+    {
+      "id": "reccLCoyLG850h4c1",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Puzzleworks",
+        "Company URL": "https://www.puzzle.works/",
+        "Locations": [
+          "recaGpV8pgyK5Csg9",
+          "recwavLHj8JcOgT7t"
+        ],
+        "Location Count": 2,
+        "Room Count": 6,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:18:29.000Z",
+        "Company ID": 45
+      }
+    },
+    {
+      "id": "reccP0b9bEXrnMOLU",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "D.O.A. Escape Rooms",
+        "Company URL": "https://www.doaroomescape.com/",
+        "Locations": [
+          "rec3teww1R2GhguRJ"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:43:38.000Z",
+        "Company ID": 8
+      }
+    },
+    {
+      "id": "recemExFMPMXsd3NA",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Escapology",
+        "Company URL": "https://www.escapology.com/",
+        "Locations": [
+          "recqZ6Jw90HF09W8m"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:17:27.000Z",
+        "Company ID": 26
+      }
+    },
+    {
+      "id": "reciGGLNkgA8AKfRV",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Reykjavik Escape",
+        "Company URL": "https://www.reykjavikescape.is/",
+        "Locations": [
+          "recAXjkRXZIBtJcVQ"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:18:22.000Z",
+        "Company ID": 47
+      }
+    },
+    {
+      "id": "reciHFm406pRztYpO",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Escape the Room",
+        "Locations": [
+          "recsgGAUhghwzQNz0"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:17:21.000Z",
+        "Company ID": 24
+      }
+    },
+    {
+      "id": "recj1rMcmNoIDMcqg",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Escape Code",
+        "Company URL": "https://www.escapecode.tv/",
+        "Locations": [
+          "rec5KZ7jR3JoUhION"
+        ],
+        "Location Count": 1,
+        "Room Count": 2,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:44:10.000Z",
+        "Company ID": 17
+      }
+    },
+    {
+      "id": "reckF9ZRJgFOBAZJy",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Greatest Caper",
+        "Company URL": "https://thegreatestcaper.com/",
+        "Locations": [
+          "recs5LSrArbY3NqPe"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:18:51.000Z",
+        "Company ID": 31
+      }
+    },
+    {
+      "id": "reckMAf60Vvnf8jqi",
+      "createdTime": "2026-02-24T01:38:41.000Z",
+      "fields": {
+        "Company": "Sherlocked",
+        "Company URL": "https://www.sherlocked.nl",
+        "Locations": [
+          "recYSVPrnvS9Lv7jo"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-24T01:38:41.000Z",
+        "Modified at": "2026-02-24T16:50:25.000Z",
+        "Company ID": 48
+      }
+    },
+    {
+      "id": "reckj3S2mur8Q2cbT",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Doldrick’s Escape Room",
+        "Company URL": "https://www.doldricksescaperoom.com/",
+        "Locations": [
+          "recy6Ai1mGgLVG3gt"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:43:42.000Z",
+        "Company ID": 10
+      }
+    },
+    {
+      "id": "recmaaqIIiuzIzyIg",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Nemesis Club",
+        "Company URL": "https://thenemesisclub.com/",
+        "Locations": [
+          "recQBZLX6oR2mpMTc"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:18:37.000Z",
+        "Company ID": 42
+      }
+    },
+    {
+      "id": "recneYVd8zX6DmX5O",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Escape Frenzy",
+        "Locations": [
+          "recAVjW9IFy5yObKO"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:44:15.000Z",
+        "Company ID": 18
+      }
+    },
+    {
+      "id": "reco0DNzUNl4oQULn",
+      "createdTime": "2026-02-27T01:49:07.000Z",
+      "fields": {
+        "Company": "Londium",
+        "Locations": [
+          "recLe886CQELS95cV"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-27T01:49:07.000Z",
+        "Modified at": "2026-02-27T01:49:07.000Z",
+        "Company ID": 36
+      }
+    },
+    {
+      "id": "recq47lCAAjZmUcRk",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "No Esc Puzzle Collective",
+        "Company URL": "https://no-esc.com/",
+        "Locations": [
+          "rec4kprzefRewTegO"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:19:22.000Z",
+        "Company ID": 43
+      }
+    },
+    {
+      "id": "recqYdwqT1ZYKaWtu",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Escaparium",
+        "Company URL": "https://www.escaparium.ca/",
+        "Locations": [
+          "recqLBPReU9PULqvp"
+        ],
+        "Location Count": 1,
+        "Room Count": 3,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:44:00.000Z",
+        "Company ID": 14
+      }
+    },
+    {
+      "id": "recsPfg2oa5k4amjr",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Itasca Historical Society",
+        "Company URL": "https://www.grescaperooms.com/",
+        "Locations": [
+          "recaeHuToCcnr9rt2"
+        ],
+        "Location Count": 1,
+        "Room Count": 3,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:18:56.000Z",
+        "Company ID": 32
+      }
+    },
+    {
+      "id": "recsg8B2IT5rbWfM8",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Mission Manor",
+        "Company URL": "https://www.missionmanor.com/",
+        "Locations": [
+          "recOPpAJYfs6ibRgH"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:19:16.000Z",
+        "Company ID": 41
+      }
+    },
+    {
+      "id": "rectjvmnQQO08oMh8",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Cabinet Mysteriis",
+        "Company URL": "https://cabinetmysteriis.ca/",
+        "Locations": [
+          "recSnM39h6a1QtoJ6"
+        ],
+        "Location Count": 1,
+        "Room Count": 3,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:43:13.000Z",
+        "Company ID": 4
+      }
+    },
+    {
+      "id": "rectvHHXzpxt67ULO",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Enigma Escape Rooms",
+        "Company URL": "https://enigmabuffalo.com/",
+        "Locations": [
+          "recfNqgESCa81ccUx"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:43:55.000Z",
+        "Company ID": 12
+      }
+    },
+    {
+      "id": "recuKSXTETjChDPg4",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Red Herring Escape Room",
+        "Locations": [
+          "recXbWYecr2rc7FVI"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T23:18:33.000Z",
+        "Company ID": 46
+      }
+    },
+    {
+      "id": "recwFLBpa2OaXGpnN",
+      "createdTime": "2026-02-23T19:22:36.000Z",
+      "fields": {
+        "Company": "Breakout Games",
+        "Company URL": "https://breakoutgames.com/",
+        "Locations": [
+          "rec8G7IPsJvx5JjVK"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-23T19:22:36.000Z",
+        "Modified at": "2026-02-23T20:42:47.000Z",
+        "Company ID": 2
+      }
+    },
+    {
+      "id": "recx8AB8VuUHTc6Od",
+      "createdTime": "2026-02-27T01:43:13.000Z",
+      "fields": {
+        "Company": "Enigmik",
+        "Locations": [
+          "recJ1RA8HY9IncnFz"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-02-27T01:43:13.000Z",
+        "Modified at": "2026-02-27T01:43:31.000Z",
+        "Company ID": 13
+      }
+    }
+  ]
+}

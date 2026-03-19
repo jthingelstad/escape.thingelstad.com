@@ -1,0 +1,85 @@
+---
+pagination:
+  data: listPages
+  size: 1
+  alias: list
+  addAllPagesToCollections: true
+permalink: /list/{{ list.slug }}/
+---
+{% extends "base.njk" %}
+
+{% block pageTitle %}{{ list.name }} — List{% endblock %}
+{% block metaDescription %}{{ list.name }} list with curated escape room picks and notes.{% endblock %}
+
+{% block content %}
+  <main class="container page-content featured-detail-page">
+    <section class="featured-detail-hero">
+      <div class="feature-tile-kicker">List</div>
+      <h1>{{ list.name }}</h1>
+      {% if list.notes %}
+      <p class="featured-detail-copy">{{ list.notes }}</p>
+      {% endif %}
+      <div class="featured-detail-stats">
+        <div class="stat-item"><span class="stat-number">{{ list.roomCount }}</span><div class="stat-label">Rooms</div></div>
+        <div class="stat-item"><span class="stat-number">{{ list.countries.length }}</span><div class="stat-label">Countries</div></div>
+        {% if list.player %}
+        <div class="stat-item"><span class="stat-number">{{ list.player.name }}</span><div class="stat-label">Player</div></div>
+        {% elif list.trip %}
+        <div class="stat-item"><span class="stat-number">{{ list.trip.name }}</span><div class="stat-label">Trip</div></div>
+        {% endif %}
+      </div>
+      <div class="section-link-row">
+        <a href="/list/?list={{ list.slug | queryValue }}" class="room-link" data-tinylytics-event="list-page.view-filter" data-tinylytics-event-value="{{ list.name }}">Open Filtered Room View &rarr;</a>
+      </div>
+    </section>
+
+    {% if list.player or list.trip %}
+    <section class="featured-detail-meta">
+      <div class="section-header">
+        <h2>Attached To</h2>
+      </div>
+      <div class="entity-chip-row">
+        {% if list.player %}
+        <a href="{{ list.player | entityUrl('player') }}" class="{{ list.player | entityChipClass('player') }}" data-tinylytics-event="list-page.player" data-tinylytics-event-value="{{ list.player.name }}">{{ list.player.name }}</a>
+        {% endif %}
+        {% if list.trip %}
+        <a href="{{ list.trip | entityUrl('trip') }}" class="{{ list.trip | entityChipClass('trip') }}" data-tinylytics-event="list-page.trip" data-tinylytics-event-value="{{ list.trip.name }}">{{ list.trip.name }}</a>
+        {% endif %}
+      </div>
+    </section>
+    {% endif %}
+
+    <section>
+      <div class="section-header">
+        <h2>Rooms</h2>
+      </div>
+      {% if list.entries.length > 0 %}
+      <div class="list-entry-stack">
+        {% from "room-card.njk" import roomCard %}
+        {% for entry in list.entries %}
+        <article class="list-entry-card">
+          <div class="list-entry-rank">#{{ entry.order if entry.order != null else loop.index }}</div>
+          <div class="list-entry-body">
+            {{ roomCard(entry.room, { showRatingSummary: true }) }}
+            {% if entry.notes %}
+            <div class="list-entry-note">{{ entry.notes }}</div>
+            {% endif %}
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="empty-state-card">
+        <p>No public rooms are attached to this list yet.</p>
+      </div>
+      {% endif %}
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script type="module">
+    import { initNav } from '{{ '/js/data.js' | cacheBust }}';
+    initNav();
+  </script>
+{% endblock %}

@@ -31,6 +31,6 @@ showFooter: false
 {% block scripts %}
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-  <script id="map-rooms-data" type="application/json">{{ mapRooms | dump | safe }}</script>
+  <script id="room-index-data" type="application/json">{{ roomIndex | dump | safe }}</script>
   <script type="module" src="{{ '/js/map.js' | cacheBust }}"></script>
 {% endblock %}

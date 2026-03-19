@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npx @11ty/eleventy --serve",
     "build": "npx @11ty/eleventy",
-    "sync": "python3 scripts/sync_airtable.py"
+    "sync": "python3 scripts/sync_airtable.py",
+    "test": "node --test"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   "license": "CC-BY-SA-4.0",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "html-minifier-terser": "^7.2.0"
+    "html-minifier-terser": "^7.2.0",
+    "jsdom": "^29.0.0"
   }
 }

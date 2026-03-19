@@ -21,6 +21,39 @@ bodyClass: page-home
       </div>
     </section>
 
+    <section class="featured-entities-section">
+      <div class="section-header">
+        <h2>Featured Paths</h2>
+        <p>Trips, awards, and players with their own story on the site.</p>
+      </div>
+      <div class="featured-entity-grid">
+        {% for trip in catalog.featured.trips %}
+          <a href="{{ trip | entityUrl('trip') }}" class="feature-tile feature-tile-trip" data-tinylytics-event="home.featured-trip" data-tinylytics-event-value="{{ trip.name }}">
+            <div class="feature-tile-kicker">Trip</div>
+            <h3>{{ trip.name }}</h3>
+            <p>{{ trip.roomCount }} room{{ '' if trip.roomCount == 1 else 's' }}</p>
+          </a>
+        {% endfor %}
+        {% for award in catalog.featured.awards %}
+          <a href="{{ award | entityUrl('award') }}" class="feature-tile feature-tile-award" data-tinylytics-event="home.featured-award" data-tinylytics-event-value="{{ award.name }}">
+            <div class="feature-tile-kicker">Award</div>
+            <h3>{{ award.name }}</h3>
+            <p>{{ award.roomCount }} room{{ '' if award.roomCount == 1 else 's' }}</p>
+          </a>
+        {% endfor %}
+        {% for player in catalog.featured.players %}
+          <a href="{{ player | entityUrl('player') }}" class="feature-tile feature-tile-player" data-tinylytics-event="home.featured-player" data-tinylytics-event-value="{{ player.name }}">
+            <div class="feature-tile-kicker">Player</div>
+            <h3>{{ player.name }}</h3>
+            <p>{{ player.roomCount }} room{{ '' if player.roomCount == 1 else 's' }}</p>
+          </a>
+        {% endfor %}
+      </div>
+      <div class="section-link-row">
+        <a href="/featured/" class="room-link" data-tinylytics-event="home.view-featured">Browse All Featured &rarr;</a>
+      </div>
+    </section>
+
     {% if stats.recentCompleted and stats.recentCompleted.length > 0 %}
     <section id="recent-rooms">
       <div class="section-header">
@@ -62,22 +95,20 @@ bodyClass: page-home
         <a href="/list/" class="trail-card" data-tinylytics-event="card.trail-rooms">
           <img class="trail-icon" src="/images/puzzle.svg" alt="Puzzle icon">
           <h3>Browse All Rooms</h3>
-          <p>Filter and sort every room by company, year, players, and more.</p>
+          <p>Filter by typed facets like awards, trips, themes, companies, and players.</p>
+        </a>
+        <a href="/featured/" class="trail-card" data-tinylytics-event="card.trail-featured">
+          <img class="trail-icon" src="/images/lock.svg" alt="Lock icon">
+          <h3>Follow Featured Stories</h3>
+          <p>See the standout trips, awards, and players that deserve their own pages.</p>
         </a>
         <a href="/scrapbook/" class="trail-card" data-tinylytics-event="card.trail-scrapbook">
           <img class="trail-icon" src="/images/camera.svg" alt="Camera icon">
           <h3>Flip Through Photos</h3>
           <p>Our room photos scattered like polaroids on a table.</p>
         </a>
-        <a href="/stats/" class="trail-card" data-tinylytics-event="card.trail-stats">
-          <img class="trail-icon" src="/images/lock.svg" alt="Lock icon">
-          <h3>See the Stats</h3>
-          <p>Charts and numbers behind our escape room obsession.</p>
-        </a>
       </div>
     </section>
-
-
   </main>
 {% endblock %}
 

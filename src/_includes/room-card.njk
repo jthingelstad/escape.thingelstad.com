@@ -1,70 +1,101 @@
 {#
   Room card macro — server-side rendered card linking to detail page
-  Usage: {{ roomCard(room, { featured: true, compact: false }) }}
+  Usage: {{ roomCard(room, { showRatingSummary: true }) }}
 #}
 {% macro roomCard(room, options) %}
-{% set featured = options.featured if options else false %}
-{% set compact = options.compact if options else false %}
 {% set showRatingSummary = options.showRatingSummary if options else false %}
-<a href="/room/{{ room | roomSlug }}/" class="room-card-link" data-tinylytics-event="card.view-room" data-tinylytics-event-value="{{ room.game }}">
-<div class="room-card{{ ' featured' if featured }}" id="{{ room.airtableId }}" data-id="{{ room.id }}" data-game="{{ room.game | lower }}" data-company="{{ room.company | lower }}" data-date="{{ room.date }}" data-city="{{ room.location.city | lower if room.location and room.location.city else '' }}" data-status="{{ room.status }}" data-tags="{{ room.tags | join(',') if room.tags else '' }}" data-players="{{ room.players | join(',') if room.players else '' }}" data-country="{{ room.location.country if room.location and room.location.country else '' }}" data-search="{{ room.game }} {{ room.company }} {{ room.location.city if room.location and room.location.city else '' }} {{ room.commentary if room.commentary else '' }} {{ room.notes if room.notes else '' }}">
-  {% if room.photo %}
-    <div class="room-card-thumb">
-      <img src="/images/rooms/{{ room.photo }}" alt="" loading="lazy">
-    </div>
-  {% endif %}
-  <div class="room-card-header">
-    <div class="room-card-title">
-      <span class="room-number">#{{ room.id }}</span>
-      <h3>{{ room.game }}</h3>
-    </div>
-    <span class="status-indicator">
-      {% if room.status == "Escaped" %}
-        <span class="status-badge status-escaped">✓ Escaped</span>
-      {% elif room.status == "Try again" %}
-        <span class="status-badge status-try-again">✗ Try Again</span>
-      {% elif room.status == "Completed" %}
-        <span class="status-badge status-completed">✓ Completed</span>
-      {% elif room.status == "Scheduled" %}
-        <span class="status-badge status-scheduled">Scheduled</span>
-      {% endif %}
-    </span>
-  </div>
-  <div class="room-card-meta">
-    <span class="company">{{ room.company }}</span>
-    <span class="date"><span class="meta-icon">📅</span> {{ room.date | formatDate }}</span>
-    {% set loc = room.location | formatLocation %}
-    {% if loc %}
-      <span class="location"><span class="meta-icon">📍</span> {{ loc }}</span>
+<div class="room-card{{ ' listed' if room.lists and room.lists.length > 0 }}" id="{{ room.airtableId }}" data-room-id="{{ room.id }}">
+  <a href="{{ room | roomPath }}" class="room-card-link" data-tinylytics-event="card.view-room" data-tinylytics-event-value="{{ room.game }}">
+    {% if room.photo %}
+      <div class="room-card-thumb">
+        <img src="/images/rooms/{{ room.photo }}" alt="" loading="lazy">
+      </div>
     {% endif %}
-    {% if room.timeLeft != null %}
-      <span class="time-left"><span class="meta-icon">⏱</span> {{ room.timeLeft | formatTimeLeft }}</span>
+    <div class="room-card-header">
+      <div class="room-card-title">
+        <span class="room-number">#{{ room.id }}</span>
+        <h3>{{ room.game }}</h3>
+      </div>
+      <span class="status-indicator">
+        {% if room.status == "Escaped" %}
+          <span class="status-badge status-escaped">✓ Escaped</span>
+        {% elif room.status == "Try again" %}
+          <span class="status-badge status-try-again">✗ Try Again</span>
+        {% elif room.status == "Completed" %}
+          <span class="status-badge status-completed">✓ Completed</span>
+        {% elif room.status == "Scheduled" %}
+          <span class="status-badge status-scheduled">Scheduled</span>
+        {% endif %}
+      </span>
+    </div>
+    <div class="room-card-meta">
+      <span class="company">{{ room.company.name if room.company else 'Unknown Company' }}</span>
+      <span class="date"><span class="meta-icon">📅</span> {{ room.date | formatDate }}</span>
+      {% set loc = room.location | formatLocation %}
+      {% if loc %}
+        <span class="location"><span class="meta-icon">📍</span> {{ loc }}</span>
+      {% endif %}
+      {% if room.timeLeft != null %}
+        <span class="time-left"><span class="meta-icon">⏱</span> {{ room.timeLeft | formatTimeLeft }}</span>
+      {% endif %}
+    </div>
+    {% if room.players and room.players.length > 0 %}
+      <div class="room-card-players"><span class="meta-icon">👥</span> {% for player in room.players %}{{ player.name }}{% if not loop.last %}, {% endif %}{% endfor %}</div>
     {% endif %}
-  </div>
-  {% if room.players and room.players.length > 0 %}
-    <div class="room-card-players"><span class="meta-icon">👥</span> {{ room.players | join(', ') }}</div>
-  {% endif %}
-  {% if showRatingSummary and room.ratingSummary and room.ratingSummary.count > 0 %}
-    <div class="room-card-ratings">
-      {% if room.ratingSummary.average != null %}
-        <span class="room-rating-pill room-rating-pill-score">{{ room.ratingSummary.average | formatRating }}/5</span>
-      {% endif %}
-      <span class="room-rating-pill">{{ room.ratingSummary.count }} rating{{ '' if room.ratingSummary.count == 1 else 's' }}</span>
-      {% if room.ratingSummary.bestThingsCount > 0 %}
-        <span class="room-rating-pill room-rating-pill-best">{{ room.ratingSummary.bestThingsCount }} favorite vote{{ '' if room.ratingSummary.bestThingsCount == 1 else 's' }}</span>
-      {% endif %}
-    </div>
-  {% endif %}
-  {% if room.tags and room.tags.length > 0 %}
-    <div class="room-card-tags">
-      {% for tag in room.tags %}
-        <span class="tag tag-{{ tag | classifyTag }}" data-tag="{{ tag }}">{{ tag | formatTagLabel }}</span>
-      {% endfor %}
-    </div>
-  {% endif %}
+    {% if showRatingSummary and room.ratingSummary and room.ratingSummary.count > 0 %}
+      <div class="room-card-ratings">
+        {% if room.ratingSummary.average != null %}
+          <span class="room-rating-pill room-rating-pill-score">{{ room.ratingSummary.average | formatRating }}/5</span>
+        {% endif %}
+        <span class="room-rating-pill">{{ room.ratingSummary.count }} rating{{ '' if room.ratingSummary.count == 1 else 's' }}</span>
+        {% if room.ratingSummary.bestThingsCount > 0 %}
+          <span class="room-rating-pill room-rating-pill-best">{{ room.ratingSummary.bestThingsCount }} favorite vote{{ '' if room.ratingSummary.bestThingsCount == 1 else 's' }}</span>
+        {% endif %}
+      </div>
+    {% endif %}
+    {% if room.awards and room.awards.length > 0 %}
+      <div class="entity-group entity-group-award">
+        <div class="entity-group-label">Awards</div>
+        <div class="entity-chip-row">
+          {% for award in room.awards %}
+            <span class="{{ award | entityChipClass('award') }}">{{ award.name }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+    {% if room.trips and room.trips.length > 0 %}
+      <div class="entity-group entity-group-trip">
+        <div class="entity-group-label">Trips</div>
+        <div class="entity-chip-row">
+          {% for trip in room.trips %}
+            <span class="{{ trip | entityChipClass('trip') }}">{{ trip.name }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+    {% if room.lists and room.lists.length > 0 %}
+      <div class="entity-group entity-group-list">
+        <div class="entity-group-label">Lists</div>
+        <div class="entity-chip-row">
+          {% for list in room.lists %}
+            <span class="{{ list | entityChipClass('list') }}">{{ list.name }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+    {% if room.themes and room.themes.length > 0 %}
+      <div class="entity-group entity-group-theme">
+        <div class="entity-group-label">Themes</div>
+        <div class="entity-chip-row">
+          {% for theme in room.themes %}
+            <span class="{{ theme | entityChipClass('theme') }}">{{ theme.name }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </a>
   <div class="room-card-footer">
     <button class="tinylytics_kudos room-kudos" data-path="/room/{{ room.airtableId }}"></button>
   </div>
 </div>
-</a>
 {% endmacro %}

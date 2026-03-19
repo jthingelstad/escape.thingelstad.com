@@ -2,14 +2,19 @@ const htmlmin = require("html-minifier-terser");
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const { roomSlug, slugify } = require("./lib/catalog");
+
+function featuredEntityUrl(type, entity) {
+  return `/${type}/${encodeURIComponent(entity.slug)}/`;
+}
+
+function listFilterUrl(type, entity) {
+  return `/list/?${encodeURIComponent(type)}=${encodeURIComponent(entity.slug)}`;
+}
 
 module.exports = function(eleventyConfig) {
-  const isBestTag = (tag) => tag === "best" || tag === "Favorite Things";
-  const isTerpecaTag = (tag) => tag === "TERPECA" || tag.startsWith("terpeca-");
-  const isTripTag = (tag) => /^[A-Za-z][A-Za-z ]+\d{4}$/.test(tag) || /^[a-z]+-\d{4}$/.test(tag);
-
-  // Cache-busting: compute content hash for static assets
   const assetHashes = {};
+
   eleventyConfig.addFilter("cacheBust", (url) => {
     if (assetHashes[url]) return `${url}?v=${assetHashes[url]}`;
     const filePath = path.join(__dirname, "src", url);
@@ -23,7 +28,6 @@ module.exports = function(eleventyConfig) {
     }
   });
 
-  // HTML minification in production
   eleventyConfig.addTransform("htmlmin", async function(content) {
     if ((this.page.outputPath || "").endsWith(".html")) {
       return await htmlmin.minify(content, {
@@ -37,89 +41,81 @@ module.exports = function(eleventyConfig) {
     return content;
   });
 
-  // Passthrough copy — static assets
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
 
-  // --- Nunjucks Filters ---
-
-  // Generate room URL slug: "86-loose-sleuth"
   eleventyConfig.addFilter("roomSlug", (room) => {
-    if (!room || !room.id || !room.game) return '';
-    const slug = room.game
-      .toLowerCase()
-      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '');
-    return `${room.id}-${slug}`;
+    if (!room) return "";
+    if (room.slug) return room.slug;
+    if (!room.id || !room.game) return "";
+    return roomSlug(room.id, room.game);
   });
 
-  // Format ISO date string to "August 2, 2025"
+  eleventyConfig.addFilter("roomPath", (room) => {
+    const slug = room?.slug || (room?.id && room?.game ? roomSlug(room.id, room.game) : "");
+    return slug ? `/room/${slug}/` : "/";
+  });
+
   eleventyConfig.addFilter("formatDate", (dateStr) => {
-    if (!dateStr) return '';
-    const [year, month, day] = dateStr.split('-').map(Number);
+    if (!dateStr) return "";
+    const [year, month, day] = dateStr.split("-").map(Number);
     const date = new Date(year, month - 1, day);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
     });
   });
 
-  // Format location object to "City, Region, Country"
   eleventyConfig.addFilter("formatLocation", (loc) => {
-    if (!loc) return '';
+    if (!loc) return "";
     const parts = [];
     if (loc.city) parts.push(loc.city);
     if (loc.region) parts.push(loc.region);
     if (loc.country) parts.push(loc.country);
-    return parts.join(', ');
+    return parts.join(", ");
   });
 
-  // Classify tag for CSS class
-  eleventyConfig.addFilter("classifyTag", (tag) => {
-    if (isBestTag(tag)) return 'best';
-    if (isTerpecaTag(tag)) return 'terpeca';
-    if (tag === 'online') return 'online';
-    if (isTripTag(tag)) return 'trip';
-    return 'default';
-  });
-
-  // Format timeLeft (minutes remaining) to "Xm Ys left" or "Xm Ys over"
   eleventyConfig.addFilter("formatTimeLeft", (val) => {
-    if (val == null) return '';
+    if (val == null) return "";
     const abs = Math.abs(val);
     const mins = Math.floor(abs);
     const secs = Math.round((abs - mins) * 60);
-    const suffix = val < 0 ? 'over' : 'left';
+    const suffix = val < 0 ? "over" : "left";
     return `${mins}m ${secs}s ${suffix}`;
   });
 
-  // Format tag for display label
-  eleventyConfig.addFilter("formatTagLabel", (tag) => {
-    if (tag === 'best') return '\u2605 Best';
-    if (tag === 'Favorite Things') return '\u2605 Favorite Things';
-    if (tag === 'TERPECA') return 'TERPECA';
-    if (tag.startsWith('terpeca-')) return 'TERPECA ' + tag.split('-')[1];
-    if (tag === 'online') return 'Online';
-    if (/^[A-Za-z][A-Za-z ]+\d{4}$/.test(tag)) return tag;
-    if (/^[a-z]+-\d{4}$/.test(tag)) {
-      const parts = tag.split('-');
-      return parts[0].charAt(0).toUpperCase() + parts[0].slice(1) + ' ' + parts[1];
-    }
-    return tag;
-  });
-
-  // Format a numeric rating for display.
   eleventyConfig.addFilter("formatRating", (value) => {
-    if (value == null || value === '') return '';
+    if (value == null || value === "") return "";
     const num = Number(value);
-    if (Number.isNaN(num)) return '';
+    if (Number.isNaN(num)) return "";
     return Number.isInteger(num) ? String(num) : num.toFixed(1);
   });
+
+  eleventyConfig.addFilter("slugify", (value) => slugify(value));
+
+  eleventyConfig.addFilter("entityUrl", (entity, type) => {
+    if (!entity || !type) return "/list/";
+    if (type === "theme") return listFilterUrl(type, entity);
+    if (type === "list") return featuredEntityUrl(type, entity);
+    return entity.featured ? featuredEntityUrl(type, entity) : listFilterUrl(type, entity);
+  });
+
+  eleventyConfig.addFilter("entityFilterUrl", (entity, type) => {
+    if (!entity || !type) return "/list/";
+    return listFilterUrl(type, entity);
+  });
+
+  eleventyConfig.addFilter("entityChipClass", (entity, type) => {
+    const classes = [`entity-chip`, `entity-chip-${type}`];
+    if (entity?.featured) classes.push("entity-chip-featured");
+    return classes.join(" ");
+  });
+
+  eleventyConfig.addFilter("queryValue", (value) => encodeURIComponent(value || ""));
 
   return {
     dir: {

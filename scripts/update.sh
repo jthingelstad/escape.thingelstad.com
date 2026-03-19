@@ -19,7 +19,7 @@ fi
 
 echo ""
 echo "==> Committing changes..."
-git add src/_data/rooms.json src/images/rooms/
+git add src/_data/airtable/ src/images/rooms/
 git commit -m "Update room data."
 
 echo ""

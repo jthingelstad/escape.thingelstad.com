@@ -10,6 +10,7 @@ permalink: /list/
     <section>
       <div class="section-header">
         <h2>All Rooms</h2>
+        <p>Filter by the main room dimensions: company, location, player, award, trip, list, theme, and more.</p>
       </div>
 
       <div class="filter-bar">
@@ -30,28 +31,27 @@ permalink: /list/
       <div class="results-count" id="results-count"></div>
       <div class="room-grid" id="room-list">
         {% from "room-card.njk" import roomCard %}
-        {% for room in rooms.rooms | reverse %}
+        {% for room in catalog.rooms | reverse %}
           {{ roomCard(room, { showRatingSummary: true }) }}
         {% endfor %}
       </div>
     </section>
-
   </main>
 {% endblock %}
 
 {% block scripts %}
   <script>
-    // Redirect old /list/#airtableId URLs to new slug-based room pages
     (function() {
       var hash = window.location.hash.slice(1);
       if (hash && hash.startsWith('rec')) {
         var card = document.getElementById(hash);
         if (card) {
-          var link = card.closest('a');
+          var link = card.querySelector('.room-card-link');
           if (link) { window.location.replace(link.href); return; }
         }
       }
     })();
   </script>
+  <script id="room-index-data" type="application/json">{{ roomIndex | dump | safe }}</script>
   <script type="module" src="{{ '/js/list.js' | cacheBust }}"></script>
 {% endblock %}

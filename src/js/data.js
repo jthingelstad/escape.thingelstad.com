@@ -1,6 +1,10 @@
 export function escapeHtml(str) {
   if (!str) return '';
-  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
 export function formatDate(dateStr) {
@@ -23,53 +27,49 @@ export function formatLocation(location) {
   return parts.join(', ');
 }
 
-function isBestTag(tag) {
-  return tag === 'best' || tag === 'Favorite Things';
+export function formatTimeLeft(value) {
+  if (value == null) return '';
+  const abs = Math.abs(value);
+  const mins = Math.floor(abs);
+  const secs = Math.round((abs - mins) * 60);
+  const suffix = value < 0 ? 'over' : 'left';
+  return `${mins}m ${secs}s ${suffix}`;
 }
 
-function isTerpecaTag(tag) {
-  return tag === 'TERPECA' || tag.startsWith('terpeca-');
+export function roomUrl(room) {
+  if (room.slug) return `/room/${room.slug}/`;
+  const slug = String(room.game || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  return `/room/${room.id}-${slug}/`;
 }
 
-function isTripTag(tag) {
-  return /^[A-Za-z][A-Za-z ]+\d{4}$/.test(tag) || /^[a-z]+-\d{4}$/.test(tag);
+export function featuredEntityUrl(type, entity) {
+  return `/${type}/${encodeURIComponent(entity.slug)}/`;
 }
 
-export function isFeaturedRoom(room) {
-  return (room.tags || []).some(isBestTag);
+export function entityFilterUrl(type, entity) {
+  return `/list/?${encodeURIComponent(type)}=${encodeURIComponent(entity.slug)}`;
 }
 
-function classifyTag(tag) {
-  if (isBestTag(tag)) return 'best';
-  if (isTerpecaTag(tag)) return 'terpeca';
-  if (tag === 'online') return 'online';
-  if (isTripTag(tag)) return 'trip';
-  return 'default';
+export function entityUrl(type, entity) {
+  if (!entity) return '/list/';
+  if (type === 'theme') return entityFilterUrl(type, entity);
+  if (type === 'list') return featuredEntityUrl(type, entity);
+  return entity.featured ? featuredEntityUrl(type, entity) : entityFilterUrl(type, entity);
 }
 
-function formatTagLabel(tag) {
-  if (tag === 'best') return '\u2605 Best';
-  if (tag === 'Favorite Things') return '\u2605 Favorite Things';
-  if (tag === 'TERPECA') return 'TERPECA';
-  if (tag.startsWith('terpeca-')) {
-    const year = tag.replace('terpeca-', '');
-    return 'TERPECA ' + year;
-  }
-  if (tag === 'online') return 'Online';
-  if (/^[A-Za-z][A-Za-z ]+\d{4}$/.test(tag)) {
-    return tag;
-  }
-  if (/^[a-z]+-\d{4}$/.test(tag)) {
-    const [location, year] = tag.split('-');
-    return location.charAt(0).toUpperCase() + location.slice(1) + ' ' + year;
-  }
-  return tag;
+function entityChipClass(type, entity) {
+  const classes = [`entity-chip`, `entity-chip-${type}`];
+  if (entity.featured) classes.push('entity-chip-featured');
+  return classes.join(' ');
 }
 
-export function renderTag(tag) {
-  const type = classifyTag(tag);
-  const label = formatTagLabel(tag);
-  return `<span class="tag tag-${type}" data-tag="${escapeHtml(tag)}">${escapeHtml(label)}</span>`;
+export function renderEntityChip(type, entity) {
+  return `<a href="${entityUrl(type, entity)}" class="${entityChipClass(type, entity)}">${escapeHtml(entity.name)}</a>`;
 }
 
 export function statusBadgeHtml(status) {
@@ -87,52 +87,162 @@ export function statusBadgeHtml(status) {
   }
 }
 
-export function formatTimeLeft(val) {
-  if (val == null) return '';
-  const abs = Math.abs(val);
-  const mins = Math.floor(abs);
-  const secs = Math.round((abs - mins) * 60);
-  const suffix = val < 0 ? 'over' : 'left';
-  return `${mins}m ${secs}s ${suffix}`;
+export const FILTER_FIELDS = [
+  { key: 'company', elementId: 'filter-company', label: 'Company' },
+  { key: 'location', elementId: 'filter-location', label: 'Location' },
+  { key: 'player', elementId: 'filter-player', label: 'Player' },
+  { key: 'award', elementId: 'filter-award', label: 'Award' },
+  { key: 'trip', elementId: 'filter-trip', label: 'Trip' },
+  { key: 'list', elementId: 'filter-list', label: 'List' },
+  { key: 'theme', elementId: 'filter-theme', label: 'Theme' },
+  { key: 'country', elementId: 'filter-country', label: 'Country' },
+  { key: 'year', elementId: 'filter-year', label: 'Year' },
+  { key: 'status', elementId: 'filter-status', label: 'Status', emptyValue: 'all' }
+];
+
+function createDefaultFilters() {
+  return {
+    q: '',
+    year: '',
+    status: 'all',
+    country: '',
+    company: '',
+    location: '',
+    player: '',
+    award: '',
+    trip: '',
+    list: '',
+    theme: ''
+  };
 }
 
-// Room URL slug: "86-loose-sleuth"
-export function roomUrl(room) {
-  const slug = room.game
-    .toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-  return `/room/${room.id}-${slug}/`;
+function getFilterControl(field) {
+  return document.getElementById(field.elementId);
 }
 
-// URL filter helpers
 export function getFilterParams() {
   const params = new URLSearchParams(window.location.search);
-  return {
-    q: params.get('q') || '',
-    tag: params.get('tag') || '',
-    year: params.get('year') || '',
-    status: params.get('status') || 'all',
-    country: params.get('country') || '',
-    player: params.get('player') || ''
-  };
+  const filters = createDefaultFilters();
+  filters.q = params.get('q') || '';
+  FILTER_FIELDS.forEach((field) => {
+    filters[field.key] = params.get(field.key) || field.emptyValue || '';
+  });
+  return filters;
 }
 
 export function setFilterParams(filters) {
   const params = new URLSearchParams();
   if (filters.q) params.set('q', filters.q);
-  if (filters.tag) params.set('tag', filters.tag);
   if (filters.year) params.set('year', filters.year);
   if (filters.status && filters.status !== 'all') params.set('status', filters.status);
   if (filters.country) params.set('country', filters.country);
+  if (filters.company) params.set('company', filters.company);
   if (filters.player) params.set('player', filters.player);
+  if (filters.award) params.set('award', filters.award);
+  if (filters.trip) params.set('trip', filters.trip);
+  if (filters.list) params.set('list', filters.list);
+  if (filters.theme) params.set('theme', filters.theme);
+  if (filters.location) params.set('location', filters.location);
   const search = params.toString();
-  const url = window.location.pathname + (search ? '?' + search : '');
+  const url = window.location.pathname + (search ? `?${search}` : '');
   history.replaceState(null, '', url);
 }
 
-// Nav toggle
+export function applyFiltersToControls(filters) {
+  const searchInput = document.getElementById('filter-search');
+  if (searchInput) searchInput.value = filters.q || '';
+
+  FILTER_FIELDS.forEach((field) => {
+    const control = getFilterControl(field);
+    if (!control) return;
+    control.value = filters[field.key] || field.emptyValue || '';
+  });
+}
+
+export function readFiltersFromControls() {
+  const filters = createDefaultFilters();
+  const searchInput = document.getElementById('filter-search');
+  filters.q = searchInput ? searchInput.value.trim() : '';
+
+  FILTER_FIELDS.forEach((field) => {
+    const control = getFilterControl(field);
+    if (!control) return;
+    filters[field.key] = control.value || field.emptyValue || '';
+  });
+
+  return filters;
+}
+
+export function clearFilterControls() {
+  const searchInput = document.getElementById('filter-search');
+  if (searchInput) searchInput.value = '';
+
+  FILTER_FIELDS.forEach((field) => {
+    const control = getFilterControl(field);
+    if (control) control.value = field.emptyValue || '';
+  });
+}
+
+export function bindFilterControls(onChange, options = {}) {
+  const { searchDebounce = 200 } = options;
+  const searchInput = document.getElementById('filter-search');
+
+  if (searchInput) {
+    let searchTimeout;
+    searchInput.addEventListener('input', () => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(onChange, searchDebounce);
+    });
+  }
+
+  FILTER_FIELDS.forEach((field) => {
+    const control = getFilterControl(field);
+    if (control) control.addEventListener('change', onChange);
+  });
+
+  const clearButton = document.getElementById('clear-filters');
+  if (clearButton) {
+    clearButton.addEventListener('click', () => {
+      clearFilterControls();
+      onChange();
+    });
+  }
+}
+
+export function hasActiveFilters(filters) {
+  if (filters.q) return true;
+  return FILTER_FIELDS.some((field) => {
+    const emptyValue = field.emptyValue || '';
+    return filters[field.key] && filters[field.key] !== emptyValue;
+  });
+}
+
+export function getSelectedFilterLabel(key) {
+  const field = FILTER_FIELDS.find((entry) => entry.key === key);
+  if (!field) return '';
+
+  const control = getFilterControl(field);
+  return control?.options[control.selectedIndex]?.textContent || '';
+}
+
+export function roomMatchesFilters(room, filters) {
+  if (filters.q) {
+    const searchText = (room.searchText || '').toLowerCase();
+    if (!searchText.includes(filters.q.toLowerCase())) return false;
+  }
+  if (filters.company && room.company?.slug !== filters.company) return false;
+  if (filters.location && room.location?.slug !== filters.location) return false;
+  if (filters.player && !(room.players || []).some((player) => player.slug === filters.player)) return false;
+  if (filters.award && !(room.awards || []).some((award) => award.slug === filters.award)) return false;
+  if (filters.trip && !(room.trips || []).some((trip) => trip.slug === filters.trip)) return false;
+  if (filters.list && !(room.lists || []).some((list) => list.slug === filters.list)) return false;
+  if (filters.theme && !(room.themes || []).some((theme) => theme.slug === filters.theme)) return false;
+  if (filters.country && room.location?.country !== filters.country) return false;
+  if (filters.year && (!room.date || room.date.substring(0, 4) !== filters.year)) return false;
+  if (filters.status && filters.status !== 'all' && room.status !== filters.status) return false;
+  return true;
+}
+
 export function initNav() {
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');

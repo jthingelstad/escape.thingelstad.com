@@ -1,0 +1,127 @@
+---
+pagination:
+  data: tripPages
+  size: 1
+  alias: trip
+  addAllPagesToCollections: true
+permalink: /trip/{{ trip.slug }}/
+---
+{% extends "base.njk" %}
+
+{% block pageTitle %}{{ trip.name }} — Featured Trip{% endblock %}
+{% block metaDescription %}Featured trip page for {{ trip.name }} with the rooms and places attached to it.{% endblock %}
+
+{% block head %}
+  {% if trip.mapStops.length > 0 %}
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <main class="container page-content featured-detail-page">
+    <section class="featured-detail-hero">
+      <div class="feature-tile-kicker">Featured Trip</div>
+      <h1>{{ trip.name }}</h1>
+      <div class="featured-detail-stats">
+        <div class="stat-item"><span class="stat-number">{{ trip.roomCount }}</span><div class="stat-label">Rooms</div></div>
+        <div class="stat-item"><span class="stat-number">{{ trip.countries.length }}</span><div class="stat-label">Countries</div></div>
+        <div class="stat-item"><span class="stat-number">{{ trip.cities.length }}</span><div class="stat-label">Cities</div></div>
+      </div>
+      {% if trip.firstDate and trip.lastDate %}
+      <p class="featured-detail-copy">{{ trip.firstDate | formatDate }} to {{ trip.lastDate | formatDate }}</p>
+      {% endif %}
+      <div class="section-link-row">
+        <a href="/list/?trip={{ trip.slug | queryValue }}" class="room-link" data-tinylytics-event="trip.view-filter" data-tinylytics-event-value="{{ trip.name }}">Open Filtered List &rarr;</a>
+      </div>
+    </section>
+
+    {% if trip.routeStops.length > 0 %}
+    <section class="trip-route-section">
+      <div class="section-header">
+        <h2>Route</h2>
+        <p>The trip in room order, with each stop marked on the map.</p>
+      </div>
+      {% if trip.mapStops.length > 0 %}
+      <div class="trip-map-container" id="trip-map"></div>
+      {% endif %}
+      <div class="trip-route-stop-list">
+        {% for stop in trip.routeStops %}
+        <article class="trip-route-stop">
+          <div class="trip-route-stop-number">{{ stop.sequence }}</div>
+          <div class="trip-route-stop-body">
+            <div class="trip-route-stop-meta">{{ stop.room.date | formatDate }}</div>
+            <h3><a href="{{ stop.room | roomPath }}" data-tinylytics-event="trip.route-room" data-tinylytics-event-value="{{ stop.room.game }}">#{{ stop.room.id }} {{ stop.room.game }}</a></h3>
+            <p>
+              {% if stop.room.company %}{{ stop.room.company.name }}{% endif %}
+              {% if stop.room.location %} • {{ stop.room.location | formatLocation }}{% endif %}
+            </p>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if trip.countries.length > 0 %}
+    <section class="featured-detail-meta">
+      <div class="section-header">
+        <h2>Places</h2>
+      </div>
+      <div class="entity-chip-row">
+        {% for country in trip.countries %}
+          <span class="entity-chip entity-chip-trip">{{ country }}</span>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if trip.lists.length > 0 %}
+    <section>
+      <div class="section-header">
+        <h2>Lists</h2>
+      </div>
+      <div class="list-summary-grid">
+        {% for list in trip.lists %}
+        <a href="{{ list | entityUrl('list') }}" class="list-summary-card" data-tinylytics-event="trip.list" data-tinylytics-event-value="{{ list.name }}">
+          <div class="feature-tile-kicker">List</div>
+          <h3>{{ list.name }}</h3>
+          <p>{{ list.roomCount }} room{{ '' if list.roomCount == 1 else 's' }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    <section>
+      <div class="section-header">
+        <h2>Rooms</h2>
+      </div>
+      {% if trip.rooms.length > 0 %}
+      <div class="room-grid">
+        {% from "room-card.njk" import roomCard %}
+        {% for room in trip.rooms %}
+          {{ roomCard(room, { showRatingSummary: true }) }}
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="empty-state-card">
+        <p>No public rooms are attached to this featured trip yet.</p>
+      </div>
+      {% endif %}
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  {% if trip.mapStops.length == 0 %}
+  <script type="module">
+    import { initNav } from '{{ '/js/data.js' | cacheBust }}';
+    initNav();
+  </script>
+  {% endif %}
+  {% if trip.mapStops.length > 0 %}
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script id="trip-map-data" type="application/json">{{ trip.mapStops | dump | safe }}</script>
+  <script type="module" src="{{ '/js/trip.js' | cacheBust }}"></script>
+  {% endif %}
+{% endblock %}

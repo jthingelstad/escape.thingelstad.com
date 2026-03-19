@@ -1,0 +1,74 @@
+{
+  "table": "Trips",
+  "syncedAt": "2026-03-19T20:21:42.173753+00:00",
+  "count": 2,
+  "records": [
+    {
+      "id": "recJqpVCHFrsjb8iR",
+      "createdTime": "2026-03-18T05:37:19.000Z",
+      "fields": {
+        "Name": "Escape in Europe",
+        "Rooms": [
+          "rec33iDver9l2s39y",
+          "receASqfgMtmqSEHZ",
+          "recFsAH2073sxvJvL",
+          "recqOzcN7BNq8EomV",
+          "reciuo9m2OZxXl4JT",
+          "recWpSyu5BjABRk9T",
+          "recjFTVzz57eYe9IE",
+          "recrCIDLym8KGALiH",
+          "rec0tsuiSuEyxaXMX",
+          "recrQ7mSj8HrOoZJS",
+          "rec4zecfSJ1FznQMB",
+          "reca6bIeAIt6OxCx3"
+        ],
+        "Game (from Rooms)": [
+          "The Vanishing Act",
+          "Molly's Game",
+          "The Midnight Express",
+          "Londium",
+          "Jurassic Escape Room",
+          "The Brewery",
+          "The Taxidermist",
+          "Galactic Mission",
+          "Revolt At The Lock",
+          "Zoltar Speaks",
+          "The Alchemist",
+          "Botanist Manor"
+        ],
+        "Room Count": 12,
+        "Featured": true,
+        "Lists": [
+          "recfSbUCFg9HAUgV3"
+        ],
+        "Trip ID": 1
+      }
+    },
+    {
+      "id": "recLsdUC1oSFFcetc",
+      "createdTime": "2026-03-18T08:42:34.000Z",
+      "fields": {
+        "Name": "QMSB",
+        "Rooms": [
+          "recHbYHiHv3kMBLfk",
+          "recGHzPOir2KjtOjc",
+          "recB2J7EL3m61TNLX",
+          "recHh5GHLbeLSs808",
+          "recedfY1wMhA690Su",
+          "recRtLvjdXuPiqjbT"
+        ],
+        "Game (from Rooms)": [
+          "The Dreamwalkers",
+          "2002: The Bovine Odyssey",
+          "Screaming Metal",
+          "Magnifico",
+          "Lost Island of the Voodoo Queen",
+          "Wardrobe for sale"
+        ],
+        "Room Count": 6,
+        "Featured": true,
+        "Trip ID": 2
+      }
+    }
+  ]
+}

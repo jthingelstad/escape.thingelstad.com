@@ -10,9 +10,7 @@ const chartColors = {
   cyan: '#2de2ff',
   gray: '#9a97a8',
   text: '#9a97a8',
-  textMuted: '#5c5a6b',
-  grid: 'rgba(255, 255, 255, 0.05)',
-  cardBg: '#111827'
+  grid: 'rgba(255, 255, 255, 0.05)'
 };
 
 const defaultChartOptions = {
@@ -38,6 +36,34 @@ const defaultChartOptions = {
   }
 };
 
+function horizontalBarOptions() {
+  return {
+    ...defaultChartOptions,
+    indexAxis: 'y',
+    plugins: {
+      ...defaultChartOptions.plugins,
+      legend: { display: false }
+    },
+    scales: {
+      x: {
+        ...defaultChartOptions.scales.x,
+        beginAtZero: true,
+        ticks: {
+          ...defaultChartOptions.scales.x.ticks,
+          stepSize: 1
+        }
+      },
+      y: {
+        ...defaultChartOptions.scales.y,
+        ticks: {
+          ...defaultChartOptions.scales.y.ticks,
+          autoSkip: false
+        }
+      }
+    }
+  };
+}
+
 function init() {
   initNav();
   const data = JSON.parse(document.getElementById('chart-data').textContent);
@@ -45,7 +71,7 @@ function init() {
   renderMonthlyDistribution(data.monthly);
   renderStateChart(data.states);
   renderCountryChart(data.countries);
-  renderCompanyChart(data.companies);
+  renderPlayerChart(data.players);
   renderTimeLeftChart(data.timeLeft);
 }
 
@@ -140,39 +166,15 @@ function renderStateChart(data) {
   new Chart(document.getElementById('chart-states'), {
     type: 'bar',
     data: {
-      labels: data.map(d => d.label),
+      labels: data.map((entry) => entry.label),
       datasets: [{
         label: 'Rooms',
-        data: data.map(d => d.count),
+        data: data.map((entry) => entry.count),
         backgroundColor: chartColors.purple,
         borderRadius: 3
       }]
     },
-    options: {
-      ...defaultChartOptions,
-      indexAxis: 'y',
-      plugins: {
-        ...defaultChartOptions.plugins,
-        legend: { display: false }
-      },
-      scales: {
-        x: {
-          ...defaultChartOptions.scales.x,
-          beginAtZero: true,
-          ticks: {
-            ...defaultChartOptions.scales.x.ticks,
-            stepSize: 1
-          }
-        },
-        y: {
-          ...defaultChartOptions.scales.y,
-          ticks: {
-            ...defaultChartOptions.scales.y.ticks,
-            autoSkip: false
-          }
-        }
-      }
-    }
+    options: horizontalBarOptions()
   });
 }
 
@@ -180,79 +182,31 @@ function renderCountryChart(data) {
   new Chart(document.getElementById('chart-countries'), {
     type: 'bar',
     data: {
-      labels: data.map(d => d.label),
+      labels: data.map((entry) => entry.label),
       datasets: [{
         label: 'Rooms',
-        data: data.map(d => d.count),
+        data: data.map((entry) => entry.count),
         backgroundColor: chartColors.teal,
         borderRadius: 3
       }]
     },
-    options: {
-      ...defaultChartOptions,
-      indexAxis: 'y',
-      plugins: {
-        ...defaultChartOptions.plugins,
-        legend: { display: false }
-      },
-      scales: {
-        x: {
-          ...defaultChartOptions.scales.x,
-          beginAtZero: true,
-          ticks: {
-            ...defaultChartOptions.scales.x.ticks,
-            stepSize: 1
-          }
-        },
-        y: {
-          ...defaultChartOptions.scales.y,
-          ticks: {
-            ...defaultChartOptions.scales.y.ticks,
-            autoSkip: false
-          }
-        }
-      }
-    }
+    options: horizontalBarOptions()
   });
 }
 
-function renderCompanyChart(data) {
-  new Chart(document.getElementById('chart-companies'), {
+function renderPlayerChart(data) {
+  new Chart(document.getElementById('chart-players'), {
     type: 'bar',
     data: {
-      labels: data.map(d => d.label),
+      labels: data.map((entry) => entry.label),
       datasets: [{
         label: 'Rooms',
-        data: data.map(d => d.count),
+        data: data.map((entry) => entry.count),
         backgroundColor: chartColors.gold,
         borderRadius: 3
       }]
     },
-    options: {
-      ...defaultChartOptions,
-      indexAxis: 'y',
-      plugins: {
-        ...defaultChartOptions.plugins,
-        legend: { display: false }
-      },
-      scales: {
-        x: {
-          ...defaultChartOptions.scales.x,
-          beginAtZero: true,
-          ticks: {
-            ...defaultChartOptions.scales.x.ticks,
-            stepSize: 1
-          }
-        },
-        y: {
-          ...defaultChartOptions.scales.y,
-          ticks: {
-            ...defaultChartOptions.scales.y.ticks,
-            autoSkip: false
-          }
-        }
-      }
-    }
+    options: horizontalBarOptions()
   });
 }
 
@@ -282,19 +236,18 @@ function createStripedPattern(color) {
 
 function renderTimeLeftChart(data) {
   const chartCanvas = document.getElementById('chart-times');
-  const chartCtx = chartCanvas.getContext('2d');
   const stripedRed = createStripedPattern(chartColors.red);
 
   new Chart(chartCanvas, {
     type: 'bar',
     data: {
-      labels: data.map(d => d.x),
+      labels: data.map((entry) => entry.x),
       datasets: [{
         label: 'Time Left (min)',
-        data: data.map(d => d.y),
-        backgroundColor: data.map(d => {
-          if (d.clamped) return stripedRed;
-          return d.y >= 0 ? chartColors.teal : chartColors.red;
+        data: data.map((entry) => entry.y),
+        backgroundColor: data.map((entry) => {
+          if (entry.clamped) return stripedRed;
+          return entry.y >= 0 ? chartColors.teal : chartColors.red;
         }),
         borderRadius: 3
       }]
@@ -320,27 +273,8 @@ function renderTimeLeftChart(data) {
         },
         y: {
           ...defaultChartOptions.scales.y,
-          title: {
-            display: true,
-            text: 'Minutes Left',
-            color: chartColors.text
-          }
+          suggestedMin: -10
         }
-      },
-      plugins: {
-        ...defaultChartOptions.plugins,
-        tooltip: {
-          callbacks: {
-            label: (ctx) => {
-              const point = data[ctx.dataIndex];
-              const abs = Math.abs(point.raw).toFixed(1);
-              return point.raw >= 0
-                ? `${point.label}: ${abs} min left`
-                : `${point.label}: ${abs} min over`;
-            }
-          }
-        },
-        legend: { display: false }
       }
     }
   });
