@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "generatedAt": "2026-03-19T22:55:16.156Z",
+    "model": "gpt-4o-mini"
+  },
+  "home": {
+    "summary": "This archive captures 94 escape room adventures across seven countries and 16 regions, with a wealth of shared experiences and insights from the community over 11 years."
+  },
+  "featured": {
+    "summary": "Explore two standout trips—Escape in Europe and QMSB—along with notable awards like Best Things and Best Things Twin Cities, featuring contributions from Jamie, Mazie, Tammy, and Tyler."
+  },
+  "players": {
+    "jamie": {
+      "intro": "Jamie navigates rooms with a systems mindset, leading the group with a keen sense for puzzle structure and flow."
+    },
+    "mazie": {
+      "intro": "Mazie energizes the team with her intuition and keen pattern recognition, often discovering the connections that unlock progress."
+    },
+    "tammy": {
+      "intro": "Tammy keeps the team coordinated and focused, skillfully tracking clues and ensuring efficient collaboration."
+    },
+    "tyler": {
+      "intro": "Tyler brings a detail-oriented and methodical approach to puzzles, making steady progress with disciplined execution."
+    }
+  },
+  "awards": {
+    "best-things": {
+      "intro": "This award represents our take on the standout rooms that have captured our hearts."
+    },
+    "best-things-twin-cities": {
+      "intro": "Recognizing the top experiences in the Twin Cities, based on our collective adventures."
+    }
+  },
+  "trips": {
+    "escape-in-europe": {
+      "intro": "A memorable journey from the Netherlands to Spain, exploring rich themes and puzzles across cities like Amsterdam and Barcelona.",
+      "routeSummary": "Starting in Voorburg, the route winds through Utrecht and Brussels, before making stops in Paris and Barcelona."
+    },
+    "qmsb": {
+      "intro": "An exciting Canadian lineup that spans Laval and Quebec City, featuring rooms rich in narrative and challenge.",
+      "routeSummary": "Beginning in Quebec City, the run progresses to Laval, culminating in a variety of distinct gaming experiences."
+    }
+  },
+  "lists": {
+    "1-jamie-s-escape-in-europe-favorites": {
+      "intro": "A personal selection of favorite rooms from Jamie's European travels, showcasing the standout experiences encountered along the adventure."
+    }
+  }
+}

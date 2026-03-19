@@ -1,0 +1,68 @@
+:root {
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-display: 'Newsreader', serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --color-page: #f4efe5;
+  --color-page-alt: #ede5d7;
+  --color-panel: #fbf8f2;
+  --color-panel-strong: #f7f1e7;
+  --color-panel-dark: #20303b;
+  --color-panel-dark-muted: #2b3f4d;
+
+  --color-text: #28231d;
+  --color-text-soft: #5f594f;
+  --color-text-muted: #82796d;
+  --color-text-on-dark: #f8f3ec;
+
+  --color-line: rgba(52, 44, 35, 0.14);
+  --color-line-strong: rgba(52, 44, 35, 0.22);
+  --color-line-dark: rgba(255, 255, 255, 0.18);
+
+  --color-rust: #9b5134;
+  --color-rust-soft: #f0dfd3;
+  --color-forest: #2f5a47;
+  --color-forest-soft: #dfeadf;
+  --color-slate: #46606c;
+  --color-slate-soft: #dde7ec;
+  --color-gold: #98723b;
+  --color-gold-soft: #f1e6d2;
+  --color-rose: #8a4d55;
+  --color-rose-soft: #f3dfe2;
+
+  --color-success: #2f6a50;
+  --color-success-soft: #dcebdd;
+  --color-danger: #8e463e;
+  --color-danger-soft: #f2dedd;
+  --color-scheduled: #425f7a;
+  --color-scheduled-soft: #dde6ef;
+  --color-complete: #665f70;
+  --color-complete-soft: #e5e0eb;
+
+  --shadow-sm: 0 1px 2px rgba(30, 23, 17, 0.06);
+  --shadow-md: 0 10px 24px rgba(30, 23, 17, 0.08);
+  --shadow-lg: 0 24px 48px rgba(30, 23, 17, 0.12);
+
+  --radius-sm: 0.45rem;
+  --radius-md: 0.9rem;
+  --radius-lg: 1.3rem;
+  --radius-xl: 1.8rem;
+
+  --container-width: 1180px;
+  --reading-width: 760px;
+  --page-padding: clamp(1rem, 2vw, 1.6rem);
+
+  --space-1: 0.3rem;
+  --space-2: 0.55rem;
+  --space-3: 0.8rem;
+  --space-4: 1rem;
+  --space-5: 1.35rem;
+  --space-6: 1.75rem;
+  --space-7: 2.3rem;
+  --space-8: 3rem;
+  --space-9: 4rem;
+
+  --nav-height: 76px;
+  --transition-fast: 0.18s ease;
+  --transition: 0.28s ease;
+}

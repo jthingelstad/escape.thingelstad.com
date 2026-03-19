@@ -16,6 +16,12 @@ permalink: /player/{{ player.slug }}/
     <section class="featured-detail-hero">
       <div class="feature-tile-kicker">Featured Player</div>
       <h1>{{ player.name }}</h1>
+      {% if player.bio %}
+      <p class="featured-detail-copy">{{ player.bio }}</p>
+      {% endif %}
+      {% if player.aiIntro %}
+      <p class="featured-detail-copy">{{ player.aiIntro }}</p>
+      {% endif %}
       <div class="featured-detail-stats">
         <div class="stat-item"><span class="stat-number">{{ player.roomCount }}</span><div class="stat-label">Rooms</div></div>
         <div class="stat-item"><span class="stat-number">{{ player.wins }}</span><div class="stat-label">Wins</div></div>

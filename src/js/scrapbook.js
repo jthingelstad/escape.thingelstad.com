@@ -9,10 +9,6 @@ function shuffle(arr) {
   return a;
 }
 
-function randomBetween(min, max) {
-  return min + Math.random() * (max - min);
-}
-
 function buildDetailHtml(room) {
   const gameName = escapeHtml(room.game);
   const statusBadge = statusBadgeHtml(room.status);
@@ -49,12 +45,42 @@ function buildDetailHtml(room) {
   `;
 }
 
+function buildCardSummaryHtml(room) {
+  const gameName = escapeHtml(room.game);
+  const companyName = escapeHtml(room.company?.name || 'Unknown Company');
+  const location = escapeHtml(formatLocation(room.location));
+  const date = escapeHtml(formatDate(room.date));
+  const roomNumber = room.id ? `<span class="room-number">#${escapeHtml(room.id)}</span>` : '';
+  const statusBadge = room.status
+    ? `<span class="scrapbook-photo-status">${statusBadgeHtml(room.status)}</span>`
+    : '';
+  const metaParts = [
+    date ? `<span><span class="meta-icon">\u{1F4C5}</span> ${date}</span>` : '',
+    location ? `<span><span class="meta-icon">\u{1F4CD}</span> ${location}</span>` : ''
+  ].filter(Boolean).join('');
+
+  return `
+    <div class="scrapbook-photo-top">
+      ${roomNumber}
+      ${statusBadge}
+    </div>
+    <div class="scrapbook-photo-body">
+      <div class="scrapbook-photo-title">
+        <div class="scrapbook-photo-name">${gameName}</div>
+        <div class="scrapbook-photo-company">${companyName}</div>
+      </div>
+      ${metaParts ? `<div class="scrapbook-photo-meta">${metaParts}</div>` : ''}
+    </div>
+  `;
+}
+
 let activePhoto = null;
 let currentMode = 'shuffle'; // 'shuffle' | 'newest' | 'oldest'
 
 function deactivate() {
   if (activePhoto) {
     activePhoto.classList.remove('active');
+    activePhoto.querySelector('.scrapbook-photo-frame')?.setAttribute('aria-expanded', 'false');
     activePhoto = null;
   }
 }
@@ -71,48 +97,38 @@ function renderPhotos(rooms, table, animate) {
   table.innerHTML = '';
 
   rooms.forEach((room, i) => {
-    const isScattered = currentMode === 'shuffle';
-    const rotation = isScattered ? randomBetween(-12, 12) : 0;
-    const size = isScattered ? randomBetween(220, 320) : 260;
-    const offsetX = isScattered ? randomBetween(-8, 8) : 0;
-    const offsetY = isScattered ? randomBetween(-6, 6) : 0;
     const delay = animate ? i * 40 : 0;
 
     const el = document.createElement('div');
-    el.className = 'scrapbook-photo'
-      + (isScattered ? '' : ' scrapbook-tidy')
-      + (room.lists?.length ? ' scrapbook-listed' : '');
-    el.style.setProperty('--rotation', rotation + 'deg');
-    el.style.setProperty('--size', size + 'px');
-    el.style.setProperty('--offset-x', offsetX + 'px');
-    el.style.setProperty('--offset-y', offsetY + 'px');
+    el.className = 'scrapbook-photo';
     if (animate) el.style.setProperty('--delay', delay + 'ms');
 
-    const img = document.createElement('img');
-    img.src = `/images/rooms/${room.photo}`;
-    img.alt = `${room.game} at ${room.company?.name || 'Unknown Company'}`;
-    img.loading = 'lazy';
-
-    const caption = document.createElement('div');
-    caption.className = 'scrapbook-caption';
-    caption.textContent = room.game;
+    const frame = document.createElement('button');
+    frame.type = 'button';
+    frame.className = 'scrapbook-photo-frame';
+    frame.setAttribute('aria-expanded', 'false');
+    frame.setAttribute('aria-label', `Show details for ${room.game}`);
+    frame.innerHTML = `
+      <img src="/images/rooms/${room.photo}" alt="${escapeHtml(room.game)} at ${escapeHtml(room.company?.name || 'Unknown Company')}" loading="lazy">
+      ${buildCardSummaryHtml(room)}
+    `;
 
     const detail = document.createElement('div');
     detail.className = 'scrapbook-detail';
     detail.innerHTML = buildDetailHtml(room);
 
-    el.appendChild(img);
-    el.appendChild(caption);
+    el.appendChild(frame);
     el.appendChild(detail);
     table.appendChild(el);
 
-    el.addEventListener('click', (e) => {
+    frame.addEventListener('click', (e) => {
       e.stopPropagation();
       if (activePhoto === el) {
         deactivate();
       } else {
         deactivate();
         el.classList.add('active');
+        frame.setAttribute('aria-expanded', 'true');
         activePhoto = el;
       }
     });
@@ -181,7 +197,10 @@ function init() {
     updateButtons(dateBtn, shuffleBtn);
   });
 
-  document.addEventListener('click', deactivate);
+  document.addEventListener('click', (event) => {
+    if (activePhoto?.contains(event.target)) return;
+    deactivate();
+  });
 }
 
 init();

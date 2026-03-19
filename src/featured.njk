@@ -7,9 +7,12 @@ permalink: /featured/
 
 {% block content %}
   <main class="container page-content">
-    <section class="section-header">
-      <h2>Featured</h2>
-      <p>The standout people, trips, and awards that get their own front door on the site.</p>
+    <section class="page-intro">
+      <div class="eyebrow">Featured Stories</div>
+      <div class="page-intro-copy">
+        <h1 class="page-intro-title">Featured</h1>
+        <p>{{ ai.copy.featured.summary or "The standout people, trips, and awards that get their own front door on the site." }}</p>
+      </div>
     </section>
 
     <section class="featured-section">

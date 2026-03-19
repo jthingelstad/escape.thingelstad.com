@@ -8,9 +8,12 @@ bodyClass: page-home
 
 {% block content %}
   <main class="container page-content">
-    <section class="hero">
-      <h1>Escaping Things</h1>
-      <p class="subtitle">The Thingelstad Family Escape Room Journey</p>
+    <section class="page-intro">
+      <div class="eyebrow">Family Archive</div>
+      <div class="page-intro-copy">
+        <h1 class="page-intro-title">Escaping Things</h1>
+        <p>{{ ai.copy.home.summary or "The Thingelstad family’s escape room history, rebuilt as a calmer travel-and-room archive with routes, ratings, places, and the standout stories threaded through it." }}</p>
+      </div>
       <div class="stats-row" id="hero-stats">
         <div class="stat-item"><span class="stat-number">{{ stats.totalRooms }}</span><div class="stat-label">Rooms</div></div>
         <div class="stat-item"><span class="stat-number">{{ stats.totalWins }}</span><div class="stat-label">Wins</div></div>
@@ -19,7 +22,27 @@ bodyClass: page-home
         <div class="stat-item"><span class="stat-number">{{ stats.countryCount }}</span><div class="stat-label">Countries</div></div>
         <div class="stat-item"><span class="stat-number">{{ stats.yearsActive }}</span><div class="stat-label">Years Active</div></div>
       </div>
+      <div class="action-row">
+        <a href="/list/" class="action-link" data-tinylytics-event="home.view-list">Browse Room Archive</a>
+        <a href="/map/" class="action-link" data-tinylytics-event="home.view-map">See the Map</a>
+        <a href="/lists/" class="action-link" data-tinylytics-event="home.view-lists">Browse Curated Lists</a>
+      </div>
     </section>
+
+    {% if stats.recentCompleted and stats.recentCompleted.length > 0 %}
+    <section id="recent-rooms">
+      <div class="section-header">
+        <h2>Recent Rooms</h2>
+        <p>The latest dozen rooms in the archive.</p>
+      </div>
+      <div class="room-grid">
+        {% from "room-card.njk" import roomCard %}
+        {% for room in stats.recentCompleted %}
+          {{ roomCard(room) }}
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
 
     <section class="featured-entities-section">
       <div class="section-header">
@@ -48,65 +71,6 @@ bodyClass: page-home
             <p>{{ player.roomCount }} room{{ '' if player.roomCount == 1 else 's' }}</p>
           </a>
         {% endfor %}
-      </div>
-      <div class="section-link-row">
-        <a href="/featured/" class="room-link" data-tinylytics-event="home.view-featured">Browse All Featured &rarr;</a>
-      </div>
-    </section>
-
-    {% if stats.recentCompleted and stats.recentCompleted.length > 0 %}
-    <section id="recent-rooms">
-      <div class="section-header">
-        <h2>Recent Rooms</h2>
-      </div>
-      <div class="room-grid">
-        {% from "room-card.njk" import roomCard %}
-        {% for room in stats.recentCompleted %}
-          {{ roomCard(room) }}
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
-
-    {% if stats.planned.length > 0 %}
-    <section id="upcoming-section">
-      <div class="section-header">
-        <h2>Coming Up</h2>
-      </div>
-      <div class="room-grid">
-        {% from "room-card.njk" import roomCard %}
-        {% for room in stats.planned %}
-          {{ roomCard(room) }}
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
-
-    <section class="puzzle-trail">
-      <div class="section-header">
-        <h2>Escape Trail</h2>
-      </div>
-      <div class="trail-grid">
-        <a href="/map/" class="trail-card" data-tinylytics-event="card.trail-map">
-          <img class="trail-icon" src="/images/key.svg" alt="Key icon">
-          <h3>Explore the Map</h3>
-          <p>Every city where we've taken on a room, pinned on a dark map.</p>
-        </a>
-        <a href="/list/" class="trail-card" data-tinylytics-event="card.trail-rooms">
-          <img class="trail-icon" src="/images/puzzle.svg" alt="Puzzle icon">
-          <h3>Browse All Rooms</h3>
-          <p>Filter by typed facets like awards, trips, themes, companies, and players.</p>
-        </a>
-        <a href="/featured/" class="trail-card" data-tinylytics-event="card.trail-featured">
-          <img class="trail-icon" src="/images/lock.svg" alt="Lock icon">
-          <h3>Follow Featured Stories</h3>
-          <p>See the standout trips, awards, and players that deserve their own pages.</p>
-        </a>
-        <a href="/scrapbook/" class="trail-card" data-tinylytics-event="card.trail-scrapbook">
-          <img class="trail-icon" src="/images/camera.svg" alt="Camera icon">
-          <h3>Flip Through Photos</h3>
-          <p>Our room photos scattered like polaroids on a table.</p>
-        </a>
       </div>
     </section>
   </main>

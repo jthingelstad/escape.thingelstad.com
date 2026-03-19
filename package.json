@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npx @11ty/eleventy --serve",
     "build": "npx @11ty/eleventy",
+    "ai:refresh": "node scripts/refresh_ai.js",
     "sync": "python3 scripts/sync_airtable.py",
     "test": "node --test"
   },

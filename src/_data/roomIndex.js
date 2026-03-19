@@ -1,7 +1,14 @@
 const catalog = require('./catalog');
+const ai = require('./ai');
+const { buildRoomSearchIndex, getRoomAiSearchHints } = require('../../lib/aiArtifacts');
 
 module.exports = function() {
-  return catalog().rooms.map((room) => ({
+  const aiData = ai();
+
+  return catalog().rooms.map((room) => {
+    const aiSearchHints = getRoomAiSearchHints(aiData.search, room);
+
+    return {
     id: room.id,
     airtableId: room.airtableId,
     slug: room.slug,
@@ -16,6 +23,8 @@ module.exports = function() {
     notes: room.notes,
     commentary: room.commentary,
     searchText: room.searchText,
+    aiSearchHints,
+    searchIndex: buildRoomSearchIndex(room, aiSearchHints),
     ratingSummary: room.ratingSummary,
     company: room.company,
     location: room.location,
@@ -24,5 +33,6 @@ module.exports = function() {
     trips: room.trips,
     lists: room.lists,
     themes: room.themes
-  }));
+    };
+  });
 };

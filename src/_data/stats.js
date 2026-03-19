@@ -216,7 +216,7 @@ module.exports = function() {
     firstYear: years[0],
     lastYear: years[years.length - 1],
     latestCompleted: played[played.length - 1] || null,
-    recentCompleted: played.slice(-6).reverse(),
+    recentCompleted: played.slice(-12).reverse(),
     planned,
     insights: {
       momentum: {

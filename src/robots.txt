@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /images/rooms/
 
 Sitemap: https://escape.thingelstad.com/sitemap.xml

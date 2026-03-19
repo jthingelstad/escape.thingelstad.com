@@ -6,26 +6,37 @@ permalink: /list/
 {% extends "base.njk" %}
 
 {% block content %}
-  <main class="container page-content">
+  <main class="container page-content catalog-page">
+    <section class="page-intro">
+      <div class="eyebrow">Room Archive</div>
+      <div class="page-intro-copy">
+        <h1 class="page-intro-title">All Rooms</h1>
+        <p>A single-search way to browse the full archive. Search room names, companies, places, players, awards, trips, lists, themes, years, and status from one field.</p>
+      </div>
+    </section>
+
+    <section class="filter-bar">
+      {% set compactFilters = true %}
+      <div class="filter-row">
+        {% include "filter-bar.njk" %}
+      </div>
+      <div class="active-filters" id="active-filters"></div>
+    </section>
+
     <section>
-      <div class="section-header">
-        <h2>All Rooms</h2>
-        <p>Filter by the main room dimensions: company, location, player, award, trip, list, theme, and more.</p>
-      </div>
-
-      <div class="filter-bar">
-        <div class="filter-row">
-          {% include "filter-bar.njk" %}
+      <div class="catalog-toolbar">
+        <div class="section-header">
+          <h2>Catalog Results</h2>
+          <p>Sort the archive by date, game, company, or city while keeping search shareable in the URL.</p>
         </div>
-        <div class="active-filters" id="active-filters"></div>
-      </div>
 
-      <div class="sort-controls">
-        <span>Sort by:</span>
-        <button class="sort-btn active" data-sort="date" data-dir="desc" data-tinylytics-event="list.sort" data-tinylytics-event-value="date">Date &#9660;</button>
-        <button class="sort-btn" data-sort="game" data-tinylytics-event="list.sort" data-tinylytics-event-value="game">Game</button>
-        <button class="sort-btn" data-sort="company" data-tinylytics-event="list.sort" data-tinylytics-event-value="company">Company</button>
-        <button class="sort-btn" data-sort="city" data-tinylytics-event="list.sort" data-tinylytics-event-value="city">City</button>
+        <div class="sort-controls">
+          <span>Sort by:</span>
+          <button class="sort-btn active" data-sort="date" data-dir="desc" data-tinylytics-event="list.sort" data-tinylytics-event-value="date">Date &#9660;</button>
+          <button class="sort-btn" data-sort="game" data-tinylytics-event="list.sort" data-tinylytics-event-value="game">Game</button>
+          <button class="sort-btn" data-sort="company" data-tinylytics-event="list.sort" data-tinylytics-event-value="company">Company</button>
+          <button class="sort-btn" data-sort="city" data-tinylytics-event="list.sort" data-tinylytics-event-value="city">City</button>
+        </div>
       </div>
 
       <div class="results-count" id="results-count"></div>

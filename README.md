@@ -104,6 +104,12 @@ Build the site:
 npm run build
 ```
 
+Refresh tracked AI artifacts:
+
+```bash
+npm run ai:refresh
+```
+
 Refresh Airtable snapshots:
 
 ```bash
@@ -132,8 +138,19 @@ The sync script reads these environment variables:
 
 - `AIRTABLE_PAT`
 - `AIRTABLE_BASE_ID`
+- `OPENAI_API_KEY` for `npm run ai:refresh`
+- `OPENAI_MODEL` optional model override for `npm run ai:refresh`
 
 It also reads `.env` in the project root if present.
+
+## Build-Time AI
+
+AI usage in this project is build-time only.
+
+- `npm run ai:refresh` reads the normalized catalog and writes tracked JSON artifacts under `src/_generated/`
+- those artifacts are consumed during the normal Eleventy build
+- `npm run build` does not call OpenAI
+- manual copy overrides live in `src/_manual/ai-overrides.json`
 
 ## Deployment
 

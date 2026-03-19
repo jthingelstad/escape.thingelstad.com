@@ -36,6 +36,24 @@ export function formatTimeLeft(value) {
   return `${mins}m ${secs}s ${suffix}`;
 }
 
+function normalizeSearchText(str) {
+  if (!str) return '';
+  return String(str)
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[:/]+/g, ' ')
+    .replace(/[^a-z0-9\s-]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function tokenizeSearchQuery(query) {
+  return normalizeSearchText(query)
+    .split(' ')
+    .filter(Boolean);
+}
+
 export function roomUrl(room) {
   if (room.slug) return `/room/${room.slug}/`;
   const slug = String(room.game || '')
@@ -227,8 +245,9 @@ export function getSelectedFilterLabel(key) {
 
 export function roomMatchesFilters(room, filters) {
   if (filters.q) {
-    const searchText = (room.searchText || '').toLowerCase();
-    if (!searchText.includes(filters.q.toLowerCase())) return false;
+    const terms = tokenizeSearchQuery(filters.q);
+    const searchText = normalizeSearchText(room.searchIndex || room.searchText || '');
+    if (!terms.every((term) => searchText.includes(term))) return false;
   }
   if (filters.company && room.company?.slug !== filters.company) return false;
   if (filters.location && room.location?.slug !== filters.location) return false;
@@ -247,8 +266,28 @@ export function initNav() {
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
   if (toggle && links) {
+    const closeNav = () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+
     toggle.addEventListener('click', () => {
-      links.classList.toggle('open');
+      const isOpen = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    links.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeNav);
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!links.classList.contains('open')) return;
+      if (links.contains(event.target) || toggle.contains(event.target)) return;
+      closeNav();
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 860) closeNav();
     });
   }
 }

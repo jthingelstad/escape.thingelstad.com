@@ -1,6 +1,6 @@
 {
   "table": "Locations",
-  "syncedAt": "2026-03-19T21:09:47.394245+00:00",
+  "syncedAt": "2026-03-19T22:50:45.011917+00:00",
   "count": 70,
   "records": [
     {
@@ -375,7 +375,6 @@
           "recBHwx3kobncX31m"
         ],
         "Room Count": 1,
-        "Coordinates": ", ",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:22.000Z",
         "Location ID": 64

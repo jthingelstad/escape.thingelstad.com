@@ -157,187 +157,196 @@ permalink: /room/{{ room.slug }}/
       </div>
     </section>
 
-    {% if room.status !== "Scheduled" %}
-    <section class="room-stats-section">
-      <div class="section-header">
-        <h2>How We Did</h2>
-      </div>
-      <div class="room-stats-grid">
-        {% if room.timeLeft != null %}
-        <div class="room-stat-card">
-          <div class="room-stat-value{% if room.timeLeft >= 0 %} stat-positive{% else %} stat-negative{% endif %}">
-            {{ room.timeLeft | formatTimeLeft }}
+    <div class="room-detail-grid">
+      <div class="room-detail-main">
+        {% if room.experiences and room.experiences.length > 0 %}
+        <section class="room-ratings-section">
+          <div class="section-header">
+            <h2>Family Ratings</h2>
+            <p>The qualitative side of the archive: scores, category notes, and favorite votes from the family.</p>
           </div>
-          <div class="room-stat-label">Time Result</div>
-          {% if room.stats.avgTimeLeft != null %}
-          <div class="room-stat-compare">
-            Avg across all rooms: {{ room.stats.avgTimeLeft | formatTimeLeft }}
-          </div>
-          {% endif %}
-        </div>
-        <div class="room-stat-card">
-          <div class="room-stat-value">{{ room.stats.timePercentile }}%</div>
-          <div class="room-stat-label">Time Percentile</div>
-          <div class="room-stat-compare">
-            {% if room.stats.timePercentile >= 75 %}
-              Top performer — better than most rooms
-            {% elif room.stats.timePercentile >= 50 %}
-              Above average time result
-            {% elif room.stats.timePercentile >= 25 %}
-              Below average time result
-            {% else %}
-              A tough one — bottom quartile
-            {% endif %}
-          </div>
-        </div>
-        {% endif %}
-
-        <div class="room-stat-card">
-          <div class="room-stat-value">
-            {% if room.status == "Escaped" or room.status == "Completed" %}
-              ✓ Win
-            {% else %}
-              ✗ Loss
-            {% endif %}
-          </div>
-          <div class="room-stat-label">Result</div>
-          <div class="room-stat-compare">
-            Overall win rate: {{ room.stats.overallWinRate }}% across {{ room.stats.totalPlayed }} rooms
-          </div>
-        </div>
-
-        {% if room.stats.companyTotal > 1 and room.company %}
-        <div class="room-stat-card">
-          <div class="room-stat-value">{{ room.stats.companyWins }}/{{ room.stats.companyTotal }}</div>
-          <div class="room-stat-label">Wins at {{ room.company.name }}</div>
-          <div class="room-stat-compare">
-            {{ ((room.stats.companyWins / room.stats.companyTotal) * 100) | round }}% win rate at this company
-          </div>
-        </div>
-        {% endif %}
-
-        {% if room.players and room.players.length > 0 %}
-        <div class="room-stat-card">
-          <div class="room-stat-value">{{ room.players.length }}</div>
-          <div class="room-stat-label">Players</div>
-          <div class="room-stat-compare">
-            {% for player in room.players %}{{ player.name }}{% if not loop.last %}, {% endif %}{% endfor %}
-          </div>
-        </div>
-        {% endif %}
-      </div>
-    </section>
-    {% endif %}
-
-    {% if room.experiences and room.experiences.length > 0 %}
-    <section class="room-ratings-section">
-      <div class="section-header">
-        <h2>Family Ratings</h2>
-      </div>
-      <div class="room-ratings-summary">
-        {% if room.ratingSummary.average != null %}
-        <div class="room-rating-summary-card">
-          <div class="room-rating-summary-value">{{ room.ratingSummary.average | formatRating }}/5</div>
-          <div class="room-rating-summary-label">Average Rating</div>
-        </div>
-        {% endif %}
-        <div class="room-rating-summary-card">
-          <div class="room-rating-summary-value">{{ room.ratingSummary.count }}</div>
-          <div class="room-rating-summary-label">Family Ratings</div>
-        </div>
-        {% if room.ratingSummary.bestThingsCount > 0 %}
-        <div class="room-rating-summary-card">
-          <div class="room-rating-summary-value">{{ room.ratingSummary.bestThingsCount }}</div>
-          <div class="room-rating-summary-label">Favorite Votes</div>
-        </div>
-        {% endif %}
-      </div>
-      <div class="room-ratings-grid">
-        {% for experience in room.experiences %}
-        <article class="room-rating-card">
-          <div class="room-rating-card-header">
-            <div>
-              <h3>{{ experience.player.name }}</h3>
+          <div class="room-ratings-summary">
+            {% if room.ratingSummary.average != null %}
+            <div class="room-rating-summary-card">
+              <div class="room-rating-summary-value">{{ room.ratingSummary.average | formatRating }}/5</div>
+              <div class="room-rating-summary-label">Average Rating</div>
             </div>
-            {% if experience.rating != null %}
-            <div class="room-rating-card-score">{{ experience.rating | formatRating }}/5</div>
+            {% endif %}
+            <div class="room-rating-summary-card">
+              <div class="room-rating-summary-value">{{ room.ratingSummary.count }}</div>
+              <div class="room-rating-summary-label">Family Ratings</div>
+            </div>
+            {% if room.ratingSummary.bestThingsCount > 0 %}
+            <div class="room-rating-summary-card">
+              <div class="room-rating-summary-value">{{ room.ratingSummary.bestThingsCount }}</div>
+              <div class="room-rating-summary-label">Favorite Votes</div>
+            </div>
             {% endif %}
           </div>
-          <div class="room-rating-chip-row">
-            {% if experience.gameplay %}
-            <span class="room-rating-chip">Gameplay: {{ experience.gameplay }}</span>
+          <div class="room-ratings-grid">
+            {% for experience in room.experiences %}
+            <article class="room-rating-card">
+              <div class="room-rating-card-header">
+                <div>
+                  <h3>{{ experience.player.name }}</h3>
+                </div>
+                {% if experience.rating != null %}
+                <div class="room-rating-card-score">{{ experience.rating | formatRating }}/5</div>
+                {% endif %}
+              </div>
+              <div class="room-rating-chip-row">
+                {% if experience.gameplay %}
+                <span class="room-rating-chip">Gameplay: {{ experience.gameplay }}</span>
+                {% endif %}
+                {% if experience.atmosphere %}
+                <span class="room-rating-chip">Atmosphere: {{ experience.atmosphere }}</span>
+                {% endif %}
+                {% if experience.experience %}
+                <span class="room-rating-chip">Experience: {{ experience.experience }}</span>
+                {% endif %}
+                {% if experience.bestThings %}
+                <span class="room-rating-chip room-rating-chip-best">Best Things</span>
+                {% endif %}
+              </div>
+              {% if experience.comments %}
+              <div class="room-rating-comments">{{ experience.comments }}</div>
+              {% endif %}
+            </article>
+            {% endfor %}
+          </div>
+        </section>
+        {% endif %}
+      </div>
+
+      <aside class="room-detail-rail">
+        {% if room.status !== "Scheduled" %}
+        <section class="room-stats-section">
+          <div class="section-header">
+            <h2>How We Did</h2>
+            <p>A quick structural read on the result, the time, and how this room sits in the rest of the history.</p>
+          </div>
+          <div class="room-stats-grid">
+            {% if room.timeLeft != null %}
+            <div class="room-stat-card">
+              <div class="room-stat-value{% if room.timeLeft >= 0 %} stat-positive{% else %} stat-negative{% endif %}">
+                {{ room.timeLeft | formatTimeLeft }}
+              </div>
+              <div class="room-stat-label">Time Result</div>
+              {% if room.stats.avgTimeLeft != null %}
+              <div class="room-stat-compare">
+                Avg across all rooms: {{ room.stats.avgTimeLeft | formatTimeLeft }}
+              </div>
+              {% endif %}
+            </div>
+            <div class="room-stat-card">
+              <div class="room-stat-value">{{ room.stats.timePercentile }}%</div>
+              <div class="room-stat-label">Time Percentile</div>
+              <div class="room-stat-compare">
+                {% if room.stats.timePercentile >= 75 %}
+                  Top performer — better than most rooms
+                {% elif room.stats.timePercentile >= 50 %}
+                  Above average time result
+                {% elif room.stats.timePercentile >= 25 %}
+                  Below average time result
+                {% else %}
+                  A tough one — bottom quartile
+                {% endif %}
+              </div>
+            </div>
             {% endif %}
-            {% if experience.atmosphere %}
-            <span class="room-rating-chip">Atmosphere: {{ experience.atmosphere }}</span>
+
+            <div class="room-stat-card">
+              <div class="room-stat-value">
+                {% if room.status == "Escaped" or room.status == "Completed" %}
+                  ✓ Win
+                {% else %}
+                  ✗ Loss
+                {% endif %}
+              </div>
+              <div class="room-stat-label">Result</div>
+              <div class="room-stat-compare">
+                Overall win rate: {{ room.stats.overallWinRate }}% across {{ room.stats.totalPlayed }} rooms
+              </div>
+            </div>
+
+            {% if room.stats.companyTotal > 1 and room.company %}
+            <div class="room-stat-card">
+              <div class="room-stat-value">{{ room.stats.companyWins }}/{{ room.stats.companyTotal }}</div>
+              <div class="room-stat-label">Wins at {{ room.company.name }}</div>
+              <div class="room-stat-compare">
+                {{ ((room.stats.companyWins / room.stats.companyTotal) * 100) | round }}% win rate at this company
+              </div>
+            </div>
             {% endif %}
-            {% if experience.experience %}
-            <span class="room-rating-chip">Experience: {{ experience.experience }}</span>
-            {% endif %}
-            {% if experience.bestThings %}
-            <span class="room-rating-chip room-rating-chip-best">Best Things</span>
+
+            {% if room.players and room.players.length > 0 %}
+            <div class="room-stat-card">
+              <div class="room-stat-value">{{ room.players.length }}</div>
+              <div class="room-stat-label">Players</div>
+              <div class="room-stat-compare">
+                {% for player in room.players %}{{ player.name }}{% if not loop.last %}, {% endif %}{% endfor %}
+              </div>
+            </div>
             {% endif %}
           </div>
-          {% if experience.comments %}
-          <div class="room-rating-comments">{{ experience.comments }}</div>
-          {% endif %}
-        </article>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
+        </section>
+        {% endif %}
 
-    {% if room.location and room.location.lat != null %}
-    <section class="room-map-section">
-      <div class="section-header">
-        <h2>Location</h2>
-      </div>
-      <div class="room-map-container" id="room-map"></div>
-    </section>
-    {% endif %}
+        {% if room.location and room.location.lat != null %}
+        <section class="room-map-section">
+          <div class="section-header">
+            <h2>Location</h2>
+            <p>A dark map is one of the few high-contrast exceptions kept in the new system.</p>
+          </div>
+          <div class="room-map-container" id="room-map"></div>
+        </section>
+        {% endif %}
 
-    {% if room.stats.otherCompanyRooms.length > 0 and room.company %}
-    <section class="room-related-section">
-      <div class="section-header">
-        <h2>More at {{ room.company.name }}</h2>
-      </div>
-      <div class="room-related-list">
-        {% for other in room.stats.otherCompanyRooms %}
-        <a href="/room/{{ other.slug }}/" class="room-related-item" data-tinylytics-event="room.related" data-tinylytics-event-value="{{ other.game }}">
-          <span class="room-number">#{{ other.id }}</span>
-          <span class="room-related-name">{{ other.game }}</span>
-          {% if other.status == "Escaped" %}
-            <span class="status-badge status-escaped">✓</span>
-          {% elif other.status == "Try again" %}
-            <span class="status-badge status-try-again">✗</span>
-          {% elif other.status == "Completed" %}
-            <span class="status-badge status-completed">✓</span>
-          {% elif other.status == "Scheduled" %}
-            <span class="status-badge status-scheduled">⏳</span>
-          {% endif %}
-        </a>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
+        {% if room.stats.otherCompanyRooms.length > 0 and room.company %}
+        <section class="room-related-section">
+          <div class="section-header">
+            <h2>More at {{ room.company.name }}</h2>
+          </div>
+          <div class="room-related-list">
+            {% for other in room.stats.otherCompanyRooms %}
+            <a href="/room/{{ other.slug }}/" class="room-related-item" data-tinylytics-event="room.related" data-tinylytics-event-value="{{ other.game }}">
+              <span class="room-number">#{{ other.id }}</span>
+              <span class="room-related-name">{{ other.game }}</span>
+              {% if other.status == "Escaped" %}
+                <span class="status-badge status-escaped">✓</span>
+              {% elif other.status == "Try again" %}
+                <span class="status-badge status-try-again">✗</span>
+              {% elif other.status == "Completed" %}
+                <span class="status-badge status-completed">✓</span>
+              {% elif other.status == "Scheduled" %}
+                <span class="status-badge status-scheduled">⏳</span>
+              {% endif %}
+            </a>
+            {% endfor %}
+          </div>
+        </section>
+        {% endif %}
 
-    {% if room.stats.sameDayRooms.length > 0 %}
-    <section class="room-related-section">
-      <div class="section-header">
-        <h2>Also on {{ room.date | formatDate }}</h2>
-      </div>
-      <div class="room-related-list">
-        {% for other in room.stats.sameDayRooms %}
-        <a href="/room/{{ other.slug }}/" class="room-related-item" data-tinylytics-event="room.same-day" data-tinylytics-event-value="{{ other.game }}">
-          <span class="room-number">#{{ other.id }}</span>
-          <span class="room-related-name">{{ other.game }}</span>
-          {% if other.company %}
-          <span class="room-related-company">{{ other.company.name }}</span>
-          {% endif %}
-        </a>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
+        {% if room.stats.sameDayRooms.length > 0 %}
+        <section class="room-related-section">
+          <div class="section-header">
+            <h2>Also on {{ room.date | formatDate }}</h2>
+          </div>
+          <div class="room-related-list">
+            {% for other in room.stats.sameDayRooms %}
+            <a href="/room/{{ other.slug }}/" class="room-related-item" data-tinylytics-event="room.same-day" data-tinylytics-event-value="{{ other.game }}">
+              <span class="room-number">#{{ other.id }}</span>
+              <span class="room-related-name">{{ other.game }}</span>
+              {% if other.company %}
+              <span class="room-related-company">{{ other.company.name }}</span>
+              {% endif %}
+            </a>
+            {% endfor %}
+          </div>
+        </section>
+        {% endif %}
+      </aside>
+    </div>
   </main>
 {% endblock %}
 

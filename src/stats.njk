@@ -7,12 +7,15 @@ permalink: /stats/
 
 {% block content %}
   <main class="container page-content stats-page">
-    <section>
-      <div class="section-header">
-        <h2>Stats</h2>
+    <section class="page-intro">
+      <div class="eyebrow">Collection Summary</div>
+      <div class="page-intro-copy">
+        <h1 class="page-intro-title">Stats</h1>
         <p>A richer look at the collection through the people, themes, trips, awards, and room outcomes behind it.</p>
       </div>
+    </section>
 
+    <section>
       <div class="stats-row" id="summary-stats">
         <div class="stat-item"><span class="stat-number">{{ stats.totalRooms }}</span><div class="stat-label">Played</div></div>
         <div class="stat-item"><span class="stat-number">{{ stats.scheduledRooms }}</span><div class="stat-label">Scheduled</div></div>
@@ -48,40 +51,52 @@ permalink: /stats/
       </div>
 
       <div class="charts-grid">
-        <div class="chart-card full-width">
+        <div class="chart-card chart-card-time full-width">
           <h3>Time Left</h3>
           <p class="chart-subtitle">Higher is better. Negative values indicate going over time. Striped bars exceeded the chart floor.</p>
-          <canvas id="chart-times"></canvas>
+          <div class="chart-canvas-wrap chart-canvas-wrap-time">
+            <canvas id="chart-times"></canvas>
+          </div>
         </div>
 
-        <div class="chart-card">
+        <div class="chart-card chart-card-standard">
           <h3>Rooms Per Year</h3>
           <p class="chart-subtitle">A long view of volume and outcomes by year.</p>
-          <canvas id="chart-rooms-year"></canvas>
+          <div class="chart-canvas-wrap chart-canvas-wrap-standard">
+            <canvas id="chart-rooms-year"></canvas>
+          </div>
         </div>
 
-        <div class="chart-card">
+        <div class="chart-card chart-card-standard">
           <h3>Monthly Distribution</h3>
           <p class="chart-subtitle">When during the year the rooms tend to happen.</p>
-          <canvas id="chart-monthly"></canvas>
+          <div class="chart-canvas-wrap chart-canvas-wrap-standard">
+            <canvas id="chart-monthly"></canvas>
+          </div>
         </div>
 
-        <div class="chart-card">
+        <div class="chart-card chart-card-standard">
           <h3>Rooms by State</h3>
           <p class="chart-subtitle">Still a strong part of the history, especially in the early years.</p>
-          <canvas id="chart-states"></canvas>
+          <div class="chart-canvas-wrap chart-canvas-wrap-standard">
+            <canvas id="chart-states"></canvas>
+          </div>
         </div>
 
-        <div class="chart-card">
+        <div class="chart-card chart-card-standard">
           <h3>Rooms by Country</h3>
           <p class="chart-subtitle">The broader travel footprint of the collection.</p>
-          <canvas id="chart-countries"></canvas>
+          <div class="chart-canvas-wrap chart-canvas-wrap-standard">
+            <canvas id="chart-countries"></canvas>
+          </div>
         </div>
 
-        <div class="chart-card">
+        <div class="chart-card chart-card-standard">
           <h3>Most Active Players</h3>
           <p class="chart-subtitle">A better fit than companies now that the people and trips are first-class data.</p>
-          <canvas id="chart-players"></canvas>
+          <div class="chart-canvas-wrap chart-canvas-wrap-standard">
+            <canvas id="chart-players"></canvas>
+          </div>
         </div>
       </div>
     </section>

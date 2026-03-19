@@ -22,6 +22,9 @@ permalink: /trip/{{ trip.slug }}/
     <section class="featured-detail-hero">
       <div class="feature-tile-kicker">Featured Trip</div>
       <h1>{{ trip.name }}</h1>
+      {% if trip.aiIntro %}
+      <p class="featured-detail-copy">{{ trip.aiIntro }}</p>
+      {% endif %}
       <div class="featured-detail-stats">
         <div class="stat-item"><span class="stat-number">{{ trip.roomCount }}</span><div class="stat-label">Rooms</div></div>
         <div class="stat-item"><span class="stat-number">{{ trip.countries.length }}</span><div class="stat-label">Countries</div></div>
@@ -39,7 +42,7 @@ permalink: /trip/{{ trip.slug }}/
     <section class="trip-route-section">
       <div class="section-header">
         <h2>Route</h2>
-        <p>The trip in room order, with each stop marked on the map.</p>
+        <p>{{ trip.aiRouteSummary or "The trip in room order, with each stop marked on the map." }}</p>
       </div>
       {% if trip.mapStops.length > 0 %}
       <div class="trip-map-container" id="trip-map"></div>

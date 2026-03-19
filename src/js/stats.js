@@ -15,22 +15,22 @@ const chartColors = {
 
 const defaultChartOptions = {
   responsive: true,
-  maintainAspectRatio: true,
+  maintainAspectRatio: false,
   plugins: {
     legend: {
       labels: {
         color: chartColors.text,
-        font: { family: 'Space Grotesk' }
+        font: { family: 'IBM Plex Sans' }
       }
     }
   },
   scales: {
     x: {
-      ticks: { color: chartColors.text, font: { family: 'Space Grotesk' } },
+      ticks: { color: chartColors.text, font: { family: 'IBM Plex Sans' } },
       grid: { color: chartColors.grid }
     },
     y: {
-      ticks: { color: chartColors.text, font: { family: 'Space Grotesk' } },
+      ticks: { color: chartColors.text, font: { family: 'IBM Plex Sans' } },
       grid: { color: chartColors.grid }
     }
   }

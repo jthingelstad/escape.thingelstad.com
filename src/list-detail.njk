@@ -16,8 +16,8 @@ permalink: /list/{{ list.slug }}/
     <section class="featured-detail-hero">
       <div class="feature-tile-kicker">List</div>
       <h1>{{ list.name }}</h1>
-      {% if list.notes %}
-      <p class="featured-detail-copy">{{ list.notes }}</p>
+      {% if list.aiIntro or list.notes %}
+      <p class="featured-detail-copy">{{ list.aiIntro or list.notes }}</p>
       {% endif %}
       <div class="featured-detail-stats">
         <div class="stat-item"><span class="stat-number">{{ list.roomCount }}</span><div class="stat-label">Rooms</div></div>
@@ -60,10 +60,27 @@ permalink: /list/{{ list.slug }}/
         <article class="list-entry-card">
           <div class="list-entry-rank">#{{ entry.order if entry.order != null else loop.index }}</div>
           <div class="list-entry-body">
-            {{ roomCard(entry.room, { showRatingSummary: true }) }}
-            {% if entry.notes %}
-            <div class="list-entry-note">{{ entry.notes }}</div>
-            {% endif %}
+            <div class="list-entry-copy">
+              <div class="list-entry-header">
+                <h3 class="list-entry-title">
+                  <a href="{{ entry.room | roomPath }}" data-tinylytics-event="list-page.view-room" data-tinylytics-event-value="{{ entry.room.game }}">
+                    {{ entry.room.game }}
+                  </a>
+                </h3>
+                <div class="list-entry-meta">
+                  {% if entry.room.company %}<span>{{ entry.room.company.name }}</span>{% endif %}
+                  {% if entry.room.date %}<span>{{ entry.room.date | formatDate }}</span>{% endif %}
+                  {% set loc = entry.room.location | formatLocation %}
+                  {% if loc %}<span>{{ loc }}</span>{% endif %}
+                </div>
+              </div>
+              {% if entry.notes %}
+              <div class="list-entry-commentary">{{ entry.notes }}</div>
+              {% endif %}
+            </div>
+            <div class="list-entry-room">
+              {{ roomCard(entry.room, { showRatingSummary: true, showRoomNumber: false }) }}
+            </div>
           </div>
         </article>
         {% endfor %}

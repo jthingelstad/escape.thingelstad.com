@@ -1,0 +1,657 @@
+.page-home .page-intro {
+  margin-bottom: var(--space-8);
+}
+
+.page-home .page-intro::after,
+.featured-detail-hero::after {
+  content: '';
+  display: block;
+  width: min(100%, 20rem);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(155, 81, 52, 0.3), transparent);
+}
+
+.catalog-page {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.catalog-page .filter-bar {
+  position: sticky;
+  top: calc(var(--nav-height) + 1rem);
+  z-index: 5;
+}
+
+.catalog-page .filter-bar {
+  max-width: 48rem;
+}
+
+.catalog-page .filter-bar .filter-primary-actions {
+  justify-content: space-between;
+}
+
+.catalog-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.room-detail-page {
+  max-width: 1220px;
+}
+
+.room-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.9fr);
+  gap: var(--space-6);
+  padding: clamp(1.2rem, 3vw, 2rem);
+}
+
+.room-hero-photo {
+  overflow: hidden;
+  border-radius: calc(var(--radius-xl) - 0.4rem);
+  min-height: 100%;
+  background: var(--color-page-alt);
+}
+
+.room-hero-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 24rem;
+  object-fit: cover;
+}
+
+.room-hero-info {
+  display: grid;
+  align-content: start;
+  gap: var(--space-4);
+}
+
+.room-hero-header {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.room-hero-company {
+  font-size: 1.05rem;
+  color: var(--color-forest);
+}
+
+.room-hero-status-row,
+.room-hero-players,
+.room-hero-entities,
+.room-hero-kudos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.room-hero-entities {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.room-hero-commentary,
+.room-hero-notes {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-line);
+}
+
+.room-hero-commentary {
+  font-size: 1.08rem;
+  color: var(--color-text);
+}
+
+.room-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.68fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.room-detail-main,
+.room-detail-rail {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.room-detail-main:empty,
+.room-detail-rail:empty {
+  display: none;
+}
+
+.room-stats-section,
+.room-ratings-section,
+.room-map-section,
+.room-related-section {
+  padding: var(--space-5);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: rgba(251, 248, 242, 0.76);
+}
+
+.room-stats-grid,
+.room-ratings-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.room-stats-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.room-ratings-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.room-stat-card,
+.room-rating-card {
+  height: 100%;
+}
+
+.room-map-container,
+.trip-map-container,
+#map {
+  border-radius: calc(var(--radius-lg) - 0.2rem);
+  overflow: hidden;
+}
+
+.room-map-container,
+.trip-map-container {
+  height: 320px;
+}
+
+.featured-detail-page {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.trip-route-section {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.trip-route-stop {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.trip-route-stop-number,
+.list-entry-rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.2rem;
+  min-height: 3.2rem;
+  padding: 0.35rem;
+  border-radius: 999px;
+  background: var(--color-page-alt);
+  font-size: 1.15rem;
+}
+
+.list-entry-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.list-entry-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 22rem);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.list-entry-copy {
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+  padding-top: 0.35rem;
+}
+
+.list-entry-header {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.list-entry-title {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  line-height: 1.08;
+}
+
+.list-entry-title a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.list-entry-title a:hover,
+.list-entry-title a:focus-visible {
+  color: var(--color-accent-forest);
+}
+
+.list-entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.list-entry-room {
+  min-width: 0;
+}
+
+.list-entry-room .room-card {
+  margin-left: auto;
+}
+
+.list-entry-commentary {
+  max-width: 40rem;
+  font-size: 1.02rem;
+  line-height: 1.72;
+  color: var(--color-text-soft);
+}
+
+.stats-page .stats-insight-card,
+.stats-page .chart-card {
+  background: rgba(251, 248, 242, 0.92);
+}
+
+.stats-page .charts-grid {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  align-items: stretch;
+}
+
+.stats-page .chart-card {
+  gap: var(--space-3);
+}
+
+.stats-page .chart-card-standard {
+  min-height: auto;
+}
+
+.stats-page .chart-card-time {
+  min-height: auto;
+}
+
+.stats-page .chart-canvas-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.stats-page .chart-canvas-wrap-standard {
+  height: 22rem;
+}
+
+.stats-page .chart-canvas-wrap-time {
+  height: 18rem;
+}
+
+.stats-page .chart-canvas-wrap canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.map-page {
+  position: relative;
+  min-height: calc(100vh - var(--nav-height));
+}
+
+.map-filter-toggle {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: 8;
+  background: rgba(251, 248, 242, 0.95);
+}
+
+.toggle-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.map-filter-toggle.open .toggle-arrow {
+  transform: rotate(0deg);
+}
+
+.map-filter-toggle:not(.open) .toggle-arrow {
+  transform: rotate(-90deg);
+}
+
+.map-filter-panel {
+  position: absolute;
+  top: calc(var(--space-4) + 3.1rem);
+  left: var(--space-4);
+  width: min(430px, calc(100% - 2rem));
+  z-index: 7;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.map-filter-panel.collapsed {
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  pointer-events: none;
+}
+
+#map {
+  min-height: calc(100vh - var(--nav-height));
+  background: #22323d;
+}
+
+.leaflet-container {
+  font-family: var(--font-body);
+}
+
+.custom-marker {
+  background: transparent;
+  border: 0;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: transparent;
+  box-shadow: none;
+}
+
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+  background: rgba(47, 90, 71, 0.18);
+}
+
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div {
+  background: rgba(47, 90, 71, 0.86);
+  color: var(--color-text-on-dark);
+  font-family: var(--font-mono);
+}
+
+.scrapbook-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.scrapbook-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.scrapbook-photo {
+  position: relative;
+  display: grid;
+  gap: var(--space-3);
+  animation: scrapbook-fade-in 420ms ease both;
+  animation-delay: var(--delay, 0ms);
+}
+
+.scrapbook-photo-frame {
+  position: relative;
+  min-height: 24rem;
+  padding: 0;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-page-alt);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.scrapbook-photo-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(24, 22, 20, 0.08) 0%, rgba(24, 22, 20, 0.12) 24%, rgba(24, 22, 20, 0.74) 100%);
+  z-index: 1;
+}
+
+.scrapbook-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.01);
+}
+
+.scrapbook-photo-top {
+  position: absolute;
+  inset: var(--space-4) var(--space-4) auto var(--space-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: var(--space-3);
+  z-index: 2;
+}
+
+.scrapbook-photo-body {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: grid;
+  gap: var(--space-3);
+  padding: calc(var(--space-8) + 0.25rem) var(--space-4) var(--space-4);
+  z-index: 2;
+}
+
+.scrapbook-photo-title {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.scrapbook-photo-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  color: var(--color-text-on-dark);
+}
+
+.scrapbook-photo-company {
+  color: rgba(248, 243, 236, 0.84);
+  font-size: 0.98rem;
+}
+
+.scrapbook-photo-status {
+  display: inline-flex;
+}
+
+.scrapbook-photo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.85rem;
+  color: rgba(248, 243, 236, 0.82);
+  font-size: 0.88rem;
+}
+
+.scrapbook-photo-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.scrapbook-photo:hover .scrapbook-photo-frame,
+.scrapbook-photo.active .scrapbook-photo-frame {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-line-strong);
+  z-index: 3;
+}
+
+.scrapbook-detail {
+  display: grid;
+  gap: 0.45rem;
+  max-height: 0;
+  padding: 0 0.95rem;
+  overflow: hidden;
+  opacity: 0;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: rgba(251, 248, 242, 0.92);
+  color: var(--color-text);
+  box-shadow: none;
+  transition: max-height var(--transition), opacity var(--transition), padding var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.scrapbook-photo.active .scrapbook-detail {
+  max-height: 28rem;
+  padding: 1rem 1rem 1.05rem;
+  opacity: 1;
+  border-color: var(--color-line);
+  box-shadow: var(--shadow-sm);
+}
+
+.scrapbook-detail-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.scrapbook-detail-company {
+  color: var(--color-forest);
+}
+
+.scrapbook-detail-date,
+.scrapbook-detail-location,
+.scrapbook-detail-time {
+  color: var(--color-text-soft);
+}
+
+.scrapbook-detail-status,
+.scrapbook-detail-lists {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.scrapbook-detail-link {
+  color: var(--color-forest);
+}
+
+@keyframes scrapbook-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-404 {
+  width: min(42rem, calc(100% - (var(--page-padding) * 2)));
+  margin: clamp(3rem, 8vw, 6rem) auto;
+  padding: clamp(2rem, 6vw, 3rem);
+  display: grid;
+  justify-items: start;
+  gap: var(--space-4);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-xl);
+  background: rgba(251, 248, 242, 0.92);
+  box-shadow: var(--shadow-lg);
+}
+
+.page-404 h1 {
+  font-size: clamp(4rem, 16vw, 7rem);
+}
+
+.lock-icon-large {
+  font-size: 2rem;
+}
+
+.escape-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: var(--color-forest);
+  color: var(--color-text-on-dark);
+  text-decoration: none;
+}
+
+@media (max-width: 1040px) {
+  .room-hero,
+  .room-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .room-hero-photo img {
+    min-height: 16rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .catalog-page .filter-bar {
+    position: static;
+  }
+
+  .map-filter-panel {
+    width: calc(100% - 2rem);
+  }
+}
+
+@media (max-width: 720px) {
+  .trip-route-stop,
+  .list-entry-card {
+    grid-template-columns: 1fr;
+  }
+
+  .list-entry-body {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .room-ratings-grid,
+  .room-stats-grid,
+  .stat-strip,
+  .stats-row,
+  .featured-detail-stats,
+  .room-ratings-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .room-ratings-grid,
+  .room-stats-grid,
+  .stat-strip,
+  .stats-row,
+  .featured-detail-stats,
+  .room-ratings-summary,
+  .scrapbook-table {
+    grid-template-columns: 1fr;
+  }
+
+  .map-filter-toggle,
+  .map-filter-panel {
+    left: 0.8rem;
+  }
+
+  .map-filter-panel {
+    width: calc(100% - 1.6rem);
+  }
+}

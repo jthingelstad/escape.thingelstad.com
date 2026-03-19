@@ -2,93 +2,74 @@
   Shared filter controls for list and map pages.
   Usage: {% include "filter-bar.njk" %}
 #}
-<div class="filter-group">
-  <label for="filter-search">Search</label>
-  <input type="text" id="filter-search" placeholder="Game, company, city...">
+{% if compactFilters %}
+<div class="filter-primary">
+  <div class="filter-primary-search">
+    <label for="filter-search" class="sr-only">Search</label>
+    <input type="text" id="filter-search" placeholder="Search rooms, companies, cities, and more">
+  </div>
+  <div class="filter-primary-actions">
+    <div class="filter-omnibox-hint">
+      Search names, places, awards, lists, years, and status. Try: <code>jamie paris terpeca 2026 scheduled</code>
+    </div>
+    <button class="btn btn-clear" id="clear-filters" hidden data-tinylytics-event="filter.clear-all">Clear All</button>
+  </div>
 </div>
-<div class="filter-group">
-  <label for="filter-company">Company</label>
+<div class="filter-compat-controls" hidden aria-hidden="true">
   <select id="filter-company">
     <option value="">All Companies</option>
     {% for company in filters.companies %}
       <option value="{{ company.slug }}">{{ company.label }}</option>
     {% endfor %}
   </select>
-</div>
-<div class="filter-group">
-  <label for="filter-location">Location</label>
   <select id="filter-location">
     <option value="">All Locations</option>
     {% for location in filters.locations %}
       <option value="{{ location.slug }}">{{ location.label }}</option>
     {% endfor %}
   </select>
-</div>
-<div class="filter-group">
-  <label for="filter-player">Player</label>
   <select id="filter-player">
     <option value="">All Players</option>
     {% for player in filters.players %}
       <option value="{{ player.slug }}">{{ player.label }}</option>
     {% endfor %}
   </select>
-</div>
-<div class="filter-group">
-  <label for="filter-award">Award</label>
   <select id="filter-award">
     <option value="">All Awards</option>
     {% for award in filters.awards %}
       <option value="{{ award.slug }}">{{ award.label }}</option>
     {% endfor %}
   </select>
-</div>
-<div class="filter-group">
-  <label for="filter-trip">Trip</label>
   <select id="filter-trip">
     <option value="">All Trips</option>
     {% for trip in filters.trips %}
       <option value="{{ trip.slug }}">{{ trip.label }}</option>
     {% endfor %}
   </select>
-</div>
-<div class="filter-group">
-  <label for="filter-list">List</label>
   <select id="filter-list">
     <option value="">All Lists</option>
     {% for list in filters.lists %}
       <option value="{{ list.slug }}">{{ list.label }}</option>
     {% endfor %}
   </select>
-</div>
-<div class="filter-group">
-  <label for="filter-theme">Theme</label>
   <select id="filter-theme">
     <option value="">All Themes</option>
     {% for theme in filters.themes %}
       <option value="{{ theme.slug }}">{{ theme.label }}</option>
     {% endfor %}
   </select>
-</div>
-<div class="filter-group">
-  <label for="filter-country">Country</label>
   <select id="filter-country">
     <option value="">All Countries</option>
     {% for country in filters.countries %}
       <option value="{{ country }}">{{ country }}</option>
     {% endfor %}
   </select>
-</div>
-<div class="filter-group">
-  <label for="filter-year">Year</label>
   <select id="filter-year">
     <option value="">All Years</option>
     {% for year in filters.years %}
       <option value="{{ year }}">{{ year }}</option>
     {% endfor %}
   </select>
-</div>
-<div class="filter-group">
-  <label for="filter-status">Status</label>
   <select id="filter-status">
     <option value="all">All</option>
     <option value="Escaped">Escaped</option>
@@ -97,6 +78,118 @@
     <option value="Scheduled">Scheduled</option>
   </select>
 </div>
-<div class="filter-actions">
-  <button class="btn btn-clear" id="clear-filters" style="display:none;" data-tinylytics-event="filter.clear-all">Clear All</button>
+{% else %}
+<div class="filter-cluster">
+  <div class="filter-cluster-title">Search</div>
+  <div class="filter-cluster-grid filter-cluster-grid-search">
+    <div class="filter-group">
+      <label for="filter-search">Search</label>
+      <input type="text" id="filter-search" placeholder="Game, company, city...">
+    </div>
+    <div class="filter-actions">
+      <button class="btn btn-clear" id="clear-filters" hidden data-tinylytics-event="filter.clear-all">Clear All</button>
+    </div>
+  </div>
 </div>
+  <div class="filter-cluster">
+    <div class="filter-cluster-title">People and Places</div>
+    <div class="filter-cluster-grid">
+      <div class="filter-group">
+        <label for="filter-company">Company</label>
+        <select id="filter-company">
+          <option value="">All Companies</option>
+          {% for company in filters.companies %}
+            <option value="{{ company.slug }}">{{ company.label }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-location">Location</label>
+        <select id="filter-location">
+          <option value="">All Locations</option>
+          {% for location in filters.locations %}
+            <option value="{{ location.slug }}">{{ location.label }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-country">Country</label>
+        <select id="filter-country">
+          <option value="">All Countries</option>
+          {% for country in filters.countries %}
+            <option value="{{ country }}">{{ country }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-player">Player</label>
+        <select id="filter-player">
+          <option value="">All Players</option>
+          {% for player in filters.players %}
+            <option value="{{ player.slug }}">{{ player.label }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="filter-cluster">
+    <div class="filter-cluster-title">Curation and Outcome</div>
+    <div class="filter-cluster-grid">
+      <div class="filter-group">
+        <label for="filter-award">Award</label>
+        <select id="filter-award">
+          <option value="">All Awards</option>
+          {% for award in filters.awards %}
+            <option value="{{ award.slug }}">{{ award.label }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-trip">Trip</label>
+        <select id="filter-trip">
+          <option value="">All Trips</option>
+          {% for trip in filters.trips %}
+            <option value="{{ trip.slug }}">{{ trip.label }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-list">List</label>
+        <select id="filter-list">
+          <option value="">All Lists</option>
+          {% for list in filters.lists %}
+            <option value="{{ list.slug }}">{{ list.label }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-theme">Theme</label>
+        <select id="filter-theme">
+          <option value="">All Themes</option>
+          {% for theme in filters.themes %}
+            <option value="{{ theme.slug }}">{{ theme.label }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-year">Year</label>
+        <select id="filter-year">
+          <option value="">All Years</option>
+          {% for year in filters.years %}
+            <option value="{{ year }}">{{ year }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-status">Status</label>
+        <select id="filter-status">
+          <option value="all">All</option>
+          <option value="Escaped">Escaped</option>
+          <option value="Try again">Try Again</option>
+          <option value="Completed">Completed</option>
+          <option value="Scheduled">Scheduled</option>
+        </select>
+      </div>
+    </div>
+  </div>
+{% endif %}

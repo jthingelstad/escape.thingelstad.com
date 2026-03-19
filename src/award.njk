@@ -16,8 +16,8 @@ permalink: /award/{{ award.slug }}/
     <section class="featured-detail-hero">
       <div class="feature-tile-kicker">Featured Award</div>
       <h1>{{ award.name }}</h1>
-      {% if award.notes %}
-      <p class="featured-detail-copy">{{ award.notes }}</p>
+      {% if award.aiIntro or award.notes %}
+      <p class="featured-detail-copy">{{ award.aiIntro or award.notes }}</p>
       {% endif %}
       <div class="featured-detail-stats">
         <div class="stat-item"><span class="stat-number">{{ award.roomCount }}</span><div class="stat-label">Rooms</div></div>

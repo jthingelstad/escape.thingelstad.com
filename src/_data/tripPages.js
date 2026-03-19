@@ -1,7 +1,9 @@
 const catalog = require('./catalog');
+const ai = require('./ai');
 
 module.exports = function() {
   const data = catalog();
+  const aiData = ai();
   const roomLookup = data.lookups.rooms.byAirtableId;
   const listLookup = data.lookups.lists.byId;
 
@@ -38,6 +40,8 @@ module.exports = function() {
       mapStops,
       countries: [...new Set(rooms.map((room) => room.location?.country).filter(Boolean))].sort(),
       cities: [...new Set(rooms.map((room) => room.location?.city).filter(Boolean))].sort(),
+      aiIntro: aiData.copy.trips[trip.slug]?.intro || null,
+      aiRouteSummary: aiData.copy.trips[trip.slug]?.routeSummary || null,
       firstDate: rooms[0]?.date || null,
       lastDate: rooms[rooms.length - 1]?.date || null
     };

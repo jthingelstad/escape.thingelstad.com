@@ -1,0 +1,849 @@
+{
+  "meta": {
+    "generatedAt": "2026-03-19T22:56:28.055Z",
+    "model": "gpt-4o-mini",
+    "roomCount": 100
+  },
+  "rooms": {
+    "1-the-library": {
+      "hints": [
+        "minneapolis trapped puzzle rooms",
+        "jamie tammy favorites",
+        "2016 escape room challenges",
+        "best library escape room minnesota",
+        "planned trip minneapolis"
+      ]
+    },
+    "10-the-oval-ish-office": {
+      "hints": [
+        "red herring escape room",
+        "st louis oval-ish office",
+        "jamie tammy escape adventures",
+        "2017 completion list",
+        "planned trip to st louis"
+      ]
+    },
+    "100-jurassic-escape-room": {
+      "hints": [
+        "jurassic escape room barcelona",
+        "scheduled escape in europe",
+        "best of morty trips",
+        "terpeca escape room favorites"
+      ]
+    },
+    "101-londium": {
+      "hints": [
+        "londium escape barcelona",
+        "escape in europe 2026",
+        "terpeca winners barcelona",
+        "jamie's upcoming trip plans"
+      ]
+    },
+    "11-a-very-potter-escape-room": {
+      "hints": [
+        "trapped puzzle rooms potter escape",
+        "favorite things in escape rooms",
+        "magic themed room st paul",
+        "completed adventures jamie",
+        "jamie tammy's magic favorites"
+      ]
+    },
+    "12-the-circus": {
+      "hints": [
+        "wisconsin dells do a escape rooms",
+        "jamie tammy circus theme",
+        "2018 circus escape review",
+        "book trip to wisconsin dells",
+        "completed circus room adventures"
+      ]
+    },
+    "13-gold-rush": {
+      "hints": [
+        "chicago gold rush escape",
+        "try again escape games",
+        "jamie tammy trip plans",
+        "the escape game in chicago",
+        "2018 challenges in the city"
+      ]
+    },
+    "14-enchanted-forest": {
+      "hints": [
+        "duluth zero hour escape rooms",
+        "jamie tammy escape lists",
+        "2018 forest theme room",
+        "favorite enchanted forest escape",
+        "planned escape trip to duluth"
+      ]
+    },
+    "15-mission-mars": {
+      "hints": [
+        "chicago mission mars escape",
+        "space themed escape rooms",
+        "jamie's completed missions",
+        "2018 escape adventures",
+        "jamie isaiah trip ideas"
+      ]
+    },
+    "16-the-search-for-atlantis": {
+      "hints": [
+        "edina escape frenzy rooms",
+        "search for atlantis escape",
+        "jamie tammy favorite adventures",
+        "2018 completed escape rooms",
+        "minnesota exploration trips"
+      ]
+    },
+    "17-ruin-raiders": {
+      "hints": [
+        "edina missing pieces escape",
+        "jamie tammy adventure rooms",
+        "ruin raiders escape review",
+        "travel plans for 2018 escapes",
+        "favorite adventure theme rooms"
+      ]
+    },
+    "18-the-wall": {
+      "hints": [
+        "buffalo enigma escape",
+        "wall escape room review",
+        "2018 completed rooms feedback",
+        "jamie tammy's escape list",
+        "favorite room challenges in new york"
+      ]
+    },
+    "19-it-s-all-fun-games": {
+      "hints": [
+        "trapped puzzle rooms fun games",
+        "jamie tammy completed adventures",
+        "planned trip minneapolis escapes",
+        "2018 adventure favorites",
+        "escape room fun games round-up"
+      ]
+    },
+    "2-the-maine-room": {
+      "hints": [
+        "portland maine escape games",
+        "try again the maine room trip",
+        "jamie tammy feedback",
+        "escape room portland reviews",
+        "maine escape games listings"
+      ]
+    },
+    "20-final-frontier": {
+      "hints": [
+        "edina missing pieces space theme",
+        "2018 trip ideas for space games",
+        "jamie tammy final frontier feedback",
+        "escape adventures planned for minnesota",
+        "try again on final frontier"
+      ]
+    },
+    "21-spies-vs-spies": {
+      "hints": [
+        "spies vs spies st paul",
+        "trapped puzzle rooms minnesota",
+        "escaperoom st paul attempts",
+        "espionage themed rooms minnesota"
+      ]
+    },
+    "22-spies-vs-spies": {
+      "hints": [
+        "completed spies vs spies st paul",
+        "trapped puzzle rooms review",
+        "jamie’s favorite escape room",
+        "espionage escape challenge"
+      ]
+    },
+    "23-diagonal-alley": {
+      "hints": [
+        "diagonal alley minneapolis",
+        "trapped puzzle rooms magical escape",
+        "best magic themed escape room minnesota",
+        "group of players diagonally alley"
+      ]
+    },
+    "24-final-frontier": {
+      "hints": [
+        "final frontier escape edina",
+        "missing pieces escape games favorite",
+        "space themed escape room minnesota",
+        "completed final frontier escape"
+      ]
+    },
+    "25-operation-casino": {
+      "hints": [
+        "operation casino minneapolis",
+        "breakout games escape success",
+        "heist themed rooms minnesota",
+        "jamie’s group casino escape"
+      ]
+    },
+    "26-quest-for-the-amulet-at-windmere-castle": {
+      "hints": [
+        "quest for the amulet lakeville",
+        "escape msp medical themed room",
+        "best medical escape games minnesota",
+        "players attempting windmere castle"
+      ]
+    },
+    "27-video-game-mayhem": {
+      "hints": [
+        "video game mayhem st paul",
+        "trapped puzzle rooms review",
+        "players escaping video games",
+        "video game escape challenges"
+      ]
+    },
+    "28-the-toy-maker-s-shop": {
+      "hints": [
+        "toy maker’s shop kansas city",
+        "escape artists kc success",
+        "kim’s favorites riverside escape",
+        "escape room trips in kansas city"
+      ]
+    },
+    "29-beasley-s-billions": {
+      "hints": [
+        "beasley’s billions kansas city",
+        "tick tock escape rooms challenge",
+        "try again beasley’s billions",
+        "jamie’s return trip kansas city"
+      ]
+    },
+    "3-dupree-s-office": {
+      "hints": [
+        "espionage room minneapolis",
+        "2023 favorites jamie tammy",
+        "escape msp dupree office",
+        "minneapolis escape rooms list",
+        "jamie tammy mazie's favorite room"
+      ]
+    },
+    "30-nutcracker-nightmare": {
+      "hints": [
+        "nutcracker nightmare st paul review",
+        "trapped puzzle rooms holiday escape",
+        "successful nutcracker escape",
+        "players escaping nutcracker nightmare"
+      ]
+    },
+    "31-the-vault": {
+      "hints": [
+        "the vault minneapolis attempts",
+        "puzzleworks escape room st paul",
+        "jamie's group vault escape",
+        "rooms to try again minnesota"
+      ]
+    },
+    "32-escape-at-home": {
+      "hints": [
+        "escape at home online",
+        "trapped puzzle rooms virtual experience",
+        "best online escape room minnesota",
+        "players trying escape at home"
+      ]
+    },
+    "33-titanic-room": {
+      "hints": [
+        "titanic room palm springs",
+        "escape room palm springs review",
+        "completed titanic escape",
+        "2021 escape rooms california"
+      ]
+    },
+    "34-evil-robot": {
+      "hints": [
+        "evil robot phoenix escape",
+        "favorite things escape rooms",
+        "nemesis club robots",
+        "players favorite escape 2021"
+      ]
+    },
+    "35-mona-lisa": {
+      "hints": [
+        "mona lisa greatest caper escape",
+        "completed heist room montpelier",
+        "players enjoying montpelier escape",
+        "best heist escape experiences"
+      ]
+    },
+    "37-alice-s-white-rabbit-rescue": {
+      "hints": [
+        "alice’s white rabbit indy escape",
+        "twisted room escapes favorites",
+        "completed rescue room indianapolis",
+        "players escape with alice"
+      ]
+    },
+    "38-robot-rampage": {
+      "hints": [
+        "robot rampage st paul",
+        "trapped puzzle rooms robot theme",
+        "jamie’s escape from robots",
+        "2022 escape challenges minnesota"
+      ]
+    },
+    "39-video-game-mayhem": {
+      "hints": [
+        "video game mayhem st paul 2022",
+        "trapped puzzle rooms escape success",
+        "players enjoying video game escape",
+        "revisiting video game mayhem"
+      ]
+    },
+    "4-the-bunker": {
+      "hints": [
+        "chicago fox in a box",
+        "bunker escape room reviews",
+        "planned trip to chicago",
+        "trapped puzzle rooms favorites",
+        "jamie tammy try again list"
+      ]
+    },
+    "40-grandpa-s-workshop": {
+      "hints": [
+        "grandpa’s workshop grand rapids",
+        "historical society escape review",
+        "completed nostalgia escape",
+        "players escaping in minnesota"
+      ]
+    },
+    "41-timeliner-train-through-time": {
+      "hints": [
+        "timeliner train through time nashville",
+        "favorite things escape rooms tennessee",
+        "players traveling through time",
+        "escape game nashville attempts"
+      ]
+    },
+    "42-pursuit-of-steam": {
+      "hints": [
+        "branson pursuit of steam escape",
+        "2022 branson escape room",
+        "cryptex branson steam challenge",
+        "best escape rooms branson"
+      ]
+    },
+    "43-journey-through-elek-s-hollow": {
+      "hints": [
+        "medieval theme escape room branson",
+        "journey through elek's hollow escape",
+        "escape code branson favorites",
+        "completed escape rooms branson"
+      ]
+    },
+    "44-the-mafia": {
+      "hints": [
+        "reykjavik escape rooms mafia game",
+        "escaped the mafia Reykjavik",
+        "top rooms Reykjavik",
+        "2022 Reykjavik escape successes"
+      ]
+    },
+    "45-cuckoo-s-clock": {
+      "hints": [
+        "cuckoo's clock edina escape",
+        "missing pieces escape games edina",
+        "2022 escape rooms in Minnesota",
+        "edina escape favorites list"
+      ]
+    },
+    "46-diamond-dilemma": {
+      "hints": [
+        "diamond dilemma edina",
+        "missing pieces escape games 2023",
+        "best escape rooms edina",
+        "2023 player favorites Minnesota"
+      ]
+    },
+    "47-countdown": {
+      "hints": [
+        "countdown mission manor minneapolis",
+        "escaping countdown in 2023",
+        "best escape rooms minneapolis",
+        "mission manor escape favorite list"
+      ]
+    },
+    "48-sugar-rush": {
+      "hints": [
+        "sugar rush exit escape room new york",
+        "2023 cooking theme escape",
+        "nyc escape room favorites",
+        "escape room trips new york 2023"
+      ]
+    },
+    "49-playground": {
+      "hints": [
+        "playground escape game new york",
+        "the escape game new york favorites",
+        "2023 top school themed escape",
+        "nyc escape room favorites list"
+      ]
+    },
+    "5-james-bond": {
+      "hints": [
+        "james bond escape room minneapolis",
+        "minnesota espionage theme",
+        "escape the room favorites",
+        "group challenges with jamie tammy",
+        "2016 james bond escape room"
+      ]
+    },
+    "50-mad-tea-party": {
+      "hints": [
+        "try again mad tea party escape",
+        "zero hour escape rooms minneapolis",
+        "minneapolis escape room attempts",
+        "2023 minneapolis escape challenges"
+      ]
+    },
+    "51-birth-machine": {
+      "hints": [
+        "birth machine mad machines milan",
+        "terpeca rooms in milan",
+        "2023 favorites escape rooms",
+        "best of morty winners italy"
+      ]
+    },
+    "52-time-machine": {
+      "hints": [
+        "time machine mad machines milan",
+        "terpeca escape rooms",
+        "best of morty escape room",
+        "2023 escape rooms with time travel theme"
+      ]
+    },
+    "53-the-zeros": {
+      "hints": [
+        "the zeros escape code branson",
+        "branson escape favorites 2023",
+        "completed escape rooms branson",
+        "escape code must-tries"
+      ]
+    },
+    "54-bigfoot-s-backyard-escape": {
+      "hints": [
+        "bigfoot's backyard escape grand rapids",
+        "2023 escape room experiences",
+        "itascas historical society escape",
+        "grand rapids best escape games"
+      ]
+    },
+    "55-the-apothecary": {
+      "hints": [
+        "time travel theme escape st. paul",
+        "the lodge of lazarus crowe escape",
+        "2023 escape room successes",
+        "apothecary escape minnesota"
+      ]
+    },
+    "56-invasion": {
+      "hints": [
+        "invasion escape room milwaukee",
+        "60 to escape milwaukee favorites",
+        "2024 planned escape trips",
+        "recently completed escape rooms milwaukee"
+      ]
+    },
+    "57-utopia": {
+      "hints": [
+        "utopia escape room minneapolis",
+        "lock & key escape rooms 2024",
+        "minneapolis escape room reattempts",
+        "best escape rooms minneapolis"
+      ]
+    },
+    "58-titanic-the-final-hour": {
+      "hints": [
+        "titanic final hour escape belfast",
+        "timescape escape room favorites",
+        "2024 escape room experiences",
+        "belfast escape rooms to try"
+      ]
+    },
+    "59-mystery-manor": {
+      "hints": [
+        "mystery manor gurnee escape",
+        "60 to escape gurnee favorites",
+        "completed 2024 escape rooms",
+        "gurnee escape adventures"
+      ]
+    },
+    "6-the-zen-room": {
+      "hints": [
+        "springfield clue pursuit zen room",
+        "try again escape rooms",
+        "james tammy zen theme",
+        "book trip to springfield escape",
+        "spiritual escape room reviews"
+      ]
+    },
+    "60-cosmic-crisis": {
+      "hints": [
+        "cosmic crisis escape game bloomington",
+        "best space themed escapes 2024",
+        "the escape game bloomington",
+        "2024 escape room highlights"
+      ]
+    },
+    "61-granny-s-recipe-rescue": {
+      "hints": [
+        "granny's recipe rescue brainerd",
+        "copper cat escape rooms",
+        "minnesota escape room 2025 trips",
+        "planned escapes in brainerd"
+      ]
+    },
+    "62-deep-woods-cabin": {
+      "hints": [
+        "copper cat escape brainerd favorite things room",
+        "jamie tammy tyler minnesota trip",
+        "2025 escape reviews deep woods cabin",
+        "brainerd escape experiences",
+        "cabin escape themes in minnesota"
+      ]
+    },
+    "63-the-museum": {
+      "hints": [
+        "the museum puzzleworks st paul favorite things",
+        "suspense escape rooms in st paul",
+        "tyler levi jamie escape reviews",
+        "2025 escape in st paul",
+        "museum escape experiences minnesota"
+      ]
+    },
+    "64-sherwood-forest": {
+      "hints": [
+        "sherwood forest no esc puzzle collective shakopee",
+        "medieval escape rooms in shakopee",
+        "2025 escape adventure reviews minnesota",
+        "jamie tammy favorite trips",
+        "shakopee escape experiences"
+      ]
+    },
+    "65-the-istanbul-gambit": {
+      "hints": [
+        "istanbul gambit enigma adventures bloomington",
+        "2025 espionage escape rooms",
+        "jamie tammy tyler favorites",
+        "bloomington themed escape rooms",
+        "escape room must-try list minnesota"
+      ]
+    },
+    "66-the-hospital": {
+      "hints": [
+        "the hospital puzzleworks st paul",
+        "medical theme escape rooms in minnesota",
+        "2025 escape reviews st paul",
+        "jamie tammy tyler escape adventures",
+        "st paul escape room experiences"
+      ]
+    },
+    "67-crazy-train": {
+      "hints": [
+        "crazy train doldrick’s escape room orlando terpeca",
+        "favorites list for escape rooms 2025",
+        "theme train cartoon escape experiences",
+        "orlando escape room reviews",
+        "jamie tammy mazies trip to orlando"
+      ]
+    },
+    "68-the-dungeon": {
+      "hints": [
+        "the dungeon puzzleworks st paul",
+        "2025 escape room reviews in st paul",
+        "jamie tammy mazie group experiences",
+        "dungeon escape themes",
+        "minnesota escape adventures"
+      ]
+    },
+    "69-the-anomaly": {
+      "hints": [
+        "the anomaly puzzleworks st paul",
+        "jamie tammy favorites list",
+        "2025 escape experiences in st paul",
+        "mystery puzzles in minnesota",
+        "group escape reviews"
+      ]
+    },
+    "7-ivan-s-will": {
+      "hints": [
+        "mankato kato escape",
+        "jamie's completed rooms",
+        "ivan’s will escape room",
+        "planned escape to mankato",
+        "getaway ideas for minnesota"
+      ]
+    },
+    "70-pirates-of-the-spanish-main": {
+      "hints": [
+        "pirates of the spanish main enigma adventures maple grove",
+        "favorite things escape rooms 2025",
+        "jamie tammy mazie reviews",
+        "escape room adventures in minnesota",
+        "maple grove themed escape experiences"
+      ]
+    },
+    "71-mindmaster-industries": {
+      "hints": [
+        "mindmaster industries escape city calgary",
+        "favorite escape rooms canada 2025",
+        "jamie tammy escape reviews",
+        "calgary escape experiences",
+        "jamie tammy players favorites"
+      ]
+    },
+    "72-caper-in-the-escape-room": {
+      "hints": [
+        "caper in the escape room solve escape rooms waukesha",
+        "heist theme escape reviews 2025",
+        "group experiences in waukesha",
+        "tammy tyler escape favorites",
+        "waukesha planned escape trips"
+      ]
+    },
+    "73-14-floors-below": {
+      "hints": [
+        "14 floors below solve escape rooms waukesha",
+        "waukesha escape room adventures",
+        "2025 escape experiences reviews",
+        "tammy tyler favorites",
+        "escape room options in wisconsin"
+      ]
+    },
+    "74-gold-rush": {
+      "hints": [
+        "gold rush escape in time madison",
+        "madison themed escape experiences",
+        "group adventures in wisconsin",
+        "2025 escape room reviews",
+        "favorite escape rooms list"
+      ]
+    },
+    "75-the-dreamwalkers": {
+      "hints": [
+        "the dreamwalkers cabinet mysteriis quebec city terpeca",
+        "jamie tammy mazies favorites",
+        "best escape rooms canada 2025",
+        "qmsb trip to quebec",
+        "quebec city escape room awards"
+      ]
+    },
+    "76-2002-the-bovine-odyssey": {
+      "hints": [
+        "2002: the bovine odyssey cabinet mysteriis quebec city terpeca",
+        "space themed escape rooms quebec",
+        "qmsb trip escape reviews",
+        "2025 escape adventures in quebec",
+        "group favorites escape rooms"
+      ]
+    },
+    "77-screaming-metal": {
+      "hints": [
+        "screaming metal cabinet mysteriis quebec city terpeca",
+        "jamie tammy favorites for 2025",
+        "quebec city escape room recommendations",
+        "best of morty escape reviews",
+        "qmsb planned trips"
+      ]
+    },
+    "78-lost-island-of-the-voodoo-queen": {
+      "hints": [
+        "lost island of the voodoo queen escaparium laval favorite things",
+        "quebec escape rooms 2025",
+        "pirate themed adventures in laval",
+        "jamie tammy mazie reviews",
+        "escaparium escape experiences"
+      ]
+    },
+    "79-wardrobe-for-sale": {
+      "hints": [
+        "wardrobe for sale escaparium laval terpeca",
+        "favorite escape rooms in 2025",
+        "quebec city escape reviews",
+        "jamie tammy adventure lists",
+        "planning trips for escaparium rooms"
+      ]
+    },
+    "8-mad-tea-party": {
+      "hints": [
+        "st paul zero hour escape",
+        "mad tea party review",
+        "jamie tammy escape favorites",
+        "2017 themed escape rooms",
+        "trip ideas for st paul"
+      ]
+    },
+    "80-magnifico": {
+      "hints": [
+        "magnifico escaparium laval 2025 terpeca",
+        "best of morty escape reviews",
+        "jamie tammy favorite adventures",
+        "laval escape experiences",
+        "qmsb trip escape planning"
+      ]
+    },
+    "81-the-experiment": {
+      "hints": [
+        "the experiment escape room alexandria favorite things",
+        "jamie tammy player experiences",
+        "alexandria escape reviews 2025",
+        "group escape room recommendations",
+        "escape room adventures in minnesota"
+      ]
+    },
+    "82-time-machine": {
+      "hints": [
+        "time travel escape fargo",
+        "puzzled escape rooms fargo",
+        "favorites list jamie",
+        "usa escape rooms 2025"
+      ]
+    },
+    "83-gemini-quantum-quest": {
+      "hints": [
+        "gemini quantum quest bismarck",
+        "breakout nd bismarck escape",
+        "players favorites tammy",
+        "2025 escape room trips"
+      ]
+    },
+    "84-ruins-forbidden-treasure": {
+      "hints": [
+        "ruins forbidden treasure berry hill",
+        "the escape game tennessee favorites",
+        "best escape game favorite things",
+        "jamie berry hill escape plans"
+      ]
+    },
+    "85-legend-of-the-yeti": {
+      "hints": [
+        "legend of the yeti nashville",
+        "the escape game nashville player reviews",
+        "escape rooms in tennessee",
+        "tammy favorites list"
+      ]
+    },
+    "86-loose-sleuth": {
+      "hints": [
+        "loose sleuth minneapolis",
+        "puzzleworks minneapolis trip planning",
+        "jamie escape favorites",
+        "2026 scheduled escape in usa"
+      ]
+    },
+    "87-scooby-doo-and-the-spooky-castle-adventure": {
+      "hints": [
+        "scooby-doo escapology burnsivlle",
+        "jamie's favorite cartoon escape",
+        "escape rooms minnesota",
+        "scheduled escape plans"
+      ]
+    },
+    "88-quest-for-excalibur": {
+      "hints": [
+        "quest for excalibur mn",
+        "lock & key escape minneapolis",
+        "favorite escape room themes medieval",
+        "players trip plans"
+      ]
+    },
+    "89-the-founder-s-secret": {
+      "hints": [
+        "the founder's secret st paul",
+        "terpeca minnesota rooms",
+        "favorite things escape",
+        "jamie escape lists 2026"
+      ]
+    },
+    "9-barber-shop": {
+      "hints": [
+        "grand haven room escape",
+        "jamie tammy feedback",
+        "barber shop escape reviews",
+        "try again barber shop escape",
+        "2017 favorite escape room"
+      ]
+    },
+    "90-molly-s-game": {
+      "hints": [
+        "molly's game voorburg",
+        "best of morty escape room",
+        "europe 2026 jamie favorites",
+        "terpeca escapes in netherlands"
+      ]
+    },
+    "91-the-vanishing-act": {
+      "hints": [
+        "the vanishing act utrecht",
+        "terpeca rooms europe 2026",
+        "escape in europe player plans",
+        "jamie favorite magic escapes"
+      ]
+    },
+    "92-the-midnight-express": {
+      "hints": [
+        "the midnight express utrecht",
+        "escape in europe 2026 planning",
+        "cooking themed escape room",
+        "jamie's favorite escape trips"
+      ]
+    },
+    "93-botanist-manor": {
+      "hints": [
+        "botanist manor brussels",
+        "escape rush europe 2026",
+        "jamie's escape in europe favorites",
+        "terpeca escape rooms 2026"
+      ]
+    },
+    "94-the-alchemist": {
+      "hints": [
+        "the alchemist amsterdam",
+        "best of morty rooms 2026",
+        "jamie escape favorites",
+        "europe 2026 terpeca winners"
+      ]
+    },
+    "95-zoltar-speaks": {
+      "hints": [
+        "zoltar speaks hilversum",
+        "escape in europe themed escapes",
+        "jamie's favorite time travel games",
+        "terpeca winners netherlands 2026"
+      ]
+    },
+    "96-revolt-at-the-lock": {
+      "hints": [
+        "revolt at the lock paris",
+        "scheduled escape 2026",
+        "terpeca escape rooms in france",
+        "best of morty escape plans"
+      ]
+    },
+    "97-galactic-mission": {
+      "hints": [
+        "galactic mission paris",
+        "escape in europe 2026",
+        "terpeca rooms upcoming 2026",
+        "scheduled escape plans jams"
+      ]
+    },
+    "98-the-taxidermist": {
+      "hints": [
+        "the taxidermist paris escape",
+        "golden lock escape rooms 2026",
+        "best of morty escape plans",
+        "escape in europe trips"
+      ]
+    },
+    "99-the-brewery": {
+      "hints": [
+        "the brewery barcelona",
+        "escape in europe 2026",
+        "best of morty rooms",
+        "jamie's escape plans 2026"
+      ]
+    }
+  }
+}

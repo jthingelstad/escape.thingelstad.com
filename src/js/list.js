@@ -20,6 +20,42 @@ const roomById = Object.fromEntries(roomIndex.map((room) => [String(room.id), ro
 const container = document.getElementById('room-list');
 const allCards = [...container.querySelectorAll('.room-card')];
 
+function buildOmniboxTerm(field, value) {
+  switch (field.key) {
+    case 'year':
+      return `year ${value}`;
+    case 'status':
+      return `status ${value}`;
+    case 'country':
+      return `country ${value}`;
+    default:
+      return `${field.key} ${value}`;
+  }
+}
+
+function collapseTypedFiltersIntoSearch(filters) {
+  const collapsed = { ...filters };
+  const searchParts = [];
+
+  if (collapsed.q) searchParts.push(collapsed.q);
+
+  FILTER_FIELDS.forEach((field) => {
+    const emptyValue = field.emptyValue || '';
+    const value = collapsed[field.key];
+    if (!value || value === emptyValue) return;
+
+    const label = getSelectedFilterLabel(field.key);
+    if (!label) return;
+    searchParts.push(buildOmniboxTerm(field, label));
+    collapsed[field.key] = emptyValue;
+  });
+
+  return {
+    ...collapsed,
+    q: searchParts.join(' ').trim()
+  };
+}
+
 function init() {
   initNav();
   applyUrlFilters();
@@ -27,7 +63,14 @@ function init() {
 }
 
 function applyUrlFilters() {
-  applyFiltersToControls(getFilterParams());
+  const filters = getFilterParams();
+  applyFiltersToControls(filters);
+
+  const collapsedFilters = collapseTypedFiltersIntoSearch(filters);
+  const filtersChanged = JSON.stringify(filters) !== JSON.stringify(collapsedFilters);
+
+  applyFiltersToControls(collapsedFilters);
+  if (filtersChanged) setFilterParams(collapsedFilters);
   updateResults();
 }
 
@@ -78,7 +121,7 @@ function updateResults() {
   setFilterParams(filters);
 
   const clearBtn = document.getElementById('clear-filters');
-  clearBtn.style.display = hasActiveFilters(filters) ? '' : 'none';
+  clearBtn.hidden = !hasActiveFilters(filters);
 
   updateActiveFilterPills(filters);
 

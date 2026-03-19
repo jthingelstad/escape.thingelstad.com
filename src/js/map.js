@@ -94,7 +94,8 @@ function buildPopup(room) {
   const companyName = escapeHtml(room.company?.name || 'Unknown Company');
   const statusHtml = statusBadgeHtml(room.status);
   const dateStr = formatDate(room.date);
-  const locationStr = escapeHtml(formatLocation(room.location));
+  const locationLabel = formatLocation(room.location);
+  const locationStr = escapeHtml(locationLabel);
   const detailUrl = roomUrl(room);
   const locationHtml = room.location
     ? `<a href="${entityFilterUrl('location', room.location)}" data-tinylytics-event="map.location-filter" data-tinylytics-event-value="${locationStr}">${locationStr}</a>`
@@ -107,41 +108,53 @@ function buildPopup(room) {
 
   const photoHtml = room.photo
     ? `<div class="popup-photo"><img src="/images/rooms/${escapeHtml(room.photo)}" alt="${gameName} at ${companyName}"></div>`
-    : '';
+    : `<div class="popup-photo-fallback" aria-hidden="true"></div>`;
 
   const officialHtml = room.officialUrl
-    ? `<a href="${escapeHtml(room.officialUrl)}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.official-site" data-tinylytics-event-value="${gameName}">Official site \u2192</a>`
+    ? `<a href="${escapeHtml(room.officialUrl)}" target="_blank" rel="noopener" class="popup-link popup-link-official" data-tinylytics-event="map.official-site" data-tinylytics-event-value="${gameName}">Official site \u2192</a>`
     : '';
 
   const blogHtml = room.blogUrl
-    ? `<a href="${escapeHtml(room.blogUrl)}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.blog-post" data-tinylytics-event-value="${gameName}">Read post \u2192</a>`
+    ? `<a href="${escapeHtml(room.blogUrl)}" target="_blank" rel="noopener" class="popup-link popup-link-blog" data-tinylytics-event="map.blog-post" data-tinylytics-event-value="${gameName}">Read post \u2192</a>`
     : '';
 
   const mortyHtml = room.mortyId
-    ? `<a href="https://morty.app/attraction/${room.mortyId}" target="_blank" rel="noopener" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.morty" data-tinylytics-event-value="${gameName}">Morty \u2192</a>`
+    ? `<a href="https://morty.app/attraction/${room.mortyId}" target="_blank" rel="noopener" class="popup-link popup-link-morty" data-tinylytics-event="map.morty" data-tinylytics-event-value="${gameName}">Morty \u2192</a>`
     : '';
 
   const companyFilter = room.company
     ? `<a href="${entityFilterUrl('company', room.company)}" data-tinylytics-event="map.company-filter" data-tinylytics-event-value="${companyName}">${companyName}</a>`
     : companyName;
 
+  const metaItems = [
+    dateStr ? `<span><span class="meta-icon">\u{1F4C5}</span> ${escapeHtml(dateStr)}</span>` : '',
+    locationHtml ? `<span><span class="meta-icon">\u{1F4CD}</span> ${locationHtml}</span>` : '',
+    room.timeLeft != null ? `<span><span class="meta-icon">\u23F1</span> ${escapeHtml(formatTimeLeft(room.timeLeft))}</span>` : ''
+  ].filter(Boolean).join('');
+
   return `
-    <div class="popup-room">
-      ${photoHtml}
-      <div class="popup-content">
-        <h3><a href="${detailUrl}" style="color: inherit; text-decoration: none;" data-tinylytics-event="map.view-room" data-tinylytics-event-value="${gameName}">#${room.id} ${gameName}</a></h3>
-        <div class="popup-meta">
-          ${companyFilter}<br>
-          ${dateStr}${locationHtml ? ' &middot; ' + locationHtml : ''}
-          ${room.timeLeft != null ? ' &middot; ' + escapeHtml(formatTimeLeft(room.timeLeft)) : ''}
+    <div class="popup-room${room.photo ? ' popup-room-has-photo' : ' popup-room-no-photo'}">
+      <div class="popup-room-frame">
+        ${photoHtml}
+        <div class="popup-room-top">
+          <span class="room-number">#${room.id}</span>
+          <span class="status-indicator">${statusHtml}</span>
         </div>
-        ${statusHtml}
+        <div class="popup-room-body">
+          <div class="popup-room-title">
+            <h3><a href="${detailUrl}" class="popup-link popup-link-detail" data-tinylytics-event="map.view-room" data-tinylytics-event-value="${gameName}">${gameName}</a></h3>
+            <div class="popup-room-company">${companyFilter}</div>
+          </div>
+          ${metaItems ? `<div class="popup-meta">${metaItems}</div>` : ''}
+        </div>
+      </div>
+      <div class="popup-room-details">
         ${awardsHtml ? `<div class="popup-entities">${awardsHtml}</div>` : ''}
         ${tripsHtml ? `<div class="popup-entities">${tripsHtml}</div>` : ''}
         ${listsHtml ? `<div class="popup-entities">${listsHtml}</div>` : ''}
         ${themesHtml ? `<div class="popup-entities">${themesHtml}</div>` : ''}
         <div class="popup-links">
-          <a href="${detailUrl}" style="color: var(--accent-teal); font-size: 0.8rem;" data-tinylytics-event="map.view-room" data-tinylytics-event-value="${gameName}">View details &rarr;</a>
+          <a href="${detailUrl}" class="popup-link popup-link-detail" data-tinylytics-event="map.view-room" data-tinylytics-event-value="${gameName}">View details &rarr;</a>
           ${officialHtml} ${blogHtml} ${mortyHtml}
         </div>
       </div>
@@ -159,7 +172,7 @@ function updateMarkers() {
 
   const clearBtn = document.getElementById('clear-filters');
   const hasFilters = hasActiveFilters(filters);
-  clearBtn.style.display = hasFilters ? '' : 'none';
+  clearBtn.hidden = !hasFilters;
 
   const rooms = filterRooms(filters);
   const mappable = rooms.filter((room) => room.location?.lat != null && room.location?.lng != null);

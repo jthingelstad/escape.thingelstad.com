@@ -47,19 +47,31 @@ function buildPopup(stop) {
   const companyName = escapeHtml(stop.company?.name || 'Unknown Company');
   const locationText = escapeHtml(formatLocation(stop.location));
   const detailUrl = roomUrl(stop);
+  const metaItems = [
+    stop.date ? `<span><span class="meta-icon">\u{1F4C5}</span> ${escapeHtml(formatDate(stop.date))}</span>` : '',
+    locationText ? `<span><span class="meta-icon">\u{1F4CD}</span> ${locationText}</span>` : '',
+    stop.timeLeft != null ? `<span><span class="meta-icon">\u23F1</span> ${escapeHtml(formatTimeLeft(stop.timeLeft))}</span>` : ''
+  ].filter(Boolean).join('');
 
   return `
-    <div class="popup-room">
-      <div class="popup-content">
-        <h3><a href="${detailUrl}" style="color: inherit; text-decoration: none;">${stop.sequence}. #${stop.id} ${gameName}</a></h3>
-        <div class="popup-meta">
-          ${companyName}<br>
-          ${formatDate(stop.date)}${locationText ? ' &middot; ' + locationText : ''}
-          ${stop.timeLeft != null ? ' &middot; ' + escapeHtml(formatTimeLeft(stop.timeLeft)) : ''}
+    <div class="popup-room popup-room-no-photo">
+      <div class="popup-room-frame">
+        <div class="popup-photo-fallback" aria-hidden="true"></div>
+        <div class="popup-room-top">
+          <span class="room-number">#${stop.id}</span>
+          <span class="status-indicator">${statusBadgeHtml(stop.status)}</span>
         </div>
-        ${statusBadgeHtml(stop.status)}
+        <div class="popup-room-body">
+          <div class="popup-room-title">
+            <h3><a href="${detailUrl}" class="popup-link popup-link-detail">${stop.sequence}. ${gameName}</a></h3>
+            <div class="popup-room-company">${companyName}</div>
+          </div>
+          ${metaItems ? `<div class="popup-meta">${metaItems}</div>` : ''}
+        </div>
+      </div>
+      <div class="popup-room-details">
         <div class="popup-links">
-          <a href="${detailUrl}" style="color: var(--accent-teal); font-size: 0.8rem;">View details &rarr;</a>
+          <a href="${detailUrl}" class="popup-link popup-link-detail">View details &rarr;</a>
         </div>
       </div>
     </div>
