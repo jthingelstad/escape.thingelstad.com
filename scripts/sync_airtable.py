@@ -128,6 +128,34 @@ def build_lookup(records):
     return {r["id"]: r.get("fields", {}) for r in records}
 
 
+def build_name_lookup(records, field_name="Name"):
+    """Build a dict mapping record ID to a display name field."""
+    lookup = {}
+    for record in records:
+        name = record.get("fields", {}).get(field_name)
+        if name:
+            lookup[record["id"]] = name
+    return lookup
+
+
+def resolve_linked_names(linked_ids, name_lookup, warning_prefix):
+    """Resolve linked record ids to names, preserving order."""
+    names = []
+    warnings = []
+
+    if not isinstance(linked_ids, list):
+        linked_ids = [linked_ids]
+
+    for linked_id in linked_ids:
+        name = name_lookup.get(linked_id)
+        if name:
+            names.append(name)
+        else:
+            warnings.append(f"{warning_prefix} record {linked_id} not found")
+
+    return names, warnings
+
+
 def normalize_numeric_rating(value):
     """Normalize an Airtable numeric rating to float or None."""
     if value is None:
@@ -233,7 +261,15 @@ def attach_ratings(entry, ratings_lookup):
 VALID_STATUSES = {"Escaped", "Try again", "Completed", "Scheduled"}
 
 
-def transform_room(room_fields, airtable_id, company_lookup, location_lookup, images_dir):
+def transform_room(
+    room_fields,
+    airtable_id,
+    company_lookup,
+    location_lookup,
+    images_dir,
+    awards_lookup,
+    players_lookup,
+):
     """Transform an Airtable Room record into a rooms.json entry.
 
     Returns (entry, warnings) where warnings is a list of strings.
@@ -330,16 +366,22 @@ def transform_room(room_fields, airtable_id, company_lookup, location_lookup, im
 
     entry["blogUrl"] = room_fields.get("thingelstad.com URL") or None
 
-    # Tags (multi-select comes as a list)
-    tags = room_fields.get("Tags")
-    entry["tags"] = tags if isinstance(tags, list) else []
+    # Tags now come from the linked Awards table.
+    tags, tag_warnings = resolve_linked_names(room_fields.get("Awards") or [], awards_lookup, "Award")
+    entry["tags"] = tags
+    warnings.extend(tag_warnings)
 
     entry["notes"] = room_fields.get("Notes") or None
     entry["commentary"] = room_fields.get("Commentary") or None
 
-    # Players (multi-select or linked records)
-    players = room_fields.get("Players")
-    entry["players"] = players if isinstance(players, list) else []
+    # Players now come from the linked Players table.
+    players, player_warnings = resolve_linked_names(
+        room_fields.get("Players") or [],
+        players_lookup,
+        "Player",
+    )
+    entry["players"] = players
+    warnings.extend(player_warnings)
 
     # Optional fields — only include if present
     morty_id = room_fields.get("Morty ID")
@@ -387,16 +429,26 @@ def main():
     locations = fetch_all_records(base_id, "Locations", token)
     print(f"  {len(locations)} locations")
 
+    print("Fetching Awards...")
+    awards = fetch_all_records(base_id, "Awards", token)
+    print(f"  {len(awards)} awards")
+
+    print("Fetching Players...")
+    players = fetch_all_records(base_id, "Players", token)
+    print(f"  {len(players)} players")
+
     print("Fetching Rooms...")
     rooms = fetch_all_records(base_id, "Rooms", token)
     print(f"  {len(rooms)} rooms")
 
-    print("Fetching Ratings...")
-    ratings = fetch_all_records(base_id, "Ratings", token)
-    print(f"  {len(ratings)} ratings")
+    print("Fetching Experiences...")
+    ratings = fetch_all_records(base_id, "Experiences", token)
+    print(f"  {len(ratings)} experiences")
 
     company_lookup = build_lookup(companies)
     location_lookup = build_lookup(locations)
+    awards_lookup = build_name_lookup(awards)
+    players_lookup = build_name_lookup(players)
     ratings_lookup, ratings_warnings = build_ratings_lookup(ratings)
 
     # Transform all rooms
@@ -409,7 +461,15 @@ def main():
         if fields.get("Hide"):
             hidden_count += 1
             continue
-        entry, warnings, label = transform_room(fields, record["id"], company_lookup, location_lookup, images_dir)
+        entry, warnings, label = transform_room(
+            fields,
+            record["id"],
+            company_lookup,
+            location_lookup,
+            images_dir,
+            awards_lookup,
+            players_lookup,
+        )
         entry["airtableId"] = record["id"]
         entry["sortOrder"] = fields.get("Order")
         entry["_sourceIndex"] = index
