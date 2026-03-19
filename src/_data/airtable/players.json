@@ -1,6 +1,6 @@
 {
   "table": "Players",
-  "syncedAt": "2026-03-19T20:21:42.172910+00:00",
+  "syncedAt": "2026-03-19T21:02:05.423816+00:00",
   "count": 26,
   "records": [
     {
@@ -214,7 +214,8 @@
           "recM2tOvoeH29vOJD",
           "recBHwx3kobncX31m",
           "reca6bIeAIt6OxCx3",
-          "recrQ7mSj8HrOoZJS"
+          "recrQ7mSj8HrOoZJS",
+          "rec4zecfSJ1FznQMB"
         ],
         "Game (from Rooms)": [
           "Magnifico",
@@ -296,9 +297,10 @@
           "Beasley’s Billions",
           "Escape At Home",
           "Botanist Manor",
-          "Zoltar Speaks"
+          "Zoltar Speaks",
+          "The Alchemist"
         ],
-        "Room Count": 80,
+        "Room Count": 81,
         "Featured": true,
         "Experiences": [
           "recJcztWTdgd7BzmS"
@@ -425,7 +427,8 @@
           "recM2tOvoeH29vOJD",
           "recBHwx3kobncX31m",
           "reca6bIeAIt6OxCx3",
-          "recrQ7mSj8HrOoZJS"
+          "recrQ7mSj8HrOoZJS",
+          "rec4zecfSJ1FznQMB"
         ],
         "Game (from Rooms)": [
           "Lost Island of the Voodoo Queen",
@@ -516,9 +519,10 @@
           "Beasley’s Billions",
           "Escape At Home",
           "Botanist Manor",
-          "Zoltar Speaks"
+          "Zoltar Speaks",
+          "The Alchemist"
         ],
-        "Room Count": 89,
+        "Room Count": 90,
         "Featured": true,
         "Experiences": [
           "recQxjgHECuJ2zhHL",
@@ -696,7 +700,8 @@
           "recM2tOvoeH29vOJD",
           "recBHwx3kobncX31m",
           "reca6bIeAIt6OxCx3",
-          "recrQ7mSj8HrOoZJS"
+          "recrQ7mSj8HrOoZJS",
+          "rec4zecfSJ1FznQMB"
         ],
         "Game (from Rooms)": [
           "Screaming Metal",
@@ -785,9 +790,10 @@
           "Beasley’s Billions",
           "Escape At Home",
           "Botanist Manor",
-          "Zoltar Speaks"
+          "Zoltar Speaks",
+          "The Alchemist"
         ],
-        "Room Count": 87,
+        "Room Count": 88,
         "Featured": true,
         "Experiences": [
           "recJaH5HGmhCaXSbz",

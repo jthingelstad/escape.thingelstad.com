@@ -36,6 +36,8 @@ Raw Airtable snapshots are committed under `src/_data/airtable/`:
 - `players.json`
 - `awards.json`
 - `trips.json`
+- `lists.json`
+- `listItems.json`
 - `rooms.json`
 - `experiences.json`
 
@@ -50,6 +52,8 @@ The normalized catalog exposes:
 - `players`
 - `awards`
 - `trips`
+- `lists`
+- `listItems`
 - `experiences`
 - `featured.players`
 - `featured.awards`
@@ -78,6 +82,7 @@ Public room objects are normalized with:
 - `players`
 - `awards`
 - `trips`
+- `lists`
 - `themes`
 - `experiences`
 - `ratingSummary`
@@ -96,6 +101,13 @@ Featured pages exist only for records with Airtable `Featured = true`:
 Non-featured players, awards, and trips remain metadata and should link to filtered list views.
 Themes do not get standalone pages.
 
+Lists are always public and have standalone pages:
+
+- `/lists/`
+- `/list/{slug}/`
+
+Lists can be standalone or attached to a player or trip. Rooms can belong to zero or more lists.
+
 ## Filtering
 
 Filtering is typed and URL-driven. The active dimensions are:
@@ -106,6 +118,7 @@ Filtering is typed and URL-driven. The active dimensions are:
 - `player`
 - `award`
 - `trip`
+- `list`
 - `theme`
 - `country`
 - `year`
@@ -120,11 +133,16 @@ The old tag model is gone and should not be reintroduced.
 - `src/_data/filters.js` — filter option data
 - `src/_data/roomDetail.js` — detail-page derived data
 - `src/_data/roomIndex.js` — inlined room data for list and map
+- `src/_data/listPages.js` — standalone list page data
+- `src/_data/playerPages.js` — featured player page data
+- `src/_data/tripPages.js` — featured trip page data
 - `src/_includes/room-card.njk` — room card component
 - `src/_includes/filter-bar.njk` — shared typed filters
+- `src/_includes/entity-chips.njk` — shared entity chip rendering
 - `src/js/data.js` — shared client helpers and filter state
 - `src/js/list.js` — list filtering and sorting
 - `src/js/map.js` — map filtering and popup rendering
+- `src/js/trip.js` — featured trip route map
 
 ## Routes
 
@@ -133,6 +151,8 @@ The old tag model is gone and should not be reintroduced.
 - `/map/` — map view
 - `/scrapbook/` — photo scrapbook
 - `/stats/` — charts and summary stats
+- `/lists/` — all public lists
+- `/list/{slug}/` — standalone list pages
 - `/room/{id-slug}/` — room detail pages
 - `/featured/` and featured entity pages
 - `/feed.xml`
@@ -142,3 +162,5 @@ The old tag model is gone and should not be reintroduced.
 
 - `npm run sync` is the source-data refresh step; there is no separate export pipeline to regenerate a flat room file.
 - Prefer working from the normalized catalog rather than rebuilding ad hoc Airtable link resolution in page-specific files.
+- Keep the typed entity model intact: do not reintroduce generic tag plumbing.
+- Trip pages now include a dedicated route map and ordered stop list for the rooms on that trip.

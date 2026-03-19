@@ -1,40 +1,144 @@
 # Escaping Things
 
-The Thingelstad family's escape room journey — tracking every room, every win, every lockout.
+The Thingelstad family's escape room journey, published at **[escape.thingelstad.com](https://escape.thingelstad.com)**.
 
-**[escape.thingelstad.com](https://escape.thingelstad.com)**
+This is an Eleventy-powered static site built from a normalized Airtable dataset. The current site includes:
 
-## What is this?
+- 100 public rooms
+- 94 played rooms and 6 scheduled rooms
+- 9 countries
+- typed entities for companies, locations, themes, players, awards, trips, lists, and experiences
+- standalone featured pages for selected players, awards, and trips
+- standalone list pages plus room/list/player/trip cross-linking
 
-A static website that catalogs the family's escape room adventures with typed Airtable-backed data for rooms, players, awards, trips, themes, locations, companies, and experiences.
+## Stack
 
-- **100 public rooms** across the US, Canada, UK, Iceland, Italy, Belgium, France, the Netherlands, and Spain
-- Interactive filterable list and map with typed facets for companies, players, awards, trips, and themes
-- Featured hub plus standalone featured pages for selected players, awards, and trips
-- Charts, room detail pages, and a scrapbook powered by a normalized site catalog
+- [Eleventy (11ty)](https://www.11ty.dev/) v3
+- Nunjucks templates
+- Plain CSS and vanilla JavaScript
+- Leaflet for maps
+- Chart.js for stats
+- Tinylytics for analytics
+- GitHub Pages via GitHub Actions
 
-## Tech
+No framework, no client-side data fetching, no runtime backend.
 
-Built with [Eleventy (11ty)](https://www.11ty.dev/) v3, plain CSS, and vanilla JavaScript. No frameworks, no bundlers.
+## Data Model
 
-- **Templates:** Nunjucks
-- **Maps:** Leaflet.js + MarkerCluster
-- **Charts:** Chart.js
-- **Analytics:** Tinylytics
-- **Hosting:** GitHub Pages (deployed via GitHub Actions)
+Raw Airtable snapshots live in `src/_data/airtable/` and are synced with:
 
-Raw Airtable snapshots live in `src/_data/airtable/*.json` and are synced via `scripts/sync_airtable.py`. Eleventy then builds a normalized catalog in `src/_data/catalog.js`.
+```bash
+npm run sync
+```
+
+The sync script pulls these Airtable tables:
+
+- `Companies`
+- `Locations`
+- `Themes`
+- `Players`
+- `Awards`
+- `Trips`
+- `Lists`
+- `List Items`
+- `Rooms`
+- `Experiences`
+
+Those raw snapshots are normalized in [src/_data/catalog.js](src/_data/catalog.js) through [lib/catalog.js](lib/catalog.js). The catalog is the canonical site data layer and exposes:
+
+- `rooms`
+- `companies`
+- `locations`
+- `themes`
+- `players`
+- `awards`
+- `trips`
+- `lists`
+- `experiences`
+- `featured.players`
+- `featured.awards`
+- `featured.trips`
+- lookup indexes by Airtable ID and slug
+
+Each room carries resolved relations and derived fields such as:
+
+- stable `Room ID`
+- canonical room slug and permalink
+- `officialUrl` resolved by `Room URL -> Location URL -> Company URL`
+- typed `players`, `awards`, `trips`, `lists`, and `themes`
+- nested `company` and `location`
+- `ratingSummary` from `Experiences`
+
+## Public Pages
+
+- `/` home page
+- `/list/` filterable room browser
+- `/map/` filterable map
+- `/scrapbook/` photo scrapbook
+- `/stats/` stats and charts
+- `/featured/` featured hub
+- `/room/<room-slug>/`
+- `/player/<slug>/` for featured players
+- `/award/<slug>/` for featured awards
+- `/trip/<slug>/` for featured trips
+- `/lists/` all public lists
+- `/list/<slug>/` for standalone lists
 
 ## Development
 
+Install dependencies:
+
 ```bash
 npm install
-npm start       # http://localhost:8080 with live reload
-npm run build   # Production build to _site/
-npm run sync    # Refresh raw Airtable snapshots under src/_data/airtable/
-npm test        # Run catalog contract tests
 ```
+
+Run the local dev server:
+
+```bash
+npm start
+```
+
+Build the site:
+
+```bash
+npm run build
+```
+
+Refresh Airtable snapshots:
+
+```bash
+npm run sync
+```
+
+Run tests:
+
+```bash
+npm test
+```
+
+## Tests
+
+The test suite covers:
+
+- catalog normalization and data contracts
+- fallback `officialUrl` behavior
+- hidden-room exclusion
+- list and list-item relationship handling
+- browser-level filter smoke tests using `jsdom`
+
+## Airtable Sync
+
+The sync script reads these environment variables:
+
+- `AIRTABLE_PAT`
+- `AIRTABLE_BASE_ID`
+
+It also reads `.env` in the project root if present.
+
+## Deployment
+
+Pushes to `main` trigger the GitHub Pages workflow in `.github/workflows/deploy.yml`.
 
 ## License
 
-Content and data are personal to the Thingelstad family. Code structure is available for reference.
+Code is licensed under `CC-BY-SA-4.0`. Site content and underlying data are personal to the Thingelstad family.

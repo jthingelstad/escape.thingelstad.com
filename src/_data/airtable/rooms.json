@@ -1,6 +1,6 @@
 {
   "table": "Rooms",
-  "syncedAt": "2026-03-19T20:21:42.174147+00:00",
+  "syncedAt": "2026-03-19T21:02:05.426256+00:00",
   "count": 101,
   "records": [
     {
@@ -455,7 +455,7 @@
         ],
         "Order": 1,
         "Created at": "2026-02-24T01:37:39.000Z",
-        "Modified at": "2026-03-19T15:27:04.000Z",
+        "Modified at": "2026-03-19T20:51:07.000Z",
         "Trips": [
           "recJqpVCHFrsjb8iR"
         ],
@@ -465,8 +465,12 @@
           "recTdLQCuYidyt9i7",
           "rec6LAueH8JTJB7hY"
         ],
+        "Players": [
+          "recfd6DZt87SxQurn",
+          "recQu0PsrO1tED4Zq",
+          "recGR0rXJvcz9ebBN"
+        ],
         "Experience Count": 0,
-        "Lists": "Best of Europe",
         "Room ID": 94,
         "List Items": [
           "recKRQ1P4SKVDhm8S"

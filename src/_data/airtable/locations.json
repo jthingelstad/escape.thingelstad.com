@@ -1,6 +1,6 @@
 {
   "table": "Locations",
-  "syncedAt": "2026-03-19T20:21:42.171366+00:00",
+  "syncedAt": "2026-03-19T21:02:05.419769+00:00",
   "count": 70,
   "records": [
     {
@@ -21,8 +21,10 @@
         "Coordinates": "48.868273, 2.353125",
         "Audit": true,
         "Created at": "2026-02-27T01:32:14.000Z",
-        "Modified at": "2026-02-27T01:34:02.000Z",
-        "Location ID": 38
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 38,
+        "Latitude": 48.868273,
+        "Longitude": 2.353125
       }
     },
     {
@@ -46,8 +48,10 @@
         "Coordinates": "44.953224, -93.287803",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T20:59:46.000Z",
-        "Location ID": 63
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 63,
+        "Latitude": 44.953224,
+        "Longitude": -93.287803
       }
     },
     {
@@ -68,8 +72,10 @@
         "Room Count": 1,
         "Coordinates": "43.6275, -89.771",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 9
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 9,
+        "Latitude": 43.6275,
+        "Longitude": -89.771
       }
     },
     {
@@ -91,8 +97,10 @@
         "Coordinates": "44.784431, -93.554246",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T21:05:00.000Z",
-        "Location ID": 46
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 46,
+        "Latitude": 44.784431,
+        "Longitude": -93.554246
       }
     },
     {
@@ -114,8 +122,10 @@
         "Room Count": 2,
         "Coordinates": "36.6437, -93.2185",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 19
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 19,
+        "Latitude": 36.6437,
+        "Longitude": -93.2185
       }
     },
     {
@@ -143,8 +153,10 @@
         "Coordinates": "44.924561, -93.167266",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T20:59:16.000Z",
-        "Location ID": 65
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 65,
+        "Latitude": 44.924561,
+        "Longitude": -93.167266
       }
     },
     {
@@ -167,8 +179,10 @@
         "Coordinates": "46.355982, -94.200255",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T02:07:28.000Z",
-        "Location ID": 7
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 7,
+        "Latitude": 46.355982,
+        "Longitude": -94.200255
       }
     },
     {
@@ -190,8 +204,10 @@
         "Coordinates": "45.443494, 9.155411",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T02:04:45.000Z",
-        "Location ID": 40
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 40,
+        "Latitude": 45.443494,
+        "Longitude": 9.155411
       }
     },
     {
@@ -211,8 +227,10 @@
         "Coordinates": "41.390835, 2.175974",
         "Audit": true,
         "Created at": "2026-02-27T01:45:05.000Z",
-        "Modified at": "2026-02-27T01:45:35.000Z",
-        "Location ID": 32
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 32,
+        "Latitude": 41.390835,
+        "Longitude": 2.175974
       }
     },
     {
@@ -233,8 +251,10 @@
         "Room Count": 1,
         "Coordinates": "51.012594, -114.065152",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:42.000Z",
-        "Location ID": 18
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 18,
+        "Latitude": 51.012594,
+        "Longitude": -114.065152
       }
     },
     {
@@ -260,8 +280,10 @@
         "Coordinates": "44.862888, -93.356817",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T02:04:02.000Z",
-        "Location ID": 43
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 43,
+        "Latitude": 44.862888,
+        "Longitude": -93.356817
       }
     },
     {
@@ -280,11 +302,13 @@
           "recFsAH2073sxvJvL"
         ],
         "Room Count": 2,
-        "Coordinates": "52.096060, 5.114035",
+        "Coordinates": "52.09606, 5.114035",
         "Audit": true,
         "Created at": "2026-02-27T01:24:00.000Z",
-        "Modified at": "2026-03-17T18:39:18.000Z",
-        "Location ID": 28
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 28,
+        "Latitude": 52.09606,
+        "Longitude": 5.114035
       }
     },
     {
@@ -305,8 +329,10 @@
         "Room Count": 1,
         "Coordinates": "45.883783, -95.376734",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 24
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 24,
+        "Latitude": 45.883783,
+        "Longitude": -95.376734
       }
     },
     {
@@ -327,8 +353,10 @@
         "Room Count": 1,
         "Coordinates": "44.9778, -93.265",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 3
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 3,
+        "Latitude": 44.9778,
+        "Longitude": -93.265
       }
     },
     {
@@ -347,8 +375,9 @@
           "recBHwx3kobncX31m"
         ],
         "Room Count": 1,
+        "Coordinates": ", ",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-28T15:50:23.000Z",
+        "Modified at": "2026-03-19T21:00:22.000Z",
         "Location ID": 64
       }
     },
@@ -370,8 +399,10 @@
         "Room Count": 1,
         "Coordinates": "40.7128, -74.006",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 30
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 30,
+        "Latitude": 40.7128,
+        "Longitude": -74.006
       }
     },
     {
@@ -392,8 +423,10 @@
         "Coordinates": "43.067342, -86.216261",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T02:05:33.000Z",
-        "Location ID": 33
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 33,
+        "Latitude": 43.067342,
+        "Longitude": -86.216261
       }
     },
     {
@@ -413,8 +446,10 @@
         "Room Count": 1,
         "Coordinates": "44.8897, -93.3499",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 20
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 20,
+        "Latitude": 44.8897,
+        "Longitude": -93.3499
       }
     },
     {
@@ -435,8 +470,10 @@
         "Coordinates": "64.144953, -21.911806",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T21:03:19.000Z",
-        "Location ID": 51
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 51,
+        "Latitude": 64.144953,
+        "Longitude": -21.911806
       }
     },
     {
@@ -456,8 +493,10 @@
         "Room Count": 1,
         "Coordinates": "39.0997, -94.5786",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 17
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 17,
+        "Latitude": 39.0997,
+        "Longitude": -94.5786
       }
     },
     {
@@ -477,11 +516,13 @@
           "rec11KrDEOtShXQmd"
         ],
         "Room Count": 2,
-        "Coordinates": "41.893400, -87.626383",
+        "Coordinates": "41.8934, -87.626383",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T02:02:41.000Z",
-        "Location ID": 57
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 57,
+        "Latitude": 41.8934,
+        "Longitude": -87.626383
       }
     },
     {
@@ -503,8 +544,10 @@
         "Coordinates": "40.761097, -73.984514",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T01:55:37.000Z",
-        "Location ID": 59
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 59,
+        "Latitude": 40.761097,
+        "Longitude": -73.984514
       }
     },
     {
@@ -527,8 +570,10 @@
         "Coordinates": "43.018744, -88.200357",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T21:02:43.000Z",
-        "Location ID": 53
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 53,
+        "Latitude": 43.018744,
+        "Longitude": -88.200357
       }
     },
     {
@@ -549,8 +594,10 @@
         "Room Count": 1,
         "Coordinates": "43.057218, -89.494541",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 21
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 21,
+        "Latitude": 43.057218,
+        "Longitude": -89.494541
       }
     },
     {
@@ -571,8 +618,10 @@
         "Coordinates": "41.409802, 2.179651",
         "Audit": true,
         "Created at": "2026-02-27T01:43:04.000Z",
-        "Modified at": "2026-02-27T01:43:39.000Z",
-        "Location ID": 15
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 15,
+        "Latitude": 41.409802,
+        "Longitude": 2.179651
       }
     },
     {
@@ -593,8 +642,10 @@
         "Coordinates": "50.819619, 4.388889",
         "Audit": true,
         "Created at": "2026-02-27T01:26:20.000Z",
-        "Modified at": "2026-02-27T01:27:40.000Z",
-        "Location ID": 26
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 26,
+        "Latitude": 50.819619,
+        "Longitude": 4.388889
       }
     },
     {
@@ -614,8 +665,10 @@
         "Room Count": 1,
         "Coordinates": "44.9537, -93.09",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 70
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 70,
+        "Latitude": 44.9537,
+        "Longitude": -93.09
       }
     },
     {
@@ -637,8 +690,10 @@
         "Coordinates": "43.629435, -70.328747",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T02:04:27.000Z",
-        "Location ID": 41
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 41,
+        "Latitude": 43.629435,
+        "Longitude": -70.328747
       }
     },
     {
@@ -658,8 +713,10 @@
         "Room Count": 1,
         "Coordinates": "46.7867, -92.1005",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 68
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 68,
+        "Latitude": 46.7867,
+        "Longitude": -92.1005
       }
     },
     {
@@ -680,8 +737,10 @@
         "Coordinates": "41.495278, 2.180616",
         "Audit": true,
         "Created at": "2026-02-27T01:49:02.000Z",
-        "Modified at": "2026-02-27T01:49:35.000Z",
-        "Location ID": 39
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 39,
+        "Latitude": 41.495278,
+        "Longitude": 2.180616
       }
     },
     {
@@ -704,8 +763,10 @@
         "Coordinates": "36.163498, -86.777078",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T02:01:34.000Z",
-        "Location ID": 58
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 58,
+        "Latitude": 36.163498,
+        "Longitude": -86.777078
       }
     },
     {
@@ -726,8 +787,10 @@
         "Room Count": 1,
         "Coordinates": "46.832906, -100.774248",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 4
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 4,
+        "Latitude": 46.832906,
+        "Longitude": -100.774248
       }
     },
     {
@@ -749,8 +812,10 @@
         "Coordinates": "54.602626, -5.930794",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T20:59:57.000Z",
-        "Location ID": 62
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 62,
+        "Latitude": 54.602626,
+        "Longitude": -5.930794
       }
     },
     {
@@ -771,8 +836,10 @@
         "Room Count": 1,
         "Coordinates": "42.391372, -87.958342",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 1
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 1,
+        "Latitude": 42.391372,
+        "Longitude": -87.958342
       }
     },
     {
@@ -794,8 +861,10 @@
         "Coordinates": "44.991939, -93.243836",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T02:03:45.000Z",
-        "Location ID": 44
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 44,
+        "Latitude": 44.991939,
+        "Longitude": -93.243836
       }
     },
     {
@@ -817,8 +886,10 @@
         "Coordinates": "33.676212, -111.965571",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T21:05:13.000Z",
-        "Location ID": 45
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 45,
+        "Latitude": 33.676212,
+        "Longitude": -111.965571
       }
     },
     {
@@ -842,8 +913,10 @@
         "Coordinates": "46.792333, -71.258633",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T02:08:22.000Z",
-        "Location ID": 5
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 5,
+        "Latitude": 46.792333,
+        "Longitude": -71.258633
       }
     },
     {
@@ -864,8 +937,10 @@
         "Coordinates": "48.884487, 2.369941",
         "Audit": true,
         "Created at": "2026-02-27T01:39:47.000Z",
-        "Modified at": "2026-02-27T01:40:17.000Z",
-        "Location ID": 10
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 10,
+        "Latitude": 48.884487,
+        "Longitude": 2.369941
       }
     },
     {
@@ -882,11 +957,13 @@
           "receASqfgMtmqSEHZ"
         ],
         "Room Count": 1,
-        "Coordinates": "52.084860, 4.362005",
+        "Coordinates": "52.08486, 4.362005",
         "Audit": true,
         "Created at": "2026-02-24T01:40:03.000Z",
-        "Modified at": "2026-02-27T01:52:38.000Z",
-        "Location ID": 67
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 67,
+        "Latitude": 52.08486,
+        "Longitude": 4.362005
       }
     },
     {
@@ -906,8 +983,10 @@
         "Room Count": 1,
         "Coordinates": "38.627, -90.1994",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 50
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 50,
+        "Latitude": 38.627,
+        "Longitude": -90.1994
       }
     },
     {
@@ -928,8 +1007,10 @@
         "Room Count": 1,
         "Coordinates": "33.8303, -116.5453",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 25
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 25,
+        "Latitude": 33.8303,
+        "Longitude": -116.5453
       }
     },
     {
@@ -949,8 +1030,10 @@
         "Coordinates": "52.374599, 4.895488",
         "Audit": true,
         "Created at": "2026-02-24T01:38:08.000Z",
-        "Modified at": "2026-02-24T21:02:47.000Z",
-        "Location ID": 52
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 52,
+        "Latitude": 52.374599,
+        "Longitude": 4.895488
       }
     },
     {
@@ -972,8 +1055,10 @@
         "Room Count": 2,
         "Coordinates": "44.9778, -93.265",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 48
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 48,
+        "Latitude": 44.9778,
+        "Longitude": -93.265
       }
     },
     {
@@ -997,8 +1082,10 @@
         "Coordinates": "47.234047, -93.528742",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T02:05:07.000Z",
-        "Location ID": 35
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 35,
+        "Latitude": 47.234047,
+        "Longitude": -93.528742
       }
     },
     {
@@ -1019,8 +1106,10 @@
         "Coordinates": "38.927925, -94.660115",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T21:01:06.000Z",
-        "Location ID": 61
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 61,
+        "Latitude": 38.927925,
+        "Longitude": -94.660115
       }
     },
     {
@@ -1042,8 +1131,10 @@
         "Coordinates": "44.855492, -93.240154",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T02:03:19.000Z",
-        "Location ID": 56
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 56,
+        "Latitude": 44.855492,
+        "Longitude": -93.240154
       }
     },
     {
@@ -1064,8 +1155,10 @@
         "Room Count": 1,
         "Coordinates": "42.8864, -78.8784",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 14
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 14,
+        "Latitude": 42.8864,
+        "Longitude": -78.8784
       }
     },
     {
@@ -1086,8 +1179,10 @@
         "Coordinates": "36.116701, -86.763313",
         "Audit": true,
         "Created at": "2026-02-27T02:00:11.000Z",
-        "Modified at": "2026-02-27T02:00:42.000Z",
-        "Location ID": 55
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 55,
+        "Latitude": 36.116701,
+        "Longitude": -86.763313
       }
     },
     {
@@ -1108,8 +1203,10 @@
         "Room Count": 1,
         "Coordinates": "44.9778, -93.265",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 69
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 69,
+        "Latitude": 44.9778,
+        "Longitude": -93.265
       }
     },
     {
@@ -1130,8 +1227,10 @@
         "Room Count": 1,
         "Coordinates": "44.850893, -93.236632",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 12
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 12,
+        "Latitude": 44.850893,
+        "Longitude": -93.236632
       }
     },
     {
@@ -1152,8 +1251,10 @@
         "Coordinates": "37.184793, -93.295487",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T02:07:54.000Z",
-        "Location ID": 6
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 6,
+        "Latitude": 37.184793,
+        "Longitude": -93.295487
       }
     },
     {
@@ -1175,8 +1276,10 @@
         "Coordinates": "46.830745, -96.800999",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T21:04:42.000Z",
-        "Location ID": 47
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 47,
+        "Latitude": 46.830745,
+        "Longitude": -96.800999
       }
     },
     {
@@ -1198,8 +1301,10 @@
         "Coordinates": "41.872068, -87.629255",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T02:05:51.000Z",
-        "Location ID": 31
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 31,
+        "Latitude": 41.872068,
+        "Longitude": -87.629255
       }
     },
     {
@@ -1220,8 +1325,10 @@
         "Room Count": 1,
         "Coordinates": "45.10157, -93.45427",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 13
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 13,
+        "Latitude": 45.10157,
+        "Longitude": -93.45427
       }
     },
     {
@@ -1239,11 +1346,13 @@
           "recrQ7mSj8HrOoZJS"
         ],
         "Room Count": 1,
-        "Coordinates": "52.224663, 5.178150",
+        "Coordinates": "52.224663, 5.17815",
         "Audit": true,
         "Created at": "2026-02-27T01:29:58.000Z",
-        "Modified at": "2026-02-27T01:31:13.000Z",
-        "Location ID": 54
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 54,
+        "Latitude": 52.224663,
+        "Longitude": 5.17815
       }
     },
     {
@@ -1265,8 +1374,10 @@
         "Coordinates": "39.692815, -86.110239",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T01:53:48.000Z",
-        "Location ID": 66
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 66,
+        "Latitude": 39.692815,
+        "Longitude": -86.110239
       }
     },
     {
@@ -1290,8 +1401,10 @@
         "Coordinates": "45.585974, -73.768325",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T02:06:58.000Z",
-        "Location ID": 16
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 16,
+        "Latitude": 45.585974,
+        "Longitude": -73.768325
       }
     },
     {
@@ -1312,8 +1425,10 @@
         "Room Count": 1,
         "Coordinates": "44.7677, -93.2777",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 29
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 29,
+        "Latitude": 44.7677,
+        "Longitude": -93.2777
       }
     },
     {
@@ -1333,8 +1448,10 @@
         "Room Count": 1,
         "Coordinates": "44.9778, -93.265",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 23
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 23,
+        "Latitude": 44.9778,
+        "Longitude": -93.265
       }
     },
     {
@@ -1355,8 +1472,10 @@
         "Room Count": 1,
         "Coordinates": "44.2601, -69.817",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 34
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 34,
+        "Latitude": 44.2601,
+        "Longitude": -69.817
       }
     },
     {
@@ -1379,8 +1498,10 @@
         "Coordinates": "44.935735, -93.114455",
         "Audit": true,
         "Created at": "2026-02-24T00:44:46.000Z",
-        "Modified at": "2026-02-24T21:01:07.000Z",
-        "Location ID": 60
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 60,
+        "Latitude": 44.935735,
+        "Longitude": -93.114455
       }
     },
     {
@@ -1400,8 +1521,10 @@
         "Room Count": 1,
         "Coordinates": "44.9778, -93.265",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 27
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 27,
+        "Latitude": 44.9778,
+        "Longitude": -93.265
       }
     },
     {
@@ -1419,11 +1542,13 @@
           "rectPKJYjIk3haDDU"
         ],
         "Room Count": 1,
-        "Coordinates": "36.642900, -93.250695",
+        "Coordinates": "36.6429, -93.250695",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-27T02:07:25.000Z",
-        "Location ID": 8
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 8,
+        "Latitude": 36.6429,
+        "Longitude": -93.250695
       }
     },
     {
@@ -1440,11 +1565,13 @@
           "recrCIDLym8KGALiH"
         ],
         "Room Count": 1,
-        "Coordinates": "48.863811, 2.347590",
+        "Coordinates": "48.863811, 2.34759",
         "Audit": true,
         "Created at": "2026-02-27T01:37:04.000Z",
-        "Modified at": "2026-02-27T01:38:39.000Z",
-        "Location ID": 42
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 42,
+        "Latitude": 48.863811,
+        "Longitude": 2.34759
       }
     },
     {
@@ -1466,11 +1593,13 @@
           "rec2mV2VTPueu9Yau"
         ],
         "Room Count": 4,
-        "Coordinates": "44.964850, -93.183348",
+        "Coordinates": "44.96485, -93.183348",
         "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T21:04:05.000Z",
-        "Location ID": 49
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 49,
+        "Latitude": 44.96485,
+        "Longitude": -93.183348
       }
     },
     {
@@ -1492,8 +1621,10 @@
         "Room Count": 2,
         "Coordinates": "44.881233, -93.324289",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 37
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 37,
+        "Latitude": 44.881233,
+        "Longitude": -93.324289
       }
     },
     {
@@ -1513,8 +1644,10 @@
         "Room Count": 1,
         "Coordinates": "44.6497, -93.2427",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 22
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 22,
+        "Latitude": 44.6497,
+        "Longitude": -93.2427
       }
     },
     {
@@ -1534,8 +1667,10 @@
         "Room Count": 1,
         "Coordinates": "44.1636, -93.9994",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 36
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 36,
+        "Latitude": 44.1636,
+        "Longitude": -93.9994
       }
     },
     {
@@ -1556,8 +1691,10 @@
         "Room Count": 1,
         "Coordinates": "28.335013, -81.478393",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 11
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 11,
+        "Latitude": 28.335013,
+        "Longitude": -81.478393
       }
     },
     {
@@ -1578,8 +1715,10 @@
         "Room Count": 1,
         "Coordinates": "42.949241, -88.004283",
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-02-24T01:41:33.000Z",
-        "Location ID": 2
+        "Modified at": "2026-03-19T21:00:38.000Z",
+        "Location ID": 2,
+        "Latitude": 42.949241,
+        "Longitude": -88.004283
       }
     }
   ]
