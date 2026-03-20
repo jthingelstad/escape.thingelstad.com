@@ -1,49 +1,49 @@
 {
   "meta": {
-    "generatedAt": "2026-03-19T22:55:16.156Z",
+    "generatedAt": "2026-03-20T12:18:38.586Z",
     "model": "gpt-4o-mini"
   },
   "home": {
-    "summary": "Escaping Things tracks 94 escape room adventures across seven countries and 16 regions, with team notes, shared experiences, and hard-earned perspective gathered over 11 years."
+    "summary": "This archive captures a journey through 94 completed rooms across seven countries, showcasing the diverse and intricate puzzle landscapes explored between 2016 and 2026."
   },
   "featured": {
-    "summary": "Explore two standout trips—Escape in Europe and QMSB—along with notable awards like Best Things and Best Things Twin Cities, featuring contributions from Jamie, Mazie, Tammy, and Tyler."
+    "summary": "Featuring two standout trips and a solid lineup of four players, this hub gives a glimpse into some of the most engaging environments tackled through collaborative efforts."
   },
   "players": {
     "jamie": {
-      "intro": "Jamie navigates rooms with a systems mindset, leading the group with a keen sense for puzzle structure and flow."
+      "intro": "Jamie combines methodical analysis with an intuitive grasp of puzzle designs, ensuring that each session flows smoothly."
     },
     "mazie": {
-      "intro": "Mazie energizes the team with her intuition and keen pattern recognition, often discovering the connections that unlock progress."
+      "intro": "Mazie infuses energy and fresh perspectives into her gameplay, often pioneering pathways to solutions that keep the team engaged."
     },
     "tammy": {
-      "intro": "Tammy keeps the team coordinated and focused, skillfully tracking clues and ensuring efficient collaboration."
+      "intro": "Tammy’s situational awareness and team coordination elevate the group dynamics, enabling more efficient collaboration as puzzles unfold."
     },
     "tyler": {
-      "intro": "Tyler brings a detail-oriented and methodical approach to puzzles, making steady progress with disciplined execution."
+      "intro": "Tyler’s precise execution and tactical mindset help the team maintain consistent progress through complex challenges."
     }
   },
   "awards": {
     "best-things": {
-      "intro": "This award represents our take on the standout rooms that have captured our hearts."
+      "intro": "The 'Best Things' award highlights rooms that deliver standout experiences in design and engagement."
     },
     "best-things-twin-cities": {
-      "intro": "Recognizing the top experiences in the Twin Cities, based on our collective adventures."
+      "intro": "'Best Things Twin Cities' celebrates top choices specifically from the Twin Cities, including noted gems like 'The Founder's Secret'."
     }
   },
   "trips": {
     "escape-in-europe": {
-      "intro": "A memorable journey from the Netherlands to Spain, exploring rich themes and puzzles across cities like Amsterdam and Barcelona.",
-      "routeSummary": "Starting in Voorburg, the route winds through Utrecht and Brussels, before making stops in Paris and Barcelona."
+      "intro": "A multi-city run that weaves through the Netherlands, Belgium, France, and Spain, bringing together a rich tapestry of immersive rooms.",
+      "routeSummary": "Starting in Voorburg, it takes a winding route through Utrecht, Brussels, and Paris, before concluding in Barcelona with three unique games."
     },
     "qmsb": {
-      "intro": "An exciting Canadian lineup that spans Laval and Quebec City, featuring rooms rich in narrative and challenge.",
-      "routeSummary": "Beginning in Quebec City, the run progresses to Laval, culminating in a variety of distinct gaming experiences."
+      "intro": "A compact excursion through Canada, focused on creating a tight-knit exploration of Laval and Quebec City.",
+      "routeSummary": "This trip efficiently covers six rooms in just over a week, showcasing the creativity of escape rooms in distinct cultural backdrops."
     }
   },
   "lists": {
-    "1-jamie-s-escape-in-europe-favorites": {
-      "intro": "A personal selection of favorite rooms from Jamie's European travels, showcasing the standout experiences encountered along the adventure."
+    "1-jamies-escape-in-europe-favorites": {
+      "intro": "Jamie's picks from the European journey reflect a blend of thematic depth and innovative puzzles that resonated with the team."
     }
   }
 }

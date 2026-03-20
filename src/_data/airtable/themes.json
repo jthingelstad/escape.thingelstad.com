@@ -1,7 +1,7 @@
 {
   "table": "Themes",
-  "syncedAt": "2026-03-19T22:50:45.014580+00:00",
-  "count": 19,
+  "syncedAt": "2026-03-20T12:26:03.886260+00:00",
+  "count": 21,
   "records": [
     {
       "id": "rec4wcQZxapCn55pg",
@@ -33,6 +33,24 @@
         ],
         "Room Count": 2,
         "Theme ID": 17
+      }
+    },
+    {
+      "id": "recAKez90n0a1eWt0",
+      "createdTime": "2026-03-20T07:46:34.000Z",
+      "fields": {
+        "Name": "Keepsake",
+        "Rooms": [
+          "reca6bIeAIt6OxCx3",
+          "rec4zecfSJ1FznQMB"
+        ],
+        "Game (from Rooms)": [
+          "Botanist Manor",
+          "The Alchemist"
+        ],
+        "Room Count": 2,
+        "Theme ID": 22,
+        "Note": "Provide the players with a keepsake of their experience. "
       }
     },
     {
@@ -84,6 +102,24 @@
         ],
         "Room Count": 3,
         "Theme ID": 14
+      }
+    },
+    {
+      "id": "recHb9JJzkH67Hgbq",
+      "createdTime": "2026-03-20T06:43:57.000Z",
+      "fields": {
+        "Name": "Actors",
+        "Rooms": [
+          "recrQ7mSj8HrOoZJS",
+          "recHh5GHLbeLSs808"
+        ],
+        "Game (from Rooms)": [
+          "Zoltar Speaks",
+          "Magnifico"
+        ],
+        "Room Count": 2,
+        "Theme ID": 21,
+        "Note": "Room features live actors as part of the room. "
       }
     },
     {
@@ -242,16 +278,18 @@
           "recGHzPOir2KjtOjc",
           "recK5aGPCnSOC9OsP",
           "reckDpDvipCNPk5Fb",
-          "recc91InhowyqKUUH"
+          "recc91InhowyqKUUH",
+          "recrCIDLym8KGALiH"
         ],
         "Game (from Rooms)": [
           "Mission: Mars",
           "2002: The Bovine Odyssey",
           "Cosmic Crisis",
           "Final Frontier",
-          "Final Frontier"
+          "Final Frontier",
+          "Galactic Mission"
         ],
-        "Room Count": 5,
+        "Room Count": 6,
         "Theme ID": 2
       }
     },
