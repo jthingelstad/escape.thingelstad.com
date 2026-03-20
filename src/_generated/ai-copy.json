@@ -1,49 +1,49 @@
 {
   "meta": {
-    "generatedAt": "2026-03-20T12:18:38.586Z",
+    "generatedAt": "2026-03-20T23:02:32.003Z",
     "model": "gpt-4o-mini"
   },
   "home": {
-    "summary": "This archive captures a journey through 94 completed rooms across seven countries, showcasing the diverse and intricate puzzle landscapes explored between 2016 and 2026."
+    "summary": "This archive captures the journey of a dedicated escape room group over 11 years and 95 rooms across eight countries. With a focus on teamwork, strategy, and experiences, the collection highlights memorable adventures and celebrated wins."
   },
   "featured": {
-    "summary": "Featuring two standout trips and a solid lineup of four players, this hub gives a glimpse into some of the most engaging environments tackled through collaborative efforts."
+    "summary": "Explore two standout trips, 'Escape in Europe' and 'QMSB', alongside two notable accolades, 'Best Things' and 'Best Things Twin Cities', all while following the escapades of key players like Jamie and Tammy."
   },
   "players": {
     "jamie": {
-      "intro": "Jamie combines methodical analysis with an intuitive grasp of puzzle designs, ensuring that each session flows smoothly."
+      "intro": "Jamie brings a methodical approach to every room, utilizing a strong intuition for puzzle structures and maintaining team momentum."
     },
     "mazie": {
-      "intro": "Mazie infuses energy and fresh perspectives into her gameplay, often pioneering pathways to solutions that keep the team engaged."
+      "intro": "Mazie's intuitive energy often helps teams break through tricky puzzles with fresh perspectives and quick adaptations."
     },
     "tammy": {
-      "intro": "Tammy’s situational awareness and team coordination elevate the group dynamics, enabling more efficient collaboration as puzzles unfold."
+      "intro": "Tammy's situational awareness and coordination foster clarity and efficiency, often guiding her team through complex challenges."
     },
     "tyler": {
-      "intro": "Tyler’s precise execution and tactical mindset help the team maintain consistent progress through complex challenges."
+      "intro": "Tyler’s focus and tactical mindset ensure methodical progress, translating insights into completed steps and maintaining a steady drive."
     }
   },
   "awards": {
     "best-things": {
-      "intro": "The 'Best Things' award highlights rooms that deliver standout experiences in design and engagement."
+      "intro": "The 'Best Things' award acknowledges standout rooms that excel in design."
     },
     "best-things-twin-cities": {
-      "intro": "'Best Things Twin Cities' celebrates top choices specifically from the Twin Cities, including noted gems like 'The Founder's Secret'."
+      "intro": "'Best Things Twin Cities' highlights the best escape experiences in the region, featuring rooms that resonate with local enthusiasts."
     }
   },
   "trips": {
     "escape-in-europe": {
-      "intro": "A multi-city run that weaves through the Netherlands, Belgium, France, and Spain, bringing together a rich tapestry of immersive rooms.",
-      "routeSummary": "Starting in Voorburg, it takes a winding route through Utrecht, Brussels, and Paris, before concluding in Barcelona with three unique games."
+      "intro": "This trip embraces a journey through Amsterdam, Barcelona, and several other cities, packed with engaging rooms that push puzzle-solving limits.",
+      "routeSummary": "Starting in Voorburg and weaving through cities like Utrecht, Brussels, and ending in Barcelona—this route is rich in variety."
     },
     "qmsb": {
-      "intro": "A compact excursion through Canada, focused on creating a tight-knit exploration of Laval and Quebec City.",
-      "routeSummary": "This trip efficiently covers six rooms in just over a week, showcasing the creativity of escape rooms in distinct cultural backdrops."
+      "intro": "A compact lineup in Canada that delivers a mix of engaging narratives and tactical challenges, spanning from Quebec City to Laval.",
+      "routeSummary": "Beginning in Quebec City, this route explores diverse rooms, each with its unique challenge, before wrapping up in Laval."
     }
   },
   "lists": {
     "1-jamies-escape-in-europe-favorites": {
-      "intro": "Jamie's picks from the European journey reflect a blend of thematic depth and innovative puzzles that resonated with the team."
+      "intro": "Jamie's shortlist of favorites from the European escapade features rooms that left a lasting impact, showcasing a blend of immersive storytelling and clever design."
     }
   }
 }
