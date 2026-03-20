@@ -17,17 +17,11 @@
 }
 
 .catalog-page .filter-bar {
-  position: sticky;
-  top: calc(var(--nav-height) + 1rem);
-  z-index: 5;
-}
-
-.catalog-page .filter-bar {
   max-width: 48rem;
 }
 
 .catalog-page .filter-bar .filter-primary-actions {
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .catalog-toolbar {
@@ -40,13 +34,16 @@
 
 .room-detail-page {
   max-width: 1220px;
+  display: grid;
+  gap: var(--space-5);
 }
 
 .room-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.9fr);
+  grid-template-columns: minmax(320px, 1.05fr) minmax(0, 1fr);
   gap: var(--space-6);
   padding: clamp(1.2rem, 3vw, 2rem);
+  align-items: stretch;
 }
 
 .room-hero-photo {
@@ -105,27 +102,8 @@
   color: var(--color-text);
 }
 
-.room-detail-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.68fr);
-  gap: var(--space-5);
-  align-items: start;
-}
-
-.room-detail-main,
-.room-detail-rail {
-  display: grid;
-  gap: var(--space-5);
-}
-
-.room-detail-main:empty,
-.room-detail-rail:empty {
-  display: none;
-}
-
 .room-stats-section,
 .room-ratings-section,
-.room-map-section,
 .room-related-section {
   padding: var(--space-5);
   border: 1px solid var(--color-line);
@@ -152,14 +130,12 @@
   height: 100%;
 }
 
-.room-map-container,
 .trip-map-container,
 #map {
   border-radius: calc(var(--radius-lg) - 0.2rem);
   overflow: hidden;
 }
 
-.room-map-container,
 .trip-map-container {
   height: 320px;
 }
@@ -196,8 +172,7 @@
 
 .list-entry-card {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: var(--space-4);
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
 }
 
@@ -362,6 +337,10 @@
   box-shadow: none;
 }
 
+.map-room-popup .leaflet-popup-content {
+  margin: 0;
+}
+
 .marker-cluster-small,
 .marker-cluster-medium,
 .marker-cluster-large {
@@ -374,191 +353,6 @@
   background: rgba(47, 90, 71, 0.86);
   color: var(--color-text-on-dark);
   font-family: var(--font-mono);
-}
-
-.scrapbook-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
-}
-
-.scrapbook-table {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-4);
-  align-items: start;
-}
-
-.scrapbook-photo {
-  position: relative;
-  display: grid;
-  gap: var(--space-3);
-  animation: scrapbook-fade-in 420ms ease both;
-  animation-delay: var(--delay, 0ms);
-}
-
-.scrapbook-photo-frame {
-  position: relative;
-  min-height: 24rem;
-  padding: 0;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-lg);
-  background: var(--color-page-alt);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  appearance: none;
-  font: inherit;
-  color: inherit;
-  text-align: left;
-  cursor: pointer;
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-}
-
-.scrapbook-photo-frame::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(24, 22, 20, 0.08) 0%, rgba(24, 22, 20, 0.12) 24%, rgba(24, 22, 20, 0.74) 100%);
-  z-index: 1;
-}
-
-.scrapbook-photo img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.01);
-}
-
-.scrapbook-photo-top {
-  position: absolute;
-  inset: var(--space-4) var(--space-4) auto var(--space-4);
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  gap: var(--space-3);
-  z-index: 2;
-}
-
-.scrapbook-photo-body {
-  position: absolute;
-  inset: auto 0 0 0;
-  display: grid;
-  gap: var(--space-3);
-  padding: calc(var(--space-8) + 0.25rem) var(--space-4) var(--space-4);
-  z-index: 2;
-}
-
-.scrapbook-photo-title {
-  display: grid;
-  gap: 0.35rem;
-}
-
-.scrapbook-photo-name {
-  font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2vw, 1.75rem);
-  color: var(--color-text-on-dark);
-}
-
-.scrapbook-photo-company {
-  color: rgba(248, 243, 236, 0.84);
-  font-size: 0.98rem;
-}
-
-.scrapbook-photo-status {
-  display: inline-flex;
-}
-
-.scrapbook-photo-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 0.85rem;
-  color: rgba(248, 243, 236, 0.82);
-  font-size: 0.88rem;
-}
-
-.scrapbook-photo-meta > span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.25rem 0.55rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-}
-
-.scrapbook-photo:hover .scrapbook-photo-frame,
-.scrapbook-photo.active .scrapbook-photo-frame {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-line-strong);
-  z-index: 3;
-}
-
-.scrapbook-detail {
-  display: grid;
-  gap: 0.45rem;
-  max-height: 0;
-  padding: 0 0.95rem;
-  overflow: hidden;
-  opacity: 0;
-  border: 1px solid transparent;
-  border-radius: var(--radius-md);
-  background: rgba(251, 248, 242, 0.92);
-  color: var(--color-text);
-  box-shadow: none;
-  transition: max-height var(--transition), opacity var(--transition), padding var(--transition), border-color var(--transition), box-shadow var(--transition);
-}
-
-.scrapbook-photo.active .scrapbook-detail {
-  max-height: 28rem;
-  padding: 1rem 1rem 1.05rem;
-  opacity: 1;
-  border-color: var(--color-line);
-  box-shadow: var(--shadow-sm);
-}
-
-.scrapbook-detail-name {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  color: var(--color-text);
-}
-
-.scrapbook-detail-company {
-  color: var(--color-forest);
-}
-
-.scrapbook-detail-date,
-.scrapbook-detail-location,
-.scrapbook-detail-time {
-  color: var(--color-text-soft);
-}
-
-.scrapbook-detail-status,
-.scrapbook-detail-lists {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  align-items: center;
-}
-
-.scrapbook-detail-link {
-  color: var(--color-forest);
-}
-
-@keyframes scrapbook-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .page-404 {
@@ -594,8 +388,7 @@
 }
 
 @media (max-width: 1040px) {
-  .room-hero,
-  .room-detail-grid {
+  .room-hero {
     grid-template-columns: 1fr;
   }
 
@@ -605,10 +398,6 @@
 }
 
 @media (max-width: 860px) {
-  .catalog-page .filter-bar {
-    position: static;
-  }
-
   .map-filter-panel {
     width: calc(100% - 2rem);
   }
@@ -641,8 +430,7 @@
   .stat-strip,
   .stats-row,
   .featured-detail-stats,
-  .room-ratings-summary,
-  .scrapbook-table {
+  .room-ratings-summary {
     grid-template-columns: 1fr;
   }
 

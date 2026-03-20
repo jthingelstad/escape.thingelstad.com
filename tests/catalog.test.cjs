@@ -1,7 +1,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const path = require('node:path');
-const { buildCatalog } = require('../lib/catalog');
+const { buildCatalog, slugify } = require('../lib/catalog');
 const buildFilters = require('../src/_data/filters');
 
 function loadRealCatalog() {
@@ -59,6 +59,11 @@ test('filter data exposes primary typed dimensions including locations, trips, a
   assert.ok(!Object.hasOwn(filters, 'legacyTagMap'));
 });
 
+test('slugify strips punctuation before collapsing separators', () => {
+  assert.equal(slugify("Jamie's Escape in Europe Favorites"), 'jamies-escape-in-europe-favorites');
+  assert.equal(slugify('RÉALM: Chapter_2'), 'realm-chapter-2');
+});
+
 test('lists preserve ordered room membership and attached player/trip metadata', () => {
   const catalog = buildCatalog(
     {
@@ -106,6 +111,30 @@ test('lists preserve ordered room membership and attached player/trip metadata',
   assert.deepEqual(catalog.lists[0].listItemIds, ['item2', 'item1']);
   assert.deepEqual(catalog.rooms[0].lists.map((list) => list.slug), ['12-favorites']);
   assert.deepEqual(catalog.rooms[1].lists.map((list) => list.slug), ['12-favorites']);
+});
+
+test('list slugs do not add separator breaks for apostrophes in names', () => {
+  const catalog = buildCatalog(
+    {
+      companies: { records: [] },
+      locations: { records: [] },
+      themes: { records: [] },
+      players: { records: [] },
+      awards: { records: [] },
+      trips: { records: [] },
+      lists: {
+        records: [
+          { id: 'list1', fields: { Name: "Jamie's Escape in Europe Favorites", 'List ID': 1 } }
+        ]
+      },
+      listItems: { records: [] },
+      experiences: { records: [] },
+      rooms: { records: [] }
+    },
+    { imagesDir: path.join(__dirname, '..', 'src', 'images', 'rooms') }
+  );
+
+  assert.equal(catalog.lists[0].slug, '1-jamies-escape-in-europe-favorites');
 });
 
 test('officialUrl prefers room URL, then location URL, then company URL', () => {

@@ -8,10 +8,10 @@ permalink: /list/
 {% block content %}
   <main class="container page-content catalog-page">
     <section class="page-intro">
-      <div class="eyebrow">Room Archive</div>
+      <div class="eyebrow">Room Catalog</div>
       <div class="page-intro-copy">
         <h1 class="page-intro-title">All Rooms</h1>
-        <p>A single-search way to browse the full archive. Search room names, companies, places, players, awards, trips, lists, themes, years, and status from one field.</p>
+        <p>A single-search way to browse the full room catalog. Search room names, companies, places, players, awards, trips, lists, themes, years, and status from one field.</p>
       </div>
     </section>
 
@@ -27,7 +27,7 @@ permalink: /list/
       <div class="catalog-toolbar">
         <div class="section-header">
           <h2>Catalog Results</h2>
-          <p>Sort the archive by date, game, company, or city while keeping search shareable in the URL.</p>
+          <p>Sort the catalog by date, game, company, or city while keeping search shareable in the URL.</p>
         </div>
 
         <div class="sort-controls">
@@ -43,7 +43,7 @@ permalink: /list/
       <div class="room-grid" id="room-list">
         {% from "room-card.njk" import roomCard %}
         {% for room in catalog.rooms | reverse %}
-          {{ roomCard(room, { showRatingSummary: true }) }}
+          {{ roomCard(room) }}
         {% endfor %}
       </div>
     </section>

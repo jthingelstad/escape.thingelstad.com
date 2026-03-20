@@ -113,7 +113,7 @@ function buildEditorialPromptData() {
       winRate: player.winRate,
       firstDate: player.firstDate,
       lastDate: player.lastDate,
-      recentRooms: player.recentRooms.map((room) => room.game),
+      recentRooms: (player.recentRooms || player.rooms || []).slice(0, 6).map((room) => room.game),
       lists: player.lists.map((list) => list.name)
     })),
     awards: buildAwardPages().map((award) => ({

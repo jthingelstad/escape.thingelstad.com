@@ -1,6 +1,6 @@
 ---
-title: The Thingelstad Family Escape Room Journey
-description: The Thingelstad family's escape room journey.
+title: Escaping Things
+description: The Escaping Things escape room team.
 permalink: /index.html
 bodyClass: page-home
 ---
@@ -9,10 +9,10 @@ bodyClass: page-home
 {% block content %}
   <main class="container page-content">
     <section class="page-intro">
-      <div class="eyebrow">Family Archive</div>
+      <div class="eyebrow">Escape Room Team</div>
       <div class="page-intro-copy">
         <h1 class="page-intro-title">Escaping Things</h1>
-        <p>{{ ai.copy.home.summary or "The Thingelstad family’s escape room history, rebuilt as a calmer travel-and-room archive with routes, ratings, places, and the standout stories threaded through it." }}</p>
+        <p>{{ ai.copy.home.summary or "Escaping Things is our escape room team log, following the rooms, trips, places, ratings, and standout moments that shaped the run." }}</p>
       </div>
       <div class="stats-row" id="hero-stats">
         <div class="stat-item"><span class="stat-number">{{ stats.totalRooms }}</span><div class="stat-label">Rooms</div></div>
@@ -22,18 +22,13 @@ bodyClass: page-home
         <div class="stat-item"><span class="stat-number">{{ stats.countryCount }}</span><div class="stat-label">Countries</div></div>
         <div class="stat-item"><span class="stat-number">{{ stats.yearsActive }}</span><div class="stat-label">Years Active</div></div>
       </div>
-      <div class="action-row">
-        <a href="/list/" class="action-link" data-tinylytics-event="home.view-list">Browse Room Archive</a>
-        <a href="/map/" class="action-link" data-tinylytics-event="home.view-map">See the Map</a>
-        <a href="/lists/" class="action-link" data-tinylytics-event="home.view-lists">Browse Curated Lists</a>
-      </div>
     </section>
 
     {% if stats.recentCompleted and stats.recentCompleted.length > 0 %}
     <section id="recent-rooms">
       <div class="section-header">
         <h2>Recent Rooms</h2>
-        <p>The latest dozen rooms in the archive.</p>
+        <p>The latest dozen rooms from the team log.</p>
       </div>
       <div class="room-grid">
         {% from "room-card.njk" import roomCard %}

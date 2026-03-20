@@ -3,18 +3,13 @@ import {
   bindFilterControls,
   escapeHtml,
   formatDate,
-  formatLocation,
   getFilterParams,
   initNav,
-  statusBadgeHtml,
-  formatTimeLeft,
   roomUrl,
-  entityFilterUrl,
   readFiltersFromControls,
   roomMatchesFilters,
   setFilterParams,
-  hasActiveFilters,
-  renderEntityChip
+  hasActiveFilters
 } from './data.js';
 
 const allRooms = JSON.parse(document.getElementById('room-index-data').textContent);
@@ -89,74 +84,60 @@ function createMarkerIcon(room) {
   });
 }
 
+function popupFallbackImage(room) {
+  return room.status === 'Scheduled' ? '/images/room-scheduled.png' : '/images/room-no-photo.png';
+}
+
+function popupLocationParts(location) {
+  if (!location) return { primary: '', secondary: '' };
+
+  if (location.city) {
+    return {
+      primary: location.city,
+      secondary: location.region || location.country || ''
+    };
+  }
+
+  const primary = location.label || location.country || location.region || 'Unknown Location';
+  return {
+    primary,
+    secondary: location.country && location.country !== primary ? location.country : ''
+  };
+}
+
 function buildPopup(room) {
   const gameName = escapeHtml(room.game);
   const companyName = escapeHtml(room.company?.name || 'Unknown Company');
-  const statusHtml = statusBadgeHtml(room.status);
-  const dateStr = formatDate(room.date);
-  const locationLabel = formatLocation(room.location);
-  const locationStr = escapeHtml(locationLabel);
   const detailUrl = roomUrl(room);
-  const locationHtml = room.location
-    ? `<a href="${entityFilterUrl('location', room.location)}" data-tinylytics-event="map.location-filter" data-tinylytics-event-value="${locationStr}">${locationStr}</a>`
-    : locationStr;
-
-  const awardsHtml = (room.awards || []).map((award) => renderEntityChip('award', award)).join('');
-  const tripsHtml = (room.trips || []).map((trip) => renderEntityChip('trip', trip)).join('');
-  const listsHtml = (room.lists || []).map((list) => renderEntityChip('list', list)).join('');
-  const themesHtml = (room.themes || []).map((theme) => renderEntityChip('theme', theme)).join('');
-
-  const photoHtml = room.photo
-    ? `<div class="popup-photo"><img src="/images/rooms/${escapeHtml(room.photo)}" alt="${gameName} at ${companyName}"></div>`
-    : `<div class="popup-photo-fallback" aria-hidden="true"></div>`;
-
-  const officialHtml = room.officialUrl
-    ? `<a href="${escapeHtml(room.officialUrl)}" target="_blank" rel="noopener" class="popup-link popup-link-official" data-tinylytics-event="map.official-site" data-tinylytics-event-value="${gameName}">Official site \u2192</a>`
-    : '';
-
-  const blogHtml = room.blogUrl
-    ? `<a href="${escapeHtml(room.blogUrl)}" target="_blank" rel="noopener" class="popup-link popup-link-blog" data-tinylytics-event="map.blog-post" data-tinylytics-event-value="${gameName}">Read post \u2192</a>`
-    : '';
-
-  const mortyHtml = room.mortyId
-    ? `<a href="https://morty.app/attraction/${room.mortyId}" target="_blank" rel="noopener" class="popup-link popup-link-morty" data-tinylytics-event="map.morty" data-tinylytics-event-value="${gameName}">Morty \u2192</a>`
-    : '';
-
-  const companyFilter = room.company
-    ? `<a href="${entityFilterUrl('company', room.company)}" data-tinylytics-event="map.company-filter" data-tinylytics-event-value="${companyName}">${companyName}</a>`
-    : companyName;
-
-  const metaItems = [
-    dateStr ? `<span><span class="meta-icon">\u{1F4C5}</span> ${escapeHtml(dateStr)}</span>` : '',
-    locationHtml ? `<span><span class="meta-icon">\u{1F4CD}</span> ${locationHtml}</span>` : '',
-    room.timeLeft != null ? `<span><span class="meta-icon">\u23F1</span> ${escapeHtml(formatTimeLeft(room.timeLeft))}</span>` : ''
-  ].filter(Boolean).join('');
+  const fallbackImage = popupFallbackImage(room);
+  const dateStr = room.date ? escapeHtml(formatDate(room.date)) : '';
+  const { primary: locationPrimary, secondary: locationSecondary } = popupLocationParts(room.location);
 
   return `
-    <div class="popup-room${room.photo ? ' popup-room-has-photo' : ' popup-room-no-photo'}">
-      <div class="popup-room-frame">
-        ${photoHtml}
-        <div class="popup-room-top">
-          <span class="room-number">#${room.id}</span>
-          <span class="status-indicator">${statusHtml}</span>
-        </div>
-        <div class="popup-room-body">
-          <div class="popup-room-title">
-            <h3><a href="${detailUrl}" class="popup-link popup-link-detail" data-tinylytics-event="map.view-room" data-tinylytics-event-value="${gameName}">${gameName}</a></h3>
-            <div class="popup-room-company">${companyFilter}</div>
+    <div class="popup-room">
+      <div class="room-card${room.photo ? ' room-card-has-photo' : ' room-card-no-photo'}" data-room-id="${room.id}">
+        <a href="${detailUrl}" class="room-card-link" data-tinylytics-event="map.view-room" data-tinylytics-event-value="${gameName}">
+          ${room.photo
+            ? `<div class="room-card-thumb"><img src="/images/rooms/${escapeHtml(room.photo)}" alt=""></div>`
+            : `<div class="room-card-fallback" aria-hidden="true"><img src="${fallbackImage}" alt=""></div>`}
+          <div class="room-card-top-left">
+            <div class="room-card-badge">
+              <span class="room-card-badge-label">Room</span>
+              <span class="room-card-badge-number">${room.id}</span>
+            </div>
           </div>
-          ${metaItems ? `<div class="popup-meta">${metaItems}</div>` : ''}
-        </div>
-      </div>
-      <div class="popup-room-details">
-        ${awardsHtml ? `<div class="popup-entities">${awardsHtml}</div>` : ''}
-        ${tripsHtml ? `<div class="popup-entities">${tripsHtml}</div>` : ''}
-        ${listsHtml ? `<div class="popup-entities">${listsHtml}</div>` : ''}
-        ${themesHtml ? `<div class="popup-entities">${themesHtml}</div>` : ''}
-        <div class="popup-links">
-          <a href="${detailUrl}" class="popup-link popup-link-detail" data-tinylytics-event="map.view-room" data-tinylytics-event-value="${gameName}">View details &rarr;</a>
-          ${officialHtml} ${blogHtml} ${mortyHtml}
-        </div>
+          ${dateStr
+            ? `<div class="room-card-top-right"><div class="room-card-date">${dateStr}</div></div>`
+            : ''}
+          <div class="room-card-bottom">
+            <h3 class="room-card-room">${gameName}</h3>
+            <div class="room-card-company">${companyName}</div>
+            <div class="room-card-bottom-right">
+              ${locationPrimary ? `<div class="room-card-location-primary">${escapeHtml(locationPrimary)}</div>` : ''}
+              ${locationSecondary ? `<div class="room-card-location-secondary">${escapeHtml(locationSecondary)}</div>` : ''}
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   `;
@@ -182,7 +163,10 @@ function updateMarkers() {
     const marker = L.marker([room.location.lat, room.location.lng], {
       icon: createMarkerIcon(room)
     });
-    marker.bindPopup(buildPopup(room), { maxWidth: 320 });
+    marker.bindPopup(buildPopup(room), {
+      className: 'map-room-popup',
+      maxWidth: 360
+    });
     markerClusterGroup.addLayer(marker);
   });
 

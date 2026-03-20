@@ -24,7 +24,6 @@ module.exports = function() {
       ...player,
       rooms,
       lists,
-      recentRooms: rooms.slice(-6).reverse(),
       comments,
       wins,
       winRate: rooms.length ? Math.round((wins / rooms.length) * 100) : 0,

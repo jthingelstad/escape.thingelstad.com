@@ -7,6 +7,7 @@ pagination:
 permalink: /room/{{ room.slug }}/
 ---
 {% extends "base.njk" %}
+{% from "room-card.njk" import roomCard %}
 {% from "entity-chips.njk" import entityGroup %}
 
 {% block pageTitle %}{{ room.game | safe }} — {{ room.company.name if room.company else 'Unknown Company' }}{% endblock %}
@@ -24,40 +25,10 @@ permalink: /room/{{ room.slug }}/
   {% endif %}
   <meta property="og:site_name" content="Escaping Things">
   <meta name="twitter:card" content="summary_large_image">
-  {% if room.location and room.location.lat != null %}
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  {% endif %}
 {% endblock %}
 
 {% block content %}
   <main class="container page-content room-detail-page">
-    <nav class="room-nav" aria-label="Room navigation">
-      {% if room.nav.prev %}
-        <a href="/room/{{ room.nav.prev.slug }}/" class="room-nav-link room-nav-prev" data-tinylytics-event="room.nav-prev">
-          <span class="room-nav-arrow">&larr;</span>
-          <span class="room-nav-label">
-            <span class="room-nav-dir">Previous</span>
-            <span class="room-nav-name">#{{ room.nav.prev.id }} {{ room.nav.prev.game }}</span>
-          </span>
-        </a>
-      {% else %}
-        <span class="room-nav-link room-nav-prev disabled"></span>
-      {% endif %}
-      <a href="/list/" class="room-nav-all" data-tinylytics-event="room.back-to-list">All Rooms</a>
-      {% if room.nav.next %}
-        <a href="/room/{{ room.nav.next.slug }}/" class="room-nav-link room-nav-next" data-tinylytics-event="room.nav-next">
-          <span class="room-nav-label">
-            <span class="room-nav-dir">Next</span>
-            <span class="room-nav-name">#{{ room.nav.next.id }} {{ room.nav.next.game }}</span>
-          </span>
-          <span class="room-nav-arrow">&rarr;</span>
-        </a>
-      {% else %}
-        <span class="room-nav-link room-nav-next disabled"></span>
-      {% endif %}
-    </nav>
-
     <section class="room-hero">
       {% if room.photo %}
       <div class="room-hero-photo">
@@ -78,17 +49,6 @@ permalink: /room/{{ room.slug }}/
           <span class="room-hero-meta-item">
             <span class="meta-icon">📅</span> {{ room.date | formatDate }}
           </span>
-          {% set loc = room.location | formatLocation %}
-          {% if loc %}
-          <span class="room-hero-meta-item">
-            <span class="meta-icon">📍</span>
-            {% if room.location %}
-              <a href="{{ room.location | entityFilterUrl('location') }}" data-tinylytics-event="room.location-filter" data-tinylytics-event-value="{{ loc }}">{{ loc }}</a>
-            {% else %}
-              {{ loc }}
-            {% endif %}
-          </span>
-          {% endif %}
         </div>
 
         <div class="room-hero-status-row">
@@ -125,11 +85,11 @@ permalink: /room/{{ room.slug }}/
         </div>
 
         {% if room.commentary %}
-        <div class="room-hero-commentary">{{ room.commentary }}</div>
+        <div class="room-hero-commentary rich-text">{{ room.commentary | richText | safe }}</div>
         {% endif %}
 
         {% if room.notes %}
-        <div class="room-hero-notes">{{ room.notes }}</div>
+        <div class="room-hero-notes rich-text">{{ room.notes | richText | safe }}</div>
         {% endif %}
 
         <div class="room-hero-links">
@@ -148,7 +108,6 @@ permalink: /room/{{ room.slug }}/
               View on Morty &rarr;
             </a>
           {% endif %}
-          <button class="permalink-btn" id="copy-link-btn" data-tinylytics-event="room.copy-link" data-tinylytics-event-value="{{ room.game }}">Copy Link</button>
         </div>
 
         <div class="room-hero-kudos">
@@ -157,75 +116,13 @@ permalink: /room/{{ room.slug }}/
       </div>
     </section>
 
-    <div class="room-detail-grid">
-      <div class="room-detail-main">
-        {% if room.experiences and room.experiences.length > 0 %}
-        <section class="room-ratings-section">
-          <div class="section-header">
-            <h2>Family Ratings</h2>
-            <p>The qualitative side of the archive: scores, category notes, and favorite votes from the family.</p>
-          </div>
-          <div class="room-ratings-summary">
-            {% if room.ratingSummary.average != null %}
-            <div class="room-rating-summary-card">
-              <div class="room-rating-summary-value">{{ room.ratingSummary.average | formatRating }}/5</div>
-              <div class="room-rating-summary-label">Average Rating</div>
-            </div>
-            {% endif %}
-            <div class="room-rating-summary-card">
-              <div class="room-rating-summary-value">{{ room.ratingSummary.count }}</div>
-              <div class="room-rating-summary-label">Family Ratings</div>
-            </div>
-            {% if room.ratingSummary.bestThingsCount > 0 %}
-            <div class="room-rating-summary-card">
-              <div class="room-rating-summary-value">{{ room.ratingSummary.bestThingsCount }}</div>
-              <div class="room-rating-summary-label">Favorite Votes</div>
-            </div>
-            {% endif %}
-          </div>
-          <div class="room-ratings-grid">
-            {% for experience in room.experiences %}
-            <article class="room-rating-card">
-              <div class="room-rating-card-header">
-                <div>
-                  <h3>{{ experience.player.name }}</h3>
-                </div>
-                {% if experience.rating != null %}
-                <div class="room-rating-card-score">{{ experience.rating | formatRating }}/5</div>
-                {% endif %}
-              </div>
-              <div class="room-rating-chip-row">
-                {% if experience.gameplay %}
-                <span class="room-rating-chip">Gameplay: {{ experience.gameplay }}</span>
-                {% endif %}
-                {% if experience.atmosphere %}
-                <span class="room-rating-chip">Atmosphere: {{ experience.atmosphere }}</span>
-                {% endif %}
-                {% if experience.experience %}
-                <span class="room-rating-chip">Experience: {{ experience.experience }}</span>
-                {% endif %}
-                {% if experience.bestThings %}
-                <span class="room-rating-chip room-rating-chip-best">Best Things</span>
-                {% endif %}
-              </div>
-              {% if experience.comments %}
-              <div class="room-rating-comments">{{ experience.comments }}</div>
-              {% endif %}
-            </article>
-            {% endfor %}
-          </div>
-        </section>
-        {% endif %}
+    {% if room.status !== "Scheduled" %}
+    <section class="room-stats-section">
+      <div class="section-header">
+        <h2>How We Did</h2>
+        <p>A quick structural read on the result, the time, and how this room sits in the rest of the history.</p>
       </div>
-
-      <aside class="room-detail-rail">
-        {% if room.status !== "Scheduled" %}
-        <section class="room-stats-section">
-          <div class="section-header">
-            <h2>How We Did</h2>
-            <p>A quick structural read on the result, the time, and how this room sits in the rest of the history.</p>
-          </div>
-          <div class="room-stats-grid">
+      <div class="room-stats-grid">
             {% if room.timeLeft != null %}
             <div class="room-stat-card">
               <div class="room-stat-value{% if room.timeLeft >= 0 %} stat-positive{% else %} stat-negative{% endif %}">
@@ -288,65 +185,81 @@ permalink: /room/{{ room.slug }}/
               </div>
             </div>
             {% endif %}
-          </div>
-        </section>
-        {% endif %}
+      </div>
+    </section>
+    {% endif %}
 
-        {% if room.location and room.location.lat != null %}
-        <section class="room-map-section">
-          <div class="section-header">
-            <h2>Location</h2>
-            <p>A dark map is one of the few high-contrast exceptions kept in the new system.</p>
-          </div>
-          <div class="room-map-container" id="room-map"></div>
-        </section>
+    {% if room.experiences and room.experiences.length > 0 %}
+    <section class="room-ratings-section">
+      <div class="section-header">
+        <h2>Team Ratings</h2>
+        <p>The qualitative side of the team log: scores, category notes, and favorite votes from Escaping Things.</p>
+      </div>
+      <div class="room-ratings-summary">
+        {% if room.ratingSummary.average != null %}
+        <div class="room-rating-summary-card">
+          <div class="room-rating-summary-value">{{ room.ratingSummary.average | formatRating }}/5</div>
+          <div class="room-rating-summary-label">Average Rating</div>
+        </div>
         {% endif %}
+        <div class="room-rating-summary-card">
+          <div class="room-rating-summary-value">{{ room.ratingSummary.count }}</div>
+          <div class="room-rating-summary-label">Team Ratings</div>
+        </div>
+        {% if room.ratingSummary.bestThingsCount > 0 %}
+        <div class="room-rating-summary-card">
+          <div class="room-rating-summary-value">{{ room.ratingSummary.bestThingsCount }}</div>
+          <div class="room-rating-summary-label">Favorite Votes</div>
+        </div>
+        {% endif %}
+      </div>
+      <div class="room-ratings-grid">
+        {% for experience in room.experiences %}
+        <article class="room-rating-card">
+          <div class="room-rating-card-header">
+            <div>
+              <h3>{{ experience.player.name }}</h3>
+            </div>
+            {% if experience.rating != null %}
+            <div class="room-rating-card-score">{{ experience.rating | formatRating }}/5</div>
+            {% endif %}
+          </div>
+          <div class="room-rating-chip-row">
+            {% if experience.gameplay %}
+            <span class="room-rating-chip">Gameplay: {{ experience.gameplay }}</span>
+            {% endif %}
+            {% if experience.atmosphere %}
+            <span class="room-rating-chip">Atmosphere: {{ experience.atmosphere }}</span>
+            {% endif %}
+            {% if experience.experience %}
+            <span class="room-rating-chip">Experience: {{ experience.experience }}</span>
+            {% endif %}
+            {% if experience.bestThings %}
+            <span class="room-rating-chip room-rating-chip-best">Best Things</span>
+            {% endif %}
+          </div>
+          {% if experience.comments %}
+          <div class="room-rating-comments rich-text">{{ experience.comments | richText | safe }}</div>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
 
-        {% if room.stats.otherCompanyRooms.length > 0 and room.company %}
-        <section class="room-related-section">
-          <div class="section-header">
-            <h2>More at {{ room.company.name }}</h2>
-          </div>
-          <div class="room-related-list">
-            {% for other in room.stats.otherCompanyRooms %}
-            <a href="/room/{{ other.slug }}/" class="room-related-item" data-tinylytics-event="room.related" data-tinylytics-event-value="{{ other.game }}">
-              <span class="room-number">#{{ other.id }}</span>
-              <span class="room-related-name">{{ other.game }}</span>
-              {% if other.status == "Escaped" %}
-                <span class="status-badge status-escaped">✓</span>
-              {% elif other.status == "Try again" %}
-                <span class="status-badge status-try-again">✗</span>
-              {% elif other.status == "Completed" %}
-                <span class="status-badge status-completed">✓</span>
-              {% elif other.status == "Scheduled" %}
-                <span class="status-badge status-scheduled">⏳</span>
-              {% endif %}
-            </a>
-            {% endfor %}
-          </div>
-        </section>
-        {% endif %}
-
-        {% if room.stats.sameDayRooms.length > 0 %}
-        <section class="room-related-section">
-          <div class="section-header">
-            <h2>Also on {{ room.date | formatDate }}</h2>
-          </div>
-          <div class="room-related-list">
-            {% for other in room.stats.sameDayRooms %}
-            <a href="/room/{{ other.slug }}/" class="room-related-item" data-tinylytics-event="room.same-day" data-tinylytics-event-value="{{ other.game }}">
-              <span class="room-number">#{{ other.id }}</span>
-              <span class="room-related-name">{{ other.game }}</span>
-              {% if other.company %}
-              <span class="room-related-company">{{ other.company.name }}</span>
-              {% endif %}
-            </a>
-            {% endfor %}
-          </div>
-        </section>
-        {% endif %}
-      </aside>
-    </div>
+    {% if room.stats.relatedRooms.length > 0 %}
+    <section class="room-related-section">
+      <div class="section-header">
+        <h2>Related Rooms</h2>
+        <p>Picked from shared themes, people, places, and AI-generated room similarity hints.</p>
+      </div>
+      <div class="room-grid">
+        {% for other in room.stats.relatedRooms %}
+        {{ roomCard(other) }}
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
   </main>
 {% endblock %}
 
@@ -354,47 +267,5 @@ permalink: /room/{{ room.slug }}/
   <script type="module">
     import { initNav } from '{{ '/js/data.js' | cacheBust }}';
     initNav();
-
-    const copyBtn = document.getElementById('copy-link-btn');
-    if (copyBtn) {
-      copyBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-          copyBtn.textContent = 'Copied!';
-          setTimeout(() => { copyBtn.textContent = 'Copy Link'; }, 1500);
-        }).catch(() => {
-          copyBtn.textContent = 'Failed';
-          setTimeout(() => { copyBtn.textContent = 'Copy Link'; }, 1500);
-        });
-      });
-    }
-
-    {% if room.location and room.location.lat != null %}
-    const map = L.map('room-map', {
-      zoomControl: true,
-      attributionControl: true
-    }).setView([{{ room.location.lat }}, {{ room.location.lng }}], 13);
-
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
-      subdomains: 'abcd',
-      maxZoom: 19
-    }).addTo(map);
-
-    const color = '{{ "#48d989" if room.status == "Escaped" else ("#f06060" if room.status == "Try again" else ("#5a8bff" if room.status == "Scheduled" else "#9a97a8")) }}';
-    const icon = L.divIcon({
-      html: `
-        <svg width="28" height="40" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg">
-          <path d="M14 0C6.268 0 0 6.268 0 14c0 10.5 14 26 14 26s14-15.5 14-26C28 6.268 21.732 0 14 0z"
-            fill="${color}"/>
-          <circle cx="14" cy="14" r="6" fill="#0f0f1a"/>
-        </svg>
-      `,
-      className: 'custom-marker',
-      iconSize: [28, 40],
-      iconAnchor: [14, 40]
-    });
-
-    L.marker([{{ room.location.lat }}, {{ room.location.lng }}], { icon }).addTo(map);
-    {% endif %}
   </script>
 {% endblock %}

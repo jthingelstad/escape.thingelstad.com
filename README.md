@@ -1,6 +1,6 @@
 # Escaping Things
 
-The Thingelstad family's escape room journey, published at **[escape.thingelstad.com](https://escape.thingelstad.com)**.
+The Escaping Things escape room team site, published at **[escape.thingelstad.com](https://escape.thingelstad.com)**.
 
 This is an Eleventy-powered static site built from a normalized Airtable dataset. The current site includes:
 
@@ -74,9 +74,10 @@ Each room carries resolved relations and derived fields such as:
 - `/` home page
 - `/list/` filterable room browser
 - `/map/` filterable map
-- `/scrapbook/` photo scrapbook
 - `/stats/` stats and charts
 - `/featured/` featured hub
+- `/trips/` featured trip index
+- `/players/` team roster and featured player index
 - `/room/<room-slug>/`
 - `/player/<slug>/` for featured players
 - `/award/<slug>/` for featured awards
@@ -158,4 +159,4 @@ Pushes to `main` trigger the GitHub Pages workflow in `.github/workflows/deploy.
 
 ## License
 
-Code is licensed under `CC-BY-SA-4.0`. Site content and underlying data are personal to the Thingelstad family.
+Code is licensed under `CC-BY-SA-4.0`. Site content and underlying data are personal to the Escaping Things team.

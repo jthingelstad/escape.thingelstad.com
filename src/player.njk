@@ -17,10 +17,10 @@ permalink: /player/{{ player.slug }}/
       <div class="feature-tile-kicker">Featured Player</div>
       <h1>{{ player.name }}</h1>
       {% if player.bio %}
-      <p class="featured-detail-copy">{{ player.bio }}</p>
+      <div class="featured-detail-copy rich-text">{{ player.bio | richText | safe }}</div>
       {% endif %}
       {% if player.aiIntro %}
-      <p class="featured-detail-copy">{{ player.aiIntro }}</p>
+      <div class="featured-detail-copy rich-text">{{ player.aiIntro | richText | safe }}</div>
       {% endif %}
       <div class="featured-detail-stats">
         <div class="stat-item"><span class="stat-number">{{ player.roomCount }}</span><div class="stat-label">Rooms</div></div>
@@ -31,20 +31,6 @@ permalink: /player/{{ player.slug }}/
         <a href="/list/?player={{ player.slug | queryValue }}" class="room-link" data-tinylytics-event="player.view-filter" data-tinylytics-event-value="{{ player.name }}">Open Filtered List &rarr;</a>
       </div>
     </section>
-
-    {% if player.recentRooms.length > 0 %}
-    <section>
-      <div class="section-header">
-        <h2>Recent Rooms</h2>
-      </div>
-      <div class="room-grid">
-        {% from "room-card.njk" import roomCard %}
-        {% for room in player.recentRooms %}
-          {{ roomCard(room, { showRatingSummary: true }) }}
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
 
     {% if player.lists.length > 0 %}
     <section>
@@ -76,7 +62,7 @@ permalink: /player/{{ player.slug }}/
             {% if room and room.company %}
             <div class="featured-quote-meta">{{ room.company.name }} • {{ room.date | formatDate }}</div>
             {% endif %}
-            <p>{{ experience.comments }}</p>
+            <div class="rich-text">{{ experience.comments | richText | safe }}</div>
           </article>
         {% endfor %}
       </div>
@@ -91,7 +77,7 @@ permalink: /player/{{ player.slug }}/
       <div class="room-grid">
         {% from "room-card.njk" import roomCard %}
         {% for room in player.rooms | reverse %}
-          {{ roomCard(room, { showRatingSummary: true }) }}
+          {{ roomCard(room) }}
         {% endfor %}
       </div>
       {% else %}

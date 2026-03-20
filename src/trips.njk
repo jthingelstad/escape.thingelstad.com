@@ -1,0 +1,37 @@
+---
+title: Trips
+description: Featured trip pages from our escape room history.
+permalink: /trips/
+---
+{% extends "base.njk" %}
+
+{% block content %}
+  <main class="container page-content">
+    <section class="page-intro">
+      <div class="eyebrow">Featured Trips</div>
+      <div class="page-intro-copy">
+        <h1 class="page-intro-title">Trips</h1>
+        <p>Featured travel runs from Escaping Things, with room order, places, and dedicated trip pages.</p>
+      </div>
+    </section>
+
+    <section class="featured-section">
+      <div class="featured-entity-grid">
+        {% for trip in catalog.featured.trips %}
+          <a href="{{ trip | entityUrl('trip') }}" class="feature-tile feature-tile-trip" data-tinylytics-event="trips.view-trip" data-tinylytics-event-value="{{ trip.name }}">
+            <div class="feature-tile-kicker">Trip</div>
+            <h3>{{ trip.name }}</h3>
+            <p>{{ trip.roomCount }} room{{ '' if trip.roomCount == 1 else 's' }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script type="module">
+    import { initNav } from '{{ '/js/data.js' | cacheBust }}';
+    initNav();
+  </script>
+{% endblock %}

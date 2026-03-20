@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Escaping Things is a static Eleventy site for the Thingelstad family's escape room history at `escape.thingelstad.com`.
+Escaping Things is a static Eleventy site for the Escaping Things escape room team at `escape.thingelstad.com`.
 
 The project now builds from a normalized Airtable-backed catalog, not from a single committed `rooms.json` export.
 
@@ -149,8 +149,9 @@ The old tag model is gone and should not be reintroduced.
 - `/` — home
 - `/list/` — typed room browser
 - `/map/` — map view
-- `/scrapbook/` — photo scrapbook
 - `/stats/` — charts and summary stats
+- `/trips/` — featured trip index
+- `/players/` — team roster and featured player index
 - `/lists/` — all public lists
 - `/list/{slug}/` — standalone list pages
 - `/room/{id-slug}/` — room detail pages
@@ -163,4 +164,5 @@ The old tag model is gone and should not be reintroduced.
 - `npm run sync` is the source-data refresh step; there is no separate export pipeline to regenerate a flat room file.
 - Prefer working from the normalized catalog rather than rebuilding ad hoc Airtable link resolution in page-specific files.
 - Keep the typed entity model intact: do not reintroduce generic tag plumbing.
-- Trip pages now include a dedicated route map and ordered stop list for the rooms on that trip.
+- Trip pages include an ordered room-card section and a route map with numbered stops.
+- Room detail pages use a shared photo-backed room-card design for related rooms; avoid reintroducing one-off room card variants.

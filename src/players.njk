@@ -1,0 +1,59 @@
+---
+title: Players
+description: The Escaping Things team roster and featured player pages.
+permalink: /players/
+---
+{% extends "base.njk" %}
+
+{% block content %}
+  <main class="container page-content">
+    <section class="page-intro">
+      <div class="eyebrow">Featured Players</div>
+      <div class="page-intro-copy">
+        <h1 class="page-intro-title">Players</h1>
+        <p>The Escaping Things roster, with featured player pages for the members with fuller stories and notes.</p>
+      </div>
+    </section>
+
+    <section class="featured-section">
+      <div class="section-header">
+        <h2>Featured Players</h2>
+        <p>Players with dedicated pages, bios, notes, and linked room history.</p>
+      </div>
+      <div class="featured-entity-grid">
+        {% for player in featuredPlayers %}
+          <a href="{{ player | entityUrl('player') }}" class="feature-tile feature-tile-player" data-tinylytics-event="players.view-player" data-tinylytics-event-value="{{ player.name }}">
+            <div class="feature-tile-kicker">Player</div>
+            <h3>{{ player.name }}</h3>
+            <p>{{ player.roomCount }} room{{ '' if player.roomCount == 1 else 's' }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    {% if nonFeaturedPlayers.length > 0 %}
+    <section class="featured-section">
+      <div class="section-header">
+        <h2>Team Roster</h2>
+        <p>Other players in the log, shown here without standalone player pages.</p>
+      </div>
+      <div class="featured-entity-grid">
+        {% for player in nonFeaturedPlayers %}
+          <a href="/list/?q={{ player.name | queryValue }}" class="feature-tile feature-tile-player" data-tinylytics-event="players.view-roster-player" data-tinylytics-event-value="{{ player.name }}">
+            <div class="feature-tile-kicker">Player</div>
+            <h3>{{ player.name }}</h3>
+            <p>{{ player.roomCount }} room{{ '' if player.roomCount == 1 else 's' }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script type="module">
+    import { initNav } from '{{ '/js/data.js' | cacheBust }}';
+    initNav();
+  </script>
+{% endblock %}

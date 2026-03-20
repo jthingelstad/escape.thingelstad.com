@@ -17,7 +17,7 @@ permalink: /award/{{ award.slug }}/
       <div class="feature-tile-kicker">Featured Award</div>
       <h1>{{ award.name }}</h1>
       {% if award.aiIntro or award.notes %}
-      <p class="featured-detail-copy">{{ award.aiIntro or award.notes }}</p>
+      <div class="featured-detail-copy rich-text">{{ (award.aiIntro or award.notes) | richText | safe }}</div>
       {% endif %}
       <div class="featured-detail-stats">
         <div class="stat-item"><span class="stat-number">{{ award.roomCount }}</span><div class="stat-label">Rooms</div></div>
@@ -36,7 +36,7 @@ permalink: /award/{{ award.slug }}/
       <div class="room-grid">
         {% from "room-card.njk" import roomCard %}
         {% for room in award.rooms | reverse %}
-          {{ roomCard(room, { showRatingSummary: true }) }}
+          {{ roomCard(room) }}
         {% endfor %}
       </div>
       {% else %}

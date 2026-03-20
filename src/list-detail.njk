@@ -17,7 +17,7 @@ permalink: /list/{{ list.slug }}/
       <div class="feature-tile-kicker">List</div>
       <h1>{{ list.name }}</h1>
       {% if list.aiIntro or list.notes %}
-      <p class="featured-detail-copy">{{ list.aiIntro or list.notes }}</p>
+      <div class="featured-detail-copy rich-text">{{ (list.aiIntro or list.notes) | richText | safe }}</div>
       {% endif %}
       <div class="featured-detail-stats">
         <div class="stat-item"><span class="stat-number">{{ list.roomCount }}</span><div class="stat-label">Rooms</div></div>
@@ -58,7 +58,6 @@ permalink: /list/{{ list.slug }}/
         {% from "room-card.njk" import roomCard %}
         {% for entry in list.entries %}
         <article class="list-entry-card">
-          <div class="list-entry-rank">#{{ entry.order if entry.order != null else loop.index }}</div>
           <div class="list-entry-body">
             <div class="list-entry-copy">
               <div class="list-entry-header">
@@ -75,11 +74,11 @@ permalink: /list/{{ list.slug }}/
                 </div>
               </div>
               {% if entry.notes %}
-              <div class="list-entry-commentary">{{ entry.notes }}</div>
+              <div class="list-entry-commentary rich-text">{{ entry.notes | richText | safe }}</div>
               {% endif %}
             </div>
             <div class="list-entry-room">
-              {{ roomCard(entry.room, { showRatingSummary: true, showRoomNumber: false }) }}
+              {{ roomCard(entry.room, { badgeLabel: 'Item', badgeNumber: entry.order if entry.order != null else loop.index }) }}
             </div>
           </div>
         </article>

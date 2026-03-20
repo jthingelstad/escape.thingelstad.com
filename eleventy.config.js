@@ -1,4 +1,5 @@
 const htmlmin = require("html-minifier-terser");
+const MarkdownIt = require("markdown-it");
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
@@ -14,6 +15,11 @@ function listFilterUrl(type, entity) {
 
 module.exports = function(eleventyConfig) {
   const assetHashes = {};
+  const richText = new MarkdownIt({
+    html: false,
+    linkify: true,
+    breaks: true
+  });
 
   eleventyConfig.addFilter("cacheBust", (url) => {
     if (assetHashes[url]) return `${url}?v=${assetHashes[url]}`;
@@ -116,6 +122,11 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("queryValue", (value) => encodeURIComponent(value || ""));
+
+  eleventyConfig.addFilter("richText", (value) => {
+    if (value == null || value === "") return "";
+    return richText.render(String(value).trim());
+  });
 
   return {
     dir: {
