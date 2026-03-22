@@ -1,49 +1,49 @@
 {
   "meta": {
-    "generatedAt": "2026-03-20T23:02:32.003Z",
+    "generatedAt": "2026-03-22T20:38:37.760Z",
     "model": "gpt-4o-mini"
   },
   "home": {
-    "summary": "This archive captures the journey of a dedicated escape room group over 11 years and 95 rooms across eight countries. With a focus on teamwork, strategy, and experiences, the collection highlights memorable adventures and celebrated wins."
+    "summary": "This archive serves as a curated collection of experiences from over 95 escape rooms across 8 countries, spanning more than a decade of puzzle-solving camaraderie."
   },
   "featured": {
-    "summary": "Explore two standout trips, 'Escape in Europe' and 'QMSB', alongside two notable accolades, 'Best Things' and 'Best Things Twin Cities', all while following the escapades of key players like Jamie and Tammy."
+    "summary": "Here’s a look at two standout trips and two of our favorite awards that celebrate the escape room culture."
   },
   "players": {
     "jamie": {
-      "intro": "Jamie brings a methodical approach to every room, utilizing a strong intuition for puzzle structures and maintaining team momentum."
+      "intro": "Jamie approaches each room with a methodical mindset, focusing on systems and team alignment."
     },
     "mazie": {
-      "intro": "Mazie's intuitive energy often helps teams break through tricky puzzles with fresh perspectives and quick adaptations."
+      "intro": "Mazie brings energy and intuition, often unlocking puzzles through creative insights and pattern recognition."
     },
     "tammy": {
-      "intro": "Tammy's situational awareness and coordination foster clarity and efficiency, often guiding her team through complex challenges."
+      "intro": "Tammy contributes her situational awareness and communication skills, ensuring the team stays coordinated under pressure."
     },
     "tyler": {
-      "intro": "Tyler’s focus and tactical mindset ensure methodical progress, translating insights into completed steps and maintaining a steady drive."
+      "intro": "Tyler’s detail-oriented approach helps the team methodically navigate complex puzzles with accuracy."
     }
   },
   "awards": {
     "best-things": {
-      "intro": "The 'Best Things' award acknowledges standout rooms that excel in design."
+      "intro": "Best Things captures our essential picks, reflecting shared insights on rooms that resonate with escape room aficionados."
     },
     "best-things-twin-cities": {
-      "intro": "'Best Things Twin Cities' highlights the best escape experiences in the region, featuring rooms that resonate with local enthusiasts."
+      "intro": "Best Things Twin Cities highlights standout rooms in the local scene, featuring places like The Founder's Secret."
     }
   },
   "trips": {
     "escape-in-europe": {
-      "intro": "This trip embraces a journey through Amsterdam, Barcelona, and several other cities, packed with engaging rooms that push puzzle-solving limits.",
-      "routeSummary": "Starting in Voorburg and weaving through cities like Utrecht, Brussels, and ending in Barcelona—this route is rich in variety."
+      "intro": "A journey through Europe with rooms in cities like Amsterdam and Barcelona, rich in variety and design.",
+      "routeSummary": "Starting in Voorburg with Molly's Game, the route winds through Utrecht before heading to Brussels, then to Amsterdam, Paris, and finally Barcelona."
     },
     "qmsb": {
-      "intro": "A compact lineup in Canada that delivers a mix of engaging narratives and tactical challenges, spanning from Quebec City to Laval.",
-      "routeSummary": "Beginning in Quebec City, this route explores diverse rooms, each with its unique challenge, before wrapping up in Laval."
+      "intro": "This trip focuses on rooms in Quebec, emphasizing unique challenges in cities like Laval and Quebec City.",
+      "routeSummary": "Beginning with The Dreamwalkers in Quebec City, the route covers a mix of creative themes before concluding in Laval."
     }
   },
   "lists": {
     "1-jamies-escape-in-europe-favorites": {
-      "intro": "Jamie's shortlist of favorites from the European escapade features rooms that left a lasting impact, showcasing a blend of immersive storytelling and clever design."
+      "intro": "This is Jamie's personal shortlist of favorite rooms from a recent trip, highlighting standout experiences across Europe."
     }
   }
 }

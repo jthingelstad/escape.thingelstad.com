@@ -1,6 +1,6 @@
 {
   "table": "Players",
-  "syncedAt": "2026-03-20T23:02:20.454265+00:00",
+  "syncedAt": "2026-03-22T20:38:13.771104+00:00",
   "count": 27,
   "records": [
     {
@@ -321,9 +321,10 @@
         "Room Count": 82,
         "Featured": true,
         "Experiences": [
-          "recJcztWTdgd7BzmS"
+          "recJcztWTdgd7BzmS",
+          "recm0B6WWoeDQ7FiK"
         ],
-        "Experience Count": 1,
+        "Experience Count": 2,
         "Player ID": 3,
         "Bio": "Tyler is a focused and tactically minded escape room player who brings persistence, precision, and execution discipline to the team. As part of Escaping Things, he contributes consistent progress through careful validation of clues and methodical advancement of puzzle states.\n\nHe excels at detail-oriented work—tracking inputs and outputs, verifying combinations, and ensuring that partial solutions are fully resolved before moving on. Tyler is particularly effective in puzzles that require accuracy, sequencing, or repeated iteration, where disciplined execution is critical.\n\nHis approach is steady and grounded. He avoids unnecessary speculation, instead working systematically through available information and converging on correct solutions through elimination and confirmation. This makes him a reliable force in stabilizing complex rooms where multiple threads are in play.\n\nTyler values puzzles that reward logic, clarity, and fair construction. Within the team, he functions as an executor and closer—translating insight into completed steps and ensuring that progress converts into tangible results."
       }
@@ -547,9 +548,10 @@
         "Featured": true,
         "Experiences": [
           "recQxjgHECuJ2zhHL",
-          "recCD91D3X725hB7E"
+          "recCD91D3X725hB7E",
+          "recuFz4Ec6NrJMvAq"
         ],
-        "Experience Count": 2,
+        "Experience Count": 3,
         "Player ID": 1,
         "Bio": "Tammy is a collaborative and perceptive escape room player who brings strong situational awareness and steady team coordination to every room. As part of Escaping Things, she has contributed to a large and growing body of room completions, developing a refined sense for puzzle flow, clue intent, and when to shift strategies.\n\nShe excels at information management—tracking discovered clues, maintaining shared context, and ensuring that partial insights are surfaced to the team at the right moment. Tammy is particularly effective at connecting disparate elements, often identifying relationships that are easy to overlook in fast-moving environments.\n\nHer approach is disciplined but flexible: she balances persistence with a willingness to reset assumptions, helping the team avoid fixation traps. She also contributes to team dynamics by maintaining focus and clarity under time pressure, enabling more efficient collaboration across parallel puzzle tracks.\n\nTammy values rooms that reward observation, communication, and thoughtful design. Within the team, she functions as both integrator and signal amplifier—ensuring that important details are not lost and that progress remains coordinated."
       }
@@ -822,9 +824,11 @@
         "Experiences": [
           "recJaH5HGmhCaXSbz",
           "recPEzPiGg7xRpw9w",
-          "rec8N7W6EeAqxjV3w"
+          "rec8N7W6EeAqxjV3w",
+          "recObrFeRLFanOb5E",
+          "recCmgZGFh0MB4z0f"
         ],
-        "Experience Count": 3,
+        "Experience Count": 5,
         "Lists": [
           "recfSbUCFg9HAUgV3"
         ],
@@ -1013,7 +1017,10 @@
         ],
         "Room Count": 65,
         "Featured": true,
-        "Experience Count": 0,
+        "Experiences": [
+          "recQvXqN7EAfXELbf"
+        ],
+        "Experience Count": 1,
         "Player ID": 4,
         "Bio": "Mazie is an intuitive and fast-adapting escape room player who brings energy, curiosity, and strong pattern recognition to the team. As part of Escaping Things, she contributes a fresh perspective that is particularly effective in breaking through assumptions and reframing stalled puzzles.\n\nShe excels at spotting visual cues, thematic hints, and non-obvious connections, often identifying the “leap” that unlocks progress. Mazie is comfortable exploring multiple paths in parallel and is quick to test hypotheses, which helps the team maintain momentum in complex or nonlinear rooms.\n\nHer approach combines creativity with increasing discipline—she is willing to experiment, but also receptive to structure and coordination as puzzles converge. She contributes positively to team dynamics by keeping engagement high and bringing a sense of forward motion, especially in moments where progress slows.\n\nMazie values immersive, story-driven rooms with interactive elements and layered reveals. Within the team, she functions as an explorer and catalyst—expanding the solution space and helping the group move past local maxima toward resolution."
       }
