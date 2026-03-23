@@ -1,55 +1,55 @@
 {
   "meta": {
-    "generatedAt": "2026-03-23T20:03:26.503Z",
+    "generatedAt": "2026-03-23T20:33:20.611Z",
     "model": "gpt-4o-mini"
   },
   "home": {
-    "summary": "This archive captures 96 escape rooms across eight countries over 11 years, tracking a myriad of trips, notable players, and a collection of insightful awards. It’s a repository of our experiences and insights, charting the highs, challenges, and wins along the way."
+    "summary": "A growing archive of 96 rooms completed across eight countries, balancing local favorites and expansive travel runs. The journey has been ongoing since 2016, showcasing the diverse genres and puzzles that escape rooms offer."
   },
   "featured": {
-    "summary": "This section highlights two key trips and two award-winning rooms, reflecting the favorites of our dedicated team."
+    "summary": "This hub centers around two standout trips and two well-loved awards, alongside four players who each bring their own flair to the table."
   },
   "players": {
     "jamie": {
-      "intro": "Jamie brings a competitive spirit and precision timing as Escaping Things' drive-to-win, frequently pushing teams toward success."
+      "intro": "Jamie is the drive-to-win and time keeper for Escaping Things."
     },
     "mazie": {
-      "intro": "Mazie is an out-of-the-box thinker who often provides unexpected solutions during team escapades."
+      "intro": "Mazie is the out-of-the-box thinker in Escaping Things."
     },
     "tammy": {
-      "intro": "Tammy serves as the puzzle master, adept at guiding teams through the intricacies of each challenge."
+      "intro": "Tammy is the puzzle master for Escaping Things."
     },
     "tyler": {
-      "intro": "Tyler, the speed-runner and tactician, keeps the energy high and the decisions quick."
+      "intro": "Tyler is the speed-runner and tactician of Escaping Things."
     }
   },
   "awards": {
     "best-things": {
-      "intro": "This award spotlights the standout rooms that resonate deeply within our community."
+      "intro": "Best Things is a selection of rooms that stand out in the community."
     },
     "best-things-twin-cities": {
-      "intro": "The best rooms in the Twin Cities according to our experiences, including highlights like The Founder's Secret."
+      "intro": "Best Things Twin Cities highlights the most enjoyed rooms in that region."
     }
   },
   "trips": {
     "escape-in-europe": {
-      "intro": "A journey through Belgium, France, and the Netherlands, moving from Amsterdam to Barcelona with lots of memorable rooms along the way.",
-      "routeSummary": "Beginning in Voorburg with Molly's Game, the route winds through Utrecht, Brussels, and across Paris, culminating in a series of rooms in Barcelona."
+      "intro": "Escape in Europe packs in twelve rooms from Belgium to Spain, taking in major cities and hidden gems along the way.",
+      "routeSummary": "The trip navigates through iconic spots like Amsterdam, Paris, and Barcelona, with unique experiences in each location."
     },
     "qmsb": {
-      "intro": "A concentrated trip across Canada, featuring an interesting mix of rooms in Quebec City and Laval.",
-      "routeSummary": "Starting with The Dreamwalkers in Quebec City, this route leads through a range of themes in both lively cities."
+      "intro": "QMSB crosses through Canada and the United States with nine rooms, blending local quirks into high-energy challenges.",
+      "routeSummary": "The route features cities like Quebec City and Fargo, offering diverse themes and styles."
     }
   },
   "lists": {
     "1-jamies-escape-in-europe-favorites": {
-      "intro": "These are Jamie's top picks from the European adventure, curated from experiences across multiple cities and styles."
+      "intro": "Jamie's favorites from the Escape in Europe trip offer a personal touch to the adventure."
     },
     "2-jamies-all-time-favorites": {
-      "intro": "A personal shortlist of rooms that have made a lasting impression on Jamie over the years."
+      "intro": "This list reflects Jamie's personal top rooms over the years, capturing standout experiences that resonate deeply."
     },
     "3-top-twin-cities-rooms": {
-      "intro": "A collection of the top rooms to try in the Twin Cities, shaped by our team's favorite escapes."
+      "intro": "A curated selection of the best rooms from the Twin Cities, perfect for local enthusiasts."
     }
   }
 }

@@ -1,8 +1,42 @@
 {
   "table": "Trips",
-  "syncedAt": "2026-03-23T20:02:49.136552+00:00",
-  "count": 2,
+  "syncedAt": "2026-03-23T20:32:40.259755+00:00",
+  "count": 7,
   "records": [
+    {
+      "id": "rec0lxTu6FUTtJ8wW",
+      "createdTime": "2026-03-23T20:17:54.000Z",
+      "fields": {
+        "Name": "Italy",
+        "Rooms": [
+          "recgisAgQMDN41H2P",
+          "rechGJ5U1gn1Ajxrt"
+        ],
+        "Game (from Rooms)": [
+          "Time Machine",
+          "Birth Machine"
+        ],
+        "Room Count": 2,
+        "Trip ID": 3
+      }
+    },
+    {
+      "id": "rec50OkpSmulp71dT",
+      "createdTime": "2026-03-23T20:18:28.000Z",
+      "fields": {
+        "Name": "Tyler Birthday Trip",
+        "Rooms": [
+          "recLWPaDtnmiVlUaZ",
+          "rectPKJYjIk3haDDU"
+        ],
+        "Game (from Rooms)": [
+          "Journey Through Elek’s Hollow",
+          "Pursuit of Steam"
+        ],
+        "Room Count": 2,
+        "Trip ID": 4
+      }
+    },
     {
       "id": "recJqpVCHFrsjb8iR",
       "createdTime": "2026-03-18T05:37:19.000Z",
@@ -45,6 +79,23 @@
       }
     },
     {
+      "id": "recKBVZe97eapVvag",
+      "createdTime": "2026-03-23T20:22:52.000Z",
+      "fields": {
+        "Name": "Tammy Tyler Getaway",
+        "Rooms": [
+          "recSPihVvvRvcVO2F",
+          "reciVEIDHFIo9tnfa"
+        ],
+        "Game (from Rooms)": [
+          "Caper in the Escape Room",
+          "14 Floors Below"
+        ],
+        "Room Count": 2,
+        "Trip ID": 6
+      }
+    },
+    {
       "id": "recLsdUC1oSFFcetc",
       "createdTime": "2026-03-18T08:42:34.000Z",
       "fields": {
@@ -55,7 +106,10 @@
           "recB2J7EL3m61TNLX",
           "recHh5GHLbeLSs808",
           "recedfY1wMhA690Su",
-          "recRtLvjdXuPiqjbT"
+          "recRtLvjdXuPiqjbT",
+          "recSdmAOhUyf2p9m0",
+          "recjtoHyl9WZIk37S",
+          "recedfIiVxCHDi7BF"
         ],
         "Game (from Rooms)": [
           "The Dreamwalkers",
@@ -63,11 +117,48 @@
           "Screaming Metal",
           "Magnifico",
           "Lost Island of the Voodoo Queen",
-          "Wardrobe for sale"
+          "Wardrobe for sale",
+          "Gemini Quantum Quest",
+          "Time Machine",
+          "The Experiment"
         ],
-        "Room Count": 6,
+        "Room Count": 9,
         "Featured": true,
         "Trip ID": 2
+      }
+    },
+    {
+      "id": "recOTSfUJ4GNMZ1of",
+      "createdTime": "2026-03-23T20:21:08.000Z",
+      "fields": {
+        "Name": "Soccer in Kansas City",
+        "Rooms": [
+          "recMqhVYX7BU87Uda",
+          "recM2tOvoeH29vOJD"
+        ],
+        "Game (from Rooms)": [
+          "The Toy Maker’s Shop",
+          "Beasley’s Billions"
+        ],
+        "Room Count": 2,
+        "Trip ID": 5
+      }
+    },
+    {
+      "id": "recc717s8xZnagNX5",
+      "createdTime": "2026-03-23T20:24:06.000Z",
+      "fields": {
+        "Name": "Olson Vacation in Nashville",
+        "Rooms": [
+          "rec05Cz2JvdnNLxo2",
+          "rec53yK3nczTclkFC"
+        ],
+        "Game (from Rooms)": [
+          "Legend of the Yeti",
+          "Ruins: Forbidden Treasure"
+        ],
+        "Room Count": 2,
+        "Trip ID": 7
       }
     }
   ]

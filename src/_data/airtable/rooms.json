@@ -1,6 +1,6 @@
 {
   "table": "Rooms",
-  "syncedAt": "2026-03-23T20:02:49.137165+00:00",
+  "syncedAt": "2026-03-23T20:32:40.260947+00:00",
   "count": 101,
   "records": [
     {
@@ -49,7 +49,10 @@
         ],
         "Order": 2,
         "Created at": "2026-02-23T19:25:06.000Z",
-        "Modified at": "2026-03-18T05:59:07.000Z",
+        "Modified at": "2026-03-23T20:24:06.000Z",
+        "Trips": [
+          "recc717s8xZnagNX5"
+        ],
         "Players": [
           "recfd6DZt87SxQurn",
           "recQu0PsrO1tED4Zq",
@@ -57,7 +60,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 85
+        "Room ID": 85,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -132,7 +137,9 @@
         ],
         "Experience Count": 3,
         "Rating": 3,
-        "Room ID": 96
+        "Room ID": 96,
+        "Player Count": 4,
+        "Award Count": 3
       }
     },
     {
@@ -158,7 +165,9 @@
           "recNuMpQx1oJNfyfP"
         ],
         "Experience Count": 0,
-        "Room ID": 15
+        "Room ID": 15,
+        "Player Count": 2,
+        "Award Count": 0
       }
     },
     {
@@ -212,7 +221,9 @@
           "recu6Bv4VWolQa0KY"
         ],
         "Experience Count": 0,
-        "Room ID": 69
+        "Room ID": 69,
+        "Player Count": 5,
+        "Award Count": 0
       }
     },
     {
@@ -269,7 +280,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 48
+        "Room ID": 48,
+        "Player Count": 2,
+        "Award Count": 0
       }
     },
     {
@@ -343,7 +356,9 @@
         "Room ID": 91,
         "List Items": [
           "recih0hukezoGiwVw"
-        ]
+        ],
+        "Player Count": 3,
+        "Award Count": 2
       }
     },
     {
@@ -397,7 +412,9 @@
           "recQu0PsrO1tED4Zq"
         ],
         "Experience Count": 0,
-        "Room ID": 17
+        "Room ID": 17,
+        "Player Count": 2,
+        "Award Count": 0
       }
     },
     {
@@ -455,7 +472,9 @@
           "reci9DjZ5xsmOwEbC"
         ],
         "Experience Count": 0,
-        "Room ID": 36
+        "Room ID": 36,
+        "Player Count": 7,
+        "Award Count": 0
       }
     },
     {
@@ -528,7 +547,9 @@
         "List Items": [
           "recKRQ1P4SKVDhm8S",
           "recReSkgw2rEbWVzM"
-        ]
+        ],
+        "Player Count": 3,
+        "Award Count": 4
       }
     },
     {
@@ -578,7 +599,10 @@
         ],
         "Order": 1,
         "Created at": "2026-02-23T19:25:06.000Z",
-        "Modified at": "2026-03-19T06:43:59.000Z",
+        "Modified at": "2026-03-23T20:24:13.000Z",
+        "Trips": [
+          "recc717s8xZnagNX5"
+        ],
         "Awards": [
           "recTqxhLxeFybxaUL"
         ],
@@ -589,7 +613,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 84
+        "Room ID": 84,
+        "Player Count": 4,
+        "Award Count": 1
       }
     },
     {
@@ -648,7 +674,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 35
+        "Room ID": 35,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -692,7 +720,7 @@
           }
         ],
         "Created at": "2026-02-23T19:25:06.000Z",
-        "Modified at": "2026-03-18T07:42:12.000Z",
+        "Modified at": "2026-03-23T20:12:20.000Z",
         "Themes": [
           "recVt7J6vgFdNqXYy"
         ],
@@ -704,10 +732,13 @@
           "recrpX9Hq69rR9un8",
           "rec7rFPQWWoVsPD9Y",
           "recvfaqz90QRcSjCO",
-          "recFVbvU7hR2hQt6e"
+          "recFVbvU7hR2hQt6e",
+          "recMQKcXKh8MpfHeR"
         ],
         "Experience Count": 0,
-        "Room ID": 5
+        "Room ID": 5,
+        "Player Count": 9,
+        "Award Count": 0
       }
     },
     {
@@ -731,7 +762,9 @@
           "recaDTq8i69OCPdBK"
         ],
         "Experience Count": 0,
-        "Room ID": 8
+        "Room ID": 8,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -786,7 +819,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 53
+        "Room ID": 53,
+        "Player Count": 3,
+        "Award Count": 0
       }
     },
     {
@@ -840,7 +875,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 18
+        "Room ID": 18,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -892,7 +929,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 57
+        "Room ID": 57,
+        "Player Count": 3,
+        "Award Count": 0
       }
     },
     {
@@ -955,7 +994,9 @@
         ],
         "Experience Count": 1,
         "Rating": 4,
-        "Room ID": 87
+        "Room ID": 87,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -1016,7 +1057,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 77
+        "Room ID": 77,
+        "Player Count": 4,
+        "Award Count": 3
       }
     },
     {
@@ -1039,7 +1082,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 32
+        "Room ID": 32,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -1099,7 +1144,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 49
+        "Room ID": 49,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -1155,7 +1202,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 44
+        "Room ID": 44,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -1179,7 +1228,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 13
+        "Room ID": 13,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -1238,7 +1289,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 12
+        "Room ID": 12,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -1265,7 +1318,9 @@
           "recuoeA2BQIe7GNpB"
         ],
         "Experience Count": 0,
-        "Room ID": 55
+        "Room ID": 55,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -1323,7 +1378,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 62
+        "Room ID": 62,
+        "Player Count": 3,
+        "Award Count": 1
       }
     },
     {
@@ -1382,7 +1439,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 38
+        "Room ID": 38,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -1451,7 +1510,9 @@
         "Room ID": 92,
         "List Items": [
           "recXhkuiShKAeIpm9"
-        ]
+        ],
+        "Player Count": 3,
+        "Award Count": 0
       }
     },
     {
@@ -1518,7 +1579,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 76
+        "Room ID": 76,
+        "Player Count": 4,
+        "Award Count": 2
       }
     },
     {
@@ -1582,7 +1645,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 75
+        "Room ID": 75,
+        "Player Count": 4,
+        "Award Count": 5
       }
     },
     {
@@ -1653,7 +1718,9 @@
         "Room ID": 80,
         "List Items": [
           "recWmBh3DlsoIgLxr"
-        ]
+        ],
+        "Player Count": 4,
+        "Award Count": 5
       }
     },
     {
@@ -1708,7 +1775,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 61
+        "Room ID": 61,
+        "Player Count": 3,
+        "Award Count": 0
       }
     },
     {
@@ -1764,7 +1833,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 86
+        "Room ID": 86,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -1817,7 +1888,9 @@
           "reci9DjZ5xsmOwEbC"
         ],
         "Experience Count": 0,
-        "Room ID": 40
+        "Room ID": 40,
+        "Player Count": 7,
+        "Award Count": 0
       }
     },
     {
@@ -1873,7 +1946,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 60
+        "Room ID": 60,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -1884,7 +1959,6 @@
         "When": "2022-06-10",
         "Status": "Completed",
         "Morty ID": 7106,
-        "Notes": "Golden Birthday Trip",
         "Location": [
           "rec5KZ7jR3JoUhION"
         ],
@@ -1918,7 +1992,10 @@
           }
         ],
         "Created at": "2026-02-23T19:25:06.000Z",
-        "Modified at": "2026-03-18T07:55:55.000Z",
+        "Modified at": "2026-03-23T20:18:37.000Z",
+        "Trips": [
+          "rec50OkpSmulp71dT"
+        ],
         "Themes": [
           "recGfSf1CCEf9h018"
         ],
@@ -1927,7 +2004,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 43
+        "Room ID": 43,
+        "Player Count": 2,
+        "Award Count": 0
       }
     },
     {
@@ -1971,7 +2050,10 @@
           }
         ],
         "Created at": "2026-02-23T19:25:06.000Z",
-        "Modified at": "2026-03-18T07:27:27.000Z",
+        "Modified at": "2026-03-23T20:21:12.000Z",
+        "Trips": [
+          "recOTSfUJ4GNMZ1of"
+        ],
         "Players": [
           "recfd6DZt87SxQurn",
           "recQu0PsrO1tED4Zq",
@@ -1979,7 +2061,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 29
+        "Room ID": 29,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -2024,7 +2108,10 @@
           }
         ],
         "Created at": "2026-02-23T19:25:06.000Z",
-        "Modified at": "2026-03-18T05:59:10.000Z",
+        "Modified at": "2026-03-23T20:21:08.000Z",
+        "Trips": [
+          "recOTSfUJ4GNMZ1of"
+        ],
         "Players": [
           "recfd6DZt87SxQurn",
           "recQu0PsrO1tED4Zq",
@@ -2032,7 +2119,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 28
+        "Room ID": 28,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -2087,7 +2176,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 10
+        "Room ID": 10,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -2156,7 +2247,9 @@
         "Room ID": 70,
         "List Items": [
           "rec00GvBhgWw7JCL1"
-        ]
+        ],
+        "Player Count": 4,
+        "Award Count": 1
       }
     },
     {
@@ -2212,7 +2305,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 33
+        "Room ID": 33,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -2268,7 +2363,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 19
+        "Room ID": 19,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -2293,7 +2390,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 4
+        "Room ID": 4,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -2356,7 +2455,9 @@
         ],
         "Experience Count": 1,
         "Rating": 3,
-        "Room ID": 88
+        "Room ID": 88,
+        "Player Count": 3,
+        "Award Count": 0
       }
     },
     {
@@ -2420,7 +2521,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 79
+        "Room ID": 79,
+        "Player Count": 4,
+        "Award Count": 4
       }
     },
     {
@@ -2473,7 +2576,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 50
+        "Room ID": 50,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -2518,7 +2623,10 @@
         ],
         "Order": 1,
         "Created at": "2026-02-23T19:25:06.000Z",
-        "Modified at": "2026-03-18T07:46:30.000Z",
+        "Modified at": "2026-03-23T20:22:52.000Z",
+        "Trips": [
+          "recKBVZe97eapVvag"
+        ],
         "Themes": [
           "recMN3D2uff72Fhj4"
         ],
@@ -2527,7 +2635,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 72
+        "Room ID": 72,
+        "Player Count": 2,
+        "Award Count": 0
       }
     },
     {
@@ -2575,7 +2685,10 @@
           }
         ],
         "Created at": "2026-02-23T19:25:06.000Z",
-        "Modified at": "2026-03-18T05:59:11.000Z",
+        "Modified at": "2026-03-23T20:23:43.000Z",
+        "Trips": [
+          "recLsdUC1oSFFcetc"
+        ],
         "Players": [
           "recfd6DZt87SxQurn",
           "recQu0PsrO1tED4Zq",
@@ -2583,7 +2696,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 83
+        "Room ID": 83,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -2608,7 +2723,9 @@
           "reci9DjZ5xsmOwEbC"
         ],
         "Experience Count": 0,
-        "Room ID": 7
+        "Room ID": 7,
+        "Player Count": 7,
+        "Award Count": 0
       }
     },
     {
@@ -2665,7 +2782,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 47
+        "Room ID": 47,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -2724,7 +2843,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 41
+        "Room ID": 41,
+        "Player Count": 4,
+        "Award Count": 1
       }
     },
     {
@@ -2751,7 +2872,9 @@
           "reclaK3d1iBH5HH4o"
         ],
         "Experience Count": 0,
-        "Room ID": 3
+        "Room ID": 3,
+        "Player Count": 3,
+        "Award Count": 0
       }
     },
     {
@@ -2781,7 +2904,9 @@
         ],
         "Experience Count": 1,
         "Rating": 4,
-        "Room ID": 99
+        "Room ID": 99,
+        "Player Count": 0,
+        "Award Count": 3
       }
     },
     {
@@ -2837,7 +2962,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 58
+        "Room ID": 58,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -2891,7 +3018,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 30
+        "Room ID": 30,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -2957,7 +3086,9 @@
           "recrZNcTixKZPpFIs"
         ],
         "Experience Count": 0,
-        "Room ID": 11
+        "Room ID": 11,
+        "Player Count": 9,
+        "Award Count": 1
       }
     },
     {
@@ -3014,7 +3145,9 @@
           "recQu0PsrO1tED4Zq"
         ],
         "Experience Count": 0,
-        "Room ID": 71
+        "Room ID": 71,
+        "Player Count": 2,
+        "Award Count": 1
       }
     },
     {
@@ -3072,7 +3205,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 65
+        "Room ID": 65,
+        "Player Count": 3,
+        "Award Count": 0
       }
     },
     {
@@ -3118,15 +3253,28 @@
           }
         ],
         "Created at": "2026-02-23T19:25:06.000Z",
-        "Modified at": "2026-03-18T07:43:16.000Z",
+        "Modified at": "2026-03-23T20:15:36.000Z",
         "Themes": [
           "recVt7J6vgFdNqXYy"
         ],
         "Players": [
-          "recfd6DZt87SxQurn"
+          "recfd6DZt87SxQurn",
+          "recc9LOInOmZJuBUh",
+          "rec3theRb2EwF8UcK",
+          "recotW7TYGbR8RWlV",
+          "recDXRxku7odYsn1t",
+          "recsMLVwrABe7aqLy",
+          "recIeryp3wXck7HwK",
+          "recT2kMeno2MkhEso",
+          "recqgpHvDsW4kqNQi",
+          "recoiZYF2xtkiy1qV",
+          "recyP0zI3hyvQb3u2",
+          "rece1Fmn3dRm72hrL"
         ],
         "Experience Count": 0,
-        "Room ID": 22
+        "Room ID": 22,
+        "Player Count": 12,
+        "Award Count": 0
       }
     },
     {
@@ -3197,7 +3345,9 @@
         "Room ID": 93,
         "List Items": [
           "rec1kuYcssxMnegcp"
-        ]
+        ],
+        "Player Count": 3,
+        "Award Count": 4
       }
     },
     {
@@ -3257,7 +3407,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 39
+        "Room ID": 39,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -3320,7 +3472,9 @@
           "rec7rFPQWWoVsPD9Y"
         ],
         "Experience Count": 0,
-        "Room ID": 25
+        "Room ID": 25,
+        "Player Count": 8,
+        "Award Count": 0
       }
     },
     {
@@ -3376,7 +3530,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 37
+        "Room ID": 37,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -3431,7 +3587,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 59
+        "Room ID": 59,
+        "Player Count": 3,
+        "Award Count": 0
       }
     },
     {
@@ -3483,7 +3641,9 @@
           "reclaK3d1iBH5HH4o"
         ],
         "Experience Count": 0,
-        "Room ID": 16
+        "Room ID": 16,
+        "Player Count": 3,
+        "Award Count": 0
       }
     },
     {
@@ -3535,7 +3695,9 @@
           "recQu0PsrO1tED4Zq"
         ],
         "Experience Count": 0,
-        "Room ID": 2
+        "Room ID": 2,
+        "Player Count": 2,
+        "Award Count": 0
       }
     },
     {
@@ -3596,7 +3758,9 @@
           "recyTLGi4kbD6rLBL"
         ],
         "Experience Count": 0,
-        "Room ID": 45
+        "Room ID": 45,
+        "Player Count": 8,
+        "Award Count": 0
       }
     },
     {
@@ -3656,7 +3820,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 24
+        "Room ID": 24,
+        "Player Count": 4,
+        "Award Count": 1
       }
     },
     {
@@ -3712,7 +3878,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 9
+        "Room ID": 9,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -3769,7 +3937,9 @@
           "rec4Sogtc56J7Hxu5"
         ],
         "Experience Count": 0,
-        "Room ID": 46
+        "Room ID": 46,
+        "Player Count": 5,
+        "Award Count": 0
       }
     },
     {
@@ -3847,7 +4017,9 @@
         "Room ID": 90,
         "List Items": [
           "recLwjeGy2O1jYQX0"
-        ]
+        ],
+        "Player Count": 3,
+        "Award Count": 4
       }
     },
     {
@@ -3902,7 +4074,9 @@
           "recBDCMK4AkuMlXUq"
         ],
         "Experience Count": 0,
-        "Room ID": 6
+        "Room ID": 6,
+        "Player Count": 7,
+        "Award Count": 0
       }
     },
     {
@@ -3950,7 +4124,10 @@
           }
         ],
         "Created at": "2026-02-23T19:25:06.000Z",
-        "Modified at": "2026-03-19T06:44:00.000Z",
+        "Modified at": "2026-03-23T20:23:48.000Z",
+        "Trips": [
+          "recLsdUC1oSFFcetc"
+        ],
         "Awards": [
           "recTqxhLxeFybxaUL"
         ],
@@ -3961,7 +4138,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 81
+        "Room ID": 81,
+        "Player Count": 4,
+        "Award Count": 1
       }
     },
     {
@@ -4030,7 +4209,9 @@
         "Room ID": 78,
         "List Items": [
           "recpYhUjTAarjlEwV"
-        ]
+        ],
+        "Player Count": 4,
+        "Award Count": 4
       }
     },
     {
@@ -4076,7 +4257,10 @@
           }
         ],
         "Created at": "2026-02-23T19:25:06.000Z",
-        "Modified at": "2026-03-19T06:44:01.000Z",
+        "Modified at": "2026-03-23T20:17:54.000Z",
+        "Trips": [
+          "rec0lxTu6FUTtJ8wW"
+        ],
         "Themes": [
           "reciPBE34x8SZ6QGi"
         ],
@@ -4091,7 +4275,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 52
+        "Room ID": 52,
+        "Player Count": 4,
+        "Award Count": 2
       }
     },
     {
@@ -4141,7 +4327,9 @@
           "recQu0PsrO1tED4Zq"
         ],
         "Experience Count": 0,
-        "Room ID": 1
+        "Room ID": 1,
+        "Player Count": 2,
+        "Award Count": 0
       }
     },
     {
@@ -4187,7 +4375,10 @@
           }
         ],
         "Created at": "2026-02-23T19:25:06.000Z",
-        "Modified at": "2026-03-23T19:58:21.000Z",
+        "Modified at": "2026-03-23T20:17:57.000Z",
+        "Trips": [
+          "rec0lxTu6FUTtJ8wW"
+        ],
         "Awards": [
           "recnYxCpaeZa5iDEO",
           "reclfTaRlgTsDo7FX",
@@ -4204,7 +4395,9 @@
         "Room ID": 51,
         "List Items": [
           "recyV6VxTFepKAkhD"
-        ]
+        ],
+        "Player Count": 4,
+        "Award Count": 4
       }
     },
     {
@@ -4249,13 +4442,18 @@
         ],
         "Order": 2,
         "Created at": "2026-02-23T19:25:06.000Z",
-        "Modified at": "2026-03-18T05:59:13.000Z",
+        "Modified at": "2026-03-23T20:22:57.000Z",
+        "Trips": [
+          "recKBVZe97eapVvag"
+        ],
         "Players": [
           "recQu0PsrO1tED4Zq",
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 73
+        "Room ID": 73,
+        "Player Count": 2,
+        "Award Count": 0
       }
     },
     {
@@ -4282,7 +4480,9 @@
         ],
         "Experience Count": 0,
         "Room ID": 100,
-        "Synopsis": "Ready to challenge the limits of time and explore a lost world? We present you a unique offer that you will not be able to resist! In partnership with Kirby Enterprises, experts in exotic travel, we offer you the unique opportunity to delve into the mysterious and abandoned Jurassic theme park, ancient home to amazing prehistoric creatures.\n\nOur team of experienced guides will take you through the ruined facilities of what was once the most amazing park in the world. You will discover remains of attractions, you will walk through lush vegetation and you will hear the distant echoes of ancestral roars. Jurassic is more than a simple experience; it is an immersion in a living and real environment, where you will feel that you have traveled back in time.\n\nAs the founder of the park would say, \"he has not noticed expenses,\" and this experience will not leave them indifferent. Get ready for a trip like no other, where excitement and tension will keep you on the edge of your seat at all times. Call now to reserve your place on this exciting journey!"
+        "Synopsis": "Ready to challenge the limits of time and explore a lost world? We present you a unique offer that you will not be able to resist! In partnership with Kirby Enterprises, experts in exotic travel, we offer you the unique opportunity to delve into the mysterious and abandoned Jurassic theme park, ancient home to amazing prehistoric creatures.\n\nOur team of experienced guides will take you through the ruined facilities of what was once the most amazing park in the world. You will discover remains of attractions, you will walk through lush vegetation and you will hear the distant echoes of ancestral roars. Jurassic is more than a simple experience; it is an immersion in a living and real environment, where you will feel that you have traveled back in time.\n\nAs the founder of the park would say, \"he has not noticed expenses,\" and this experience will not leave them indifferent. Get ready for a trip like no other, where excitement and tension will keep you on the edge of your seat at all times. Call now to reserve your place on this exciting journey!",
+        "Player Count": 0,
+        "Award Count": 3
       }
     },
     {
@@ -4314,7 +4514,9 @@
         ],
         "Experience Count": 0,
         "Room ID": 98,
-        "Synopsis": "Beneath Paris there is the City of Martyrs, an underground city full of secrets. It is in the heart of this city that Adèle, the governor's daughter has mysteriously disappeared.\n\nSeen a few days ago in the company of Martin Joly, better known as the taxidermist, no one has heard from her anymore, she has disappeared. The governor promises a reward to those who find his daughter."
+        "Synopsis": "Beneath Paris there is the City of Martyrs, an underground city full of secrets. It is in the heart of this city that Adèle, the governor's daughter has mysteriously disappeared.\n\nSeen a few days ago in the company of Martin Joly, better known as the taxidermist, no one has heard from her anymore, she has disappeared. The governor promises a reward to those who find his daughter.",
+        "Player Count": 0,
+        "Award Count": 4
       }
     },
     {
@@ -4379,7 +4581,9 @@
         "Room ID": 89,
         "List Items": [
           "reciai3XOCkcqn7vs"
-        ]
+        ],
+        "Player Count": 3,
+        "Award Count": 3
       }
     },
     {
@@ -4437,7 +4641,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 66
+        "Room ID": 66,
+        "Player Count": 3,
+        "Award Count": 0
       }
     },
     {
@@ -4485,7 +4691,10 @@
           }
         ],
         "Created at": "2026-02-23T19:25:06.000Z",
-        "Modified at": "2026-03-18T07:33:57.000Z",
+        "Modified at": "2026-03-23T20:23:45.000Z",
+        "Trips": [
+          "recLsdUC1oSFFcetc"
+        ],
         "Themes": [
           "reciPBE34x8SZ6QGi"
         ],
@@ -4496,7 +4705,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 82
+        "Room ID": 82,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -4552,7 +4763,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 20
+        "Room ID": 20,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -4605,7 +4818,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 14
+        "Room ID": 14,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -4661,7 +4876,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 56
+        "Room ID": 56,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -4720,7 +4937,9 @@
         "Room ID": 68,
         "List Items": [
           "recbnQfpwRhqXfMlD"
-        ]
+        ],
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -4784,7 +5003,9 @@
         "Room ID": 23,
         "List Items": [
           "recqLFh1mtkRAs464"
-        ]
+        ],
+        "Player Count": 9,
+        "Award Count": 0
       }
     },
     {
@@ -4844,7 +5065,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 27
+        "Room ID": 27,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -4871,7 +5094,9 @@
         ],
         "Experience Count": 0,
         "Room ID": 101,
-        "Synopsis": "IMMERSE YOURSELF IN THE STREETS OF LONDIUM\n\nWill they be able to know what happens in Londium?\n\nWill they have the cunning to help save the city?\n\nWill they withstand the pressure of the streets of Londium?"
+        "Synopsis": "IMMERSE YOURSELF IN THE STREETS OF LONDIUM\n\nWill they be able to know what happens in Londium?\n\nWill they have the cunning to help save the city?\n\nWill they withstand the pressure of the streets of Londium?",
+        "Player Count": 0,
+        "Award Count": 3
       }
     },
     {
@@ -4925,7 +5150,9 @@
           "reci9DjZ5xsmOwEbC"
         ],
         "Experience Count": 0,
-        "Room ID": 54
+        "Room ID": 54,
+        "Player Count": 7,
+        "Award Count": 0
       }
     },
     {
@@ -4996,7 +5223,9 @@
         "Experience Count": 2,
         "Rating": 4,
         "Room ID": 97,
-        "Synopsis": "For centuries, the galaxy has been under the control of the Consortium. You are among the rebels and today, you have a chance to destroy the Consortium forever. You have 75 minutes to find an old military base and use its ionic cannon to take down the Consortium flagship."
+        "Synopsis": "For centuries, the galaxy has been under the control of the Consortium. You are among the rebels and today, you have a chance to destroy the Consortium forever. You have 75 minutes to find an old military base and use its ionic cannon to take down the Consortium flagship.",
+        "Player Count": 3,
+        "Award Count": 2
       }
     },
     {
@@ -5023,7 +5252,9 @@
           "rec3VQjXVBJUQxnuU"
         ],
         "Experience Count": 0,
-        "Room ID": 21
+        "Room ID": 21,
+        "Player Count": 3,
+        "Award Count": 0
       }
     },
     {
@@ -5099,7 +5330,9 @@
         "Room ID": 95,
         "List Items": [
           "rec99uSngd7Hcbh6y"
-        ]
+        ],
+        "Player Count": 3,
+        "Award Count": 3
       }
     },
     {
@@ -5154,7 +5387,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 26
+        "Room ID": 26,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -5216,7 +5451,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 34
+        "Room ID": 34,
+        "Player Count": 4,
+        "Award Count": 1
       }
     },
     {
@@ -5227,7 +5464,6 @@
         "When": "2022-06-06",
         "Status": "Escaped",
         "Morty ID": 4129,
-        "Notes": "Golden Birthday Trip",
         "Location": [
           "recsr35Ty2VXFdTcu"
         ],
@@ -5261,13 +5497,18 @@
           }
         ],
         "Created at": "2026-02-23T19:25:06.000Z",
-        "Modified at": "2026-03-18T05:59:15.000Z",
+        "Modified at": "2026-03-23T20:18:40.000Z",
+        "Trips": [
+          "rec50OkpSmulp71dT"
+        ],
         "Players": [
           "recQu0PsrO1tED4Zq",
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 42
+        "Room ID": 42,
+        "Player Count": 2,
+        "Award Count": 0
       }
     },
     {
@@ -5324,7 +5565,9 @@
           "recQu0PsrO1tED4Zq"
         ],
         "Experience Count": 0,
-        "Room ID": 64
+        "Room ID": 64,
+        "Player Count": 2,
+        "Award Count": 0
       }
     },
     {
@@ -5377,7 +5620,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 31
+        "Room ID": 31,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -5433,7 +5678,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 74
+        "Room ID": 74,
+        "Player Count": 4,
+        "Award Count": 0
       }
     },
     {
@@ -5498,7 +5745,9 @@
         "Room ID": 63,
         "List Items": [
           "recHGbGsFthLILMSr"
-        ]
+        ],
+        "Player Count": 4,
+        "Award Count": 1
       }
     },
     {
@@ -5562,7 +5811,9 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Experience Count": 0,
-        "Room ID": 67
+        "Room ID": 67,
+        "Player Count": 4,
+        "Award Count": 2
       }
     }
   ]

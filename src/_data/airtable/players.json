@@ -1,7 +1,7 @@
 {
   "table": "Players",
-  "syncedAt": "2026-03-23T20:02:49.135708+00:00",
-  "count": 27,
+  "syncedAt": "2026-03-23T20:32:40.257402+00:00",
+  "count": 39,
   "records": [
     {
       "id": "rec3VQjXVBJUQxnuU",
@@ -17,6 +17,22 @@
         "Room Count": 1,
         "Experience Count": 0,
         "Player ID": 22
+      }
+    },
+    {
+      "id": "rec3theRb2EwF8UcK",
+      "createdTime": "2026-03-23T20:14:42.000Z",
+      "fields": {
+        "Name": "Andy",
+        "Rooms": [
+          "recZU96048MwIP7nv"
+        ],
+        "Game (from Rooms)": [
+          "Spies vs. Spies"
+        ],
+        "Room Count": 1,
+        "Experience Count": 0,
+        "Player ID": 30
       }
     },
     {
@@ -69,6 +85,22 @@
         "Room Count": 1,
         "Experience Count": 0,
         "Player ID": 27
+      }
+    },
+    {
+      "id": "recDXRxku7odYsn1t",
+      "createdTime": "2026-03-23T20:15:00.000Z",
+      "fields": {
+        "Name": "Nathaniel",
+        "Rooms": [
+          "recZU96048MwIP7nv"
+        ],
+        "Game (from Rooms)": [
+          "Spies vs. Spies"
+        ],
+        "Room Count": 1,
+        "Experience Count": 0,
+        "Player ID": 32
       }
     },
     {
@@ -332,6 +364,38 @@
       }
     },
     {
+      "id": "recIeryp3wXck7HwK",
+      "createdTime": "2026-03-23T20:15:11.000Z",
+      "fields": {
+        "Name": "Kathy",
+        "Rooms": [
+          "recZU96048MwIP7nv"
+        ],
+        "Game (from Rooms)": [
+          "Spies vs. Spies"
+        ],
+        "Room Count": 1,
+        "Experience Count": 0,
+        "Player ID": 34
+      }
+    },
+    {
+      "id": "recMQKcXKh8MpfHeR",
+      "createdTime": "2026-03-23T20:12:20.000Z",
+      "fields": {
+        "Name": "Kaye",
+        "Rooms": [
+          "rec6nkJuIG1mHtCQz"
+        ],
+        "Game (from Rooms)": [
+          "James Bond"
+        ],
+        "Room Count": 1,
+        "Experience Count": 0,
+        "Player ID": 28
+      }
+    },
+    {
       "id": "recNuMpQx1oJNfyfP",
       "createdTime": "2026-03-18T05:55:16.000Z",
       "fields": {
@@ -562,6 +626,22 @@
       }
     },
     {
+      "id": "recT2kMeno2MkhEso",
+      "createdTime": "2026-03-23T20:15:17.000Z",
+      "fields": {
+        "Name": "Briana",
+        "Rooms": [
+          "recZU96048MwIP7nv"
+        ],
+        "Game (from Rooms)": [
+          "Spies vs. Spies"
+        ],
+        "Room Count": 1,
+        "Experience Count": 0,
+        "Player ID": 35
+      }
+    },
+    {
       "id": "recTSfxodCq0hqoIE",
       "createdTime": "2026-03-18T05:59:05.000Z",
       "fields": {
@@ -635,6 +715,38 @@
         "Room Count": 1,
         "Experience Count": 0,
         "Player ID": 25
+      }
+    },
+    {
+      "id": "recc9LOInOmZJuBUh",
+      "createdTime": "2026-03-23T20:14:39.000Z",
+      "fields": {
+        "Name": "Liam",
+        "Rooms": [
+          "recZU96048MwIP7nv"
+        ],
+        "Game (from Rooms)": [
+          "Spies vs. Spies"
+        ],
+        "Room Count": 1,
+        "Experience Count": 0,
+        "Player ID": 29
+      }
+    },
+    {
+      "id": "rece1Fmn3dRm72hrL",
+      "createdTime": "2026-03-23T20:15:36.000Z",
+      "fields": {
+        "Name": "Chad",
+        "Rooms": [
+          "recZU96048MwIP7nv"
+        ],
+        "Game (from Rooms)": [
+          "Spies vs. Spies"
+        ],
+        "Room Count": 1,
+        "Experience Count": 0,
+        "Player ID": 39
       }
     },
     {
@@ -1038,6 +1150,54 @@
       }
     },
     {
+      "id": "recoiZYF2xtkiy1qV",
+      "createdTime": "2026-03-23T20:15:26.000Z",
+      "fields": {
+        "Name": "Amy",
+        "Rooms": [
+          "recZU96048MwIP7nv"
+        ],
+        "Game (from Rooms)": [
+          "Spies vs. Spies"
+        ],
+        "Room Count": 1,
+        "Experience Count": 0,
+        "Player ID": 37
+      }
+    },
+    {
+      "id": "recotW7TYGbR8RWlV",
+      "createdTime": "2026-03-23T20:14:48.000Z",
+      "fields": {
+        "Name": "Tor",
+        "Rooms": [
+          "recZU96048MwIP7nv"
+        ],
+        "Game (from Rooms)": [
+          "Spies vs. Spies"
+        ],
+        "Room Count": 1,
+        "Experience Count": 0,
+        "Player ID": 31
+      }
+    },
+    {
+      "id": "recqgpHvDsW4kqNQi",
+      "createdTime": "2026-03-23T20:15:22.000Z",
+      "fields": {
+        "Name": "Dan",
+        "Rooms": [
+          "recZU96048MwIP7nv"
+        ],
+        "Game (from Rooms)": [
+          "Spies vs. Spies"
+        ],
+        "Room Count": 1,
+        "Experience Count": 0,
+        "Player ID": 36
+      }
+    },
+    {
       "id": "recrZNcTixKZPpFIs",
       "createdTime": "2026-03-18T05:59:05.000Z",
       "fields": {
@@ -1071,6 +1231,22 @@
         "Room Count": 2,
         "Experience Count": 0,
         "Player ID": 17
+      }
+    },
+    {
+      "id": "recsMLVwrABe7aqLy",
+      "createdTime": "2026-03-23T20:15:06.000Z",
+      "fields": {
+        "Name": "Sam",
+        "Rooms": [
+          "recZU96048MwIP7nv"
+        ],
+        "Game (from Rooms)": [
+          "Spies vs. Spies"
+        ],
+        "Room Count": 1,
+        "Experience Count": 0,
+        "Player ID": 33
       }
     },
     {
@@ -1161,6 +1337,22 @@
         "Room Count": 2,
         "Experience Count": 0,
         "Player ID": 20
+      }
+    },
+    {
+      "id": "recyP0zI3hyvQb3u2",
+      "createdTime": "2026-03-23T20:15:31.000Z",
+      "fields": {
+        "Name": "Ian",
+        "Rooms": [
+          "recZU96048MwIP7nv"
+        ],
+        "Game (from Rooms)": [
+          "Spies vs. Spies"
+        ],
+        "Room Count": 1,
+        "Experience Count": 0,
+        "Player ID": 38
       }
     },
     {
