@@ -1,55 +1,67 @@
 {
   "meta": {
-    "generatedAt": "2026-03-23T20:33:20.611Z",
+    "generatedAt": "2026-03-23T20:39:26.828Z",
     "model": "gpt-4o-mini"
   },
   "home": {
-    "summary": "A growing archive of 96 rooms completed across eight countries, balancing local favorites and expansive travel runs. The journey has been ongoing since 2016, showcasing the diverse genres and puzzles that escape rooms offer."
+    "summary": "This archive captures a journey through 96 rooms across eight countries, with a focus on dynamic teamwork and strategic debriefs that echo the spirit of escape room culture."
   },
   "featured": {
-    "summary": "This hub centers around two standout trips and two well-loved awards, alongside four players who each bring their own flair to the table."
+    "summary": "A curated hub showcasing five impactful trips, two standout awards, and key players who shape the escape room narrative."
   },
   "players": {
     "jamie": {
-      "intro": "Jamie is the drive-to-win and time keeper for Escaping Things."
+      "intro": "Jamie drives the energy in any lineup, serving as the timekeeper and go-to strategist for Escaping Things."
     },
     "mazie": {
-      "intro": "Mazie is the out-of-the-box thinker in Escaping Things."
+      "intro": "Mazie adds a creative touch to the team as an out-of-the-box thinker who elevates every room challenge."
     },
     "tammy": {
-      "intro": "Tammy is the puzzle master for Escaping Things."
+      "intro": "Tammy brings a sharp mind as the puzzle master for Escaping Things, carving through challenges with precision."
     },
     "tyler": {
-      "intro": "Tyler is the speed-runner and tactician of Escaping Things."
+      "intro": "Tyler speeds through rooms with a tactical approach, ensuring each escape is both efficient and effective."
     }
   },
   "awards": {
     "best-things": {
-      "intro": "Best Things is a selection of rooms that stand out in the community."
+      "intro": "Recognized for setting the standard in escape room design with innovative experiences."
     },
     "best-things-twin-cities": {
-      "intro": "Best Things Twin Cities highlights the most enjoyed rooms in that region."
+      "intro": "Celebrated for identifying the best escape rooms in the Twin Cities, filtering through the local scene with keen insight."
     }
   },
   "trips": {
     "escape-in-europe": {
-      "intro": "Escape in Europe packs in twelve rooms from Belgium to Spain, taking in major cities and hidden gems along the way.",
-      "routeSummary": "The trip navigates through iconic spots like Amsterdam, Paris, and Barcelona, with unique experiences in each location."
+      "intro": "A European adventure through bustling cities like Amsterdam and Paris, tackling a dozen rooms across four countries.",
+      "routeSummary": "The route weaves through cities like Utrecht, Brussels, and Barcelona, each with their own unique escapes."
+    },
+    "italy": {
+      "intro": "A quick trip to Milan, sampling two thematic rooms that delve into unique narratives.",
+      "routeSummary": "In Milan, the journey featured two consecutive rooms focusing on machine themes."
+    },
+    "olson-vacation-in-nashville": {
+      "intro": "A short getaway in Nashville, trying out rooms that blend local lore with puzzling narratives.",
+      "routeSummary": "The route involved time spent in Berry Hill and Nashville, uncovering treasures and legends."
     },
     "qmsb": {
-      "intro": "QMSB crosses through Canada and the United States with nine rooms, blending local quirks into high-energy challenges.",
-      "routeSummary": "The route features cities like Quebec City and Fargo, offering diverse themes and styles."
+      "intro": "An ambitious run from Quebec City to Bismarck, exploring a variety of themed escapes.",
+      "routeSummary": "This route stretched from the heart of Canada to the U.S., featuring diverse games in each stop."
+    },
+    "soccer-in-kansas-city": {
+      "intro": "A focused weekend in Kansas City, featuring two unique escape adventures that blend creativity and competition.",
+      "routeSummary": "The Kansas City route included two rooms that challenge players to think outside the box."
     }
   },
   "lists": {
     "1-jamies-escape-in-europe-favorites": {
-      "intro": "Jamie's favorites from the Escape in Europe trip offer a personal touch to the adventure."
+      "intro": "A personal anthology from Jamie highlighting favorite experiences from a Europe trip, showcasing memorable escapes within a cohesive narrative."
     },
     "2-jamies-all-time-favorites": {
-      "intro": "This list reflects Jamie's personal top rooms over the years, capturing standout experiences that resonate deeply."
+      "intro": "A short list that encapsulates deeply resonant rooms from Jamie's travels, each leaving a lasting impression."
     },
     "3-top-twin-cities-rooms": {
-      "intro": "A curated selection of the best rooms from the Twin Cities, perfect for local enthusiasts."
+      "intro": "A local favorites list filled with the best offerings from the Twin Cities, featuring rooms beloved by the community."
     }
   }
 }

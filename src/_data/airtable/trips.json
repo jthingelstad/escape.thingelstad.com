@@ -1,6 +1,6 @@
 {
   "table": "Trips",
-  "syncedAt": "2026-03-23T20:32:40.259755+00:00",
+  "syncedAt": "2026-03-23T20:39:15.939132+00:00",
   "count": 7,
   "records": [
     {
@@ -17,6 +17,7 @@
           "Birth Machine"
         ],
         "Room Count": 2,
+        "Featured": true,
         "Trip ID": 3
       }
     },
@@ -141,6 +142,7 @@
           "Beasley’s Billions"
         ],
         "Room Count": 2,
+        "Featured": true,
         "Trip ID": 5
       }
     },
@@ -158,6 +160,7 @@
           "Ruins: Forbidden Treasure"
         ],
         "Room Count": 2,
+        "Featured": true,
         "Trip ID": 7
       }
     }
