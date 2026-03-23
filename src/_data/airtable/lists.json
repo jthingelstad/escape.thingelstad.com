@@ -1,7 +1,7 @@
 {
   "table": "Lists",
-  "syncedAt": "2026-03-22T20:38:13.773524+00:00",
-  "count": 1,
+  "syncedAt": "2026-03-23T20:02:49.136761+00:00",
+  "count": 3,
   "records": [
     {
       "id": "recfSbUCFg9HAUgV3",
@@ -25,6 +25,42 @@
         ],
         "List ID": 1,
         "Room Count": 6
+      }
+    },
+    {
+      "id": "recjRI5haNXU9ciSX",
+      "createdTime": "2026-03-23T19:51:16.000Z",
+      "fields": {
+        "Name": "Top Twin Cities Rooms",
+        "Notes": "Our favorite rooms in the Twin Cities.\n",
+        "List Items": [
+          "recbnQfpwRhqXfMlD",
+          "recqLFh1mtkRAs464",
+          "recHGbGsFthLILMSr",
+          "rec00GvBhgWw7JCL1",
+          "reciai3XOCkcqn7vs"
+        ],
+        "List ID": 3,
+        "Room Count": 5
+      }
+    },
+    {
+      "id": "reckIazUkZ38buhZa",
+      "createdTime": "2026-03-23T19:51:04.000Z",
+      "fields": {
+        "Name": "Jamie's All-Time Favorites",
+        "Notes": "These are the rooms that have really stuck with me. They are the ones that I recount when I think of my all-time favorites.\n",
+        "Player": [
+          "recfd6DZt87SxQurn"
+        ],
+        "List Items": [
+          "recReSkgw2rEbWVzM",
+          "recWmBh3DlsoIgLxr",
+          "recpYhUjTAarjlEwV",
+          "recyV6VxTFepKAkhD"
+        ],
+        "List ID": 2,
+        "Room Count": 4
       }
     }
   ]

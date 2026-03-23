@@ -1,49 +1,55 @@
 {
   "meta": {
-    "generatedAt": "2026-03-22T20:38:37.760Z",
+    "generatedAt": "2026-03-23T20:03:26.503Z",
     "model": "gpt-4o-mini"
   },
   "home": {
-    "summary": "This archive serves as a curated collection of experiences from over 95 escape rooms across 8 countries, spanning more than a decade of puzzle-solving camaraderie."
+    "summary": "This archive captures 96 escape rooms across eight countries over 11 years, tracking a myriad of trips, notable players, and a collection of insightful awards. It’s a repository of our experiences and insights, charting the highs, challenges, and wins along the way."
   },
   "featured": {
-    "summary": "Here’s a look at two standout trips and two of our favorite awards that celebrate the escape room culture."
+    "summary": "This section highlights two key trips and two award-winning rooms, reflecting the favorites of our dedicated team."
   },
   "players": {
     "jamie": {
-      "intro": "Jamie approaches each room with a methodical mindset, focusing on systems and team alignment."
+      "intro": "Jamie brings a competitive spirit and precision timing as Escaping Things' drive-to-win, frequently pushing teams toward success."
     },
     "mazie": {
-      "intro": "Mazie brings energy and intuition, often unlocking puzzles through creative insights and pattern recognition."
+      "intro": "Mazie is an out-of-the-box thinker who often provides unexpected solutions during team escapades."
     },
     "tammy": {
-      "intro": "Tammy contributes her situational awareness and communication skills, ensuring the team stays coordinated under pressure."
+      "intro": "Tammy serves as the puzzle master, adept at guiding teams through the intricacies of each challenge."
     },
     "tyler": {
-      "intro": "Tyler’s detail-oriented approach helps the team methodically navigate complex puzzles with accuracy."
+      "intro": "Tyler, the speed-runner and tactician, keeps the energy high and the decisions quick."
     }
   },
   "awards": {
     "best-things": {
-      "intro": "Best Things captures our essential picks, reflecting shared insights on rooms that resonate with escape room aficionados."
+      "intro": "This award spotlights the standout rooms that resonate deeply within our community."
     },
     "best-things-twin-cities": {
-      "intro": "Best Things Twin Cities highlights standout rooms in the local scene, featuring places like The Founder's Secret."
+      "intro": "The best rooms in the Twin Cities according to our experiences, including highlights like The Founder's Secret."
     }
   },
   "trips": {
     "escape-in-europe": {
-      "intro": "A journey through Europe with rooms in cities like Amsterdam and Barcelona, rich in variety and design.",
-      "routeSummary": "Starting in Voorburg with Molly's Game, the route winds through Utrecht before heading to Brussels, then to Amsterdam, Paris, and finally Barcelona."
+      "intro": "A journey through Belgium, France, and the Netherlands, moving from Amsterdam to Barcelona with lots of memorable rooms along the way.",
+      "routeSummary": "Beginning in Voorburg with Molly's Game, the route winds through Utrecht, Brussels, and across Paris, culminating in a series of rooms in Barcelona."
     },
     "qmsb": {
-      "intro": "This trip focuses on rooms in Quebec, emphasizing unique challenges in cities like Laval and Quebec City.",
-      "routeSummary": "Beginning with The Dreamwalkers in Quebec City, the route covers a mix of creative themes before concluding in Laval."
+      "intro": "A concentrated trip across Canada, featuring an interesting mix of rooms in Quebec City and Laval.",
+      "routeSummary": "Starting with The Dreamwalkers in Quebec City, this route leads through a range of themes in both lively cities."
     }
   },
   "lists": {
     "1-jamies-escape-in-europe-favorites": {
-      "intro": "This is Jamie's personal shortlist of favorite rooms from a recent trip, highlighting standout experiences across Europe."
+      "intro": "These are Jamie's top picks from the European adventure, curated from experiences across multiple cities and styles."
+    },
+    "2-jamies-all-time-favorites": {
+      "intro": "A personal shortlist of rooms that have made a lasting impression on Jamie over the years."
+    },
+    "3-top-twin-cities-rooms": {
+      "intro": "A collection of the top rooms to try in the Twin Cities, shaped by our team's favorite escapes."
     }
   }
 }

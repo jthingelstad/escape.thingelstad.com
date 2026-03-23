@@ -1,6 +1,6 @@
 {
   "table": "Players",
-  "syncedAt": "2026-03-22T20:38:13.771104+00:00",
+  "syncedAt": "2026-03-23T20:02:49.135708+00:00",
   "count": 27,
   "records": [
     {
@@ -232,7 +232,8 @@
           "reca6bIeAIt6OxCx3",
           "recrQ7mSj8HrOoZJS",
           "rec4zecfSJ1FznQMB",
-          "rec0tsuiSuEyxaXMX"
+          "rec0tsuiSuEyxaXMX",
+          "recrCIDLym8KGALiH"
         ],
         "Game (from Rooms)": [
           "Magnifico",
@@ -316,9 +317,10 @@
           "Botanist Manor",
           "Zoltar Speaks",
           "The Alchemist",
-          "Revolt At The Lock"
+          "Revolt At The Lock",
+          "Galactic Mission"
         ],
-        "Room Count": 82,
+        "Room Count": 83,
         "Featured": true,
         "Experiences": [
           "recJcztWTdgd7BzmS",
@@ -326,7 +328,7 @@
         ],
         "Experience Count": 2,
         "Player ID": 3,
-        "Bio": "Tyler is a focused and tactically minded escape room player who brings persistence, precision, and execution discipline to the team. As part of Escaping Things, he contributes consistent progress through careful validation of clues and methodical advancement of puzzle states.\n\nHe excels at detail-oriented work—tracking inputs and outputs, verifying combinations, and ensuring that partial solutions are fully resolved before moving on. Tyler is particularly effective in puzzles that require accuracy, sequencing, or repeated iteration, where disciplined execution is critical.\n\nHis approach is steady and grounded. He avoids unnecessary speculation, instead working systematically through available information and converging on correct solutions through elimination and confirmation. This makes him a reliable force in stabilizing complex rooms where multiple threads are in play.\n\nTyler values puzzles that reward logic, clarity, and fair construction. Within the team, he functions as an executor and closer—translating insight into completed steps and ensuring that progress converts into tangible results."
+        "Bio": "Tyler is the speed-runner and tactician of Escaping Things."
       }
     },
     {
@@ -449,7 +451,8 @@
           "reca6bIeAIt6OxCx3",
           "recrQ7mSj8HrOoZJS",
           "rec4zecfSJ1FznQMB",
-          "rec0tsuiSuEyxaXMX"
+          "rec0tsuiSuEyxaXMX",
+          "recrCIDLym8KGALiH"
         ],
         "Game (from Rooms)": [
           "Lost Island of the Voodoo Queen",
@@ -542,18 +545,20 @@
           "Botanist Manor",
           "Zoltar Speaks",
           "The Alchemist",
-          "Revolt At The Lock"
+          "Revolt At The Lock",
+          "Galactic Mission"
         ],
-        "Room Count": 91,
+        "Room Count": 92,
         "Featured": true,
         "Experiences": [
           "recQxjgHECuJ2zhHL",
           "recCD91D3X725hB7E",
-          "recuFz4Ec6NrJMvAq"
+          "recuFz4Ec6NrJMvAq",
+          "recqZwZRZSa8plSkJ"
         ],
-        "Experience Count": 3,
+        "Experience Count": 4,
         "Player ID": 1,
-        "Bio": "Tammy is a collaborative and perceptive escape room player who brings strong situational awareness and steady team coordination to every room. As part of Escaping Things, she has contributed to a large and growing body of room completions, developing a refined sense for puzzle flow, clue intent, and when to shift strategies.\n\nShe excels at information management—tracking discovered clues, maintaining shared context, and ensuring that partial insights are surfaced to the team at the right moment. Tammy is particularly effective at connecting disparate elements, often identifying relationships that are easy to overlook in fast-moving environments.\n\nHer approach is disciplined but flexible: she balances persistence with a willingness to reset assumptions, helping the team avoid fixation traps. She also contributes to team dynamics by maintaining focus and clarity under time pressure, enabling more efficient collaboration across parallel puzzle tracks.\n\nTammy values rooms that reward observation, communication, and thoughtful design. Within the team, she functions as both integrator and signal amplifier—ensuring that important details are not lost and that progress remains coordinated."
+        "Bio": "Tammy is the puzzle master for Escaping Things."
       }
     },
     {
@@ -726,7 +731,8 @@
           "reca6bIeAIt6OxCx3",
           "recrQ7mSj8HrOoZJS",
           "rec4zecfSJ1FznQMB",
-          "rec0tsuiSuEyxaXMX"
+          "rec0tsuiSuEyxaXMX",
+          "recrCIDLym8KGALiH"
         ],
         "Game (from Rooms)": [
           "Screaming Metal",
@@ -817,23 +823,29 @@
           "Botanist Manor",
           "Zoltar Speaks",
           "The Alchemist",
-          "Revolt At The Lock"
+          "Revolt At The Lock",
+          "Galactic Mission"
         ],
-        "Room Count": 89,
+        "Room Count": 90,
         "Featured": true,
         "Experiences": [
           "recJaH5HGmhCaXSbz",
           "recPEzPiGg7xRpw9w",
           "rec8N7W6EeAqxjV3w",
           "recObrFeRLFanOb5E",
-          "recCmgZGFh0MB4z0f"
+          "recCmgZGFh0MB4z0f",
+          "recg92OyrCYJ8i1Rd",
+          "recZ12m1RIpvnsfhY",
+          "rec8VClQ6EhmfTHIR",
+          "reccoPW716fcq08FE"
         ],
-        "Experience Count": 5,
+        "Experience Count": 9,
         "Lists": [
-          "recfSbUCFg9HAUgV3"
+          "recfSbUCFg9HAUgV3",
+          "reckIazUkZ38buhZa"
         ],
         "Player ID": 2,
-        "Bio": "Jamie is a methodical and highly experienced escape room enthusiast who approaches rooms with a systems mindset and a bias toward completion. As a member of Escaping Things, he has played nearly 100 rooms, developing a strong intuition for puzzle structure, flow, and common design patterns.\n\nHe favors clear signal over noise—quickly identifying core mechanics, eliminating dead ends, and maintaining team momentum. His strengths include pattern recognition, meta-puzzle decomposition, and coordinating parallel workstreams under time pressure. He is particularly effective at bridging technical and narrative elements, ensuring that thematic clues are translated into actionable progress.\n\nJamie tracks and reflects on each room, treating the experience as both recreation and iterative improvement. He values well-designed rooms that balance challenge, fairness, and immersion, and has a low tolerance for ambiguity that does not serve gameplay.\n\nIn a team setting, he operates as a stabilizer and accelerator—keeping the group aligned, reducing thrash, and pushing toward consistent, high-probability solves."
+        "Bio": "Jamie is the drive-to-win and time keeper for Escaping Things."
       }
     },
     {
@@ -1022,7 +1034,7 @@
         ],
         "Experience Count": 1,
         "Player ID": 4,
-        "Bio": "Mazie is an intuitive and fast-adapting escape room player who brings energy, curiosity, and strong pattern recognition to the team. As part of Escaping Things, she contributes a fresh perspective that is particularly effective in breaking through assumptions and reframing stalled puzzles.\n\nShe excels at spotting visual cues, thematic hints, and non-obvious connections, often identifying the “leap” that unlocks progress. Mazie is comfortable exploring multiple paths in parallel and is quick to test hypotheses, which helps the team maintain momentum in complex or nonlinear rooms.\n\nHer approach combines creativity with increasing discipline—she is willing to experiment, but also receptive to structure and coordination as puzzles converge. She contributes positively to team dynamics by keeping engagement high and bringing a sense of forward motion, especially in moments where progress slows.\n\nMazie values immersive, story-driven rooms with interactive elements and layered reveals. Within the team, she functions as an explorer and catalyst—expanding the solution space and helping the group move past local maxima toward resolution."
+        "Bio": "Mazie is the out-of-the-box thinker in Escaping Things."
       }
     },
     {

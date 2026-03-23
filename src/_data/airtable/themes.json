@@ -1,7 +1,7 @@
 {
   "table": "Themes",
-  "syncedAt": "2026-03-22T20:38:13.770275+00:00",
-  "count": 22,
+  "syncedAt": "2026-03-23T20:02:49.135380+00:00",
+  "count": 23,
   "records": [
     {
       "id": "rec4wcQZxapCn55pg",
@@ -111,13 +111,15 @@
         "Name": "Actors",
         "Rooms": [
           "recrQ7mSj8HrOoZJS",
-          "recHh5GHLbeLSs808"
+          "recHh5GHLbeLSs808",
+          "recrCIDLym8KGALiH"
         ],
         "Game (from Rooms)": [
           "Zoltar Speaks",
-          "Magnifico"
+          "Magnifico",
+          "Galactic Mission"
         ],
-        "Room Count": 2,
+        "Room Count": 3,
         "Theme ID": 21,
         "Note": "Room features live actors as part of the room. "
       }
@@ -269,6 +271,24 @@
       }
     },
     {
+      "id": "recgwsUlwtpCpyc5R",
+      "createdTime": "2026-03-23T07:43:06.000Z",
+      "fields": {
+        "Name": "Prelude",
+        "Rooms": [
+          "recjFTVzz57eYe9IE",
+          "rec4zecfSJ1FznQMB"
+        ],
+        "Game (from Rooms)": [
+          "The Taxidermist",
+          "The Alchemist"
+        ],
+        "Room Count": 2,
+        "Theme ID": 24,
+        "Note": "These games start the story before you arrive."
+      }
+    },
+    {
       "id": "reci1oa24JOCAiJXp",
       "createdTime": "2026-03-18T07:26:17.000Z",
       "fields": {
@@ -385,7 +405,8 @@
           "Revolt At The Lock"
         ],
         "Room Count": 1,
-        "Theme ID": 23
+        "Theme ID": 23,
+        "Note": "Game features cloning of some form."
       }
     },
     {
