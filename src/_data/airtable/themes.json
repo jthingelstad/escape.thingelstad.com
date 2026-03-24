@@ -1,7 +1,7 @@
 {
   "table": "Themes",
-  "syncedAt": "2026-03-24T07:51:44.585187+00:00",
-  "count": 23,
+  "syncedAt": "2026-03-24T19:42:33.842260+00:00",
+  "count": 27,
   "records": [
     {
       "id": "rec4wcQZxapCn55pg",
@@ -112,14 +112,16 @@
         "Rooms": [
           "recrQ7mSj8HrOoZJS",
           "recHh5GHLbeLSs808",
-          "recrCIDLym8KGALiH"
+          "recrCIDLym8KGALiH",
+          "recjFTVzz57eYe9IE"
         ],
         "Game (from Rooms)": [
           "Zoltar Speaks",
           "Magnifico",
-          "Galactic Mission"
+          "Galactic Mission",
+          "The Taxidermist"
         ],
-        "Room Count": 3,
+        "Room Count": 4,
         "Theme ID": 21,
         "Note": "Room features live actors as part of the room. "
       }
@@ -212,6 +214,21 @@
       }
     },
     {
+      "id": "recT8XeL9cVjEVheV",
+      "createdTime": "2026-03-24T11:01:40.000Z",
+      "fields": {
+        "Name": "Taxidermy",
+        "Rooms": [
+          "recjFTVzz57eYe9IE"
+        ],
+        "Game (from Rooms)": [
+          "The Taxidermist"
+        ],
+        "Room Count": 1,
+        "Theme ID": 26
+      }
+    },
+    {
       "id": "recVt7J6vgFdNqXYy",
       "createdTime": "2026-03-18T07:36:11.000Z",
       "fields": {
@@ -268,6 +285,21 @@
         ],
         "Room Count": 2,
         "Theme ID": 13
+      }
+    },
+    {
+      "id": "recfKoEL5LHHrEJaU",
+      "createdTime": "2026-03-24T11:02:16.000Z",
+      "fields": {
+        "Name": "Strobes",
+        "Rooms": [
+          "recjFTVzz57eYe9IE"
+        ],
+        "Game (from Rooms)": [
+          "The Taxidermist"
+        ],
+        "Room Count": 1,
+        "Theme ID": 27
       }
     },
     {
@@ -341,6 +373,24 @@
       }
     },
     {
+      "id": "reck3vj12MrayItZF",
+      "createdTime": "2026-03-24T11:02:26.000Z",
+      "fields": {
+        "Name": "Soundtrack",
+        "Rooms": [
+          "recjFTVzz57eYe9IE",
+          "recHh5GHLbeLSs808"
+        ],
+        "Game (from Rooms)": [
+          "The Taxidermist",
+          "Magnifico"
+        ],
+        "Room Count": 2,
+        "Theme ID": 28,
+        "Note": "These rooms feature an original soundtrack, available to play after you have completed the room. "
+      }
+    },
+    {
       "id": "recrdu5bvADhlkIZD",
       "createdTime": "2026-03-18T07:34:07.000Z",
       "fields": {
@@ -374,6 +424,23 @@
         ],
         "Room Count": 3,
         "Theme ID": 5
+      }
+    },
+    {
+      "id": "recvCpkxqvv3wgw2M",
+      "createdTime": "2026-03-24T11:23:26.000Z",
+      "fields": {
+        "Name": "Merch",
+        "Rooms": [
+          "recjFTVzz57eYe9IE",
+          "recHh5GHLbeLSs808"
+        ],
+        "Game (from Rooms)": [
+          "The Taxidermist",
+          "Magnifico"
+        ],
+        "Room Count": 2,
+        "Theme ID": 29
       }
     },
     {

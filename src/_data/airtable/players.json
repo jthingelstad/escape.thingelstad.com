@@ -1,6 +1,6 @@
 {
   "table": "Players",
-  "syncedAt": "2026-03-24T07:51:44.585556+00:00",
+  "syncedAt": "2026-03-24T19:42:33.842608+00:00",
   "count": 39,
   "records": [
     {
@@ -265,7 +265,8 @@
           "recrQ7mSj8HrOoZJS",
           "rec4zecfSJ1FznQMB",
           "rec0tsuiSuEyxaXMX",
-          "recrCIDLym8KGALiH"
+          "recrCIDLym8KGALiH",
+          "recjFTVzz57eYe9IE"
         ],
         "Game (from Rooms)": [
           "Magnifico",
@@ -350,9 +351,10 @@
           "Zoltar Speaks",
           "The Alchemist",
           "Revolt At The Lock",
-          "Galactic Mission"
+          "Galactic Mission",
+          "The Taxidermist"
         ],
-        "Room Count": 83,
+        "Room Count": 84,
         "Featured": true,
         "Experiences": [
           "recJcztWTdgd7BzmS",
@@ -516,7 +518,8 @@
           "recrQ7mSj8HrOoZJS",
           "rec4zecfSJ1FznQMB",
           "rec0tsuiSuEyxaXMX",
-          "recrCIDLym8KGALiH"
+          "recrCIDLym8KGALiH",
+          "recjFTVzz57eYe9IE"
         ],
         "Game (from Rooms)": [
           "Lost Island of the Voodoo Queen",
@@ -610,9 +613,10 @@
           "Zoltar Speaks",
           "The Alchemist",
           "Revolt At The Lock",
-          "Galactic Mission"
+          "Galactic Mission",
+          "The Taxidermist"
         ],
-        "Room Count": 92,
+        "Room Count": 93,
         "Featured": true,
         "Experiences": [
           "recQxjgHECuJ2zhHL",
@@ -844,7 +848,8 @@
           "recrQ7mSj8HrOoZJS",
           "rec4zecfSJ1FznQMB",
           "rec0tsuiSuEyxaXMX",
-          "recrCIDLym8KGALiH"
+          "recrCIDLym8KGALiH",
+          "recjFTVzz57eYe9IE"
         ],
         "Game (from Rooms)": [
           "Screaming Metal",
@@ -936,9 +941,10 @@
           "Zoltar Speaks",
           "The Alchemist",
           "Revolt At The Lock",
-          "Galactic Mission"
+          "Galactic Mission",
+          "The Taxidermist"
         ],
-        "Room Count": 90,
+        "Room Count": 91,
         "Featured": true,
         "Experiences": [
           "recJaH5HGmhCaXSbz",
@@ -949,9 +955,10 @@
           "recg92OyrCYJ8i1Rd",
           "recZ12m1RIpvnsfhY",
           "rec8VClQ6EhmfTHIR",
-          "reccoPW716fcq08FE"
+          "reccoPW716fcq08FE",
+          "rec1lmjsx1Ly9JUO7"
         ],
-        "Experience Count": 9,
+        "Experience Count": 10,
         "Lists": [
           "recfSbUCFg9HAUgV3",
           "reckIazUkZ38buhZa"

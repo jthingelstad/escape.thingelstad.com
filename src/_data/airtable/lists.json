@@ -1,8 +1,24 @@
 {
   "table": "Lists",
-  "syncedAt": "2026-03-24T07:51:44.587143+00:00",
-  "count": 3,
+  "syncedAt": "2026-03-24T19:42:33.843516+00:00",
+  "count": 4,
   "records": [
+    {
+      "id": "rec2AT81hVAdrhy9f",
+      "createdTime": "2026-03-24T19:29:27.000Z",
+      "fields": {
+        "Name": "Best of the Best",
+        "Notes": "The best rooms that we've ever done.\n",
+        "List Items": [
+          "recPvhFk8eUfbyp9H",
+          "rec8jNV2ARqYCHmlA",
+          "rec1lvVshJfhwqOma",
+          "recU8ZvM5VXxaVCHs"
+        ],
+        "List ID": 4,
+        "Room Count": 4
+      }
+    },
     {
       "id": "recfSbUCFg9HAUgV3",
       "createdTime": "2026-03-19T11:08:47.000Z",
@@ -17,14 +33,13 @@
           "recih0hukezoGiwVw",
           "recLwjeGy2O1jYQX0",
           "rec1kuYcssxMnegcp",
-          "recXhkuiShKAeIpm9",
-          "rec99uSngd7Hcbh6y"
+          "rec6NcYS58yKbhdsH"
         ],
         "Trip": [
           "recJqpVCHFrsjb8iR"
         ],
         "List ID": 1,
-        "Room Count": 6
+        "Room Count": 5
       }
     },
     {
@@ -57,10 +72,11 @@
           "recReSkgw2rEbWVzM",
           "recWmBh3DlsoIgLxr",
           "recpYhUjTAarjlEwV",
-          "recyV6VxTFepKAkhD"
+          "recyV6VxTFepKAkhD",
+          "recu8RKuyvJaDucSI"
         ],
         "List ID": 2,
-        "Room Count": 4
+        "Room Count": 5
       }
     }
   ]
