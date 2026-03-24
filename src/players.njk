@@ -6,7 +6,7 @@ permalink: /players/
 {% extends "base.njk" %}
 
 {% block content %}
-  <main class="container page-content">
+  <main class="container page-content" data-pagefind-ignore>
     <section class="page-intro">
       <div class="eyebrow">Featured Players</div>
       <div class="page-intro-copy">
@@ -34,7 +34,7 @@ permalink: /players/
     {% if nonFeaturedPlayers.length > 0 %}
     <section class="featured-section">
       <div class="section-header">
-        <h2>Team Roster</h2>
+        <h2>Supporting Players</h2>
         <p>Other players in the log, shown here without standalone player pages.</p>
       </div>
       <div class="featured-entity-grid">

@@ -108,23 +108,24 @@ Lists are always public and have standalone pages:
 
 Lists can be standalone or attached to a player or trip. Rooms can belong to zero or more lists.
 
+## Search
+
+Pagefind provides site-wide text search, accessible from any page via the nav search button, `/`, or `⌘K`/`Ctrl+K`. It indexes only detail pages with `data-pagefind-body` (room detail, featured player/award/trip, list detail). All index/listing pages use `data-pagefind-ignore`. Player names in room detail pages are excluded from the Pagefind index via `data-pagefind-ignore` to avoid noisy results.
+
 ## Filtering
 
-Filtering is typed and URL-driven. The active dimensions are:
+Filtering is typed and URL-driven via dropdown controls. There is no free-text search on the list or map pages — Pagefind handles text search site-wide. The active filter dimensions on the list page are:
 
-- `q`
-- `company`
-- `location`
 - `player`
 - `award`
-- `trip`
-- `list`
 - `theme`
 - `country`
 - `year`
 - `status`
 
-The old tag model is gone and should not be reintroduced.
+The map page uses a reduced filter set: `country`, `trip`, `list`, `year`, `status`.
+
+The old tag model and the old `q` omnibox search are gone and should not be reintroduced.
 
 ## Key Files
 
@@ -137,10 +138,10 @@ The old tag model is gone and should not be reintroduced.
 - `src/_data/playerPages.js` — featured player page data
 - `src/_data/tripPages.js` — featured trip page data
 - `src/_includes/room-card.njk` — room card component
-- `src/_includes/filter-bar.njk` — shared typed filters
+- `src/_includes/filter-bar.njk` — shared typed filters (list page only; map has inline filters)
 - `src/_includes/entity-chips.njk` — shared entity chip rendering
 - `src/js/data.js` — shared client helpers and filter state
-- `src/js/list.js` — list filtering and sorting
+- `src/js/list.js` — list filtering (sorted by date, newest first)
 - `src/js/map.js` — map filtering and popup rendering
 - `src/js/trip.js` — featured trip route map
 
@@ -158,6 +159,17 @@ The old tag model is gone and should not be reintroduced.
 - `/featured/` and featured entity pages
 - `/feed.xml`
 - `/sitemap.xml`
+
+## Keyboard Shortcuts
+
+Global shortcuts are defined in `src/_includes/base.njk`. A `?` overlay lists all shortcuts for users.
+
+- `/` or `⌘K` / `Ctrl+K` — open Pagefind search
+- `?` — show keyboard shortcuts help
+- `Esc` — close overlay
+- `g h` — Home, `g r` — Rooms, `g m` — Map, `g l` — Lists, `g t` — Trips, `g s` — Stats, `g p` — Players
+
+All single-key and `g`-prefix shortcuts are suppressed when an input/textarea/select is focused.
 
 ## Notes
 

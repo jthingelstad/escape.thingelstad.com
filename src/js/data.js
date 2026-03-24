@@ -36,24 +36,6 @@ export function formatTimeLeft(value) {
   return `${mins}m ${secs}s ${suffix}`;
 }
 
-function normalizeSearchText(str) {
-  if (!str) return '';
-  return String(str)
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[:/]+/g, ' ')
-    .replace(/[^a-z0-9\s-]+/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function tokenizeSearchQuery(query) {
-  return normalizeSearchText(query)
-    .split(' ')
-    .filter(Boolean);
-}
-
 export function roomUrl(room) {
   if (room.slug) return `/room/${room.slug}/`;
   const slug = String(room.game || '')
@@ -106,12 +88,8 @@ export function statusBadgeHtml(status) {
 }
 
 export const FILTER_FIELDS = [
-  { key: 'company', elementId: 'filter-company', label: 'Company' },
-  { key: 'location', elementId: 'filter-location', label: 'Location' },
   { key: 'player', elementId: 'filter-player', label: 'Player' },
   { key: 'award', elementId: 'filter-award', label: 'Award' },
-  { key: 'trip', elementId: 'filter-trip', label: 'Trip' },
-  { key: 'list', elementId: 'filter-list', label: 'List' },
   { key: 'theme', elementId: 'filter-theme', label: 'Theme' },
   { key: 'country', elementId: 'filter-country', label: 'Country' },
   { key: 'year', elementId: 'filter-year', label: 'Year' },
@@ -120,16 +98,11 @@ export const FILTER_FIELDS = [
 
 function createDefaultFilters() {
   return {
-    q: '',
     year: '',
     status: 'all',
     country: '',
-    company: '',
-    location: '',
     player: '',
     award: '',
-    trip: '',
-    list: '',
     theme: ''
   };
 }
@@ -141,7 +114,6 @@ function getFilterControl(field) {
 export function getFilterParams() {
   const params = new URLSearchParams(window.location.search);
   const filters = createDefaultFilters();
-  filters.q = params.get('q') || '';
   FILTER_FIELDS.forEach((field) => {
     filters[field.key] = params.get(field.key) || field.emptyValue || '';
   });
@@ -150,26 +122,17 @@ export function getFilterParams() {
 
 export function setFilterParams(filters) {
   const params = new URLSearchParams();
-  if (filters.q) params.set('q', filters.q);
-  if (filters.year) params.set('year', filters.year);
-  if (filters.status && filters.status !== 'all') params.set('status', filters.status);
-  if (filters.country) params.set('country', filters.country);
-  if (filters.company) params.set('company', filters.company);
-  if (filters.player) params.set('player', filters.player);
-  if (filters.award) params.set('award', filters.award);
-  if (filters.trip) params.set('trip', filters.trip);
-  if (filters.list) params.set('list', filters.list);
-  if (filters.theme) params.set('theme', filters.theme);
-  if (filters.location) params.set('location', filters.location);
+  FILTER_FIELDS.forEach((field) => {
+    const emptyValue = field.emptyValue || '';
+    const value = filters[field.key];
+    if (value && value !== emptyValue) params.set(field.key, value);
+  });
   const search = params.toString();
   const url = window.location.pathname + (search ? `?${search}` : '');
   history.replaceState(null, '', url);
 }
 
 export function applyFiltersToControls(filters) {
-  const searchInput = document.getElementById('filter-search');
-  if (searchInput) searchInput.value = filters.q || '';
-
   FILTER_FIELDS.forEach((field) => {
     const control = getFilterControl(field);
     if (!control) return;
@@ -179,8 +142,6 @@ export function applyFiltersToControls(filters) {
 
 export function readFiltersFromControls() {
   const filters = createDefaultFilters();
-  const searchInput = document.getElementById('filter-search');
-  filters.q = searchInput ? searchInput.value.trim() : '';
 
   FILTER_FIELDS.forEach((field) => {
     const control = getFilterControl(field);
@@ -192,27 +153,13 @@ export function readFiltersFromControls() {
 }
 
 export function clearFilterControls() {
-  const searchInput = document.getElementById('filter-search');
-  if (searchInput) searchInput.value = '';
-
   FILTER_FIELDS.forEach((field) => {
     const control = getFilterControl(field);
     if (control) control.value = field.emptyValue || '';
   });
 }
 
-export function bindFilterControls(onChange, options = {}) {
-  const { searchDebounce = 200 } = options;
-  const searchInput = document.getElementById('filter-search');
-
-  if (searchInput) {
-    let searchTimeout;
-    searchInput.addEventListener('input', () => {
-      clearTimeout(searchTimeout);
-      searchTimeout = setTimeout(onChange, searchDebounce);
-    });
-  }
-
+export function bindFilterControls(onChange) {
   FILTER_FIELDS.forEach((field) => {
     const control = getFilterControl(field);
     if (control) control.addEventListener('change', onChange);
@@ -228,7 +175,6 @@ export function bindFilterControls(onChange, options = {}) {
 }
 
 export function hasActiveFilters(filters) {
-  if (filters.q) return true;
   return FILTER_FIELDS.some((field) => {
     const emptyValue = field.emptyValue || '';
     return filters[field.key] && filters[field.key] !== emptyValue;
@@ -244,17 +190,8 @@ export function getSelectedFilterLabel(key) {
 }
 
 export function roomMatchesFilters(room, filters) {
-  if (filters.q) {
-    const terms = tokenizeSearchQuery(filters.q);
-    const searchText = normalizeSearchText(room.searchIndex || room.searchText || '');
-    if (!terms.every((term) => searchText.includes(term))) return false;
-  }
-  if (filters.company && room.company?.slug !== filters.company) return false;
-  if (filters.location && room.location?.slug !== filters.location) return false;
   if (filters.player && !(room.players || []).some((player) => player.slug === filters.player)) return false;
   if (filters.award && !(room.awards || []).some((award) => award.slug === filters.award)) return false;
-  if (filters.trip && !(room.trips || []).some((trip) => trip.slug === filters.trip)) return false;
-  if (filters.list && !(room.lists || []).some((list) => list.slug === filters.list)) return false;
   if (filters.theme && !(room.themes || []).some((theme) => theme.slug === filters.theme)) return false;
   if (filters.country && room.location?.country !== filters.country) return false;
   if (filters.year && (!room.date || room.date.substring(0, 4) !== filters.year)) return false;

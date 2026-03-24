@@ -36,15 +36,6 @@ async function withBrowserGlobals(dom, run) {
 test('browser filter helpers keep DOM controls, URL state, and typed matching in sync', async () => {
   const data = await loadBrowserDataModule();
   const dom = new JSDOM(`
-    <input id="filter-search" value="">
-    <select id="filter-company">
-      <option value="">All Companies</option>
-      <option value="puzzleworks">Puzzleworks</option>
-    </select>
-    <select id="filter-location">
-      <option value="">All Locations</option>
-      <option value="minneapolis-minnesota-united-states">Minneapolis, Minnesota, United States</option>
-    </select>
     <select id="filter-player">
       <option value="">All Players</option>
       <option value="jamie">Jamie</option>
@@ -52,14 +43,6 @@ test('browser filter helpers keep DOM controls, URL state, and typed matching in
     <select id="filter-award">
       <option value="">All Awards</option>
       <option value="terpeca">TERPECA</option>
-    </select>
-    <select id="filter-trip">
-      <option value="">All Trips</option>
-      <option value="escape-in-europe">Escape in Europe</option>
-    </select>
-    <select id="filter-list">
-      <option value="">All Lists</option>
-      <option value="1-jamies-favorites">Jamie's Favorites</option>
     </select>
     <select id="filter-theme">
       <option value="">All Themes</option>
@@ -79,23 +62,14 @@ test('browser filter helpers keep DOM controls, URL state, and typed matching in
     </select>
     <button id="clear-filters">Clear</button>
   `, {
-    url: 'https://escape.thingelstad.com/list/?q=yeti&company=puzzleworks&location=minneapolis-minnesota-united-states&trip=escape-in-europe&list=1-jamies-favorites&status=Escaped'
+    url: 'https://escape.thingelstad.com/list/?status=Escaped'
   });
 
   await withBrowserGlobals(dom, async () => {
     const filters = data.getFilterParams();
-    assert.equal(filters.q, 'yeti');
-    assert.equal(filters.company, 'puzzleworks');
-    assert.equal(filters.location, 'minneapolis-minnesota-united-states');
-    assert.equal(filters.trip, 'escape-in-europe');
-    assert.equal(filters.list, '1-jamies-favorites');
     assert.equal(filters.status, 'Escaped');
 
     data.applyFiltersToControls(filters);
-    assert.equal(document.getElementById('filter-search').value, 'yeti');
-    assert.equal(document.getElementById('filter-company').value, 'puzzleworks');
-    assert.equal(document.getElementById('filter-location').value, 'minneapolis-minnesota-united-states');
-    assert.equal(document.getElementById('filter-list').value, '1-jamies-favorites');
 
     document.getElementById('filter-player').value = 'jamie';
     document.getElementById('filter-year').value = '2025';
@@ -112,11 +86,10 @@ test('browser filter helpers keep DOM controls, URL state, and typed matching in
     data.setFilterParams(currentFilters);
     assert.equal(
       window.location.search,
-      '?q=yeti&year=2025&status=Escaped&country=United+States&company=puzzleworks&player=jamie&trip=escape-in-europe&list=1-jamies-favorites&theme=snow&location=minneapolis-minnesota-united-states'
+      '?player=jamie&theme=snow&country=United+States&year=2025&status=Escaped'
     );
 
     const matchingRoom = {
-      searchText: 'Legend of the Yeti Puzzleworks Minneapolis Jamie Escape in Europe Snow',
       company: { slug: 'puzzleworks' },
       location: { slug: 'minneapolis-minnesota-united-states', country: 'United States' },
       players: [{ slug: 'jamie' }],
@@ -130,7 +103,7 @@ test('browser filter helpers keep DOM controls, URL state, and typed matching in
 
     const nonMatchingRoom = {
       ...matchingRoom,
-      trips: [{ slug: 'qmsb' }]
+      themes: [{ slug: 'horror' }]
     };
 
     assert.equal(data.roomMatchesFilters(matchingRoom, currentFilters), true);
@@ -139,15 +112,13 @@ test('browser filter helpers keep DOM controls, URL state, and typed matching in
     let callbackCount = 0;
     data.bindFilterControls(() => {
       callbackCount += 1;
-    }, { searchDebounce: 0 });
+    });
 
-    document.getElementById('filter-search').value = 'reset';
-    document.getElementById('filter-search').dispatchEvent(new window.Event('input', { bubbles: true }));
-    await new Promise((resolve) => window.setTimeout(resolve, 0));
+    document.getElementById('filter-player').value = 'jamie';
+    document.getElementById('filter-player').dispatchEvent(new window.Event('change', { bubbles: true }));
 
     document.getElementById('clear-filters').click();
-    assert.equal(document.getElementById('filter-search').value, '');
-    assert.equal(document.getElementById('filter-company').value, '');
+    assert.equal(document.getElementById('filter-player').value, '');
     assert.equal(document.getElementById('filter-status').value, 'all');
     assert.ok(callbackCount >= 2);
   });

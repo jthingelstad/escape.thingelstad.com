@@ -20,7 +20,59 @@ showFooter: false
 
     <div class="map-filter-panel" id="filter-panel">
       <div class="filter-row">
-        {% include "filter-bar.njk" %}
+        <div class="filter-cluster">
+          <div class="filter-cluster-grid">
+            <div class="filter-group">
+              <label for="filter-country">Country</label>
+              <select id="filter-country">
+                <option value="">All Countries</option>
+                {% for country in filters.countries %}
+                  <option value="{{ country }}">{{ country }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-trip">Trip</label>
+              <select id="filter-trip">
+                <option value="">All Trips</option>
+                {% for trip in filters.trips %}
+                  <option value="{{ trip.slug }}">{{ trip.label }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-list">List</label>
+              <select id="filter-list">
+                <option value="">All Lists</option>
+                {% for list in filters.lists %}
+                  <option value="{{ list.slug }}">{{ list.label }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-year">Year</label>
+              <select id="filter-year">
+                <option value="">All Years</option>
+                {% for year in filters.years %}
+                  <option value="{{ year }}">{{ year }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-status">Status</label>
+              <select id="filter-status">
+                <option value="all">All</option>
+                <option value="Escaped">Escaped</option>
+                <option value="Try again">Try Again</option>
+                <option value="Completed">Completed</option>
+                <option value="Scheduled">Scheduled</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-actions">
+            <button class="btn btn-clear" id="clear-filters" hidden data-tinylytics-event="filter.clear-all">Clear All</button>
+          </div>
+        </div>
       </div>
     </div>
 

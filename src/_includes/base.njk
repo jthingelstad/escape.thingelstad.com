@@ -33,7 +33,12 @@
       const overlay = document.getElementById('search-overlay');
       const backdrop = document.getElementById('search-overlay-backdrop');
       const closeBtn = document.getElementById('search-close');
+      const shortcutsOverlay = document.getElementById('shortcuts-overlay');
+      const shortcutsBackdrop = document.getElementById('shortcuts-overlay-backdrop');
+      const shortcutsClose = document.getElementById('shortcuts-close');
       let initialized = false;
+      let gPending = false;
+      let gTimer = null;
 
       function loadPagefind() {
         return new Promise((resolve) => {
@@ -70,12 +75,53 @@
         document.body.style.overflow = '';
       }
 
+      function openShortcuts() {
+        shortcutsOverlay.hidden = false;
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeShortcuts() {
+        shortcutsOverlay.hidden = true;
+        document.body.style.overflow = '';
+      }
+
+      function isInputFocused() {
+        const el = document.activeElement;
+        return el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT' || el.isContentEditable);
+      }
+
       if (searchBtn) searchBtn.addEventListener('click', openSearch);
       if (backdrop) backdrop.addEventListener('click', closeSearch);
       if (closeBtn) closeBtn.addEventListener('click', closeSearch);
+      if (shortcutsBackdrop) shortcutsBackdrop.addEventListener('click', closeShortcuts);
+      if (shortcutsClose) shortcutsClose.addEventListener('click', closeShortcuts);
+
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !overlay.hidden) closeSearch();
-        if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+        if (e.key === 'Escape') {
+          if (!shortcutsOverlay.hidden) { closeShortcuts(); return; }
+          if (!overlay.hidden) { closeSearch(); return; }
+          return;
+        }
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openSearch(); return; }
+
+        if (isInputFocused()) return;
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+        if (gPending) {
+          gPending = false;
+          clearTimeout(gTimer);
+          const routes = { h: '/', r: '/list/', m: '/map/', l: '/lists/', t: '/trips/', s: '/stats/', p: '/players/' };
+          if (routes[e.key]) { e.preventDefault(); window.location.href = routes[e.key]; }
+          return;
+        }
+
+        if (e.key === '/') { e.preventDefault(); openSearch(); return; }
+        if (e.key === '?') { e.preventDefault(); openShortcuts(); return; }
+        if (e.key === 'g') {
+          gPending = true;
+          gTimer = setTimeout(() => { gPending = false; }, 800);
+          return;
+        }
       });
     });
   </script>

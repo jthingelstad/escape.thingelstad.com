@@ -24,14 +24,6 @@
   justify-content: flex-end;
 }
 
-.catalog-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
-}
-
 .room-detail-page {
   max-width: 1220px;
   display: grid;
@@ -286,7 +278,7 @@
 .map-filter-toggle {
   position: absolute;
   top: var(--space-4);
-  left: var(--space-4);
+  right: var(--space-4);
   z-index: 20;
   background: rgba(251, 248, 242, 0.95);
 }
@@ -306,7 +298,7 @@
 .map-filter-panel {
   position: absolute;
   top: calc(var(--space-4) + 3.1rem);
-  left: var(--space-4);
+  right: var(--space-4);
   width: min(430px, calc(100% - 2rem));
   z-index: 19;
   transition: transform var(--transition), opacity var(--transition);
@@ -439,7 +431,7 @@
 
   .map-filter-toggle,
   .map-filter-panel {
-    left: 0.8rem;
+    right: 0.8rem;
   }
 
   .map-filter-panel {

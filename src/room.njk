@@ -69,7 +69,7 @@ permalink: /room/{{ room.slug }}/
         </div>
 
         {% if room.players and room.players.length > 0 %}
-        <div class="room-hero-players">
+        <div class="room-hero-players" data-pagefind-ignore>
           <span class="meta-icon">👥</span>
           {% for player in room.players %}
             <a href="{{ player | entityUrl('player') }}" data-tinylytics-event="room.player" data-tinylytics-event-value="{{ player.name }}">{{ player.name }}</a>{% if not loop.last %}, {% endif %}
@@ -177,7 +177,7 @@ permalink: /room/{{ room.slug }}/
             {% endif %}
 
             {% if room.players and room.players.length > 0 %}
-            <div class="room-stat-card">
+            <div class="room-stat-card" data-pagefind-ignore>
               <div class="room-stat-value">{{ room.players.length }}</div>
               <div class="room-stat-label">Players</div>
               <div class="room-stat-compare">
@@ -218,7 +218,7 @@ permalink: /room/{{ room.slug }}/
         <article class="room-rating-card">
           <div class="room-rating-card-header">
             <div>
-              <h3>{{ experience.player.name }}</h3>
+              <h3 data-pagefind-ignore>{{ experience.player.name }}</h3>
             </div>
             {% if experience.rating != null %}
             <div class="room-rating-card-score">{{ experience.rating | formatRating }}/5</div>

@@ -1,7 +1,7 @@
 <nav class="main-nav">
   <div class="nav-container">
     <a href="/" class="nav-logo">Escaping Things</a>
-    <button class="nav-search-btn" id="search-btn" aria-label="Search site">
+    <button class="nav-search-btn" id="search-btn" aria-label="Search site" title="Search (/ or ⌘K)">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
     </button>
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">&#9776;</button>
@@ -22,5 +22,34 @@
   <div class="search-overlay-panel">
     <button class="search-overlay-close" id="search-close" aria-label="Close search">&times;</button>
     <div id="pagefind-search"></div>
+    <p class="search-hint">Press <kbd>?</kbd> for all keyboard shortcuts</p>
+  </div>
+</div>
+
+<div class="shortcuts-overlay" id="shortcuts-overlay" hidden>
+  <div class="shortcuts-overlay-backdrop" id="shortcuts-overlay-backdrop"></div>
+  <div class="shortcuts-overlay-panel">
+    <button class="shortcuts-overlay-close" id="shortcuts-close" aria-label="Close shortcuts">&times;</button>
+    <h2>Keyboard Shortcuts</h2>
+    <div class="shortcuts-group">
+      <h3>Global</h3>
+      <dl class="shortcuts-list">
+        <div class="shortcut-row"><dt><kbd>/</kbd> or <kbd>⌘K</kbd></dt><dd>Open search</dd></div>
+        <div class="shortcut-row"><dt><kbd>?</kbd></dt><dd>Show this help</dd></div>
+        <div class="shortcut-row"><dt><kbd>Esc</kbd></dt><dd>Close overlay</dd></div>
+      </dl>
+    </div>
+    <div class="shortcuts-group">
+      <h3>Navigation</h3>
+      <dl class="shortcuts-list">
+        <div class="shortcut-row"><dt><kbd>g</kbd> <kbd>h</kbd></dt><dd>Home</dd></div>
+        <div class="shortcut-row"><dt><kbd>g</kbd> <kbd>r</kbd></dt><dd>Rooms</dd></div>
+        <div class="shortcut-row"><dt><kbd>g</kbd> <kbd>m</kbd></dt><dd>Map</dd></div>
+        <div class="shortcut-row"><dt><kbd>g</kbd> <kbd>l</kbd></dt><dd>Lists</dd></div>
+        <div class="shortcut-row"><dt><kbd>g</kbd> <kbd>t</kbd></dt><dd>Trips</dd></div>
+        <div class="shortcut-row"><dt><kbd>g</kbd> <kbd>s</kbd></dt><dd>Stats</dd></div>
+        <div class="shortcut-row"><dt><kbd>g</kbd> <kbd>p</kbd></dt><dd>Players</dd></div>
+      </dl>
+    </div>
   </div>
 </div>

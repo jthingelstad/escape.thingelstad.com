@@ -7,7 +7,7 @@ bodyClass: page-home
 {% extends "base.njk" %}
 
 {% block content %}
-  <main class="container page-content">
+  <main class="container page-content" data-pagefind-ignore>
     <section class="page-intro">
       <div class="eyebrow">Escape Room Team</div>
       <div class="page-intro-copy">
@@ -28,7 +28,7 @@ bodyClass: page-home
     <section id="recent-rooms">
       <div class="section-header">
         <h2>Recent Rooms</h2>
-        <p>The latest dozen rooms from the team log.</p>
+        <p>The latest rooms from the team log.</p>
       </div>
       <div class="room-grid">
         {% from "room-card.njk" import roomCard %}
@@ -75,5 +75,15 @@ bodyClass: page-home
   <script type="module">
     import { initNav } from '{{ '/js/data.js' | cacheBust }}';
     initNav();
+
+    const grid = document.querySelector('.featured-entity-grid');
+    if (grid) {
+      const tiles = [...grid.children];
+      for (let i = tiles.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        grid.appendChild(tiles[j]);
+        tiles[j] = tiles[i];
+      }
+    }
   </script>
 {% endblock %}
