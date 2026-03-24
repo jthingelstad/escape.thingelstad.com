@@ -27,6 +27,58 @@
   {% endif %}
 
   <script src="https://tinylytics.app/embed/jDupbLUKfFyNMs5d5WjD.js?kudos=👍&hits&countries&events" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchBtn = document.getElementById('search-btn');
+      const overlay = document.getElementById('search-overlay');
+      const backdrop = document.getElementById('search-overlay-backdrop');
+      const closeBtn = document.getElementById('search-close');
+      let initialized = false;
+
+      function loadPagefind() {
+        return new Promise((resolve) => {
+          if (typeof PagefindUI !== 'undefined') { resolve(true); return; }
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = '/pagefind/pagefind-ui.css';
+          document.head.appendChild(link);
+          const script = document.createElement('script');
+          script.src = '/pagefind/pagefind-ui.js';
+          script.onload = () => resolve(true);
+          script.onerror = () => resolve(false);
+          document.head.appendChild(script);
+        });
+      }
+
+      async function openSearch() {
+        const loaded = await loadPagefind();
+        if (!loaded) return;
+        overlay.hidden = false;
+        document.body.style.overflow = 'hidden';
+        if (!initialized) {
+          new PagefindUI({ element: '#pagefind-search', showSubResults: true, showImages: false });
+          initialized = true;
+        }
+        setTimeout(() => {
+          const input = overlay.querySelector('.pagefind-ui__search-input');
+          if (input) input.focus();
+        }, 50);
+      }
+
+      function closeSearch() {
+        overlay.hidden = true;
+        document.body.style.overflow = '';
+      }
+
+      if (searchBtn) searchBtn.addEventListener('click', openSearch);
+      if (backdrop) backdrop.addEventListener('click', closeSearch);
+      if (closeBtn) closeBtn.addEventListener('click', closeSearch);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !overlay.hidden) closeSearch();
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+      });
+    });
+  </script>
   {% block scripts %}{% endblock %}
 </body>
 </html>

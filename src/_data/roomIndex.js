@@ -1,14 +1,39 @@
 const catalog = require('./catalog');
-const ai = require('./ai');
-const { buildRoomSearchIndex, getRoomAiSearchHints } = require('../../lib/aiArtifacts');
+
+function dedupeStrings(values) {
+  return [...new Set(values.filter(Boolean))];
+}
+
+function buildRoomSearchIndex(room) {
+  const values = [
+    room.searchText,
+    room.game,
+    room.status,
+    room.status ? `status ${room.status}` : '',
+    room.date,
+    room.date ? `year ${room.date.slice(0, 4)}` : '',
+    room.company?.name,
+    room.company?.name ? `company ${room.company.name}` : '',
+    room.location?.label,
+    room.location?.label ? `location ${room.location.label}` : '',
+    room.location?.city,
+    room.location?.city ? `city ${room.location.city}` : '',
+    room.location?.region,
+    room.location?.region ? `region ${room.location.region}` : '',
+    room.location?.country,
+    room.location?.country ? `country ${room.location.country}` : '',
+    ...room.players.flatMap((player) => [player.name, `player ${player.name}`]),
+    ...room.awards.flatMap((award) => [award.name, `award ${award.name}`]),
+    ...room.trips.flatMap((trip) => [trip.name, `trip ${trip.name}`]),
+    ...room.lists.flatMap((list) => [list.name, `list ${list.name}`]),
+    ...room.themes.flatMap((theme) => [theme.name, `theme ${theme.name}`])
+  ];
+
+  return dedupeStrings(values.map((item) => (typeof item === 'string' ? item.trim() : ''))).join(' ');
+}
 
 module.exports = function() {
-  const aiData = ai();
-
-  return catalog().rooms.map((room) => {
-    const aiSearchHints = getRoomAiSearchHints(aiData.search, room);
-
-    return {
+  return catalog().rooms.map((room) => ({
     id: room.id,
     airtableId: room.airtableId,
     slug: room.slug,
@@ -23,8 +48,7 @@ module.exports = function() {
     notes: room.notes,
     commentary: room.commentary,
     searchText: room.searchText,
-    aiSearchHints,
-    searchIndex: buildRoomSearchIndex(room, aiSearchHints),
+    searchIndex: buildRoomSearchIndex(room),
     ratingSummary: room.ratingSummary,
     company: room.company,
     location: room.location,
@@ -33,6 +57,5 @@ module.exports = function() {
     trips: room.trips,
     lists: room.lists,
     themes: room.themes
-    };
-  });
+  }));
 };

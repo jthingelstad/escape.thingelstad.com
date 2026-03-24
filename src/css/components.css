@@ -925,6 +925,95 @@
   background: rgba(255, 255, 255, 0.72);
 }
 
+/* Site-wide search (Pagefind) */
+
+.nav-search-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--color-text-soft);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.nav-search-btn:hover {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--color-text);
+}
+
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: min(12vh, 6rem);
+}
+
+.search-overlay:not([hidden]) {
+  display: flex;
+}
+
+.search-overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(32, 48, 59, 0.55);
+  backdrop-filter: blur(6px);
+}
+
+.search-overlay-panel {
+  position: relative;
+  width: min(640px, calc(100% - 2rem));
+  max-height: calc(100vh - 8rem);
+  overflow-y: auto;
+  border-radius: var(--radius-lg);
+  background: var(--color-panel);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-5);
+}
+
+.search-overlay-close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.search-overlay-close:hover {
+  background: var(--color-page-alt);
+  color: var(--color-text);
+}
+
+/* Pagefind UI theme overrides */
+:root {
+  --pagefind-ui-scale: 0.9;
+  --pagefind-ui-primary: var(--color-rust);
+  --pagefind-ui-text: var(--color-text);
+  --pagefind-ui-background: var(--color-panel);
+  --pagefind-ui-border: var(--color-line-strong);
+  --pagefind-ui-tag: var(--color-page-alt);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: var(--radius-sm);
+  --pagefind-ui-font: var(--font-body);
+}
+
 @media (max-width: 860px) {
   .filter-cluster-grid.filter-cluster-grid-search {
     grid-template-columns: 1fr;

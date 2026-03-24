@@ -18,6 +18,7 @@ This is an Eleventy-powered static site built from a normalized Airtable dataset
 - Plain CSS and vanilla JavaScript
 - Leaflet for maps
 - Chart.js for stats
+- Pagefind for site-wide search
 - Tinylytics for analytics
 - GitHub Pages via GitHub Actions
 
@@ -105,12 +106,6 @@ Build the site:
 npm run build
 ```
 
-Refresh tracked AI artifacts:
-
-```bash
-npm run ai:refresh
-```
-
 Refresh Airtable snapshots:
 
 ```bash
@@ -139,19 +134,14 @@ The sync script reads these environment variables:
 
 - `AIRTABLE_PAT`
 - `AIRTABLE_BASE_ID`
-- `OPENAI_API_KEY` for `npm run ai:refresh`
-- `OPENAI_MODEL` optional model override for `npm run ai:refresh`
-
 It also reads `.env` in the project root if present.
 
-## Build-Time AI
+## Search
 
-AI usage in this project is build-time only.
+The site has two search mechanisms:
 
-- `npm run ai:refresh` reads the normalized catalog and writes tracked JSON artifacts under `src/_generated/`
-- those artifacts are consumed during the normal Eleventy build
-- `npm run build` does not call OpenAI
-- manual copy overrides live in `src/_manual/ai-overrides.json`
+- **Catalog filter** on `/list/` and `/map/` — structured dropdowns and text search over an embedded JSON index for instant client-side filtering
+- **Site-wide search** via [Pagefind](https://pagefind.app) — full-text search across all rendered pages, accessible from the search icon in the nav bar. Pagefind indexes the built site as a post-build step and requires a full `npm run build` to generate the index.
 
 ## Deployment
 

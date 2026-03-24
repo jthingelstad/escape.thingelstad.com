@@ -1,9 +1,7 @@
 const catalog = require('./catalog');
-const ai = require('./ai');
 
 module.exports = function() {
   const data = catalog();
-  const aiData = ai();
   const roomLookup = data.lookups.rooms.byAirtableId;
   const listLookup = data.lookups.lists.byId;
 
@@ -28,7 +26,6 @@ module.exports = function() {
       wins,
       winRate: rooms.length ? Math.round((wins / rooms.length) * 100) : 0,
       bio: player.bio || null,
-      aiIntro: player.bio ? null : aiData.copy.players[player.slug]?.intro || null,
       firstDate: rooms[0]?.date || null,
       lastDate: rooms[rooms.length - 1]?.date || null
     };

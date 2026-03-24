@@ -28,7 +28,7 @@ permalink: /room/{{ room.slug }}/
 {% endblock %}
 
 {% block content %}
-  <main class="container page-content room-detail-page">
+  <main class="container page-content room-detail-page" data-pagefind-body data-pagefind-meta="title:{{ room.game | safe }}{% if room.company %}, company:{{ room.company.name }}{% endif %}">
     <section class="room-hero">
       {% if room.photo %}
       <div class="room-hero-photo">

@@ -1,64 +1,11 @@
 const catalog = require('./catalog');
-const ai = require('./ai');
-const { getRoomAiSearchHints } = require('../../lib/aiArtifacts');
-
-function normalizeToken(value) {
-  return String(value || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, ' ')
-    .trim();
-}
-
-function tokenizeHints(values) {
-  return [...new Set(
-    (Array.isArray(values) ? values : [])
-      .flatMap((value) => normalizeToken(value).split(/\s+/))
-      .filter((token) => token.length >= 3)
-  )];
-}
 
 function countSharedByAirtableId(left = [], right = []) {
   const rightIds = new Set((right || []).map((item) => item.airtableId).filter(Boolean));
   return (left || []).filter((item) => rightIds.has(item.airtableId)).length;
 }
 
-function buildRelatedRoomsIndex(rooms, aiSearch) {
-  const hintTokensBySlug = new Map();
-  const tokenFrequency = new Map();
-
-  rooms.forEach((room) => {
-    const tokens = tokenizeHints(getRoomAiSearchHints(aiSearch, room));
-    hintTokensBySlug.set(room.slug, new Set(tokens));
-    tokens.forEach((token) => {
-      tokenFrequency.set(token, (tokenFrequency.get(token) || 0) + 1);
-    });
-  });
-
-  return {
-    hintTokensBySlug,
-    tokenFrequency,
-    roomCount: rooms.length
-  };
-}
-
-function scoreSharedHintTokens(leftRoom, rightRoom, relatedIndex) {
-  const leftTokens = relatedIndex.hintTokensBySlug.get(leftRoom.slug) || new Set();
-  const rightTokens = relatedIndex.hintTokensBySlug.get(rightRoom.slug) || new Set();
-  if (leftTokens.size === 0 || rightTokens.size === 0) return 0;
-
-  let score = 0;
-  leftTokens.forEach((token) => {
-    if (!rightTokens.has(token)) return;
-    const frequency = relatedIndex.tokenFrequency.get(token) || relatedIndex.roomCount;
-    score += Math.max(0.45, Math.log((relatedIndex.roomCount + 1) / (frequency + 1)));
-  });
-
-  return Math.min(score, 4.5);
-}
-
-function scoreRelatedRoom(sourceRoom, candidateRoom, relatedIndex) {
+function scoreRelatedRoom(sourceRoom, candidateRoom) {
   let score = 0;
 
   score += countSharedByAirtableId(sourceRoom.themes, candidateRoom.themes) * 8;
@@ -72,11 +19,10 @@ function scoreRelatedRoom(sourceRoom, candidateRoom, relatedIndex) {
   if (sourceRoom.status && sourceRoom.status === candidateRoom.status) score += 0.5;
   if (sourceRoom.company?.airtableId && sourceRoom.company.airtableId === candidateRoom.company?.airtableId) score += 0.5;
 
-  score += scoreSharedHintTokens(sourceRoom, candidateRoom, relatedIndex);
   return score;
 }
 
-function findRelatedRooms(sourceRoom, allRooms, relatedIndex, options = {}) {
+function findRelatedRooms(sourceRoom, allRooms, options = {}) {
   const limit = options.limit || 4;
   const minimumScore = options.minimumScore || 3;
 
@@ -84,7 +30,7 @@ function findRelatedRooms(sourceRoom, allRooms, relatedIndex, options = {}) {
     .filter((candidate) => candidate.airtableId !== sourceRoom.airtableId)
     .map((candidate) => ({
       room: candidate,
-      score: scoreRelatedRoom(sourceRoom, candidate, relatedIndex)
+      score: scoreRelatedRoom(sourceRoom, candidate)
     }))
     .filter((entry) => entry.score >= minimumScore)
     .sort((left, right) => {
@@ -98,10 +44,7 @@ function findRelatedRooms(sourceRoom, allRooms, relatedIndex, options = {}) {
 
 function buildRoomDetail() {
   const data = catalog();
-  const aiData = ai();
   const allRooms = data.rooms;
-  const roomsById = Object.fromEntries(allRooms.map((room) => [room.id, room]));
-  const relatedIndex = buildRelatedRoomsIndex(allRooms, aiData.search);
   const played = allRooms.filter((room) => room.status !== 'Scheduled');
   const wins = played.filter((room) => room.status === 'Escaped' || room.status === 'Completed');
   const timesWithValues = played.filter((room) => room.timeLeft != null);
@@ -131,7 +74,7 @@ function buildRoomDetail() {
     const nextRoom = index < allRooms.length - 1
       ? { id: allRooms[index + 1].id, slug: allRooms[index + 1].slug, game: allRooms[index + 1].game }
       : null;
-    const relatedRooms = findRelatedRooms(room, allRooms, relatedIndex);
+    const relatedRooms = findRelatedRooms(room, allRooms);
 
     return {
       ...room,
@@ -151,5 +94,4 @@ function buildRoomDetail() {
 }
 
 module.exports = buildRoomDetail;
-module.exports.buildRelatedRoomsIndex = buildRelatedRoomsIndex;
 module.exports.findRelatedRooms = findRelatedRooms;

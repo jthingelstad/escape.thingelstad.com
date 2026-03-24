@@ -12,15 +12,12 @@ permalink: /player/{{ player.slug }}/
 {% block metaDescription %}Featured player page for {{ player.name }} with room history, recent plays, and notes.{% endblock %}
 
 {% block content %}
-  <main class="container page-content featured-detail-page">
+  <main class="container page-content featured-detail-page" data-pagefind-body>
     <section class="featured-detail-hero">
       <div class="feature-tile-kicker">Featured Player</div>
       <h1>{{ player.name }}</h1>
       {% if player.bio %}
       <div class="featured-detail-copy rich-text">{{ player.bio | richText | safe }}</div>
-      {% endif %}
-      {% if player.aiIntro %}
-      <div class="featured-detail-copy rich-text">{{ player.aiIntro | richText | safe }}</div>
       {% endif %}
       <div class="featured-detail-stats">
         <div class="stat-item"><span class="stat-number">{{ player.roomCount }}</span><div class="stat-label">Rooms</div></div>

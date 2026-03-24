@@ -12,12 +12,12 @@ permalink: /award/{{ award.slug }}/
 {% block metaDescription %}Featured award page for {{ award.name }} with the rooms attached to it.{% endblock %}
 
 {% block content %}
-  <main class="container page-content featured-detail-page">
+  <main class="container page-content featured-detail-page" data-pagefind-body>
     <section class="featured-detail-hero">
       <div class="feature-tile-kicker">Featured Award</div>
       <h1>{{ award.name }}</h1>
-      {% if award.aiIntro or award.notes %}
-      <div class="featured-detail-copy rich-text">{{ (award.aiIntro or award.notes) | richText | safe }}</div>
+      {% if award.notes %}
+      <div class="featured-detail-copy rich-text">{{ award.notes | richText | safe }}</div>
       {% endif %}
       <div class="featured-detail-stats">
         <div class="stat-item"><span class="stat-number">{{ award.roomCount }}</span><div class="stat-label">Rooms</div></div>

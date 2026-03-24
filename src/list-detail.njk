@@ -12,12 +12,12 @@ permalink: /list/{{ list.slug }}/
 {% block metaDescription %}{{ list.name }} list with curated escape room picks and notes.{% endblock %}
 
 {% block content %}
-  <main class="container page-content featured-detail-page">
+  <main class="container page-content featured-detail-page" data-pagefind-body>
     <section class="featured-detail-hero">
       <div class="feature-tile-kicker">List</div>
       <h1>{{ list.name }}</h1>
-      {% if list.aiIntro or list.notes %}
-      <div class="featured-detail-copy rich-text">{{ (list.aiIntro or list.notes) | richText | safe }}</div>
+      {% if list.notes %}
+      <div class="featured-detail-copy rich-text">{{ list.notes | richText | safe }}</div>
       {% endif %}
       <div class="featured-detail-stats">
         <div class="stat-item"><span class="stat-number">{{ list.roomCount }}</span><div class="stat-label">Rooms</div></div>

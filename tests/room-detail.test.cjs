@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { buildRelatedRoomsIndex, findRelatedRooms } = require('../src/_data/roomDetail');
+const { findRelatedRooms } = require('../src/_data/roomDetail');
 
 function makeRoom({
   id,
@@ -33,7 +33,7 @@ function makeRoom({
   };
 }
 
-test('related rooms favor shared themes and AI hint overlap over weaker matches', () => {
+test('related rooms favor shared themes and structured metadata over weaker matches', () => {
   const themeMystery = { airtableId: 'theme1', name: 'Mystery' };
   const themeHeist = { airtableId: 'theme2', name: 'Heist' };
   const playerJamie = { airtableId: 'player1', name: 'Jamie' };
@@ -69,17 +69,7 @@ test('related rooms favor shared themes and AI hint overlap over weaker matches'
   });
 
   const rooms = [source, strongest, medium, weak];
-  const aiSearch = {
-    rooms: {
-      '1-source-room': { hints: ['paris mystery detective room', 'story rich heist puzzles'] },
-      '2-strongest-match': { hints: ['paris mystery detective experience', 'immersive heist puzzle room'] },
-      '3-medium-match': { hints: ['mystery detective puzzles in france'] },
-      '4-weak-match': { hints: ['paris travel escape room'] }
-    }
-  };
-
-  const relatedIndex = buildRelatedRoomsIndex(rooms, aiSearch);
-  const related = findRelatedRooms(source, rooms, relatedIndex, { limit: 4, minimumScore: 2 });
+  const related = findRelatedRooms(source, rooms, { limit: 4, minimumScore: 2 });
 
   assert.deepEqual(related.map((room) => room.slug), [
     '2-strongest-match',

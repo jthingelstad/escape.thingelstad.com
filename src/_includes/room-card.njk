@@ -19,7 +19,7 @@
     {% endif %}
   {% endif %}
 {% endif %}
-<div class="room-card{{ ' room-card-has-photo' if room.photo else ' room-card-no-photo' }}" id="{{ room.airtableId }}" data-room-id="{{ room.id }}">
+<div class="room-card{{ ' room-card-has-photo' if room.photo else ' room-card-no-photo' }}" id="{{ room.airtableId }}" data-room-id="{{ room.id }}" data-pagefind-ignore>
   <a href="{{ room | roomPath }}" class="room-card-link" data-tinylytics-event="card.view-room" data-tinylytics-event-value="{{ room.game }}">
     {% if room.photo %}
       <div class="room-card-thumb">
