@@ -1,6 +1,6 @@
 {
   "table": "Players",
-  "syncedAt": "2026-03-25T09:17:59.540144+00:00",
+  "syncedAt": "2026-03-25T22:19:57.885572+00:00",
   "count": 39,
   "records": [
     {
@@ -266,7 +266,8 @@
           "rec4zecfSJ1FznQMB",
           "rec0tsuiSuEyxaXMX",
           "recrCIDLym8KGALiH",
-          "recjFTVzz57eYe9IE"
+          "recjFTVzz57eYe9IE",
+          "recWpSyu5BjABRk9T"
         ],
         "Game (from Rooms)": [
           "Magnifico",
@@ -352,9 +353,10 @@
           "The Alchemist",
           "Revolt At The Lock",
           "Galactic Mission",
-          "The Taxidermist"
+          "The Taxidermist",
+          "The Brewery"
         ],
-        "Room Count": 84,
+        "Room Count": 85,
         "Featured": true,
         "Experiences": [
           "recJcztWTdgd7BzmS",
@@ -519,7 +521,8 @@
           "rec4zecfSJ1FznQMB",
           "rec0tsuiSuEyxaXMX",
           "recrCIDLym8KGALiH",
-          "recjFTVzz57eYe9IE"
+          "recjFTVzz57eYe9IE",
+          "recWpSyu5BjABRk9T"
         ],
         "Game (from Rooms)": [
           "Lost Island of the Voodoo Queen",
@@ -614,9 +617,10 @@
           "The Alchemist",
           "Revolt At The Lock",
           "Galactic Mission",
-          "The Taxidermist"
+          "The Taxidermist",
+          "The Brewery"
         ],
-        "Room Count": 93,
+        "Room Count": 94,
         "Featured": true,
         "Experiences": [
           "recQxjgHECuJ2zhHL",
@@ -849,7 +853,8 @@
           "rec4zecfSJ1FznQMB",
           "rec0tsuiSuEyxaXMX",
           "recrCIDLym8KGALiH",
-          "recjFTVzz57eYe9IE"
+          "recjFTVzz57eYe9IE",
+          "recWpSyu5BjABRk9T"
         ],
         "Game (from Rooms)": [
           "Screaming Metal",
@@ -942,9 +947,10 @@
           "The Alchemist",
           "Revolt At The Lock",
           "Galactic Mission",
-          "The Taxidermist"
+          "The Taxidermist",
+          "The Brewery"
         ],
-        "Room Count": 91,
+        "Room Count": 92,
         "Featured": true,
         "Experiences": [
           "recJaH5HGmhCaXSbz",
@@ -956,9 +962,10 @@
           "recZ12m1RIpvnsfhY",
           "rec8VClQ6EhmfTHIR",
           "reccoPW716fcq08FE",
-          "rec1lmjsx1Ly9JUO7"
+          "rec1lmjsx1Ly9JUO7",
+          "recc5bjR1T6XSBiw3"
         ],
-        "Experience Count": 10,
+        "Experience Count": 11,
         "Lists": [
           "recfSbUCFg9HAUgV3",
           "reckIazUkZ38buhZa"
@@ -1077,7 +1084,8 @@
           "recCNb95D8eKwn8rg",
           "recM2tOvoeH29vOJD",
           "recBHwx3kobncX31m",
-          "rec0tsuiSuEyxaXMX"
+          "rec0tsuiSuEyxaXMX",
+          "recWpSyu5BjABRk9T"
         ],
         "Game (from Rooms)": [
           "Wardrobe for sale",
@@ -1144,9 +1152,10 @@
           "Gold Rush",
           "Beasley’s Billions",
           "Escape At Home",
-          "Revolt At The Lock"
+          "Revolt At The Lock",
+          "The Brewery"
         ],
-        "Room Count": 65,
+        "Room Count": 66,
         "Featured": true,
         "Experiences": [
           "recQvXqN7EAfXELbf"
