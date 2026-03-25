@@ -70,10 +70,7 @@
               termFrequency: 0.0
             },
             processResult: function(result) {
-              var type = result.meta.type || '';
-              if (type) {
-                result.meta.title = '<span class="pagefind-type-badge pagefind-type-badge--' + type + '">' + type + '</span> ' + result.meta.title;
-              }
+              if (result.meta.type) delete result.meta.type;
               return result;
             }
           });

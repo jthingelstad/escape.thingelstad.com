@@ -1124,7 +1124,7 @@ kbd {
   color: var(--color-text-soft) !important;
 }
 
-.pagefind-type-badge {
+.pagefind-ui__result-link::before {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 10px;
@@ -1137,22 +1137,26 @@ kbd {
   margin-right: 6px;
 }
 
-.pagefind-type-badge--room {
+.pagefind-ui__result-link[href^="/room/"]::before {
+  content: "Room";
   background: var(--color-success-soft);
   color: var(--color-success);
 }
 
-.pagefind-type-badge--list {
+.pagefind-ui__result-link[href^="/list/"]::before {
+  content: "List";
   background: var(--color-gold-soft);
   color: var(--color-gold);
 }
 
-.pagefind-type-badge--player {
+.pagefind-ui__result-link[href^="/player/"]::before {
+  content: "Player";
   background: var(--color-purple-soft);
   color: var(--color-purple);
 }
 
-.pagefind-type-badge--trip {
+.pagefind-ui__result-link[href^="/trip/"]::before {
+  content: "Trip";
   background: var(--color-scheduled-soft);
   color: var(--color-scheduled);
 }
