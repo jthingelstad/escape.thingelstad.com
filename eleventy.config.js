@@ -105,7 +105,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter("entityUrl", (entity, type) => {
     if (!entity || !type) return "/rooms/";
-    if (type === "theme") return roomsFilterUrl(type, entity);
+    if (type === "theme" || type === "award") return roomsFilterUrl(type, entity);
     if (type === "list") return featuredEntityUrl(type, entity);
     return entity.featured ? featuredEntityUrl(type, entity) : roomsFilterUrl(type, entity);
   });

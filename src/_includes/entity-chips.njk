@@ -7,7 +7,7 @@
       data-tinylytics-event-value="{{ item.name }}"
     >
       {{ item.name }}
-    </a>
+    </a>{% if type == 'award' and item.awardLink %}<a href="{{ item.awardLink }}" class="entity-chip-external" target="_blank" rel="noopener" title="View award page">&#x2197;</a>{% endif %}
   {% endfor %}
 {% endmacro %}
 

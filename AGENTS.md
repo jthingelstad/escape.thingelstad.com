@@ -56,7 +56,6 @@ The normalized catalog exposes:
 - `listItems`
 - `experiences`
 - `featured.players`
-- `featured.awards`
 - `featured.trips`
 - lookup maps by Airtable ID, slug, and room ID
 
@@ -94,12 +93,12 @@ Hidden rooms are excluded from all public collections and counts.
 Featured pages exist only for records with Airtable `Featured = true`:
 
 - `/player/{slug}/`
-- `/award/{slug}/`
 - `/trip/{slug}/`
 - `/featured/`
 
-Non-featured players, awards, and trips remain metadata and should link to filtered list views.
-Themes do not get standalone pages.
+Non-featured players and trips remain metadata and should link to filtered list views.
+Awards and themes are always metadata (no standalone pages) and link to filtered list views.
+Awards carry `organization`, `year`, `awardName`, and `awardLink` fields reflecting external recognition programs.
 
 Lists are always public and have standalone pages:
 

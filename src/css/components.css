@@ -1,4 +1,3 @@
-.eyebrow,
 .feature-tile-kicker {
   display: inline-flex;
   align-items: center;
@@ -84,7 +83,6 @@
 .feature-tile,
 .trail-card,
 .list-summary-card,
-.stats-insight-card,
 .chart-card,
 .room-stat-card,
 .room-rating-summary-card,
@@ -102,7 +100,6 @@
 
 .featured-entity-grid,
 .list-summary-grid,
-.stats-insight-grid,
 .charts-grid,
 .featured-quote-grid {
   display: grid;
@@ -111,7 +108,6 @@
 
 .featured-entity-grid,
 .list-summary-grid,
-.stats-insight-grid,
 .featured-quote-grid {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
@@ -127,7 +123,6 @@
 .feature-tile,
 .trail-card,
 .list-summary-card,
-.stats-insight-card,
 .chart-card,
 .empty-state-card,
 .room-stat-card,
@@ -148,7 +143,6 @@
 .feature-tile h3,
 .trail-card h3,
 .list-summary-card h3,
-.stats-insight-card h3,
 .chart-card h3,
 .room-rating-card h3,
 .trip-route-stop-body h3 {
@@ -158,7 +152,6 @@
 .feature-tile p,
 .trail-card p,
 .list-summary-card p,
-.stats-insight-card p,
 .chart-card p,
 .trip-route-stop-body p {
   color: var(--color-text-soft);
@@ -173,7 +166,6 @@
   border-color: var(--color-accent);
 }
 
-.stat-strip,
 .stats-row,
 .featured-detail-stats,
 .room-ratings-summary {
@@ -738,6 +730,17 @@
   border-color: rgba(255, 183, 3, 0.2);
 }
 
+.entity-chip-external {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  text-decoration: none;
+  margin-left: -0.25rem;
+}
+
+.entity-chip-external:hover {
+  color: var(--color-accent);
+}
+
 .entity-chip-trip {
   background: rgba(90, 169, 255, 0.12);
   color: var(--color-accent-secondary);
@@ -810,7 +813,6 @@
 .empty-state,
 .empty-state-card p,
 .trip-route-stop-body p,
-.stats-insight-card p,
 .list-entry-note,
 .room-rating-comments {
   color: var(--color-text-soft);
@@ -1101,11 +1103,18 @@ kbd {
   --pagefind-ui-font: var(--font-body);
 }
 
+.pagefind-ui__result-link {
+  color: var(--color-accent);
+}
+
+.pagefind-ui__result-excerpt {
+  color: var(--color-text-soft);
+}
+
 @media (max-width: 720px) {
   .room-grid,
   .featured-entity-grid,
   .list-summary-grid,
-  .stats-insight-grid,
   .charts-grid,
   .featured-quote-grid {
     grid-template-columns: 1fr;

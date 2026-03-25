@@ -33,7 +33,7 @@ module.exports = function() {
       .map((player) => ({ slug: player.slug, label: player.name, featured: player.featured })),
     awards: data.awards
       .filter((award) => usedAwardIds.has(award.airtableId))
-      .map((award) => ({ slug: award.slug, label: award.name, featured: award.featured })),
+      .map((award) => ({ slug: award.slug, label: award.name })),
     trips: data.trips
       .filter((trip) => usedTripIds.has(trip.airtableId))
       .map((trip) => ({ slug: trip.slug, label: trip.name, featured: trip.featured })),

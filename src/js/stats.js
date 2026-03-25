@@ -67,12 +67,71 @@ function horizontalBarOptions() {
 function init() {
   initNav();
   const data = JSON.parse(document.getElementById('chart-data').textContent);
+  renderCumulativeStreak(data.cumulativeStreak);
   renderRoomsPerYear(data.roomsPerYear);
   renderMonthlyDistribution(data.monthly);
   renderStateChart(data.states);
   renderCountryChart(data.countries);
   renderPlayerChart(data.players);
+  renderThemeChart(data.themes);
+  renderAwardChart(data.awards);
+  renderRatingDistribution(data.ratingDistribution);
   renderTimeLeftChart(data.timeLeft);
+  renderStateChoropleth(data.states);
+  renderChoropleth(data.countries);
+}
+
+function renderCumulativeStreak(data) {
+  new Chart(document.getElementById('chart-cumulative'), {
+    type: 'line',
+    data: {
+      datasets: [{
+        label: 'Cumulative Rooms',
+        data: data.map((entry) => ({ x: entry.x, y: entry.y })),
+        pointRadius: data.map((entry) => entry.y % 25 === 0 ? 5 : 0),
+        pointBackgroundColor: chartColors.gold,
+        pointBorderColor: chartColors.gold,
+        pointHitRadius: 6,
+        borderWidth: 6,
+        fill: false,
+        segment: {
+          borderColor: (ctx) => {
+            const point = data[ctx.p1DataIndex];
+            return point && point.win ? chartColors.green : chartColors.red;
+          }
+        }
+      }]
+    },
+    options: {
+      ...defaultChartOptions,
+      plugins: {
+        ...defaultChartOptions.plugins,
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const point = data[ctx.dataIndex];
+              const status = point.win ? 'Win' : 'Loss';
+              const streak = point.streak > 0 ? ` (streak: ${point.streak})` : '';
+              return `Room ${point.y} — ${status}${streak}`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          type: 'time',
+          time: { unit: 'year' },
+          ticks: { color: chartColors.text, font: { family: 'Inter, system-ui, sans-serif' } },
+          grid: { color: chartColors.grid }
+        },
+        y: {
+          ...defaultChartOptions.scales.y,
+          beginAtZero: true
+        }
+      }
+    }
+  });
 }
 
 function renderRoomsPerYear(data) {
@@ -109,6 +168,10 @@ function renderRoomsPerYear(data) {
     },
     options: {
       ...defaultChartOptions,
+      plugins: {
+        ...defaultChartOptions.plugins,
+        legend: { display: false }
+      },
       scales: {
         ...defaultChartOptions.scales,
         x: { ...defaultChartOptions.scales.x, stacked: true },
@@ -210,6 +273,202 @@ function renderPlayerChart(data) {
   });
 }
 
+function renderThemeChart(data) {
+  new Chart(document.getElementById('chart-themes'), {
+    type: 'bar',
+    data: {
+      labels: data.map((entry) => entry.label),
+      datasets: [{
+        label: 'Rooms',
+        data: data.map((entry) => entry.count),
+        backgroundColor: chartColors.green,
+        borderRadius: 3
+      }]
+    },
+    options: horizontalBarOptions()
+  });
+}
+
+function renderAwardChart(data) {
+  new Chart(document.getElementById('chart-awards'), {
+    type: 'bar',
+    data: {
+      labels: data.map((entry) => entry.label),
+      datasets: [{
+        label: 'Rooms',
+        data: data.map((entry) => entry.count),
+        backgroundColor: chartColors.gold,
+        borderRadius: 3
+      }]
+    },
+    options: horizontalBarOptions()
+  });
+}
+
+async function renderStateChoropleth(stateCounts) {
+  const lookup = {};
+  stateCounts.forEach(({ label, count }) => {
+    lookup[label] = count;
+  });
+
+  const res = await fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json');
+  const topology = await res.json();
+  const states = topojson.feature(topology, topology.objects.states).features;
+
+  new Chart(document.getElementById('chart-state-choropleth'), {
+    type: 'choropleth',
+    data: {
+      labels: states.map((d) => d.properties.name),
+      datasets: [{
+        label: 'Rooms',
+        data: states.map((d) => ({
+          feature: d,
+          value: lookup[d.properties.name] || 0
+        }))
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      showOutline: true,
+      showGraticule: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const name = ctx.raw.feature?.properties?.name || ctx.label;
+              const value = ctx.raw.value;
+              return value > 0 ? `${name}: ${value} room${value === 1 ? '' : 's'}` : name;
+            }
+          }
+        }
+      },
+      scales: {
+        projection: {
+          axis: 'x',
+          projection: 'albersUsa'
+        },
+        color: {
+          axis: 'x',
+          interpolate: (value) => {
+            if (value === 0) return 'rgba(170, 179, 194, 0.08)';
+            const alpha = 0.3 + value * 0.7;
+            return `rgba(90, 169, 255, ${alpha})`;
+          },
+          legend: {
+            display: false
+          }
+        }
+      }
+    }
+  });
+}
+
+async function renderChoropleth(countryCounts) {
+  const nameMap = {
+    'United States': 'United States of America'
+  };
+
+  const lookup = {};
+  countryCounts.forEach(({ label, count }) => {
+    lookup[nameMap[label] || label] = count;
+  });
+
+  const res = await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
+  const topology = await res.json();
+  const countries = topojson.feature(topology, topology.objects.countries).features;
+
+  new Chart(document.getElementById('chart-choropleth'), {
+    type: 'choropleth',
+    data: {
+      labels: countries.map((d) => d.properties.name),
+      datasets: [{
+        label: 'Rooms',
+        data: countries.map((d) => ({
+          feature: d,
+          value: lookup[d.properties.name] || 0
+        }))
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      showOutline: true,
+      showGraticule: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const name = ctx.raw.feature?.properties?.name || ctx.label;
+              const value = ctx.raw.value;
+              return value > 0 ? `${name}: ${value} room${value === 1 ? '' : 's'}` : name;
+            }
+          }
+        }
+      },
+      scales: {
+        projection: {
+          axis: 'x',
+          projection: 'equalEarth'
+        },
+        color: {
+          axis: 'x',
+          interpolate: (value) => {
+            if (value === 0) return 'rgba(170, 179, 194, 0.08)';
+            const alpha = 0.3 + value * 0.7;
+            return `rgba(255, 183, 3, ${alpha})`;
+          },
+          legend: {
+            display: false
+          }
+        }
+      }
+    }
+  });
+}
+
+function renderRatingDistribution(data) {
+  new Chart(document.getElementById('chart-ratings'), {
+    type: 'bar',
+    data: {
+      labels: data.labels,
+      datasets: [{
+        label: 'Rooms',
+        data: data.counts,
+        backgroundColor: chartColors.purple,
+        borderRadius: 3
+      }]
+    },
+    options: {
+      ...defaultChartOptions,
+      plugins: {
+        ...defaultChartOptions.plugins,
+        legend: { display: false }
+      },
+      scales: {
+        x: {
+          ...defaultChartOptions.scales.x,
+          title: {
+            display: true,
+            text: 'Rating',
+            color: chartColors.text
+          }
+        },
+        y: {
+          ...defaultChartOptions.scales.y,
+          beginAtZero: true,
+          ticks: {
+            ...defaultChartOptions.scales.y.ticks,
+            stepSize: 1
+          }
+        }
+      }
+    }
+  });
+}
+
 function createStripedPattern(color) {
   const canvas = document.createElement('canvas');
   canvas.width = 10;
@@ -254,6 +513,10 @@ function renderTimeLeftChart(data) {
     },
     options: {
       ...defaultChartOptions,
+      plugins: {
+        ...defaultChartOptions.plugins,
+        legend: { display: false }
+      },
       onHover: (event, elements) => {
         event.native.target.style.cursor = elements.length ? 'pointer' : 'default';
       },

@@ -1,6 +1,6 @@
 {
   "table": "Trips",
-  "syncedAt": "2026-03-24T19:42:33.843370+00:00",
+  "syncedAt": "2026-03-25T09:17:59.541836+00:00",
   "count": 7,
   "records": [
     {
@@ -8,6 +8,7 @@
       "createdTime": "2026-03-23T20:17:54.000Z",
       "fields": {
         "Name": "Italy",
+        "Notes": "Our Switzerland and Italy trip made a trip to top rated rooms.",
         "Rooms": [
           "recgisAgQMDN41H2P",
           "rechGJ5U1gn1Ajxrt"
@@ -43,6 +44,7 @@
       "createdTime": "2026-03-18T05:37:19.000Z",
       "fields": {
         "Name": "Escape in Europe",
+        "Notes": "Visiting top rated Escape Rooms in Netherlands, Belgium, France, and Spain!",
         "Rooms": [
           "rec33iDver9l2s39y",
           "receASqfgMtmqSEHZ",
@@ -101,6 +103,7 @@
       "createdTime": "2026-03-18T08:42:34.000Z",
       "fields": {
         "Name": "QMSB",
+        "Notes": "Our first trip that featured a lot of rooms. We visited Quebec City on our own, Montreal with Tammy's side, Stowe (no rooms!), and finally ending in Bismarck, ND for a wedding on Jamie's side.",
         "Rooms": [
           "recHbYHiHv3kMBLfk",
           "recGHzPOir2KjtOjc",
@@ -133,6 +136,7 @@
       "createdTime": "2026-03-23T20:21:08.000Z",
       "fields": {
         "Name": "Soccer in Kansas City",
+        "Notes": "Went to see exhibition Bayern Munich game and do some Escape Rooms too.",
         "Rooms": [
           "recMqhVYX7BU87Uda",
           "recM2tOvoeH29vOJD"
@@ -151,6 +155,7 @@
       "createdTime": "2026-03-23T20:24:06.000Z",
       "fields": {
         "Name": "Olson Vacation in Nashville",
+        "Notes": "We were in Nashville with Tammy's family so why not do a couple of rooms.",
         "Rooms": [
           "rec05Cz2JvdnNLxo2",
           "rec53yK3nczTclkFC"

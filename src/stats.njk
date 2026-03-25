@@ -8,7 +8,6 @@ permalink: /stats/
 {% block content %}
   <main class="container page-content stats-page" data-pagefind-ignore>
     <section class="page-intro">
-      <div class="eyebrow">Collection Summary</div>
       <div class="page-intro-copy">
         <h1 class="page-intro-title">Stats</h1>
         <p>A richer look at the collection through the people, themes, trips, awards, and room outcomes behind it.</p>
@@ -16,41 +15,15 @@ permalink: /stats/
     </section>
 
     <section>
-      <div class="stats-row" id="summary-stats">
-        <div class="stat-item"><span class="stat-number">{{ stats.totalRooms }}</span><div class="stat-label">Played</div></div>
-        <div class="stat-item"><span class="stat-number">{{ stats.scheduledRooms }}</span><div class="stat-label">Scheduled</div></div>
-        <div class="stat-item"><span class="stat-number">{{ stats.winRate }}%</span><div class="stat-label">Win Rate</div></div>
-        <div class="stat-item"><span class="stat-number">{{ stats.countryCount }}</span><div class="stat-label">Countries</div></div>
-        <div class="stat-item"><span class="stat-number">{{ stats.uniquePlayerCount }}</span><div class="stat-label">Players</div></div>
-        <div class="stat-item"><span class="stat-number">{{ stats.currentWinStreak }}</span><div class="stat-label">Current Streak</div></div>
-        <div class="stat-item"><span class="stat-number">{{ stats.averageTeamSize if stats.averageTeamSize != null else '—' }}</span><div class="stat-label">Avg Team Size</div></div>
-        <div class="stat-item"><span class="stat-number">{{ (stats.averageRating | formatRating) if stats.averageRating != null else '—' }}</span><div class="stat-label">Avg Rating</div></div>
-      </div>
-
-      <div class="stats-insight-grid">
-        <article class="stats-insight-card">
-          <div class="feature-tile-kicker">Momentum</div>
-          <h3>{{ stats.insights.momentum.currentWinStreak }} straight wins</h3>
-          <p>Longest streak: {{ stats.insights.momentum.longestWinStreak }} rooms across {{ stats.insights.momentum.yearsActive }} active years.</p>
-        </article>
-        <article class="stats-insight-card">
-          <div class="feature-tile-kicker">Cast</div>
-          <h3>{{ stats.insights.cast.uniquePlayers }} players logged</h3>
-          <p>{% if stats.insights.cast.topPlayer %}{{ stats.insights.cast.topPlayer.label }} appears most often with {{ stats.insights.cast.topPlayer.count }} rooms.{% else %}Player appearance data is still growing.{% endif %}{% if stats.topTheme %} Most common theme: {{ stats.topTheme.label }}.{% endif %}</p>
-        </article>
-        <article class="stats-insight-card">
-          <div class="feature-tile-kicker">Curation</div>
-          <h3>{{ stats.insights.curation.roomsWithAwards }} award-tagged rooms</h3>
-          <p>{{ stats.insights.curation.roomsWithTrips }} rooms are part of trips and {{ stats.insights.curation.roomsWithLists }} appear on curated lists.</p>
-        </article>
-        <article class="stats-insight-card">
-          <div class="feature-tile-kicker">Ratings</div>
-          <h3>{{ stats.insights.ratings.ratedRoomCount }} rated rooms</h3>
-          <p>{% if stats.insights.ratings.averageRating != null %}Average score is {{ stats.insights.ratings.averageRating | formatRating }}/5 with {{ stats.insights.ratings.favoriteVoteCount }} favorite votes logged.{% else %}Ratings will appear here as review data grows.{% endif %}</p>
-        </article>
-      </div>
-
       <div class="charts-grid">
+        <div class="chart-card chart-card-time full-width">
+          <h3>Cumulative Rooms</h3>
+          <p class="chart-subtitle">Running total colored by outcome. Green for wins, red for losses — longer runs show streaks.</p>
+          <div class="chart-canvas-wrap chart-canvas-wrap-time">
+            <canvas id="chart-cumulative"></canvas>
+          </div>
+        </div>
+
         <div class="chart-card chart-card-time full-width">
           <h3>Time Left</h3>
           <p class="chart-subtitle">Higher is better. Negative values indicate going over time. Striped bars exceeded the chart floor.</p>
@@ -98,6 +71,46 @@ permalink: /stats/
             <canvas id="chart-players"></canvas>
           </div>
         </div>
+
+        <div class="chart-card chart-card-standard">
+          <h3>Rooms by Theme</h3>
+          <p class="chart-subtitle">The most common themes across the collection.</p>
+          <div class="chart-canvas-wrap chart-canvas-wrap-standard">
+            <canvas id="chart-themes"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card chart-card-standard">
+          <h3>Rooms by Award</h3>
+          <p class="chart-subtitle">Awards assigned to rooms in the collection.</p>
+          <div class="chart-canvas-wrap chart-canvas-wrap-standard">
+            <canvas id="chart-awards"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card chart-card-standard">
+          <h3>Rating Distribution</h3>
+          <p class="chart-subtitle">How room ratings spread across the scale.</p>
+          <div class="chart-canvas-wrap chart-canvas-wrap-standard">
+            <canvas id="chart-ratings"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card full-width">
+          <h3>Rooms by State</h3>
+          <p class="chart-subtitle">Distribution across U.S. states.</p>
+          <div class="chart-canvas-wrap" style="height: 420px">
+            <canvas id="chart-state-choropleth"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card full-width">
+          <h3>Rooms by Country</h3>
+          <p class="chart-subtitle">Geographic distribution of rooms played around the world.</p>
+          <div class="chart-canvas-wrap" style="height: 420px">
+            <canvas id="chart-choropleth"></canvas>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -106,5 +119,8 @@ permalink: /stats/
 {% block scripts %}
   <script id="chart-data" type="application/json">{{ stats.charts | dump | safe }}</script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-geo@4.1.2/build/index.umd.min.js"></script>
   <script type="module" src="{{ '/js/stats.js' | cacheBust }}"></script>
 {% endblock %}

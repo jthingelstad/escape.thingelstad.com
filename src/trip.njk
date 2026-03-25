@@ -21,13 +21,7 @@ permalink: /trip/{{ trip.slug }}/
 {% block content %}
   <main class="container page-content featured-detail-page" data-pagefind-body>
     <section class="featured-detail-hero">
-      <div class="feature-tile-kicker">Featured Trip</div>
       <h1>{{ trip.name }}</h1>
-      <div class="featured-detail-stats">
-        <div class="stat-item"><span class="stat-number">{{ trip.roomCount }}</span><div class="stat-label">Rooms</div></div>
-        <div class="stat-item"><span class="stat-number">{{ trip.countries.length }}</span><div class="stat-label">Countries</div></div>
-        <div class="stat-item"><span class="stat-number">{{ trip.cities.length }}</span><div class="stat-label">Cities</div></div>
-      </div>
       {% if trip.firstDate and trip.lastDate %}
       <p class="featured-detail-copy">{{ trip.firstDate | formatDate }} to {{ trip.lastDate | formatDate }}</p>
       {% endif %}
@@ -47,19 +41,6 @@ permalink: /trip/{{ trip.slug }}/
       {% if trip.mapStops.length > 0 %}
       <div class="trip-map-container" id="trip-map"></div>
       {% endif %}
-    </section>
-    {% endif %}
-
-    {% if trip.countries.length > 0 %}
-    <section class="featured-detail-meta">
-      <div class="section-header">
-        <h2>Places</h2>
-      </div>
-      <div class="entity-chip-row">
-        {% for country in trip.countries %}
-          <span class="entity-chip entity-chip-trip">{{ country }}</span>
-        {% endfor %}
-      </div>
     </section>
     {% endif %}
 

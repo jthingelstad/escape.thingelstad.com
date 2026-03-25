@@ -54,6 +54,8 @@ module.exports = function() {
   let roomsWithAwards = 0;
   let totalPlayerCount = 0;
   let playerCountSamples = 0;
+  const cumulativeStreak = [];
+  let cumulative = 0;
 
   played.forEach((room) => {
     const year = room.date.substring(0, 4);
@@ -82,6 +84,14 @@ module.exports = function() {
 
     longestWinStreak = Math.max(longestWinStreak, currentWinStreak);
 
+    cumulative += 1;
+    cumulativeStreak.push({
+      x: room.date,
+      y: cumulative,
+      win: WIN_STATUSES.has(room.status),
+      streak: currentWinStreak
+    });
+
     if (month >= 0 && month < 12) monthly[month] += 1;
     if (room.location?.region) regions.add(room.location.region);
     if (room.location?.country === 'United States' && room.location?.region) {
@@ -101,9 +111,14 @@ module.exports = function() {
       themes.add(theme.airtableId);
       increment(themeCounts, theme.name);
     });
+    const seenAwardLabels = new Set();
     room.awards.forEach((award) => {
       awards.add(award.airtableId);
-      increment(awardCounts, award.name);
+      const awardLabel = award.name.replace(/\s*\(\d{4}\)$/, '');
+      if (!seenAwardLabels.has(awardLabel)) {
+        seenAwardLabels.add(awardLabel);
+        increment(awardCounts, awardLabel);
+      }
     });
     room.trips.forEach((trip) => trips.add(trip.airtableId));
     room.lists.forEach((list) => lists.add(list.airtableId));
@@ -156,25 +171,24 @@ module.exports = function() {
     };
   });
 
-  const topPlayer = sortCounts(playerCounts, 1)[0] || null;
-  const topTheme = sortCounts(themeCounts, 1)[0] || null;
-
-  const ratedRooms = played
-    .filter((room) => room.ratingSummary.count > 0 && room.ratingSummary.average != null)
-    .map((room) => ({
-      label: `#${room.id} ${room.game}`,
-      average: room.ratingSummary.average,
-      count: room.ratingSummary.count
-    }))
-    .sort((left, right) => right.average - left.average || right.count - left.count || left.label.localeCompare(right.label))
-    .slice(0, 8);
-
   const averageTeamSize = playerCountSamples > 0
     ? Number((totalPlayerCount / playerCountSamples).toFixed(1))
     : null;
   const averageRating = totalRatings > 0
     ? Number((totalRatingValue / totalRatings).toFixed(1))
     : null;
+
+  const ratingBuckets = Array(10).fill(0);
+  played.forEach((room) => {
+    if (room.ratingSummary.count > 0 && room.ratingSummary.average != null) {
+      const index = Math.min(Math.max(Math.round(room.ratingSummary.average * 2) - 1, 0), 9);
+      ratingBuckets[index] += 1;
+    }
+  });
+  const ratingDistribution = {
+    labels: ['0.5', '1.0', '1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0'],
+    counts: ratingBuckets
+  };
 
   const CHART_TIME_FLOOR = -10;
   const chartTimeLeft = played
@@ -211,37 +225,11 @@ module.exports = function() {
     roomsWithTrips,
     roomsWithLists,
     roomsWithAwards,
-    topPlayer,
-    topTheme,
     firstYear: years[0],
     lastYear: years[years.length - 1],
     latestCompleted: played[played.length - 1] || null,
     recentCompleted: played.slice(-8).reverse(),
     planned,
-    insights: {
-      momentum: {
-        currentWinStreak,
-        longestWinStreak,
-        yearsActive: years.length
-      },
-      cast: {
-        uniquePlayers: players.size,
-        averageTeamSize,
-        topPlayer
-      },
-      curation: {
-        roomsWithAwards,
-        roomsWithTrips,
-        roomsWithLists,
-        tripCount: trips.size,
-        listCount: lists.size
-      },
-      ratings: {
-        ratedRoomCount,
-        averageRating,
-        favoriteVoteCount
-      }
-    },
     charts: {
       roomsPerYear: {
         labels: yearlyResults.map((entry) => entry.year),
@@ -250,25 +238,15 @@ module.exports = function() {
         completed: yearlyResults.map((entry) => entry.completed),
         scheduled: yearlyResults.map((entry) => entry.scheduled)
       },
-      winRateByYear: {
-        labels: yearlyResults.map((entry) => entry.year),
-        played: yearlyResults.map((entry) => entry.played),
-        winRate: yearlyResults.map((entry) => entry.winRate)
-      },
       monthly,
       states: sortCounts(stateCounts),
       countries: sortCounts(countryCounts),
       players: sortCounts(playerCounts, 10),
       themes: sortCounts(themeCounts, 10),
-      awards: sortCounts(awardCounts),
-      teamSizes: Object.entries(teamSizeCounts).map(([label, count]) => ({ label, count }))
-        .sort((left, right) => {
-          if (left.label === 'Unknown') return 1;
-          if (right.label === 'Unknown') return -1;
-          return Number.parseInt(left.label, 10) - Number.parseInt(right.label, 10);
-        }),
-      ratedRooms,
-      timeLeft: chartTimeLeft
+      awards: sortCounts(awardCounts, 15),
+      timeLeft: chartTimeLeft,
+      cumulativeStreak,
+      ratingDistribution
     }
   };
 };

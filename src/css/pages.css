@@ -2,14 +2,6 @@
   margin-bottom: var(--space-8);
 }
 
-.page-home .page-intro::after,
-.featured-detail-hero::after {
-  content: '';
-  display: block;
-  width: min(100%, 20rem);
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255, 183, 3, 0.35), transparent);
-}
 
 .catalog-page {
   display: grid;
@@ -229,7 +221,6 @@
   color: var(--color-text-soft);
 }
 
-.stats-page .stats-insight-card,
 .stats-page .chart-card {
   background: var(--color-panel);
 }
@@ -418,7 +409,6 @@
 
   .room-ratings-grid,
   .room-stats-grid,
-  .stat-strip,
   .stats-row,
   .featured-detail-stats,
   .room-ratings-summary {
@@ -429,7 +419,6 @@
 @media (max-width: 560px) {
   .room-ratings-grid,
   .room-stats-grid,
-  .stat-strip,
   .stats-row,
   .featured-detail-stats,
   .room-ratings-summary {

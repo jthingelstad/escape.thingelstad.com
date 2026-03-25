@@ -14,20 +14,10 @@ permalink: /list/{{ list.slug }}/
 {% block content %}
   <main class="container page-content featured-detail-page" data-pagefind-body>
     <section class="featured-detail-hero">
-      <div class="feature-tile-kicker">List</div>
       <h1>{{ list.name }}</h1>
       {% if list.notes %}
       <div class="featured-detail-copy rich-text">{{ list.notes | richText | safe }}</div>
       {% endif %}
-      <div class="featured-detail-stats">
-        <div class="stat-item"><span class="stat-number">{{ list.roomCount }}</span><div class="stat-label">Rooms</div></div>
-        <div class="stat-item"><span class="stat-number">{{ list.countries.length }}</span><div class="stat-label">Countries</div></div>
-        {% if list.player %}
-        <div class="stat-item"><span class="stat-number">{{ list.player.name }}</span><div class="stat-label">Player</div></div>
-        {% elif list.trip %}
-        <div class="stat-item"><span class="stat-number">{{ list.trip.name }}</span><div class="stat-label">Trip</div></div>
-        {% endif %}
-      </div>
     </section>
 
     {% if list.player or list.trip %}

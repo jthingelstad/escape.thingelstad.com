@@ -14,7 +14,6 @@ permalink: /player/{{ player.slug }}/
 {% block content %}
   <main class="container page-content featured-detail-page" data-pagefind-body>
     <section class="featured-detail-hero">
-      <div class="feature-tile-kicker">Featured Player</div>
       <h1>{{ player.name }}</h1>
       {% if player.bio %}
       <div class="featured-detail-copy rich-text">{{ player.bio | richText | safe }}</div>

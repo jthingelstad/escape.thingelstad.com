@@ -1,6 +1,6 @@
 ---
 title: Featured
-description: Featured players, awards, and trips from our escape room journey.
+description: Featured players and trips from our escape room journey.
 permalink: /featured/
 ---
 {% extends "base.njk" %}
@@ -8,10 +8,9 @@ permalink: /featured/
 {% block content %}
   <main class="container page-content" data-pagefind-ignore>
     <section class="page-intro">
-      <div class="eyebrow">Featured Stories</div>
       <div class="page-intro-copy">
         <h1 class="page-intro-title">Featured</h1>
-        <p>The standout people, trips, and awards that get their own front door on the site.</p>
+        <p>The standout people and trips that get their own front door on the site.</p>
       </div>
     </section>
 
@@ -25,21 +24,6 @@ permalink: /featured/
             <div class="feature-tile-kicker">Trip</div>
             <h3>{{ trip.name }}</h3>
             <p>{{ trip.roomCount }} room{{ '' if trip.roomCount == 1 else 's' }}</p>
-          </a>
-        {% endfor %}
-      </div>
-    </section>
-
-    <section class="featured-section">
-      <div class="section-header">
-        <h2>Awards</h2>
-      </div>
-      <div class="featured-entity-grid">
-        {% for award in catalog.featured.awards %}
-          <a href="{{ award | entityUrl('award') }}" class="feature-tile feature-tile-award" data-tinylytics-event="featured.award" data-tinylytics-event-value="{{ award.name }}">
-            <div class="feature-tile-kicker">Award</div>
-            <h3>{{ award.name }}</h3>
-            <p>{{ award.roomCount }} room{{ '' if award.roomCount == 1 else 's' }}</p>
           </a>
         {% endfor %}
       </div>

@@ -9,7 +9,6 @@ bodyClass: page-home
 {% block content %}
   <main class="container page-content" data-pagefind-ignore>
     <section class="page-intro">
-      <div class="eyebrow">Escape Room Team</div>
       <div class="page-intro-copy">
         <h1 class="page-intro-title">Escaping Things</h1>
         <p>Escaping Things is our escape room team log, following the rooms, trips, places, ratings, and standout moments that shaped the run.</p>
@@ -47,13 +46,6 @@ bodyClass: page-home
             <div class="feature-tile-kicker">Trip</div>
             <h3>{{ trip.name }}</h3>
             <p>{{ trip.roomCount }} room{{ '' if trip.roomCount == 1 else 's' }}</p>
-          </a>
-        {% endfor %}
-        {% for award in catalog.featured.awards %}
-          <a href="{{ award | entityUrl('award') }}" class="feature-tile feature-tile-award" data-tinylytics-event="home.featured-award" data-tinylytics-event-value="{{ award.name }}">
-            <div class="feature-tile-kicker">Award</div>
-            <h3>{{ award.name }}</h3>
-            <p>{{ award.roomCount }} room{{ '' if award.roomCount == 1 else 's' }}</p>
           </a>
         {% endfor %}
         {% for player in catalog.featured.players %}

@@ -42,11 +42,10 @@ test('real catalog excludes hidden rooms, keeps stable Room IDs, and preserves f
   assert.equal(new Set(catalog.rooms.map((room) => room.id)).size, catalog.rooms.length);
 
   assert.ok(catalog.featured.players.length > 0);
-  assert.ok(catalog.featured.awards.length > 0);
   assert.ok(catalog.featured.trips.length > 0);
   assert.ok(catalog.featured.players.every((player) => player.featured));
-  assert.ok(catalog.featured.awards.every((award) => award.featured));
   assert.ok(catalog.featured.trips.every((trip) => trip.featured));
+  assert.ok(catalog.awards.length > 0);
 });
 
 test('filter data exposes primary typed dimensions including locations, trips, and themes', () => {
@@ -188,7 +187,7 @@ test('officialUrl prefers room URL, then location URL, then company URL', () => 
   assert.equal(catalog.rooms[2].officialUrl, 'https://room.example');
 });
 
-test('featured awards stay public metadata and hidden rooms stay out of public counts', () => {
+test('awards are metadata and hidden rooms stay out of public counts', () => {
   const catalog = buildCatalog(
     {
       companies: {
@@ -201,7 +200,7 @@ test('featured awards stay public metadata and hidden rooms stay out of public c
       players: { records: [] },
       awards: {
         records: [
-          { id: 'award1', fields: { Name: 'Spotlight', Featured: true } }
+          { id: 'award1', fields: { Name: 'TERPECA: Top Rooms (2025)', Organization: 'TERPECA', Year: 2025, 'Award Name': 'Top Rooms' } }
         ]
       },
       trips: { records: [] },
@@ -217,5 +216,7 @@ test('featured awards stay public metadata and hidden rooms stay out of public c
   );
 
   assert.equal(catalog.rooms.length, 1);
-  assert.equal(catalog.featured.awards[0].roomCount, 1);
+  assert.equal(catalog.awards[0].roomCount, 1);
+  assert.equal(catalog.awards[0].organization, 'TERPECA');
+  assert.equal(catalog.awards[0].year, 2025);
 });
