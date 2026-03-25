@@ -1,4 +1,5 @@
 import {
+  STATUS_CONFIG,
   applyFiltersToControls,
   bindFilterControls,
   escapeHtml,
@@ -48,18 +49,7 @@ function initMap() {
 }
 
 function getMarkerColor(room) {
-  switch (room.status) {
-    case 'Escaped':
-      return '#4CAF50';
-    case 'Try again':
-      return '#EF4444';
-    case 'Completed':
-      return '#6B7280';
-    case 'Scheduled':
-      return '#5AA9FF';
-    default:
-      return '#6B7280';
-  }
+  return STATUS_CONFIG[room.status]?.color || '#6B7280';
 }
 
 function createMarkerIcon(room) {

@@ -12,10 +12,6 @@
   max-width: 48rem;
 }
 
-.catalog-page .filter-bar .filter-primary-actions {
-  justify-content: flex-end;
-}
-
 .room-detail-page {
   max-width: 1220px;
   display: grid;

@@ -16,8 +16,7 @@
 .filter-bar,
 .map-filter-panel,
 .empty-state,
-.empty-state-card,
-.vault-lock-panel {
+.empty-state-card {
   border: 1px solid var(--color-line);
   border-radius: var(--radius-xl);
   background: var(--color-panel);
@@ -81,7 +80,6 @@
 }
 
 .feature-tile,
-.trail-card,
 .list-summary-card,
 .chart-card,
 .room-stat-card,
@@ -121,7 +119,6 @@
 }
 
 .feature-tile,
-.trail-card,
 .list-summary-card,
 .chart-card,
 .empty-state-card,
@@ -134,14 +131,12 @@
 }
 
 .feature-tile,
-.trail-card,
 .list-summary-card {
   text-decoration: none;
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
 .feature-tile h3,
-.trail-card h3,
 .list-summary-card h3,
 .chart-card h3,
 .room-rating-card h3,
@@ -150,7 +145,6 @@
 }
 
 .feature-tile p,
-.trail-card p,
 .list-summary-card p,
 .chart-card p,
 .trip-route-stop-body p {
@@ -158,7 +152,6 @@
 }
 
 .feature-tile:hover,
-.trail-card:hover,
 .list-summary-card:hover,
 .room-card:hover {
   transform: translateY(-2px);
@@ -866,9 +859,6 @@
 .empty-state {
   padding: var(--space-6);
   text-align: center;
-}
-
-.empty-state {
   color: var(--color-text-soft);
 }
 

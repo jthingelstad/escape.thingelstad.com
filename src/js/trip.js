@@ -1,17 +1,7 @@
-import { escapeHtml, formatDate, formatLocation, formatTimeLeft, initNav, roomUrl, statusBadgeHtml } from './data.js';
+import { STATUS_CONFIG, escapeHtml, formatDate, formatLocation, formatTimeLeft, initNav, roomUrl, statusBadgeHtml } from './data.js';
 
 function getStatusClass(status) {
-  switch (status) {
-    case 'Escaped':
-      return 'trip-route-marker-escaped';
-    case 'Try again':
-      return 'trip-route-marker-try-again';
-    case 'Scheduled':
-      return 'trip-route-marker-scheduled';
-    case 'Completed':
-    default:
-      return 'trip-route-marker-completed';
-  }
+  return STATUS_CONFIG[status]?.markerClass || 'trip-route-marker-completed';
 }
 
 function offsetDuplicateStops(stops) {

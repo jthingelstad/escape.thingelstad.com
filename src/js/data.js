@@ -62,30 +62,20 @@ export function entityUrl(type, entity) {
   return entity.featured ? featuredEntityUrl(type, entity) : entityFilterUrl(type, entity);
 }
 
-function entityChipClass(type, entity) {
-  const classes = [`entity-chip`, `entity-chip-${type}`];
-  if (entity.featured) classes.push('entity-chip-featured');
-  return classes.join(' ');
-}
-
-export function renderEntityChip(type, entity) {
-  return `<a href="${entityUrl(type, entity)}" class="${entityChipClass(type, entity)}">${escapeHtml(entity.name)}</a>`;
-}
+export const STATUS_CONFIG = {
+  Escaped: { label: '\u2713 Escaped', cssClass: 'status-escaped', color: '#4CAF50', markerClass: 'trip-route-marker-escaped' },
+  'Try again': { label: '\u2717 Try Again', cssClass: 'status-try-again', color: '#EF4444', markerClass: 'trip-route-marker-try-again' },
+  Completed: { label: '\u2713 Completed', cssClass: 'status-completed', color: '#6B7280', markerClass: 'trip-route-marker-completed' },
+  Scheduled: { label: 'Scheduled', cssClass: 'status-scheduled', color: '#5AA9FF', markerClass: 'trip-route-marker-scheduled' }
+};
 
 export function statusBadgeHtml(status) {
-  switch (status) {
-    case 'Escaped':
-      return '<span class="status-badge status-escaped">\u2713 Escaped</span>';
-    case 'Try again':
-      return '<span class="status-badge status-try-again">\u2717 Try Again</span>';
-    case 'Completed':
-      return '<span class="status-badge status-completed">\u2713 Completed</span>';
-    case 'Scheduled':
-      return '<span class="status-badge status-scheduled">Scheduled</span>';
-    default:
-      return '';
-  }
+  const config = STATUS_CONFIG[status];
+  if (!config) return '';
+  return `<span class="status-badge ${config.cssClass}">${config.label}</span>`;
 }
+
+export const NAV_BREAKPOINT = 860;
 
 export const FILTER_FIELDS = [
   { key: 'player', elementId: 'filter-player', label: 'Player' },
@@ -230,7 +220,7 @@ export function initNav() {
     });
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 860) closeNav();
+      if (window.innerWidth > NAV_BREAKPOINT) closeNav();
     });
   }
 }
