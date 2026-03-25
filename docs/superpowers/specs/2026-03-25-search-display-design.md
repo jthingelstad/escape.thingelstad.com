@@ -36,9 +36,15 @@ Drop the `company:` field - company name is already in the page body and surface
 
 ### 2. Noise reduction (templates)
 
-**`src/room.njk`**: Wrap `<span class="meta-icon">` elements in `data-pagefind-ignore` so emoji don't leak into excerpts.
+**`src/room.njk`**:
+- Wrap `<span class="meta-icon">` elements in `data-pagefind-ignore` so emoji don't leak into excerpts.
+- Wrap the stats section (`.room-stats-section`) and ratings section (`.room-ratings-section`) in `data-pagefind-ignore` — these contain structural/statistical text ("Time Result", "Time Percentile", "Overall win rate") that isn't meaningful in search excerpts.
 
-**`src/list-detail.njk`**: Add `data-pagefind-ignore` to the "Attached To" section header and the "Rooms" section header to suppress structural text in snippets.
+**`src/list-detail.njk`**: Add `data-pagefind-ignore` to the "Attached To" section header and the "Rooms" section header.
+
+**`src/player.njk`**: Add `data-pagefind-ignore` to structural headings ("Lists", "Recent Notes", "All Rooms") that create noise in excerpts.
+
+**`src/trip.njk`**: Add `data-pagefind-ignore` to structural headings ("Route", "Lists") that create noise in excerpts.
 
 ### 3. Result display via `processResult` (base.njk)
 
@@ -57,6 +63,8 @@ Badge color mapping (using existing site token colors):
 
 Use Pagefind's `ranking` configuration in the `PagefindUI` constructor to tune `pageLength` and `termFrequency` weights. Room detail pages are shorter and more focused than list pages, so favoring shorter pages with higher term frequency will naturally boost room results.
 
+Note: `ranking` is not a first-class PagefindUI option — PagefindUI forwards unrecognized options to `pagefind.options()` internally. This works in Pagefind 1.4.0 but depends on the forwarding behavior. If a future version changes this, the ranking config may need to call the Pagefind JS API directly.
+
 ### 5. CSS (components.css)
 
 Add styles for `.pagefind-type-badge` covering:
@@ -69,8 +77,8 @@ Add styles for `.pagefind-type-badge` covering:
 
 - `src/room.njk` - meta fix, emoji ignore
 - `src/list-detail.njk` - add type meta, ignore structural headings
-- `src/player.njk` - add type meta
-- `src/trip.njk` - add type meta
+- `src/player.njk` - add type meta, ignore structural headings
+- `src/trip.njk` - add type meta, ignore structural headings
 - `src/_includes/base.njk` - processResult callback, ranking config
 - `src/css/components.css` - type badge styles
 
