@@ -23,9 +23,6 @@ permalink: /player/{{ player.slug }}/
         <div class="stat-item"><span class="stat-number">{{ player.wins }}</span><div class="stat-label">Wins</div></div>
         <div class="stat-item"><span class="stat-number">{{ player.winRate }}%</span><div class="stat-label">Win Rate</div></div>
       </div>
-      <div class="section-link-row">
-        <a href="/rooms/?player={{ player.slug | queryValue }}" class="room-link" data-tinylytics-event="player.view-filter" data-tinylytics-event-value="{{ player.name }}">Open Filtered List &rarr;</a>
-      </div>
     </section>
 
     {% if player.lists.length > 0 %}
@@ -82,6 +79,24 @@ permalink: /player/{{ player.slug }}/
       </div>
       {% endif %}
     </section>
+
+    {% if player.missingExperiences.length > 0 %}
+    <section>
+      <div class="section-header">
+        <h2 data-pagefind-ignore>To Do</h2>
+      </div>
+      <h3 class="todo-subheading">Needs Your Experience</h3>
+      <p class="todo-description">You played these rooms but haven't submitted an experience yet. Share your rating and thoughts!</p>
+      <div class="missing-experience-list">
+        {% for room in player.missingExperiences %}
+        <a href="{{ room | roomPath }}" class="missing-experience-item">
+          <span class="missing-experience-game">{{ room.game }}{% if room.experiences.length > 0 %} <span class="missing-experience-others">· reviewed by {% for exp in room.experiences %}{{ exp.player.name }}{% if not loop.last %}, {% endif %}{% endfor %}</span>{% endif %}</span>
+          <span class="missing-experience-meta">{{ room.company.name if room.company }} · {{ room.date | formatDate }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
   </main>
 {% endblock %}
 

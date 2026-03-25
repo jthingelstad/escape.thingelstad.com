@@ -1166,7 +1166,67 @@ kbd {
   color: var(--color-scheduled);
 }
 
+/* Missing experience to-do list */
+.todo-subheading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-soft);
+  margin-bottom: 0.4rem;
+}
+
+.todo-description {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.missing-experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.missing-experience-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: background 0.15s;
+}
+
+.missing-experience-item:hover {
+  background: var(--color-panel);
+}
+
+.missing-experience-game {
+  font-weight: 500;
+}
+
+.missing-experience-others {
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+.missing-experience-meta {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
 @media (max-width: 720px) {
+  .missing-experience-item {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .missing-experience-meta {
+    margin-left: 0;
+  }
+
   .room-grid,
   .featured-entity-grid,
   .list-summary-grid,
