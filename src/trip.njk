@@ -19,7 +19,7 @@ permalink: /trip/{{ trip.slug }}/
 {% endblock %}
 
 {% block content %}
-  <main class="container page-content featured-detail-page" data-pagefind-body>
+  <main class="container page-content featured-detail-page" data-pagefind-body data-pagefind-meta="type:trip">
     <section class="featured-detail-hero">
       <h1>{{ trip.name }}</h1>
       {% if trip.firstDate and trip.lastDate %}
@@ -30,7 +30,7 @@ permalink: /trip/{{ trip.slug }}/
     {% if trip.routeStops.length > 0 %}
     <section class="trip-route-section">
       <div class="section-header">
-        <h2>Route</h2>
+        <h2 data-pagefind-ignore>Route</h2>
         <p>The trip in room order, with each stop marked on the map.</p>
       </div>
       <div class="room-grid">
@@ -47,7 +47,7 @@ permalink: /trip/{{ trip.slug }}/
     {% if trip.lists.length > 0 %}
     <section>
       <div class="section-header">
-        <h2>Lists</h2>
+        <h2 data-pagefind-ignore>Lists</h2>
       </div>
       <div class="list-summary-grid">
         {% for list in trip.lists %}
