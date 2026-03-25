@@ -40,6 +40,16 @@
       let gPending = false;
       let gTimer = null;
 
+      function trackEvent(event, value) {
+        const el = document.createElement('span');
+        el.setAttribute('data-tinylytics-event', event);
+        if (value) el.setAttribute('data-tinylytics-event-value', value);
+        el.style.display = 'none';
+        document.body.appendChild(el);
+        el.click();
+        el.remove();
+      }
+
       function loadPagefind() {
         return new Promise((resolve) => {
           if (typeof PagefindUI !== 'undefined') { resolve(true); return; }
@@ -114,7 +124,7 @@
           if (!overlay.hidden) { closeSearch(); return; }
           return;
         }
-        if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openSearch(); return; }
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); trackEvent('kbd.search', 'cmd-k'); openSearch(); return; }
 
         if (isInputFocused()) return;
         if (e.metaKey || e.ctrlKey || e.altKey) return;
@@ -123,12 +133,13 @@
           gPending = false;
           clearTimeout(gTimer);
           const routes = { h: '/', r: '/rooms/', m: '/map/', l: '/lists/', t: '/trips/', s: '/stats/', p: '/players/' };
-          if (routes[e.key]) { e.preventDefault(); window.location.href = routes[e.key]; }
+          const routeNames = { h: 'home', r: 'rooms', m: 'map', l: 'lists', t: 'trips', s: 'stats', p: 'players' };
+          if (routes[e.key]) { e.preventDefault(); trackEvent('kbd.go', routeNames[e.key]); window.location.href = routes[e.key]; }
           return;
         }
 
-        if (e.key === '/') { e.preventDefault(); openSearch(); return; }
-        if (e.key === '?') { e.preventDefault(); openShortcuts(); return; }
+        if (e.key === '/') { e.preventDefault(); trackEvent('kbd.search', 'slash'); openSearch(); return; }
+        if (e.key === '?') { e.preventDefault(); trackEvent('kbd.shortcuts'); openShortcuts(); return; }
         if (e.key === 'g') {
           gPending = true;
           gTimer = setTimeout(() => { gPending = false; }, 800);
