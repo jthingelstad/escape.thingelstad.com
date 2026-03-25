@@ -12,7 +12,7 @@ permalink: /list/{{ list.slug }}/
 {% block metaDescription %}{{ list.name }} list with curated escape room picks and notes.{% endblock %}
 
 {% block content %}
-  <main class="container page-content featured-detail-page" data-pagefind-body>
+  <main class="container page-content featured-detail-page" data-pagefind-body data-pagefind-meta="type:list">
     <section class="featured-detail-hero">
       <h1>{{ list.name }}</h1>
       {% if list.notes %}
@@ -23,7 +23,7 @@ permalink: /list/{{ list.slug }}/
     {% if list.player or list.trip %}
     <section class="featured-detail-meta">
       <div class="section-header">
-        <h2>Attached To</h2>
+        <h2 data-pagefind-ignore>Attached To</h2>
       </div>
       <div class="entity-chip-row">
         {% if list.player %}
@@ -38,7 +38,7 @@ permalink: /list/{{ list.slug }}/
 
     <section>
       <div class="section-header">
-        <h2>Rooms</h2>
+        <h2 data-pagefind-ignore>Rooms</h2>
       </div>
       {% if list.entries.length > 0 %}
       <div class="list-entry-stack">
