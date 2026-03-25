@@ -10,10 +10,6 @@ echo ""
 echo "==> Syncing from Airtable..."
 python3 scripts/sync_airtable.py
 
-echo ""
-echo "==> Refreshing build-time AI artifacts..."
-npm run ai:refresh
-
 # Check if there are any changes to commit
 if git diff --quiet && git diff --quiet --cached && [ -z "$(git ls-files --others --exclude-standard)" ]; then
     echo ""
@@ -23,8 +19,8 @@ fi
 
 echo ""
 echo "==> Committing changes..."
-git add src/_data/airtable/ src/images/rooms/ src/_generated/
-git commit -m "Update room data and AI artifacts."
+git add src/_data/airtable/ src/images/rooms/
+git commit -m "Update room data."
 
 echo ""
 echo "==> Pushing to GitHub..."
