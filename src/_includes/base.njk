@@ -61,7 +61,22 @@
         overlay.hidden = false;
         document.body.style.overflow = 'hidden';
         if (!initialized) {
-          new PagefindUI({ element: '#pagefind-search', showSubResults: true, showImages: false });
+          new PagefindUI({
+            element: '#pagefind-search',
+            showSubResults: true,
+            showImages: false,
+            ranking: {
+              pageLength: 0.75,
+              termFrequency: 0.0
+            },
+            processResult: function(result) {
+              var type = result.meta.type || '';
+              if (type) {
+                result.meta.title = '<span class="pagefind-type-badge pagefind-type-badge--' + type + '">' + type + '</span> ' + result.meta.title;
+              }
+              return result;
+            }
+          });
           initialized = true;
         }
         setTimeout(() => {
