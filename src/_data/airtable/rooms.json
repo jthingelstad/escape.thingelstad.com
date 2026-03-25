@@ -1,6 +1,6 @@
 {
   "table": "Rooms",
-  "syncedAt": "2026-03-25T22:19:57.888003+00:00",
+  "syncedAt": "2026-03-25T22:41:01.318813+00:00",
   "count": 101,
   "records": [
     {
@@ -2902,11 +2902,11 @@
           }
         ],
         "Experiences": [
-          "recm0B6WWoeDQ7FiK",
-          "recc5bjR1T6XSBiw3"
+          "recc5bjR1T6XSBiw3",
+          "recPbSLgB107Dhlex"
         ],
         "Created at": "2026-02-27T01:42:57.000Z",
-        "Modified at": "2026-03-25T22:14:52.000Z",
+        "Modified at": "2026-03-25T22:30:18.000Z",
         "Trips": [
           "recJqpVCHFrsjb8iR"
         ],
@@ -2933,7 +2933,7 @@
           "reclaK3d1iBH5HH4o"
         ],
         "Experience Count": 2,
-        "Rating": 4.5,
+        "Rating": 5,
         "Room ID": 99,
         "Player Count": 4,
         "Award Count": 10

@@ -1,6 +1,6 @@
 {
   "table": "Players",
-  "syncedAt": "2026-03-25T22:19:57.885572+00:00",
+  "syncedAt": "2026-03-25T22:41:01.315246+00:00",
   "count": 39,
   "records": [
     {
@@ -359,10 +359,9 @@
         "Room Count": 85,
         "Featured": true,
         "Experiences": [
-          "recJcztWTdgd7BzmS",
-          "recm0B6WWoeDQ7FiK"
+          "recJcztWTdgd7BzmS"
         ],
-        "Experience Count": 2,
+        "Experience Count": 1,
         "Player ID": 3,
         "Bio": "Tyler is the speed-runner and tactician of Escaping Things."
       }
@@ -1158,9 +1157,10 @@
         "Room Count": 66,
         "Featured": true,
         "Experiences": [
-          "recQvXqN7EAfXELbf"
+          "recQvXqN7EAfXELbf",
+          "recPbSLgB107Dhlex"
         ],
-        "Experience Count": 1,
+        "Experience Count": 2,
         "Player ID": 4,
         "Bio": "Mazie is the out-of-the-box thinker in Escaping Things."
       }
