@@ -65,6 +65,34 @@
         });
       }
 
+      let searchHighlight = -1;
+
+      function getSearchResults() {
+        return overlay.querySelectorAll('.pagefind-ui__result');
+      }
+
+      function clearSearchHighlight() {
+        getSearchResults().forEach(r => r.classList.remove('pagefind-result--active'));
+        searchHighlight = -1;
+      }
+
+      function setSearchHighlight(index) {
+        const results = getSearchResults();
+        if (!results.length) return;
+        clearSearchHighlight();
+        searchHighlight = Math.max(0, Math.min(index, results.length - 1));
+        const active = results[searchHighlight];
+        active.classList.add('pagefind-result--active');
+        active.scrollIntoView({ block: 'nearest' });
+      }
+
+      function navigateSearchHighlight() {
+        const results = getSearchResults();
+        if (searchHighlight < 0 || searchHighlight >= results.length) return;
+        const link = results[searchHighlight].querySelector('.pagefind-ui__result-link');
+        if (link) link.click();
+      }
+
       async function openSearch() {
         const loaded = await loadPagefind();
         if (!loaded) return;
@@ -84,8 +112,14 @@
               return result;
             }
           });
+
+          const container = document.getElementById('pagefind-search');
+          const observer = new MutationObserver(() => { clearSearchHighlight(); });
+          observer.observe(container, { childList: true, subtree: true });
+
           initialized = true;
         }
+        searchHighlight = -1;
         setTimeout(() => {
           const input = overlay.querySelector('.pagefind-ui__search-input');
           if (input) input.focus();
@@ -125,6 +159,24 @@
           return;
         }
         if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); trackEvent('kbd.search', 'cmd-k'); openSearch(); return; }
+
+        if (!overlay.hidden) {
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            setSearchHighlight(searchHighlight + 1);
+            return;
+          }
+          if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            setSearchHighlight(searchHighlight - 1);
+            return;
+          }
+          if ((e.key === 'Enter' || e.key === ' ') && searchHighlight >= 0) {
+            e.preventDefault();
+            navigateSearchHighlight();
+            return;
+          }
+        }
 
         if (isInputFocused()) return;
         if (e.metaKey || e.ctrlKey || e.altKey) return;

@@ -1124,6 +1124,11 @@ kbd {
   color: var(--color-text-soft) !important;
 }
 
+.pagefind-result--active {
+  background: var(--color-accent-soft);
+  border-radius: var(--radius-sm);
+}
+
 .pagefind-ui__result-link::before {
   display: inline-block;
   font-family: var(--font-mono);
