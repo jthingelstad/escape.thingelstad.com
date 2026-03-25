@@ -1,5 +1,5 @@
 {#
-  Shared filter controls for the list page.
+  Shared filter controls for the rooms page.
   Usage: {% include "filter-bar.njk" %}
 #}
   <div class="filter-cluster">
@@ -37,6 +37,24 @@
           <option value="">All Themes</option>
           {% for theme in filters.themes %}
             <option value="{{ theme.slug }}">{{ theme.label }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-trip">Trip</label>
+        <select id="filter-trip">
+          <option value="">All Trips</option>
+          {% for trip in filters.trips %}
+            <option value="{{ trip.slug }}">{{ trip.label }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-list">List</label>
+        <select id="filter-list">
+          <option value="">All Lists</option>
+          {% for list in filters.lists %}
+            <option value="{{ list.slug }}">{{ list.label }}</option>
           {% endfor %}
         </select>
       </div>

@@ -1,6 +1,5 @@
 .eyebrow,
-.feature-tile-kicker,
-.section-eyebrow {
+.feature-tile-kicker {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -82,7 +81,6 @@
   font-size: clamp(1.7rem, 3vw, 2.4rem);
 }
 
-.panel,
 .feature-tile,
 .trail-card,
 .list-summary-card,
@@ -102,7 +100,6 @@
   box-shadow: var(--shadow-sm);
 }
 
-.panel-grid,
 .featured-entity-grid,
 .list-summary-grid,
 .stats-insight-grid,
@@ -112,7 +109,6 @@
   gap: var(--space-4);
 }
 
-.panel-grid,
 .featured-entity-grid,
 .list-summary-grid,
 .stats-insight-grid,
@@ -243,7 +239,6 @@
   font-size: 0.92em;
 }
 
-.action-row,
 .room-hero-links,
 .popup-links,
 .section-link-row {
@@ -253,7 +248,6 @@
   align-items: center;
 }
 
-.action-link,
 .room-link,
 .btn,
 .map-filter-toggle {
@@ -272,7 +266,6 @@
   transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
-.action-link:hover,
 .room-link:hover,
 .btn:hover,
 .map-filter-toggle:hover {
@@ -606,7 +599,7 @@
   width: fit-content;
   gap: 0.08rem;
   padding: 0.45rem 0.65rem 0.4rem;
-  border-radius: 1rem;
+  border-radius: var(--radius-md);
   background: rgba(14, 17, 22, 0.78);
   color: var(--color-text);
   box-shadow: var(--shadow-sm);
@@ -715,8 +708,7 @@
   color: var(--color-text-muted);
 }
 
-.entity-chip-row,
-.chip-row {
+.entity-chip-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -759,13 +751,13 @@
 }
 
 .entity-chip-player {
-  background: rgba(167, 139, 250, 0.12);
-  color: #A78BFA;
+  background: var(--color-purple-soft);
+  color: var(--color-purple);
   border-color: rgba(167, 139, 250, 0.2);
 }
 
 .entity-chip-list {
-  background: var(--color-rust-soft);
+  background: var(--color-gold-soft);
   color: var(--color-accent);
   border-color: rgba(255, 183, 3, 0.2);
 }
@@ -869,7 +861,6 @@
   color: var(--color-gold);
 }
 
-.loading,
 .empty-state {
   padding: var(--space-6);
   text-align: center;
@@ -975,7 +966,7 @@
   font-size: 0.85em;
   background: var(--color-accent-soft);
   border: 1px solid var(--color-line);
-  border-radius: 4px;
+  border-radius: var(--radius-xs);
 }
 
 /* Keyboard shortcuts overlay */
@@ -1093,7 +1084,7 @@ kbd {
   line-height: 1.4;
   background: var(--color-accent-soft);
   border: 1px solid var(--color-line-strong);
-  border-radius: 4px;
+  border-radius: var(--radius-xs);
   color: var(--color-text);
 }
 
@@ -1112,7 +1103,6 @@ kbd {
 
 @media (max-width: 720px) {
   .room-grid,
-  .panel-grid,
   .featured-entity-grid,
   .list-summary-grid,
   .stats-insight-grid,

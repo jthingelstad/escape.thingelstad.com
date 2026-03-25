@@ -114,16 +114,20 @@ Pagefind provides site-wide text search, accessible from any page via the nav se
 
 ## Filtering
 
-Filtering is typed and URL-driven via dropdown controls. There is no free-text search on the list or map pages — Pagefind handles text search site-wide. The active filter dimensions on the list page are:
+Filtering is typed and URL-driven via dropdown controls. There is no free-text search on the rooms or map pages — Pagefind handles text search site-wide. Both pages share the same URL parameter names. The rooms page filter dimensions are:
 
 - `player`
 - `award`
 - `theme`
+- `trip`
+- `list`
 - `country`
 - `year`
 - `status`
 
 The map page uses a reduced filter set: `country`, `trip`, `list`, `year`, `status`.
+
+Both filter panels start collapsed when no URL filters are present, and expand automatically when the page loads with active filters.
 
 The old tag model and the old `q` omnibox search are gone and should not be reintroduced.
 
@@ -141,14 +145,14 @@ The old tag model and the old `q` omnibox search are gone and should not be rein
 - `src/_includes/filter-bar.njk` — shared typed filters (list page only; map has inline filters)
 - `src/_includes/entity-chips.njk` — shared entity chip rendering
 - `src/js/data.js` — shared client helpers and filter state
-- `src/js/list.js` — list filtering (sorted by date, newest first)
+- `src/js/list.js` — rooms page filtering (sorted by date, newest first)
 - `src/js/map.js` — map filtering and popup rendering
 - `src/js/trip.js` — featured trip route map
 
 ## Routes
 
 - `/` — home
-- `/list/` — typed room browser
+- `/rooms/` — typed room browser
 - `/map/` — map view
 - `/stats/` — charts and summary stats
 - `/trips/` — featured trip index

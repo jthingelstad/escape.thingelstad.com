@@ -7,8 +7,6 @@
   --color-page-alt: #171B22;
   --color-panel: #171B22;
   --color-panel-strong: #1F2430;
-  --color-panel-dark: #0E1116;
-  --color-panel-dark-muted: #171B22;
 
   --color-text: #E8ECF1;
   --color-text-soft: #AAB3C2;
@@ -17,22 +15,16 @@
 
   --color-line: rgba(170, 179, 194, 0.12);
   --color-line-strong: rgba(170, 179, 194, 0.22);
-  --color-line-dark: rgba(170, 179, 194, 0.12);
 
   --color-accent: #FFB703;
   --color-accent-hover: #F59E0B;
+  --color-accent-soft: #2A3140;
   --color-accent-secondary: #5AA9FF;
 
-  --color-rust: #FFB703;
-  --color-rust-soft: rgba(255, 183, 3, 0.12);
-  --color-forest: #FFB703;
-  --color-forest-soft: rgba(255, 183, 3, 0.12);
-  --color-slate: #5AA9FF;
-  --color-slate-soft: rgba(90, 169, 255, 0.12);
   --color-gold: #FFB703;
   --color-gold-soft: rgba(255, 183, 3, 0.12);
-  --color-rose: #5AA9FF;
-  --color-rose-soft: rgba(90, 169, 255, 0.12);
+  --color-purple: #A78BFA;
+  --color-purple-soft: rgba(167, 139, 250, 0.12);
 
   --color-success: #4CAF50;
   --color-success-soft: rgba(76, 175, 80, 0.15);
@@ -43,22 +35,19 @@
   --color-complete: #A78BFA;
   --color-complete-soft: rgba(167, 139, 250, 0.15);
 
-  --color-accent-soft: #2A3140;
-
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 10px 24px rgba(0, 0, 0, 0.25);
   --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.35);
 
+  --radius-xs: 4px;
   --radius-sm: 0.45rem;
   --radius-md: 0.9rem;
   --radius-lg: 1.3rem;
   --radius-xl: 1.8rem;
 
   --container-width: 1180px;
-  --reading-width: 760px;
   --page-padding: clamp(1rem, 2vw, 1.6rem);
 
-  --space-1: 0.3rem;
   --space-2: 0.55rem;
   --space-3: 0.8rem;
   --space-4: 1rem;

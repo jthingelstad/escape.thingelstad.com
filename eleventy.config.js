@@ -9,8 +9,8 @@ function featuredEntityUrl(type, entity) {
   return `/${type}/${encodeURIComponent(entity.slug)}/`;
 }
 
-function listFilterUrl(type, entity) {
-  return `/list/?${encodeURIComponent(type)}=${encodeURIComponent(entity.slug)}`;
+function roomsFilterUrl(type, entity) {
+  return `/rooms/?${encodeURIComponent(type)}=${encodeURIComponent(entity.slug)}`;
 }
 
 module.exports = function(eleventyConfig) {
@@ -104,15 +104,15 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("slugify", (value) => slugify(value));
 
   eleventyConfig.addFilter("entityUrl", (entity, type) => {
-    if (!entity || !type) return "/list/";
-    if (type === "theme") return listFilterUrl(type, entity);
+    if (!entity || !type) return "/rooms/";
+    if (type === "theme") return roomsFilterUrl(type, entity);
     if (type === "list") return featuredEntityUrl(type, entity);
-    return entity.featured ? featuredEntityUrl(type, entity) : listFilterUrl(type, entity);
+    return entity.featured ? featuredEntityUrl(type, entity) : roomsFilterUrl(type, entity);
   });
 
   eleventyConfig.addFilter("entityFilterUrl", (entity, type) => {
-    if (!entity || !type) return "/list/";
-    return listFilterUrl(type, entity);
+    if (!entity || !type) return "/rooms/";
+    return roomsFilterUrl(type, entity);
   });
 
   eleventyConfig.addFilter("entityChipClass", (entity, type) => {
