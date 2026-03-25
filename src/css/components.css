@@ -1093,12 +1093,68 @@ kbd {
   --pagefind-ui-font: var(--font-body);
 }
 
+.pagefind-ui__search-input {
+  background-color: var(--color-panel) !important;
+  color: var(--color-text) !important;
+}
+
+.pagefind-ui__search-input::placeholder {
+  color: var(--color-text-muted) !important;
+}
+
+.pagefind-ui__search-clear {
+  background-color: var(--color-panel) !important;
+  color: var(--color-text-muted) !important;
+}
+
 .pagefind-ui__result-link {
-  color: var(--color-accent);
+  color: var(--color-accent) !important;
 }
 
 .pagefind-ui__result-excerpt {
-  color: var(--color-text-soft);
+  color: var(--color-text-soft) !important;
+}
+
+.pagefind-ui__result-title,
+.pagefind-ui__result-nested {
+  color: var(--color-text) !important;
+}
+
+.pagefind-ui__message {
+  color: var(--color-text-soft) !important;
+}
+
+.pagefind-type-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 3px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.pagefind-type-badge--room {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.pagefind-type-badge--list {
+  background: var(--color-gold-soft);
+  color: var(--color-gold);
+}
+
+.pagefind-type-badge--player {
+  background: var(--color-purple-soft);
+  color: var(--color-purple);
+}
+
+.pagefind-type-badge--trip {
+  background: var(--color-scheduled-soft);
+  color: var(--color-scheduled);
 }
 
 @media (max-width: 720px) {
