@@ -20,7 +20,7 @@ permalink: /featured/
       </div>
       <div class="featured-entity-grid">
         {% for trip in catalog.featured.trips %}
-          <a href="{{ trip | entityUrl('trip') }}" class="feature-tile feature-tile-trip" data-tinylytics-event="featured.trip" data-tinylytics-event-value="{{ trip.name }}">
+          <a href="{{ trip | entityUrl('trip') }}" class="feature-tile feature-tile-trip" data-tinylytics-event="featured.view-trip" data-tinylytics-event-value="{{ trip.name }}">
             <div class="feature-tile-kicker">Trip</div>
             <h3>{{ trip.name }}</h3>
             <p>{{ trip.roomCount }} room{{ '' if trip.roomCount == 1 else 's' }}</p>
@@ -35,7 +35,7 @@ permalink: /featured/
       </div>
       <div class="featured-entity-grid">
         {% for player in catalog.featured.players %}
-          <a href="{{ player | entityUrl('player') }}" class="feature-tile feature-tile-player" data-tinylytics-event="featured.player" data-tinylytics-event-value="{{ player.name }}">
+          <a href="{{ player | entityUrl('player') }}" class="feature-tile feature-tile-player" data-tinylytics-event="featured.view-player" data-tinylytics-event-value="{{ player.name }}">
             <div class="feature-tile-kicker">Player</div>
             <h3>{{ player.name }}</h3>
             <p>{{ player.roomCount }} room{{ '' if player.roomCount == 1 else 's' }}</p>
