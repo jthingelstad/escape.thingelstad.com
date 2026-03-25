@@ -28,7 +28,7 @@ permalink: /room/{{ room.slug }}/
 {% endblock %}
 
 {% block content %}
-  <main class="container page-content room-detail-page" data-pagefind-body data-pagefind-meta="title:{{ room.game | safe }}{% if room.company %}, company:{{ room.company.name }}{% endif %}">
+  <main class="container page-content room-detail-page" data-pagefind-body data-pagefind-meta="title:{{ room.game | safe }}, type:room">
     <section class="room-hero">
       {% if room.photo %}
       <div class="room-hero-photo">
@@ -47,7 +47,7 @@ permalink: /room/{{ room.slug }}/
         {% endif %}
         <div class="room-hero-meta">
           <span class="room-hero-meta-item">
-            <span class="meta-icon">📅</span> {{ room.date | formatDate }}
+            <span class="meta-icon" data-pagefind-ignore>📅</span> {{ room.date | formatDate }}
           </span>
         </div>
 
@@ -63,7 +63,7 @@ permalink: /room/{{ room.slug }}/
           {% endif %}
           {% if room.timeLeft != null %}
             <span class="room-hero-time">
-              <span class="meta-icon">⏱</span> {{ room.timeLeft | formatTimeLeft }}
+              <span class="meta-icon" data-pagefind-ignore>⏱</span> {{ room.timeLeft | formatTimeLeft }}
             </span>
           {% endif %}
         </div>
@@ -117,7 +117,7 @@ permalink: /room/{{ room.slug }}/
     </section>
 
     {% if room.status !== "Scheduled" %}
-    <section class="room-stats-section">
+    <section class="room-stats-section" data-pagefind-ignore>
       <div class="section-header">
         <h2>How We Did</h2>
         <p>A quick structural read on the result, the time, and how this room sits in the rest of the history.</p>
@@ -190,7 +190,7 @@ permalink: /room/{{ room.slug }}/
     {% endif %}
 
     {% if room.experiences and room.experiences.length > 0 %}
-    <section class="room-ratings-section">
+    <section class="room-ratings-section" data-pagefind-ignore>
       <div class="section-header">
         <h2>Team Ratings</h2>
         <p>The qualitative side of the team log: scores, category notes, and favorite votes from Escaping Things.</p>
