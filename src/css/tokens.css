@@ -1,47 +1,53 @@
 :root {
-  --font-body: 'IBM Plex Sans', sans-serif;
-  --font-display: 'Newsreader', serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-display: 'Bungee', 'Anton', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 
-  --color-page: #f4efe5;
-  --color-page-alt: #ede5d7;
-  --color-panel: #fbf8f2;
-  --color-panel-strong: #f7f1e7;
-  --color-panel-dark: #20303b;
-  --color-panel-dark-muted: #2b3f4d;
+  --color-page: #0E1116;
+  --color-page-alt: #171B22;
+  --color-panel: #171B22;
+  --color-panel-strong: #1F2430;
+  --color-panel-dark: #0E1116;
+  --color-panel-dark-muted: #171B22;
 
-  --color-text: #28231d;
-  --color-text-soft: #5f594f;
-  --color-text-muted: #82796d;
-  --color-text-on-dark: #f8f3ec;
+  --color-text: #E8ECF1;
+  --color-text-soft: #AAB3C2;
+  --color-text-muted: #6B7280;
+  --color-text-on-dark: #E8ECF1;
 
-  --color-line: rgba(52, 44, 35, 0.14);
-  --color-line-strong: rgba(52, 44, 35, 0.22);
-  --color-line-dark: rgba(255, 255, 255, 0.18);
+  --color-line: rgba(170, 179, 194, 0.12);
+  --color-line-strong: rgba(170, 179, 194, 0.22);
+  --color-line-dark: rgba(170, 179, 194, 0.12);
 
-  --color-rust: #9b5134;
-  --color-rust-soft: #f0dfd3;
-  --color-forest: #2f5a47;
-  --color-forest-soft: #dfeadf;
-  --color-slate: #46606c;
-  --color-slate-soft: #dde7ec;
-  --color-gold: #98723b;
-  --color-gold-soft: #f1e6d2;
-  --color-rose: #8a4d55;
-  --color-rose-soft: #f3dfe2;
+  --color-accent: #FFB703;
+  --color-accent-hover: #F59E0B;
+  --color-accent-secondary: #5AA9FF;
 
-  --color-success: #2f6a50;
-  --color-success-soft: #dcebdd;
-  --color-danger: #8e463e;
-  --color-danger-soft: #f2dedd;
-  --color-scheduled: #425f7a;
-  --color-scheduled-soft: #dde6ef;
-  --color-complete: #665f70;
-  --color-complete-soft: #e5e0eb;
+  --color-rust: #FFB703;
+  --color-rust-soft: rgba(255, 183, 3, 0.12);
+  --color-forest: #FFB703;
+  --color-forest-soft: rgba(255, 183, 3, 0.12);
+  --color-slate: #5AA9FF;
+  --color-slate-soft: rgba(90, 169, 255, 0.12);
+  --color-gold: #FFB703;
+  --color-gold-soft: rgba(255, 183, 3, 0.12);
+  --color-rose: #5AA9FF;
+  --color-rose-soft: rgba(90, 169, 255, 0.12);
 
-  --shadow-sm: 0 1px 2px rgba(30, 23, 17, 0.06);
-  --shadow-md: 0 10px 24px rgba(30, 23, 17, 0.08);
-  --shadow-lg: 0 24px 48px rgba(30, 23, 17, 0.12);
+  --color-success: #4CAF50;
+  --color-success-soft: rgba(76, 175, 80, 0.15);
+  --color-danger: #EF4444;
+  --color-danger-soft: rgba(239, 68, 68, 0.15);
+  --color-scheduled: #5AA9FF;
+  --color-scheduled-soft: rgba(90, 169, 255, 0.15);
+  --color-complete: #A78BFA;
+  --color-complete-soft: rgba(167, 139, 250, 0.15);
+
+  --color-accent-soft: #2A3140;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 10px 24px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.35);
 
   --radius-sm: 0.45rem;
   --radius-md: 0.9rem;

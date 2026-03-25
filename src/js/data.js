@@ -52,11 +52,11 @@ export function featuredEntityUrl(type, entity) {
 }
 
 export function entityFilterUrl(type, entity) {
-  return `/list/?${encodeURIComponent(type)}=${encodeURIComponent(entity.slug)}`;
+  return `/rooms/?${encodeURIComponent(type)}=${encodeURIComponent(entity.slug)}`;
 }
 
 export function entityUrl(type, entity) {
-  if (!entity) return '/list/';
+  if (!entity) return '/rooms/';
   if (type === 'theme') return entityFilterUrl(type, entity);
   if (type === 'list') return featuredEntityUrl(type, entity);
   return entity.featured ? featuredEntityUrl(type, entity) : entityFilterUrl(type, entity);
@@ -92,6 +92,8 @@ export const FILTER_FIELDS = [
   { key: 'award', elementId: 'filter-award', label: 'Award' },
   { key: 'theme', elementId: 'filter-theme', label: 'Theme' },
   { key: 'country', elementId: 'filter-country', label: 'Country' },
+  { key: 'trip', elementId: 'filter-trip', label: 'Trip' },
+  { key: 'list', elementId: 'filter-list', label: 'List' },
   { key: 'year', elementId: 'filter-year', label: 'Year' },
   { key: 'status', elementId: 'filter-status', label: 'Status', emptyValue: 'all' }
 ];
@@ -103,7 +105,9 @@ function createDefaultFilters() {
     country: '',
     player: '',
     award: '',
-    theme: ''
+    theme: '',
+    trip: '',
+    list: ''
   };
 }
 
@@ -193,6 +197,8 @@ export function roomMatchesFilters(room, filters) {
   if (filters.player && !(room.players || []).some((player) => player.slug === filters.player)) return false;
   if (filters.award && !(room.awards || []).some((award) => award.slug === filters.award)) return false;
   if (filters.theme && !(room.themes || []).some((theme) => theme.slug === filters.theme)) return false;
+  if (filters.trip && !(room.trips || []).some((trip) => trip.slug === filters.trip)) return false;
+  if (filters.list && !(room.lists || []).some((list) => list.slug === filters.list)) return false;
   if (filters.country && room.location?.country !== filters.country) return false;
   if (filters.year && (!room.date || room.date.substring(0, 4) !== filters.year)) return false;
   if (filters.status && filters.status !== 'all' && room.status !== filters.status) return false;

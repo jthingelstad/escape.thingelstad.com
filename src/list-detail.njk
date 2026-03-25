@@ -28,9 +28,6 @@ permalink: /list/{{ list.slug }}/
         <div class="stat-item"><span class="stat-number">{{ list.trip.name }}</span><div class="stat-label">Trip</div></div>
         {% endif %}
       </div>
-      <div class="section-link-row">
-        <a href="/list/?list={{ list.slug | queryValue }}" class="room-link" data-tinylytics-event="list-page.view-filter" data-tinylytics-event-value="{{ list.name }}">Open Filtered Room View &rarr;</a>
-      </div>
     </section>
 
     {% if list.player or list.trip %}

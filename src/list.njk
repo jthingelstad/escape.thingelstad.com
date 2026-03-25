@@ -1,7 +1,7 @@
 ---
 title: All Rooms
 description: Browse and filter all escape rooms.
-permalink: /list/
+permalink: /rooms/
 ---
 {% extends "base.njk" %}
 
@@ -15,11 +15,16 @@ permalink: /list/
       </div>
     </section>
 
-    <section class="filter-bar">
-      <div class="filter-row">
-        {% include "filter-bar.njk" %}
+    <section class="filter-bar collapsed" id="filter-panel">
+      <button class="filter-bar-toggle" id="filter-toggle" type="button">
+        <span class="toggle-arrow">&#9660;</span> Filters
+      </button>
+      <div class="filter-bar-body" id="filter-bar-body">
+        <div class="filter-row">
+          {% include "filter-bar.njk" %}
+        </div>
+        <div class="active-filters" id="active-filters"></div>
       </div>
-      <div class="active-filters" id="active-filters"></div>
     </section>
 
     <section>

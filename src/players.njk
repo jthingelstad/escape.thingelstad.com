@@ -39,7 +39,7 @@ permalink: /players/
       </div>
       <div class="featured-entity-grid">
         {% for player in nonFeaturedPlayers %}
-          <a href="/list/?player={{ player.slug | queryValue }}" class="feature-tile feature-tile-player" data-tinylytics-event="players.view-roster-player" data-tinylytics-event-value="{{ player.name }}">
+          <a href="/rooms/?player={{ player.slug | queryValue }}" class="feature-tile feature-tile-player" data-tinylytics-event="players.view-roster-player" data-tinylytics-event-value="{{ player.name }}">
             <div class="feature-tile-kicker">Player</div>
             <h3>{{ player.name }}</h3>
             <p>{{ player.roomCount }} room{{ '' if player.roomCount == 1 else 's' }}</p>

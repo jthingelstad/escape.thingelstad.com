@@ -7,9 +7,9 @@
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">&#9776;</button>
     <ul class="nav-links" id="site-nav">
       {% if page.url != "/" %}<li><a href="/" data-tinylytics-event="nav.home">Home</a></li>{% endif %}
-      <li><a href="/list/"{% if page.url == "/list/" %} class="active"{% endif %} data-tinylytics-event="nav.rooms">Rooms</a></li>
+      <li><a href="/rooms/"{% if page.url == "/rooms/" %} class="active"{% endif %} data-tinylytics-event="nav.rooms">Rooms</a></li>
       <li><a href="/map/"{% if page.url == "/map/" %} class="active"{% endif %} data-tinylytics-event="nav.map">Map</a></li>
-      <li><a href="/lists/"{% if page.url == "/lists/" or (page.url.startsWith("/list/") and page.url != "/list/") %} class="active"{% endif %} data-tinylytics-event="nav.lists">Lists</a></li>
+      <li><a href="/lists/"{% if page.url == "/lists/" or page.url.startsWith("/list/") %} class="active"{% endif %} data-tinylytics-event="nav.lists">Lists</a></li>
       <li><a href="/trips/"{% if page.url == "/trips/" or page.url.startsWith("/trip/") %} class="active"{% endif %} data-tinylytics-event="nav.trips">Trips</a></li>
       <li><a href="/stats/"{% if page.url == "/stats/" %} class="active"{% endif %} data-tinylytics-event="nav.stats">Stats</a></li>
       <li><a href="/players/"{% if page.url == "/players/" or page.url.startsWith("/player/") %} class="active"{% endif %} data-tinylytics-event="nav.players">Players</a></li>

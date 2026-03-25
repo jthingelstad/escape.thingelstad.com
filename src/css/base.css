@@ -12,8 +12,7 @@ body {
   font-family: var(--font-body);
   color: var(--color-text);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.35), transparent 18rem),
-    radial-gradient(circle at top left, rgba(155, 81, 52, 0.08), transparent 34rem),
+    radial-gradient(circle at top left, rgba(255, 183, 3, 0.06), transparent 34rem),
     linear-gradient(180deg, var(--color-page), var(--color-page-alt));
   line-height: 1.65;
 }
@@ -23,10 +22,10 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.38;
+  opacity: 0.25;
   background-image:
-    linear-gradient(rgba(155, 81, 52, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(155, 81, 52, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(255, 183, 3, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 183, 3, 0.02) 1px, transparent 1px);
   background-size: 100% 32px, 32px 100%;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.18), transparent 70%);
 }
@@ -47,13 +46,13 @@ img {
 
 a {
   color: inherit;
-  text-decoration-color: rgba(155, 81, 52, 0.45);
+  text-decoration-color: rgba(255, 183, 3, 0.4);
   text-underline-offset: 0.18em;
   transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
 }
 
 a:hover {
-  color: var(--color-rust);
+  color: var(--color-accent);
   text-decoration-color: currentColor;
 }
 
@@ -70,29 +69,38 @@ button {
 
 h1,
 h2,
-h3,
+h3 {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
 h4,
 h5,
 h6 {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  line-height: 1.2;
   text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
 }
 
 h2 {
-  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-size: clamp(1.7rem, 3.5vw, 2.6rem);
 }
 
 h3 {
-  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
 }
 
 p {
@@ -107,11 +115,11 @@ ol {
 }
 
 ::selection {
-  background: rgba(155, 81, 52, 0.18);
+  background: rgba(255, 183, 3, 0.25);
 }
 
 :focus-visible {
-  outline: 2px solid rgba(66, 95, 122, 0.5);
+  outline: 2px solid rgba(90, 169, 255, 0.6);
   outline-offset: 3px;
 }
 

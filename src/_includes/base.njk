@@ -9,7 +9,7 @@
   <link rel="alternate" type="application/atom+xml" title="Escaping Things" href="/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="{{ '/css/tokens.css' | cacheBust }}">
   <link rel="stylesheet" href="{{ '/css/base.css' | cacheBust }}">
   <link rel="stylesheet" href="{{ '/css/layout.css' | cacheBust }}">
@@ -110,7 +110,7 @@
         if (gPending) {
           gPending = false;
           clearTimeout(gTimer);
-          const routes = { h: '/', r: '/list/', m: '/map/', l: '/lists/', t: '/trips/', s: '/stats/', p: '/players/' };
+          const routes = { h: '/', r: '/rooms/', m: '/map/', l: '/lists/', t: '/trips/', s: '/stats/', p: '/players/' };
           if (routes[e.key]) { e.preventDefault(); window.location.href = routes[e.key]; }
           return;
         }

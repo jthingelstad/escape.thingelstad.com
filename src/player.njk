@@ -25,7 +25,7 @@ permalink: /player/{{ player.slug }}/
         <div class="stat-item"><span class="stat-number">{{ player.winRate }}%</span><div class="stat-label">Win Rate</div></div>
       </div>
       <div class="section-link-row">
-        <a href="/list/?player={{ player.slug | queryValue }}" class="room-link" data-tinylytics-event="player.view-filter" data-tinylytics-event-value="{{ player.name }}">Open Filtered List &rarr;</a>
+        <a href="/rooms/?player={{ player.slug | queryValue }}" class="room-link" data-tinylytics-event="player.view-filter" data-tinylytics-event-value="{{ player.name }}">Open Filtered List &rarr;</a>
       </div>
     </section>
 

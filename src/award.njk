@@ -24,7 +24,7 @@ permalink: /award/{{ award.slug }}/
         <div class="stat-item"><span class="stat-number">{{ award.countries.length }}</span><div class="stat-label">Countries</div></div>
       </div>
       <div class="section-link-row">
-        <a href="/list/?award={{ award.slug | queryValue }}" class="room-link" data-tinylytics-event="award.view-filter" data-tinylytics-event-value="{{ award.name }}">Open Filtered List &rarr;</a>
+        <a href="/rooms/?award={{ award.slug | queryValue }}" class="room-link" data-tinylytics-event="award.view-filter" data-tinylytics-event-value="{{ award.name }}">Open Filtered List &rarr;</a>
       </div>
     </section>
 

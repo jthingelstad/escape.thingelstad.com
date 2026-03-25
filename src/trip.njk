@@ -31,9 +31,6 @@ permalink: /trip/{{ trip.slug }}/
       {% if trip.firstDate and trip.lastDate %}
       <p class="featured-detail-copy">{{ trip.firstDate | formatDate }} to {{ trip.lastDate | formatDate }}</p>
       {% endif %}
-      <div class="section-link-row">
-        <a href="/list/?trip={{ trip.slug | queryValue }}" class="room-link" data-tinylytics-event="trip.view-filter" data-tinylytics-event-value="{{ trip.name }}">Open Filtered List &rarr;</a>
-      </div>
     </section>
 
     {% if trip.routeStops.length > 0 %}

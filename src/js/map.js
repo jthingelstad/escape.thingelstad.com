@@ -50,15 +50,15 @@ function initMap() {
 function getMarkerColor(room) {
   switch (room.status) {
     case 'Escaped':
-      return '#48d989';
+      return '#4CAF50';
     case 'Try again':
-      return '#f06060';
+      return '#EF4444';
     case 'Completed':
-      return '#9a97a8';
+      return '#6B7280';
     case 'Scheduled':
-      return '#5a8bff';
+      return '#5AA9FF';
     default:
-      return '#9a97a8';
+      return '#6B7280';
   }
 }
 
@@ -72,7 +72,7 @@ function createMarkerIcon(room) {
         fill="${color}" fill-opacity="${isPlanned ? 0.6 : 1}"
         stroke="${isPlanned ? color : 'none'}" stroke-width="${isPlanned ? 2 : 0}"
         stroke-dasharray="${isPlanned ? '4,3' : 'none'}"/>
-      <circle cx="14" cy="14" r="6" fill="${isPlanned ? 'transparent' : '#0f0f1a'}"/>
+      <circle cx="14" cy="14" r="6" fill="${isPlanned ? 'transparent' : '#0E1116'}"/>
     </svg>`;
 
   return L.divIcon({
@@ -177,7 +177,20 @@ function updateMarkers() {
 }
 
 function applyUrlFilters() {
-  applyFiltersToControls(getFilterParams());
+  const filters = getFilterParams();
+  applyFiltersToControls(filters);
+
+  const toggleBtn = document.getElementById('filter-toggle');
+  const panel = document.getElementById('filter-panel');
+
+  if (hasActiveFilters(filters)) {
+    panel.classList.remove('collapsed');
+    toggleBtn.classList.add('open');
+  } else {
+    panel.classList.add('collapsed');
+    toggleBtn.classList.remove('open');
+  }
+
   updateMarkers();
 }
 

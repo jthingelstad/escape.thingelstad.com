@@ -1,16 +1,16 @@
 import { initNav } from './data.js';
 
 const chartColors = {
-  gold: '#e8924f',
-  teal: '#43e6d0',
-  green: '#48d989',
-  red: '#f06060',
-  purple: '#9b7bff',
-  blue: '#5a8bff',
-  cyan: '#2de2ff',
-  gray: '#9a97a8',
-  text: '#9a97a8',
-  grid: 'rgba(255, 255, 255, 0.05)'
+  gold: '#FFB703',
+  teal: '#5AA9FF',
+  green: '#4CAF50',
+  red: '#EF4444',
+  purple: '#A78BFA',
+  blue: '#5AA9FF',
+  cyan: '#5AA9FF',
+  gray: '#6B7280',
+  text: '#AAB3C2',
+  grid: 'rgba(170, 179, 194, 0.08)'
 };
 
 const defaultChartOptions = {
@@ -20,17 +20,17 @@ const defaultChartOptions = {
     legend: {
       labels: {
         color: chartColors.text,
-        font: { family: 'IBM Plex Sans' }
+        font: { family: 'Inter, system-ui, sans-serif' }
       }
     }
   },
   scales: {
     x: {
-      ticks: { color: chartColors.text, font: { family: 'IBM Plex Sans' } },
+      ticks: { color: chartColors.text, font: { family: 'Inter, system-ui, sans-serif' } },
       grid: { color: chartColors.grid }
     },
     y: {
-      ticks: { color: chartColors.text, font: { family: 'IBM Plex Sans' } },
+      ticks: { color: chartColors.text, font: { family: 'Inter, system-ui, sans-serif' } },
       grid: { color: chartColors.grid }
     }
   }

@@ -24,7 +24,20 @@ function init() {
 }
 
 function applyUrlFilters() {
-  applyFiltersToControls(getFilterParams());
+  const filters = getFilterParams();
+  applyFiltersToControls(filters);
+
+  const panel = document.getElementById('filter-panel');
+  const toggleBtn = document.getElementById('filter-toggle');
+
+  if (hasActiveFilters(filters)) {
+    panel.classList.remove('collapsed');
+    toggleBtn.classList.add('open');
+  } else {
+    panel.classList.add('collapsed');
+    toggleBtn.classList.remove('open');
+  }
+
   updateResults();
 }
 
@@ -113,6 +126,13 @@ function updateActiveFilterPills(filters) {
 }
 
 function bindEvents() {
+  const toggleBtn = document.getElementById('filter-toggle');
+  const panel = document.getElementById('filter-panel');
+  toggleBtn.addEventListener('click', () => {
+    panel.classList.toggle('collapsed');
+    toggleBtn.classList.toggle('open');
+  });
+
   bindFilterControls(updateResults);
 }
 
