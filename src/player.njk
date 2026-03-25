@@ -12,7 +12,7 @@ permalink: /player/{{ player.slug }}/
 {% block metaDescription %}Featured player page for {{ player.name }} with room history, recent plays, and notes.{% endblock %}
 
 {% block content %}
-  <main class="container page-content featured-detail-page" data-pagefind-body>
+  <main class="container page-content featured-detail-page" data-pagefind-body data-pagefind-meta="type:player">
     <section class="featured-detail-hero">
       <h1>{{ player.name }}</h1>
       {% if player.bio %}
@@ -31,7 +31,7 @@ permalink: /player/{{ player.slug }}/
     {% if player.lists.length > 0 %}
     <section>
       <div class="section-header">
-        <h2>Lists</h2>
+        <h2 data-pagefind-ignore>Lists</h2>
       </div>
       <div class="list-summary-grid">
         {% for list in player.lists %}
@@ -48,7 +48,7 @@ permalink: /player/{{ player.slug }}/
     {% if player.comments.length > 0 %}
     <section class="featured-quotes-section">
       <div class="section-header">
-        <h2>Recent Notes</h2>
+        <h2 data-pagefind-ignore>Recent Notes</h2>
       </div>
       <div class="featured-quote-grid">
         {% for experience in player.comments %}
@@ -67,7 +67,7 @@ permalink: /player/{{ player.slug }}/
 
     <section>
       <div class="section-header">
-        <h2>All Rooms</h2>
+        <h2 data-pagefind-ignore>All Rooms</h2>
       </div>
       {% if player.rooms.length > 0 %}
       <div class="room-grid">
