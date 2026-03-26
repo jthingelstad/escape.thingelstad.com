@@ -46,6 +46,9 @@
     <div class="room-card-bottom">
       <h3 class="room-card-room">{{ room.game }}</h3>
       <div class="room-card-company">{{ companyName }}</div>
+      {% if room.awards and room.awards.length %}
+      <div class="room-card-awards">🏆 {{ room.awards.length }}</div>
+      {% endif %}
       <div class="room-card-bottom-right">
         {% if locationPrimary %}
         <div class="room-card-location-primary">{{ locationPrimary }}</div>

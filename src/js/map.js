@@ -122,6 +122,7 @@ function buildPopup(room) {
           <div class="room-card-bottom">
             <h3 class="room-card-room">${gameName}</h3>
             <div class="room-card-company">${companyName}</div>
+            ${room.awards && room.awards.length ? `<div class="room-card-awards">🏆 ${room.awards.length}</div>` : ''}
             <div class="room-card-bottom-right">
               ${locationPrimary ? `<div class="room-card-location-primary">${escapeHtml(locationPrimary)}</div>` : ''}
               ${locationSecondary ? `<div class="room-card-location-secondary">${escapeHtml(locationSecondary)}</div>` : ''}
