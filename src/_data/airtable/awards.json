@@ -1,6 +1,6 @@
 {
   "table": "Awards",
-  "syncedAt": "2026-03-26T22:07:23.537710+00:00",
+  "syncedAt": "2026-03-26T22:33:07.504625+00:00",
   "count": 34,
   "records": [
     {
@@ -16,7 +16,8 @@
           "rec4zecfSJ1FznQMB",
           "recrQ7mSj8HrOoZJS",
           "recjFTVzz57eYe9IE",
-          "reciuo9m2OZxXl4JT"
+          "reciuo9m2OZxXl4JT",
+          "recqOzcN7BNq8EomV"
         ],
         "Game (from Rooms)": [
           "Magnifico",
@@ -26,9 +27,10 @@
           "The Alchemist",
           "Zoltar Speaks",
           "The Taxidermist",
-          "Jurassic Escape Room"
+          "Jurassic Escape Room",
+          "Londium"
         ],
-        "Room Count": 8,
+        "Room Count": 9,
         "Award ID": 10,
         "Organization": "TERPECA",
         "Award Link": "https://terpeca.com/2025/",
@@ -420,7 +422,8 @@
           "rec0tsuiSuEyxaXMX",
           "recjFTVzz57eYe9IE",
           "recWpSyu5BjABRk9T",
-          "reciuo9m2OZxXl4JT"
+          "reciuo9m2OZxXl4JT",
+          "recqOzcN7BNq8EomV"
         ],
         "Game (from Rooms)": [
           "Magnifico",
@@ -431,9 +434,10 @@
           "Revolt At The Lock",
           "The Taxidermist",
           "The Brewery",
-          "Jurassic Escape Room"
+          "Jurassic Escape Room",
+          "Londium"
         ],
-        "Room Count": 9,
+        "Room Count": 10,
         "Award ID": 13,
         "Organization": "Best of Morty",
         "Award Link": "https://morty.app/blog/best-of-morty-2025",

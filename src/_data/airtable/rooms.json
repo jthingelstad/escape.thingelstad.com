@@ -1,6 +1,6 @@
 {
   "table": "Rooms",
-  "syncedAt": "2026-03-26T22:07:23.538997+00:00",
+  "syncedAt": "2026-03-26T22:33:07.506394+00:00",
   "count": 101,
   "records": [
     {
@@ -119,7 +119,7 @@
           "recQvXqN7EAfXELbf"
         ],
         "Created at": "2026-02-27T01:32:06.000Z",
-        "Modified at": "2026-03-25T09:10:27.000Z",
+        "Modified at": "2026-03-26T22:11:21.000Z",
         "Trips": [
           "recJqpVCHFrsjb8iR"
         ],
@@ -149,6 +149,7 @@
         "Experience Count": 3,
         "Rating": 3,
         "Room ID": 96,
+        "Synopsis": "Will Lock Academy, detective school in Paris, become THE new spot for the most dangerous criminals?!  It seems so: its founder, the great Professor Lock, has decided to sell his academy to his worst enemy, the criminal Jim Key! He is to the Professor Lock what Moriarty is to Sherlock Holmes: a brilliant adversary with diabolical plans!  For the students, the hour for a revolt at Lock Academy has rung! Dear adventurous detectives, your mission will be to discover what this dangerous sale is hiding for the sake of the world and prevent it from happening.  In 60 minutes, this investigation worthy of Back to the Future, will transport you through different ages between retro 70s and the future, with incredible special effects! With your team of 2 players minimum and 6 players maximum, embark on a unique mind-blowing adventure!",
         "Player Count": 4,
         "Award Count": 10
       }
@@ -2919,7 +2920,7 @@
           "recPbSLgB107Dhlex"
         ],
         "Created at": "2026-02-27T01:42:57.000Z",
-        "Modified at": "2026-03-25T22:30:18.000Z",
+        "Modified at": "2026-03-26T22:10:51.000Z",
         "Trips": [
           "recJqpVCHFrsjb8iR"
         ],
@@ -2948,6 +2949,7 @@
         "Experience Count": 2,
         "Rating": 5,
         "Room ID": 99,
+        "Synopsis": "The Brewery – A High-Tech Escape Room (In Collaboration with Estrella Damm) You’ve been invited to an exclusive beer tasting… but nothing is as it seems. Josep, the master brewer, has a secret mission for you. Behind the rustic barrels and frothy pints lies a high-tech puzzle only the cleverest can solve. Will you uncover the truth before time runs out?",
         "Player Count": 4,
         "Award Count": 10
       }
@@ -4538,13 +4540,14 @@
           }
         ],
         "Created at": "2026-02-27T01:44:57.000Z",
-        "Modified at": "2026-03-26T22:04:43.000Z",
+        "Modified at": "2026-03-26T22:10:27.000Z",
         "Trips": [
           "recJqpVCHFrsjb8iR"
         ],
         "Themes": [
           "rec28X9ZKbOekhRrV",
-          "reccog3cu0URr6wSD"
+          "reccog3cu0URr6wSD",
+          "recHb9JJzkH67Hgbq"
         ],
         "Awards": [
           "rec0QAiBlfFDZlwGY",
@@ -5205,15 +5208,25 @@
         ],
         "Morty URL": "https://morty.app/attraction/64482/",
         "Created at": "2026-02-27T01:48:55.000Z",
-        "Modified at": "2026-03-25T08:38:26.000Z",
+        "Modified at": "2026-03-26T22:09:41.000Z",
         "Trips": [
           "recJqpVCHFrsjb8iR"
         ],
+        "Awards": [
+          "rec0QAiBlfFDZlwGY",
+          "recczHySrIzwTpEYf"
+        ],
+        "Players": [
+          "recQu0PsrO1tED4Zq",
+          "recfd6DZt87SxQurn",
+          "recGR0rXJvcz9ebBN",
+          "reclaK3d1iBH5HH4o"
+        ],
         "Experience Count": 0,
         "Room ID": 101,
-        "Synopsis": "IMMERSE YOURSELF IN THE STREETS OF LONDIUM\n\nWill they be able to know what happens in Londium?\n\nWill they have the cunning to help save the city?\n\nWill they withstand the pressure of the streets of Londium?",
-        "Player Count": 0,
-        "Award Count": 0
+        "Synopsis": "Enter Londium! Test your wits and teamwork skills. Will you be able to solve the mystery? Will they be able to find out what's going on in Londium? Will they have the cunning to help save the city? Can they withstand the pressure of the streets of Londium? Come play with your group of friends and enjoy the experience of solving the mystery of Londium.",
+        "Player Count": 4,
+        "Award Count": 2
       }
     },
     {
@@ -5422,7 +5435,7 @@
         ],
         "Order": 2,
         "Created at": "2026-02-27T01:29:48.000Z",
-        "Modified at": "2026-03-25T09:04:57.000Z",
+        "Modified at": "2026-03-26T22:11:46.000Z",
         "Trips": [
           "recJqpVCHFrsjb8iR"
         ],
@@ -5444,6 +5457,7 @@
         "Experience Count": 1,
         "Rating": 4,
         "Room ID": 95,
+        "Synopsis": "There are rumors that in a shady antique shop there is a magical arcade machine called Zoltar Speaks. This machine was enchanted many centuries ago by a market merchant, Zoltar, and it has been waiting for centuries for your help, the chosen ones. Can you avoid the antique dealer and unravel the secrets of the antique shop to open the door to the 15th century? In a world of poverty and oppressed market traders, an important mission awaits! With the right strategy, you can outrun the Askari and defeat the greedy Sultan…",
         "Player Count": 3,
         "Award Count": 2
       }

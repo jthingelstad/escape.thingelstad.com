@@ -1,6 +1,6 @@
 {
   "table": "Themes",
-  "syncedAt": "2026-03-26T22:07:23.536443+00:00",
+  "syncedAt": "2026-03-26T22:33:07.502964+00:00",
   "count": 31,
   "records": [
     {
@@ -143,15 +143,17 @@
           "recrQ7mSj8HrOoZJS",
           "recHh5GHLbeLSs808",
           "recrCIDLym8KGALiH",
-          "recjFTVzz57eYe9IE"
+          "recjFTVzz57eYe9IE",
+          "reciuo9m2OZxXl4JT"
         ],
         "Game (from Rooms)": [
           "Zoltar Speaks",
           "Magnifico",
           "Galactic Mission",
-          "The Taxidermist"
+          "The Taxidermist",
+          "Jurassic Escape Room"
         ],
-        "Room Count": 4,
+        "Room Count": 5,
         "Theme ID": 21,
         "Note": "Room features live actors as part of the room. "
       }
