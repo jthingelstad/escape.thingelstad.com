@@ -1,6 +1,6 @@
 {
   "table": "Awards",
-  "syncedAt": "2026-03-25T22:41:01.316639+00:00",
+  "syncedAt": "2026-03-26T22:07:23.537710+00:00",
   "count": 34,
   "records": [
     {
@@ -15,7 +15,8 @@
           "reca6bIeAIt6OxCx3",
           "rec4zecfSJ1FznQMB",
           "recrQ7mSj8HrOoZJS",
-          "recjFTVzz57eYe9IE"
+          "recjFTVzz57eYe9IE",
+          "reciuo9m2OZxXl4JT"
         ],
         "Game (from Rooms)": [
           "Magnifico",
@@ -24,9 +25,10 @@
           "Botanist Manor",
           "The Alchemist",
           "Zoltar Speaks",
-          "The Taxidermist"
+          "The Taxidermist",
+          "Jurassic Escape Room"
         ],
-        "Room Count": 7,
+        "Room Count": 8,
         "Award ID": 10,
         "Organization": "TERPECA",
         "Award Link": "https://terpeca.com/2025/",
@@ -225,16 +227,18 @@
           "rechGJ5U1gn1Ajxrt",
           "receASqfgMtmqSEHZ",
           "reca6bIeAIt6OxCx3",
-          "rec4zecfSJ1FznQMB"
+          "rec4zecfSJ1FznQMB",
+          "reciuo9m2OZxXl4JT"
         ],
         "Game (from Rooms)": [
           "Magnifico",
           "Birth Machine",
           "Molly's Game",
           "Botanist Manor",
-          "The Alchemist"
+          "The Alchemist",
+          "Jurassic Escape Room"
         ],
-        "Room Count": 5,
+        "Room Count": 6,
         "Award ID": 9,
         "Organization": "TERPECA",
         "Award Link": "https://terpeca.com/2024/",
@@ -415,7 +419,8 @@
           "rec4zecfSJ1FznQMB",
           "rec0tsuiSuEyxaXMX",
           "recjFTVzz57eYe9IE",
-          "recWpSyu5BjABRk9T"
+          "recWpSyu5BjABRk9T",
+          "reciuo9m2OZxXl4JT"
         ],
         "Game (from Rooms)": [
           "Magnifico",
@@ -425,9 +430,10 @@
           "The Alchemist",
           "Revolt At The Lock",
           "The Taxidermist",
-          "The Brewery"
+          "The Brewery",
+          "Jurassic Escape Room"
         ],
-        "Room Count": 8,
+        "Room Count": 9,
         "Award ID": 13,
         "Organization": "Best of Morty",
         "Award Link": "https://morty.app/blog/best-of-morty-2025",

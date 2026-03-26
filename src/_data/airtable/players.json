@@ -1,6 +1,6 @@
 {
   "table": "Players",
-  "syncedAt": "2026-03-25T22:41:01.315246+00:00",
+  "syncedAt": "2026-03-26T22:07:23.536966+00:00",
   "count": 39,
   "records": [
     {
@@ -267,7 +267,8 @@
           "rec0tsuiSuEyxaXMX",
           "recrCIDLym8KGALiH",
           "recjFTVzz57eYe9IE",
-          "recWpSyu5BjABRk9T"
+          "recWpSyu5BjABRk9T",
+          "reciuo9m2OZxXl4JT"
         ],
         "Game (from Rooms)": [
           "Magnifico",
@@ -354,9 +355,10 @@
           "Revolt At The Lock",
           "Galactic Mission",
           "The Taxidermist",
-          "The Brewery"
+          "The Brewery",
+          "Jurassic Escape Room"
         ],
-        "Room Count": 85,
+        "Room Count": 86,
         "Featured": true,
         "Experiences": [
           "recJcztWTdgd7BzmS"
@@ -521,7 +523,8 @@
           "rec0tsuiSuEyxaXMX",
           "recrCIDLym8KGALiH",
           "recjFTVzz57eYe9IE",
-          "recWpSyu5BjABRk9T"
+          "recWpSyu5BjABRk9T",
+          "reciuo9m2OZxXl4JT"
         ],
         "Game (from Rooms)": [
           "Lost Island of the Voodoo Queen",
@@ -617,9 +620,10 @@
           "Revolt At The Lock",
           "Galactic Mission",
           "The Taxidermist",
-          "The Brewery"
+          "The Brewery",
+          "Jurassic Escape Room"
         ],
-        "Room Count": 94,
+        "Room Count": 95,
         "Featured": true,
         "Experiences": [
           "recQxjgHECuJ2zhHL",
@@ -853,7 +857,8 @@
           "rec0tsuiSuEyxaXMX",
           "recrCIDLym8KGALiH",
           "recjFTVzz57eYe9IE",
-          "recWpSyu5BjABRk9T"
+          "recWpSyu5BjABRk9T",
+          "reciuo9m2OZxXl4JT"
         ],
         "Game (from Rooms)": [
           "Screaming Metal",
@@ -947,9 +952,10 @@
           "Revolt At The Lock",
           "Galactic Mission",
           "The Taxidermist",
-          "The Brewery"
+          "The Brewery",
+          "Jurassic Escape Room"
         ],
-        "Room Count": 92,
+        "Room Count": 93,
         "Featured": true,
         "Experiences": [
           "recJaH5HGmhCaXSbz",
@@ -1158,9 +1164,14 @@
         "Featured": true,
         "Experiences": [
           "recQvXqN7EAfXELbf",
-          "recPbSLgB107Dhlex"
+          "recPbSLgB107Dhlex",
+          "rec7RS9Y0hrLz73Qy",
+          "rechbgYucEiCToJTW",
+          "recOss0We5EEjnE0l",
+          "rec5DVEgENWaLZXgS",
+          "recIO1aoSc8Pxm4yw"
         ],
-        "Experience Count": 2,
+        "Experience Count": 7,
         "Player ID": 4,
         "Bio": "Mazie is the out-of-the-box thinker in Escaping Things."
       }
