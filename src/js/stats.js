@@ -305,23 +305,23 @@ function renderAwardChart(data) {
   });
 }
 
-async function renderStateChoropleth(stateCounts) {
+async function renderChoroplethMap({ counts, nameMap, topoUrl, objectKey, canvasId, projection, color }) {
   const lookup = {};
-  stateCounts.forEach(({ label, count }) => {
-    lookup[label] = count;
+  counts.forEach(({ label, count }) => {
+    lookup[nameMap?.[label] || label] = count;
   });
 
-  const res = await fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json');
+  const res = await fetch(topoUrl);
   const topology = await res.json();
-  const states = topojson.feature(topology, topology.objects.states).features;
+  const features = topojson.feature(topology, topology.objects[objectKey]).features;
 
-  new Chart(document.getElementById('chart-state-choropleth'), {
+  new Chart(document.getElementById(canvasId), {
     type: 'choropleth',
     data: {
-      labels: states.map((d) => d.properties.name),
+      labels: features.map((d) => d.properties.name),
       datasets: [{
         label: 'Rooms',
-        data: states.map((d) => ({
+        data: features.map((d) => ({
           feature: d,
           value: lookup[d.properties.name] || 0
         }))
@@ -347,14 +347,14 @@ async function renderStateChoropleth(stateCounts) {
       scales: {
         projection: {
           axis: 'x',
-          projection: 'albersUsa'
+          projection
         },
         color: {
           axis: 'x',
           interpolate: (value) => {
             if (value === 0) return 'rgba(170, 179, 194, 0.08)';
             const alpha = 0.3 + value * 0.7;
-            return `rgba(90, 169, 255, ${alpha})`;
+            return `rgba(${color}, ${alpha})`;
           },
           legend: {
             display: false
@@ -365,67 +365,26 @@ async function renderStateChoropleth(stateCounts) {
   });
 }
 
-async function renderChoropleth(countryCounts) {
-  const nameMap = {
-    'United States': 'United States of America'
-  };
-
-  const lookup = {};
-  countryCounts.forEach(({ label, count }) => {
-    lookup[nameMap[label] || label] = count;
+function renderStateChoropleth(stateCounts) {
+  return renderChoroplethMap({
+    counts: stateCounts,
+    topoUrl: 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json',
+    objectKey: 'states',
+    canvasId: 'chart-state-choropleth',
+    projection: 'albersUsa',
+    color: '90, 169, 255'
   });
+}
 
-  const res = await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
-  const topology = await res.json();
-  const countries = topojson.feature(topology, topology.objects.countries).features;
-
-  new Chart(document.getElementById('chart-choropleth'), {
-    type: 'choropleth',
-    data: {
-      labels: countries.map((d) => d.properties.name),
-      datasets: [{
-        label: 'Rooms',
-        data: countries.map((d) => ({
-          feature: d,
-          value: lookup[d.properties.name] || 0
-        }))
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      showOutline: true,
-      showGraticule: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: (ctx) => {
-              const name = ctx.raw.feature?.properties?.name || ctx.label;
-              const value = ctx.raw.value;
-              return value > 0 ? `${name}: ${value} room${value === 1 ? '' : 's'}` : name;
-            }
-          }
-        }
-      },
-      scales: {
-        projection: {
-          axis: 'x',
-          projection: 'equalEarth'
-        },
-        color: {
-          axis: 'x',
-          interpolate: (value) => {
-            if (value === 0) return 'rgba(170, 179, 194, 0.08)';
-            const alpha = 0.3 + value * 0.7;
-            return `rgba(255, 183, 3, ${alpha})`;
-          },
-          legend: {
-            display: false
-          }
-        }
-      }
-    }
+function renderChoropleth(countryCounts) {
+  return renderChoroplethMap({
+    counts: countryCounts,
+    nameMap: { 'United States': 'United States of America' },
+    topoUrl: 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json',
+    objectKey: 'countries',
+    canvasId: 'chart-choropleth',
+    projection: 'equalEarth',
+    color: '255, 183, 3'
   });
 }
 

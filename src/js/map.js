@@ -108,7 +108,7 @@ function buildPopup(room) {
       <div class="room-card${room.photo ? ' room-card-has-photo' : ' room-card-no-photo'}" data-room-id="${room.id}">
         <a href="${detailUrl}" class="room-card-link" data-tinylytics-event="map.view-room" data-tinylytics-event-value="${gameName}">
           ${room.photo
-            ? `<div class="room-card-thumb"><img src="/images/rooms/${escapeHtml(room.photo)}" alt=""></div>`
+            ? `<div class="room-card-thumb"><img src="/images/rooms/${escapeHtml(room.photo)}" alt="${gameName}"></div>`
             : `<div class="room-card-fallback" aria-hidden="true"><img src="${fallbackImage}" alt=""></div>`}
           <div class="room-card-top-left">
             <div class="room-card-badge">

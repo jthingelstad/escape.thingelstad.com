@@ -23,7 +23,7 @@
   <a href="{{ room | roomPath }}" class="room-card-link" data-tinylytics-event="card.view-room" data-tinylytics-event-value="{{ room.game }}">
     {% if room.photo %}
       <div class="room-card-thumb">
-        <img src="/images/rooms/{{ room.photo }}" alt="" loading="lazy">
+        <img src="/images/rooms/{{ room.photo }}" alt="{{ room.game }} at {{ room.company.name if room.company else 'Unknown Company' }}" loading="lazy">
       </div>
     {% else %}
       <div class="room-card-fallback" aria-hidden="true">
