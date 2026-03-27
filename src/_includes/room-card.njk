@@ -38,16 +38,26 @@
       </div>
       {% endif %}
     </div>
-    {% if room.date %}
     <div class="room-card-top-right">
+      {% if room.date %}
       <div class="room-card-date">{{ room.date | formatDate }}</div>
+      {% endif %}
+      {% if room.emojify %}
+      <div class="room-card-emojify">{{ room.emojify }}</div>
+      {% endif %}
     </div>
-    {% endif %}
     <div class="room-card-bottom">
       <h3 class="room-card-room">{{ room.game }}</h3>
       <div class="room-card-company">{{ companyName }}</div>
-      {% if room.awards and room.awards.length %}
-      <div class="room-card-awards">🏆 {{ room.awards.length }}</div>
+      {% if (room.awards and room.awards.length) or (room.ratingSummary and room.ratingSummary.average) %}
+      <div class="room-card-meta-row">
+        {%- if room.awards and room.awards.length %}
+        <span class="room-card-awards-inline">🏆 {{ room.awards.length }}</span>
+        {%- endif %}
+        {%- if room.ratingSummary and room.ratingSummary.average %}
+        <span class="room-card-rating">{{ room.ratingSummary.average | starRating }}</span>
+        {%- endif %}
+      </div>
       {% endif %}
       <div class="room-card-bottom-right">
         {% if locationPrimary %}

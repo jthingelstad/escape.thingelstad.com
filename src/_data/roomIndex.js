@@ -22,6 +22,7 @@ module.exports = function() {
     awards: room.awards,
     trips: room.trips,
     lists: room.lists,
-    themes: room.themes
+    themes: room.themes,
+    emojify: room.emojify
   }));
 };

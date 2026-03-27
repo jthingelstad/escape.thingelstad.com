@@ -101,6 +101,16 @@ module.exports = function(eleventyConfig) {
     return Number.isInteger(num) ? String(num) : num.toFixed(1);
   });
 
+  eleventyConfig.addFilter("starRating", (value) => {
+    if (value == null || value === "") return "";
+    const num = Number(value);
+    if (Number.isNaN(num)) return "";
+    const full = Math.floor(num);
+    const half = num - full >= 0.25 && num - full < 0.75 ? 1 : 0;
+    const extra = num - full >= 0.75 ? 1 : 0;
+    return "★".repeat(full + extra) + (half ? "½" : "");
+  });
+
   eleventyConfig.addFilter("slugify", (value) => slugify(value));
 
   eleventyConfig.addFilter("entityUrl", (entity, type) => {

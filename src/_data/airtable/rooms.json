@@ -1,6 +1,6 @@
 {
   "table": "Rooms",
-  "syncedAt": "2026-03-27T22:43:31.508402+00:00",
+  "syncedAt": "2026-03-27T23:09:04.126500+00:00",
   "count": 101,
   "records": [
     {
@@ -69,7 +69,8 @@
         "Rating": 4,
         "Room ID": 85,
         "Player Count": 4,
-        "Award Count": 1
+        "Award Count": 1,
+        "Emojify": "🗻❄️🎿"
       }
     },
     {
@@ -154,7 +155,8 @@
         "Room ID": 96,
         "Synopsis": "Will Lock Academy, detective school in Paris, become THE new spot for the most dangerous criminals?!  It seems so: its founder, the great Professor Lock, has decided to sell his academy to his worst enemy, the criminal Jim Key! He is to the Professor Lock what Moriarty is to Sherlock Holmes: a brilliant adversary with diabolical plans!  For the students, the hour for a revolt at Lock Academy has rung! Dear adventurous detectives, your mission will be to discover what this dangerous sale is hiding for the sake of the world and prevent it from happening.  In 60 minutes, this investigation worthy of Back to the Future, will transport you through different ages between retro 70s and the future, with incredible special effects! With your team of 2 players minimum and 6 players maximum, embark on a unique mind-blowing adventure!",
         "Player Count": 4,
-        "Award Count": 10
+        "Award Count": 10,
+        "Emojify": "🔁🔐🕵️‍♂️🧑‍🏫🤖😈"
       }
     },
     {
@@ -380,7 +382,8 @@
           "recih0hukezoGiwVw"
         ],
         "Player Count": 3,
-        "Award Count": 1
+        "Award Count": 1,
+        "Emojify": "👍❤️🥳🪄💡🎛️🪄"
       }
     },
     {
@@ -1040,7 +1043,8 @@
         "Rating": 3.5,
         "Room ID": 87,
         "Player Count": 4,
-        "Award Count": 4
+        "Award Count": 4,
+        "Emojify": "🐕🕵️‍♂️🧭"
       }
     },
     {
@@ -1575,7 +1579,8 @@
         "Rating": 5,
         "Room ID": 92,
         "Player Count": 3,
-        "Award Count": 1
+        "Award Count": 1,
+        "Emojify": "💺👨‍🍳🪏⚙️🍳🎟️"
       }
     },
     {
@@ -1795,7 +1800,8 @@
           "recU8ZvM5VXxaVCHs"
         ],
         "Player Count": 4,
-        "Award Count": 5
+        "Award Count": 5,
+        "Emojify": "🎪🤹‍♂️🎩"
       }
     },
     {
@@ -2537,7 +2543,8 @@
         "Rating": 3,
         "Room ID": 88,
         "Player Count": 3,
-        "Award Count": 0
+        "Award Count": 0,
+        "Emojify": "🗡️"
       }
     },
     {
@@ -2610,7 +2617,8 @@
         "Rating": 5,
         "Room ID": 79,
         "Player Count": 4,
-        "Award Count": 7
+        "Award Count": 7,
+        "Emojify": "🌳🐛🐜🦋🐞🐝🎊"
       }
     },
     {
@@ -3046,7 +3054,8 @@
         "Room ID": 99,
         "Synopsis": "The Brewery – A High-Tech Escape Room (In Collaboration with Estrella Damm) You’ve been invited to an exclusive beer tasting… but nothing is as it seems. Josep, the master brewer, has a secret mission for you. Behind the rustic barrels and frothy pints lies a high-tech puzzle only the cleverest can solve. Will you uncover the truth before time runs out?",
         "Player Count": 4,
-        "Award Count": 10
+        "Award Count": 10,
+        "Emojify": "🍺⚖️💧🌾🌾🍺⚙️🍻"
       }
     },
     {
@@ -4173,7 +4182,8 @@
           "recLwjeGy2O1jYQX0"
         ],
         "Player Count": 3,
-        "Award Count": 11
+        "Award Count": 11,
+        "Emojify": "🩺👼👅"
       }
     },
     {
@@ -4371,7 +4381,8 @@
           "recpYhUjTAarjlEwV"
         ],
         "Player Count": 4,
-        "Award Count": 9
+        "Award Count": 9,
+        "Emojify": "⛵️👨‍✈️🏴‍☠️"
       }
     },
     {
@@ -4753,7 +4764,7 @@
           "rec3Wv4yyYrDrQKcx"
         ],
         "Created at": "2026-02-27T01:39:34.000Z",
-        "Modified at": "2026-03-27T22:32:19.000Z",
+        "Modified at": "2026-03-27T23:05:04.000Z",
         "Trips": [
           "recJqpVCHFrsjb8iR"
         ],
@@ -4763,7 +4774,8 @@
           "recHb9JJzkH67Hgbq",
           "recfKoEL5LHHrEJaU",
           "reck3vj12MrayItZF",
-          "recvCpkxqvv3wgw2M"
+          "recvCpkxqvv3wgw2M",
+          "rec6u01Ol5vTGi5oa"
         ],
         "Awards": [
           "recczHySrIzwTpEYf",
@@ -4785,7 +4797,8 @@
         ],
         "Synopsis": "Beneath Paris there is the City of Martyrs, an underground city full of secrets. It is in the heart of this city that Adèle, the governor's daughter has mysteriously disappeared.\n\nSeen a few days ago in the company of Martin Joly, better known as the taxidermist, no one has heard from her anymore, she has disappeared. The governor promises a reward to those who find his daughter.",
         "Player Count": 3,
-        "Award Count": 3
+        "Award Count": 3,
+        "Emojify": "🎭🐊⚡️🔴"
       }
     },
     {
@@ -5401,9 +5414,13 @@
           "recTh8HKvulJdzcn6"
         ],
         "Created at": "2026-02-27T01:48:55.000Z",
-        "Modified at": "2026-03-27T19:59:31.000Z",
+        "Modified at": "2026-03-27T23:04:53.000Z",
         "Trips": [
           "recJqpVCHFrsjb8iR"
+        ],
+        "Themes": [
+          "recHb9JJzkH67Hgbq",
+          "rec6u01Ol5vTGi5oa"
         ],
         "Awards": [
           "rec0QAiBlfFDZlwGY",
@@ -5420,7 +5437,8 @@
         "Room ID": 101,
         "Synopsis": "Enter Londium! Test your wits and teamwork skills. Will you be able to solve the mystery? Will they be able to find out what's going on in Londium? Will they have the cunning to help save the city? Can they withstand the pressure of the streets of Londium? Come play with your group of friends and enjy the experience of solving the mystery of Londium.",
         "Player Count": 4,
-        "Award Count": 2
+        "Award Count": 2,
+        "Emojify": "🥳❤️👍😍🥰🎭🤩🇬🇧🎥🚂🎹🎩🪄"
       }
     },
     {
@@ -5527,13 +5545,14 @@
           "recqZwZRZSa8plSkJ"
         ],
         "Created at": "2026-02-27T01:36:52.000Z",
-        "Modified at": "2026-03-25T09:11:01.000Z",
+        "Modified at": "2026-03-27T23:05:12.000Z",
         "Trips": [
           "recJqpVCHFrsjb8iR"
         ],
         "Themes": [
           "reci1oa24JOCAiJXp",
-          "recHb9JJzkH67Hgbq"
+          "recHb9JJzkH67Hgbq",
+          "rec6u01Ol5vTGi5oa"
         ],
         "Awards": [
           "recUN7df6o6JFv5rc",
@@ -5549,7 +5568,8 @@
         "Room ID": 97,
         "Synopsis": "For centuries, the galaxy has been under the control of the Consortium. You are among the rebels and today, you have a chance to destroy the Consortium forever. You have 75 minutes to find an old military base and use its ionic cannon to take down the Consortium flagship.",
         "Player Count": 3,
-        "Award Count": 2
+        "Award Count": 2,
+        "Emojify": "👽🚀🎰🍪"
       }
     },
     {
@@ -5653,7 +5673,8 @@
         "Room ID": 95,
         "Synopsis": "There are rumors that in a shady antique shop there is a magical arcade machine called Zoltar Speaks. This machine was enchanted many centuries ago by a market merchant, Zoltar, and it has been waiting for centuries for your help, the chosen ones. Can you avoid the antique dealer and unravel the secrets of the antique shop to open the door to the 15th century? In a world of poverty and oppressed market traders, an important mission awaits! With the right strategy, you can outrun the Askari and defeat the greedy Sultan…",
         "Player Count": 3,
-        "Award Count": 2
+        "Award Count": 2,
+        "Emojify": "👳‍♂️⚖️"
       }
     },
     {
