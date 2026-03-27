@@ -1,6 +1,6 @@
 {
   "table": "Players",
-  "syncedAt": "2026-03-27T18:46:51.628518+00:00",
+  "syncedAt": "2026-03-27T20:00:09.787186+00:00",
   "count": 39,
   "records": [
     {
@@ -363,9 +363,10 @@
         "Room Count": 87,
         "Featured": true,
         "Experiences": [
-          "recJcztWTdgd7BzmS"
+          "recJcztWTdgd7BzmS",
+          "recLdq7RFIScCM0HY"
         ],
-        "Experience Count": 1,
+        "Experience Count": 2,
         "Player ID": 3,
         "Bio": "Tyler is the speed-runner and tactician of Escaping Things."
       }
@@ -633,9 +634,13 @@
           "recQxjgHECuJ2zhHL",
           "recCD91D3X725hB7E",
           "recuFz4Ec6NrJMvAq",
-          "recqZwZRZSa8plSkJ"
+          "recqZwZRZSa8plSkJ",
+          "recE7bYt9jXMi2Vnr",
+          "recqzIUBZkqc5AoDB",
+          "recwMlAoMLL0TcUoF",
+          "rec3Wv4yyYrDrQKcx"
         ],
-        "Experience Count": 4,
+        "Experience Count": 8,
         "Player ID": 1,
         "Bio": "Tammy is the puzzle master for Escaping Things."
       }
@@ -974,9 +979,10 @@
           "rec8VClQ6EhmfTHIR",
           "reccoPW716fcq08FE",
           "rec1lmjsx1Ly9JUO7",
-          "recc5bjR1T6XSBiw3"
+          "recc5bjR1T6XSBiw3",
+          "recD914eklI2JAO8K"
         ],
-        "Experience Count": 11,
+        "Experience Count": 12,
         "Lists": [
           "recfSbUCFg9HAUgV3",
           "reckIazUkZ38buhZa"
@@ -1177,9 +1183,10 @@
           "rechbgYucEiCToJTW",
           "recOss0We5EEjnE0l",
           "rec5DVEgENWaLZXgS",
-          "recIO1aoSc8Pxm4yw"
+          "recIO1aoSc8Pxm4yw",
+          "recTh8HKvulJdzcn6"
         ],
-        "Experience Count": 7,
+        "Experience Count": 8,
         "Player ID": 4,
         "Bio": "Mazie is the out-of-the-box thinker in Escaping Things."
       }
