@@ -4,6 +4,9 @@
 Fetches each room's Morty page, extracts the awards from the embedded Next.js
 JSON payload, and matches them against existing Airtable award records.
 
+Scraping is slow (~5 min), so results are cached locally. Use --scrape to
+refresh the cache from Morty. Subsequent runs reuse the cache automatically.
+
 By default runs in dry-run mode. Pass --apply to update Airtable.
 
 Requires env vars (for --apply only):
@@ -11,8 +14,10 @@ Requires env vars (for --apply only):
   AIRTABLE_BASE_ID   - Airtable Base ID (starts with "app")
 
 Usage:
-  python3 scripts/scrape_morty_awards.py            # dry-run report
-  python3 scripts/scrape_morty_awards.py --apply     # write to Airtable
+  python3 scripts/scrape_morty_awards.py --scrape    # fetch fresh data from Morty
+  python3 scripts/scrape_morty_awards.py             # dry-run using cached data
+  python3 scripts/scrape_morty_awards.py --apply     # write to Airtable using cached data
+  python3 scripts/scrape_morty_awards.py --scrape --apply  # scrape + apply in one step
 """
 
 from __future__ import annotations
@@ -31,6 +36,7 @@ from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT_DIR / "src" / "_data" / "airtable"
+CACHE_FILE = ROOT_DIR / "morty_awards_cache.json"
 API_BASE = "https://api.airtable.com/v0"
 MORTY_BASE = "https://morty.app/attraction"
 FETCH_DELAY_SECONDS = 0.5
@@ -64,17 +70,24 @@ def load_local_data():
 
 
 def build_award_lookup(award_records):
-    """Build lookup from (organization, award_name, year) -> award record."""
+    """Build lookup from (organization, award_name, year) -> award record.
+
+    Also returns the set of known organization names (lowercase) so that
+    awards from unrecognized organizations can be flagged separately.
+    """
     lookup = {}
+    known_orgs = set()
     for record in award_records:
         fields = record.get("fields", {})
         org = fields.get("Organization", "")
         award_name = fields.get("Award Name", "")
         year = fields.get("Year")
+        if org:
+            known_orgs.add(org.lower())
         if org and year:
             key = (org.lower(), award_name.lower(), int(year))
             lookup[key] = record
-    return lookup
+    return lookup, known_orgs
 
 
 def parse_display_title(display_title):
@@ -172,6 +185,30 @@ def fetch_morty_page(morty_id):
     return parsed, None
 
 
+def save_cache(morty_awards, errors):
+    """Save scraped Morty awards to a local cache file."""
+    # Convert for JSON serialization (morty_id keys are ints)
+    data = {
+        "scraped_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
+        "awards": {str(k): v for k, v in morty_awards.items()},
+        "errors": [{"morty_id": m, "game": g, "error": e} for m, g, e in errors],
+    }
+    with open(CACHE_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
+    print(f"\nCache saved to {CACHE_FILE.name} ({len(morty_awards)} rooms)", flush=True)
+
+
+def load_cache():
+    """Load previously scraped Morty awards from cache. Returns (morty_awards, errors, scraped_at) or None."""
+    if not CACHE_FILE.is_file():
+        return None
+    with open(CACHE_FILE, encoding="utf-8") as f:
+        data = json.load(f)
+    morty_awards = {int(k): v for k, v in data["awards"].items()}
+    errors = [(e["morty_id"], e["game"], e["error"]) for e in data.get("errors", [])]
+    return morty_awards, errors, data.get("scraped_at", "unknown")
+
+
 def airtable_request(url, token, method="GET", payload=None):
     """Send a JSON request to Airtable and return the parsed response."""
     headers = {"Authorization": f"Bearer {token}"}
@@ -207,6 +244,11 @@ def parse_args():
         description="Scrape Morty award data and link to Airtable awards."
     )
     parser.add_argument(
+        "--scrape",
+        action="store_true",
+        help="Fetch fresh data from Morty (slow). Without this, uses cached data.",
+    )
+    parser.add_argument(
         "--apply",
         action="store_true",
         help="Write changes to Airtable. Default is dry-run.",
@@ -232,7 +274,7 @@ def main():
             requested_morty_ids.update(int(x) for x in group)
 
     # Load local data
-    print("Loading local Airtable snapshots...")
+    print("Loading local Airtable snapshots...", flush=True)
     room_records, award_records = load_local_data()
 
     # Build rooms list with Morty IDs
@@ -252,42 +294,59 @@ def main():
             "existing_awards": fields.get("Awards", []),
         })
 
-    print(f"  {len(rooms)} rooms with Morty IDs to process")
+    print(f"  {len(rooms)} rooms with Morty IDs to process", flush=True)
 
     # Build award lookup
-    award_lookup = build_award_lookup(award_records)
-    print(f"  {len(award_lookup)} award keys in lookup")
+    award_lookup, known_orgs = build_award_lookup(award_records)
+    print(f"  {len(award_lookup)} award keys in lookup ({len(known_orgs)} known organizations)", flush=True)
 
-    # Phase 1: Scrape Morty pages
-    print(f"\nScraping Morty pages...")
-    morty_awards = {}  # morty_id -> list of parsed awards
+    # Phase 1: Get Morty awards (scrape or cache)
+    morty_awards = {}
     errors = []
 
-    for i, room in enumerate(rooms):
-        morty_id = room["morty_id"]
-        game = room["game"]
+    if args.scrape:
+        est_minutes = len(rooms) * FETCH_DELAY_SECONDS / 60
+        print(f"\nScraping {len(rooms)} Morty pages (~{est_minutes:.1f} min at {FETCH_DELAY_SECONDS}s/req)...",
+              flush=True)
+        phase1_start = time.time()
 
-        awards, error = fetch_morty_page(morty_id)
-        if error:
-            errors.append((morty_id, game, error))
-            print(f"  [{i+1}/{len(rooms)}] ERROR {game} (morty:{morty_id}): {error}")
-        else:
-            morty_awards[morty_id] = awards
-            award_count = len(awards) if awards else 0
-            if award_count > 0:
-                print(f"  [{i+1}/{len(rooms)}] {game} (morty:{morty_id}): {award_count} awards")
+        for i, room in enumerate(rooms):
+            morty_id = room["morty_id"]
+            game = room["game"]
+
+            awards, error = fetch_morty_page(morty_id)
+            if error:
+                errors.append((morty_id, game, error))
+                print(f"  [{i+1}/{len(rooms)}] ERROR {game} (morty:{morty_id}): {error}", flush=True)
             else:
-                print(f"  [{i+1}/{len(rooms)}] {game} (morty:{morty_id}): no awards")
+                morty_awards[morty_id] = awards
+                award_count = len(awards) if awards else 0
+                if award_count > 0:
+                    print(f"  [{i+1}/{len(rooms)}] {game} (morty:{morty_id}): {award_count} awards", flush=True)
+                else:
+                    print(f"  [{i+1}/{len(rooms)}] {game} (morty:{morty_id}): no awards", flush=True)
 
-        if i < len(rooms) - 1:
-            time.sleep(FETCH_DELAY_SECONDS)
+            if i < len(rooms) - 1:
+                time.sleep(FETCH_DELAY_SECONDS)
+
+        elapsed = time.time() - phase1_start
+        print(f"\nScraping complete in {elapsed:.0f}s", flush=True)
+        save_cache(morty_awards, errors)
+    else:
+        cached = load_cache()
+        if cached is None:
+            print("\nNo cache found. Run with --scrape first to fetch data from Morty.", file=sys.stderr)
+            sys.exit(1)
+        morty_awards, errors, scraped_at = cached
+        print(f"\nUsing cached data from {scraped_at} ({len(morty_awards)} rooms)", flush=True)
 
     # Phase 2: Match and diff
-    print("\nMatching awards...")
+    print("\nMatching awards...", flush=True)
 
     # Track what needs to be linked: award_airtable_id -> set of room_airtable_ids to add
     links_to_add = {}  # award_record_id -> {"award_name": str, "room_ids": set()}
     unmapped = []  # (game, morty_id, display_title, org, award_name, year)
+    ignored = []   # awards from orgs not in Airtable — intentionally skipped
     already_linked = 0
     newly_linked = 0
 
@@ -302,6 +361,11 @@ def main():
             org = award["organization"]
             award_name = award["award_name"]
             year = award["year"]
+
+            # Skip awards from organizations not tracked in Airtable
+            if not org or org.lower() not in known_orgs:
+                ignored.append((game, morty_id, award["display_title"], org, award_name, year))
+                continue
 
             if not year:
                 unmapped.append((game, morty_id, award["display_title"], org, award_name, year))
@@ -350,15 +414,14 @@ def main():
 
     if unmapped:
         print(f"\nUnmapped awards ({len(unmapped)} total):")
-        print("  These exist on Morty but have no matching Airtable award record.")
+        print("  These are from known organizations but have no matching Airtable award record.")
         print("  Create the award in Airtable first, then re-run this script.\n")
         seen = set()
         for game, morty_id, display, org, name, year in sorted(unmapped, key=lambda x: (x[3], x[2])):
             unmapped_key = (org, name, year)
             if unmapped_key not in seen:
                 seen.add(unmapped_key)
-                org_label = org if org else "Unknown"
-                print(f"  [{org_label}] {display}")
+                print(f"  [{org}] {display}")
                 room_names = []
                 seen_rooms = set()
                 for g2, m2, d2, o2, n2, y2 in unmapped:
@@ -369,6 +432,17 @@ def main():
                     print(f"    - {rn}")
                 if len(room_names) > 5:
                     print(f"    ... and {len(room_names) - 5} more")
+
+    if ignored:
+        # Count unique (org, award_name, year) combos
+        ignored_keys = set()
+        for _, _, _, org, name, year in ignored:
+            ignored_keys.add((org or "Unknown", name, year))
+        print(f"\nIgnored awards ({len(ignored_keys)} unique, {len(ignored)} total):")
+        print("  Organization not tracked in Airtable. Add the organization to use these.")
+        for org, name, year in sorted(ignored_keys):
+            year_label = f" ({year})" if year else ""
+            print(f"  [{org}] {name}{year_label}")
 
     if errors:
         print(f"\nFetch errors ({len(errors)}):")
@@ -392,7 +466,7 @@ def main():
         print("\nNothing to apply.")
         return
 
-    print(f"\nApplying {len(links_to_add)} award updates to Airtable...")
+    print(f"\nApplying {len(links_to_add)} award updates to Airtable...", flush=True)
     succeeded = 0
     failed = 0
 
