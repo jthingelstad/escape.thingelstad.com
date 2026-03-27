@@ -870,6 +870,12 @@
   color: var(--color-gold);
 }
 
+.room-rating-emojify {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.15em;
+}
+
 .empty-state {
   padding: var(--space-6);
   text-align: center;

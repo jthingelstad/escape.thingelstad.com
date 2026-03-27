@@ -241,6 +241,9 @@ permalink: /room/{{ room.slug }}/
           {% if experience.comments %}
           <div class="room-rating-comments rich-text">{{ experience.comments | richText | safe }}</div>
           {% endif %}
+          {% if experience.emojify %}
+          <div class="room-rating-emojify">{{ experience.emojify }}</div>
+          {% endif %}
         </article>
         {% endfor %}
       </div>
