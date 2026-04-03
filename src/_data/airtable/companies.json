@@ -1,7 +1,7 @@
 {
   "table": "Companies",
-  "syncedAt": "2026-03-27T23:09:04.119678+00:00",
-  "count": 58,
+  "syncedAt": "2026-04-03T15:49:04.777118+00:00",
+  "count": 59,
   "records": [
     {
       "id": "rec0Mh2XfDYRXjiYV",
@@ -626,6 +626,22 @@
         "Created at": "2026-02-23T19:22:36.000Z",
         "Modified at": "2026-02-23T20:43:38.000Z",
         "Company ID": 8
+      }
+    },
+    {
+      "id": "recd2Ly7fCIF6piaW",
+      "createdTime": "2026-04-03T14:58:03.000Z",
+      "fields": {
+        "Company": "Puzzle Punks",
+        "Company URL": "https://puzzlepunks.com/",
+        "Locations": [
+          "recfqYQzQ0TRZ7XjO"
+        ],
+        "Location Count": 1,
+        "Room Count": 1,
+        "Created at": "2026-04-03T14:58:03.000Z",
+        "Modified at": "2026-04-03T14:58:16.000Z",
+        "Company ID": 59
       }
     },
     {

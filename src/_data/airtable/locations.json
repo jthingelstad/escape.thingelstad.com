@@ -1,7 +1,7 @@
 {
   "table": "Locations",
-  "syncedAt": "2026-03-27T23:09:04.120998+00:00",
-  "count": 70,
+  "syncedAt": "2026-04-03T15:49:04.778297+00:00",
+  "count": 71,
   "records": [
     {
       "id": "rec0ugHLMNt3uzAiN",
@@ -24,7 +24,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 38,
         "Latitude": 48.868273,
-        "Longitude": 2.353125
+        "Longitude": 2.353125,
+        "Map URL": "https://www.google.com/maps/place/48.868273, 2.353125"
       }
     },
     {
@@ -51,7 +52,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 63,
         "Latitude": 44.953224,
-        "Longitude": -93.287803
+        "Longitude": -93.287803,
+        "Map URL": "https://www.google.com/maps/place/44.953224, -93.287803"
       }
     },
     {
@@ -75,7 +77,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 9,
         "Latitude": 43.6275,
-        "Longitude": -89.771
+        "Longitude": -89.771,
+        "Map URL": "https://www.google.com/maps/place/43.6275, -89.771"
       }
     },
     {
@@ -100,7 +103,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 46,
         "Latitude": 44.784431,
-        "Longitude": -93.554246
+        "Longitude": -93.554246,
+        "Map URL": "https://www.google.com/maps/place/44.784431, -93.554246"
       }
     },
     {
@@ -125,7 +129,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 19,
         "Latitude": 36.6437,
-        "Longitude": -93.2185
+        "Longitude": -93.2185,
+        "Map URL": "https://www.google.com/maps/place/36.6437, -93.2185"
       }
     },
     {
@@ -156,7 +161,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 65,
         "Latitude": 44.924561,
-        "Longitude": -93.167266
+        "Longitude": -93.167266,
+        "Map URL": "https://www.google.com/maps/place/44.924561, -93.167266"
       }
     },
     {
@@ -182,7 +188,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 7,
         "Latitude": 46.355982,
-        "Longitude": -94.200255
+        "Longitude": -94.200255,
+        "Map URL": "https://www.google.com/maps/place/46.355982, -94.200255"
       }
     },
     {
@@ -207,7 +214,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 40,
         "Latitude": 45.443494,
-        "Longitude": 9.155411
+        "Longitude": 9.155411,
+        "Map URL": "https://www.google.com/maps/place/45.443494, 9.155411"
       }
     },
     {
@@ -230,7 +238,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 32,
         "Latitude": 41.390835,
-        "Longitude": 2.175974
+        "Longitude": 2.175974,
+        "Map URL": "https://www.google.com/maps/place/41.390835, 2.175974"
       }
     },
     {
@@ -254,7 +263,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 18,
         "Latitude": 51.012594,
-        "Longitude": -114.065152
+        "Longitude": -114.065152,
+        "Map URL": "https://www.google.com/maps/place/51.012594, -114.065152"
       }
     },
     {
@@ -283,7 +293,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 43,
         "Latitude": 44.862888,
-        "Longitude": -93.356817
+        "Longitude": -93.356817,
+        "Map URL": "https://www.google.com/maps/place/44.862888, -93.356817"
       }
     },
     {
@@ -308,7 +319,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 28,
         "Latitude": 52.09606,
-        "Longitude": 5.114035
+        "Longitude": 5.114035,
+        "Map URL": "https://www.google.com/maps/place/52.09606, 5.114035"
       }
     },
     {
@@ -332,7 +344,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 24,
         "Latitude": 45.883783,
-        "Longitude": -95.376734
+        "Longitude": -95.376734,
+        "Map URL": "https://www.google.com/maps/place/45.883783, -95.376734"
       }
     },
     {
@@ -356,7 +369,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 3,
         "Latitude": 44.9778,
-        "Longitude": -93.265
+        "Longitude": -93.265,
+        "Map URL": "https://www.google.com/maps/place/44.9778, -93.265"
       }
     },
     {
@@ -401,7 +415,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 30,
         "Latitude": 40.7128,
-        "Longitude": -74.006
+        "Longitude": -74.006,
+        "Map URL": "https://www.google.com/maps/place/40.7128, -74.006"
       }
     },
     {
@@ -425,7 +440,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 33,
         "Latitude": 43.067342,
-        "Longitude": -86.216261
+        "Longitude": -86.216261,
+        "Map URL": "https://www.google.com/maps/place/43.067342, -86.216261"
       }
     },
     {
@@ -448,7 +464,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 20,
         "Latitude": 44.8897,
-        "Longitude": -93.3499
+        "Longitude": -93.3499,
+        "Map URL": "https://www.google.com/maps/place/44.8897, -93.3499"
       }
     },
     {
@@ -472,7 +489,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 51,
         "Latitude": 64.144953,
-        "Longitude": -21.911806
+        "Longitude": -21.911806,
+        "Map URL": "https://www.google.com/maps/place/64.144953, -21.911806"
       }
     },
     {
@@ -495,7 +513,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 17,
         "Latitude": 39.0997,
-        "Longitude": -94.5786
+        "Longitude": -94.5786,
+        "Map URL": "https://www.google.com/maps/place/39.0997, -94.5786"
       }
     },
     {
@@ -521,7 +540,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 57,
         "Latitude": 41.8934,
-        "Longitude": -87.626383
+        "Longitude": -87.626383,
+        "Map URL": "https://www.google.com/maps/place/41.8934, -87.626383"
       }
     },
     {
@@ -546,7 +566,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 59,
         "Latitude": 40.761097,
-        "Longitude": -73.984514
+        "Longitude": -73.984514,
+        "Map URL": "https://www.google.com/maps/place/40.761097, -73.984514"
       }
     },
     {
@@ -572,7 +593,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 53,
         "Latitude": 43.018744,
-        "Longitude": -88.200357
+        "Longitude": -88.200357,
+        "Map URL": "https://www.google.com/maps/place/43.018744, -88.200357"
       }
     },
     {
@@ -596,7 +618,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 21,
         "Latitude": 43.057218,
-        "Longitude": -89.494541
+        "Longitude": -89.494541,
+        "Map URL": "https://www.google.com/maps/place/43.057218, -89.494541"
       }
     },
     {
@@ -620,7 +643,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 15,
         "Latitude": 41.409802,
-        "Longitude": 2.179651
+        "Longitude": 2.179651,
+        "Map URL": "https://www.google.com/maps/place/41.409802, 2.179651"
       }
     },
     {
@@ -644,7 +668,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 26,
         "Latitude": 50.819619,
-        "Longitude": 4.388889
+        "Longitude": 4.388889,
+        "Map URL": "https://www.google.com/maps/place/50.819619, 4.388889"
       }
     },
     {
@@ -667,7 +692,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 70,
         "Latitude": 44.9537,
-        "Longitude": -93.09
+        "Longitude": -93.09,
+        "Map URL": "https://www.google.com/maps/place/44.9537, -93.09"
       }
     },
     {
@@ -692,7 +718,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 41,
         "Latitude": 43.629435,
-        "Longitude": -70.328747
+        "Longitude": -70.328747,
+        "Map URL": "https://www.google.com/maps/place/43.629435, -70.328747"
       }
     },
     {
@@ -715,7 +742,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 68,
         "Latitude": 46.7867,
-        "Longitude": -92.1005
+        "Longitude": -92.1005,
+        "Map URL": "https://www.google.com/maps/place/46.7867, -92.1005"
       }
     },
     {
@@ -739,7 +767,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 39,
         "Latitude": 41.495278,
-        "Longitude": 2.180616
+        "Longitude": 2.180616,
+        "Map URL": "https://www.google.com/maps/place/41.495278, 2.180616"
       }
     },
     {
@@ -765,7 +794,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 58,
         "Latitude": 36.163498,
-        "Longitude": -86.777078
+        "Longitude": -86.777078,
+        "Map URL": "https://www.google.com/maps/place/36.163498, -86.777078"
       }
     },
     {
@@ -789,7 +819,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 4,
         "Latitude": 46.832906,
-        "Longitude": -100.774248
+        "Longitude": -100.774248,
+        "Map URL": "https://www.google.com/maps/place/46.832906, -100.774248"
       }
     },
     {
@@ -814,7 +845,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 62,
         "Latitude": 54.602626,
-        "Longitude": -5.930794
+        "Longitude": -5.930794,
+        "Map URL": "https://www.google.com/maps/place/54.602626, -5.930794"
       }
     },
     {
@@ -838,7 +870,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 1,
         "Latitude": 42.391372,
-        "Longitude": -87.958342
+        "Longitude": -87.958342,
+        "Map URL": "https://www.google.com/maps/place/42.391372, -87.958342"
       }
     },
     {
@@ -863,7 +896,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 44,
         "Latitude": 44.991939,
-        "Longitude": -93.243836
+        "Longitude": -93.243836,
+        "Map URL": "https://www.google.com/maps/place/44.991939, -93.243836"
       }
     },
     {
@@ -888,7 +922,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 45,
         "Latitude": 33.676212,
-        "Longitude": -111.965571
+        "Longitude": -111.965571,
+        "Map URL": "https://www.google.com/maps/place/33.676212, -111.965571"
       }
     },
     {
@@ -915,7 +950,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 5,
         "Latitude": 46.792333,
-        "Longitude": -71.258633
+        "Longitude": -71.258633,
+        "Map URL": "https://www.google.com/maps/place/46.792333, -71.258633"
       }
     },
     {
@@ -939,7 +975,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 10,
         "Latitude": 48.884487,
-        "Longitude": 2.369941
+        "Longitude": 2.369941,
+        "Map URL": "https://www.google.com/maps/place/48.884487, 2.369941"
       }
     },
     {
@@ -962,7 +999,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 67,
         "Latitude": 52.08486,
-        "Longitude": 4.362005
+        "Longitude": 4.362005,
+        "Map URL": "https://www.google.com/maps/place/52.08486, 4.362005"
       }
     },
     {
@@ -985,7 +1023,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 50,
         "Latitude": 38.627,
-        "Longitude": -90.1994
+        "Longitude": -90.1994,
+        "Map URL": "https://www.google.com/maps/place/38.627, -90.1994"
       }
     },
     {
@@ -1009,7 +1048,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 25,
         "Latitude": 33.8303,
-        "Longitude": -116.5453
+        "Longitude": -116.5453,
+        "Map URL": "https://www.google.com/maps/place/33.8303, -116.5453"
       }
     },
     {
@@ -1032,7 +1072,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 52,
         "Latitude": 52.374599,
-        "Longitude": 4.895488
+        "Longitude": 4.895488,
+        "Map URL": "https://www.google.com/maps/place/52.374599, 4.895488"
       }
     },
     {
@@ -1057,7 +1098,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 48,
         "Latitude": 44.9778,
-        "Longitude": -93.265
+        "Longitude": -93.265,
+        "Map URL": "https://www.google.com/maps/place/44.9778, -93.265"
       }
     },
     {
@@ -1084,7 +1126,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 35,
         "Latitude": 47.234047,
-        "Longitude": -93.528742
+        "Longitude": -93.528742,
+        "Map URL": "https://www.google.com/maps/place/47.234047, -93.528742"
       }
     },
     {
@@ -1108,7 +1151,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 61,
         "Latitude": 38.927925,
-        "Longitude": -94.660115
+        "Longitude": -94.660115,
+        "Map URL": "https://www.google.com/maps/place/38.927925, -94.660115"
       }
     },
     {
@@ -1133,7 +1177,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 56,
         "Latitude": 44.855492,
-        "Longitude": -93.240154
+        "Longitude": -93.240154,
+        "Map URL": "https://www.google.com/maps/place/44.855492, -93.240154"
       }
     },
     {
@@ -1157,7 +1202,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 14,
         "Latitude": 42.8864,
-        "Longitude": -78.8784
+        "Longitude": -78.8784,
+        "Map URL": "https://www.google.com/maps/place/42.8864, -78.8784"
       }
     },
     {
@@ -1181,7 +1227,31 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 55,
         "Latitude": 36.116701,
-        "Longitude": -86.763313
+        "Longitude": -86.763313,
+        "Map URL": "https://www.google.com/maps/place/36.116701, -86.763313"
+      }
+    },
+    {
+      "id": "recfqYQzQ0TRZ7XjO",
+      "createdTime": "2026-04-03T14:57:49.000Z",
+      "fields": {
+        "Location": "Puzzle Punks (Dubrovnik)",
+        "City": "Dubrovnik",
+        "Country": "Croatia",
+        "Company": [
+          "recd2Ly7fCIF6piaW"
+        ],
+        "Rooms": [
+          "rec0r8d5asOBGUBd2"
+        ],
+        "Room Count": 1,
+        "Coordinates": "42.655636, 18.076712",
+        "Created at": "2026-04-03T14:57:49.000Z",
+        "Modified at": "2026-04-03T14:59:54.000Z",
+        "Location ID": 71,
+        "Latitude": 42.655636,
+        "Longitude": 18.076712,
+        "Map URL": "https://www.google.com/maps/place/42.655636, 18.076712"
       }
     },
     {
@@ -1205,7 +1275,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 69,
         "Latitude": 44.9778,
-        "Longitude": -93.265
+        "Longitude": -93.265,
+        "Map URL": "https://www.google.com/maps/place/44.9778, -93.265"
       }
     },
     {
@@ -1229,7 +1300,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 12,
         "Latitude": 44.850893,
-        "Longitude": -93.236632
+        "Longitude": -93.236632,
+        "Map URL": "https://www.google.com/maps/place/44.850893, -93.236632"
       }
     },
     {
@@ -1253,7 +1325,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 6,
         "Latitude": 37.184793,
-        "Longitude": -93.295487
+        "Longitude": -93.295487,
+        "Map URL": "https://www.google.com/maps/place/37.184793, -93.295487"
       }
     },
     {
@@ -1278,7 +1351,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 47,
         "Latitude": 46.830745,
-        "Longitude": -96.800999
+        "Longitude": -96.800999,
+        "Map URL": "https://www.google.com/maps/place/46.830745, -96.800999"
       }
     },
     {
@@ -1303,7 +1377,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 31,
         "Latitude": 41.872068,
-        "Longitude": -87.629255
+        "Longitude": -87.629255,
+        "Map URL": "https://www.google.com/maps/place/41.872068, -87.629255"
       }
     },
     {
@@ -1327,7 +1402,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 13,
         "Latitude": 45.10157,
-        "Longitude": -93.45427
+        "Longitude": -93.45427,
+        "Map URL": "https://www.google.com/maps/place/45.10157, -93.45427"
       }
     },
     {
@@ -1351,7 +1427,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 54,
         "Latitude": 52.224663,
-        "Longitude": 5.17815
+        "Longitude": 5.17815,
+        "Map URL": "https://www.google.com/maps/place/52.224663, 5.17815"
       }
     },
     {
@@ -1376,7 +1453,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 66,
         "Latitude": 39.692815,
-        "Longitude": -86.110239
+        "Longitude": -86.110239,
+        "Map URL": "https://www.google.com/maps/place/39.692815, -86.110239"
       }
     },
     {
@@ -1403,7 +1481,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 16,
         "Latitude": 45.585974,
-        "Longitude": -73.768325
+        "Longitude": -73.768325,
+        "Map URL": "https://www.google.com/maps/place/45.585974, -73.768325"
       }
     },
     {
@@ -1427,7 +1506,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 29,
         "Latitude": 44.7677,
-        "Longitude": -93.2777
+        "Longitude": -93.2777,
+        "Map URL": "https://www.google.com/maps/place/44.7677, -93.2777"
       }
     },
     {
@@ -1450,7 +1530,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 23,
         "Latitude": 44.9778,
-        "Longitude": -93.265
+        "Longitude": -93.265,
+        "Map URL": "https://www.google.com/maps/place/44.9778, -93.265"
       }
     },
     {
@@ -1474,7 +1555,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 34,
         "Latitude": 44.2601,
-        "Longitude": -69.817
+        "Longitude": -69.817,
+        "Map URL": "https://www.google.com/maps/place/44.2601, -69.817"
       }
     },
     {
@@ -1500,7 +1582,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 60,
         "Latitude": 44.935735,
-        "Longitude": -93.114455
+        "Longitude": -93.114455,
+        "Map URL": "https://www.google.com/maps/place/44.935735, -93.114455"
       }
     },
     {
@@ -1523,7 +1606,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 27,
         "Latitude": 44.9778,
-        "Longitude": -93.265
+        "Longitude": -93.265,
+        "Map URL": "https://www.google.com/maps/place/44.9778, -93.265"
       }
     },
     {
@@ -1547,7 +1631,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 8,
         "Latitude": 36.6429,
-        "Longitude": -93.250695
+        "Longitude": -93.250695,
+        "Map URL": "https://www.google.com/maps/place/36.6429, -93.250695"
       }
     },
     {
@@ -1570,7 +1655,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 42,
         "Latitude": 48.863811,
-        "Longitude": 2.34759
+        "Longitude": 2.34759,
+        "Map URL": "https://www.google.com/maps/place/48.863811, 2.34759"
       }
     },
     {
@@ -1598,7 +1684,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 49,
         "Latitude": 44.96485,
-        "Longitude": -93.183348
+        "Longitude": -93.183348,
+        "Map URL": "https://www.google.com/maps/place/44.96485, -93.183348"
       }
     },
     {
@@ -1623,7 +1710,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 37,
         "Latitude": 44.881233,
-        "Longitude": -93.324289
+        "Longitude": -93.324289,
+        "Map URL": "https://www.google.com/maps/place/44.881233, -93.324289"
       }
     },
     {
@@ -1646,7 +1734,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 22,
         "Latitude": 44.6497,
-        "Longitude": -93.2427
+        "Longitude": -93.2427,
+        "Map URL": "https://www.google.com/maps/place/44.6497, -93.2427"
       }
     },
     {
@@ -1669,7 +1758,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 36,
         "Latitude": 44.1636,
-        "Longitude": -93.9994
+        "Longitude": -93.9994,
+        "Map URL": "https://www.google.com/maps/place/44.1636, -93.9994"
       }
     },
     {
@@ -1693,7 +1783,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 11,
         "Latitude": 28.335013,
-        "Longitude": -81.478393
+        "Longitude": -81.478393,
+        "Map URL": "https://www.google.com/maps/place/28.335013, -81.478393"
       }
     },
     {
@@ -1717,7 +1808,8 @@
         "Modified at": "2026-03-19T21:00:38.000Z",
         "Location ID": 2,
         "Latitude": 42.949241,
-        "Longitude": -88.004283
+        "Longitude": -88.004283,
+        "Map URL": "https://www.google.com/maps/place/42.949241, -88.004283"
       }
     }
   ]

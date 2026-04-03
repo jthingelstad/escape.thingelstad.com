@@ -1,7 +1,7 @@
 {
   "table": "Trips",
-  "syncedAt": "2026-03-27T23:09:04.125511+00:00",
-  "count": 7,
+  "syncedAt": "2026-04-03T15:49:04.782765+00:00",
+  "count": 8,
   "records": [
     {
       "id": "rec0lxTu6FUTtJ8wW",
@@ -167,6 +167,21 @@
         "Room Count": 2,
         "Featured": true,
         "Trip ID": 7
+      }
+    },
+    {
+      "id": "recxSxI1SDATLr4C1",
+      "createdTime": "2026-04-03T15:40:59.000Z",
+      "fields": {
+        "Name": "M&M Croatia",
+        "Rooms": [
+          "rec0r8d5asOBGUBd2"
+        ],
+        "Game (from Rooms)": [
+          "Dubrovnik Legends"
+        ],
+        "Room Count": 1,
+        "Trip ID": 8
       }
     }
   ]
