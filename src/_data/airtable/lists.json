@@ -1,21 +1,21 @@
 {
   "table": "Lists",
-  "syncedAt": "2026-04-03T16:05:55.239626+00:00",
+  "syncedAt": "2026-04-25T20:44:23.573426+00:00",
   "count": 4,
   "records": [
     {
       "id": "rec2AT81hVAdrhy9f",
       "createdTime": "2026-03-24T19:29:27.000Z",
       "fields": {
-        "Name": "Best of the Best",
         "Notes": "The best rooms that we've ever done.\n",
+        "Name": "Best of the Best",
+        "List ID": 4,
         "List Items": [
           "recPvhFk8eUfbyp9H",
           "rec8jNV2ARqYCHmlA",
           "rec1lvVshJfhwqOma",
           "recU8ZvM5VXxaVCHs"
         ],
-        "List ID": 4,
         "Room Count": 4
       }
     },
@@ -23,11 +23,15 @@
       "id": "recfSbUCFg9HAUgV3",
       "createdTime": "2026-03-19T11:08:47.000Z",
       "fields": {
-        "Name": "Jamie's Escape in Europe Favorites",
-        "Notes": "In 2026 we travelled around Europe and did a number of rooms. My favorites in order!\n",
         "Player": [
           "recfd6DZt87SxQurn"
         ],
+        "Notes": "In 2026 we travelled around Europe and did a number of rooms. My favorites in order!\n",
+        "Name": "Jamie's Escape in Europe Favorites",
+        "Trip": [
+          "recJqpVCHFrsjb8iR"
+        ],
+        "List ID": 1,
         "List Items": [
           "recKRQ1P4SKVDhm8S",
           "recih0hukezoGiwVw",
@@ -35,10 +39,6 @@
           "rec1kuYcssxMnegcp",
           "rec6NcYS58yKbhdsH"
         ],
-        "Trip": [
-          "recJqpVCHFrsjb8iR"
-        ],
-        "List ID": 1,
         "Room Count": 5
       }
     },
@@ -46,8 +46,9 @@
       "id": "recjRI5haNXU9ciSX",
       "createdTime": "2026-03-23T19:51:16.000Z",
       "fields": {
-        "Name": "Top Twin Cities Rooms",
         "Notes": "Our favorite rooms in the Twin Cities.\n",
+        "Name": "Top Twin Cities Rooms",
+        "List ID": 3,
         "List Items": [
           "recbnQfpwRhqXfMlD",
           "recqLFh1mtkRAs464",
@@ -55,7 +56,6 @@
           "rec00GvBhgWw7JCL1",
           "reciai3XOCkcqn7vs"
         ],
-        "List ID": 3,
         "Room Count": 5
       }
     },
@@ -63,11 +63,12 @@
       "id": "reckIazUkZ38buhZa",
       "createdTime": "2026-03-23T19:51:04.000Z",
       "fields": {
-        "Name": "Jamie's All-Time Favorites",
-        "Notes": "These are the rooms that have really stuck with me. They are the ones that I recount when I think of my all-time favorites.\n",
         "Player": [
           "recfd6DZt87SxQurn"
         ],
+        "Notes": "These are the rooms that have really stuck with me. They are the ones that I recount when I think of my all-time favorites.\n",
+        "Name": "Jamie's All-Time Favorites",
+        "List ID": 2,
         "List Items": [
           "recReSkgw2rEbWVzM",
           "recWmBh3DlsoIgLxr",
@@ -75,7 +76,6 @@
           "recyV6VxTFepKAkhD",
           "recu8RKuyvJaDucSI"
         ],
-        "List ID": 2,
         "Room Count": 5
       }
     }

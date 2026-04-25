@@ -1,15 +1,16 @@
 {
   "table": "Locations",
-  "syncedAt": "2026-04-03T16:05:55.234827+00:00",
+  "syncedAt": "2026-04-25T20:44:23.568700+00:00",
   "count": 71,
   "records": [
     {
       "id": "rec0ugHLMNt3uzAiN",
       "createdTime": "2026-02-27T01:32:14.000Z",
       "fields": {
-        "Location": "Lock Academy (Paris)",
-        "City": "Paris",
+        "Audit": true,
         "Country": "France",
+        "Latitude": 48.868273,
+        "Location ID": 38,
         "Location URL": "https://lockacademy.com",
         "Company": [
           "recGEx6X0fQNa2pwX"
@@ -17,14 +18,13 @@
         "Rooms": [
           "rec0tsuiSuEyxaXMX"
         ],
+        "City": "Paris",
+        "Longitude": 2.353125,
+        "Location": "Lock Academy (Paris)",
         "Room Count": 1,
-        "Coordinates": "48.868273, 2.353125",
-        "Audit": true,
         "Created at": "2026-02-27T01:32:14.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 38,
-        "Latitude": 48.868273,
-        "Longitude": 2.353125,
+        "Coordinates": "48.868273, 2.353125",
         "Map URL": "https://www.google.com/maps/place/48.868273, 2.353125"
       }
     },
@@ -32,10 +32,10 @@
       "id": "rec1dCg9ctL0yaIm3",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Trapped Puzzle Rooms (Minneapolis)",
-        "City": "Minneapolis",
-        "Region": "Minnesota",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 44.953224,
+        "Location ID": 63,
         "Location URL": "https://www.trappedpuzzlerooms.com/",
         "Company": [
           "recQoXVuN7zSM9Sbk"
@@ -43,16 +43,17 @@
         "Rooms": [
           "rech7wyLHVLWdjYWU",
           "recQA2tgPPSuRoUHm",
-          "recpH0Ffa50kg6PyJ"
+          "recpH0Ffa50kg6PyJ",
+          "rec0yakSfw2CKpoox"
         ],
-        "Room Count": 3,
-        "Coordinates": "44.953224, -93.287803",
-        "Audit": true,
-        "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 63,
-        "Latitude": 44.953224,
+        "City": "Minneapolis",
         "Longitude": -93.287803,
+        "Region": "Minnesota",
+        "Location": "Trapped Puzzle Rooms (Minneapolis)",
+        "Room Count": 4,
+        "Created at": "2026-02-23T19:23:51.000Z",
+        "Modified at": "2026-04-25T20:41:19.000Z",
+        "Coordinates": "44.953224, -93.287803",
         "Map URL": "https://www.google.com/maps/place/44.953224, -93.287803"
       }
     },
@@ -60,10 +61,9 @@
       "id": "rec3teww1R2GhguRJ",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "D.O.A. Escape Rooms (Wisconsin Dells)",
-        "City": "Wisconsin Dells",
-        "Region": "Wisconsin",
         "Country": "United States",
+        "Latitude": 43.6275,
+        "Location ID": 9,
         "Location URL": "https://www.doaroomescape.com/the-rooms/",
         "Company": [
           "reccP0b9bEXrnMOLU"
@@ -71,13 +71,14 @@
         "Rooms": [
           "recCmnzgi38Nv4xys"
         ],
+        "City": "Wisconsin Dells",
+        "Longitude": -89.771,
+        "Region": "Wisconsin",
+        "Location": "D.O.A. Escape Rooms (Wisconsin Dells)",
         "Room Count": 1,
-        "Coordinates": "43.6275, -89.771",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 9,
-        "Latitude": 43.6275,
-        "Longitude": -89.771,
+        "Coordinates": "43.6275, -89.771",
         "Map URL": "https://www.google.com/maps/place/43.6275, -89.771"
       }
     },
@@ -85,10 +86,10 @@
       "id": "rec4kprzefRewTegO",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "No Esc Puzzle Collective (Shakopee)",
-        "City": "Shakopee",
-        "Region": "Minnesota",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 44.784431,
+        "Location ID": 46,
         "Location URL": "https://no-esc.com/",
         "Company": [
           "recq47lCAAjZmUcRk"
@@ -96,14 +97,14 @@
         "Rooms": [
           "recturIiYlqyzCt4y"
         ],
+        "City": "Shakopee",
+        "Longitude": -93.554246,
+        "Region": "Minnesota",
+        "Location": "No Esc Puzzle Collective (Shakopee)",
         "Room Count": 1,
-        "Coordinates": "44.784431, -93.554246",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 46,
-        "Latitude": 44.784431,
-        "Longitude": -93.554246,
+        "Coordinates": "44.784431, -93.554246",
         "Map URL": "https://www.google.com/maps/place/44.784431, -93.554246"
       }
     },
@@ -111,10 +112,9 @@
       "id": "rec5KZ7jR3JoUhION",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Escape Code (Branson)",
-        "City": "Branson",
-        "Region": "Missouri",
         "Country": "United States",
+        "Latitude": 36.6437,
+        "Location ID": 19,
         "Location URL": "https://www.escapecode.tv/",
         "Company": [
           "recj1rMcmNoIDMcqg"
@@ -123,13 +123,14 @@
           "recLWPaDtnmiVlUaZ",
           "rec8Lti1xXMIqdpm3"
         ],
+        "City": "Branson",
+        "Longitude": -93.2185,
+        "Region": "Missouri",
+        "Location": "Escape Code (Branson)",
         "Room Count": 2,
-        "Coordinates": "36.6437, -93.2185",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 19,
-        "Latitude": 36.6437,
-        "Longitude": -93.2185,
+        "Coordinates": "36.6437, -93.2185",
         "Map URL": "https://www.google.com/maps/place/36.6437, -93.2185"
       }
     },
@@ -137,10 +138,10 @@
       "id": "rec5S3wmOUtzRWtyc",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Trapped Puzzle Rooms (St. Paul)",
-        "City": "St. Paul",
-        "Region": "Minnesota",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 44.924561,
+        "Location ID": 65,
         "Location URL": "https://www.trappedpuzzlerooms.com/",
         "Company": [
           "recQoXVuN7zSM9Sbk"
@@ -154,14 +155,14 @@
           "recFOFdIh363Jv4Df",
           "recaAQdDD0iC8eYXB"
         ],
+        "City": "St. Paul",
+        "Longitude": -93.167266,
+        "Region": "Minnesota",
+        "Location": "Trapped Puzzle Rooms (St. Paul)",
         "Room Count": 7,
-        "Coordinates": "44.924561, -93.167266",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 65,
-        "Latitude": 44.924561,
-        "Longitude": -93.167266,
+        "Coordinates": "44.924561, -93.167266",
         "Map URL": "https://www.google.com/maps/place/44.924561, -93.167266"
       }
     },
@@ -169,10 +170,10 @@
       "id": "rec5ZJXo9ACsmhh7Q",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Copper Cat Escape (Brainerd)",
-        "City": "Brainerd",
-        "Region": "Minnesota",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 46.355982,
+        "Location ID": 7,
         "Location URL": "https://www.coppercatescape.com/",
         "Company": [
           "recWkb9pOBfivW18B"
@@ -181,14 +182,14 @@
           "recIHjZXCO51GVA5T",
           "recEShUIu5S7hQnsy"
         ],
+        "City": "Brainerd",
+        "Longitude": -94.200255,
+        "Region": "Minnesota",
+        "Location": "Copper Cat Escape (Brainerd)",
         "Room Count": 2,
-        "Coordinates": "46.355982, -94.200255",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 7,
-        "Latitude": 46.355982,
-        "Longitude": -94.200255,
+        "Coordinates": "46.355982, -94.200255",
         "Map URL": "https://www.google.com/maps/place/46.355982, -94.200255"
       }
     },
@@ -196,9 +197,10 @@
       "id": "rec6CH4peK601eA9I",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Mad Machines (Milan)",
-        "City": "Milan",
+        "Audit": true,
         "Country": "Italy",
+        "Latitude": 45.443494,
+        "Location ID": 40,
         "Location URL": "https://madmachines.it/",
         "Company": [
           "rec2DKPze0HHtzcaV"
@@ -207,14 +209,13 @@
           "rechGJ5U1gn1Ajxrt",
           "recgisAgQMDN41H2P"
         ],
+        "City": "Milan",
+        "Longitude": 9.155411,
+        "Location": "Mad Machines (Milan)",
         "Room Count": 2,
-        "Coordinates": "45.443494, 9.155411",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 40,
-        "Latitude": 45.443494,
-        "Longitude": 9.155411,
+        "Coordinates": "45.443494, 9.155411",
         "Map URL": "https://www.google.com/maps/place/45.443494, 9.155411"
       }
     },
@@ -222,23 +223,23 @@
       "id": "rec6KyeYgwy3ZMOEr",
       "createdTime": "2026-02-27T01:45:05.000Z",
       "fields": {
-        "Location": "Golden Pop (Barcelona)",
-        "City": "Barcelona",
+        "Audit": true,
         "Country": "Spain",
+        "Latitude": 41.390835,
+        "Location ID": 32,
         "Company": [
           "recFSmkIes4pr9ili"
         ],
         "Rooms": [
           "reciuo9m2OZxXl4JT"
         ],
+        "City": "Barcelona",
+        "Longitude": 2.175974,
+        "Location": "Golden Pop (Barcelona)",
         "Room Count": 1,
-        "Coordinates": "41.390835, 2.175974",
-        "Audit": true,
         "Created at": "2026-02-27T01:45:05.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 32,
-        "Latitude": 41.390835,
-        "Longitude": 2.175974,
+        "Coordinates": "41.390835, 2.175974",
         "Map URL": "https://www.google.com/maps/place/41.390835, 2.175974"
       }
     },
@@ -246,10 +247,9 @@
       "id": "rec6TCyv7Tno1mFyy",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Escape City (Calgary)",
-        "City": "Calgary",
-        "Region": "Alberta",
         "Country": "Canada",
+        "Latitude": 51.012594,
+        "Location ID": 18,
         "Location URL": "https://escapecity.ca/",
         "Company": [
           "rec0Mh2XfDYRXjiYV"
@@ -257,13 +257,14 @@
         "Rooms": [
           "recZIiN1UtlynA6W3"
         ],
+        "City": "Calgary",
+        "Longitude": -114.065152,
+        "Region": "Alberta",
+        "Location": "Escape City (Calgary)",
         "Room Count": 1,
-        "Coordinates": "51.012594, -114.065152",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 18,
-        "Latitude": 51.012594,
-        "Longitude": -114.065152,
+        "Coordinates": "51.012594, -114.065152",
         "Map URL": "https://www.google.com/maps/place/51.012594, -114.065152"
       }
     },
@@ -271,10 +272,10 @@
       "id": "rec6cKz2v3iwntKlh",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Missing Pieces Escape Games (Edina)",
-        "City": "Edina",
-        "Region": "Minnesota",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 44.862888,
+        "Location ID": 43,
         "Location URL": "https://www.missingpiecesmn.com/",
         "Company": [
           "recTTHTaIaLPfbq5m"
@@ -286,14 +287,14 @@
           "recc7XibqrT06Up8k",
           "recdlR1lFm1ggyKZ3"
         ],
+        "City": "Edina",
+        "Longitude": -93.356817,
+        "Region": "Minnesota",
+        "Location": "Missing Pieces Escape Games (Edina)",
         "Room Count": 5,
-        "Coordinates": "44.862888, -93.356817",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 43,
-        "Latitude": 44.862888,
-        "Longitude": -93.356817,
+        "Coordinates": "44.862888, -93.356817",
         "Map URL": "https://www.google.com/maps/place/44.862888, -93.356817"
       }
     },
@@ -301,9 +302,10 @@
       "id": "rec7NNJtNg9TcGiDu",
       "createdTime": "2026-02-27T01:24:00.000Z",
       "fields": {
-        "Location": "Escape World (Utrecht)",
-        "City": "Utrecht",
+        "Audit": true,
         "Country": "Netherlands",
+        "Latitude": 52.09606,
+        "Location ID": 28,
         "Location URL": "https://escapeworld.nl/escape-room-utrecht/",
         "Company": [
           "recNvBcwlFGNAHudh"
@@ -312,14 +314,13 @@
           "rec33iDver9l2s39y",
           "recFsAH2073sxvJvL"
         ],
+        "City": "Utrecht",
+        "Longitude": 5.114035,
+        "Location": "Escape World (Utrecht)",
         "Room Count": 2,
-        "Coordinates": "52.09606, 5.114035",
-        "Audit": true,
         "Created at": "2026-02-27T01:24:00.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 28,
-        "Latitude": 52.09606,
-        "Longitude": 5.114035,
+        "Coordinates": "52.09606, 5.114035",
         "Map URL": "https://www.google.com/maps/place/52.09606, 5.114035"
       }
     },
@@ -327,10 +328,9 @@
       "id": "rec7R2PCX3BydPejf",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Escape Room Alexandria (Alexandria)",
-        "City": "Alexandria",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Latitude": 45.883783,
+        "Location ID": 24,
         "Location URL": "https://www.escapealexandria.com",
         "Company": [
           "rec4rpkUCGZ3ZFh3Z"
@@ -338,13 +338,14 @@
         "Rooms": [
           "recedfIiVxCHDi7BF"
         ],
+        "City": "Alexandria",
+        "Longitude": -95.376734,
+        "Region": "Minnesota",
+        "Location": "Escape Room Alexandria (Alexandria)",
         "Room Count": 1,
-        "Coordinates": "45.883783, -95.376734",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 24,
-        "Latitude": 45.883783,
-        "Longitude": -95.376734,
+        "Coordinates": "45.883783, -95.376734",
         "Map URL": "https://www.google.com/maps/place/45.883783, -95.376734"
       }
     },
@@ -352,10 +353,9 @@
       "id": "rec8G7IPsJvx5JjVK",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Breakout Games (Minneapolis)",
-        "City": "Minneapolis",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Latitude": 44.9778,
+        "Location ID": 3,
         "Location URL": "https://breakoutgames.com/minneapolis/rooms/#roomCasino",
         "Company": [
           "recwFLBpa2OaXGpnN"
@@ -363,13 +363,14 @@
         "Rooms": [
           "recaaEELzDiEg95sS"
         ],
+        "City": "Minneapolis",
+        "Longitude": -93.265,
+        "Region": "Minnesota",
+        "Location": "Breakout Games (Minneapolis)",
         "Room Count": 1,
-        "Coordinates": "44.9778, -93.265",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 3,
-        "Latitude": 44.9778,
-        "Longitude": -93.265,
+        "Coordinates": "44.9778, -93.265",
         "Map URL": "https://www.google.com/maps/place/44.9778, -93.265"
       }
     },
@@ -377,10 +378,8 @@
       "id": "rec8VnKmeWl1dsuxt",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Trapped Puzzle Rooms (Online)",
-        "City": "Online",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Location ID": 64,
         "Location URL": "https://www.trappedpuzzlerooms.com/",
         "Company": [
           "recQoXVuN7zSM9Sbk"
@@ -388,20 +387,21 @@
         "Rooms": [
           "recBHwx3kobncX31m"
         ],
+        "City": "Online",
+        "Region": "Minnesota",
+        "Location": "Trapped Puzzle Rooms (Online)",
         "Room Count": 1,
         "Created at": "2026-02-23T19:23:51.000Z",
-        "Modified at": "2026-03-19T21:00:22.000Z",
-        "Location ID": 64
+        "Modified at": "2026-03-19T21:00:22.000Z"
       }
     },
     {
       "id": "rec8fX9wbwBhUN6GF",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Exit Escape Room NYC (New York)",
-        "City": "New York",
-        "Region": "New York",
         "Country": "United States",
+        "Latitude": 40.7128,
+        "Location ID": 30,
         "Location URL": "https://www.exitescaperoomnyc.com/sugar_rush.html",
         "Company": [
           "recLinCxZoQk8dQDt"
@@ -409,13 +409,14 @@
         "Rooms": [
           "rec2pwAZqeKV9EqKl"
         ],
+        "City": "New York",
+        "Longitude": -74.006,
+        "Region": "New York",
+        "Location": "Exit Escape Room NYC (New York)",
         "Room Count": 1,
-        "Coordinates": "40.7128, -74.006",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 30,
-        "Latitude": 40.7128,
-        "Longitude": -74.006,
+        "Coordinates": "40.7128, -74.006",
         "Map URL": "https://www.google.com/maps/place/40.7128, -74.006"
       }
     },
@@ -423,24 +424,24 @@
       "id": "recAQrb2SFJbGcptj",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Grand Haven Room Escape (Grand Haven)",
-        "City": "Grand Haven",
-        "Region": "Michigan",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 43.067342,
+        "Location ID": 33,
         "Company": [
           "recMV3vVaVgpBvkOb"
         ],
         "Rooms": [
           "reccays4vMSxg671z"
         ],
+        "City": "Grand Haven",
+        "Longitude": -86.216261,
+        "Region": "Michigan",
+        "Location": "Grand Haven Room Escape (Grand Haven)",
         "Room Count": 1,
-        "Coordinates": "43.067342, -86.216261",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 33,
-        "Latitude": 43.067342,
-        "Longitude": -86.216261,
+        "Coordinates": "43.067342, -86.216261",
         "Map URL": "https://www.google.com/maps/place/43.067342, -86.216261"
       }
     },
@@ -448,23 +449,23 @@
       "id": "recAVjW9IFy5yObKO",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Escape Frenzy (Edina)",
-        "City": "Edina",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Latitude": 44.8897,
+        "Location ID": 20,
         "Company": [
           "recneYVd8zX6DmX5O"
         ],
         "Rooms": [
           "recbjX9nFMA7a69q8"
         ],
+        "City": "Edina",
+        "Longitude": -93.3499,
+        "Region": "Minnesota",
+        "Location": "Escape Frenzy (Edina)",
         "Room Count": 1,
-        "Coordinates": "44.8897, -93.3499",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 20,
-        "Latitude": 44.8897,
-        "Longitude": -93.3499,
+        "Coordinates": "44.8897, -93.3499",
         "Map URL": "https://www.google.com/maps/place/44.8897, -93.3499"
       }
     },
@@ -472,9 +473,10 @@
       "id": "recAXjkRXZIBtJcVQ",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Reykjavik Escape (Reykjavik)",
-        "City": "Reykjavik",
+        "Audit": true,
         "Country": "Iceland",
+        "Latitude": 64.144953,
+        "Location ID": 51,
         "Location URL": "https://www.reykjavikescape.is/en/",
         "Company": [
           "reciGGLNkgA8AKfRV"
@@ -482,14 +484,13 @@
         "Rooms": [
           "recCMID7nL5hVlSaj"
         ],
+        "City": "Reykjavik",
+        "Longitude": -21.911806,
+        "Location": "Reykjavik Escape (Reykjavik)",
         "Room Count": 1,
-        "Coordinates": "64.144953, -21.911806",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 51,
-        "Latitude": 64.144953,
-        "Longitude": -21.911806,
+        "Coordinates": "64.144953, -21.911806",
         "Map URL": "https://www.google.com/maps/place/64.144953, -21.911806"
       }
     },
@@ -497,23 +498,23 @@
       "id": "recBm8Blbym4HsFAG",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Escape Artists KC (Kansas City)",
-        "City": "Kansas City",
-        "Region": "Missouri",
         "Country": "United States",
+        "Latitude": 39.0997,
+        "Location ID": 17,
         "Company": [
           "recVEukaY7BrnoJET"
         ],
         "Rooms": [
           "recMqhVYX7BU87Uda"
         ],
+        "City": "Kansas City",
+        "Longitude": -94.5786,
+        "Region": "Missouri",
+        "Location": "Escape Artists KC (Kansas City)",
         "Room Count": 1,
-        "Coordinates": "39.0997, -94.5786",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 17,
-        "Latitude": 39.0997,
-        "Longitude": -94.5786,
+        "Coordinates": "39.0997, -94.5786",
         "Map URL": "https://www.google.com/maps/place/39.0997, -94.5786"
       }
     },
@@ -521,10 +522,10 @@
       "id": "recBtF8umqrSdPAXW",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "The Escape Game (Chicago)",
-        "City": "Chicago",
-        "Region": "Illinois",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 41.8934,
+        "Location ID": 57,
         "Location URL": "https://theescapegamechicago.com/escape-rooms/mission-mars/",
         "Company": [
           "recaqH6D2pXSa7YFz"
@@ -533,14 +534,14 @@
           "recCNb95D8eKwn8rg",
           "rec11KrDEOtShXQmd"
         ],
+        "City": "Chicago",
+        "Longitude": -87.626383,
+        "Region": "Illinois",
+        "Location": "The Escape Game (Chicago)",
         "Room Count": 2,
-        "Coordinates": "41.8934, -87.626383",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 57,
-        "Latitude": 41.8934,
-        "Longitude": -87.626383,
+        "Coordinates": "41.8934, -87.626383",
         "Map URL": "https://www.google.com/maps/place/41.8934, -87.626383"
       }
     },
@@ -548,10 +549,10 @@
       "id": "recDMY1tA75EPfCL9",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "The Escape Game (New York)",
-        "City": "New York",
-        "Region": "New York",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 40.761097,
+        "Location ID": 59,
         "Location URL": "https://theescapegame.com/newyorkcity/escape-rooms/playground/",
         "Company": [
           "recaqH6D2pXSa7YFz"
@@ -559,14 +560,14 @@
         "Rooms": [
           "recBIzUfedQWRULTu"
         ],
+        "City": "New York",
+        "Longitude": -73.984514,
+        "Region": "New York",
+        "Location": "The Escape Game (New York)",
         "Room Count": 1,
-        "Coordinates": "40.761097, -73.984514",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 59,
-        "Latitude": 40.761097,
-        "Longitude": -73.984514,
+        "Coordinates": "40.761097, -73.984514",
         "Map URL": "https://www.google.com/maps/place/40.761097, -73.984514"
       }
     },
@@ -574,10 +575,10 @@
       "id": "recGDPIH1ZH1HIKS6",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Solve Escape Rooms (Waukesha)",
-        "City": "Waukesha",
-        "Region": "Wisconsin",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 43.018744,
+        "Location ID": 53,
         "Location URL": "https://solveescaperooms.com/",
         "Company": [
           "recRMJmiTzWmpPtdc"
@@ -586,14 +587,14 @@
           "recSPihVvvRvcVO2F",
           "reciVEIDHFIo9tnfa"
         ],
+        "City": "Waukesha",
+        "Longitude": -88.200357,
+        "Region": "Wisconsin",
+        "Location": "Solve Escape Rooms (Waukesha)",
         "Room Count": 2,
-        "Coordinates": "43.018744, -88.200357",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 53,
-        "Latitude": 43.018744,
-        "Longitude": -88.200357,
+        "Coordinates": "43.018744, -88.200357",
         "Map URL": "https://www.google.com/maps/place/43.018744, -88.200357"
       }
     },
@@ -601,10 +602,9 @@
       "id": "recH6sJNi7seHQUav",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Escape in Time (Madison)",
-        "City": "Madison",
-        "Region": "Wisconsin",
         "Country": "United States",
+        "Latitude": 43.057218,
+        "Location ID": 21,
         "Location URL": "https://www.escapeintimemadison.com/rooms",
         "Company": [
           "recKUcIw022SpTG8A"
@@ -612,13 +612,14 @@
         "Rooms": [
           "recwo5NQ3gWcWPaFM"
         ],
+        "City": "Madison",
+        "Longitude": -89.494541,
+        "Region": "Wisconsin",
+        "Location": "Escape in Time (Madison)",
         "Room Count": 1,
-        "Coordinates": "43.057218, -89.494541",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 21,
-        "Latitude": 43.057218,
-        "Longitude": -89.494541,
+        "Coordinates": "43.057218, -89.494541",
         "Map URL": "https://www.google.com/maps/place/43.057218, -89.494541"
       }
     },
@@ -626,9 +627,10 @@
       "id": "recJ1RA8HY9IncnFz",
       "createdTime": "2026-02-27T01:43:04.000Z",
       "fields": {
-        "Location": "Enigmik (Barcelona)",
-        "City": "Barcelona",
+        "Audit": true,
         "Country": "Spain",
+        "Latitude": 41.409802,
+        "Location ID": 15,
         "Location URL": "https://www.enigmik.com/en/",
         "Company": [
           "recx8AB8VuUHTc6Od"
@@ -636,14 +638,13 @@
         "Rooms": [
           "recWpSyu5BjABRk9T"
         ],
+        "City": "Barcelona",
+        "Longitude": 2.179651,
+        "Location": "Enigmik (Barcelona)",
         "Room Count": 1,
-        "Coordinates": "41.409802, 2.179651",
-        "Audit": true,
         "Created at": "2026-02-27T01:43:04.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 15,
-        "Latitude": 41.409802,
-        "Longitude": 2.179651,
+        "Coordinates": "41.409802, 2.179651",
         "Map URL": "https://www.google.com/maps/place/41.409802, 2.179651"
       }
     },
@@ -651,9 +652,10 @@
       "id": "recJNnv8lbI3hmcgZ",
       "createdTime": "2026-02-27T01:26:20.000Z",
       "fields": {
-        "Location": "Escape Rush (Brussels)",
-        "City": "Brussels",
+        "Audit": true,
         "Country": "Belgium",
+        "Latitude": 50.819619,
+        "Location ID": 26,
         "Location URL": "https://escaperush.com",
         "Company": [
           "rec7IjP4tcwWDmmPz"
@@ -661,14 +663,13 @@
         "Rooms": [
           "reca6bIeAIt6OxCx3"
         ],
+        "City": "Brussels",
+        "Longitude": 4.388889,
+        "Location": "Escape Rush (Brussels)",
         "Room Count": 1,
-        "Coordinates": "50.819619, 4.388889",
-        "Audit": true,
         "Created at": "2026-02-27T01:26:20.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 26,
-        "Latitude": 50.819619,
-        "Longitude": 4.388889,
+        "Coordinates": "50.819619, 4.388889",
         "Map URL": "https://www.google.com/maps/place/50.819619, 4.388889"
       }
     },
@@ -676,23 +677,23 @@
       "id": "recJnmkukSVz0tQxu",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Zero Hour Escape Rooms (St. Paul)",
-        "City": "St. Paul",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Latitude": 44.9537,
+        "Location ID": 70,
         "Company": [
           "rec5dOTiEHvayv7hW"
         ],
         "Rooms": [
           "rec6wiScpcV9B0SQ5"
         ],
+        "City": "St. Paul",
+        "Longitude": -93.09,
+        "Region": "Minnesota",
+        "Location": "Zero Hour Escape Rooms (St. Paul)",
         "Room Count": 1,
-        "Coordinates": "44.9537, -93.09",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 70,
-        "Latitude": 44.9537,
-        "Longitude": -93.09,
+        "Coordinates": "44.9537, -93.09",
         "Map URL": "https://www.google.com/maps/place/44.9537, -93.09"
       }
     },
@@ -700,10 +701,10 @@
       "id": "recK9rs2oGsPQ33Qz",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Maine Escape Games (Portland)",
-        "City": "Portland",
-        "Region": "Maine",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 43.629435,
+        "Location ID": 41,
         "Location URL": "https://web.archive.org/web/20160320072900/http://maineescapegames.com/",
         "Company": [
           "recNehjQ0oubPAUKM"
@@ -711,14 +712,14 @@
         "Rooms": [
           "recbvP2IVDLhhaEdc"
         ],
+        "City": "Portland",
+        "Longitude": -70.328747,
+        "Region": "Maine",
+        "Location": "Maine Escape Games (Portland)",
         "Room Count": 1,
-        "Coordinates": "43.629435, -70.328747",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 41,
-        "Latitude": 43.629435,
-        "Longitude": -70.328747,
+        "Coordinates": "43.629435, -70.328747",
         "Map URL": "https://www.google.com/maps/place/43.629435, -70.328747"
       }
     },
@@ -726,23 +727,23 @@
       "id": "recKpYtmxxN3RcwlW",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Zero Hour Escape Rooms (Duluth)",
-        "City": "Duluth",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Latitude": 46.7867,
+        "Location ID": 68,
         "Company": [
           "rec5dOTiEHvayv7hW"
         ],
         "Rooms": [
           "recnC0R8y2alGjaPi"
         ],
+        "City": "Duluth",
+        "Longitude": -92.1005,
+        "Region": "Minnesota",
+        "Location": "Zero Hour Escape Rooms (Duluth)",
         "Room Count": 1,
-        "Coordinates": "46.7867, -92.1005",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 68,
-        "Latitude": 46.7867,
-        "Longitude": -92.1005,
+        "Coordinates": "46.7867, -92.1005",
         "Map URL": "https://www.google.com/maps/place/46.7867, -92.1005"
       }
     },
@@ -750,9 +751,10 @@
       "id": "recLe886CQELS95cV",
       "createdTime": "2026-02-27T01:49:02.000Z",
       "fields": {
-        "Location": "Londium (Barcelona)",
-        "City": "Barcelona",
+        "Audit": true,
         "Country": "Spain",
+        "Latitude": 41.495278,
+        "Location ID": 39,
         "Location URL": "https://londiumescaperoom.com/escape-room/",
         "Company": [
           "reco0DNzUNl4oQULn"
@@ -760,14 +762,13 @@
         "Rooms": [
           "recqOzcN7BNq8EomV"
         ],
+        "City": "Barcelona",
+        "Longitude": 2.180616,
+        "Location": "Londium (Barcelona)",
         "Room Count": 1,
-        "Coordinates": "41.495278, 2.180616",
-        "Audit": true,
         "Created at": "2026-02-27T01:49:02.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 39,
-        "Latitude": 41.495278,
-        "Longitude": 2.180616,
+        "Coordinates": "41.495278, 2.180616",
         "Map URL": "https://www.google.com/maps/place/41.495278, 2.180616"
       }
     },
@@ -775,10 +776,10 @@
       "id": "recM90KRdnXVdQGOC",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "The Escape Game (Nashville)",
-        "City": "Nashville",
-        "Region": "Tennessee",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 36.163498,
+        "Location ID": 58,
         "Location URL": "https://theescapegame.com/nashville/escape-rooms/ruins/",
         "Company": [
           "recaqH6D2pXSa7YFz"
@@ -787,14 +788,14 @@
           "recVmPGqIoglZADoy",
           "rec05Cz2JvdnNLxo2"
         ],
+        "City": "Nashville",
+        "Longitude": -86.777078,
+        "Region": "Tennessee",
+        "Location": "The Escape Game (Nashville)",
         "Room Count": 2,
-        "Coordinates": "36.163498, -86.777078",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 58,
-        "Latitude": 36.163498,
-        "Longitude": -86.777078,
+        "Coordinates": "36.163498, -86.777078",
         "Map URL": "https://www.google.com/maps/place/36.163498, -86.777078"
       }
     },
@@ -802,10 +803,9 @@
       "id": "recN2RQ7ANokrn7Lt",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Breakout ND (Bismarck)",
-        "City": "Bismarck",
-        "Region": "North Dakota",
         "Country": "United States",
+        "Latitude": 46.832906,
+        "Location ID": 4,
         "Location URL": "https://www.breakoutnd.com/",
         "Company": [
           "recIz5bD29XloAotG"
@@ -813,13 +813,14 @@
         "Rooms": [
           "recSdmAOhUyf2p9m0"
         ],
+        "City": "Bismarck",
+        "Longitude": -100.774248,
+        "Region": "North Dakota",
+        "Location": "Breakout ND (Bismarck)",
         "Room Count": 1,
-        "Coordinates": "46.832906, -100.774248",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 4,
-        "Latitude": 46.832906,
-        "Longitude": -100.774248,
+        "Coordinates": "46.832906, -100.774248",
         "Map URL": "https://www.google.com/maps/place/46.832906, -100.774248"
       }
     },
@@ -827,10 +828,10 @@
       "id": "recNBD44sUFEg2xDC",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Timescape (Belfast)",
-        "City": "Belfast",
-        "Region": "Northern Ireland",
+        "Audit": true,
         "Country": "United Kingdom",
+        "Latitude": 54.602626,
+        "Location ID": 62,
         "Location URL": "https://timescapegames.com/room/titanic/",
         "Company": [
           "recJgmSJsha6Ltbfi"
@@ -838,14 +839,14 @@
         "Rooms": [
           "recXB82zxkZdNGvDY"
         ],
+        "City": "Belfast",
+        "Longitude": -5.930794,
+        "Region": "Northern Ireland",
+        "Location": "Timescape (Belfast)",
         "Room Count": 1,
-        "Coordinates": "54.602626, -5.930794",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 62,
-        "Latitude": 54.602626,
-        "Longitude": -5.930794,
+        "Coordinates": "54.602626, -5.930794",
         "Map URL": "https://www.google.com/maps/place/54.602626, -5.930794"
       }
     },
@@ -853,10 +854,9 @@
       "id": "recNIhjhHCjMvDlx1",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "60 to Escape (Gurnee)",
-        "City": "Gurnee",
-        "Region": "Illinois",
         "Country": "United States",
+        "Latitude": 42.391372,
+        "Location ID": 1,
         "Location URL": "https://www.62escape.com/",
         "Company": [
           "recUIlM3M9uSWyMF1"
@@ -864,13 +864,14 @@
         "Rooms": [
           "recahr4JTFP68NvG6"
         ],
+        "City": "Gurnee",
+        "Longitude": -87.958342,
+        "Region": "Illinois",
+        "Location": "60 to Escape (Gurnee)",
         "Room Count": 1,
-        "Coordinates": "42.391372, -87.958342",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 1,
-        "Latitude": 42.391372,
-        "Longitude": -87.958342,
+        "Coordinates": "42.391372, -87.958342",
         "Map URL": "https://www.google.com/maps/place/42.391372, -87.958342"
       }
     },
@@ -878,10 +879,10 @@
       "id": "recOPpAJYfs6ibRgH",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Mission Manor (Minneapolis)",
-        "City": "Minneapolis",
-        "Region": "Minnesota",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 44.991939,
+        "Location ID": 44,
         "Location URL": "https://www.missionmanor.com/",
         "Company": [
           "recsg8B2IT5rbWfM8"
@@ -889,14 +890,14 @@
         "Rooms": [
           "recVf1fiC85jzkKCA"
         ],
+        "City": "Minneapolis",
+        "Longitude": -93.243836,
+        "Region": "Minnesota",
+        "Location": "Mission Manor (Minneapolis)",
         "Room Count": 1,
-        "Coordinates": "44.991939, -93.243836",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 44,
-        "Latitude": 44.991939,
-        "Longitude": -93.243836,
+        "Coordinates": "44.991939, -93.243836",
         "Map URL": "https://www.google.com/maps/place/44.991939, -93.243836"
       }
     },
@@ -904,10 +905,10 @@
       "id": "recQBZLX6oR2mpMTc",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Nemesis Club (Phoenix)",
-        "City": "Phoenix",
-        "Region": "Arizona",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 33.676212,
+        "Location ID": 45,
         "Location URL": "https://thenemesisclub.com/",
         "Company": [
           "recmaaqIIiuzIzyIg"
@@ -915,14 +916,14 @@
         "Rooms": [
           "recsgfeSuqNloH6yx"
         ],
+        "City": "Phoenix",
+        "Longitude": -111.965571,
+        "Region": "Arizona",
+        "Location": "Nemesis Club (Phoenix)",
         "Room Count": 1,
-        "Coordinates": "33.676212, -111.965571",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 45,
-        "Latitude": 33.676212,
-        "Longitude": -111.965571,
+        "Coordinates": "33.676212, -111.965571",
         "Map URL": "https://www.google.com/maps/place/33.676212, -111.965571"
       }
     },
@@ -930,10 +931,10 @@
       "id": "recSnM39h6a1QtoJ6",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Cabinet Mysteriis (Quebec City)",
-        "City": "Quebec City",
-        "Region": "Quebec",
+        "Audit": true,
         "Country": "Canada",
+        "Latitude": 46.792333,
+        "Location ID": 5,
         "Location URL": "https://cabinetmysteriis.ca/en/",
         "Company": [
           "rectjvmnQQO08oMh8"
@@ -943,14 +944,14 @@
           "recGHzPOir2KjtOjc",
           "recB2J7EL3m61TNLX"
         ],
+        "City": "Quebec City",
+        "Longitude": -71.258633,
+        "Region": "Quebec",
+        "Location": "Cabinet Mysteriis (Quebec City)",
         "Room Count": 3,
-        "Coordinates": "46.792333, -71.258633",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 5,
-        "Latitude": 46.792333,
-        "Longitude": -71.258633,
+        "Coordinates": "46.792333, -71.258633",
         "Map URL": "https://www.google.com/maps/place/46.792333, -71.258633"
       }
     },
@@ -958,9 +959,10 @@
       "id": "recW2WBOgyA41a9jK",
       "createdTime": "2026-02-27T01:39:47.000Z",
       "fields": {
-        "Location": "Deep Inside Paris (Paris)",
-        "City": "Paris",
+        "Audit": true,
         "Country": "France",
+        "Latitude": 48.884487,
+        "Location ID": 10,
         "Location URL": "https://deepinsideparis.fr/en/",
         "Company": [
           "rec1JkJ08ZZ8aoZQ3"
@@ -968,14 +970,13 @@
         "Rooms": [
           "recjFTVzz57eYe9IE"
         ],
+        "City": "Paris",
+        "Longitude": 2.369941,
+        "Location": "Deep Inside Paris (Paris)",
         "Room Count": 1,
-        "Coordinates": "48.884487, 2.369941",
-        "Audit": true,
         "Created at": "2026-02-27T01:39:47.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 10,
-        "Latitude": 48.884487,
-        "Longitude": 2.369941,
+        "Coordinates": "48.884487, 2.369941",
         "Map URL": "https://www.google.com/maps/place/48.884487, 2.369941"
       }
     },
@@ -983,23 +984,23 @@
       "id": "recW8IfIVIy25aJwl",
       "createdTime": "2026-02-24T01:40:03.000Z",
       "fields": {
-        "Location": "Untold Stories Experiences (Voorburg)",
-        "City": "Voorburg",
+        "Audit": true,
         "Country": "Netherlands",
+        "Latitude": 52.08486,
+        "Location ID": 67,
         "Company": [
           "recYn2yRt1djriOOV"
         ],
         "Rooms": [
           "receASqfgMtmqSEHZ"
         ],
+        "City": "Voorburg",
+        "Longitude": 4.362005,
+        "Location": "Untold Stories Experiences (Voorburg)",
         "Room Count": 1,
-        "Coordinates": "52.08486, 4.362005",
-        "Audit": true,
         "Created at": "2026-02-24T01:40:03.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 67,
-        "Latitude": 52.08486,
-        "Longitude": 4.362005,
+        "Coordinates": "52.08486, 4.362005",
         "Map URL": "https://www.google.com/maps/place/52.08486, 4.362005"
       }
     },
@@ -1007,23 +1008,23 @@
       "id": "recXbWYecr2rc7FVI",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Red Herring Escape Room (St. Louis)",
-        "City": "St. Louis",
-        "Region": "Missouri",
         "Country": "United States",
+        "Latitude": 38.627,
+        "Location ID": 50,
         "Company": [
           "recuKSXTETjChDPg4"
         ],
         "Rooms": [
           "recMyGzjBP3QeNiOx"
         ],
+        "City": "St. Louis",
+        "Longitude": -90.1994,
+        "Region": "Missouri",
+        "Location": "Red Herring Escape Room (St. Louis)",
         "Room Count": 1,
-        "Coordinates": "38.627, -90.1994",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 50,
-        "Latitude": 38.627,
-        "Longitude": -90.1994,
+        "Coordinates": "38.627, -90.1994",
         "Map URL": "https://www.google.com/maps/place/38.627, -90.1994"
       }
     },
@@ -1031,10 +1032,9 @@
       "id": "recYAYT6uKu8OQHfw",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Escape Room Palm Springs (Palm Springs)",
-        "City": "Palm Springs",
-        "Region": "California",
         "Country": "United States",
+        "Latitude": 33.8303,
+        "Location ID": 25,
         "Location URL": "https://escapeps.com/",
         "Company": [
           "recX9eiTnNd4ANHdR"
@@ -1042,13 +1042,14 @@
         "Rooms": [
           "recPpP1IJnINvcKqw"
         ],
+        "City": "Palm Springs",
+        "Longitude": -116.5453,
+        "Region": "California",
+        "Location": "Escape Room Palm Springs (Palm Springs)",
         "Room Count": 1,
-        "Coordinates": "33.8303, -116.5453",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 25,
-        "Latitude": 33.8303,
-        "Longitude": -116.5453,
+        "Coordinates": "33.8303, -116.5453",
         "Map URL": "https://www.google.com/maps/place/33.8303, -116.5453"
       }
     },
@@ -1056,23 +1057,23 @@
       "id": "recYSVPrnvS9Lv7jo",
       "createdTime": "2026-02-24T01:38:08.000Z",
       "fields": {
-        "Location": "Sherlocked (Amsterdam)",
-        "City": "Amsterdam",
+        "Audit": true,
         "Country": "Netherlands",
+        "Latitude": 52.374599,
+        "Location ID": 52,
         "Company": [
           "reckMAf60Vvnf8jqi"
         ],
         "Rooms": [
           "rec4zecfSJ1FznQMB"
         ],
+        "City": "Amsterdam",
+        "Longitude": 4.895488,
+        "Location": "Sherlocked (Amsterdam)",
         "Room Count": 1,
-        "Coordinates": "52.374599, 4.895488",
-        "Audit": true,
         "Created at": "2026-02-24T01:38:08.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 52,
-        "Latitude": 52.374599,
-        "Longitude": 4.895488,
+        "Coordinates": "52.374599, 4.895488",
         "Map URL": "https://www.google.com/maps/place/52.374599, 4.895488"
       }
     },
@@ -1080,10 +1081,9 @@
       "id": "recaGpV8pgyK5Csg9",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Puzzleworks (Minneapolis)",
-        "City": "Minneapolis",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Latitude": 44.9778,
+        "Location ID": 48,
         "Location URL": "https://www.puzzle.works/",
         "Company": [
           "reccLCoyLG850h4c1"
@@ -1092,13 +1092,14 @@
           "rectzVjblsWMr1PaH",
           "recIifKoB4QBKlyCe"
         ],
+        "City": "Minneapolis",
+        "Longitude": -93.265,
+        "Region": "Minnesota",
+        "Location": "Puzzleworks (Minneapolis)",
         "Room Count": 2,
-        "Coordinates": "44.9778, -93.265",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 48,
-        "Latitude": 44.9778,
-        "Longitude": -93.265,
+        "Coordinates": "44.9778, -93.265",
         "Map URL": "https://www.google.com/maps/place/44.9778, -93.265"
       }
     },
@@ -1106,10 +1107,10 @@
       "id": "recaeHuToCcnr9rt2",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Itasca Historical Society (Grand Rapids)",
-        "City": "Grand Rapids",
-        "Region": "Minnesota",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 47.234047,
+        "Location ID": 35,
         "Location URL": "https://www.grescaperooms.com/",
         "Company": [
           "recsPfg2oa5k4amjr"
@@ -1119,14 +1120,14 @@
           "recJTZD3ecUiUdbwh",
           "recr8b2m3JEe8wpnS"
         ],
+        "City": "Grand Rapids",
+        "Longitude": -93.528742,
+        "Region": "Minnesota",
+        "Location": "Itasca Historical Society (Grand Rapids)",
         "Room Count": 3,
-        "Coordinates": "47.234047, -93.528742",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 35,
-        "Latitude": 47.234047,
-        "Longitude": -93.528742,
+        "Coordinates": "47.234047, -93.528742",
         "Map URL": "https://www.google.com/maps/place/47.234047, -93.528742"
       }
     },
@@ -1134,24 +1135,24 @@
       "id": "reccAU6q2IKxF41f5",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Tick Tock Escape Rooms (Kansas City)",
-        "City": "Kansas City",
-        "Region": "Missouri",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 38.927925,
+        "Location ID": 61,
         "Company": [
           "recEWcNqf0FZgEagC"
         ],
         "Rooms": [
           "recM2tOvoeH29vOJD"
         ],
+        "City": "Kansas City",
+        "Longitude": -94.660115,
+        "Region": "Missouri",
+        "Location": "Tick Tock Escape Rooms (Kansas City)",
         "Room Count": 1,
-        "Coordinates": "38.927925, -94.660115",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 61,
-        "Latitude": 38.927925,
-        "Longitude": -94.660115,
+        "Coordinates": "38.927925, -94.660115",
         "Map URL": "https://www.google.com/maps/place/38.927925, -94.660115"
       }
     },
@@ -1159,10 +1160,10 @@
       "id": "recebLkRdmi6LJAD9",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "The Escape Game (Bloomington)",
-        "City": "Bloomington",
-        "Region": "Minnesota",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 44.855492,
+        "Location ID": 56,
         "Location URL": "https://theescapegame.com/minneapolis/",
         "Company": [
           "recaqH6D2pXSa7YFz"
@@ -1170,14 +1171,14 @@
         "Rooms": [
           "recK5aGPCnSOC9OsP"
         ],
+        "City": "Bloomington",
+        "Longitude": -93.240154,
+        "Region": "Minnesota",
+        "Location": "The Escape Game (Bloomington)",
         "Room Count": 1,
-        "Coordinates": "44.855492, -93.240154",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 56,
-        "Latitude": 44.855492,
-        "Longitude": -93.240154,
+        "Coordinates": "44.855492, -93.240154",
         "Map URL": "https://www.google.com/maps/place/44.855492, -93.240154"
       }
     },
@@ -1185,10 +1186,9 @@
       "id": "recfNqgESCa81ccUx",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Enigma Escape Rooms (Buffalo)",
-        "City": "Buffalo",
-        "Region": "New York",
         "Country": "United States",
+        "Latitude": 42.8864,
+        "Location ID": 14,
         "Location URL": "https://enigmabuffalo.com/",
         "Company": [
           "rectvHHXzpxt67ULO"
@@ -1196,13 +1196,14 @@
         "Rooms": [
           "rec8iYdn3TMfqa4kd"
         ],
+        "City": "Buffalo",
+        "Longitude": -78.8784,
+        "Region": "New York",
+        "Location": "Enigma Escape Rooms (Buffalo)",
         "Room Count": 1,
-        "Coordinates": "42.8864, -78.8784",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 14,
-        "Latitude": 42.8864,
-        "Longitude": -78.8784,
+        "Coordinates": "42.8864, -78.8784",
         "Map URL": "https://www.google.com/maps/place/42.8864, -78.8784"
       }
     },
@@ -1210,24 +1211,24 @@
       "id": "recfQ571MDa01pD40",
       "createdTime": "2026-02-27T02:00:11.000Z",
       "fields": {
-        "Location": "The Escape Game (Berry Hill)",
-        "City": "Berry Hill",
-        "Region": "Tennessee",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 36.116701,
+        "Location ID": 55,
         "Company": [
           "recaqH6D2pXSa7YFz"
         ],
         "Rooms": [
           "rec53yK3nczTclkFC"
         ],
+        "City": "Berry Hill",
+        "Longitude": -86.763313,
+        "Region": "Tennessee",
+        "Location": "The Escape Game (Berry Hill)",
         "Room Count": 1,
-        "Coordinates": "36.116701, -86.763313",
-        "Audit": true,
         "Created at": "2026-02-27T02:00:11.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 55,
-        "Latitude": 36.116701,
-        "Longitude": -86.763313,
+        "Coordinates": "36.116701, -86.763313",
         "Map URL": "https://www.google.com/maps/place/36.116701, -86.763313"
       }
     },
@@ -1235,22 +1236,22 @@
       "id": "recfqYQzQ0TRZ7XjO",
       "createdTime": "2026-04-03T14:57:49.000Z",
       "fields": {
-        "Location": "Puzzle Punks (Dubrovnik)",
-        "City": "Dubrovnik",
         "Country": "Croatia",
+        "Latitude": 42.655636,
+        "Location ID": 71,
         "Company": [
           "recd2Ly7fCIF6piaW"
         ],
         "Rooms": [
           "rec0r8d5asOBGUBd2"
         ],
+        "City": "Dubrovnik",
+        "Longitude": 18.076712,
+        "Location": "Puzzle Punks (Dubrovnik)",
         "Room Count": 1,
-        "Coordinates": "42.655636, 18.076712",
         "Created at": "2026-04-03T14:57:49.000Z",
         "Modified at": "2026-04-03T14:59:54.000Z",
-        "Location ID": 71,
-        "Latitude": 42.655636,
-        "Longitude": 18.076712,
+        "Coordinates": "42.655636, 18.076712",
         "Map URL": "https://www.google.com/maps/place/42.655636, 18.076712"
       }
     },
@@ -1258,10 +1259,9 @@
       "id": "rechxuvE3gWvHLDFn",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Zero Hour Escape Rooms (Minneapolis)",
-        "City": "Minneapolis",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Latitude": 44.9778,
+        "Location ID": 69,
         "Location URL": "https://minneapolis.zerohourescaperooms.com/",
         "Company": [
           "rec5dOTiEHvayv7hW"
@@ -1269,13 +1269,14 @@
         "Rooms": [
           "recSDgzleVsHboeal"
         ],
+        "City": "Minneapolis",
+        "Longitude": -93.265,
+        "Region": "Minnesota",
+        "Location": "Zero Hour Escape Rooms (Minneapolis)",
         "Room Count": 1,
-        "Coordinates": "44.9778, -93.265",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 69,
-        "Latitude": 44.9778,
-        "Longitude": -93.265,
+        "Coordinates": "44.9778, -93.265",
         "Map URL": "https://www.google.com/maps/place/44.9778, -93.265"
       }
     },
@@ -1283,10 +1284,9 @@
       "id": "recisZaA0PB51Zy3A",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Enigma Adventures (Bloomington)",
-        "City": "Bloomington",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Latitude": 44.850893,
+        "Location ID": 12,
         "Location URL": "https://enigmaadventures.com/",
         "Company": [
           "recKdiJobxFPpYN2Q"
@@ -1294,13 +1294,14 @@
         "Rooms": [
           "recZQqwxwTJ6LucwE"
         ],
+        "City": "Bloomington",
+        "Longitude": -93.236632,
+        "Region": "Minnesota",
+        "Location": "Enigma Adventures (Bloomington)",
         "Room Count": 1,
-        "Coordinates": "44.850893, -93.236632",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 12,
-        "Latitude": 44.850893,
-        "Longitude": -93.236632,
+        "Coordinates": "44.850893, -93.236632",
         "Map URL": "https://www.google.com/maps/place/44.850893, -93.236632"
       }
     },
@@ -1308,24 +1309,24 @@
       "id": "reck3WMbFFQZfVJMv",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Clue Pursuit (Springfield)",
-        "City": "Springfield",
-        "Region": "Missouri",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 37.184793,
+        "Location ID": 6,
         "Company": [
           "rec6hHJygkxGRsb1o"
         ],
         "Rooms": [
           "receB5xQLCkwwVbjp"
         ],
+        "City": "Springfield",
+        "Longitude": -93.295487,
+        "Region": "Missouri",
+        "Location": "Clue Pursuit (Springfield)",
         "Room Count": 1,
-        "Coordinates": "37.184793, -93.295487",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 6,
-        "Latitude": 37.184793,
-        "Longitude": -93.295487,
+        "Coordinates": "37.184793, -93.295487",
         "Map URL": "https://www.google.com/maps/place/37.184793, -93.295487"
       }
     },
@@ -1333,10 +1334,10 @@
       "id": "reclm2krHkNPweij2",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Puzzled Escape Rooms (Fargo)",
-        "City": "Fargo",
-        "Region": "North Dakota",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 46.830745,
+        "Location ID": 47,
         "Location URL": "https://puzzledescaperooms.com/",
         "Company": [
           "recGAM2Ek819Dbbw2"
@@ -1344,14 +1345,14 @@
         "Rooms": [
           "recjtoHyl9WZIk37S"
         ],
+        "City": "Fargo",
+        "Longitude": -96.800999,
+        "Region": "North Dakota",
+        "Location": "Puzzled Escape Rooms (Fargo)",
         "Room Count": 1,
-        "Coordinates": "46.830745, -96.800999",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 47,
-        "Latitude": 46.830745,
-        "Longitude": -96.800999,
+        "Coordinates": "46.830745, -96.800999",
         "Map URL": "https://www.google.com/maps/place/46.830745, -96.800999"
       }
     },
@@ -1359,10 +1360,10 @@
       "id": "reclnnh7XZeschPro",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Fox in a Box (Chicago)",
-        "City": "Chicago",
-        "Region": "Illinois",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 41.872068,
+        "Location ID": 31,
         "Location URL": "https://www.foxinaboxchicago.com",
         "Company": [
           "recZK3jmOf4cMngfa"
@@ -1370,14 +1371,14 @@
         "Rooms": [
           "recQKGd7Lsx2KTR9C"
         ],
+        "City": "Chicago",
+        "Longitude": -87.629255,
+        "Region": "Illinois",
+        "Location": "Fox in a Box (Chicago)",
         "Room Count": 1,
-        "Coordinates": "41.872068, -87.629255",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 31,
-        "Latitude": 41.872068,
-        "Longitude": -87.629255,
+        "Coordinates": "41.872068, -87.629255",
         "Map URL": "https://www.google.com/maps/place/41.872068, -87.629255"
       }
     },
@@ -1385,10 +1386,9 @@
       "id": "recmoILM3NTdpzq2h",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Enigma Adventures (Maple Grove)",
-        "City": "Maple Grove",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Latitude": 45.10157,
+        "Location ID": 13,
         "Location URL": "https://enigmaadventures.com/",
         "Company": [
           "recKdiJobxFPpYN2Q"
@@ -1396,13 +1396,14 @@
         "Rooms": [
           "recNxduRu2bMUg67b"
         ],
+        "City": "Maple Grove",
+        "Longitude": -93.45427,
+        "Region": "Minnesota",
+        "Location": "Enigma Adventures (Maple Grove)",
         "Room Count": 1,
-        "Coordinates": "45.10157, -93.45427",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 13,
-        "Latitude": 45.10157,
-        "Longitude": -93.45427,
+        "Coordinates": "45.10157, -93.45427",
         "Map URL": "https://www.google.com/maps/place/45.10157, -93.45427"
       }
     },
@@ -1410,9 +1411,10 @@
       "id": "recntJKYJaunybnCP",
       "createdTime": "2026-02-27T01:29:58.000Z",
       "fields": {
-        "Location": "The Escape Cafe (Hilversum)",
-        "City": "Hilversum",
+        "Audit": true,
         "Country": "Netherlands",
+        "Latitude": 52.224663,
+        "Location ID": 54,
         "Location URL": "https://escapecafehilversum.nl",
         "Company": [
           "recSgEcHQeFAHeLbs"
@@ -1420,14 +1422,13 @@
         "Rooms": [
           "recrQ7mSj8HrOoZJS"
         ],
+        "City": "Hilversum",
+        "Longitude": 5.17815,
+        "Location": "The Escape Cafe (Hilversum)",
         "Room Count": 1,
-        "Coordinates": "52.224663, 5.17815",
-        "Audit": true,
         "Created at": "2026-02-27T01:29:58.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 54,
-        "Latitude": 52.224663,
-        "Longitude": 5.17815,
+        "Coordinates": "52.224663, 5.17815",
         "Map URL": "https://www.google.com/maps/place/52.224663, 5.17815"
       }
     },
@@ -1435,10 +1436,10 @@
       "id": "recpIbzvK8SIfnX1k",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Twisted Room Escapes (Indianapolis)",
-        "City": "Indianapolis",
-        "Region": "Indiana",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 39.692815,
+        "Location ID": 66,
         "Location URL": "https://www.twistedroomescapes.com/index.php/escape-rooms/alice",
         "Company": [
           "recYTqXqNajstet2y"
@@ -1446,14 +1447,14 @@
         "Rooms": [
           "recacVI8oAeyrT0pf"
         ],
+        "City": "Indianapolis",
+        "Longitude": -86.110239,
+        "Region": "Indiana",
+        "Location": "Twisted Room Escapes (Indianapolis)",
         "Room Count": 1,
-        "Coordinates": "39.692815, -86.110239",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 66,
-        "Latitude": 39.692815,
-        "Longitude": -86.110239,
+        "Coordinates": "39.692815, -86.110239",
         "Map URL": "https://www.google.com/maps/place/39.692815, -86.110239"
       }
     },
@@ -1461,10 +1462,10 @@
       "id": "recqLBPReU9PULqvp",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Escaparium (Laval)",
-        "City": "Laval",
-        "Region": "Quebec",
+        "Audit": true,
         "Country": "Canada",
+        "Latitude": 45.585974,
+        "Location ID": 16,
         "Location URL": "https://www.escaparium.ca/montreal-jeu-evasion/",
         "Company": [
           "recqYdwqT1ZYKaWtu"
@@ -1474,14 +1475,14 @@
           "recRtLvjdXuPiqjbT",
           "recHh5GHLbeLSs808"
         ],
+        "City": "Laval",
+        "Longitude": -73.768325,
+        "Region": "Quebec",
+        "Location": "Escaparium (Laval)",
         "Room Count": 3,
-        "Coordinates": "45.585974, -73.768325",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 16,
-        "Latitude": 45.585974,
-        "Longitude": -73.768325,
+        "Coordinates": "45.585974, -73.768325",
         "Map URL": "https://www.google.com/maps/place/45.585974, -73.768325"
       }
     },
@@ -1489,10 +1490,9 @@
       "id": "recqZ6Jw90HF09W8m",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Escapology (Burnsville)",
-        "City": "Burnsville",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Latitude": 44.7677,
+        "Location ID": 29,
         "Location URL": "https://www.escapology.com/",
         "Company": [
           "recemExFMPMXsd3NA"
@@ -1500,13 +1500,14 @@
         "Rooms": [
           "recAvdJlOWTzlUk0X"
         ],
+        "City": "Burnsville",
+        "Longitude": -93.2777,
+        "Region": "Minnesota",
+        "Location": "Escapology (Burnsville)",
         "Room Count": 1,
-        "Coordinates": "44.7677, -93.2777",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 29,
-        "Latitude": 44.7677,
-        "Longitude": -93.2777,
+        "Coordinates": "44.7677, -93.2777",
         "Map URL": "https://www.google.com/maps/place/44.7677, -93.2777"
       }
     },
@@ -1514,23 +1515,23 @@
       "id": "recrReMJcDqvsZngy",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Escape MSP (Minneapolis)",
-        "City": "Minneapolis",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Latitude": 44.9778,
+        "Location ID": 23,
         "Company": [
           "recVuIL5fQPeXNF88"
         ],
         "Rooms": [
           "recWL7yk55j3P78y0"
         ],
+        "City": "Minneapolis",
+        "Longitude": -93.265,
+        "Region": "Minnesota",
+        "Location": "Escape MSP (Minneapolis)",
         "Room Count": 1,
-        "Coordinates": "44.9778, -93.265",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 23,
-        "Latitude": 44.9778,
-        "Longitude": -93.265,
+        "Coordinates": "44.9778, -93.265",
         "Map URL": "https://www.google.com/maps/place/44.9778, -93.265"
       }
     },
@@ -1538,10 +1539,9 @@
       "id": "recs5LSrArbY3NqPe",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Greatest Caper (Montpelier)",
-        "City": "Montpelier",
-        "Region": "Maine",
         "Country": "United States",
+        "Latitude": 44.2601,
+        "Location ID": 34,
         "Location URL": "https://thegreatestcaper.com/",
         "Company": [
           "reckF9ZRJgFOBAZJy"
@@ -1549,13 +1549,14 @@
         "Rooms": [
           "rec6nQYyyh3IBDkna"
         ],
+        "City": "Montpelier",
+        "Longitude": -69.817,
+        "Region": "Maine",
+        "Location": "Greatest Caper (Montpelier)",
         "Room Count": 1,
-        "Coordinates": "44.2601, -69.817",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 34,
-        "Latitude": 44.2601,
-        "Longitude": -69.817,
+        "Coordinates": "44.2601, -69.817",
         "Map URL": "https://www.google.com/maps/place/44.2601, -69.817"
       }
     },
@@ -1563,10 +1564,10 @@
       "id": "recsYpExMUo04h60I",
       "createdTime": "2026-02-24T00:44:46.000Z",
       "fields": {
-        "Location": "The Lodge of Lazarus Crowe (St. Paul)",
-        "City": "St. Paul",
-        "Region": "Minnesota",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 44.935735,
+        "Location ID": 60,
         "Location URL": "https://lazaruslodge.com/",
         "Company": [
           "recPF0vBbfbe3UM6I"
@@ -1575,14 +1576,14 @@
           "recjd6IKGMey6IF9M",
           "recDTs3Sn4ZWOUGvh"
         ],
+        "City": "St. Paul",
+        "Longitude": -93.114455,
+        "Region": "Minnesota",
+        "Location": "The Lodge of Lazarus Crowe (St. Paul)",
         "Room Count": 2,
-        "Coordinates": "44.935735, -93.114455",
-        "Audit": true,
         "Created at": "2026-02-24T00:44:46.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 60,
-        "Latitude": 44.935735,
-        "Longitude": -93.114455,
+        "Coordinates": "44.935735, -93.114455",
         "Map URL": "https://www.google.com/maps/place/44.935735, -93.114455"
       }
     },
@@ -1590,23 +1591,23 @@
       "id": "recsgGAUhghwzQNz0",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Escape the Room (Minneapolis)",
-        "City": "Minneapolis",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Latitude": 44.9778,
+        "Location ID": 27,
         "Company": [
           "reciHFm406pRztYpO"
         ],
         "Rooms": [
           "rec6nkJuIG1mHtCQz"
         ],
+        "City": "Minneapolis",
+        "Longitude": -93.265,
+        "Region": "Minnesota",
+        "Location": "Escape the Room (Minneapolis)",
         "Room Count": 1,
-        "Coordinates": "44.9778, -93.265",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 27,
-        "Latitude": 44.9778,
-        "Longitude": -93.265,
+        "Coordinates": "44.9778, -93.265",
         "Map URL": "https://www.google.com/maps/place/44.9778, -93.265"
       }
     },
@@ -1614,24 +1615,24 @@
       "id": "recsr35Ty2VXFdTcu",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Cryptex Branson Escape Rooms (Branson)",
-        "City": "Branson",
-        "Region": "Missouri",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 36.6429,
+        "Location ID": 8,
         "Company": [
           "rec9nC1z3hpq76DlT"
         ],
         "Rooms": [
           "rectPKJYjIk3haDDU"
         ],
+        "City": "Branson",
+        "Longitude": -93.250695,
+        "Region": "Missouri",
+        "Location": "Cryptex Branson Escape Rooms (Branson)",
         "Room Count": 1,
-        "Coordinates": "36.6429, -93.250695",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 8,
-        "Latitude": 36.6429,
-        "Longitude": -93.250695,
+        "Coordinates": "36.6429, -93.250695",
         "Map URL": "https://www.google.com/maps/place/36.6429, -93.250695"
       }
     },
@@ -1639,23 +1640,23 @@
       "id": "recuUJJtiLHwkFB95",
       "createdTime": "2026-02-27T01:37:04.000Z",
       "fields": {
-        "Location": "Majestic Escape Game (Paris)",
-        "City": "Paris",
+        "Audit": true,
         "Country": "France",
+        "Latitude": 48.863811,
+        "Location ID": 42,
         "Company": [
           "recS1Fth1J36JXhIB"
         ],
         "Rooms": [
           "recrCIDLym8KGALiH"
         ],
+        "City": "Paris",
+        "Longitude": 2.34759,
+        "Location": "Majestic Escape Game (Paris)",
         "Room Count": 1,
-        "Coordinates": "48.863811, 2.34759",
-        "Audit": true,
         "Created at": "2026-02-27T01:37:04.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 42,
-        "Latitude": 48.863811,
-        "Longitude": 2.34759,
+        "Coordinates": "48.863811, 2.34759",
         "Map URL": "https://www.google.com/maps/place/48.863811, 2.34759"
       }
     },
@@ -1663,10 +1664,10 @@
       "id": "recwavLHj8JcOgT7t",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Puzzleworks (St. Paul)",
-        "City": "St. Paul",
-        "Region": "Minnesota",
+        "Audit": true,
         "Country": "United States",
+        "Latitude": 44.96485,
+        "Location ID": 49,
         "Location URL": "https://www.puzzleworksmn.com/",
         "Company": [
           "reccLCoyLG850h4c1"
@@ -1677,14 +1678,14 @@
           "recoybbz8OHungxqh",
           "rec2mV2VTPueu9Yau"
         ],
+        "City": "St. Paul",
+        "Longitude": -93.183348,
+        "Region": "Minnesota",
+        "Location": "Puzzleworks (St. Paul)",
         "Room Count": 4,
-        "Coordinates": "44.96485, -93.183348",
-        "Audit": true,
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 49,
-        "Latitude": 44.96485,
-        "Longitude": -93.183348,
+        "Coordinates": "44.96485, -93.183348",
         "Map URL": "https://www.google.com/maps/place/44.96485, -93.183348"
       }
     },
@@ -1692,10 +1693,9 @@
       "id": "recxgdIw1xYr1rOHl",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Lock & Key Escape Rooms (Minneapolis)",
-        "City": "Minneapolis",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Latitude": 44.881233,
+        "Location ID": 37,
         "Location URL": "https://lockandkeyescape.com/",
         "Company": [
           "recT5VEasHiBEs7PJ"
@@ -1704,13 +1704,14 @@
           "recAabEHKgVnh3SLF",
           "recQaIdtfk8nhtWrL"
         ],
+        "City": "Minneapolis",
+        "Longitude": -93.324289,
+        "Region": "Minnesota",
+        "Location": "Lock & Key Escape Rooms (Minneapolis)",
         "Room Count": 2,
-        "Coordinates": "44.881233, -93.324289",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 37,
-        "Latitude": 44.881233,
-        "Longitude": -93.324289,
+        "Coordinates": "44.881233, -93.324289",
         "Map URL": "https://www.google.com/maps/place/44.881233, -93.324289"
       }
     },
@@ -1718,23 +1719,23 @@
       "id": "recxk2LfQWcB53ENY",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Escape MSP (Lakeville)",
-        "City": "Lakeville",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Latitude": 44.6497,
+        "Location ID": 22,
         "Company": [
           "recVuIL5fQPeXNF88"
         ],
         "Rooms": [
           "recsB9j2WPez5QFs1"
         ],
+        "City": "Lakeville",
+        "Longitude": -93.2427,
+        "Region": "Minnesota",
+        "Location": "Escape MSP (Lakeville)",
         "Room Count": 1,
-        "Coordinates": "44.6497, -93.2427",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 22,
-        "Latitude": 44.6497,
-        "Longitude": -93.2427,
+        "Coordinates": "44.6497, -93.2427",
         "Map URL": "https://www.google.com/maps/place/44.6497, -93.2427"
       }
     },
@@ -1742,23 +1743,23 @@
       "id": "recxuAEOfQDvuLrES",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Kato Escape (Mankato)",
-        "City": "Mankato",
-        "Region": "Minnesota",
         "Country": "United States",
+        "Latitude": 44.1636,
+        "Location ID": 36,
         "Company": [
           "recZYQC18wkg0laZP"
         ],
         "Rooms": [
           "recVC9OC2Qkoksrk2"
         ],
+        "City": "Mankato",
+        "Longitude": -93.9994,
+        "Region": "Minnesota",
+        "Location": "Kato Escape (Mankato)",
         "Room Count": 1,
-        "Coordinates": "44.1636, -93.9994",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 36,
-        "Latitude": 44.1636,
-        "Longitude": -93.9994,
+        "Coordinates": "44.1636, -93.9994",
         "Map URL": "https://www.google.com/maps/place/44.1636, -93.9994"
       }
     },
@@ -1766,10 +1767,9 @@
       "id": "recy6Ai1mGgLVG3gt",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "Doldrick’s Escape Room (Orlando)",
-        "City": "Orlando",
-        "Region": "Florida",
         "Country": "United States",
+        "Latitude": 28.335013,
+        "Location ID": 11,
         "Location URL": "https://www.doldricksescaperoom.com/",
         "Company": [
           "reckj3S2mur8Q2cbT"
@@ -1777,13 +1777,14 @@
         "Rooms": [
           "recyjtLq35KklMMgc"
         ],
+        "City": "Orlando",
+        "Longitude": -81.478393,
+        "Region": "Florida",
+        "Location": "Doldrick’s Escape Room (Orlando)",
         "Room Count": 1,
-        "Coordinates": "28.335013, -81.478393",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 11,
-        "Latitude": 28.335013,
-        "Longitude": -81.478393,
+        "Coordinates": "28.335013, -81.478393",
         "Map URL": "https://www.google.com/maps/place/28.335013, -81.478393"
       }
     },
@@ -1791,10 +1792,9 @@
       "id": "recyElQwqupvOmTOt",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
-        "Location": "60 to Escape (Milwaukee)",
-        "City": "Milwaukee",
-        "Region": "Wisconsin",
         "Country": "United States",
+        "Latitude": 42.949241,
+        "Location ID": 2,
         "Location URL": "https://www.62escape.com/wisconsin",
         "Company": [
           "recUIlM3M9uSWyMF1"
@@ -1802,13 +1802,14 @@
         "Rooms": [
           "recomWxyMIJhHrs1G"
         ],
+        "City": "Milwaukee",
+        "Longitude": -88.004283,
+        "Region": "Wisconsin",
+        "Location": "60 to Escape (Milwaukee)",
         "Room Count": 1,
-        "Coordinates": "42.949241, -88.004283",
         "Created at": "2026-02-23T19:23:51.000Z",
         "Modified at": "2026-03-19T21:00:38.000Z",
-        "Location ID": 2,
-        "Latitude": 42.949241,
-        "Longitude": -88.004283,
+        "Coordinates": "42.949241, -88.004283",
         "Map URL": "https://www.google.com/maps/place/42.949241, -88.004283"
       }
     }
