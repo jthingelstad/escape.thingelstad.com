@@ -1,12 +1,13 @@
 {
   "table": "Lists",
-  "syncedAt": "2026-04-25T20:44:23.573426+00:00",
+  "syncedAt": "2026-05-16T14:31:37.123119+00:00",
   "count": 4,
   "records": [
     {
       "id": "rec2AT81hVAdrhy9f",
       "createdTime": "2026-03-24T19:29:27.000Z",
       "fields": {
+        "Room Count": 4,
         "Notes": "The best rooms that we've ever done.\n",
         "Name": "Best of the Best",
         "List ID": 4,
@@ -15,14 +16,14 @@
           "rec8jNV2ARqYCHmlA",
           "rec1lvVshJfhwqOma",
           "recU8ZvM5VXxaVCHs"
-        ],
-        "Room Count": 4
+        ]
       }
     },
     {
       "id": "recfSbUCFg9HAUgV3",
       "createdTime": "2026-03-19T11:08:47.000Z",
       "fields": {
+        "Room Count": 5,
         "Player": [
           "recfd6DZt87SxQurn"
         ],
@@ -38,14 +39,14 @@
           "recLwjeGy2O1jYQX0",
           "rec1kuYcssxMnegcp",
           "rec6NcYS58yKbhdsH"
-        ],
-        "Room Count": 5
+        ]
       }
     },
     {
       "id": "recjRI5haNXU9ciSX",
       "createdTime": "2026-03-23T19:51:16.000Z",
       "fields": {
+        "Room Count": 5,
         "Notes": "Our favorite rooms in the Twin Cities.\n",
         "Name": "Top Twin Cities Rooms",
         "List ID": 3,
@@ -55,14 +56,14 @@
           "recHGbGsFthLILMSr",
           "rec00GvBhgWw7JCL1",
           "reciai3XOCkcqn7vs"
-        ],
-        "Room Count": 5
+        ]
       }
     },
     {
       "id": "reckIazUkZ38buhZa",
       "createdTime": "2026-03-23T19:51:04.000Z",
       "fields": {
+        "Room Count": 5,
         "Player": [
           "recfd6DZt87SxQurn"
         ],
@@ -75,8 +76,7 @@
           "recpYhUjTAarjlEwV",
           "recyV6VxTFepKAkhD",
           "recu8RKuyvJaDucSI"
-        ],
-        "Room Count": 5
+        ]
       }
     }
   ]
