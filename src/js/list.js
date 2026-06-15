@@ -101,8 +101,12 @@ function updateResults() {
 function makePill(text, onRemove) {
   const pill = document.createElement('span');
   pill.className = 'active-filter-pill';
-  pill.innerHTML = `${text} <button aria-label="Remove filter">&times;</button>`;
-  pill.querySelector('button').addEventListener('click', onRemove);
+  pill.appendChild(document.createTextNode(`${text} `));
+  const button = document.createElement('button');
+  button.setAttribute('aria-label', 'Remove filter');
+  button.textContent = '×';
+  button.addEventListener('click', onRemove);
+  pill.appendChild(button);
   return pill;
 }
 
