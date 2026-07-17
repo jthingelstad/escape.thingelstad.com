@@ -3,7 +3,7 @@ name = "escaping-things-data-tools"
 version = "0.1.0"
 description = "Data synchronization tools for Escaping Things"
 requires-python = ">=3.14,<3.15"
-dependencies = ["pillow>=12.2.0,<13"]
+dependencies = ["pillow>=12.3.0,<13"]
 
 [dependency-groups]
 dev = ["ruff>=0.15.22,<0.16"]
