@@ -17,7 +17,20 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
+  python-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v7
+        with:
+          python-version: "3.14"
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run --locked ruff check scripts
+      - run: uv run --locked ruff format --check scripts
+
   build:
+    needs: python-quality
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7

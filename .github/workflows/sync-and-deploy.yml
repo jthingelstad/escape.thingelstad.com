@@ -21,17 +21,18 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v6
+      - uses: astral-sh/setup-uv@v7
         with:
           python-version: "3.14"
+          enable-cache: true
 
-      - run: pip install -r scripts/requirements.txt
+      - run: uv sync --locked --no-dev
 
       - name: Sync Airtable data
         env:
           AIRTABLE_PAT: ${{ secrets.AIRTABLE_PAT }}
           AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
-        run: npm run sync
+        run: uv run --locked --no-dev python scripts/sync_airtable.py
 
       - name: Commit changes
         run: |

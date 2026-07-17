@@ -2,4 +2,5 @@
 _site/
 node_modules/
 .env
+.venv/
 morty_awards_cache.json

@@ -23,7 +23,6 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-
 API_BASE = "https://api.airtable.com/v0"
 IMAGE_DIR = Path(__file__).resolve().parent.parent / "src" / "images" / "rooms"
 DEFAULT_IMAGE_BASE_URL = "https://escape.thingelstad.com/images/rooms"
@@ -157,11 +156,13 @@ def build_candidates(records, requested_ids):
 
         if not local_path or not local_path.is_file():
             counts["skipped_missing_file"] += 1
-            missing.append({
-                "id": record["id"],
-                "game": game,
-                "photo": photo,
-            })
+            missing.append(
+                {
+                    "id": record["id"],
+                    "game": game,
+                    "photo": photo,
+                }
+            )
             continue
 
         candidate = {
@@ -181,10 +182,12 @@ def update_team_photo(base_id, token, record_id, image_url, filename):
     """Ask Airtable to ingest an image into the Team Photo field."""
     payload = {
         "fields": {
-            TEAM_PHOTO_FIELD: [{
-                "url": image_url,
-                "filename": filename,
-            }]
+            TEAM_PHOTO_FIELD: [
+                {
+                    "url": image_url,
+                    "filename": filename,
+                }
+            ]
         }
     }
     url = f"{build_table_url(base_id, ROOMS_TABLE)}/{record_id}"

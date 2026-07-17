@@ -137,9 +137,12 @@ _opener = urllib.request.build_opener(_RedirectHandler)
 def fetch_morty_page(morty_id):
     """Fetch a Morty attraction page and extract the awards from JSON payload."""
     url = f"{MORTY_BASE}/{morty_id}"
-    req = urllib.request.Request(url, headers={
-        "User-Agent": "EscapingThings-AwardScraper/1.0",
-    })
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "EscapingThings-AwardScraper/1.0",
+        },
+    )
 
     try:
         with _opener.open(req, timeout=15) as resp:
@@ -163,7 +166,7 @@ def fetch_morty_page(morty_id):
     # Navigate to the awards array
     try:
         awards = data["props"]["pageProps"]["game"]["awards"]
-    except (KeyError, TypeError):
+    except KeyError, TypeError:
         return [], None
 
     parsed = []
@@ -174,13 +177,15 @@ def fetch_morty_page(morty_id):
         award_url = award.get("coarseUrl", "")
         award_name, year = parse_display_title(display_title)
 
-        parsed.append({
-            "organization": organization,
-            "award_name": award_name,
-            "year": year,
-            "award_link": award_url,
-            "display_title": display_title,
-        })
+        parsed.append(
+            {
+                "organization": organization,
+                "award_name": award_name,
+                "year": year,
+                "award_link": award_url,
+                "display_title": display_title,
+            }
+        )
 
     return parsed, None
 
@@ -287,18 +292,23 @@ def main():
         morty_id = int(morty_id)
         if requested_morty_ids and morty_id not in requested_morty_ids:
             continue
-        rooms.append({
-            "airtable_id": record["id"],
-            "morty_id": morty_id,
-            "game": fields.get("Game", "Unknown"),
-            "existing_awards": fields.get("Awards", []),
-        })
+        rooms.append(
+            {
+                "airtable_id": record["id"],
+                "morty_id": morty_id,
+                "game": fields.get("Game", "Unknown"),
+                "existing_awards": fields.get("Awards", []),
+            }
+        )
 
     print(f"  {len(rooms)} rooms with Morty IDs to process", flush=True)
 
     # Build award lookup
     award_lookup, known_orgs = build_award_lookup(award_records)
-    print(f"  {len(award_lookup)} award keys in lookup ({len(known_orgs)} known organizations)", flush=True)
+    print(
+        f"  {len(award_lookup)} award keys in lookup ({len(known_orgs)} known organizations)",
+        flush=True,
+    )
 
     # Phase 1: Get Morty awards (scrape or cache)
     morty_awards = {}
@@ -306,8 +316,10 @@ def main():
 
     if args.scrape:
         est_minutes = len(rooms) * FETCH_DELAY_SECONDS / 60
-        print(f"\nScraping {len(rooms)} Morty pages (~{est_minutes:.1f} min at {FETCH_DELAY_SECONDS}s/req)...",
-              flush=True)
+        print(
+            f"\nScraping {len(rooms)} Morty pages (~{est_minutes:.1f} min at {FETCH_DELAY_SECONDS}s/req)...",
+            flush=True,
+        )
         phase1_start = time.time()
 
         for i, room in enumerate(rooms):
@@ -317,14 +329,21 @@ def main():
             awards, error = fetch_morty_page(morty_id)
             if error:
                 errors.append((morty_id, game, error))
-                print(f"  [{i+1}/{len(rooms)}] ERROR {game} (morty:{morty_id}): {error}", flush=True)
+                print(
+                    f"  [{i + 1}/{len(rooms)}] ERROR {game} (morty:{morty_id}): {error}", flush=True
+                )
             else:
                 morty_awards[morty_id] = awards
                 award_count = len(awards) if awards else 0
                 if award_count > 0:
-                    print(f"  [{i+1}/{len(rooms)}] {game} (morty:{morty_id}): {award_count} awards", flush=True)
+                    print(
+                        f"  [{i + 1}/{len(rooms)}] {game} (morty:{morty_id}): {award_count} awards",
+                        flush=True,
+                    )
                 else:
-                    print(f"  [{i+1}/{len(rooms)}] {game} (morty:{morty_id}): no awards", flush=True)
+                    print(
+                        f"  [{i + 1}/{len(rooms)}] {game} (morty:{morty_id}): no awards", flush=True
+                    )
 
             if i < len(rooms) - 1:
                 time.sleep(FETCH_DELAY_SECONDS)
@@ -335,7 +354,10 @@ def main():
     else:
         cached = load_cache()
         if cached is None:
-            print("\nNo cache found. Run with --scrape first to fetch data from Morty.", file=sys.stderr)
+            print(
+                "\nNo cache found. Run with --scrape first to fetch data from Morty.",
+                file=sys.stderr,
+            )
             sys.exit(1)
         morty_awards, errors, scraped_at = cached
         print(f"\nUsing cached data from {scraped_at} ({len(morty_awards)} rooms)", flush=True)
@@ -346,7 +368,7 @@ def main():
     # Track what needs to be linked: award_airtable_id -> set of room_airtable_ids to add
     links_to_add = {}  # award_record_id -> {"award_name": str, "room_ids": set()}
     unmapped = []  # (game, morty_id, display_title, org, award_name, year)
-    ignored = []   # awards from orgs not in Airtable — intentionally skipped
+    ignored = []  # awards from orgs not in Airtable — intentionally skipped
     already_linked = 0
     newly_linked = 0
 
@@ -406,7 +428,7 @@ def main():
     print(f"New links to add: {newly_linked} (across {len(links_to_add)} awards)")
 
     if links_to_add:
-        print(f"\nAward links to add:")
+        print("\nAward links to add:")
         for award_id, info in sorted(links_to_add.items(), key=lambda x: x[1]["award_name"]):
             new_count = len(info["new_room_ids"])
             existing_count = len(info["existing_room_ids"])
@@ -417,7 +439,9 @@ def main():
         print("  These are from known organizations but have no matching Airtable award record.")
         print("  Create the award in Airtable first, then re-run this script.\n")
         seen = set()
-        for game, morty_id, display, org, name, year in sorted(unmapped, key=lambda x: (x[3], x[2])):
+        for game, morty_id, display, org, name, year in sorted(
+            unmapped, key=lambda x: (x[3], x[2])
+        ):
             unmapped_key = (org, name, year)
             if unmapped_key not in seen:
                 seen.add(unmapped_key)
@@ -458,8 +482,10 @@ def main():
     token = os.environ.get("AIRTABLE_PAT")
     base_id = os.environ.get("AIRTABLE_BASE_ID")
     if not token or not base_id:
-        print("Error: AIRTABLE_PAT and AIRTABLE_BASE_ID env vars are required for --apply.",
-              file=sys.stderr)
+        print(
+            "Error: AIRTABLE_PAT and AIRTABLE_BASE_ID env vars are required for --apply.",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
     if not links_to_add:

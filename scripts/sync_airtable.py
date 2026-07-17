@@ -18,7 +18,6 @@ import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 
-
 ROOT_DIR = os.path.join(os.path.dirname(__file__), "..")
 DATA_DIR = os.path.join(ROOT_DIR, "src", "_data", "airtable")
 IMAGES_DIR = os.path.join(ROOT_DIR, "src", "images", "rooms")
@@ -105,10 +104,7 @@ def resize_photo(path):
 
         resized = img.resize((new_width, new_height), Image.LANCZOS)
         resized.save(path, quality=85)
-        print(
-            f"  Resized {os.path.basename(path)}: "
-            f"{width}x{height} -> {new_width}x{new_height}"
-        )
+        print(f"  Resized {os.path.basename(path)}: {width}x{height} -> {new_width}x{new_height}")
 
 
 def download_team_photo(attachment, airtable_id):
