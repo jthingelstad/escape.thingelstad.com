@@ -2,9 +2,9 @@
 pagination:
   data: legacyRooms
   size: 1
-  alias: room
+  alias: redirect
   addAllPagesToCollections: false
-permalink: /room/{{ room.legacySlug }}/index.html
+permalink: /room/{{ redirect.from }}/index.html
 eleventyExcludeFromCollections: true
 ---
 <!DOCTYPE html>
@@ -12,13 +12,13 @@ eleventyExcludeFromCollections: true
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moving to {{ room.game }} — Escaping Things</title>
+  <title>Moving to {{ redirect.room.game }} — Escaping Things</title>
   <meta name="robots" content="noindex">
-  <meta http-equiv="refresh" content="0; url={{ room | roomPath }}">
-  <link rel="canonical" href="https://escape.thingelstad.com{{ room | roomPath }}">
-  <script>window.location.replace("{{ room | roomPath }}" + window.location.search + window.location.hash);</script>
+  <meta http-equiv="refresh" content="0; url={{ redirect.room | roomPath }}">
+  <link rel="canonical" href="https://escape.thingelstad.com{{ redirect.room | roomPath }}">
+  <script>window.location.replace("{{ redirect.room | roomPath }}" + window.location.search + window.location.hash);</script>
 </head>
 <body>
-  <p>This room has moved to <a href="{{ room | roomPath }}">{{ room.game }}</a>.</p>
+  <p>This room has moved to <a href="{{ redirect.room | roomPath }}">{{ redirect.room.game }}</a>.</p>
 </body>
 </html>
