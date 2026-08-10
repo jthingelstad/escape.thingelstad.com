@@ -154,6 +154,19 @@ When adding rooms:
 3. Review the snapshot and downloaded-photo diff.
 4. Run `npm test` and `npm run build` before publishing.
 
+### Morty awards
+
+Refresh the local Morty award cache and preview missing Airtable links with:
+
+```bash
+uv run --locked --no-dev python scripts/scrape_morty_awards.py --scrape
+```
+
+The preview is read-only. Review its proposed and unmapped awards, then apply the cached
+results with `--apply`. The Airtable personal access token must have `data.records:write`
+access to this base. Apply mode merges links against each live award record, so it will not
+remove links added after the last local snapshot.
+
 ## Search
 
 The site separates typed browsing from text search:

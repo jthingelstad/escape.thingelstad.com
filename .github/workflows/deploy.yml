@@ -26,8 +26,9 @@ jobs:
           enable-cache: true
           prune-cache: true
       - run: uv sync --locked
-      - run: uv run --locked ruff check scripts
-      - run: uv run --locked ruff format --check scripts
+      - run: uv run --locked ruff check scripts tests
+      - run: uv run --locked ruff format --check scripts tests
+      - run: uv run --locked python -m unittest discover -s tests -p 'test_*.py'
       - name: Audit locked dependencies
         run: |
           uv export --locked --no-dev --no-emit-project --format requirements-txt > /tmp/requirements.txt

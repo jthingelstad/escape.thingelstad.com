@@ -1,6 +1,6 @@
 {
   "table": "Locations",
-  "syncedAt": "2026-08-10T22:03:36.522190+00:00",
+  "syncedAt": "2026-08-10T22:24:52.222929+00:00",
   "count": 75,
   "records": [
     {
@@ -1032,7 +1032,7 @@
         "Created at": "2026-02-27T01:39:47.000Z",
         "Audit": true,
         "Map URL": "https://www.google.com/maps/place/48.884487, 2.369941",
-        "Room Count": 1,
+        "Room Count": 2,
         "Country": "France",
         "Latitude": 48.884487,
         "Location ID": 10,
@@ -1042,12 +1042,13 @@
           "rec1JkJ08ZZ8aoZQ3"
         ],
         "Rooms": [
-          "recjFTVzz57eYe9IE"
+          "recjFTVzz57eYe9IE",
+          "rec1C694RVHvg5hTa"
         ],
         "City": "Paris",
         "Coordinates": "48.884487, 2.369941",
         "Longitude": 2.369941,
-        "Modified at": "2026-03-19T21:00:38.000Z"
+        "Modified at": "2026-08-10T22:09:55.000Z"
       }
     },
     {

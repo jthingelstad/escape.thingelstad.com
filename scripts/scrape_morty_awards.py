@@ -41,6 +41,15 @@ API_BASE = "https://api.airtable.com/v0"
 MORTY_BASE = "https://morty.app/attraction"
 FETCH_DELAY_SECONDS = 0.5
 AWARDS_TABLE = "Awards"
+ESCAPE_ROOM_AWARDS_DOMAIN = "escaperoomawardsoficial.com"
+
+
+class AirtableRequestError(RuntimeError):
+    """An Airtable HTTP error with a status code callers can act on."""
+
+    def __init__(self, status_code, message):
+        self.status_code = status_code
+        super().__init__(f"{status_code} {message}")
 
 
 def load_env_file():
@@ -118,6 +127,31 @@ def parse_display_title(display_title):
         name_part = prefix_match.group(2).strip()
 
     return name_part, year
+
+
+def normalize_award_identity(organization, award_name, award_link):
+    """Normalize Morty variants to the identities used by Airtable."""
+    organization = organization.strip()
+    award_name = award_name.strip()
+
+    hostname = (urllib.parse.urlparse(award_link).hostname or "").lower().rstrip(".")
+    is_escape_room_awards_link = hostname == ESCAPE_ROOM_AWARDS_DOMAIN or hostname.endswith(
+        f".{ESCAPE_ROOM_AWARDS_DOMAIN}"
+    )
+    if not organization and is_escape_room_awards_link:
+        organization = "Escape Room Awards"
+
+    if organization.lower() == "golden lock awards":
+        is_winner_title = re.search(r"golden lock winners?", award_name, re.IGNORECASE)
+        if is_winner_title or award_name.lower() == "real-life":
+            award_name = "Winners"
+
+    if organization.lower() == "escape room awards":
+        normalized_name = award_name.lower().replace("intermational", "international")
+        if re.fullmatch(r"best international (?:escape )?room", normalized_name):
+            award_name = "Best International"
+
+    return organization, award_name
 
 
 class _RedirectHandler(urllib.request.HTTPRedirectHandler):
@@ -228,7 +262,7 @@ def airtable_request(url, token, method="GET", payload=None):
             raw = resp.read().decode("utf-8")
     except urllib.error.HTTPError as e:
         raw = e.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"{e.code} {raw}") from e
+        raise AirtableRequestError(e.code, raw) from e
     except urllib.error.URLError as e:
         raise RuntimeError(str(e)) from e
 
@@ -237,11 +271,17 @@ def airtable_request(url, token, method="GET", payload=None):
     return json.loads(raw)
 
 
-def update_award_rooms(base_id, token, award_record_id, room_ids):
-    """PATCH an award record to set its linked Rooms field."""
+def update_award_rooms(base_id, token, award_record_id, new_room_ids):
+    """Merge room links into the current Airtable award record."""
     url = f"{API_BASE}/{base_id}/{urllib.parse.quote(AWARDS_TABLE)}/{award_record_id}"
+    current = airtable_request(url, token)
+    room_ids = list(current.get("fields", {}).get("Rooms", []))
+    for room_id in new_room_ids:
+        if room_id not in room_ids:
+            room_ids.append(room_id)
     payload = {"fields": {"Rooms": room_ids}}
-    return airtable_request(url, token, method="PATCH", payload=payload)
+    airtable_request(url, token, method="PATCH", payload=payload)
+    return room_ids
 
 
 def parse_args():
@@ -380,8 +420,9 @@ def main():
 
         scraped = morty_awards.get(morty_id, [])
         for award in scraped:
-            org = award["organization"]
-            award_name = award["award_name"]
+            org, award_name = normalize_award_identity(
+                award["organization"], award["award_name"], award["award_link"]
+            )
             year = award["year"]
 
             # Skip awards from organizations not tracked in Airtable
@@ -495,23 +536,32 @@ def main():
     print(f"\nApplying {len(links_to_add)} award updates to Airtable...", flush=True)
     succeeded = 0
     failed = 0
+    skipped = 0
 
-    for award_id, info in links_to_add.items():
-        # Merge existing + new room IDs
-        all_room_ids = list(info["existing_room_ids"])
-        for rid in info["new_room_ids"]:
-            if rid not in all_room_ids:
-                all_room_ids.append(rid)
-
+    pending_updates = list(links_to_add.items())
+    for index, (award_id, info) in enumerate(pending_updates):
         try:
-            update_award_rooms(base_id, token, award_id, all_room_ids)
+            all_room_ids = update_award_rooms(base_id, token, award_id, info["new_room_ids"])
             succeeded += 1
             print(f"  OK   {info['award_name']}: {len(all_room_ids)} rooms")
+        except AirtableRequestError as e:
+            failed += 1
+            print(f"  FAIL {info['award_name']}: {e}")
+            if e.status_code in {401, 403}:
+                skipped = len(pending_updates) - index - 1
+                print("  Aborting: the Airtable token cannot update this base.")
+                break
         except RuntimeError as e:
             failed += 1
             print(f"  FAIL {info['award_name']}: {e}")
 
-    print(f"\nDone: {succeeded} succeeded, {failed} failed")
+    summary = f"\nDone: {succeeded} succeeded, {failed} failed"
+    if skipped:
+        summary += f", {skipped} skipped"
+    print(summary)
+
+    if failed:
+        sys.exit(1)
 
 
 if __name__ == "__main__":

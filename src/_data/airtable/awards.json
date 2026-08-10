@@ -1,7 +1,7 @@
 {
   "table": "Awards",
-  "syncedAt": "2026-08-10T22:03:36.526384+00:00",
-  "count": 36,
+  "syncedAt": "2026-08-10T22:24:52.227637+00:00",
+  "count": 39,
   "records": [
     {
       "id": "rec0QAiBlfFDZlwGY",
@@ -18,11 +18,12 @@
           "reciuo9m2OZxXl4JT",
           "recqOzcN7BNq8EomV",
           "recedfY1wMhA690Su",
-          "recRtLvjdXuPiqjbT"
+          "recRtLvjdXuPiqjbT",
+          "rec1C694RVHvg5hTa"
         ],
         "Organization": "TERPECA",
         "Name": "TERPECA: Top Rooms (2025)",
-        "Room Count": 11,
+        "Room Count": 12,
         "Award Name": "Top Rooms",
         "Award Link": "https://terpeca.com/2025/",
         "Game (from Rooms)": [
@@ -36,7 +37,8 @@
           "Jurassic Escape Room",
           "Londium",
           "Lost Island of the Voodoo Queen",
-          "Wardrobe for sale"
+          "Wardrobe for sale",
+          "The Taxidermist"
         ],
         "Award ID": 10,
         "Year": 2025
@@ -71,11 +73,12 @@
           "recsgfeSuqNloH6yx",
           "rec53yK3nczTclkFC",
           "recBIzUfedQWRULTu",
-          "recB2J7EL3m61TNLX"
+          "recB2J7EL3m61TNLX",
+          "recUJYKLX6I2KkA5t"
         ],
         "Organization": "TERPECA",
         "Name": "TERPECA: Finalist (2023)",
-        "Room Count": 6,
+        "Room Count": 7,
         "Award Name": "Finalist",
         "Award Link": "https://terpeca.com/2023/",
         "Game (from Rooms)": [
@@ -84,10 +87,30 @@
           "Evil Robot",
           "Ruins: Forbidden Treasure",
           "Playground",
-          "Screaming Metal"
+          "Screaming Metal",
+          "The Storykeeper"
         ],
         "Award ID": 43,
         "Year": 2023
+      }
+    },
+    {
+      "id": "rec3pCGT2wQ1Mhtet",
+      "createdTime": "2026-08-10T22:24:46.000Z",
+      "fields": {
+        "Rooms": [
+          "recWpSyu5BjABRk9T"
+        ],
+        "Organization": "Escape Room Awards",
+        "Name": "Escape Room Awards: Best Original Room (2020)",
+        "Room Count": 1,
+        "Award Name": "Best Original Room",
+        "Award Link": "https://escaperoomawardsoficial.com/awards-2020-2/",
+        "Game (from Rooms)": [
+          "The Brewery"
+        ],
+        "Award ID": 58,
+        "Year": 2020
       }
     },
     {
@@ -107,6 +130,25 @@
         ],
         "Award ID": 53,
         "Year": 2023
+      }
+    },
+    {
+      "id": "rec9RZKTJ6wbNKEnW",
+      "createdTime": "2026-08-10T22:24:46.000Z",
+      "fields": {
+        "Rooms": [
+          "recedfY1wMhA690Su"
+        ],
+        "Organization": "Golden Lock Awards",
+        "Name": "Golden Lock Awards: Winners (2020)",
+        "Room Count": 1,
+        "Award Name": "Winners",
+        "Award Link": "https://roomescapeartist.com/2021/01/02/2020-golden-lock-awards/",
+        "Game (from Rooms)": [
+          "Lost Island of the Voodoo Queen"
+        ],
+        "Award ID": 59,
+        "Year": 2020
       }
     },
     {
@@ -165,11 +207,13 @@
           "recRtLvjdXuPiqjbT",
           "receASqfgMtmqSEHZ",
           "reca6bIeAIt6OxCx3",
-          "rechGJ5U1gn1Ajxrt"
+          "rechGJ5U1gn1Ajxrt",
+          "recsgfeSuqNloH6yx",
+          "recUJYKLX6I2KkA5t"
         ],
         "Organization": "Golden Lock Awards",
         "Name": "Golden Lock Awards: Winners (2024)",
-        "Room Count": 6,
+        "Room Count": 8,
         "Award Name": "Winners",
         "Award Link": "https://roomescapeartist.com/2024/04/30/2024-golden-lock-awards/",
         "Game (from Rooms)": [
@@ -178,7 +222,9 @@
           "Wardrobe for sale",
           "Molly's Game",
           "Botanist Manor",
-          "Birth Machine"
+          "Birth Machine",
+          "Evil Robot",
+          "The Storykeeper"
         ],
         "Award ID": 50,
         "Year": 2024
@@ -191,17 +237,19 @@
         "Rooms": [
           "recrQ7mSj8HrOoZJS",
           "recjFTVzz57eYe9IE",
-          "recHh5GHLbeLSs808"
+          "recHh5GHLbeLSs808",
+          "rec1C694RVHvg5hTa"
         ],
         "Organization": "Golden Lock Awards",
         "Name": "Golden Lock Awards: Winners (2025)",
-        "Room Count": 3,
+        "Room Count": 4,
         "Award Name": "Winners",
         "Award Link": "https://roomescapeartist.com/2026/01/01/golden-lock-award-2025-complete-winner-list/",
         "Game (from Rooms)": [
           "Zoltar Speaks",
           "The Taxidermist",
-          "Magnifico"
+          "Magnifico",
+          "The Taxidermist"
         ],
         "Award ID": 52,
         "Year": 2025
@@ -255,11 +303,12 @@
           "recsgfeSuqNloH6yx",
           "recjd6IKGMey6IF9M",
           "recgisAgQMDN41H2P",
-          "recBIzUfedQWRULTu"
+          "recBIzUfedQWRULTu",
+          "recUJYKLX6I2KkA5t"
         ],
         "Organization": "TERPECA",
         "Name": "TERPECA: Finalist (2025)",
-        "Room Count": 8,
+        "Room Count": 9,
         "Award Name": "Finalist",
         "Award Link": "https://terpeca.com/2025/",
         "Game (from Rooms)": [
@@ -270,7 +319,8 @@
           "Evil Robot",
           "The Founder's Secret",
           "Time Machine",
-          "Playground"
+          "Playground",
+          "The Storykeeper"
         ],
         "Award ID": 37,
         "Year": 2025
@@ -316,11 +366,12 @@
           "recedfY1wMhA690Su",
           "recgisAgQMDN41H2P",
           "recsgfeSuqNloH6yx",
-          "recRtLvjdXuPiqjbT"
+          "recRtLvjdXuPiqjbT",
+          "recUJYKLX6I2KkA5t"
         ],
         "Organization": "TERPECA",
         "Name": "TERPECA: Top Rooms (2022)",
-        "Room Count": 7,
+        "Room Count": 8,
         "Award Name": "Top Rooms",
         "Award Link": "https://terpeca.com/2022/",
         "Game (from Rooms)": [
@@ -330,7 +381,8 @@
           "Lost Island of the Voodoo Queen",
           "Time Machine",
           "Evil Robot",
-          "Wardrobe for sale"
+          "Wardrobe for sale",
+          "The Storykeeper"
         ],
         "Award ID": 15,
         "Year": 2022
@@ -384,6 +436,25 @@
       }
     },
     {
+      "id": "recQgbkeD17iZL7Ok",
+      "createdTime": "2026-08-10T22:24:47.000Z",
+      "fields": {
+        "Rooms": [
+          "recomWxyMIJhHrs1G"
+        ],
+        "Organization": "Golden Lock Awards",
+        "Name": "Golden Lock Awards: Winners (2022)",
+        "Room Count": 1,
+        "Award Name": "Winners",
+        "Award Link": "https://roomescapeartist.com/2022/04/30/2022-golden-lock-awards/",
+        "Game (from Rooms)": [
+          "Invasion"
+        ],
+        "Award ID": 60,
+        "Year": 2022
+      }
+    },
+    {
       "id": "recSnJXxDGyYpjbSP",
       "createdTime": "2026-03-25T08:47:18.000Z",
       "fields": {
@@ -391,18 +462,20 @@
           "receASqfgMtmqSEHZ",
           "recWpSyu5BjABRk9T",
           "recedfY1wMhA690Su",
-          "recsgfeSuqNloH6yx"
+          "recsgfeSuqNloH6yx",
+          "recUJYKLX6I2KkA5t"
         ],
         "Organization": "TERPECA",
         "Name": "TERPECA: Top Rooms (2021)",
-        "Room Count": 4,
+        "Room Count": 5,
         "Award Name": "Top Rooms",
         "Award Link": "https://terpeca.com/2021/",
         "Game (from Rooms)": [
           "Molly's Game",
           "The Brewery",
           "Lost Island of the Voodoo Queen",
-          "Evil Robot"
+          "Evil Robot",
+          "The Storykeeper"
         ],
         "Award ID": 21,
         "Year": 2021
@@ -423,11 +496,12 @@
           "rec05Cz2JvdnNLxo2",
           "recAvdJlOWTzlUk0X",
           "rec53yK3nczTclkFC",
-          "recB2J7EL3m61TNLX"
+          "recB2J7EL3m61TNLX",
+          "recMhyzbt4awQiy0o"
         ],
         "Organization": "TERPECA",
         "Name": "TERPECA: Nominee (2025)",
-        "Room Count": 11,
+        "Room Count": 12,
         "Award Name": "Nominee",
         "Award Link": "https://terpeca.com/2025/",
         "Game (from Rooms)": [
@@ -441,7 +515,8 @@
           "Legend of the Yeti",
           "Scooby-Doo™ and the Spooky Castle Adventure",
           "Ruins: Forbidden Treasure",
-          "Screaming Metal"
+          "Screaming Metal",
+          "Cativeiro"
         ],
         "Award ID": 23,
         "Year": 2025
@@ -479,11 +554,12 @@
           "recedfY1wMhA690Su",
           "rec53yK3nczTclkFC",
           "recBIzUfedQWRULTu",
-          "recB2J7EL3m61TNLX"
+          "recB2J7EL3m61TNLX",
+          "recUJYKLX6I2KkA5t"
         ],
         "Organization": "TERPECA",
         "Name": "TERPECA: Finalist (2024)",
-        "Room Count": 9,
+        "Room Count": 10,
         "Award Name": "Finalist",
         "Award Link": "https://terpeca.com/2024/",
         "Game (from Rooms)": [
@@ -495,7 +571,8 @@
           "Lost Island of the Voodoo Queen",
           "Ruins: Forbidden Treasure",
           "Playground",
-          "Screaming Metal"
+          "Screaming Metal",
+          "The Storykeeper"
         ],
         "Award ID": 38,
         "Year": 2024
@@ -506,15 +583,17 @@
       "createdTime": "2026-03-25T08:55:35.000Z",
       "fields": {
         "Rooms": [
-          "recWpSyu5BjABRk9T"
+          "recWpSyu5BjABRk9T",
+          "recUJYKLX6I2KkA5t"
         ],
         "Organization": "TERPECA",
         "Name": "TERPECA: Top Rooms (2019)",
-        "Room Count": 1,
+        "Room Count": 2,
         "Award Name": "Top Rooms",
         "Award Link": "https://terpeca.com/2019/",
         "Game (from Rooms)": [
-          "The Brewery"
+          "The Brewery",
+          "The Storykeeper"
         ],
         "Award ID": 29,
         "Year": 2019
@@ -541,11 +620,12 @@
           "recRtLvjdXuPiqjbT",
           "rec2mV2VTPueu9Yau",
           "recNxduRu2bMUg67b",
-          "rec53yK3nczTclkFC"
+          "rec53yK3nczTclkFC",
+          "recUJYKLX6I2KkA5t"
         ],
         "Organization": "Morty",
         "Name": "Morty: Best of Morty (2023)",
-        "Room Count": 17,
+        "Room Count": 18,
         "Award Name": "Best of Morty",
         "Award Link": "https://morty.app/blog/best-of-morty-2023",
         "Game (from Rooms)": [
@@ -565,7 +645,8 @@
           "Wardrobe for sale",
           "The Anomaly",
           "Pirates of the Spanish Main",
-          "Ruins: Forbidden Treasure"
+          "Ruins: Forbidden Treasure",
+          "The Storykeeper"
         ],
         "Award ID": 18,
         "Year": 2023
@@ -597,11 +678,14 @@
           "rec2mV2VTPueu9Yau",
           "recNxduRu2bMUg67b",
           "recAabEHKgVnh3SLF",
-          "recZIiN1UtlynA6W3"
+          "recZIiN1UtlynA6W3",
+          "rec1C694RVHvg5hTa",
+          "recMhyzbt4awQiy0o",
+          "recUJYKLX6I2KkA5t"
         ],
         "Organization": "Morty",
         "Name": "Morty: Best of Morty (2025)",
-        "Room Count": 22,
+        "Room Count": 25,
         "Award Name": "Best of Morty",
         "Award Link": "https://morty.app/blog/best-of-morty-2025",
         "Game (from Rooms)": [
@@ -626,7 +710,10 @@
           "The Anomaly",
           "Pirates of the Spanish Main",
           "Utopia",
-          "Mindmaster Industries"
+          "Mindmaster Industries",
+          "The Taxidermist",
+          "Cativeiro",
+          "The Storykeeper"
         ],
         "Award ID": 13,
         "Year": 2025
@@ -636,11 +723,17 @@
       "id": "receF5E9FCRr9MRqD",
       "createdTime": "2026-03-25T08:55:11.000Z",
       "fields": {
+        "Rooms": [
+          "recUJYKLX6I2KkA5t"
+        ],
         "Organization": "TERPECA",
         "Name": "TERPECA: Top Rooms (2018)",
-        "Room Count": 0,
+        "Room Count": 1,
         "Award Name": "Top Rooms",
         "Award Link": "https://terpeca.com/2018/",
+        "Game (from Rooms)": [
+          "The Storykeeper"
+        ],
         "Award ID": 28,
         "Year": 2018
       }
@@ -712,16 +805,18 @@
       "fields": {
         "Rooms": [
           "recWpSyu5BjABRk9T",
-          "recHbYHiHv3kMBLfk"
+          "recHbYHiHv3kMBLfk",
+          "recUJYKLX6I2KkA5t"
         ],
         "Organization": "TERPECA",
         "Name": "TERPECA: Top Rooms (2020)",
-        "Room Count": 2,
+        "Room Count": 3,
         "Award Name": "Top Rooms",
         "Award Link": "https://terpeca.com/2020/",
         "Game (from Rooms)": [
           "The Brewery",
-          "The Dreamwalkers"
+          "The Dreamwalkers",
+          "The Storykeeper"
         ],
         "Award ID": 19,
         "Year": 2020
@@ -831,17 +926,19 @@
         "Rooms": [
           "recahr4JTFP68NvG6",
           "recsgfeSuqNloH6yx",
-          "rec53yK3nczTclkFC"
+          "rec53yK3nczTclkFC",
+          "recUJYKLX6I2KkA5t"
         ],
         "Organization": "Morty",
         "Name": "Morty: Best of Morty (2022)",
-        "Room Count": 3,
+        "Room Count": 4,
         "Award Name": "Best of Morty",
         "Award Link": "https://morty.app/blog/the-2022-morty-top-rooms",
         "Game (from Rooms)": [
           "Mystery Manor",
           "Evil Robot",
-          "Ruins: Forbidden Treasure"
+          "Ruins: Forbidden Treasure",
+          "The Storykeeper"
         ],
         "Award ID": 44,
         "Year": 2022
@@ -922,11 +1019,13 @@
           "reciVEIDHFIo9tnfa",
           "recgisAgQMDN41H2P",
           "recNxduRu2bMUg67b",
-          "rec53yK3nczTclkFC"
+          "rec53yK3nczTclkFC",
+          "recMhyzbt4awQiy0o",
+          "recUJYKLX6I2KkA5t"
         ],
         "Organization": "Morty",
         "Name": "Morty: Best of Morty (2024)",
-        "Room Count": 19,
+        "Room Count": 21,
         "Award Name": "Best of Morty",
         "Award Link": "https://morty.app/blog/best-of-morty-2024",
         "Game (from Rooms)": [
@@ -948,7 +1047,9 @@
           "14 Floors Below",
           "Time Machine",
           "Pirates of the Spanish Main",
-          "Ruins: Forbidden Treasure"
+          "Ruins: Forbidden Treasure",
+          "Cativeiro",
+          "The Storykeeper"
         ],
         "Award ID": 12,
         "Year": 2024

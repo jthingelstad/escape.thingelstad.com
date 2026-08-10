@@ -1,6 +1,6 @@
 {
   "table": "Companies",
-  "syncedAt": "2026-08-10T22:03:36.520382+00:00",
+  "syncedAt": "2026-08-10T22:24:52.221153+00:00",
   "count": 62,
   "records": [
     {
@@ -25,7 +25,7 @@
       "fields": {
         "Company": "Deep Inside Paris",
         "Created at": "2026-02-27T01:39:50.000Z",
-        "Room Count": 1,
+        "Room Count": 2,
         "Locations": [
           "recW2WBOgyA41a9jK"
         ],

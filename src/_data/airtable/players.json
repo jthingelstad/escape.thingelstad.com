@@ -1,6 +1,6 @@
 {
   "table": "Players",
-  "syncedAt": "2026-08-10T22:03:36.525305+00:00",
+  "syncedAt": "2026-08-10T22:24:52.226049+00:00",
   "count": 39,
   "records": [
     {
@@ -40,16 +40,18 @@
       "createdTime": "2026-03-18T05:59:04.000Z",
       "fields": {
         "Player ID": 12,
-        "Room Count": 2,
+        "Room Count": 3,
         "Game (from Rooms)": [
           "The Anomaly",
-          "Diamond Dilemma"
+          "Diamond Dilemma",
+          "The Taxidermist"
         ],
         "Name": "Nora",
         "Experience Count": 0,
         "Rooms": [
           "rec2mV2VTPueu9Yau",
-          "recdlR1lFm1ggyKZ3"
+          "recdlR1lFm1ggyKZ3",
+          "rec1C694RVHvg5hTa"
         ]
       }
     },
@@ -58,16 +60,18 @@
       "createdTime": "2026-03-18T05:59:04.000Z",
       "fields": {
         "Player ID": 13,
-        "Room Count": 2,
+        "Room Count": 3,
         "Game (from Rooms)": [
           "James Bond",
-          "Operation: Casino"
+          "Operation: Casino",
+          "The Taxidermist"
         ],
         "Name": "Angie",
         "Experience Count": 0,
         "Rooms": [
           "rec6nkJuIG1mHtCQz",
-          "recaaEELzDiEg95sS"
+          "recaaEELzDiEg95sS",
+          "rec1C694RVHvg5hTa"
         ]
       }
     },
@@ -447,7 +451,7 @@
       "fields": {
         "Featured": true,
         "Player ID": 1,
-        "Room Count": 103,
+        "Room Count": 104,
         "Game (from Rooms)": [
           "Lost Island of the Voodoo Queen",
           "Legend of the Yeti",
@@ -551,7 +555,8 @@
           "Pharaoh’s Tomb",
           "Alice",
           "Cativeiro",
-          "Stranger Mystery"
+          "Stranger Mystery",
+          "The Taxidermist"
         ],
         "Name": "Tammy",
         "Experiences": [
@@ -669,7 +674,8 @@
           "recHceo4lCDzS6lu9",
           "rec92QddeRCagOokY",
           "recMhyzbt4awQiy0o",
-          "rec3hMjr6Lqyx6zSW"
+          "rec3hMjr6Lqyx6zSW",
+          "rec1C694RVHvg5hTa"
         ]
       }
     },
@@ -1079,7 +1085,7 @@
       "fields": {
         "Featured": true,
         "Player ID": 4,
-        "Room Count": 72,
+        "Room Count": 73,
         "Game (from Rooms)": [
           "Wardrobe for sale",
           "Legend of the Yeti",
@@ -1152,7 +1158,8 @@
           "The Vault",
           "Alice",
           "Cativeiro",
-          "Stranger Mystery"
+          "Stranger Mystery",
+          "The Taxidermist"
         ],
         "Name": "Mazie",
         "Experiences": [
@@ -1239,7 +1246,8 @@
           "rec2W6E9rQUbH8GLs",
           "rec92QddeRCagOokY",
           "recMhyzbt4awQiy0o",
-          "rec3hMjr6Lqyx6zSW"
+          "rec3hMjr6Lqyx6zSW",
+          "rec1C694RVHvg5hTa"
         ]
       }
     },

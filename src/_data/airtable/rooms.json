@@ -1,7 +1,7 @@
 {
   "table": "Rooms",
-  "syncedAt": "2026-08-10T22:03:36.528703+00:00",
-  "count": 109,
+  "syncedAt": "2026-08-10T22:24:52.230171+00:00",
+  "count": 110,
   "records": [
     {
       "id": "rec05Cz2JvdnNLxo2",
@@ -309,6 +309,37 @@
         "Status": "Escaped",
         "Experience Count": 0,
         "When": "2018-05-20"
+      }
+    },
+    {
+      "id": "rec1C694RVHvg5hTa",
+      "createdTime": "2026-08-10T22:09:22.000Z",
+      "fields": {
+        "Player Count": 4,
+        "Location": [
+          "recW2WBOgyA41a9jK"
+        ],
+        "Players": [
+          "recQu0PsrO1tED4Zq",
+          "reclaK3d1iBH5HH4o",
+          "rec7rFPQWWoVsPD9Y",
+          "rec4Sogtc56J7Hxu5"
+        ],
+        "Modified at": "2026-08-10T22:22:54.000Z",
+        "Room ID": 111,
+        "Created at": "2026-08-10T22:09:22.000Z",
+        "Morty URL": "https://morty.app/attraction/54828/",
+        "Morty ID": 54828,
+        "Awards": [
+          "recczHySrIzwTpEYf",
+          "rec0QAiBlfFDZlwGY",
+          "recGal1YyaMiHcNNX"
+        ],
+        "Game": "The Taxidermist",
+        "Award Count": 3,
+        "Status": "Scheduled",
+        "Experience Count": 0,
+        "When": "2026-08-13"
       }
     },
     {
@@ -2486,7 +2517,7 @@
           "reclaK3d1iBH5HH4o",
           "recGR0rXJvcz9ebBN"
         ],
-        "Modified at": "2026-08-10T21:35:26.000Z",
+        "Modified at": "2026-08-10T22:22:55.000Z",
         "Room ID": 109,
         "Trips": [
           "recPdsXVe4f9iAZwO"
@@ -2524,9 +2555,14 @@
         "Time Used": 3447,
         "Room URL": "https://www.d3escaperoom.com/cativeiro",
         "Morty ID": 44522,
+        "Awards": [
+          "recczHySrIzwTpEYf",
+          "recTZuKXQnv4W68AN",
+          "recwIInXln9zVvzy6"
+        ],
         "Time Available": 3600,
         "Game": "Cativeiro",
-        "Award Count": 0,
+        "Award Count": 3,
         "Status": "Escaped",
         "Time Left": 2.55,
         "Experience Count": 0,
@@ -3191,7 +3227,7 @@
           "recGR0rXJvcz9ebBN",
           "recfd6DZt87SxQurn"
         ],
-        "Modified at": "2026-08-10T21:11:02.000Z",
+        "Modified at": "2026-08-10T22:23:01.000Z",
         "Room ID": 106,
         "Created at": "2026-07-08T18:04:20.000Z",
         "Team Photo": [
@@ -3225,9 +3261,24 @@
         "Morty URL": "https://morty.app/attraction/1431/",
         "Time Used": 4470,
         "Morty ID": 1431,
+        "Awards": [
+          "recczHySrIzwTpEYf",
+          "recwIInXln9zVvzy6",
+          "recIFU6n2C5nt2wgS",
+          "recUN7df6o6JFv5rc",
+          "recGSUdbY1MUYFMtm",
+          "recc82QGtStsiob96",
+          "rec3B7XztDkhCzdmW",
+          "rect44rWDY0P9MCK2",
+          "recIrpFniGevEussp",
+          "recSnJXxDGyYpjbSP",
+          "rechoGwSekJBOK9eM",
+          "recYIwml87o9nuu6K",
+          "receF5E9FCRr9MRqD"
+        ],
         "Time Available": 4500,
         "Game": "The Storykeeper",
-        "Award Count": 0,
+        "Award Count": 13,
         "Status": "Escaped",
         "Time Left": 0.5,
         "Experience Count": 0,
@@ -3428,7 +3479,7 @@
         ],
         "Synopsis": "The Brewery – A High-Tech Escape Room (In Collaboration with Estrella Damm) You’ve been invited to an exclusive beer tasting… but nothing is as it seems. Josep, the master brewer, has a secret mission for you. Behind the rustic barrels and frothy pints lies a high-tech puzzle only the cleverest can solve. Will you uncover the truth before time runs out?",
         "Emojify": "🍺⚖️💧🌾🌾🍺⚙️🍻",
-        "Modified at": "2026-03-27T19:56:45.000Z",
+        "Modified at": "2026-08-10T22:24:46.000Z",
         "Room ID": 99,
         "Trips": [
           "recJqpVCHFrsjb8iR"
@@ -3480,11 +3531,12 @@
           "recIrpFniGevEussp",
           "recSnJXxDGyYpjbSP",
           "rechoGwSekJBOK9eM",
-          "recYIwml87o9nuu6K"
+          "recYIwml87o9nuu6K",
+          "rec3pCGT2wQ1Mhtet"
         ],
         "Time Available": 4800,
         "Game": "The Brewery",
-        "Award Count": 10,
+        "Award Count": 11,
         "Status": "Escaped",
         "Time Left": 4.766666666666667,
         "Experience Count": 3,
@@ -4757,7 +4809,7 @@
           "recGR0rXJvcz9ebBN"
         ],
         "Emojify": "⛵️👨‍✈️🏴‍☠️",
-        "Modified at": "2026-03-27T22:25:15.000Z",
+        "Modified at": "2026-08-10T22:24:46.000Z",
         "Room ID": 78,
         "List Items": [
           "recpYhUjTAarjlEwV"
@@ -4810,10 +4862,11 @@
           "recSnJXxDGyYpjbSP",
           "recczHySrIzwTpEYf",
           "recc82QGtStsiob96",
-          "recwIInXln9zVvzy6"
+          "recwIInXln9zVvzy6",
+          "rec9RZKTJ6wbNKEnW"
         ],
         "Game": "Lost Island of the Voodoo Queen",
-        "Award Count": 9,
+        "Award Count": 10,
         "Status": "Escaped",
         "Order": 1,
         "Experience Count": 1,
@@ -5556,7 +5609,7 @@
           "reclaK3d1iBH5HH4o",
           "recGR0rXJvcz9ebBN"
         ],
-        "Modified at": "2026-03-27T22:25:15.000Z",
+        "Modified at": "2026-08-10T22:24:47.000Z",
         "Room ID": 56,
         "Created at": "2026-02-23T19:25:06.000Z",
         "Team Photo": [
@@ -5598,11 +5651,12 @@
           "recex6m30plldg0dl",
           "recczHySrIzwTpEYf",
           "recc82QGtStsiob96",
-          "recwIInXln9zVvzy6"
+          "recwIInXln9zVvzy6",
+          "recQgbkeD17iZL7Ok"
         ],
         "Time Available": 3600,
         "Game": "Invasion",
-        "Award Count": 7,
+        "Award Count": 8,
         "Status": "Escaped",
         "Time Left": 5.616666666666666,
         "Experience Count": 0,
@@ -6186,7 +6240,7 @@
           "reclaK3d1iBH5HH4o",
           "recGR0rXJvcz9ebBN"
         ],
-        "Modified at": "2026-03-27T22:25:22.000Z",
+        "Modified at": "2026-08-10T22:22:56.000Z",
         "Room ID": 34,
         "Themes": [
           "recKQtdUAKruTtEAX"
@@ -6232,11 +6286,12 @@
           "recSnJXxDGyYpjbSP",
           "recc82QGtStsiob96",
           "recwIInXln9zVvzy6",
-          "rect44rWDY0P9MCK2"
+          "rect44rWDY0P9MCK2",
+          "recGSUdbY1MUYFMtm"
         ],
         "Time Available": 3600,
         "Game": "Evil Robot",
-        "Award Count": 8,
+        "Award Count": 9,
         "Status": "Escaped",
         "Time Left": 0.5166666666666667,
         "Experience Count": 0,
