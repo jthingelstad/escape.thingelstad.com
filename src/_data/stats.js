@@ -14,8 +14,7 @@ function sortCounts(counts, limit = null) {
   return limit == null ? items : items.slice(0, limit);
 }
 
-module.exports = function() {
-  const allRooms = catalog().rooms;
+function buildStats(allRooms) {
   const played = allRooms.filter((room) => room.status !== 'Scheduled');
   const planned = allRooms.filter((room) => room.status === 'Scheduled');
   const escaped = played.filter((room) => room.status === 'Escaped');
@@ -203,7 +202,8 @@ module.exports = function() {
     }));
 
   return {
-    totalRooms: played.length,
+    totalRooms: allRooms.length,
+    totalPlayed: played.length,
     scheduledRooms: planned.length,
     totalWins: wins.length,
     winRate: decidedCount > 0 ? Math.round((wins.length / decidedCount) * 100) : 0,
@@ -249,4 +249,9 @@ module.exports = function() {
       ratingDistribution
     }
   };
+}
+
+module.exports = function() {
+  return buildStats(catalog().rooms);
 };
+module.exports.buildStats = buildStats;

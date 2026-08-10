@@ -8,7 +8,12 @@ git pull --ff-only
 
 echo ""
 echo "==> Syncing from Airtable..."
-python3 scripts/sync_airtable.py
+npm run sync
+
+echo ""
+echo "==> Validating refreshed data and site..."
+npm test
+npm run build
 
 # Check if there are any changes to commit
 if git diff --quiet && git diff --quiet --cached && [ -z "$(git ls-files --others --exclude-standard)" ]; then

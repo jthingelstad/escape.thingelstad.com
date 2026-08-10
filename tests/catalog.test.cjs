@@ -34,6 +34,7 @@ test('real catalog excludes hidden rooms, keeps stable Room IDs, and preserves f
   const visibleRawRooms = roomsSnapshot.records.filter((record) => !record.fields?.Hide);
   const visibleRoomIds = visibleRawRooms.map((record) => record.fields?.['Room ID']).filter((value) => value != null);
 
+  assert.equal(visibleRoomIds.length, visibleRawRooms.length);
   assert.equal(catalog.rooms.length, visibleRawRooms.length);
   assert.deepEqual(
     [...catalog.rooms.map((room) => room.id)].sort((left, right) => left - right),
@@ -173,9 +174,9 @@ test('officialUrl prefers room URL, then location URL, then company URL', () => 
     experiences: { records: [] },
     rooms: {
       records: [
-        { id: 'room1', fields: { Game: 'Company Fallback', Location: ['loc2'], Status: 'Escaped', When: '2025-01-01' } },
-        { id: 'room2', fields: { Game: 'Location Fallback', Location: ['loc1'], Status: 'Escaped', When: '2025-01-02' } },
-        { id: 'room3', fields: { Game: 'Room Priority', Location: ['loc1'], Status: 'Escaped', When: '2025-01-03', 'Room URL': 'https://room.example' } }
+        { id: 'room1', fields: { Game: 'Company Fallback', 'Room ID': 1, Location: ['loc2'], Status: 'Escaped', When: '2025-01-01' } },
+        { id: 'room2', fields: { Game: 'Location Fallback', 'Room ID': 2, Location: ['loc1'], Status: 'Escaped', When: '2025-01-02' } },
+        { id: 'room3', fields: { Game: 'Room Priority', 'Room ID': 3, Location: ['loc1'], Status: 'Escaped', When: '2025-01-03', 'Room URL': 'https://room.example' } }
       ]
     }
   };
@@ -207,7 +208,7 @@ test('awards are metadata and hidden rooms stay out of public counts', () => {
       experiences: { records: [] },
       rooms: {
         records: [
-          { id: 'room1', fields: { Game: 'Visible Room', Location: ['loc1'], Status: 'Escaped', When: '2025-01-01', Awards: ['award1'] } },
+          { id: 'room1', fields: { Game: 'Visible Room', 'Room ID': 1, Location: ['loc1'], Status: 'Escaped', When: '2025-01-01', Awards: ['award1'] } },
           { id: 'room2', fields: { Game: 'Hidden Room', Location: ['loc1'], Status: 'Escaped', When: '2025-01-02', Awards: ['award1'], Hide: true } }
         ]
       }
@@ -219,4 +220,47 @@ test('awards are metadata and hidden rooms stay out of public counts', () => {
   assert.equal(catalog.awards[0].roomCount, 1);
   assert.equal(catalog.awards[0].organization, 'TERPECA');
   assert.equal(catalog.awards[0].year, 2025);
+});
+
+test('visible rooms require explicit unique IDs while stable ID gaps remain valid', () => {
+  const baseData = {
+    companies: {
+      records: [{ id: 'comp1', fields: { Company: 'Puzzle Co' } }]
+    },
+    locations: {
+      records: [{ id: 'loc1', fields: { Location: 'Downtown', Company: ['comp1'] } }]
+    },
+    themes: { records: [] },
+    players: { records: [] },
+    awards: { records: [] },
+    trips: { records: [] },
+    lists: { records: [] },
+    listItems: { records: [] },
+    experiences: { records: [] },
+    rooms: {
+      records: [
+        { id: 'room10', fields: { Game: 'Room Ten', 'Room ID': 10, Location: ['loc1'], Status: 'Escaped', When: '2025-01-01' } },
+        { id: 'room12', fields: { Game: 'Room Twelve', 'Room ID': 12, Location: ['loc1'], Status: 'Scheduled', When: '2025-02-01' } },
+        { id: 'draft', fields: { Hide: true } }
+      ]
+    }
+  };
+  const options = { imagesDir: path.join(__dirname, '..', 'src', 'images', 'rooms') };
+
+  const catalog = buildCatalog(baseData, options);
+  assert.deepEqual(catalog.rooms.map((room) => room.id), [10, 12]);
+
+  const missingId = structuredClone(baseData);
+  delete missingId.rooms.records[0].fields['Room ID'];
+  assert.throws(
+    () => buildCatalog(missingId, options),
+    /must have a positive integer Room ID/
+  );
+
+  const duplicateId = structuredClone(baseData);
+  duplicateId.rooms.records[1].fields['Room ID'] = 10;
+  assert.throws(
+    () => buildCatalog(duplicateId, options),
+    /Room ID 10 is duplicated/
+  );
 });

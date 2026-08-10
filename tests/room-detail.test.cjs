@@ -1,6 +1,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { findRelatedRooms } = require('../src/_data/roomDetail');
+const buildRoomDetail = require('../src/_data/roomDetail');
+const { findRelatedRooms } = buildRoomDetail;
 
 function makeRoom({
   id,
@@ -76,4 +77,26 @@ test('related rooms favor shared themes and structured metadata over weaker matc
     '3-medium-match',
     '4-weak-match'
   ]);
+});
+
+test('real room details preserve chronological navigation and company comparisons', () => {
+  const rooms = buildRoomDetail();
+  const first = rooms[0];
+  const last = rooms[rooms.length - 1];
+  const beforeGap = rooms.find((room) => room.id === 101);
+
+  assert.equal(first.nav.prev, null);
+  assert.equal(first.nav.next.id, 2);
+  assert.equal(last.nav.prev.id, 104);
+  assert.equal(last.nav.next, null);
+  assert.equal(beforeGap.nav.next.id, 103);
+
+  const sameCompany = rooms.filter(
+    (room) => room.status !== 'Scheduled' && room.company?.airtableId === last.company.airtableId
+  );
+  const companyWins = sameCompany.filter(
+    (room) => room.status === 'Escaped' || room.status === 'Completed'
+  );
+  assert.equal(last.stats.companyTotal, sameCompany.length);
+  assert.equal(last.stats.companyWins, companyWins.length);
 });

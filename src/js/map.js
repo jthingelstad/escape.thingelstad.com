@@ -177,9 +177,11 @@ function applyUrlFilters() {
   if (hasActiveFilters(filters)) {
     panel.classList.remove('collapsed');
     toggleBtn.classList.add('open');
+    toggleBtn.setAttribute('aria-expanded', 'true');
   } else {
     panel.classList.add('collapsed');
     toggleBtn.classList.remove('open');
+    toggleBtn.setAttribute('aria-expanded', 'false');
   }
 
   updateMarkers();
@@ -189,8 +191,9 @@ function bindEvents() {
   const toggleBtn = document.getElementById('filter-toggle');
   const panel = document.getElementById('filter-panel');
   toggleBtn.addEventListener('click', () => {
-    panel.classList.toggle('collapsed');
-    toggleBtn.classList.toggle('open');
+    const expanded = panel.classList.toggle('collapsed') === false;
+    toggleBtn.classList.toggle('open', expanded);
+    toggleBtn.setAttribute('aria-expanded', String(expanded));
     setTimeout(() => map.invalidateSize(), 350);
   });
 

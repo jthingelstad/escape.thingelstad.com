@@ -29,6 +29,32 @@ permalink: /room/{{ room.slug }}/
 
 {% block content %}
   <main class="container page-content room-detail-page" data-pagefind-body data-pagefind-meta="type:room">
+    <nav class="room-nav" aria-label="Room navigation" data-pagefind-ignore>
+      {% if room.nav.prev %}
+        <a href="{{ room.nav.prev | roomPath }}" class="room-nav-link room-nav-prev" data-tinylytics-event="room.nav-prev">
+          <span class="room-nav-arrow" aria-hidden="true">&larr;</span>
+          <span class="room-nav-label">
+            <span class="room-nav-dir">Previous</span>
+            <span class="room-nav-name">#{{ room.nav.prev.id }} {{ room.nav.prev.game }}</span>
+          </span>
+        </a>
+      {% else %}
+        <span class="room-nav-link room-nav-prev disabled" aria-hidden="true"></span>
+      {% endif %}
+      <a href="/rooms/" class="room-nav-all" data-tinylytics-event="room.back-to-list">All Rooms</a>
+      {% if room.nav.next %}
+        <a href="{{ room.nav.next | roomPath }}" class="room-nav-link room-nav-next" data-tinylytics-event="room.nav-next">
+          <span class="room-nav-label">
+            <span class="room-nav-dir">Next</span>
+            <span class="room-nav-name">#{{ room.nav.next.id }} {{ room.nav.next.game }}</span>
+          </span>
+          <span class="room-nav-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      {% else %}
+        <span class="room-nav-link room-nav-next disabled" aria-hidden="true"></span>
+      {% endif %}
+    </nav>
+
     <section class="room-hero">
       {% if room.photo %}
       <div class="room-hero-photo">
@@ -42,7 +68,7 @@ permalink: /room/{{ room.slug }}/
         </div>
         {% if room.company %}
         <div class="room-hero-company">
-          <a href="{{ room.company | entityFilterUrl('company') }}" data-tinylytics-event="room.company-filter" data-tinylytics-event-value="{{ room.company.name }}">{{ room.company.name }}</a>
+          {{ room.company.name }}
         </div>
         {% endif %}
         <div class="room-hero-meta">
@@ -254,7 +280,7 @@ permalink: /room/{{ room.slug }}/
     <section class="room-related-section">
       <div class="section-header">
         <h2>Related Rooms</h2>
-        <p>Picked from shared themes, people, places, and AI-generated room similarity hints.</p>
+        <p>Picked from shared themes, people, awards, trips, lists, places, and outcomes.</p>
       </div>
       <div class="room-grid">
         {% for other in room.stats.relatedRooms %}

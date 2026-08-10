@@ -4,11 +4,10 @@ The Escaping Things escape room team site, published at **[escape.thingelstad.co
 
 This is an Eleventy-powered static site built from a normalized Airtable dataset. The current site includes:
 
-- 100 public rooms
-- 94 played rooms and 6 scheduled rooms
-- 9 countries
+- public room totals and played/scheduled breakdowns computed from the current snapshots
+- country, company, trip, list, theme, award, and player coverage derived from the catalog
 - typed entities for companies, locations, themes, players, awards, trips, lists, and experiences
-- standalone featured pages for selected players, awards, and trips
+- standalone featured pages for selected players and trips
 - standalone list pages plus room/list/player/trip cross-linking
 
 ## Stack
@@ -57,9 +56,8 @@ Those raw snapshots are normalized in [src/_data/catalog.js](src/_data/catalog.j
 - `lists`
 - `experiences`
 - `featured.players`
-- `featured.awards`
 - `featured.trips`
-- lookup indexes by Airtable ID and slug
+- lookup indexes by Airtable ID, slug, and stable room ID
 
 Each room carries resolved relations and derived fields such as:
 
@@ -73,7 +71,7 @@ Each room carries resolved relations and derived fields such as:
 ## Public Pages
 
 - `/` home page
-- `/list/` filterable room browser
+- `/rooms/` typed, URL-driven room browser
 - `/map/` filterable map
 - `/stats/` stats and charts
 - `/featured/` featured hub
@@ -81,7 +79,6 @@ Each room carries resolved relations and derived fields such as:
 - `/players/` team roster and featured player index
 - `/room/<room-slug>/`
 - `/player/<slug>/` for featured players
-- `/award/<slug>/` for featured awards
 - `/trip/<slug>/` for featured trips
 - `/lists/` all public lists
 - `/list/<slug>/` for standalone lists
@@ -123,6 +120,8 @@ npm test
 The test suite covers:
 
 - catalog normalization and data contracts
+- required, unique stable room IDs while allowing intentional ID gaps
+- public, played, and scheduled room-count semantics
 - fallback `officialUrl` behavior
 - hidden-room exclusion
 - list and list-item relationship handling
@@ -136,12 +135,23 @@ The sync script reads these environment variables:
 - `AIRTABLE_BASE_ID`
 It also reads `.env` in the project root if present.
 
+Public rooms must have a positive, unique Airtable `Room ID`, a game name, a valid date and status, and exactly one valid location. `npm run sync`, the catalog build, and the automated sync workflow fail before publishing when those contracts are broken. Hidden records may remain incomplete while they are being prepared.
+
+`Room ID` is a stable public identifier, not the catalog count. Airtable autonumber gaps are valid, so the newest room number can be higher than the number of visible rooms without either value being wrong.
+
+When adding rooms:
+
+1. Complete the required room fields and relationships in Airtable; keep unfinished records hidden.
+2. Run `npm run sync`.
+3. Review the snapshot and downloaded-photo diff.
+4. Run `npm test` and `npm run build` before publishing.
+
 ## Search
 
-The site has two search mechanisms:
+The site separates typed browsing from text search:
 
-- **Catalog filter** on `/list/` and `/map/` — structured dropdowns and text search over an embedded JSON index for instant client-side filtering
-- **Site-wide search** via [Pagefind](https://pagefind.app) — full-text search across all rendered pages, accessible from the search icon in the nav bar. Pagefind indexes the built site as a post-build step and requires a full `npm run build` to generate the index.
+- **Typed filters** on `/rooms/` and `/map/` — structured dropdowns backed by the inlined normalized catalog; active filters are preserved in the URL.
+- **Site-wide search** via [Pagefind](https://pagefind.app) — full-text search across detail pages, accessible from the nav search button, `/`, or `⌘K`/`Ctrl+K`. Pagefind requires a full `npm run build` to regenerate its index.
 
 ## Deployment
 

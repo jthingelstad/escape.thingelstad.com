@@ -17,7 +17,7 @@
   </div>
 </nav>
 
-<div class="search-overlay" id="search-overlay" hidden>
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Site search" hidden>
   <div class="search-overlay-backdrop" id="search-overlay-backdrop"></div>
   <div class="search-overlay-panel">
     <button class="search-overlay-close" id="search-close" aria-label="Close search">&times;</button>
@@ -26,11 +26,11 @@
   </div>
 </div>
 
-<div class="shortcuts-overlay" id="shortcuts-overlay" hidden>
+<div class="shortcuts-overlay" id="shortcuts-overlay" role="dialog" aria-modal="true" aria-labelledby="shortcuts-title" hidden>
   <div class="shortcuts-overlay-backdrop" id="shortcuts-overlay-backdrop"></div>
   <div class="shortcuts-overlay-panel">
     <button class="shortcuts-overlay-close" id="shortcuts-close" aria-label="Close shortcuts">&times;</button>
-    <h2>Keyboard Shortcuts</h2>
+    <h2 id="shortcuts-title">Keyboard Shortcuts</h2>
     <div class="shortcuts-group">
       <h3>Global</h3>
       <dl class="shortcuts-list">

@@ -61,6 +61,16 @@ function buildRoomDetail() {
     ? Math.round((wins.length / played.length) * 100)
     : 0;
 
+  const companyStats = new Map();
+  played.forEach((room) => {
+    const companyId = room.company?.airtableId;
+    if (!companyId) return;
+    const current = companyStats.get(companyId) || { total: 0, wins: 0 };
+    current.total += 1;
+    if (room.status === 'Escaped' || room.status === 'Completed') current.wins += 1;
+    companyStats.set(companyId, current);
+  });
+
   return allRooms.map((room, index) => {
     let timePercentile = null;
     if (room.timeLeft != null && sortedTimes.length > 0) {
@@ -75,6 +85,7 @@ function buildRoomDetail() {
       ? { id: allRooms[index + 1].id, slug: allRooms[index + 1].slug, game: allRooms[index + 1].game }
       : null;
     const relatedRooms = findRelatedRooms(room, allRooms);
+    const company = companyStats.get(room.company?.airtableId) || { total: 0, wins: 0 };
 
     return {
       ...room,
@@ -83,6 +94,8 @@ function buildRoomDetail() {
         timePercentile,
         overallWinRate,
         totalPlayed: played.length,
+        companyTotal: company.total,
+        companyWins: company.wins,
         relatedRooms
       },
       nav: {

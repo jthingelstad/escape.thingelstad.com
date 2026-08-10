@@ -35,6 +35,7 @@ TABLES = {
     "experiences": "Experiences",
 }
 MAX_PHOTO_DIMENSION = 1600
+PUBLIC_ROOM_STATUSES = {"Escaped", "Try again", "Completed", "Scheduled"}
 
 
 def load_dotenv():
@@ -147,6 +148,67 @@ def normalize_room_assets(records):
             download_team_photo(attachments[0], airtable_id)
 
 
+def validate_room_records(room_records, location_records):
+    """Fail before writing snapshots when a public room would build incorrectly."""
+    location_ids = {record["id"] for record in location_records}
+    seen_room_ids = {}
+    errors = []
+
+    for record in room_records:
+        fields = record.get("fields", {})
+        if fields.get("Hide"):
+            continue
+
+        airtable_id = record["id"]
+        game = fields.get("Game")
+        label = game or airtable_id
+        room_id = fields.get("Room ID")
+
+        if (
+            isinstance(room_id, bool)
+            or not isinstance(room_id, (int, float))
+            or not float(room_id).is_integer()
+            or room_id <= 0
+        ):
+            errors.append(f"{airtable_id} ({label}) must have a positive integer Room ID")
+        else:
+            room_id = int(room_id)
+            if room_id in seen_room_ids:
+                errors.append(
+                    f"Room ID {room_id} is duplicated by {airtable_id} ({label}) "
+                    f"and {seen_room_ids[room_id]}"
+                )
+            else:
+                seen_room_ids[room_id] = airtable_id
+
+        if not isinstance(game, str) or not game.strip():
+            errors.append(f"{airtable_id} must have a Game name")
+
+        when = fields.get("When")
+        try:
+            parsed_when = datetime.strptime(when, "%Y-%m-%d")
+            if parsed_when.strftime("%Y-%m-%d") != when:
+                raise ValueError
+        except TypeError, ValueError:
+            errors.append(f"{airtable_id} ({label}) must have a valid When date")
+
+        status = fields.get("Status")
+        if status not in PUBLIC_ROOM_STATUSES:
+            errors.append(f"{airtable_id} ({label}) has unsupported Status {status!r}")
+
+        locations = fields.get("Location")
+        if (
+            not isinstance(locations, list)
+            or len(locations) != 1
+            or locations[0] not in location_ids
+        ):
+            errors.append(f"{airtable_id} ({label}) must link to exactly one valid Location")
+
+    if errors:
+        details = "\n".join(f"  - {error}" for error in errors)
+        raise ValueError(f"Airtable room validation failed:\n{details}")
+
+
 def write_snapshot(name, table_name, records):
     """Write a raw Airtable snapshot for one table."""
     os.makedirs(DATA_DIR, exist_ok=True)
@@ -180,6 +242,12 @@ def main():
         records = fetch_all_records(base_id, table_name, token)
         print(f"  {len(records)} records")
         snapshots[output_name] = records
+
+    try:
+        validate_room_records(snapshots["rooms"], snapshots["locations"])
+    except ValueError as exc:
+        print(f"Error: {exc}", file=sys.stderr)
+        sys.exit(1)
 
     print("Syncing local team photos...")
     normalize_room_assets(snapshots["rooms"])

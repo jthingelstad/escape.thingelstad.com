@@ -38,6 +38,18 @@ jobs:
           AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
         run: uv run --locked --no-dev python scripts/sync_airtable.py
 
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Validate synced catalog and site
+        run: |
+          npm test
+          npm run build
+
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"

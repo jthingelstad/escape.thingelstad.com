@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block pageTitle %}{{ title }}{% endblock %} - Escaping Things</title>
+  <title>{% block pageTitle %}{{ title }}{% endblock %}{% if title != "Escaping Things" %} - Escaping Things{% endif %}</title>
   <meta name="description" content="{% block metaDescription %}{{ description }}{% endblock %}">
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/atom+xml" title="Escaping Things" href="/feed.xml">
