@@ -13,6 +13,7 @@ This is an Eleventy-powered static site built from a normalized Airtable dataset
 ## Stack
 
 - [Eleventy (11ty)](https://www.11ty.dev/) v3
+- [Eleventy Image](https://www.11ty.dev/docs/plugins/image/) for responsive WebP/source image sets
 - Nunjucks templates
 - Plain CSS and vanilla JavaScript
 - Leaflet for maps
@@ -74,6 +75,7 @@ Each room carries resolved relations and derived fields such as:
 - `/rooms/` typed, URL-driven room browser
 - `/map/` filterable map
 - `/stats/` stats and charts
+- `/search/?q=<query>` shareable full-text search
 - `/featured/` featured hub
 - `/trips/` featured trip index
 - `/players/` team roster and featured player index
@@ -151,7 +153,11 @@ When adding rooms:
 The site separates typed browsing from text search:
 
 - **Typed filters** on `/rooms/` and `/map/` — structured dropdowns backed by the inlined normalized catalog; active filters are preserved in the URL.
-- **Site-wide search** via [Pagefind](https://pagefind.app) — full-text search across detail pages, accessible from the nav search button, `/`, or `⌘K`/`Ctrl+K`. Pagefind requires a full `npm run build` to regenerate its index.
+- **Site-wide search** via [Pagefind](https://pagefind.app) — full-text search across detail pages, accessible from the nav search button, the shareable `/search/?q=` route, `/`, or `⌘K`/`Ctrl+K`. Pagefind requires a full `npm run build` to regenerate its index.
+
+Catalog filters, sort order, and the selected map room are URL state. User changes create browser-history entries, so Back and Forward restore prior views. Room links include a validated `from` context so room detail navigation can return to the filtered catalog, map, trip, list, or player page.
+
+Featured player and trip routes are pinned by Airtable record ID in `src/_data/publicSlugs.json`. Add a stable entry there before publishing a newly featured entity; later display-name edits will not change its existing public URL.
 
 ## Deployment
 

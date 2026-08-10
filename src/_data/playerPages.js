@@ -32,6 +32,7 @@ module.exports = function() {
     return {
       ...player,
       rooms,
+      recentRooms: rooms.slice(-8).reverse(),
       lists,
       comments,
       missingExperiences,

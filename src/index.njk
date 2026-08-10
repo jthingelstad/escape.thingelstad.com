@@ -7,29 +7,60 @@ bodyClass: page-home
 {% extends "base.njk" %}
 
 {% block content %}
-  <main class="container page-content" data-pagefind-ignore>
-    <section class="page-intro">
+  <main class="container page-content" id="main-content" data-pagefind-ignore>
+    <section class="page-intro page-intro-home">
       <div class="page-intro-copy">
+        <div class="eyebrow">Escape room team log</div>
         <h1 class="page-intro-title">Escaping Things</h1>
         <p>Escaping Things is our escape room team log, following the rooms, trips, places, ratings, and standout moments that shaped the run.</p>
+        <div class="page-intro-actions">
+          <a href="/rooms/" class="btn btn-teal" data-tinylytics-event="home.browse-rooms">Browse Rooms</a>
+          <a href="/map/" class="btn" data-tinylytics-event="home.explore-map">Explore the Map</a>
+          <a href="/search/" class="btn" data-tinylytics-event="home.search">Search the Log</a>
+        </div>
       </div>
       <div class="stats-row" id="hero-stats">
-        <div class="stat-item"><span class="stat-number">{{ stats.totalRooms }}</span><div class="stat-label">Rooms</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.totalPlayed }}</span><div class="stat-label">Rooms Played</div></div>
+        {% if stats.latestCompleted %}<div class="stat-item"><span class="stat-number">#{{ stats.latestCompleted.id }}</span><div class="stat-label">Latest Log Number</div></div>{% endif %}
+        {% if stats.scheduledRooms > 0 %}<div class="stat-item"><span class="stat-number">{{ stats.scheduledRooms }}</span><div class="stat-label">Scheduled Next</div></div>{% endif %}
         <div class="stat-item"><span class="stat-number">{{ stats.countryCount }}</span><div class="stat-label">Countries</div></div>
         <div class="stat-item"><span class="stat-number">{{ stats.yearsActive }}</span><div class="stat-label">Years Active</div></div>
       </div>
     </section>
 
+    {% if stats.planned and stats.planned.length > 0 %}
+    <section id="up-next">
+      <div class="section-header section-header-with-link">
+        <div>
+          <div class="eyebrow">On the calendar</div>
+          <h2>Up Next</h2>
+          <p>Scheduled rooms that are part of the public log but have not been played yet.</p>
+        </div>
+        <a href="/rooms/?status=Scheduled" class="section-more-link">View scheduled rooms →</a>
+      </div>
+      <div class="room-grid">
+        {% from "room-card.njk" import roomCard %}
+        {% for room in stats.planned %}
+          {{ roomCard(room, { returnPath: '/' }) }}
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
     {% if stats.recentCompleted and stats.recentCompleted.length > 0 %}
     <section id="recent-rooms">
-      <div class="section-header">
-        <h2>Recent Rooms</h2>
-        <p>The latest rooms from the team log.</p>
+      <div class="section-header section-header-with-link">
+        <div>
+          <div class="eyebrow">Recently played</div>
+          <h2>Recent Rooms</h2>
+          <p>The latest completed entries from the team log.</p>
+        </div>
+        <a href="/rooms/" class="section-more-link">Browse all rooms →</a>
       </div>
       <div class="room-grid">
         {% from "room-card.njk" import roomCard %}
         {% for room in stats.recentCompleted %}
-          {{ roomCard(room) }}
+          {{ roomCard(room, { returnPath: '/' }) }}
         {% endfor %}
       </div>
     </section>
@@ -37,24 +68,35 @@ bodyClass: page-home
 
     <section class="featured-entities-section">
       <div class="section-header">
+        <div class="eyebrow">Go deeper</div>
         <h2>Featured Paths</h2>
-        <p>Trips and players with their own story on the site.</p>
+        <p>Curated, stable entry points into the trips and people behind the room log.</p>
       </div>
-      <div class="featured-entity-grid">
-        {% for trip in catalog.featured.trips %}
-          <a href="{{ trip | entityUrl('trip') }}" class="feature-tile feature-tile-trip" data-tinylytics-event="home.view-trip" data-tinylytics-event-value="{{ trip.name }}">
-            <div class="feature-tile-kicker">Trip</div>
-            <h3>{{ trip.name }}</h3>
-            <p>{{ trip.roomCount }} room{{ '' if trip.roomCount == 1 else 's' }}</p>
-          </a>
-        {% endfor %}
-        {% for player in catalog.featured.players %}
-          <a href="{{ player | entityUrl('player') }}" class="feature-tile feature-tile-player" data-tinylytics-event="home.view-player" data-tinylytics-event-value="{{ player.name }}">
-            <div class="feature-tile-kicker">Player</div>
-            <h3>{{ player.name }}</h3>
-            <p>{{ player.roomCount }} room{{ '' if player.roomCount == 1 else 's' }}</p>
-          </a>
-        {% endfor %}
+      <div class="home-path-grid">
+        <div class="home-path-group">
+          <div class="home-path-group-header"><h3>Trips</h3><a href="/trips/">All trips →</a></div>
+          <div class="featured-entity-grid">
+            {% for trip in catalog.featured.trips %}
+              <a href="{{ trip | entityUrl('trip') }}" class="feature-tile feature-tile-trip" data-tinylytics-event="home.view-trip" data-tinylytics-event-value="{{ trip.name }}">
+                <div class="feature-tile-kicker">Trip</div>
+                <h3>{{ trip.name }}</h3>
+                <p>{{ trip.roomCount }} room{{ '' if trip.roomCount == 1 else 's' }}</p>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="home-path-group">
+          <div class="home-path-group-header"><h3>Players</h3><a href="/players/">All players →</a></div>
+          <div class="featured-entity-grid">
+            {% for player in catalog.featured.players %}
+              <a href="{{ player | entityUrl('player') }}" class="feature-tile feature-tile-player" data-tinylytics-event="home.view-player" data-tinylytics-event-value="{{ player.name }}">
+                <div class="feature-tile-kicker">Player</div>
+                <h3>{{ player.name }}</h3>
+                <p>{{ player.roomCount }} room{{ '' if player.roomCount == 1 else 's' }}</p>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -64,15 +106,5 @@ bodyClass: page-home
   <script type="module">
     import { initNav } from '{{ '/js/data.js' | cacheBust }}';
     initNav();
-
-    const grid = document.querySelector('.featured-entity-grid');
-    if (grid) {
-      const tiles = [...grid.children];
-      for (let i = tiles.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        grid.appendChild(tiles[j]);
-        tiles[j] = tiles[i];
-      }
-    }
   </script>
 {% endblock %}

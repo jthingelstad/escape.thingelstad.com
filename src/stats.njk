@@ -5,111 +5,167 @@ permalink: /stats/
 ---
 {% extends "base.njk" %}
 
+{% macro countTable(caption, entries, labelHeading) %}
+<details class="chart-data-table">
+  <summary>View data table</summary>
+  <div class="table-scroll">
+    <table>
+      <caption class="sr-only">{{ caption }}</caption>
+      <thead><tr><th scope="col">{{ labelHeading or 'Category' }}</th><th scope="col">Rooms</th></tr></thead>
+      <tbody>
+        {% for entry in entries %}<tr><th scope="row">{{ entry.label }}</th><td>{{ entry.count }}</td></tr>{% endfor %}
+      </tbody>
+    </table>
+  </div>
+</details>
+{% endmacro %}
+
 {% block content %}
-  <main class="container page-content stats-page" data-pagefind-ignore>
-    <section class="page-intro">
+  <main class="container page-content stats-page" id="main-content" data-pagefind-ignore>
+    <section class="page-intro page-intro-compact">
       <div class="page-intro-copy">
+        <div class="eyebrow">The collection in numbers</div>
         <h1 class="page-intro-title">Stats</h1>
-        <p>A richer look at the collection through the people, themes, trips, awards, and room outcomes behind it.</p>
+        <p>A structured look at pace, outcomes, people, preferences, and the geographic footprint behind the room log.</p>
+      </div>
+      <div class="stats-row stats-row-compact">
+        <div class="stat-item"><span class="stat-number">{{ stats.totalPlayed }}</span><div class="stat-label">Played</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.winRate }}%</span><div class="stat-label">Win Rate</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.averageRating | formatRating }}</span><div class="stat-label">Average Rating</div></div>
+        <div class="stat-item"><span class="stat-number">{{ stats.countryCount }}</span><div class="stat-label">Countries</div></div>
       </div>
     </section>
 
-    <section>
+    <nav class="stats-jump-nav" aria-label="Statistics sections">
+      <span>Jump to</span>
+      <a href="#timeline">Timeline</a>
+      <a href="#people-preferences">People &amp; Preferences</a>
+      <a href="#geography">Geography</a>
+    </nav>
+
+    <section class="stats-section" id="timeline">
+      <div class="section-header">
+        <div class="eyebrow">When and how</div>
+        <h2>Timeline <a class="heading-anchor" href="#timeline" aria-label="Link to Timeline">#</a></h2>
+        <p>Room volume, outcomes, time results, and seasonal patterns across the full history.</p>
+      </div>
       <div class="charts-grid">
         <div class="chart-card chart-card-time full-width">
           <h3>Cumulative Rooms</h3>
-          <p class="chart-subtitle">Running total colored by outcome. Green for wins, red for losses — longer runs show streaks.</p>
+          <p class="chart-subtitle" id="chart-cumulative-description">Running total colored by outcome. Green for wins, red for losses; longer runs show streaks.</p>
           <div class="chart-canvas-wrap chart-canvas-wrap-time">
-            <canvas id="chart-cumulative"></canvas>
+            <canvas id="chart-cumulative" role="img" aria-describedby="chart-cumulative-description">Cumulative room total by date and outcome.</canvas>
           </div>
         </div>
 
         <div class="chart-card chart-card-time full-width">
           <h3>Time Left</h3>
-          <p class="chart-subtitle">Higher is better. Negative values indicate going over time. Striped bars exceeded the chart floor.</p>
+          <p class="chart-subtitle" id="chart-times-description">Higher is better. Negative values indicate going over time. Striped bars exceeded the chart floor.</p>
           <div class="chart-canvas-wrap chart-canvas-wrap-time">
-            <canvas id="chart-times"></canvas>
+            <canvas id="chart-times" role="img" aria-describedby="chart-times-description">Time remaining for every room with a recorded result.</canvas>
           </div>
         </div>
 
         <div class="chart-card chart-card-standard">
           <h3>Rooms Per Year</h3>
-          <p class="chart-subtitle">A long view of volume and outcomes by year.</p>
+          <p class="chart-subtitle" id="chart-rooms-year-description">Annual volume split by outcome, including scheduled rooms.</p>
           <div class="chart-canvas-wrap chart-canvas-wrap-standard">
-            <canvas id="chart-rooms-year"></canvas>
+            <canvas id="chart-rooms-year" role="img" aria-describedby="chart-rooms-year-description">Rooms per year by outcome.</canvas>
           </div>
+          <details class="chart-data-table">
+            <summary>View data table</summary>
+            <div class="table-scroll">
+              <table>
+                <caption class="sr-only">Rooms per year by outcome</caption>
+                <thead><tr><th scope="col">Year</th><th scope="col">Escaped</th><th scope="col">Try Again</th><th scope="col">Completed</th><th scope="col">Scheduled</th></tr></thead>
+                <tbody>
+                  {% for year in stats.charts.roomsPerYear.labels %}
+                  {% set i = loop.index0 %}
+                  <tr><th scope="row">{{ year }}</th><td>{{ stats.charts.roomsPerYear.escaped[i] }}</td><td>{{ stats.charts.roomsPerYear.tryAgain[i] }}</td><td>{{ stats.charts.roomsPerYear.completed[i] }}</td><td>{{ stats.charts.roomsPerYear.scheduled[i] }}</td></tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </details>
         </div>
 
         <div class="chart-card chart-card-standard">
           <h3>Monthly Distribution</h3>
-          <p class="chart-subtitle">When during the year the rooms tend to happen.</p>
+          <p class="chart-subtitle" id="chart-monthly-description">When during the year rooms tend to happen.</p>
           <div class="chart-canvas-wrap chart-canvas-wrap-standard">
-            <canvas id="chart-monthly"></canvas>
+            <canvas id="chart-monthly" role="img" aria-describedby="chart-monthly-description">Rooms grouped by month.</canvas>
           </div>
+          {% set monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %}
+          <details class="chart-data-table">
+            <summary>View data table</summary>
+            <div class="table-scroll"><table><caption class="sr-only">Rooms by month</caption><thead><tr><th scope="col">Month</th><th scope="col">Rooms</th></tr></thead><tbody>{% for count in stats.charts.monthly %}<tr><th scope="row">{{ monthNames[loop.index0] }}</th><td>{{ count }}</td></tr>{% endfor %}</tbody></table></div>
+          </details>
         </div>
+      </div>
+    </section>
 
-        <div class="chart-card chart-card-standard">
-          <h3>Rooms by State</h3>
-          <p class="chart-subtitle">Still a strong part of the history, especially in the early years.</p>
-          <div class="chart-canvas-wrap chart-canvas-wrap-standard">
-            <canvas id="chart-states"></canvas>
-          </div>
-        </div>
-
-        <div class="chart-card chart-card-standard">
-          <h3>Rooms by Country</h3>
-          <p class="chart-subtitle">The broader travel footprint of the collection.</p>
-          <div class="chart-canvas-wrap chart-canvas-wrap-standard">
-            <canvas id="chart-countries"></canvas>
-          </div>
-        </div>
-
+    <section class="stats-section" id="people-preferences">
+      <div class="section-header">
+        <div class="eyebrow">Who and what</div>
+        <h2>People &amp; Preferences <a class="heading-anchor" href="#people-preferences" aria-label="Link to People and Preferences">#</a></h2>
+        <p>The most active players and the themes, awards, and ratings represented in the catalog.</p>
+      </div>
+      <div class="charts-grid">
         <div class="chart-card chart-card-standard">
           <h3>Most Active Players</h3>
-          <p class="chart-subtitle">A better fit than companies now that the people and trips are first-class data.</p>
-          <div class="chart-canvas-wrap chart-canvas-wrap-standard">
-            <canvas id="chart-players"></canvas>
-          </div>
+          <p class="chart-subtitle" id="chart-players-description">Players with the most linked rooms.</p>
+          <div class="chart-canvas-wrap chart-canvas-wrap-standard"><canvas id="chart-players" role="img" aria-describedby="chart-players-description">Most active players by room count.</canvas></div>
+          {{ countTable('Most active players by room count', stats.charts.players, 'Player') }}
         </div>
-
         <div class="chart-card chart-card-standard">
-          <h3>Rooms by Theme</h3>
-          <p class="chart-subtitle">The most common themes across the collection.</p>
-          <div class="chart-canvas-wrap chart-canvas-wrap-standard">
-            <canvas id="chart-themes"></canvas>
-          </div>
+          <h3>Top Themes</h3>
+          <p class="chart-subtitle" id="chart-themes-description">The most common structured themes.</p>
+          <div class="chart-canvas-wrap chart-canvas-wrap-standard"><canvas id="chart-themes" role="img" aria-describedby="chart-themes-description">Most common room themes.</canvas></div>
+          {{ countTable('Most common room themes', stats.charts.themes, 'Theme') }}
         </div>
-
         <div class="chart-card chart-card-standard">
-          <h3>Rooms by Award</h3>
-          <p class="chart-subtitle">Awards assigned to rooms in the collection.</p>
-          <div class="chart-canvas-wrap chart-canvas-wrap-standard">
-            <canvas id="chart-awards"></canvas>
-          </div>
+          <h3>Award Recognition</h3>
+          <p class="chart-subtitle" id="chart-awards-description">Recognition programs attached to rooms in the collection.</p>
+          <div class="chart-canvas-wrap chart-canvas-wrap-standard"><canvas id="chart-awards" role="img" aria-describedby="chart-awards-description">Rooms grouped by award recognition.</canvas></div>
+          {{ countTable('Rooms grouped by award recognition', stats.charts.awards, 'Award') }}
         </div>
-
         <div class="chart-card chart-card-standard">
           <h3>Rating Distribution</h3>
-          <p class="chart-subtitle">How room ratings spread across the scale.</p>
-          <div class="chart-canvas-wrap chart-canvas-wrap-standard">
-            <canvas id="chart-ratings"></canvas>
-          </div>
+          <p class="chart-subtitle" id="chart-ratings-description">How average room ratings spread across the five-point scale.</p>
+          <div class="chart-canvas-wrap chart-canvas-wrap-standard"><canvas id="chart-ratings" role="img" aria-describedby="chart-ratings-description">Room rating distribution.</canvas></div>
+          <details class="chart-data-table"><summary>View data table</summary><div class="table-scroll"><table><caption class="sr-only">Room rating distribution</caption><thead><tr><th scope="col">Rating</th><th scope="col">Rooms</th></tr></thead><tbody>{% for label in stats.charts.ratingDistribution.labels %}<tr><th scope="row">{{ label }}</th><td>{{ stats.charts.ratingDistribution.counts[loop.index0] }}</td></tr>{% endfor %}</tbody></table></div></details>
         </div>
+      </div>
+    </section>
 
-        <div class="chart-card full-width">
-          <h3>Rooms by State</h3>
-          <p class="chart-subtitle">Distribution across U.S. states.</p>
-          <div class="chart-canvas-wrap" style="height: 420px">
-            <canvas id="chart-state-choropleth"></canvas>
-          </div>
+    <section class="stats-section" id="geography">
+      <div class="section-header">
+        <div class="eyebrow">Where</div>
+        <h2>Geography <a class="heading-anchor" href="#geography" aria-label="Link to Geography">#</a></h2>
+        <p>Ranked location counts pair with maps that show the broader travel footprint.</p>
+      </div>
+      <div class="charts-grid">
+        <div class="chart-card chart-card-standard">
+          <h3>State Ranking</h3>
+          <p class="chart-subtitle" id="chart-states-description">U.S. states ordered by room count.</p>
+          <div class="chart-canvas-wrap chart-canvas-wrap-standard"><canvas id="chart-states" role="img" aria-describedby="chart-states-description">U.S. states ranked by room count.</canvas></div>
+          {{ countTable('U.S. states ranked by room count', stats.charts.states, 'State') }}
         </div>
-
+        <div class="chart-card chart-card-standard">
+          <h3>Country Ranking</h3>
+          <p class="chart-subtitle" id="chart-countries-description">Countries ordered by room count.</p>
+          <div class="chart-canvas-wrap chart-canvas-wrap-standard"><canvas id="chart-countries" role="img" aria-describedby="chart-countries-description">Countries ranked by room count.</canvas></div>
+          {{ countTable('Countries ranked by room count', stats.charts.countries, 'Country') }}
+        </div>
         <div class="chart-card full-width">
-          <h3>Rooms by Country</h3>
-          <p class="chart-subtitle">Geographic distribution of rooms played around the world.</p>
-          <div class="chart-canvas-wrap" style="height: 420px">
-            <canvas id="chart-choropleth"></canvas>
-          </div>
+          <h3>United States Map</h3>
+          <p class="chart-subtitle" id="chart-state-map-description">Distribution across U.S. states.</p>
+          <div class="chart-canvas-wrap chart-canvas-wrap-map"><canvas id="chart-state-choropleth" role="img" aria-describedby="chart-state-map-description">Map of rooms played by U.S. state.</canvas></div>
+        </div>
+        <div class="chart-card full-width">
+          <h3>World Map</h3>
+          <p class="chart-subtitle" id="chart-world-map-description">Geographic distribution of rooms around the world.</p>
+          <div class="chart-canvas-wrap chart-canvas-wrap-map"><canvas id="chart-choropleth" role="img" aria-describedby="chart-world-map-description">World map of rooms played by country.</canvas></div>
         </div>
       </div>
     </section>

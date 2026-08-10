@@ -13,12 +13,34 @@ showFooter: false
 {% endblock %}
 
 {% block content %}
-  <main class="map-page" data-pagefind-ignore>
+  <main class="map-page" id="main-content" data-pagefind-ignore>
+    <div class="map-summary-bar">
+      <span id="map-results" aria-live="polite">Loading room locations…</span>
+      <a href="/rooms/" class="map-summary-link" id="map-view-link">List view</a>
+      <button class="map-summary-link" type="button" data-copy-link><span data-copy-label>Copy map</span></button>
+    </div>
+
+    <div class="map-legend" aria-label="Map marker legend">
+      <span><i class="map-legend-dot status-escaped"></i>Escaped</span>
+      <span><i class="map-legend-dot status-try-again"></i>Try Again</span>
+      <span><i class="map-legend-dot status-completed"></i>Completed</span>
+      <span><i class="map-legend-dot status-scheduled"></i>Scheduled</span>
+    </div>
+
     <button class="map-filter-toggle" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel" data-tinylytics-event="map.toggle-filters">
       <span class="toggle-arrow">&#9660;</span> Filters
+      <span class="filter-count" id="filter-count" hidden>0</span>
     </button>
 
-    <div class="map-filter-panel collapsed" id="filter-panel">
+    <div class="filter-sheet-backdrop" id="filter-backdrop" hidden></div>
+    <section class="map-filter-panel collapsed" id="filter-panel" aria-labelledby="map-filter-title">
+      <div class="filter-sheet-header">
+        <div>
+          <div class="eyebrow">Refine the map</div>
+          <h2 id="map-filter-title">Filters</h2>
+        </div>
+        <button class="filter-sheet-close" id="filter-close" type="button" aria-label="Close filters">&times;</button>
+      </div>
       <div class="filter-row">
         <div class="filter-cluster">
           <div class="filter-cluster-grid">
@@ -71,10 +93,11 @@ showFooter: false
           </div>
           <div class="filter-actions">
             <button class="btn btn-clear" id="clear-filters" hidden data-tinylytics-event="filter.clear-all">Clear All</button>
+            <button class="btn btn-teal filter-apply" id="filter-apply" type="button">Show rooms</button>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <div id="map"></div>
   </main>

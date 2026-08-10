@@ -1,5 +1,6 @@
 const path = require('path');
 const { buildCatalog } = require('../../lib/catalog');
+const publicSlugs = require('./publicSlugs.json');
 
 function loadSnapshot(name) {
   try {
@@ -27,7 +28,8 @@ module.exports = function() {
       experiences: loadSnapshot('experiences')
     },
     {
-      imagesDir: path.join(__dirname, '..', 'images', 'rooms')
+      imagesDir: path.join(__dirname, '..', 'images', 'rooms'),
+      publicSlugs
     }
   );
 };

@@ -3,6 +3,7 @@ const MarkdownIt = require("markdown-it");
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 const { roomSlug, slugify } = require("./lib/catalog");
 
 function featuredEntityUrl(type, entity) {
@@ -19,6 +20,17 @@ module.exports = function(eleventyConfig) {
     html: false,
     linkify: true,
     breaks: true
+  });
+
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    formats: ["webp", "auto"],
+    widths: [320, 640, 960, 1280],
+    fixOrientation: true,
+    htmlOptions: {
+      imgAttributes: {
+        decoding: "async"
+      }
+    }
   });
 
   eleventyConfig.addFilter("cacheBust", (url) => {

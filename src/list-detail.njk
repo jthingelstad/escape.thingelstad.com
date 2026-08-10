@@ -10,20 +10,27 @@ permalink: /list/{{ list.slug }}/
 
 {% block pageTitle %}{{ list.name }} — List{% endblock %}
 {% block metaDescription %}{{ list.name }} list with curated escape room picks and notes.{% endblock %}
+{% block socialTitle %}{{ list.name }} — Curated List - Escaping Things{% endblock %}
+{% block socialDescription %}Explore {{ list.name }}, a curated list of {{ list.entries.length }} escape room{{ '' if list.entries.length == 1 else 's' }} with notes and room details.{% endblock %}
+{% block socialImage %}{% if list.entries[0] and list.entries[0].room.photo %}https://escape.thingelstad.com/images/rooms/{{ list.entries[0].room.photo }}{% else %}https://escape.thingelstad.com/images/room-no-photo.png{% endif %}{% endblock %}
 
 {% block content %}
-  <main class="container page-content featured-detail-page" data-pagefind-body data-pagefind-meta="type:list">
+  <main class="container page-content featured-detail-page" id="main-content" data-pagefind-body data-pagefind-meta="type:list">
     <section class="featured-detail-hero">
-      <h1>{{ list.name }}</h1>
-      {% if list.notes %}
-      <div class="featured-detail-copy rich-text">{{ list.notes | richText | safe }}</div>
-      {% endif %}
+      <div>
+        <div class="eyebrow">Curated list · {{ list.entries.length }} rooms</div>
+        <h1>{{ list.name }}</h1>
+        {% if list.notes %}
+        <div class="featured-detail-copy rich-text">{{ list.notes | richText | safe }}</div>
+        {% endif %}
+      </div>
+      <button class="btn" type="button" data-copy-link><span data-copy-label>Copy list link</span></button>
     </section>
 
     {% if list.player or list.trip %}
-    <section class="featured-detail-meta">
+    <section class="featured-detail-meta" id="attached-to">
       <div class="section-header">
-        <h2 data-pagefind-ignore>Attached To</h2>
+        <h2 data-pagefind-ignore>Attached To <a class="heading-anchor" href="#attached-to" aria-label="Link to Attached To">#</a></h2>
       </div>
       <div class="entity-chip-row">
         {% if list.player %}
@@ -36,37 +43,42 @@ permalink: /list/{{ list.slug }}/
     </section>
     {% endif %}
 
-    <section>
+    <section id="rooms">
       <div class="section-header">
-        <h2 data-pagefind-ignore>Rooms</h2>
+        <h2 data-pagefind-ignore>Rooms <a class="heading-anchor" href="#rooms" aria-label="Link to Rooms">#</a></h2>
+        <p>Ranked in list order, with commentary where it was recorded.</p>
       </div>
       {% if list.entries.length > 0 %}
       <div class="list-entry-stack">
-        {% from "room-card.njk" import roomCard %}
         {% for entry in list.entries %}
         <article class="list-entry-card">
-          <div class="list-entry-body">
-            <div class="list-entry-copy">
-              <div class="list-entry-header">
-                <h3 class="list-entry-title">
-                  <a href="{{ entry.room | roomPath }}" data-tinylytics-event="list-page.view-room" data-tinylytics-event-value="{{ entry.room.game }}">
-                    {{ entry.room.game }}
-                  </a>
-                </h3>
-                <div class="list-entry-meta">
-                  {% if entry.room.company %}<span>{{ entry.room.company.name }}</span>{% endif %}
-                  {% if entry.room.date %}<span>{{ entry.room.date | formatDate }}</span>{% endif %}
-                  {% set loc = entry.room.location | formatLocation %}
-                  {% if loc %}<span>{{ loc }}</span>{% endif %}
-                </div>
+          {% set roomReturnPath = page.url | queryValue %}
+          {% set roomHref = (entry.room | roomPath) + '?from=' + roomReturnPath %}
+          <div class="list-entry-rank" aria-label="List position {{ entry.order if entry.order != null else loop.index }}">{{ entry.order if entry.order != null else loop.index }}</div>
+          <a class="list-entry-media" href="{{ roomHref }}" tabindex="-1" aria-hidden="true">
+            {% if entry.room.photo %}
+            <img src="/images/rooms/{{ entry.room.photo }}" alt="" loading="lazy" decoding="async" eleventy:widths="320,640" eleventy:formats="webp,auto" sizes="(max-width: 720px) calc(100vw - 4rem), 220px">
+            {% else %}
+            <img src="{{ '/images/room-scheduled.png' if entry.room.status == 'Scheduled' else '/images/room-no-photo.png' }}" alt="" loading="lazy" decoding="async">
+            {% endif %}
+          </a>
+          <div class="list-entry-copy">
+            <div class="list-entry-header">
+              <div class="list-entry-kicker">Room #{{ entry.room.id }} · {{ entry.room.status }}</div>
+              <h3 class="list-entry-title">
+                <a href="{{ roomHref }}" data-tinylytics-event="list-page.view-room" data-tinylytics-event-value="{{ entry.room.game }}">{{ entry.room.game }}</a>
+              </h3>
+              <div class="list-entry-meta">
+                {% if entry.room.company %}<span>{{ entry.room.company.name }}</span>{% endif %}
+                {% if entry.room.date %}<span>{{ entry.room.date | formatDate }}</span>{% endif %}
+                {% set loc = entry.room.location | formatLocation %}
+                {% if loc %}<span>{{ loc }}</span>{% endif %}
               </div>
-              {% if entry.notes %}
-              <div class="list-entry-commentary rich-text">{{ entry.notes | richText | safe }}</div>
-              {% endif %}
             </div>
-            <div class="list-entry-room">
-              {{ roomCard(entry.room, { badgeLabel: 'Item', badgeNumber: entry.order if entry.order != null else loop.index }) }}
-            </div>
+            {% if entry.notes %}
+            <div class="list-entry-commentary rich-text">{{ entry.notes | richText | safe }}</div>
+            {% endif %}
+            <a class="list-entry-action" href="{{ roomHref }}">View room →</a>
           </div>
         </article>
         {% endfor %}

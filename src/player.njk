@@ -10,14 +10,20 @@ permalink: /player/{{ player.slug }}/
 
 {% block pageTitle %}{{ player.name }} — Featured Player{% endblock %}
 {% block metaDescription %}Featured player page for {{ player.name }} with room history, recent plays, and notes.{% endblock %}
+{% block socialTitle %}{{ player.name }} — Featured Player - Escaping Things{% endblock %}
+{% block socialDescription %}Explore {{ player.name }}'s escape room history, recent notes, lists, and team statistics.{% endblock %}
 
 {% block content %}
-  <main class="container page-content featured-detail-page" data-pagefind-body data-pagefind-meta="type:player">
+  <main class="container page-content featured-detail-page" id="main-content" data-pagefind-body data-pagefind-meta="type:player">
     <section class="featured-detail-hero">
-      <h1>{{ player.name }}</h1>
-      {% if player.bio %}
-      <div class="featured-detail-copy rich-text">{{ player.bio | richText | safe }}</div>
-      {% endif %}
+      <div>
+        <div class="eyebrow">Featured player</div>
+        <h1>{{ player.name }}</h1>
+        {% if player.bio %}
+        <div class="featured-detail-copy rich-text">{{ player.bio | richText | safe }}</div>
+        {% endif %}
+      </div>
+      <button class="btn" type="button" data-copy-link><span data-copy-label>Copy player link</span></button>
       <div class="featured-detail-stats">
         <div class="stat-item"><span class="stat-number">{{ player.roomCount }}</span><div class="stat-label">Rooms</div></div>
         <div class="stat-item"><span class="stat-number">{{ player.wins }}</span><div class="stat-label">Wins</div></div>
@@ -26,9 +32,9 @@ permalink: /player/{{ player.slug }}/
     </section>
 
     {% if player.lists.length > 0 %}
-    <section>
+    <section id="lists">
       <div class="section-header">
-        <h2 data-pagefind-ignore>Lists</h2>
+        <h2 data-pagefind-ignore>Lists <a class="heading-anchor" href="#lists" aria-label="Link to Lists">#</a></h2>
       </div>
       <div class="list-summary-grid">
         {% for list in player.lists %}
@@ -43,9 +49,9 @@ permalink: /player/{{ player.slug }}/
     {% endif %}
 
     {% if player.comments.length > 0 %}
-    <section class="featured-quotes-section">
+    <section class="featured-quotes-section" id="recent-notes">
       <div class="section-header">
-        <h2 data-pagefind-ignore>Recent Notes</h2>
+        <h2 data-pagefind-ignore>Recent Notes <a class="heading-anchor" href="#recent-notes" aria-label="Link to Recent Notes">#</a></h2>
       </div>
       <div class="featured-quote-grid">
         {% for experience in player.comments %}
@@ -62,15 +68,19 @@ permalink: /player/{{ player.slug }}/
     </section>
     {% endif %}
 
-    <section>
-      <div class="section-header">
-        <h2 data-pagefind-ignore>All Rooms</h2>
+    <section id="recent-rooms">
+      <div class="section-header section-header-with-link">
+        <div>
+          <h2 data-pagefind-ignore>Recent Rooms <a class="heading-anchor" href="#recent-rooms" aria-label="Link to Recent Rooms">#</a></h2>
+          <p>The latest rooms with {{ player.name }}. The complete history stays available in the room browser.</p>
+        </div>
+        <a class="section-more-link" href="/rooms/?player={{ player.slug | queryValue }}">View all {{ player.roomCount }} rooms →</a>
       </div>
-      {% if player.rooms.length > 0 %}
+      {% if player.recentRooms.length > 0 %}
       <div class="room-grid">
         {% from "room-card.njk" import roomCard %}
-        {% for room in player.rooms | reverse %}
-          {{ roomCard(room) }}
+        {% for room in player.recentRooms %}
+          {{ roomCard(room, { returnPath: page.url }) }}
         {% endfor %}
       </div>
       {% else %}
@@ -80,23 +90,6 @@ permalink: /player/{{ player.slug }}/
       {% endif %}
     </section>
 
-    {% if player.missingExperiences.length > 0 %}
-    <section>
-      <div class="section-header">
-        <h2 data-pagefind-ignore>To Do</h2>
-      </div>
-      <h3 class="todo-subheading">Needs Your Experience</h3>
-      <p class="todo-description">You played these rooms but haven't submitted an experience yet. Share your rating and thoughts!</p>
-      <div class="missing-experience-list">
-        {% for room in player.missingExperiences %}
-        <a href="{{ room | roomPath }}" class="missing-experience-item">
-          <span class="missing-experience-game">{{ room.game }}{% if room.experiences.length > 0 %} <span class="missing-experience-others">· reviewed by {% for exp in room.experiences %}{{ exp.player.name }}{% if not loop.last %}, {% endif %}{% endfor %}</span>{% endif %}</span>
-          <span class="missing-experience-meta">{{ room.company.name if room.company }} · {{ room.date | formatDate }}</span>
-        </a>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
   </main>
 {% endblock %}
 

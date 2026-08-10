@@ -137,6 +137,37 @@ test('list slugs do not add separator breaks for apostrophes in names', () => {
   assert.equal(catalog.lists[0].slug, '1-jamies-escape-in-europe-favorites');
 });
 
+test('public slug overrides keep featured player and trip URLs stable after a rename', () => {
+  const catalog = buildCatalog(
+    {
+      companies: { records: [] },
+      locations: { records: [] },
+      themes: { records: [] },
+      players: {
+        records: [{ id: 'player1', fields: { Name: 'Jamie Renamed', Featured: true } }]
+      },
+      awards: { records: [] },
+      trips: {
+        records: [{ id: 'trip1', fields: { Name: 'Europe Retitled', Featured: true } }]
+      },
+      lists: { records: [] },
+      listItems: { records: [] },
+      experiences: { records: [] },
+      rooms: { records: [] }
+    },
+    {
+      imagesDir: path.join(__dirname, '..', 'src', 'images', 'rooms'),
+      publicSlugs: {
+        players: { player1: 'jamie' },
+        trips: { trip1: 'escape-in-europe' }
+      }
+    }
+  );
+
+  assert.equal(catalog.players[0].slug, 'jamie');
+  assert.equal(catalog.trips[0].slug, 'escape-in-europe');
+});
+
 test('officialUrl prefers room URL, then location URL, then company URL', () => {
   const baseData = {
     companies: {

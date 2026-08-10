@@ -1,0 +1,36 @@
+---
+title: Search
+description: Search rooms, trips, lists, and featured players.
+permalink: /search/
+---
+{% extends "base.njk" %}
+
+{% block head %}
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+{% endblock %}
+
+{% block content %}
+  <main class="container page-content search-page" id="main-content" data-pagefind-ignore>
+    <section class="page-intro page-intro-compact">
+      <div class="page-intro-copy">
+        <div class="eyebrow">Search the log</div>
+        <h1 class="page-intro-title">Search</h1>
+        <p>Find room details, trip routes, curated lists, and featured player stories.</p>
+      </div>
+      <button class="btn" type="button" data-copy-link>
+        <span aria-hidden="true">↗</span>
+        <span data-copy-label>Copy search link</span>
+      </button>
+    </section>
+
+    <section class="search-page-panel" aria-label="Site search">
+      <div id="pagefind-search-page"></div>
+      <noscript><p>Search requires JavaScript. Browse the <a href="/rooms/">room catalog</a> instead.</p></noscript>
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script type="module" src="{{ '/js/search.js' | cacheBust }}"></script>
+{% endblock %}

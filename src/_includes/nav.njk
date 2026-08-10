@@ -1,18 +1,24 @@
 <nav class="main-nav">
   <div class="nav-container">
-    <a href="/" class="nav-logo">Escaping Things</a>
+    <a href="/" class="nav-logo"{% if page.url == "/" %} aria-current="page"{% endif %}>Escaping Things</a>
     <button class="nav-search-btn" id="search-btn" aria-label="Search site" title="Search (/ or ⌘K)" data-tinylytics-event="nav.search">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
     </button>
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">&#9776;</button>
     <ul class="nav-links" id="site-nav">
       {% if page.url != "/" %}<li><a href="/" data-tinylytics-event="nav.home">Home</a></li>{% endif %}
-      <li><a href="/rooms/"{% if page.url == "/rooms/" %} class="active"{% endif %} data-tinylytics-event="nav.rooms">Rooms</a></li>
-      <li><a href="/map/"{% if page.url == "/map/" %} class="active"{% endif %} data-tinylytics-event="nav.map">Map</a></li>
-      <li><a href="/lists/"{% if page.url == "/lists/" or page.url.startsWith("/list/") %} class="active"{% endif %} data-tinylytics-event="nav.lists">Lists</a></li>
-      <li><a href="/trips/"{% if page.url == "/trips/" or page.url.startsWith("/trip/") %} class="active"{% endif %} data-tinylytics-event="nav.trips">Trips</a></li>
-      <li><a href="/stats/"{% if page.url == "/stats/" %} class="active"{% endif %} data-tinylytics-event="nav.stats">Stats</a></li>
-      <li><a href="/players/"{% if page.url == "/players/" or page.url.startsWith("/player/") %} class="active"{% endif %} data-tinylytics-event="nav.players">Players</a></li>
+      {% set roomsActive = page.url == "/rooms/" or page.url.startsWith("/room/") %}
+      {% set mapActive = page.url == "/map/" %}
+      {% set listsActive = page.url == "/lists/" or page.url.startsWith("/list/") %}
+      {% set tripsActive = page.url == "/trips/" or page.url.startsWith("/trip/") %}
+      {% set statsActive = page.url == "/stats/" %}
+      {% set playersActive = page.url == "/players/" or page.url.startsWith("/player/") %}
+      <li><a href="/rooms/"{% if roomsActive %} class="active" aria-current="page"{% endif %} data-tinylytics-event="nav.rooms">Rooms</a></li>
+      <li><a href="/map/"{% if mapActive %} class="active" aria-current="page"{% endif %} data-tinylytics-event="nav.map">Map</a></li>
+      <li><a href="/lists/"{% if listsActive %} class="active" aria-current="page"{% endif %} data-tinylytics-event="nav.lists">Lists</a></li>
+      <li><a href="/trips/"{% if tripsActive %} class="active" aria-current="page"{% endif %} data-tinylytics-event="nav.trips">Trips</a></li>
+      <li><a href="/stats/"{% if statsActive %} class="active" aria-current="page"{% endif %} data-tinylytics-event="nav.stats">Stats</a></li>
+      <li><a href="/players/"{% if playersActive %} class="active" aria-current="page"{% endif %} data-tinylytics-event="nav.players">Players</a></li>
     </ul>
   </div>
 </nav>
@@ -22,7 +28,10 @@
   <div class="search-overlay-panel">
     <button class="search-overlay-close" id="search-close" aria-label="Close search">&times;</button>
     <div id="pagefind-search"></div>
-    <p class="search-hint">Press <kbd>?</kbd> for all keyboard shortcuts</p>
+    <div class="search-overlay-actions">
+      <a href="/search/" class="btn" id="search-page-link">Open shareable search</a>
+      <p class="search-hint">Press <kbd>?</kbd> for all keyboard shortcuts</p>
+    </div>
   </div>
 </div>
 

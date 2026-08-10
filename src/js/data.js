@@ -88,6 +88,8 @@ export const FILTER_FIELDS = [
   { key: 'status', elementId: 'filter-status', label: 'Status', emptyValue: 'all' }
 ];
 
+export const VALID_SORTS = new Set(['newest', 'oldest', 'rating', 'room']);
+
 function createDefaultFilters() {
   return {
     year: '',
@@ -114,16 +116,36 @@ export function getFilterParams() {
   return filters;
 }
 
-export function setFilterParams(filters) {
+export function getSortParam() {
+  const value = new URLSearchParams(window.location.search).get('sort') || 'newest';
+  return VALID_SORTS.has(value) ? value : 'newest';
+}
+
+export function getSelectedRoomParam() {
+  const value = Number(new URLSearchParams(window.location.search).get('room'));
+  return Number.isSafeInteger(value) && value > 0 ? value : null;
+}
+
+export function buildFilterParams(filters, { sort = 'newest', room = null } = {}) {
   const params = new URLSearchParams();
   FILTER_FIELDS.forEach((field) => {
     const emptyValue = field.emptyValue || '';
     const value = filters[field.key];
     if (value && value !== emptyValue) params.set(field.key, value);
   });
+  if (VALID_SORTS.has(sort) && sort !== 'newest') params.set('sort', sort);
+  if (Number.isSafeInteger(Number(room)) && Number(room) > 0) params.set('room', String(room));
+  return params;
+}
+
+export function setFilterParams(filters, { sort = 'newest', room = null, historyMode = 'replace' } = {}) {
+  const params = buildFilterParams(filters, { sort, room });
   const search = params.toString();
   const url = window.location.pathname + (search ? `?${search}` : '');
-  history.replaceState(null, '', url);
+  const method = historyMode === 'push' ? 'pushState' : 'replaceState';
+  if (window.location.pathname + window.location.search !== url) {
+    history[method](null, '', url);
+  }
 }
 
 export function applyFiltersToControls(filters) {
@@ -156,14 +178,14 @@ export function clearFilterControls() {
 export function bindFilterControls(onChange) {
   FILTER_FIELDS.forEach((field) => {
     const control = getFilterControl(field);
-    if (control) control.addEventListener('change', onChange);
+    if (control) control.addEventListener('change', () => onChange({ source: 'user' }));
   });
 
   const clearButton = document.getElementById('clear-filters');
   if (clearButton) {
     clearButton.addEventListener('click', () => {
       clearFilterControls();
-      onChange();
+      onChange({ source: 'user' });
     });
   }
 }

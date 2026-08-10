@@ -6,6 +6,10 @@
 {% set fallbackImage = '/images/room-scheduled.png' if room.status == 'Scheduled' else '/images/room-no-photo.png' %}
 {% set badgeLabel = options.badgeLabel if options and options.badgeLabel is defined else 'Room' %}
 {% set badgeNumber = options.badgeNumber if options and options.badgeNumber is defined else room.id %}
+{% set roomHref = room | roomPath %}
+{% if options and options.returnPath %}
+  {% set roomHref = roomHref + '?from=' + (options.returnPath | queryValue) %}
+{% endif %}
 {% set locationPrimary = '' %}
 {% set locationSecondary = '' %}
 {% if room.location %}
@@ -19,11 +23,11 @@
     {% endif %}
   {% endif %}
 {% endif %}
-<div class="room-card{{ ' room-card-has-photo' if room.photo else ' room-card-no-photo' }}" id="{{ room.airtableId }}" data-room-id="{{ room.id }}" data-pagefind-ignore>
-  <a href="{{ room | roomPath }}" class="room-card-link" data-tinylytics-event="card.view-room" data-tinylytics-event-value="{{ room.game }}">
+<div class="room-card{{ ' room-card-has-photo' if room.photo else ' room-card-no-photo' }}" id="room-{{ room.id }}" data-airtable-id="{{ room.airtableId }}" data-room-id="{{ room.id }}" data-pagefind-ignore>
+  <a href="{{ roomHref }}" data-room-path="{{ room | roomPath }}" class="room-card-link" data-tinylytics-event="card.view-room" data-tinylytics-event-value="{{ room.game }}">
     {% if room.photo %}
       <div class="room-card-thumb">
-        <img src="/images/rooms/{{ room.photo }}" alt="{{ room.game }} at {{ room.company.name if room.company else 'Unknown Company' }}" loading="lazy">
+        <img src="/images/rooms/{{ room.photo }}" alt="{{ room.game }} at {{ room.company.name if room.company else 'Unknown Company' }}" loading="lazy" decoding="async" eleventy:widths="320,640,960" eleventy:formats="webp,auto" sizes="(max-width: 640px) calc(100vw - 2rem), (max-width: 1180px) 50vw, 33vw">
       </div>
     {% else %}
       <div class="room-card-fallback" aria-hidden="true">
@@ -36,6 +40,11 @@
         <span class="room-card-badge-label">{{ badgeLabel }}</span>
         <span class="room-card-badge-number">{{ badgeNumber }}</span>
       </div>
+      {% endif %}
+      {% if room.status %}
+      <span class="room-card-status{% if room.status == 'Escaped' %} status-escaped{% elif room.status == 'Try again' %} status-try-again{% elif room.status == 'Completed' %} status-completed{% elif room.status == 'Scheduled' %} status-scheduled{% endif %}">
+        {% if room.status == 'Try again' %}Try Again{% else %}{{ room.status }}{% endif %}
+      </span>
       {% endif %}
     </div>
     <div class="room-card-top-right">

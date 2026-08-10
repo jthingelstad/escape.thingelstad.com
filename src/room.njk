@@ -12,23 +12,13 @@ permalink: /room/{{ room.slug }}/
 
 {% block pageTitle %}{{ room.game | safe }} — {{ room.company.name if room.company else 'Unknown Company' }}{% endblock %}
 {% block metaDescription %}{{ room.game | safe }} at {{ room.company.name if room.company else 'Unknown Company' }}{% if room.location %}, {{ room.location | formatLocation | safe }}{% endif %}. {{ room.status | safe }}{% if room.timeLeft != null %} with {{ room.timeLeft | formatTimeLeft | safe }}{% endif %}.{% endblock %}
-
-{% block head %}
-  <meta property="og:title" content="{{ room.game }} — {{ room.company.name if room.company else 'Unknown Company' }} - Escaping Things">
-  <meta property="og:description" content="{{ room.game }} at {{ room.company.name if room.company else 'Unknown Company' }}{% if room.location %}, {{ room.location | formatLocation }}{% endif %}. {{ room.status }}{% if room.timeLeft != null %} with {{ room.timeLeft | formatTimeLeft }}{% endif %}.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://escape.thingelstad.com{{ room | roomPath }}">
-  {% if room.photo %}
-  <meta property="og:image" content="https://escape.thingelstad.com/images/rooms/{{ room.photo }}">
-  {% else %}
-  <meta property="og:image" content="https://escape.thingelstad.com/images/favicon.svg">
-  {% endif %}
-  <meta property="og:site_name" content="Escaping Things">
-  <meta name="twitter:card" content="summary_large_image">
-{% endblock %}
+{% block socialTitle %}{{ room.game }} — {{ room.company.name if room.company else 'Unknown Company' }} - Escaping Things{% endblock %}
+{% block socialDescription %}{{ room.game }} at {{ room.company.name if room.company else 'Unknown Company' }}{% if room.location %}, {{ room.location | formatLocation }}{% endif %}. {{ room.status }}{% if room.timeLeft != null %} with {{ room.timeLeft | formatTimeLeft }}{% endif %}.{% endblock %}
+{% block socialType %}article{% endblock %}
+{% block socialImage %}{% if room.photo %}https://escape.thingelstad.com/images/rooms/{{ room.photo }}{% else %}https://escape.thingelstad.com/images/room-no-photo.png{% endif %}{% endblock %}
 
 {% block content %}
-  <main class="container page-content room-detail-page" data-pagefind-body data-pagefind-meta="type:room">
+  <main class="container page-content room-detail-page" id="main-content" data-pagefind-body data-pagefind-meta="type:room">
     <nav class="room-nav" aria-label="Room navigation" data-pagefind-ignore>
       {% if room.nav.prev %}
         <a href="{{ room.nav.prev | roomPath }}" class="room-nav-link room-nav-prev" data-tinylytics-event="room.nav-prev">
@@ -41,7 +31,7 @@ permalink: /room/{{ room.slug }}/
       {% else %}
         <span class="room-nav-link room-nav-prev disabled" aria-hidden="true"></span>
       {% endif %}
-      <a href="/rooms/" class="room-nav-all" data-tinylytics-event="room.back-to-list">All Rooms</a>
+      <a href="/rooms/" class="room-nav-all" id="room-context-link" data-tinylytics-event="room.back-to-list">All Rooms</a>
       {% if room.nav.next %}
         <a href="{{ room.nav.next | roomPath }}" class="room-nav-link room-nav-next" data-tinylytics-event="room.nav-next">
           <span class="room-nav-label">
@@ -55,10 +45,10 @@ permalink: /room/{{ room.slug }}/
       {% endif %}
     </nav>
 
-    <section class="room-hero">
+    <section class="room-hero" id="overview">
       {% if room.photo %}
       <div class="room-hero-photo">
-        <img src="/images/rooms/{{ room.photo }}" alt="{{ room.game }} at {{ room.company.name if room.company else 'Unknown Company' }}">
+        <img src="/images/rooms/{{ room.photo }}" alt="{{ room.game }} at {{ room.company.name if room.company else 'Unknown Company' }}" fetchpriority="high" decoding="async" eleventy:widths="640,960,1280,1600" eleventy:formats="webp,auto" sizes="(max-width: 1040px) calc(100vw - 3rem), 52vw">
       </div>
       {% endif %}
       <div class="room-hero-info">
@@ -98,7 +88,7 @@ permalink: /room/{{ room.slug }}/
         <div class="room-hero-players" data-pagefind-ignore>
           <span class="meta-icon">👥</span>
           {% for player in room.players %}
-            <a href="{{ player | entityUrl('player') }}" data-tinylytics-event="room.player" data-tinylytics-event-value="{{ player.name }}">{{ player.name }}</a>{% if not loop.last %}, {% endif %}
+            <a class="entity-chip entity-chip-player" href="{{ player | entityUrl('player') }}" data-tinylytics-event="room.player" data-tinylytics-event-value="{{ player.name }}">{{ player.name }}</a>
           {% endfor %}
         </div>
         {% endif %}
@@ -119,6 +109,9 @@ permalink: /room/{{ room.slug }}/
         {% endif %}
 
         <div class="room-hero-links">
+          <button type="button" class="room-link" data-copy-link data-copy-url="https://escape.thingelstad.com{{ room | roomPath }}">
+            <span aria-hidden="true">↗</span> <span data-copy-label>Copy room link</span>
+          </button>
           {% if room.officialUrl %}
             <a href="{{ room.officialUrl }}" class="room-link room-link-official" target="_blank" rel="noopener" data-tinylytics-event="room.official-site" data-tinylytics-event-value="{{ room.game }}">
               Official Site &rarr;
@@ -143,9 +136,9 @@ permalink: /room/{{ room.slug }}/
     </section>
 
     {% if room.status !== "Scheduled" %}
-    <section class="room-stats-section" data-pagefind-ignore>
+    <section class="room-stats-section" id="how-we-did" data-pagefind-ignore>
       <div class="section-header">
-        <h2>How We Did</h2>
+        <h2>How We Did <a class="heading-anchor" href="#how-we-did" aria-label="Link to How We Did">#</a></h2>
         <p>A quick structural read on the result, the time, and how this room sits in the rest of the history.</p>
       </div>
       <div class="room-stats-grid">
@@ -216,9 +209,9 @@ permalink: /room/{{ room.slug }}/
     {% endif %}
 
     {% if room.experiences and room.experiences.length > 0 %}
-    <section class="room-ratings-section" data-pagefind-ignore>
+    <section class="room-ratings-section" id="team-ratings" data-pagefind-ignore>
       <div class="section-header">
-        <h2>Team Ratings</h2>
+        <h2>Team Ratings <a class="heading-anchor" href="#team-ratings" aria-label="Link to Team Ratings">#</a></h2>
         <p>The qualitative side of the team log: scores, category notes, and favorite votes from Escaping Things.</p>
       </div>
       <div class="room-ratings-summary">
@@ -277,9 +270,9 @@ permalink: /room/{{ room.slug }}/
     {% endif %}
 
     {% if room.stats.relatedRooms.length > 0 %}
-    <section class="room-related-section">
+    <section class="room-related-section" id="related-rooms">
       <div class="section-header">
-        <h2>Related Rooms</h2>
+        <h2>Related Rooms <a class="heading-anchor" href="#related-rooms" aria-label="Link to Related Rooms">#</a></h2>
         <p>Picked from shared themes, people, awards, trips, lists, places, and outcomes.</p>
       </div>
       <div class="room-grid">
@@ -293,8 +286,5 @@ permalink: /room/{{ room.slug }}/
 {% endblock %}
 
 {% block scripts %}
-  <script type="module">
-    import { initNav } from '{{ '/js/data.js' | cacheBust }}';
-    initNav();
-  </script>
+  <script type="module" src="{{ '/js/room.js' | cacheBust }}"></script>
 {% endblock %}

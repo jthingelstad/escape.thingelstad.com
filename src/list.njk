@@ -6,33 +6,63 @@ permalink: /rooms/
 {% extends "base.njk" %}
 
 {% block content %}
-  <main class="container page-content catalog-page" data-pagefind-ignore>
-    <section class="page-intro">
+  <main class="container page-content catalog-page" id="main-content" data-pagefind-ignore>
+    <section class="page-intro page-intro-compact">
       <div class="page-intro-copy">
+        <div class="eyebrow">{{ catalog.rooms.length }} public entries</div>
         <h1 class="page-intro-title">All Rooms</h1>
-        <p>Browse the full room catalog using the filters below. Press <kbd>/</kbd> or <kbd>⌘K</kbd> for text search.</p>
+        <p>Browse the full log by people, place, theme, trip, recognition, year, or result.</p>
       </div>
+      <a href="/search/" class="btn">Search room details</a>
     </section>
 
-    <section class="filter-bar collapsed" id="filter-panel">
-      <button class="filter-bar-toggle" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-bar-body">
-        <span class="toggle-arrow">&#9660;</span> Filters
-      </button>
+    <section class="catalog-controls" aria-label="Room catalog controls">
+      <div class="catalog-toolbar">
+        <div class="results-count" id="results-count" aria-live="polite">Showing all {{ catalog.rooms.length }} rooms</div>
+        <div class="catalog-toolbar-actions">
+          <div class="catalog-sort">
+            <label for="sort-rooms">Sort</label>
+            <select id="sort-rooms">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="rating">Highest rated</option>
+              <option value="room">Room number</option>
+            </select>
+          </div>
+          <a href="/map/" class="btn btn-compact" id="catalog-view-link">Map view</a>
+          <button class="btn btn-compact" type="button" data-copy-link><span data-copy-label>Copy view</span></button>
+          <button class="btn btn-compact filter-bar-toggle" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">
+            <span class="toggle-arrow" aria-hidden="true">&#9660;</span>
+            <span>Filters</span>
+            <span class="filter-count" id="filter-count" hidden>0</span>
+          </button>
+        </div>
+      </div>
+      <div class="active-filters" id="active-filters" aria-label="Active filters"></div>
+    </section>
+
+    <div class="filter-sheet-backdrop" id="filter-backdrop" hidden></div>
+    <section class="filter-bar collapsed" id="filter-panel" aria-labelledby="filter-panel-title">
+      <div class="filter-sheet-header">
+        <div>
+          <div class="eyebrow">Refine the catalog</div>
+          <h2 id="filter-panel-title">Filters</h2>
+        </div>
+        <button class="filter-sheet-close" id="filter-close" type="button" aria-label="Close filters">&times;</button>
+      </div>
       <div class="filter-bar-body" id="filter-bar-body">
         <div class="filter-row">
           {% include "filter-bar.njk" %}
         </div>
-        <div class="active-filters" id="active-filters"></div>
+        <button class="btn btn-teal filter-apply" id="filter-apply" type="button">Show rooms</button>
       </div>
     </section>
 
     <section>
-
-      <div class="results-count" id="results-count"></div>
       <div class="room-grid" id="room-list">
         {% from "room-card.njk" import roomCard %}
         {% for room in catalog.rooms | reverse %}
-          {{ roomCard(room) }}
+          {{ roomCard(room, { returnPath: '/rooms/' }) }}
         {% endfor %}
       </div>
     </section>
@@ -43,8 +73,8 @@ permalink: /rooms/
   <script>
     (function() {
       var hash = window.location.hash.slice(1);
-      if (hash && hash.startsWith('rec')) {
-        var card = document.getElementById(hash);
+      if (/^rec[a-zA-Z0-9]+$/.test(hash)) {
+        var card = document.querySelector('[data-airtable-id="' + hash + '"]');
         if (card) {
           var link = card.querySelector('.room-card-link');
           if (link) { window.location.replace(link.href); return; }

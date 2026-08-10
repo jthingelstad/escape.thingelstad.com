@@ -11,6 +11,7 @@ The project now builds from a normalized Airtable-backed catalog, not from a sin
 - Eleventy v3
 - Nunjucks templates
 - Plain CSS and vanilla JavaScript
+- Eleventy Image responsive image transforms
 - Leaflet + MarkerCluster on the map page
 - Chart.js on the stats page
 - Tinylytics for analytics and kudos
@@ -111,6 +112,8 @@ Lists can be standalone or attached to a player or trip. Rooms can belong to zer
 
 Pagefind provides site-wide text search, accessible from any page via the nav search button, `/`, or `⌘K`/`Ctrl+K`. It indexes only detail pages with `data-pagefind-body` (room detail, featured player/award/trip, list detail). All index/listing pages use `data-pagefind-ignore`. Player names in room detail pages are excluded from the Pagefind index via `data-pagefind-ignore` to avoid noisy results.
 
+`/search/?q={query}` is the durable, shareable search route. Keep the global overlay for quick keyboard access and use the standalone route for copied or deep-linked queries.
+
 ## Filtering
 
 Filtering is typed and URL-driven via dropdown controls. There is no free-text search on the rooms or map pages — Pagefind handles text search site-wide. Both pages share the same URL parameter names. The rooms page filter dimensions are:
@@ -128,6 +131,8 @@ The map page uses a reduced filter set: `country`, `trip`, `list`, `year`, `stat
 
 Both filter panels start collapsed when no URL filters are present, and expand automatically when the page loads with active filters.
 
+Rooms also preserve `sort` in the URL; the map preserves the selected popup as `room`. Filter changes create browser-history entries. Detail links add a validated `from` parameter so Back links and previous/next room navigation retain catalog, map, list, trip, or player context.
+
 The old tag model and the old `q` omnibox search are gone and should not be reintroduced.
 
 ## Key Files
@@ -139,6 +144,7 @@ The old tag model and the old `q` omnibox search are gone and should not be rein
 - `src/_data/roomIndex.js` — inlined room data for list and map
 - `src/_data/listPages.js` — standalone list page data
 - `src/_data/playerPages.js` — featured player page data
+- `src/_data/publicSlugs.json` — durable featured player/trip slugs by Airtable record ID
 - `src/_data/tripPages.js` — featured trip page data
 - `src/_includes/room-card.njk` — room card component
 - `src/_includes/filter-bar.njk` — shared typed filters (list page only; map has inline filters)
@@ -146,6 +152,8 @@ The old tag model and the old `q` omnibox search are gone and should not be rein
 - `src/js/data.js` — shared client helpers and filter state
 - `src/js/list.js` — rooms page filtering (sorted by date, newest first)
 - `src/js/map.js` — map filtering and popup rendering
+- `src/js/room.js` — validated detail-page return context
+- `src/js/search.js` — standalone Pagefind query/deep-link state
 - `src/js/trip.js` — featured trip route map
 
 ## Routes
@@ -153,6 +161,7 @@ The old tag model and the old `q` omnibox search are gone and should not be rein
 - `/` — home
 - `/rooms/` — typed room browser
 - `/map/` — map view
+- `/search/` — shareable Pagefind search
 - `/stats/` — charts and summary stats
 - `/trips/` — featured trip index
 - `/players/` — team roster and featured player index
@@ -181,3 +190,4 @@ All single-key and `g`-prefix shortcuts are suppressed when an input/textarea/se
 - Keep the typed entity model intact: do not reintroduce generic tag plumbing.
 - Trip pages include an ordered room-card section and a route map with numbered stops.
 - Room detail pages use a shared photo-backed room-card design for related rooms; avoid reintroducing one-off room card variants.
+- Add featured player/trip Airtable IDs to `publicSlugs.json` before publishing their routes; do not derive an already-public slug from mutable display names.

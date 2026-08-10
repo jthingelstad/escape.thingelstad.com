@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block pageTitle %}{{ title }}{% endblock %}{% if title != "Escaping Things" %} - Escaping Things{% endif %}</title>
   <meta name="description" content="{% block metaDescription %}{{ description }}{% endblock %}">
+  <link rel="canonical" href="https://escape.thingelstad.com{{ page.url }}">
+  <meta property="og:title" content="{% block socialTitle %}{{ title }}{% if title != 'Escaping Things' %} - Escaping Things{% endif %}{% endblock %}">
+  <meta property="og:description" content="{% block socialDescription %}{{ description }}{% endblock %}">
+  <meta property="og:type" content="{% block socialType %}website{% endblock %}">
+  <meta property="og:url" content="https://escape.thingelstad.com{{ page.url }}">
+  <meta property="og:image" content="{% block socialImage %}https://escape.thingelstad.com/images/room-no-photo.png{% endblock %}">
+  <meta property="og:site_name" content="Escaping Things">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/atom+xml" title="Escaping Things" href="/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +26,7 @@
   {% block head %}{% endblock %}
 </head>
 <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   {% include "nav.njk" %}
 
   {% block content %}{% endblock %}
@@ -36,9 +45,12 @@
       const shortcutsOverlay = document.getElementById('shortcuts-overlay');
       const shortcutsBackdrop = document.getElementById('shortcuts-overlay-backdrop');
       const shortcutsClose = document.getElementById('shortcuts-close');
+      const searchPageLink = document.getElementById('search-page-link');
       let initialized = false;
       let gPending = false;
       let gTimer = null;
+      let searchReturnFocus = null;
+      let shortcutsReturnFocus = null;
 
       function trackEvent(event, value) {
         const el = document.createElement('span');
@@ -96,6 +108,7 @@
       async function openSearch() {
         const loaded = await loadPagefind();
         if (!loaded) return;
+        searchReturnFocus = document.activeElement;
         overlay.hidden = false;
         document.body.style.overflow = 'hidden';
         if (!initialized) {
@@ -106,16 +119,17 @@
             ranking: {
               pageLength: 0.75,
               termFrequency: 0.0
-            },
-            processResult: function(result) {
-              if (result.meta.type) delete result.meta.type;
-              return result;
             }
           });
 
           const container = document.getElementById('pagefind-search');
           const observer = new MutationObserver(() => { clearSearchHighlight(); });
           observer.observe(container, { childList: true, subtree: true });
+          container.addEventListener('input', (event) => {
+            if (!event.target.matches('.pagefind-ui__search-input')) return;
+            const query = event.target.value.trim();
+            searchPageLink.href = query ? `/search/?q=${encodeURIComponent(query)}` : '/search/';
+          });
 
           initialized = true;
         }
@@ -129,16 +143,73 @@
       function closeSearch() {
         overlay.hidden = true;
         document.body.style.overflow = '';
+        if (searchReturnFocus?.focus) searchReturnFocus.focus();
       }
 
       function openShortcuts() {
+        shortcutsReturnFocus = document.activeElement;
         shortcutsOverlay.hidden = false;
         document.body.style.overflow = 'hidden';
+        shortcutsClose.focus();
       }
 
       function closeShortcuts() {
         shortcutsOverlay.hidden = true;
         document.body.style.overflow = '';
+        if (shortcutsReturnFocus?.focus) shortcutsReturnFocus.focus();
+      }
+
+      function trapFocus(event, dialog) {
+        if (event.key !== 'Tab' || dialog.hidden) return false;
+        const focusable = [...dialog.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+          .filter((element) => !element.hidden && element.getClientRects().length > 0);
+        if (!focusable.length) return false;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+          return true;
+        }
+        if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+          return true;
+        }
+        return false;
+      }
+
+      async function copyLink(button) {
+        const url = button.dataset.copyUrl || window.location.href;
+        try {
+          await navigator.clipboard.writeText(url);
+        } catch {
+          const field = document.createElement('textarea');
+          field.value = url;
+          field.style.position = 'fixed';
+          field.style.opacity = '0';
+          document.body.appendChild(field);
+          field.select();
+          document.execCommand('copy');
+          field.remove();
+        }
+        const label = button.querySelector('[data-copy-label]');
+        const original = label ? label.textContent : button.textContent;
+        if (label) label.textContent = 'Copied';
+        else button.textContent = 'Copied';
+        button.classList.add('copy-confirmed');
+        setTimeout(() => {
+          if (label) label.textContent = original;
+          else button.textContent = original;
+          button.classList.remove('copy-confirmed');
+        }, 1800);
+      }
+
+      function revealFooterMetrics() {
+        document.querySelectorAll('[data-tinylytics-container]').forEach((container) => {
+          const value = container.querySelector('[data-tinylytics-value]');
+          container.hidden = !value || !value.textContent.trim();
+        });
       }
 
       function isInputFocused() {
@@ -151,8 +222,19 @@
       if (closeBtn) closeBtn.addEventListener('click', closeSearch);
       if (shortcutsBackdrop) shortcutsBackdrop.addEventListener('click', closeShortcuts);
       if (shortcutsClose) shortcutsClose.addEventListener('click', closeShortcuts);
+      document.addEventListener('click', (event) => {
+        const copyButton = event.target.closest('[data-copy-link]');
+        if (copyButton) copyLink(copyButton);
+      });
+
+      revealFooterMetrics();
+      const footerObserver = new MutationObserver(revealFooterMetrics);
+      document.querySelectorAll('[data-tinylytics-value]').forEach((element) => {
+        footerObserver.observe(element, { childList: true, subtree: true, characterData: true });
+      });
 
       document.addEventListener('keydown', (e) => {
+        if (trapFocus(e, shortcutsOverlay) || trapFocus(e, overlay)) return;
         if (e.key === 'Escape') {
           if (!shortcutsOverlay.hidden) { closeShortcuts(); return; }
           if (!overlay.hidden) { closeSearch(); return; }

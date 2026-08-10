@@ -89,6 +89,14 @@ test('browser filter helpers keep DOM controls, URL state, and typed matching in
       '?player=jamie&theme=snow&country=United+States&year=2025&status=Escaped'
     );
 
+    data.setFilterParams(currentFilters, { sort: 'rating', room: 42, historyMode: 'push' });
+    assert.equal(data.getSortParam(), 'rating');
+    assert.equal(data.getSelectedRoomParam(), 42);
+    assert.equal(
+      window.location.search,
+      '?player=jamie&theme=snow&country=United+States&year=2025&status=Escaped&sort=rating&room=42'
+    );
+
     const matchingRoom = {
       company: { slug: 'puzzleworks' },
       location: { slug: 'minneapolis-minnesota-united-states', country: 'United States' },
