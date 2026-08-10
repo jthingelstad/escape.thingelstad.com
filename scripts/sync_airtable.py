@@ -14,6 +14,7 @@ Reads from .env file in the project root if present.
 import json
 import os
 import sys
+import tempfile
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -87,25 +88,58 @@ def fetch_all_records(base_id, table_name, token):
     return records
 
 
-def resize_photo(path):
-    """Resize a photo so its longest side is at most MAX_PHOTO_DIMENSION pixels."""
-    from PIL import Image
+def resize_photo(path, display_name=None):
+    """Apply EXIF orientation and constrain a photo's longest side."""
+    from PIL import Image, ImageOps
 
     with Image.open(path) as img:
-        width, height = img.size
-        if max(width, height) <= MAX_PHOTO_DIMENSION:
+        orientation = img.getexif().get(274)
+        oriented = ImageOps.exif_transpose(img)
+        width, height = oriented.size
+        needs_resize = max(width, height) > MAX_PHOTO_DIMENSION
+        needs_orientation = orientation not in (None, 1)
+
+        if not needs_resize and not needs_orientation:
             return
 
-        if width >= height:
-            new_width = MAX_PHOTO_DIMENSION
-            new_height = int(height * MAX_PHOTO_DIMENSION / width)
+        if needs_resize:
+            if width >= height:
+                new_width = MAX_PHOTO_DIMENSION
+                new_height = int(height * MAX_PHOTO_DIMENSION / width)
+            else:
+                new_height = MAX_PHOTO_DIMENSION
+                new_width = int(width * MAX_PHOTO_DIMENSION / height)
+            processed = oriented.resize((new_width, new_height), Image.LANCZOS)
         else:
-            new_height = MAX_PHOTO_DIMENSION
-            new_width = int(width * MAX_PHOTO_DIMENSION / height)
+            new_width, new_height = width, height
+            processed = oriented.copy()
 
-        resized = img.resize((new_width, new_height), Image.LANCZOS)
-        resized.save(path, quality=85)
-        print(f"  Resized {os.path.basename(path)}: {width}x{height} -> {new_width}x{new_height}")
+        processed.save(path, quality=85)
+        action = "Normalized and resized" if needs_orientation and needs_resize else "Resized"
+        if needs_orientation and not needs_resize:
+            action = "Normalized orientation for"
+        filename = display_name or os.path.basename(path)
+        print(f"  {action} {filename}: {width}x{height} -> {new_width}x{new_height}")
+
+
+def photo_aspect_ratio_matches(path, attachment, tolerance=0.01):
+    """Return whether a local image has Airtable's displayed aspect ratio."""
+    from PIL import Image
+
+    expected_width = attachment.get("width")
+    expected_height = attachment.get("height")
+    if not expected_width or not expected_height:
+        return True
+
+    try:
+        with Image.open(path) as img:
+            local_width, local_height = img.size
+    except OSError, ValueError:
+        return False
+
+    local_ratio = local_width / local_height
+    expected_ratio = expected_width / expected_height
+    return abs(local_ratio - expected_ratio) <= tolerance * expected_ratio
 
 
 def download_team_photo(attachment, airtable_id):
@@ -114,28 +148,42 @@ def download_team_photo(attachment, airtable_id):
     filename = f"team_{airtable_id}{ext}"
     dest = os.path.join(IMAGES_DIR, filename)
 
-    if os.path.isfile(dest):
+    has_existing_photo = os.path.isfile(dest)
+    if has_existing_photo and photo_aspect_ratio_matches(dest, attachment):
         return filename
+
+    if has_existing_photo:
+        print(f"  Refreshing team photo with mismatched orientation: {filename}")
 
     url = attachment.get("url")
     if not url:
         print(f"  Warning: Team Photo for {airtable_id} has no URL", file=sys.stderr)
         return None
 
+    temp_path = None
     try:
         req = urllib.request.Request(url)
         with urllib.request.urlopen(req) as resp:
-            with open(dest, "wb") as handle:
+            with tempfile.NamedTemporaryFile(
+                dir=IMAGES_DIR,
+                prefix=f".{filename}.",
+                suffix=ext,
+                delete=False,
+            ) as handle:
+                temp_path = handle.name
                 handle.write(resp.read())
         print(f"  Downloaded team photo: {filename}")
-        resize_photo(dest)
+        resize_photo(temp_path, filename)
+        os.replace(temp_path, dest)
         return filename
     except (urllib.error.URLError, OSError) as exc:
+        if temp_path and os.path.isfile(temp_path):
+            os.remove(temp_path)
         print(
             f"  Warning: Failed to download team photo for {airtable_id}: {exc}",
             file=sys.stderr,
         )
-        return None
+        return filename if has_existing_photo else None
 
 
 def normalize_room_assets(records):
