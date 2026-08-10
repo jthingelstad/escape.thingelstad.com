@@ -28,7 +28,7 @@ function loadRealRoomsSnapshot() {
   return require('../src/_data/airtable/rooms.json');
 }
 
-test('real catalog excludes hidden rooms, keeps stable Room IDs, and preserves featured entities', () => {
+test('real catalog excludes hidden rooms, keeps legacy IDs, and assigns contiguous public numbers', () => {
   const catalog = loadRealCatalog();
   const roomsSnapshot = loadRealRoomsSnapshot();
   const visibleRawRooms = roomsSnapshot.records.filter((record) => !record.fields?.Hide);
@@ -41,6 +41,16 @@ test('real catalog excludes hidden rooms, keeps stable Room IDs, and preserves f
     [...visibleRoomIds].sort((left, right) => left - right)
   );
   assert.equal(new Set(catalog.rooms.map((room) => room.id)).size, catalog.rooms.length);
+  assert.deepEqual(
+    catalog.rooms.map((room) => room.number),
+    Array.from({ length: catalog.rooms.length }, (_, index) => index + 1)
+  );
+
+  const latestRoom = catalog.rooms.at(-1);
+  assert.equal(latestRoom.id, 105);
+  assert.equal(latestRoom.number, 104);
+  assert.equal(latestRoom.slug, '2026-05-10/the-vault');
+  assert.equal(latestRoom.legacySlug, '105-the-vault');
 
   assert.ok(catalog.featured.players.length > 0);
   assert.ok(catalog.featured.trips.length > 0);
@@ -253,7 +263,7 @@ test('awards are metadata and hidden rooms stay out of public counts', () => {
   assert.equal(catalog.awards[0].year, 2025);
 });
 
-test('visible rooms require explicit unique IDs while stable ID gaps remain valid', () => {
+test('legacy room IDs are optional while public numbers stay contiguous across gaps', () => {
   const baseData = {
     companies: {
       records: [{ id: 'comp1', fields: { Company: 'Puzzle Co' } }]
@@ -280,18 +290,67 @@ test('visible rooms require explicit unique IDs while stable ID gaps remain vali
 
   const catalog = buildCatalog(baseData, options);
   assert.deepEqual(catalog.rooms.map((room) => room.id), [10, 12]);
+  assert.deepEqual(catalog.rooms.map((room) => room.number), [1, 2]);
+  assert.deepEqual(catalog.rooms.map((room) => room.slug), [
+    '2025-01-01/room-ten',
+    '2025-02-01/room-twelve'
+  ]);
 
   const missingId = structuredClone(baseData);
   delete missingId.rooms.records[0].fields['Room ID'];
-  assert.throws(
-    () => buildCatalog(missingId, options),
-    /must have a positive integer Room ID/
-  );
+  const catalogWithoutLegacyId = buildCatalog(missingId, options);
+  assert.equal(catalogWithoutLegacyId.rooms[0].id, null);
+  assert.equal(catalogWithoutLegacyId.rooms[0].legacySlug, null);
+  assert.deepEqual(catalogWithoutLegacyId.rooms.map((room) => room.number), [1, 2]);
 
   const duplicateId = structuredClone(baseData);
   duplicateId.rooms.records[1].fields['Room ID'] = 10;
   assert.throws(
     () => buildCatalog(duplicateId, options),
-    /Room ID 10 is duplicated/
+    /Legacy Room ID 10 is duplicated/
+  );
+
+  const invalidId = structuredClone(baseData);
+  invalidId.rooms.records[0].fields['Room ID'] = true;
+  assert.throws(
+    () => buildCatalog(invalidId, options),
+    /invalid legacy Room ID/
+  );
+});
+
+test('same-day rooms with the same name receive deterministic collision-safe routes', () => {
+  const data = {
+    companies: { records: [{ id: 'comp1', fields: { Company: 'Puzzle Co' } }] },
+    locations: {
+      records: [{ id: 'loc1', fields: { Location: 'Downtown', Company: ['comp1'] } }]
+    },
+    themes: { records: [] },
+    players: { records: [] },
+    awards: { records: [] },
+    trips: { records: [] },
+    lists: { records: [] },
+    listItems: { records: [] },
+    experiences: { records: [] },
+    rooms: {
+      records: [
+        { id: 'recAlpha', fields: { Game: 'The Room', Location: ['loc1'], Status: 'Escaped', When: '2025-03-01', Order: 1 } },
+        { id: 'recBeta', fields: { Game: 'The Room', Location: ['loc1'], Status: 'Completed', When: '2025-03-01', Order: 2 } }
+      ]
+    }
+  };
+  const options = { imagesDir: path.join(__dirname, '..', 'src', 'images', 'rooms') };
+  const catalog = buildCatalog(data, options);
+
+  assert.deepEqual(catalog.rooms.map((room) => room.slug), [
+    '2025-03-01/the-room-recalpha',
+    '2025-03-01/the-room-recbeta'
+  ]);
+  assert.equal(new Set(catalog.rooms.map((room) => room.slug)).size, 2);
+
+  const missingOrder = structuredClone(data);
+  delete missingOrder.rooms.records[1].fields.Order;
+  assert.throws(
+    () => buildCatalog(missingOrder, options),
+    /must have a positive integer Order because 2025-03-01 has multiple rooms/
   );
 });

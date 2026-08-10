@@ -4,6 +4,11 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + var(--space-4));
+}
+
+main [id] {
+  scroll-margin-top: calc(var(--nav-height) + var(--space-4));
 }
 
 body {

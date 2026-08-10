@@ -64,7 +64,7 @@ permalink: /list/{{ list.slug }}/
           </a>
           <div class="list-entry-copy">
             <div class="list-entry-header">
-              <div class="list-entry-kicker">Room #{{ entry.room.id }} · {{ entry.room.status }}</div>
+              <div class="list-entry-kicker">Room #{{ entry.room.number }} · {{ entry.room.status }}</div>
               <h3 class="list-entry-title">
                 <a href="{{ roomHref }}" data-tinylytics-event="list-page.view-room" data-tinylytics-event-value="{{ entry.room.game }}">{{ entry.room.game }}</a>
               </h3>

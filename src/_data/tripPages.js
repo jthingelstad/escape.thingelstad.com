@@ -21,6 +21,7 @@ module.exports = function() {
       .map((stop) => ({
         sequence: stop.sequence,
         id: stop.room.id,
+        number: stop.room.number,
         slug: stop.room.slug,
         game: stop.room.game,
         date: stop.room.date,

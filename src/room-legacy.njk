@@ -1,0 +1,24 @@
+---
+pagination:
+  data: legacyRooms
+  size: 1
+  alias: room
+  addAllPagesToCollections: false
+permalink: /room/{{ room.legacySlug }}/index.html
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moving to {{ room.game }} — Escaping Things</title>
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0; url={{ room | roomPath }}">
+  <link rel="canonical" href="https://escape.thingelstad.com{{ room | roomPath }}">
+  <script>window.location.replace("{{ room | roomPath }}" + window.location.search + window.location.hash);</script>
+</head>
+<body>
+  <p>This room has moved to <a href="{{ room | roomPath }}">{{ room.game }}</a>.</p>
+</body>
+</html>

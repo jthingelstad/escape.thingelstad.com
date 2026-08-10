@@ -58,15 +58,17 @@ The normalized catalog exposes:
 - `experiences`
 - `featured.players`
 - `featured.trips`
-- lookup maps by Airtable ID, slug, and room ID
+- lookup maps by Airtable ID, canonical slug, legacy room ID, and public room number
 
 ## Room Model
 
 Public room objects are normalized with:
 
-- `id` — stable public room number from Airtable `Room ID`
+- `number` — contiguous public room number derived from chronological catalog order
+- `id` / `legacyId` — optional legacy Airtable `Room ID`, retained for old URL redirects
 - `airtableId`
-- `slug`
+- `slug` — canonical `YYYY-MM-DD/room-name` route key
+- `legacySlug` — optional old `Room ID` route key
 - `game`
 - `date`
 - `status`
@@ -167,7 +169,8 @@ The old tag model and the old `q` omnibox search are gone and should not be rein
 - `/players/` — team roster and featured player index
 - `/lists/` — all public lists
 - `/list/{slug}/` — standalone list pages
-- `/room/{id-slug}/` — room detail pages
+- `/room/{date}/{room-slug}/` — canonical room detail pages
+- `/room/{legacy-id-slug}/` — redirect-only compatibility routes
 - `/featured/` and featured entity pages
 - `/feed.xml`
 - `/sitemap.xml`

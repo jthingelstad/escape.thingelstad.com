@@ -91,10 +91,21 @@ test('browser filter helpers keep DOM controls, URL state, and typed matching in
 
     data.setFilterParams(currentFilters, { sort: 'rating', room: 42, historyMode: 'push' });
     assert.equal(data.getSortParam(), 'rating');
-    assert.equal(data.getSelectedRoomParam(), 42);
+    assert.equal(data.getSelectedRoomParam(), '42');
     assert.equal(
       window.location.search,
       '?player=jamie&theme=snow&country=United+States&year=2025&status=Escaped&sort=rating&room=42'
+    );
+
+    data.setFilterParams(currentFilters, { room: '2025-12-22/the-vault', historyMode: 'push' });
+    assert.equal(data.getSelectedRoomParam(), '2025-12-22/the-vault');
+    assert.equal(
+      window.location.search,
+      '?player=jamie&theme=snow&country=United+States&year=2025&status=Escaped&room=2025-12-22%2Fthe-vault'
+    );
+    assert.equal(
+      data.roomUrl({ date: '2025-12-22', game: 'The Vault' }),
+      '/room/2025-12-22/the-vault/'
     );
 
     const matchingRoom = {

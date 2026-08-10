@@ -152,6 +152,7 @@ def validate_room_records(room_records, location_records):
     """Fail before writing snapshots when a public room would build incorrectly."""
     location_ids = {record["id"] for record in location_records}
     seen_room_ids = {}
+    rooms_by_date = {}
     errors = []
 
     for record in room_records:
@@ -164,18 +165,21 @@ def validate_room_records(room_records, location_records):
         label = game or airtable_id
         room_id = fields.get("Room ID")
 
-        if (
-            isinstance(room_id, bool)
-            or not isinstance(room_id, (int, float))
-            or not float(room_id).is_integer()
-            or room_id <= 0
-        ):
-            errors.append(f"{airtable_id} ({label}) must have a positive integer Room ID")
-        else:
+        if room_id is not None:
+            if (
+                isinstance(room_id, bool)
+                or not isinstance(room_id, (int, float))
+                or not float(room_id).is_integer()
+                or room_id <= 0
+            ):
+                errors.append(f"{airtable_id} ({label}) has an invalid legacy Room ID")
+                room_id = None
+
+        if room_id is not None:
             room_id = int(room_id)
             if room_id in seen_room_ids:
                 errors.append(
-                    f"Room ID {room_id} is duplicated by {airtable_id} ({label}) "
+                    f"Legacy Room ID {room_id} is duplicated by {airtable_id} ({label}) "
                     f"and {seen_room_ids[room_id]}"
                 )
             else:
@@ -189,6 +193,7 @@ def validate_room_records(room_records, location_records):
             parsed_when = datetime.strptime(when, "%Y-%m-%d")
             if parsed_when.strftime("%Y-%m-%d") != when:
                 raise ValueError
+            rooms_by_date.setdefault(when, []).append(record)
         except TypeError, ValueError:
             errors.append(f"{airtable_id} ({label}) must have a valid When date")
 
@@ -203,6 +208,35 @@ def validate_room_records(room_records, location_records):
             or locations[0] not in location_ids
         ):
             errors.append(f"{airtable_id} ({label}) must link to exactly one valid Location")
+
+    for when, same_day_rooms in rooms_by_date.items():
+        if len(same_day_rooms) < 2:
+            continue
+        seen_orders = {}
+        for record in same_day_rooms:
+            fields = record.get("fields", {})
+            order = fields.get("Order")
+            airtable_id = record["id"]
+            label = fields.get("Game") or airtable_id
+            if (
+                isinstance(order, bool)
+                or not isinstance(order, (int, float))
+                or not float(order).is_integer()
+                or order <= 0
+            ):
+                errors.append(
+                    f"{airtable_id} ({label}) must have a positive integer Order "
+                    f"because {when} has multiple rooms"
+                )
+                continue
+            order = int(order)
+            if order in seen_orders:
+                errors.append(
+                    f"Room Order {order} is duplicated on {when} by {airtable_id} "
+                    f"and {seen_orders[order]}"
+                )
+            else:
+                seen_orders[order] = airtable_id
 
     if errors:
         details = "\n".join(f"  - {error}" for error in errors)

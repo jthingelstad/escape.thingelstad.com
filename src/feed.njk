@@ -24,7 +24,7 @@ eleventyExcludeFromCollections: true
   {%- for room in catalog.rooms | reverse %}
   {%- if room.status !== "Scheduled" %}
   <entry>
-    <title>{{ ("#" + room.id + " " + room.game + " — " + (room.company.name if room.company else "Unknown Company")) | e }}</title>
+    <title>{{ ("#" + room.number + " " + room.game + " — " + (room.company.name if room.company else "Unknown Company")) | e }}</title>
     <link href="https://escape.thingelstad.com{{ room | roomPath }}"/>
     <id>tag:escape.thingelstad.com,{{ room.date }}:{{ room.airtableId }}</id>
     <updated>{{ room.date }}T00:00:00Z</updated>

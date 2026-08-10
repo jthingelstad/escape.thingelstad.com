@@ -25,7 +25,7 @@ permalink: /room/{{ room.slug }}/
           <span class="room-nav-arrow" aria-hidden="true">&larr;</span>
           <span class="room-nav-label">
             <span class="room-nav-dir">Previous</span>
-            <span class="room-nav-name">#{{ room.nav.prev.id }} {{ room.nav.prev.game }}</span>
+            <span class="room-nav-name">#{{ room.nav.prev.number }} {{ room.nav.prev.game }}</span>
           </span>
         </a>
       {% else %}
@@ -36,7 +36,7 @@ permalink: /room/{{ room.slug }}/
         <a href="{{ room.nav.next | roomPath }}" class="room-nav-link room-nav-next" data-tinylytics-event="room.nav-next">
           <span class="room-nav-label">
             <span class="room-nav-dir">Next</span>
-            <span class="room-nav-name">#{{ room.nav.next.id }} {{ room.nav.next.game }}</span>
+            <span class="room-nav-name">#{{ room.nav.next.number }} {{ room.nav.next.game }}</span>
           </span>
           <span class="room-nav-arrow" aria-hidden="true">&rarr;</span>
         </a>
@@ -53,7 +53,7 @@ permalink: /room/{{ room.slug }}/
       {% endif %}
       <div class="room-hero-info">
         <div class="room-hero-header">
-          <span class="room-number">#{{ room.id }}</span>
+          <span class="room-number">#{{ room.number }}</span>
           <h1>{{ room.game }}</h1>
         </div>
         {% if room.company %}

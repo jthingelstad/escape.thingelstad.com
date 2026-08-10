@@ -21,7 +21,7 @@ bodyClass: page-home
       </div>
       <div class="stats-row" id="hero-stats">
         <div class="stat-item"><span class="stat-number">{{ stats.totalPlayed }}</span><div class="stat-label">Rooms Played</div></div>
-        {% if stats.latestCompleted %}<div class="stat-item"><span class="stat-number">#{{ stats.latestCompleted.id }}</span><div class="stat-label">Latest Log Number</div></div>{% endif %}
+        {% if stats.latestCompleted %}<div class="stat-item"><span class="stat-number">#{{ stats.latestCompleted.number }}</span><div class="stat-label">Latest Log Number</div></div>{% endif %}
         {% if stats.scheduledRooms > 0 %}<div class="stat-item"><span class="stat-number">{{ stats.scheduledRooms }}</span><div class="stat-label">Scheduled Next</div></div>{% endif %}
         <div class="stat-item"><span class="stat-number">{{ stats.countryCount }}</span><div class="stat-label">Countries</div></div>
         <div class="stat-item"><span class="stat-number">{{ stats.yearsActive }}</span><div class="stat-label">Years Active</div></div>

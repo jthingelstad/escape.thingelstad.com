@@ -22,7 +22,7 @@ const toggleBtn = document.getElementById('filter-toggle');
 const backdrop = document.getElementById('filter-backdrop');
 let map;
 let markerClusterGroup;
-let markersByRoomId = new Map();
+let markersByRoomKey = new Map();
 let syncingMarkers = false;
 
 function isMobileFilterSheet() {
@@ -117,7 +117,7 @@ function popupLocationParts(location) {
 function buildPopup(room, filters) {
   const gameName = escapeHtml(room.game);
   const companyName = escapeHtml(room.company?.name || 'Unknown Company');
-  const returnParams = buildFilterParams(filters, { room: room.id }).toString();
+  const returnParams = buildFilterParams(filters, { room: room.slug }).toString();
   const returnPath = `/map/${returnParams ? `?${returnParams}` : ''}`;
   const detailUrl = `${roomUrl(room)}?from=${encodeURIComponent(returnPath)}`;
   const fallbackImage = popupFallbackImage(room);
@@ -128,7 +128,7 @@ function buildPopup(room, filters) {
 
   return `
     <div class="popup-room">
-      <div class="room-card${room.photo ? ' room-card-has-photo' : ' room-card-no-photo'}" data-room-id="${room.id}">
+      <div class="room-card${room.photo ? ' room-card-has-photo' : ' room-card-no-photo'}" data-airtable-id="${room.airtableId}" data-room-number="${room.number}">
         <a href="${detailUrl}" class="room-card-link" data-tinylytics-event="map.view-room" data-tinylytics-event-value="${gameName}">
           ${room.photo
             ? `<div class="room-card-thumb"><img src="/images/rooms/${escapeHtml(room.photo)}" alt="${gameName}" loading="lazy" decoding="async"></div>`
@@ -136,7 +136,7 @@ function buildPopup(room, filters) {
           <div class="room-card-top-left">
             <div class="room-card-badge">
               <span class="room-card-badge-label">Room</span>
-              <span class="room-card-badge-number">${room.id}</span>
+              <span class="room-card-badge-number">${room.number}</span>
             </div>
             <span class="room-card-status ${statusClass}">${escapeHtml(statusLabel.replace(/^[✓✗]\s*/, ''))}</span>
           </div>
@@ -177,8 +177,8 @@ function updateMapSummary(filters, rooms, mappable) {
   document.getElementById('map-view-link').href = `/rooms/${params ? `?${params}` : ''}`;
 }
 
-function openSelectedMarker(roomId) {
-  const marker = markersByRoomId.get(roomId);
+function openSelectedMarker(roomKey) {
+  const marker = markersByRoomKey.get(roomKey);
   if (!marker) {
     syncingMarkers = false;
     return;
@@ -199,13 +199,13 @@ function updateMarkers({ historyMode = 'replace', writeUrl = true, selectedRoom 
 
   syncingMarkers = true;
   markerClusterGroup.clearLayers();
-  markersByRoomId = new Map();
+  markersByRoomKey = new Map();
 
   mappable.forEach((room) => {
     const marker = L.marker([room.location.lat, room.location.lng], {
       icon: createMarkerIcon(room),
-      title: `#${room.id} ${room.game}`,
-      alt: `#${room.id} ${room.game}`
+      title: `#${room.number} ${room.game}`,
+      alt: `#${room.number} ${room.game}`
     });
     marker.bindPopup(buildPopup(room, filters), {
       className: 'map-room-popup',
@@ -214,14 +214,16 @@ function updateMarkers({ historyMode = 'replace', writeUrl = true, selectedRoom 
     marker.on('popupopen', () => {
       document.body.classList.add('map-popup-open');
       if (syncingMarkers) return;
-      setFilterParams(getCurrentFilters(), { room: room.id, historyMode: 'push' });
+      setFilterParams(getCurrentFilters(), { room: room.slug, historyMode: 'push' });
     });
     marker.on('popupclose', () => {
       document.body.classList.remove('map-popup-open');
-      if (syncingMarkers || getSelectedRoomParam() !== room.id) return;
+      const selectedRoom = getSelectedRoomParam();
+      if (syncingMarkers || (selectedRoom !== room.slug && selectedRoom !== String(room.id))) return;
       setFilterParams(getCurrentFilters(), { historyMode: 'replace' });
     });
-    markersByRoomId.set(room.id, marker);
+    markersByRoomKey.set(room.slug, marker);
+    if (room.id != null) markersByRoomKey.set(String(room.id), marker);
     markerClusterGroup.addLayer(marker);
   });
 
@@ -229,7 +231,7 @@ function updateMarkers({ historyMode = 'replace', writeUrl = true, selectedRoom 
     map.fitBounds(markerClusterGroup.getBounds(), { padding: [40, 40] });
   }
 
-  if (selectedRoom && markersByRoomId.has(selectedRoom)) {
+  if (selectedRoom && markersByRoomKey.has(selectedRoom)) {
     openSelectedMarker(selectedRoom);
   } else {
     syncingMarkers = false;

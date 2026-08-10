@@ -20,6 +20,7 @@ function makeRoom({
   return {
     airtableId: `rec${id}`,
     id,
+    number: id,
     slug,
     game,
     status,
@@ -86,10 +87,13 @@ test('real room details preserve chronological navigation and company comparison
   const beforeGap = rooms.find((room) => room.id === 101);
 
   assert.equal(first.nav.prev, null);
-  assert.equal(first.nav.next.id, 2);
-  assert.equal(last.nav.prev.id, 104);
+  assert.equal(first.nav.next.number, 2);
+  assert.equal(last.number, rooms.length);
+  assert.equal(last.nav.prev.number, rooms.length - 1);
   assert.equal(last.nav.next, null);
+  assert.equal(beforeGap.number, 101);
   assert.equal(beforeGap.nav.next.id, 103);
+  assert.equal(beforeGap.nav.next.number, 102);
 
   const sameCompany = rooms.filter(
     (room) => room.status !== 'Scheduled' && room.company?.airtableId === last.company.airtableId

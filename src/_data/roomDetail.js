@@ -79,10 +79,20 @@ function buildRoomDetail() {
     }
 
     const previousRoom = index > 0
-      ? { id: allRooms[index - 1].id, slug: allRooms[index - 1].slug, game: allRooms[index - 1].game }
+      ? {
+          id: allRooms[index - 1].id,
+          number: allRooms[index - 1].number,
+          slug: allRooms[index - 1].slug,
+          game: allRooms[index - 1].game
+        }
       : null;
     const nextRoom = index < allRooms.length - 1
-      ? { id: allRooms[index + 1].id, slug: allRooms[index + 1].slug, game: allRooms[index + 1].game }
+      ? {
+          id: allRooms[index + 1].id,
+          number: allRooms[index + 1].number,
+          slug: allRooms[index + 1].slug,
+          game: allRooms[index + 1].game
+        }
       : null;
     const relatedRooms = findRelatedRooms(room, allRooms);
     const company = companyStats.get(room.company?.airtableId) || { total: 0, wins: 0 };

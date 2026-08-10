@@ -14,7 +14,7 @@ import {
 } from './data.js';
 
 const roomIndex = JSON.parse(document.getElementById('room-index-data').textContent);
-const roomById = Object.fromEntries(roomIndex.map((room) => [String(room.id), room]));
+const roomByAirtableId = Object.fromEntries(roomIndex.map((room) => [room.airtableId, room]));
 const container = document.getElementById('room-list');
 const allCards = [...container.querySelectorAll('.room-card')];
 const panel = document.getElementById('filter-panel');
@@ -54,17 +54,17 @@ function roomRating(room) {
 
 function sortCards(cards, sort) {
   return [...cards].sort((leftCard, rightCard) => {
-    const left = roomById[leftCard.dataset.roomId];
-    const right = roomById[rightCard.dataset.roomId];
+    const left = roomByAirtableId[leftCard.dataset.airtableId];
+    const right = roomByAirtableId[rightCard.dataset.airtableId];
 
     if (sort === 'oldest') {
-      return (left.date || '').localeCompare(right.date || '') || left.id - right.id;
+      return (left.date || '').localeCompare(right.date || '') || left.number - right.number;
     }
     if (sort === 'rating') {
-      return roomRating(right) - roomRating(left) || (right.date || '').localeCompare(left.date || '') || right.id - left.id;
+      return roomRating(right) - roomRating(left) || (right.date || '').localeCompare(left.date || '') || right.number - left.number;
     }
-    if (sort === 'room') return right.id - left.id;
-    return (right.date || '').localeCompare(left.date || '') || right.id - left.id;
+    if (sort === 'room') return right.number - left.number;
+    return (right.date || '').localeCompare(left.date || '') || right.number - left.number;
   });
 }
 
@@ -157,7 +157,7 @@ function updateResults({ historyMode = 'replace', writeUrl = true } = {}) {
 
   const visible = [];
   allCards.forEach((card) => {
-    const room = roomById[card.dataset.roomId];
+    const room = roomByAirtableId[card.dataset.airtableId];
     const matches = roomMatchesFilters(room, filters);
     card.hidden = !matches;
     if (matches) visible.push(card);

@@ -3,6 +3,7 @@ const catalog = require('./catalog');
 module.exports = function() {
   return catalog().rooms.map((room) => ({
     id: room.id,
+    number: room.number,
     airtableId: room.airtableId,
     slug: room.slug,
     game: room.game,

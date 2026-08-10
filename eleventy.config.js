@@ -68,12 +68,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("roomSlug", (room) => {
     if (!room) return "";
     if (room.slug) return room.slug;
-    if (!room.id || !room.game) return "";
-    return roomSlug(room.id, room.game);
+    if (!room.date || !room.game) return "";
+    return roomSlug(room.date, room.game);
   });
 
   eleventyConfig.addFilter("roomPath", (room) => {
-    const slug = room?.slug || (room?.id && room?.game ? roomSlug(room.id, room.game) : "");
+    const slug = room?.slug || (room?.date && room?.game ? roomSlug(room.date, room.game) : "");
     return slug ? `/room/${slug}/` : "/";
   });
 

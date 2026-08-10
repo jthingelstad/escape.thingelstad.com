@@ -58,12 +58,13 @@ Those raw snapshots are normalized in [src/_data/catalog.js](src/_data/catalog.j
 - `experiences`
 - `featured.players`
 - `featured.trips`
-- lookup indexes by Airtable ID, slug, and stable room ID
+- lookup indexes by Airtable ID, canonical slug, legacy room ID, and public room number
 
 Each room carries resolved relations and derived fields such as:
 
-- stable `Room ID`
-- canonical room slug and permalink
+- contiguous chronological public room number
+- optional legacy Airtable `Room ID`
+- canonical date-and-name room slug and permalink
 - `officialUrl` resolved by `Room URL -> Location URL -> Company URL`
 - typed `players`, `awards`, `trips`, `lists`, and `themes`
 - nested `company` and `location`
@@ -122,7 +123,8 @@ npm test
 The test suite covers:
 
 - catalog normalization and data contracts
-- required, unique stable room IDs while allowing intentional ID gaps
+- contiguous public numbering independent of optional legacy Airtable IDs
+- canonical date-and-name room routes plus legacy URL redirects
 - public, played, and scheduled room-count semantics
 - fallback `officialUrl` behavior
 - hidden-room exclusion
@@ -137,9 +139,13 @@ The sync script reads these environment variables:
 - `AIRTABLE_BASE_ID`
 It also reads `.env` in the project root if present.
 
-Public rooms must have a positive, unique Airtable `Room ID`, a game name, a valid date and status, and exactly one valid location. `npm run sync`, the catalog build, and the automated sync workflow fail before publishing when those contracts are broken. Hidden records may remain incomplete while they are being prepared.
+Public rooms must have a game name, a valid date and status, and exactly one valid location. `npm run sync`, the catalog build, and the automated sync workflow fail before publishing when those contracts are broken. Hidden records may remain incomplete while they are being prepared.
 
-`Room ID` is a stable public identifier, not the catalog count. Airtable autonumber gaps are valid, so the newest room number can be higher than the number of visible rooms without either value being wrong.
+The public room number is derived from chronological catalog order (date, then optional `Order`) and is therefore contiguous across visible rooms. Airtable `Room ID` is now optional legacy metadata: when present it must be a positive, unique integer, but it is not used for display numbers, counts, or canonical links. Airtable autonumber gaps are expected and harmless.
+
+When multiple public rooms share a date, each must have a unique positive `Order` value. That makes the public sequence deterministic without depending on Airtable record order.
+
+Canonical room links use `/room/YYYY-MM-DD/room-name/`. Previously published `/room/Room-ID-room-name/` links are generated as redirect pages so old bookmarks continue to work.
 
 When adding rooms:
 

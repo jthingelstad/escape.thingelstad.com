@@ -38,13 +38,14 @@ export function formatTimeLeft(value) {
 
 export function roomUrl(room) {
   if (room.slug) return `/room/${room.slug}/`;
+  if (!room.date || !room.game) return '/rooms/';
   const slug = String(room.game || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-  return `/room/${room.id}-${slug}/`;
+  return `/room/${room.date}/${slug}/`;
 }
 
 export function featuredEntityUrl(type, entity) {
@@ -122,8 +123,10 @@ export function getSortParam() {
 }
 
 export function getSelectedRoomParam() {
-  const value = Number(new URLSearchParams(window.location.search).get('room'));
-  return Number.isSafeInteger(value) && value > 0 ? value : null;
+  const value = new URLSearchParams(window.location.search).get('room');
+  if (!value) return null;
+  if (/^\d+$/.test(value)) return value;
+  return /^\d{4}-\d{2}-\d{2}\/[a-z0-9-]+$/.test(value) ? value : null;
 }
 
 export function buildFilterParams(filters, { sort = 'newest', room = null } = {}) {
@@ -134,7 +137,10 @@ export function buildFilterParams(filters, { sort = 'newest', room = null } = {}
     if (value && value !== emptyValue) params.set(field.key, value);
   });
   if (VALID_SORTS.has(sort) && sort !== 'newest') params.set('sort', sort);
-  if (Number.isSafeInteger(Number(room)) && Number(room) > 0) params.set('room', String(room));
+  const roomKey = room == null ? '' : String(room);
+  if (/^\d+$/.test(roomKey) || /^\d{4}-\d{2}-\d{2}\/[a-z0-9-]+$/.test(roomKey)) {
+    params.set('room', roomKey);
+  }
   return params;
 }
 

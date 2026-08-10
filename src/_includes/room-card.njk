@@ -5,7 +5,7 @@
 {% set companyName = room.company.name if room.company else 'Unknown Company' %}
 {% set fallbackImage = '/images/room-scheduled.png' if room.status == 'Scheduled' else '/images/room-no-photo.png' %}
 {% set badgeLabel = options.badgeLabel if options and options.badgeLabel is defined else 'Room' %}
-{% set badgeNumber = options.badgeNumber if options and options.badgeNumber is defined else room.id %}
+{% set badgeNumber = options.badgeNumber if options and options.badgeNumber is defined else room.number %}
 {% set roomHref = room | roomPath %}
 {% if options and options.returnPath %}
   {% set roomHref = roomHref + '?from=' + (options.returnPath | queryValue) %}
@@ -23,7 +23,7 @@
     {% endif %}
   {% endif %}
 {% endif %}
-<div class="room-card{{ ' room-card-has-photo' if room.photo else ' room-card-no-photo' }}" id="room-{{ room.id }}" data-airtable-id="{{ room.airtableId }}" data-room-id="{{ room.id }}" data-pagefind-ignore>
+<div class="room-card{{ ' room-card-has-photo' if room.photo else ' room-card-no-photo' }}" id="room-{{ room.id or room.airtableId }}" data-airtable-id="{{ room.airtableId }}"{% if room.id %} data-room-id="{{ room.id }}"{% endif %} data-room-number="{{ room.number }}" data-pagefind-ignore>
   <a href="{{ roomHref }}" data-room-path="{{ room | roomPath }}" class="room-card-link" data-tinylytics-event="card.view-room" data-tinylytics-event-value="{{ room.game }}">
     {% if room.photo %}
       <div class="room-card-thumb">

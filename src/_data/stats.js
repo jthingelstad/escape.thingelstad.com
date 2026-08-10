@@ -193,11 +193,11 @@ function buildStats(allRooms) {
   const chartTimeLeft = played
     .filter((room) => room.timeLeft != null)
     .map((room) => ({
-      x: `#${room.id}`,
+      x: `#${room.number}`,
       y: Number.parseFloat(Math.max(CHART_TIME_FLOOR, room.timeLeft).toFixed(2)),
       raw: Number.parseFloat(room.timeLeft.toFixed(2)),
       clamped: room.timeLeft < CHART_TIME_FLOOR,
-      label: `#${room.id} ${room.game}`,
+      label: `#${room.number} ${room.game}`,
       slug: room.slug
     }));
 

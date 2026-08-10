@@ -5,7 +5,8 @@ const { buildStats } = require('../src/_data/stats');
 function makeRoom({ id, date, status }) {
   return {
     id,
-    slug: `${id}-room`,
+    number: id,
+    slug: `${date}/room-${id}`,
     game: `Room ${id}`,
     date,
     status,
@@ -31,6 +32,7 @@ test('room totals include scheduled rooms while played statistics do not', () =>
   assert.equal(stats.totalPlayed, 1);
   assert.equal(stats.scheduledRooms, 1);
   assert.equal(stats.latestCompleted.id, 10);
+  assert.equal(stats.latestCompleted.number, 10);
   assert.equal(stats.charts.cumulativeStreak.length, 1);
   assert.deepEqual(stats.charts.roomsPerYear.labels, ['2025', '2026']);
   assert.deepEqual(stats.charts.roomsPerYear.scheduled, [0, 1]);
