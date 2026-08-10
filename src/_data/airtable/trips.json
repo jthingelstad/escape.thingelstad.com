@@ -1,7 +1,7 @@
 {
   "table": "Trips",
-  "syncedAt": "2026-05-16T14:31:37.122795+00:00",
-  "count": 8,
+  "syncedAt": "2026-08-10T21:48:24.170600+00:00",
+  "count": 9,
   "records": [
     {
       "id": "rec0lxTu6FUTtJ8wW",
@@ -147,6 +147,23 @@
         "Rooms": [
           "recMqhVYX7BU87Uda",
           "recM2tOvoeH29vOJD"
+        ]
+      }
+    },
+    {
+      "id": "recPdsXVe4f9iAZwO",
+      "createdTime": "2026-08-10T21:16:24.000Z",
+      "fields": {
+        "Room Count": 2,
+        "Trip ID": 9,
+        "Game (from Rooms)": [
+          "Alice",
+          "Cativeiro"
+        ],
+        "Name": "Porto",
+        "Rooms": [
+          "rec92QddeRCagOokY",
+          "recMhyzbt4awQiy0o"
         ]
       }
     },

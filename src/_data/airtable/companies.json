@@ -1,7 +1,7 @@
 {
   "table": "Companies",
-  "syncedAt": "2026-05-16T14:31:37.117288+00:00",
-  "count": 59,
+  "syncedAt": "2026-08-10T21:48:24.165507+00:00",
+  "count": 62,
   "records": [
     {
       "id": "rec0Mh2XfDYRXjiYV",
@@ -226,6 +226,22 @@
       }
     },
     {
+      "id": "recK2UFisjzUbAton",
+      "createdTime": "2026-07-08T18:01:56.000Z",
+      "fields": {
+        "Company": "Locurio",
+        "Created at": "2026-07-08T18:01:56.000Z",
+        "Room Count": 1,
+        "Locations": [
+          "recuwTvpCu8mGkBbw"
+        ],
+        "Company ID": 60,
+        "Modified at": "2026-07-08T18:03:19.000Z",
+        "Company URL": "https://www.locurio.com",
+        "Location Count": 1
+      }
+    },
+    {
       "id": "recKUcIw022SpTG8A",
       "createdTime": "2026-02-23T19:22:36.000Z",
       "fields": {
@@ -407,7 +423,7 @@
       "fields": {
         "Company": "Lock & Key Escape Rooms",
         "Created at": "2026-02-23T19:22:36.000Z",
-        "Room Count": 2,
+        "Room Count": 3,
         "Locations": [
           "recxgdIw1xYr1rOHl"
         ],
@@ -661,6 +677,22 @@
       }
     },
     {
+      "id": "rechk0Qbwkwfnf1R7",
+      "createdTime": "2026-08-10T21:14:54.000Z",
+      "fields": {
+        "Company": "Cubus",
+        "Created at": "2026-08-10T21:14:54.000Z",
+        "Room Count": 1,
+        "Locations": [
+          "rec2FcKqzEJzQ1uuI"
+        ],
+        "Company ID": 61,
+        "Modified at": "2026-08-10T21:15:03.000Z",
+        "Company URL": "https://cubusescaperoom.com",
+        "Location Count": 1
+      }
+    },
+    {
       "id": "reciGGLNkgA8AKfRV",
       "createdTime": "2026-02-23T19:22:36.000Z",
       "fields": {
@@ -799,6 +831,23 @@
         "Company ID": 36,
         "Modified at": "2026-02-27T01:49:07.000Z",
         "Location Count": 1
+      }
+    },
+    {
+      "id": "recoWiYWWE7XjBoQ2",
+      "createdTime": "2026-08-10T21:19:18.000Z",
+      "fields": {
+        "Company": "D3 Escape Rooms",
+        "Created at": "2026-08-10T21:19:18.000Z",
+        "Room Count": 2,
+        "Locations": [
+          "recD5F2H4ndRgCCJZ",
+          "recFDVkpyw1r2EAx8"
+        ],
+        "Company ID": 62,
+        "Modified at": "2026-08-10T21:28:19.000Z",
+        "Company URL": "https://www.d3escaperoom.com",
+        "Location Count": 2
       }
     },
     {

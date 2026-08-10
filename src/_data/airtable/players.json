@@ -1,6 +1,6 @@
 {
   "table": "Players",
-  "syncedAt": "2026-05-16T14:31:37.120915+00:00",
+  "syncedAt": "2026-08-10T21:48:24.168906+00:00",
   "count": 39,
   "records": [
     {
@@ -183,7 +183,7 @@
       "fields": {
         "Featured": true,
         "Player ID": 3,
-        "Room Count": 89,
+        "Room Count": 93,
         "Game (from Rooms)": [
           "Magnifico",
           "Legend of the Yeti",
@@ -273,7 +273,11 @@
           "Jurassic Escape Room",
           "Londium",
           "Dragon's Keep",
-          "The Vault"
+          "The Vault",
+          "The Storykeeper",
+          "Pharoah's Tomb",
+          "Alice",
+          "Cativeiro"
         ],
         "Name": "Tyler",
         "Experiences": [
@@ -371,7 +375,11 @@
           "reciuo9m2OZxXl4JT",
           "recqOzcN7BNq8EomV",
           "rec0yakSfw2CKpoox",
-          "rec2W6E9rQUbH8GLs"
+          "rec2W6E9rQUbH8GLs",
+          "recUJYKLX6I2KkA5t",
+          "recHceo4lCDzS6lu9",
+          "rec92QddeRCagOokY",
+          "recMhyzbt4awQiy0o"
         ]
       }
     },
@@ -437,7 +445,7 @@
       "fields": {
         "Featured": true,
         "Player ID": 1,
-        "Room Count": 99,
+        "Room Count": 102,
         "Game (from Rooms)": [
           "Lost Island of the Voodoo Queen",
           "Legend of the Yeti",
@@ -537,7 +545,10 @@
           "Londium",
           "Dubrovnik Legends",
           "Dragon's Keep",
-          "The Vault"
+          "The Vault",
+          "Pharoah's Tomb",
+          "Alice",
+          "Cativeiro"
         ],
         "Name": "Tammy",
         "Experiences": [
@@ -651,7 +662,10 @@
           "recqOzcN7BNq8EomV",
           "rec0r8d5asOBGUBd2",
           "rec0yakSfw2CKpoox",
-          "rec2W6E9rQUbH8GLs"
+          "rec2W6E9rQUbH8GLs",
+          "recHceo4lCDzS6lu9",
+          "rec92QddeRCagOokY",
+          "recMhyzbt4awQiy0o"
         ]
       }
     },
@@ -785,7 +799,7 @@
       "fields": {
         "Featured": true,
         "Player ID": 2,
-        "Room Count": 96,
+        "Room Count": 100,
         "Game (from Rooms)": [
           "Screaming Metal",
           "Legend of the Yeti",
@@ -882,7 +896,11 @@
           "Jurassic Escape Room",
           "Londium",
           "Dragon's Keep",
-          "The Vault"
+          "The Vault",
+          "The Storykeeper",
+          "Pharoah's Tomb",
+          "Alice",
+          "Cativeiro"
         ],
         "Name": "Jamie",
         "Experiences": [
@@ -1001,7 +1019,11 @@
           "reciuo9m2OZxXl4JT",
           "recqOzcN7BNq8EomV",
           "rec0yakSfw2CKpoox",
-          "rec2W6E9rQUbH8GLs"
+          "rec2W6E9rQUbH8GLs",
+          "recUJYKLX6I2KkA5t",
+          "recHceo4lCDzS6lu9",
+          "rec92QddeRCagOokY",
+          "recMhyzbt4awQiy0o"
         ]
       }
     },
@@ -1051,7 +1073,7 @@
       "fields": {
         "Featured": true,
         "Player ID": 4,
-        "Room Count": 69,
+        "Room Count": 71,
         "Game (from Rooms)": [
           "Wardrobe for sale",
           "Legend of the Yeti",
@@ -1121,7 +1143,9 @@
           "The Brewery",
           "Londium",
           "Dubrovnik Legends",
-          "The Vault"
+          "The Vault",
+          "Alice",
+          "Cativeiro"
         ],
         "Name": "Mazie",
         "Experiences": [
@@ -1205,7 +1229,9 @@
           "recWpSyu5BjABRk9T",
           "recqOzcN7BNq8EomV",
           "rec0r8d5asOBGUBd2",
-          "rec2W6E9rQUbH8GLs"
+          "rec2W6E9rQUbH8GLs",
+          "rec92QddeRCagOokY",
+          "recMhyzbt4awQiy0o"
         ]
       }
     },

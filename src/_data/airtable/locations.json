@@ -1,7 +1,7 @@
 {
   "table": "Locations",
-  "syncedAt": "2026-05-16T14:31:37.118397+00:00",
-  "count": 71,
+  "syncedAt": "2026-08-10T21:48:24.166555+00:00",
+  "count": 75,
   "records": [
     {
       "id": "rec0ugHLMNt3uzAiN",
@@ -55,6 +55,30 @@
         "Longitude": -93.287803,
         "Region": "Minnesota",
         "Modified at": "2026-04-25T20:41:19.000Z"
+      }
+    },
+    {
+      "id": "rec2FcKqzEJzQ1uuI",
+      "createdTime": "2026-08-10T21:14:07.000Z",
+      "fields": {
+        "Created at": "2026-08-10T21:14:07.000Z",
+        "Map URL": "https://www.google.com/maps/place/41.151896, -8.611876",
+        "Room Count": 1,
+        "Country": "Portugal",
+        "Latitude": 41.151896,
+        "Location ID": 75,
+        "Location": "Cubus (Porto)",
+        "Company": [
+          "rechk0Qbwkwfnf1R7"
+        ],
+        "Rooms": [
+          "rec92QddeRCagOokY"
+        ],
+        "City": "Porto",
+        "Coordinates": "41.151896, -8.611876",
+        "Longitude": -8.611876,
+        "Region": "Portugal",
+        "Modified at": "2026-08-10T21:32:07.000Z"
       }
     },
     {
@@ -546,6 +570,29 @@
       }
     },
     {
+      "id": "recD5F2H4ndRgCCJZ",
+      "createdTime": "2026-08-10T21:19:38.000Z",
+      "fields": {
+        "Created at": "2026-08-10T21:19:38.000Z",
+        "Map URL": "https://www.google.com/maps/place/41.159856, -8.602333",
+        "Room Count": 1,
+        "Country": "Portugal",
+        "Latitude": 41.159856,
+        "Location ID": 76,
+        "Location": "D3 Escape Rooms (Porto)",
+        "Company": [
+          "recoWiYWWE7XjBoQ2"
+        ],
+        "Rooms": [
+          "recMhyzbt4awQiy0o"
+        ],
+        "City": "Porto",
+        "Coordinates": "41.159856, -8.602333",
+        "Longitude": -8.602333,
+        "Modified at": "2026-08-10T21:33:36.000Z"
+      }
+    },
+    {
       "id": "recDMY1tA75EPfCL9",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
@@ -569,6 +616,29 @@
         "Longitude": -73.984514,
         "Region": "New York",
         "Modified at": "2026-03-19T21:00:38.000Z"
+      }
+    },
+    {
+      "id": "recFDVkpyw1r2EAx8",
+      "createdTime": "2026-08-10T21:28:15.000Z",
+      "fields": {
+        "Created at": "2026-08-10T21:28:15.000Z",
+        "Map URL": "https://www.google.com/maps/place/41.153512, -8.612905",
+        "Room Count": 1,
+        "Country": "Portugal",
+        "Latitude": 41.153512,
+        "Location ID": 77,
+        "Location": "D3 Escape Rooms (Porto - Republica)",
+        "Company": [
+          "recoWiYWWE7XjBoQ2"
+        ],
+        "Rooms": [
+          "rec3hMjr6Lqyx6zSW"
+        ],
+        "City": "Porto - Republica",
+        "Coordinates": "41.153512, -8.612905",
+        "Longitude": -8.612905,
+        "Modified at": "2026-08-10T21:34:10.000Z"
       }
     },
     {
@@ -1661,6 +1731,30 @@
       }
     },
     {
+      "id": "recuwTvpCu8mGkBbw",
+      "createdTime": "2026-07-08T18:02:38.000Z",
+      "fields": {
+        "Created at": "2026-07-08T18:02:38.000Z",
+        "Map URL": "https://www.google.com/maps/place/47.65042, -122.350433",
+        "Room Count": 1,
+        "Country": "United States",
+        "Latitude": 47.65042,
+        "Location ID": 73,
+        "Location": "Locurio (Fremont)",
+        "Company": [
+          "recK2UFisjzUbAton"
+        ],
+        "Rooms": [
+          "recUJYKLX6I2KkA5t"
+        ],
+        "City": "Fremont",
+        "Coordinates": "47.65042, -122.350433",
+        "Longitude": -122.350433,
+        "Region": "Washington",
+        "Modified at": "2026-08-10T21:34:38.000Z"
+      }
+    },
+    {
       "id": "recwavLHj8JcOgT7t",
       "createdTime": "2026-02-23T19:23:51.000Z",
       "fields": {
@@ -1696,7 +1790,7 @@
       "fields": {
         "Created at": "2026-02-23T19:23:51.000Z",
         "Map URL": "https://www.google.com/maps/place/44.881233, -93.324289",
-        "Room Count": 2,
+        "Room Count": 3,
         "Country": "United States",
         "Latitude": 44.881233,
         "Location ID": 37,
@@ -1707,13 +1801,14 @@
         ],
         "Rooms": [
           "recAabEHKgVnh3SLF",
-          "recQaIdtfk8nhtWrL"
+          "recQaIdtfk8nhtWrL",
+          "recHceo4lCDzS6lu9"
         ],
         "City": "Minneapolis",
         "Coordinates": "44.881233, -93.324289",
         "Longitude": -93.324289,
         "Region": "Minnesota",
-        "Modified at": "2026-03-19T21:00:38.000Z"
+        "Modified at": "2026-08-10T21:08:03.000Z"
       }
     },
     {
