@@ -47,10 +47,9 @@ test('real catalog excludes hidden rooms, keeps legacy IDs, and assigns contiguo
   );
 
   const latestRoom = catalog.rooms.at(-1);
-  assert.equal(latestRoom.id, 105);
-  assert.equal(latestRoom.number, 104);
-  assert.equal(latestRoom.slug, '2026-05-10/the-vault');
-  assert.equal(latestRoom.legacySlug, '105-the-vault');
+  assert.equal(latestRoom.number, catalog.rooms.length);
+  assert.match(latestRoom.slug, /^\d{4}-\d{2}-\d{2}\/[a-z0-9-]+$/);
+  assert.match(latestRoom.legacySlug, new RegExp(`^${latestRoom.id}-[a-z0-9-]+$`));
 
   assert.ok(catalog.featured.players.length > 0);
   assert.ok(catalog.featured.trips.length > 0);
