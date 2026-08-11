@@ -65,6 +65,12 @@ permalink: /room/{{ room.slug }}/
           <span class="room-hero-meta-item">
             <span class="meta-icon" data-pagefind-ignore>📅</span> {{ room.date | formatDate }}
           </span>
+          {% set roomLocation = room.location | formatLocation %}
+          {% if roomLocation %}
+          <span class="room-hero-meta-item" data-pagefind-weight="2">
+            <span class="meta-icon" data-pagefind-ignore>📍</span> {{ roomLocation }}
+          </span>
+          {% endif %}
         </div>
 
         <div class="room-hero-status-row">
@@ -108,10 +114,8 @@ permalink: /room/{{ room.slug }}/
         <div class="room-hero-notes rich-text">{{ room.notes | richText | safe }}</div>
         {% endif %}
 
+        {% if room.officialUrl or room.blogUrl or room.mortyId %}
         <div class="room-hero-links">
-          <button type="button" class="room-link" data-copy-link data-copy-url="https://escape.thingelstad.com{{ room | roomPath }}">
-            <span aria-hidden="true">↗</span> <span data-copy-label>Copy room link</span>
-          </button>
           {% if room.officialUrl %}
             <a href="{{ room.officialUrl }}" class="room-link room-link-official" target="_blank" rel="noopener" data-tinylytics-event="room.official-site" data-tinylytics-event-value="{{ room.game }}">
               Official Site &rarr;
@@ -128,6 +132,7 @@ permalink: /room/{{ room.slug }}/
             </a>
           {% endif %}
         </div>
+        {% endif %}
 
         <div class="room-hero-kudos">
           <button class="tinylytics_kudos room-kudos" data-path="/room/{{ room.airtableId }}"></button>

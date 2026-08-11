@@ -636,10 +636,6 @@
   grid-column: 1 / -1;
 }
 
-.featured-detail-hero > .btn {
-  align-self: start;
-}
-
 .list-entry-stack {
   gap: 0.8rem;
 }

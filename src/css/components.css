@@ -1057,11 +1057,6 @@ h2:hover > .heading-anchor,
   font-size: 0.86rem;
 }
 
-.copy-confirmed {
-  border-color: rgba(76, 175, 80, 0.45);
-  color: var(--color-success);
-}
-
 .filter-count {
   display: inline-grid;
   place-items: center;

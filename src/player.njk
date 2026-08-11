@@ -23,7 +23,6 @@ permalink: /player/{{ player.slug }}/
         <div class="featured-detail-copy rich-text">{{ player.bio | richText | safe }}</div>
         {% endif %}
       </div>
-      <button class="btn" type="button" data-copy-link><span data-copy-label>Copy player link</span></button>
       <div class="featured-detail-stats">
         <div class="stat-item"><span class="stat-number">{{ player.roomCount }}</span><div class="stat-label">Rooms</div></div>
         <div class="stat-item"><span class="stat-number">{{ player.wins }}</span><div class="stat-label">Wins</div></div>

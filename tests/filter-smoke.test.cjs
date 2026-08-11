@@ -33,6 +33,19 @@ async function withBrowserGlobals(dom, run) {
   }
 }
 
+test('location formatting keeps city, state, and country without duplicate levels', async () => {
+  const data = await loadBrowserDataModule();
+
+  assert.equal(
+    data.formatLocation({ city: 'Fremont', region: 'Washington', country: 'United States' }),
+    'Fremont, Washington, United States'
+  );
+  assert.equal(
+    data.formatLocation({ city: 'Porto', region: 'Portugal', country: 'Portugal' }),
+    'Porto, Portugal'
+  );
+});
+
 test('browser filter helpers keep DOM controls, URL state, and typed matching in sync', async () => {
   const data = await loadBrowserDataModule();
   const dom = new JSDOM(`

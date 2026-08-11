@@ -24,7 +24,6 @@ permalink: /list/{{ list.slug }}/
         <div class="featured-detail-copy rich-text">{{ list.notes | richText | safe }}</div>
         {% endif %}
       </div>
-      <button class="btn" type="button" data-copy-link><span data-copy-label>Copy list link</span></button>
     </section>
 
     {% if list.player or list.trip %}

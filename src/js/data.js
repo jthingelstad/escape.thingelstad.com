@@ -20,10 +20,7 @@ export function formatDate(dateStr) {
 
 export function formatLocation(location) {
   if (!location) return '';
-  const parts = [];
-  if (location.city) parts.push(location.city);
-  if (location.region) parts.push(location.region);
-  if (location.country) parts.push(location.country);
+  const parts = [...new Set([location.city, location.region, location.country].filter(Boolean))];
   return parts.join(', ');
 }
 

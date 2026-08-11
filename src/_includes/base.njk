@@ -179,32 +179,6 @@
         return false;
       }
 
-      async function copyLink(button) {
-        const url = button.dataset.copyUrl || window.location.href;
-        try {
-          await navigator.clipboard.writeText(url);
-        } catch {
-          const field = document.createElement('textarea');
-          field.value = url;
-          field.style.position = 'fixed';
-          field.style.opacity = '0';
-          document.body.appendChild(field);
-          field.select();
-          document.execCommand('copy');
-          field.remove();
-        }
-        const label = button.querySelector('[data-copy-label]');
-        const original = label ? label.textContent : button.textContent;
-        if (label) label.textContent = 'Copied';
-        else button.textContent = 'Copied';
-        button.classList.add('copy-confirmed');
-        setTimeout(() => {
-          if (label) label.textContent = original;
-          else button.textContent = original;
-          button.classList.remove('copy-confirmed');
-        }, 1800);
-      }
-
       function revealFooterMetrics() {
         document.querySelectorAll('[data-tinylytics-container]').forEach((container) => {
           const value = container.querySelector('[data-tinylytics-value]');
@@ -222,10 +196,6 @@
       if (closeBtn) closeBtn.addEventListener('click', closeSearch);
       if (shortcutsBackdrop) shortcutsBackdrop.addEventListener('click', closeShortcuts);
       if (shortcutsClose) shortcutsClose.addEventListener('click', closeShortcuts);
-      document.addEventListener('click', (event) => {
-        const copyButton = event.target.closest('[data-copy-link]');
-        if (copyButton) copyLink(copyButton);
-      });
 
       revealFooterMetrics();
       const footerObserver = new MutationObserver(revealFooterMetrics);

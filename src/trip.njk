@@ -30,7 +30,6 @@ permalink: /trip/{{ trip.slug }}/
         <p class="featured-detail-copy">{{ trip.firstDate | formatDate }} to {{ trip.lastDate | formatDate }}</p>
         {% endif %}
       </div>
-      <button class="btn" type="button" data-copy-link><span data-copy-label>Copy trip link</span></button>
     </section>
 
     {% if trip.routeStops.length > 0 %}

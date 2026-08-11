@@ -90,10 +90,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter("formatLocation", (loc) => {
     if (!loc) return "";
-    const parts = [];
-    if (loc.city) parts.push(loc.city);
-    if (loc.region) parts.push(loc.region);
-    if (loc.country) parts.push(loc.country);
+    const parts = [...new Set([loc.city, loc.region, loc.country].filter(Boolean))];
     return parts.join(", ");
   });
 
