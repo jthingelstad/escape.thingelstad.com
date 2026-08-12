@@ -3,71 +3,64 @@ permalink: /feed.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Escaping Things</title>
-  <subtitle>The Escaping Things escape room team</subtitle>
-  <link href="https://escape.thingelstad.com/"/>
-  <link href="https://escape.thingelstad.com/feed.xml" rel="self"/>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>Escaping Things — Recent Rooms</title>
+  <subtitle>New escape rooms played by the Escaping Things team, with results, photos, and reflections.</subtitle>
+  <link href="https://escape.thingelstad.com/" rel="alternate" type="text/html"/>
+  <link href="https://escape.thingelstad.com/feed.xml" rel="self" type="application/atom+xml"/>
   <id>https://escape.thingelstad.com/</id>
-  {%- set lastRoom = null -%}
-  {%- for room in catalog.rooms | reverse -%}
-    {%- if room.status !== "Scheduled" and not lastRoom -%}
-      {%- set lastRoom = room -%}
-    {%- endif -%}
-  {%- endfor -%}
-  {%- if lastRoom %}
-  <updated>{{ lastRoom.date }}T00:00:00Z</updated>
+  {%- if feed.updatedAt %}
+  <updated>{{ feed.updatedAt }}</updated>
   {%- endif %}
   <author>
-    <name>Jamie Thingelstad</name>
+    <name>Escaping Things</name>
+    <uri>https://escape.thingelstad.com/</uri>
   </author>
-  {%- for room in catalog.rooms | reverse %}
-  {%- if room.status !== "Scheduled" %}
+  <icon>https://escape.thingelstad.com/images/favicon.svg</icon>
+  <generator uri="https://www.11ty.dev/">Eleventy</generator>
+  <rights>Content licensed under CC BY-SA 4.0.</rights>
+  {%- for entry in feed.entries %}
   <entry>
-    <title>{{ ("#" + room.number + " " + room.game + " — " + (room.company.name if room.company else "Unknown Company")) | e }}</title>
-    <link href="https://escape.thingelstad.com{{ room | roomPath }}"/>
-    <id>tag:escape.thingelstad.com,{{ room.date }}:{{ room.airtableId }}</id>
-    <updated>{{ room.date }}T00:00:00Z</updated>
+    <title>{{ entry.title | e }}</title>
+    <link href="{{ entry.url | e }}" rel="alternate" type="text/html"/>
+    <id>{{ entry.id | e }}</id>
+    <published>{{ entry.publishedAt }}</published>
+    <updated>{{ entry.updatedAt }}</updated>
+    <summary type="text">{{ entry.summary | e }}</summary>
+    <category term="{{ entry.room.status | e }}" label="{{ entry.room.status | e }}"/>
+    {%- if entry.room.location and entry.room.location.country %}
+    <category term="{{ entry.room.location.country | e }}" label="{{ entry.room.location.country | e }}"/>
+    {%- endif %}
     <content type="html"><![CDATA[
-      <p><strong>Status:</strong> {{ room.status }}</p>
-      <p><strong>Company:</strong> {% if room.officialUrl %}<a href="{{ room.officialUrl }}">{{ room.company.name if room.company else "Unknown Company" }}</a>{% else %}{{ room.company.name if room.company else "Unknown Company" }}{% endif %}</p>
-      <p><strong>Date:</strong> {{ room.date | formatDate }}</p>
-      <p><strong>Location:</strong> {{ room.location | formatLocation }}</p>
-      {%- if room.timeLeft != null %}
-      <p><strong>Time Left:</strong> {{ room.timeLeft | formatTimeLeft }}</p>
+      <p>{{ entry.lede | e }} {{ entry.result | e }}</p>
+      {%- if entry.room.photo %}
+      <p><img src="https://escape.thingelstad.com/images/rooms/{{ entry.room.photo | e }}" alt="{{ entry.room.game | e }} at {{ entry.room.company.name | e if entry.room.company else 'an escape room' }}" style="max-width:100%;height:auto;border-radius:8px;"></p>
       {%- endif %}
-      {%- if room.players and room.players.length > 0 %}
-      <p><strong>Players:</strong> {% for player in room.players %}{{ player.name }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      {%- if entry.room.commentary %}
+      <blockquote>{{ entry.room.commentary | richText | safe }}</blockquote>
       {%- endif %}
-      {%- if room.awards and room.awards.length > 0 %}
-      <p><strong>Awards:</strong> {% for award in room.awards %}{{ award.name }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      {%- if entry.room.notes %}
+      <p><em>{{ entry.room.notes | e }}</em></p>
       {%- endif %}
-      {%- if room.trips and room.trips.length > 0 %}
-      <p><strong>Trips:</strong> {% for trip in room.trips %}{{ trip.name }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      {%- if entry.room.ratingSummary and entry.room.ratingSummary.average != null %}
+      <p>The team rated this room <strong>{{ entry.room.ratingSummary.average | formatRating }}/5</strong> across {{ entry.room.ratingSummary.count }} review{% if entry.room.ratingSummary.count != 1 %}s{% endif %}{% if entry.room.ratingSummary.bestThingsCount > 0 %}, with {{ entry.room.ratingSummary.bestThingsCount }} “Best Things” vote{% if entry.room.ratingSummary.bestThingsCount != 1 %}s{% endif %}{% endif %}.</p>
       {%- endif %}
-      {%- if room.lists and room.lists.length > 0 %}
-      <p><strong>Lists:</strong> {% for list in room.lists %}{{ list.name }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      {%- for experience in entry.room.experiences %}
+      {%- if experience.comments %}
+      <blockquote>
+        {{ experience.comments | richText | safe }}
+        <footer>— {{ experience.player.name | e }}{% if experience.rating != null %}, {{ experience.rating | formatRating }}/5{% endif %}</footer>
+      </blockquote>
       {%- endif %}
-      {%- if room.themes and room.themes.length > 0 %}
-      <p><strong>Themes:</strong> {% for theme in room.themes %}{{ theme.name }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      {%- endfor %}
+      <p><a href="{{ entry.url | e }}">See photos, ratings, and room details &rarr;</a></p>
+      {%- if entry.room.blogUrl %}
+      <p><a href="{{ entry.room.blogUrl | e }}">Read the related blog post &rarr;</a></p>
       {%- endif %}
-      {%- if room.commentary %}
-      <p>{{ room.commentary | e }}</p>
-      {%- endif %}
-      {%- if room.notes %}
-      <p><em>{{ room.notes | e }}</em></p>
-      {%- endif %}
-      {%- if room.blogUrl %}
-      <p><a href="{{ room.blogUrl }}">Read blog post &rarr;</a></p>
-      {%- endif %}
-      {%- if room.mortyId %}
-      <p><a href="https://morty.app/attraction/{{ room.mortyId }}">View on Morty &rarr;</a></p>
-      {%- endif %}
-      {%- if room.photo %}
-      <p><img src="https://escape.thingelstad.com/images/rooms/{{ room.photo }}" alt="{{ room.game | e }}" style="max-width:100%;border-radius:8px;"></p>
+      {%- if entry.room.mortyId %}
+      <p><a href="https://morty.app/attraction/{{ entry.room.mortyId | e }}">Find this room on Morty &rarr;</a></p>
       {%- endif %}
     ]]></content>
   </entry>
-  {%- endif %}
   {%- endfor %}
 </feed>

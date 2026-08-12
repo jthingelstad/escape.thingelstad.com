@@ -73,6 +73,7 @@ Public room objects are normalized with:
 - `legacySlug` — optional old `Room ID` route key
 - `game`
 - `date`
+- `createdAt` / `modifiedAt` — Airtable timestamps used for feed freshness
 - `status`
 - `timeLeft`
 - `officialUrl` — fallback `Room URL -> Location URL -> Company URL`
@@ -176,6 +177,8 @@ The old tag model and the old `q` omnibox search are gone and should not be rein
 - `/featured/` and featured entity pages
 - `/feed.xml`
 - `/sitemap.xml`
+
+The Atom feed includes only the 25 most recent non-scheduled rooms. Feed entries should read as narrative activity updates and point readers to room detail pages; exhaustive catalog metadata belongs on the site, not in feed content.
 
 ## Keyboard Shortcuts
 

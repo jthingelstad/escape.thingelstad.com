@@ -94,7 +94,9 @@ test('scheduled rooms preserve player links without increasing player statistics
               Location: ['loc1'],
               Players: ['player1'],
               Status: 'Escaped',
-              When: '2025-01-01'
+              When: '2025-01-01',
+              'Created at': '2025-01-01T15:00:00.000Z',
+              'Modified at': '2025-01-02T16:00:00.000Z'
             }
           },
           {
@@ -119,6 +121,8 @@ test('scheduled rooms preserve player links without increasing player statistics
   assert.deepEqual(player.playedRoomIds, ['played-room']);
   assert.equal(player.roomCount, 1);
   assert.deepEqual(catalog.rooms[1].players.map((linkedPlayer) => linkedPlayer.name), ['Jamie']);
+  assert.equal(catalog.rooms[0].createdAt, '2025-01-01T15:00:00.000Z');
+  assert.equal(catalog.rooms[0].modifiedAt, '2025-01-02T16:00:00.000Z');
 });
 
 test('slugify strips punctuation before collapsing separators', () => {
