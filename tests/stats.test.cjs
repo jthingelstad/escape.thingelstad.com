@@ -22,7 +22,7 @@ function makeRoom({ id, date, status }) {
   };
 }
 
-test('room totals include scheduled rooms while played statistics do not', () => {
+test('scheduled rooms stay available for planning without entering team statistics', () => {
   const stats = buildStats([
     makeRoom({ id: 10, date: '2025-01-01', status: 'Escaped' }),
     makeRoom({ id: 12, date: '2026-01-01', status: 'Scheduled' })
@@ -31,9 +31,10 @@ test('room totals include scheduled rooms while played statistics do not', () =>
   assert.equal(stats.totalRooms, 2);
   assert.equal(stats.totalPlayed, 1);
   assert.equal(stats.scheduledRooms, 1);
+  assert.equal(stats.planned.length, 1);
   assert.equal(stats.latestCompleted.id, 10);
   assert.equal(stats.latestCompleted.number, 10);
   assert.equal(stats.charts.cumulativeStreak.length, 1);
-  assert.deepEqual(stats.charts.roomsPerYear.labels, ['2025', '2026']);
-  assert.deepEqual(stats.charts.roomsPerYear.scheduled, [0, 1]);
+  assert.deepEqual(stats.charts.roomsPerYear.labels, ['2025']);
+  assert.equal(Object.hasOwn(stats.charts.roomsPerYear, 'scheduled'), false);
 });

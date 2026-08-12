@@ -60,6 +60,8 @@ The normalized catalog exposes:
 - `featured.trips`
 - lookup maps by Airtable ID, canonical slug, legacy room ID, and public room number
 
+Player `roomIds` retain every visible linked room so scheduled rooms remain available for planning and filtering. Player `playedRoomIds` and `roomCount` exclude scheduled rooms; scheduled rooms must not affect player histories, win rates, or team statistics.
+
 ## Room Model
 
 Public room objects are normalized with:

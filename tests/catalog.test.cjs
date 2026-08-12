@@ -68,6 +68,59 @@ test('filter data exposes primary typed dimensions including locations, trips, a
   assert.ok(!Object.hasOwn(filters, 'legacyTagMap'));
 });
 
+test('scheduled rooms preserve player links without increasing player statistics', () => {
+  const catalog = buildCatalog(
+    {
+      companies: { records: [{ id: 'comp1', fields: { Company: 'Puzzle Co' } }] },
+      locations: {
+        records: [{ id: 'loc1', fields: { Location: 'Downtown', Company: ['comp1'] } }]
+      },
+      themes: { records: [] },
+      players: {
+        records: [{ id: 'player1', fields: { Name: 'Jamie', Featured: true } }]
+      },
+      awards: { records: [] },
+      trips: { records: [] },
+      lists: { records: [] },
+      listItems: { records: [] },
+      experiences: { records: [] },
+      rooms: {
+        records: [
+          {
+            id: 'played-room',
+            fields: {
+              Game: 'Played Room',
+              'Room ID': 1,
+              Location: ['loc1'],
+              Players: ['player1'],
+              Status: 'Escaped',
+              When: '2025-01-01'
+            }
+          },
+          {
+            id: 'scheduled-room',
+            fields: {
+              Game: 'Scheduled Room',
+              'Room ID': 2,
+              Location: ['loc1'],
+              Players: ['player1'],
+              Status: 'Scheduled',
+              When: '2025-01-02'
+            }
+          }
+        ]
+      }
+    },
+    { imagesDir: path.join(__dirname, '..', 'src', 'images', 'rooms') }
+  );
+
+  const player = catalog.players[0];
+  assert.deepEqual(player.roomIds, ['played-room', 'scheduled-room']);
+  assert.deepEqual(player.playedRoomIds, ['played-room']);
+  assert.equal(player.roomCount, 1);
+  assert.deepEqual(catalog.rooms[1].players.map((linkedPlayer) => linkedPlayer.name), ['Jamie']);
+});
+
 test('slugify strips punctuation before collapsing separators', () => {
   assert.equal(slugify("Jamie's Escape in Europe Favorites"), 'jamies-escape-in-europe-favorites');
   assert.equal(slugify('RÉALM: Chapter_2'), 'realm-chapter-2');

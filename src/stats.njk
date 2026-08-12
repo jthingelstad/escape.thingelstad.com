@@ -68,7 +68,7 @@ permalink: /stats/
 
         <div class="chart-card chart-card-standard">
           <h3>Rooms Per Year</h3>
-          <p class="chart-subtitle" id="chart-rooms-year-description">Annual volume split by outcome, including scheduled rooms.</p>
+          <p class="chart-subtitle" id="chart-rooms-year-description">Annual volume split by played outcome.</p>
           <div class="chart-canvas-wrap chart-canvas-wrap-standard">
             <canvas id="chart-rooms-year" role="img" aria-describedby="chart-rooms-year-description">Rooms per year by outcome.</canvas>
           </div>
@@ -77,11 +77,11 @@ permalink: /stats/
             <div class="table-scroll">
               <table>
                 <caption class="sr-only">Rooms per year by outcome</caption>
-                <thead><tr><th scope="col">Year</th><th scope="col">Escaped</th><th scope="col">Try Again</th><th scope="col">Completed</th><th scope="col">Scheduled</th></tr></thead>
+                <thead><tr><th scope="col">Year</th><th scope="col">Escaped</th><th scope="col">Try Again</th><th scope="col">Completed</th></tr></thead>
                 <tbody>
                   {% for year in stats.charts.roomsPerYear.labels %}
                   {% set i = loop.index0 %}
-                  <tr><th scope="row">{{ year }}</th><td>{{ stats.charts.roomsPerYear.escaped[i] }}</td><td>{{ stats.charts.roomsPerYear.tryAgain[i] }}</td><td>{{ stats.charts.roomsPerYear.completed[i] }}</td><td>{{ stats.charts.roomsPerYear.scheduled[i] }}</td></tr>
+                  <tr><th scope="row">{{ year }}</th><td>{{ stats.charts.roomsPerYear.escaped[i] }}</td><td>{{ stats.charts.roomsPerYear.tryAgain[i] }}</td><td>{{ stats.charts.roomsPerYear.completed[i] }}</td></tr>
                   {% endfor %}
                 </tbody>
               </table>
@@ -113,7 +113,7 @@ permalink: /stats/
       <div class="charts-grid">
         <div class="chart-card chart-card-standard">
           <h3>Most Active Players</h3>
-          <p class="chart-subtitle" id="chart-players-description">Players with the most linked rooms.</p>
+          <p class="chart-subtitle" id="chart-players-description">Players with the most played rooms.</p>
           <div class="chart-canvas-wrap chart-canvas-wrap-standard"><canvas id="chart-players" role="img" aria-describedby="chart-players-description">Most active players by room count.</canvas></div>
           {{ countTable('Most active players by room count', stats.charts.players, 'Player') }}
         </div>

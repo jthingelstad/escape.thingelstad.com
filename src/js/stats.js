@@ -157,12 +157,6 @@ function renderRoomsPerYear(data) {
           data: data.completed,
           backgroundColor: chartColors.gray,
           borderRadius: 3
-        },
-        {
-          label: 'Scheduled',
-          data: data.scheduled,
-          backgroundColor: chartColors.blue,
-          borderRadius: 3
         }
       ]
     },

@@ -1,14 +1,13 @@
 const catalog = require('./catalog');
 
-module.exports = function() {
-  const data = catalog();
+function buildPlayerPages(data) {
   const roomLookup = data.lookups.rooms.byAirtableId;
   const listLookup = data.lookups.lists.byId;
 
   return data.featured.players.map((player) => {
     const rooms = player.roomIds
       .map((roomId) => roomLookup[roomId])
-      .filter(Boolean);
+      .filter((room) => room && room.status !== 'Scheduled');
     const lists = (player.listIds || [])
       .map((listId) => listLookup[listId])
       .filter(Boolean);
@@ -43,4 +42,9 @@ module.exports = function() {
       lastDate: rooms[rooms.length - 1]?.date || null
     };
   });
+}
+
+module.exports = function() {
+  return buildPlayerPages(catalog());
 };
+module.exports.buildPlayerPages = buildPlayerPages;

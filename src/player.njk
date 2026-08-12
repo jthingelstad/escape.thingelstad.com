@@ -73,7 +73,7 @@ permalink: /player/{{ player.slug }}/
           <h2 data-pagefind-ignore>Recent Rooms <a class="heading-anchor" href="#recent-rooms" aria-label="Link to Recent Rooms">#</a></h2>
           <p>The latest rooms with {{ player.name }}. The complete history stays available in the room browser.</p>
         </div>
-        <a class="section-more-link" href="/rooms/?player={{ player.slug | queryValue }}">View all {{ player.roomCount }} rooms →</a>
+        <a class="section-more-link" href="/rooms/?player={{ player.slug | queryValue }}">Browse linked rooms →</a>
       </div>
       {% if player.recentRooms.length > 0 %}
       <div class="room-grid">

@@ -61,7 +61,7 @@ function buildStats(allRooms) {
     const month = Number.parseInt(room.date.substring(5, 7), 10) - 1;
 
     if (!yearData[year]) {
-      yearData[year] = { escaped: 0, tryAgain: 0, completed: 0, scheduled: 0 };
+      yearData[year] = { escaped: 0, tryAgain: 0, completed: 0 };
     }
 
     switch (room.status) {
@@ -143,14 +143,6 @@ function buildStats(allRooms) {
     }
   });
 
-  planned.forEach((room) => {
-    const year = room.date.substring(0, 4);
-    if (!yearData[year]) {
-      yearData[year] = { escaped: 0, tryAgain: 0, completed: 0, scheduled: 0 };
-    }
-    yearData[year].scheduled += 1;
-  });
-
   const sortedYears = Object.keys(yearData).sort();
   const yearlyResults = sortedYears.map((year) => {
     const escapedCount = yearData[year].escaped;
@@ -164,7 +156,6 @@ function buildStats(allRooms) {
       escaped: escapedCount,
       tryAgain: tryAgainCount,
       completed: completedCount,
-      scheduled: yearData[year].scheduled,
       played: winsForYear + tryAgainCount,
       winRate: decided > 0 ? Math.round((winsForYear / decided) * 100) : null
     };
@@ -235,8 +226,7 @@ function buildStats(allRooms) {
         labels: yearlyResults.map((entry) => entry.year),
         escaped: yearlyResults.map((entry) => entry.escaped),
         tryAgain: yearlyResults.map((entry) => entry.tryAgain),
-        completed: yearlyResults.map((entry) => entry.completed),
-        scheduled: yearlyResults.map((entry) => entry.scheduled)
+        completed: yearlyResults.map((entry) => entry.completed)
       },
       monthly,
       states: sortCounts(stateCounts),
