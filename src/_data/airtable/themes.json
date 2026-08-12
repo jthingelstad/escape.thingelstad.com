@@ -1,6 +1,6 @@
 {
   "table": "Themes",
-  "syncedAt": "2026-08-10T22:31:03.268710+00:00",
+  "syncedAt": "2026-08-12T21:23:19.033694+00:00",
   "count": 33,
   "records": [
     {
@@ -426,9 +426,10 @@
           "Time Machine",
           "Botanist Manor",
           "Zoltar Speaks",
-          "Revolt At The Lock"
+          "Revolt At The Lock",
+          "Stranger Mystery"
         ],
-        "Room Count": 7,
+        "Room Count": 8,
         "Rooms": [
           "recjd6IKGMey6IF9M",
           "recjtoHyl9WZIk37S",
@@ -436,7 +437,8 @@
           "recgisAgQMDN41H2P",
           "reca6bIeAIt6OxCx3",
           "recrQ7mSj8HrOoZJS",
-          "rec0tsuiSuEyxaXMX"
+          "rec0tsuiSuEyxaXMX",
+          "rec3hMjr6Lqyx6zSW"
         ],
         "Theme ID": 6,
         "Name": "Time Travel"
