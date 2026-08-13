@@ -1,6 +1,6 @@
 {
   "table": "Trips",
-  "syncedAt": "2026-08-12T21:23:19.263645+00:00",
+  "syncedAt": "2026-08-13T22:02:39.037224+00:00",
   "count": 9,
   "records": [
     {
@@ -154,18 +154,22 @@
       "id": "recPdsXVe4f9iAZwO",
       "createdTime": "2026-08-10T21:16:24.000Z",
       "fields": {
-        "Room Count": 3,
+        "Room Count": 5,
         "Trip ID": 9,
         "Game (from Rooms)": [
           "Alice",
           "Cativeiro",
-          "Stranger Mystery"
+          "Stranger Mystery",
+          "Casa da Moeda",
+          "Gotham"
         ],
         "Name": "Porto",
         "Rooms": [
           "rec92QddeRCagOokY",
           "recMhyzbt4awQiy0o",
-          "rec3hMjr6Lqyx6zSW"
+          "rec3hMjr6Lqyx6zSW",
+          "rec9xpViH8eab9bMN",
+          "recxK57kjoEHd4sUK"
         ]
       }
     },

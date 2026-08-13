@@ -1,7 +1,7 @@
 {
   "table": "Locations",
-  "syncedAt": "2026-08-12T21:23:19.032303+00:00",
-  "count": 75,
+  "syncedAt": "2026-08-13T22:02:39.033193+00:00",
+  "count": 76,
   "records": [
     {
       "id": "rec0ugHLMNt3uzAiN",
@@ -616,6 +616,26 @@
         "Longitude": -73.984514,
         "Region": "New York",
         "Modified at": "2026-03-19T21:00:38.000Z"
+      }
+    },
+    {
+      "id": "recDrfMoqOy48JqsJ",
+      "createdTime": "2026-08-13T21:34:45.000Z",
+      "fields": {
+        "Created at": "2026-08-13T21:34:45.000Z",
+        "Room Count": 2,
+        "Country": "Portugal",
+        "Location ID": 78,
+        "Location": "Occultus Room Escape (Porto)",
+        "Company": [
+          "recxiZQZsBD7DZfFP"
+        ],
+        "Rooms": [
+          "rec9xpViH8eab9bMN",
+          "recxK57kjoEHd4sUK"
+        ],
+        "City": "Porto",
+        "Modified at": "2026-08-13T21:38:49.000Z"
       }
     },
     {

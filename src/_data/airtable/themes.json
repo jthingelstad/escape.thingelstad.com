@@ -1,6 +1,6 @@
 {
   "table": "Themes",
-  "syncedAt": "2026-08-12T21:23:19.033694+00:00",
+  "syncedAt": "2026-08-13T22:02:39.034880+00:00",
   "count": 33,
   "records": [
     {
@@ -224,13 +224,15 @@
         "Game (from Rooms)": [
           "Mona Lisa",
           "Caper in the Escape Room",
-          "Operation: Casino"
+          "Operation: Casino",
+          "Casa da Moeda"
         ],
-        "Room Count": 3,
+        "Room Count": 4,
         "Rooms": [
           "rec6nQYyyh3IBDkna",
           "recSPihVvvRvcVO2F",
-          "recaaEELzDiEg95sS"
+          "recaaEELzDiEg95sS",
+          "rec9xpViH8eab9bMN"
         ],
         "Theme ID": 12,
         "Name": "Heist"

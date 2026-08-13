@@ -1,6 +1,6 @@
 {
   "table": "Players",
-  "syncedAt": "2026-08-12T21:23:19.143634+00:00",
+  "syncedAt": "2026-08-13T22:02:39.035469+00:00",
   "count": 39,
   "records": [
     {
@@ -187,7 +187,7 @@
       "fields": {
         "Featured": true,
         "Player ID": 3,
-        "Room Count": 94,
+        "Room Count": 96,
         "Game (from Rooms)": [
           "Magnifico",
           "Legend of the Yeti",
@@ -282,7 +282,9 @@
           "Pharaoh’s Tomb",
           "Alice",
           "Cativeiro",
-          "Stranger Mystery"
+          "Stranger Mystery",
+          "Casa da Moeda",
+          "Gotham"
         ],
         "Name": "Tyler",
         "Experiences": [
@@ -385,7 +387,9 @@
           "recHceo4lCDzS6lu9",
           "rec92QddeRCagOokY",
           "recMhyzbt4awQiy0o",
-          "rec3hMjr6Lqyx6zSW"
+          "rec3hMjr6Lqyx6zSW",
+          "rec9xpViH8eab9bMN",
+          "recxK57kjoEHd4sUK"
         ]
       }
     },
@@ -809,7 +813,7 @@
       "fields": {
         "Featured": true,
         "Player ID": 2,
-        "Room Count": 101,
+        "Room Count": 103,
         "Game (from Rooms)": [
           "Screaming Metal",
           "Legend of the Yeti",
@@ -911,7 +915,9 @@
           "Pharaoh’s Tomb",
           "Alice",
           "Cativeiro",
-          "Stranger Mystery"
+          "Stranger Mystery",
+          "Casa da Moeda",
+          "Gotham"
         ],
         "Name": "Jamie",
         "Experiences": [
@@ -1035,7 +1041,9 @@
           "recHceo4lCDzS6lu9",
           "rec92QddeRCagOokY",
           "recMhyzbt4awQiy0o",
-          "rec3hMjr6Lqyx6zSW"
+          "rec3hMjr6Lqyx6zSW",
+          "rec9xpViH8eab9bMN",
+          "recxK57kjoEHd4sUK"
         ]
       }
     },

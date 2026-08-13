@@ -1,7 +1,7 @@
 {
   "table": "Companies",
-  "syncedAt": "2026-08-12T21:23:19.017032+00:00",
-  "count": 62,
+  "syncedAt": "2026-08-13T22:02:39.032116+00:00",
+  "count": 63,
   "records": [
     {
       "id": "rec0Mh2XfDYRXjiYV",
@@ -989,6 +989,21 @@
         ],
         "Company ID": 13,
         "Modified at": "2026-02-27T01:43:31.000Z",
+        "Location Count": 1
+      }
+    },
+    {
+      "id": "recxiZQZsBD7DZfFP",
+      "createdTime": "2026-08-13T21:34:17.000Z",
+      "fields": {
+        "Company": "Occultus Room Escape",
+        "Created at": "2026-08-13T21:34:17.000Z",
+        "Room Count": 2,
+        "Locations": [
+          "recDrfMoqOy48JqsJ"
+        ],
+        "Company ID": 63,
+        "Modified at": "2026-08-13T21:34:45.000Z",
         "Location Count": 1
       }
     }
