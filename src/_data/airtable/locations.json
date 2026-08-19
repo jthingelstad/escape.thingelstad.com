@@ -1,7 +1,7 @@
 {
   "table": "Locations",
-  "syncedAt": "2026-08-14T17:30:16.744288+00:00",
-  "count": 76,
+  "syncedAt": "2026-08-19T21:44:08.636776+00:00",
+  "count": 77,
   "records": [
     {
       "id": "rec0ugHLMNt3uzAiN",
@@ -255,6 +255,7 @@
         "Latitude": 41.390835,
         "Location ID": 32,
         "Location": "Golden Pop (Barcelona)",
+        "Location URL": "https://goldenpop.es",
         "Company": [
           "recFSmkIes4pr9ili"
         ],
@@ -264,7 +265,7 @@
         "City": "Barcelona",
         "Coordinates": "41.390835, 2.175974",
         "Longitude": 2.175974,
-        "Modified at": "2026-03-19T21:00:38.000Z"
+        "Modified at": "2026-08-19T19:23:08.000Z"
       }
     },
     {
@@ -579,17 +580,17 @@
         "Country": "Portugal",
         "Latitude": 41.159856,
         "Location ID": 76,
-        "Location": "D3 Escape Rooms (Porto)",
+        "Location": "D3 Escape Rooms (Porto  - Latino Coelho)",
         "Company": [
           "recoWiYWWE7XjBoQ2"
         ],
         "Rooms": [
           "recMhyzbt4awQiy0o"
         ],
-        "City": "Porto",
+        "City": "Porto  - Latino Coelho",
         "Coordinates": "41.159856, -8.602333",
         "Longitude": -8.602333,
-        "Modified at": "2026-08-10T21:33:36.000Z"
+        "Modified at": "2026-08-19T19:26:42.000Z"
       }
     },
     {
@@ -623,10 +624,13 @@
       "createdTime": "2026-08-13T21:34:45.000Z",
       "fields": {
         "Created at": "2026-08-13T21:34:45.000Z",
+        "Map URL": "https://www.google.com/maps/place/41.1556, -8.614633",
         "Room Count": 2,
         "Country": "Portugal",
+        "Latitude": 41.1556,
         "Location ID": 78,
         "Location": "Occultus Room Escape (Porto)",
+        "Location URL": "https://occultusroomescape.pt",
         "Company": [
           "recxiZQZsBD7DZfFP"
         ],
@@ -635,7 +639,9 @@
           "recxK57kjoEHd4sUK"
         ],
         "City": "Porto",
-        "Modified at": "2026-08-13T21:38:49.000Z"
+        "Coordinates": "41.1556, -8.614633",
+        "Longitude": -8.614633,
+        "Modified at": "2026-08-19T19:21:58.000Z"
       }
     },
     {
@@ -1046,6 +1052,30 @@
       }
     },
     {
+      "id": "recV1RyIgamcis0xN",
+      "createdTime": "2026-08-19T19:12:00.000Z",
+      "fields": {
+        "Created at": "2026-08-19T19:12:00.000Z",
+        "Map URL": "https://www.google.com/maps/place/48.8683282, 2.352271",
+        "Room Count": 1,
+        "Country": "France",
+        "Latitude": 48.8683282,
+        "Location ID": 79,
+        "Location": "Live Cinema (Paris)",
+        "Location URL": "https://livecinema.fr/",
+        "Company": [
+          "recDMtGu8ujaCRzI6"
+        ],
+        "Rooms": [
+          "rec5FWOQtiqRlUmbs"
+        ],
+        "City": "Paris",
+        "Coordinates": "48.8683282, 2.352271",
+        "Longitude": 2.352271,
+        "Modified at": "2026-08-19T19:21:43.000Z"
+      }
+    },
+    {
       "id": "recW2WBOgyA41a9jK",
       "createdTime": "2026-02-27T01:39:47.000Z",
       "fields": {
@@ -1334,6 +1364,7 @@
         "Latitude": 42.655636,
         "Location ID": 71,
         "Location": "Puzzle Punks (Dubrovnik)",
+        "Location URL": "https://puzzlepunks.com/hr/",
         "Company": [
           "recd2Ly7fCIF6piaW"
         ],
@@ -1343,7 +1374,7 @@
         "City": "Dubrovnik",
         "Coordinates": "42.655636, 18.076712",
         "Longitude": 18.076712,
-        "Modified at": "2026-04-03T14:59:54.000Z"
+        "Modified at": "2026-08-19T19:22:23.000Z"
       }
     },
     {
@@ -1762,6 +1793,7 @@
         "Latitude": 47.65042,
         "Location ID": 73,
         "Location": "Locurio (Fremont)",
+        "Location URL": "https://www.locurio.com",
         "Company": [
           "recK2UFisjzUbAton"
         ],
@@ -1772,7 +1804,7 @@
         "Coordinates": "47.65042, -122.350433",
         "Longitude": -122.350433,
         "Region": "Washington",
-        "Modified at": "2026-08-10T21:34:38.000Z"
+        "Modified at": "2026-08-19T19:22:45.000Z"
       }
     },
     {

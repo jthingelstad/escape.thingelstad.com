@@ -1,6 +1,6 @@
 {
   "table": "Trips",
-  "syncedAt": "2026-08-14T17:30:16.748334+00:00",
+  "syncedAt": "2026-08-19T21:44:08.640953+00:00",
   "count": 9,
   "records": [
     {
@@ -154,22 +154,27 @@
       "id": "recPdsXVe4f9iAZwO",
       "createdTime": "2026-08-10T21:16:24.000Z",
       "fields": {
-        "Room Count": 5,
+        "Room Count": 7,
+        "Featured": true,
         "Trip ID": 9,
         "Game (from Rooms)": [
           "Alice",
           "Cativeiro",
           "Stranger Mystery",
           "Casa da Moeda",
-          "Gotham"
+          "Gotham",
+          "The Taxidermist",
+          "Zone 51"
         ],
-        "Name": "Porto",
+        "Name": "Porto and Paris",
         "Rooms": [
           "rec92QddeRCagOokY",
           "recMhyzbt4awQiy0o",
           "rec3hMjr6Lqyx6zSW",
           "rec9xpViH8eab9bMN",
-          "recxK57kjoEHd4sUK"
+          "recxK57kjoEHd4sUK",
+          "rec1C694RVHvg5hTa",
+          "rec5FWOQtiqRlUmbs"
         ]
       }
     },
