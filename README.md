@@ -182,6 +182,8 @@ Featured player and trip routes are pinned by Airtable record ID in `src/_data/p
 
 Pushes to `main` trigger the GitHub Pages workflow in `.github/workflows/deploy.yml`.
 
+Airtable data refreshes are manual. The Sync Airtable & Deploy workflow (`.github/workflows/sync-and-deploy.yml`, run from the Actions tab via `workflow_dispatch`) syncs Airtable, validates and builds the site, commits any changed snapshots and images as `Update room data.`, and deploys. `scripts/update.sh` does the same refresh locally: it pulls, runs `npm run sync`, tests and builds, then commits and pushes any data changes so `deploy.yml` publishes them.
+
 ## License
 
 Code is licensed under `CC-BY-SA-4.0`. Site content and underlying data are personal to the Escaping Things team.
