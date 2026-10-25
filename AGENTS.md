@@ -147,6 +147,7 @@ The old tag model and the old `q` omnibox search are gone and should not be rein
 - `src/_data/filters.js` — filter option data
 - `src/_data/roomDetail.js` — detail-page derived data
 - `src/_data/roomIndex.js` — inlined room data for list and map
+- `lib/open-data.js` — `/rooms.json` and `/llms.txt`
 - `src/_data/listPages.js` — standalone list page data
 - `src/_data/playerPages.js` — featured player page data
 - `src/_data/publicSlugs.json` — durable featured player/trip slugs by Airtable record ID
@@ -175,10 +176,15 @@ The old tag model and the old `q` omnibox search are gone and should not be rein
 - `/room/{date}/{room-slug}/` — canonical room detail pages
 - `/room/{legacy-id-slug}/` — redirect-only compatibility routes
 - `/featured/` and featured entity pages
-- `/feed.xml`
+- `/feed.xml` — Atom feed
+- `/feed.json` — JSON Feed 1.1 of the same entries
+- `/rooms.json` — every played room as open data
+- `/llms.txt` — the site for agents and LLMs
 - `/sitemap.xml`
 
-The Atom feed includes only the 25 most recent non-scheduled rooms. Feed entries should read as narrative activity updates and point readers to room detail pages; exhaustive catalog metadata belongs on the site, not in feed content.
+The Atom feed includes only the 25 most recent non-scheduled rooms. Feed entries should read as narrative activity updates and point readers to room detail pages; exhaustive catalog metadata belongs on the site, not in feed content. The JSON Feed renders the same entries from the same `src/_includes/feed-entry-content.njk`, so the two never drift.
+
+`/rooms.json` and `/llms.txt` are built by `lib/open-data.js` (through `src/_data/openData.js`) from the normalized catalog: played rooms only, newest first, no Airtable IDs. They leave out room photos on purpose, since `robots.txt` keeps `/images/rooms/` away from crawlers; the pages and both feeds still show photos to people. The published `/rooms.json` is an output, not a source: the site still builds from the Airtable snapshots.
 
 ## Keyboard Shortcuts
 
