@@ -24,6 +24,7 @@
     "@11ty/eleventy-img": "^7.0.0",
     "html-minifier-terser": "^7.2.0",
     "jsdom": "^30.0.1",
+    "microformats-parser": "^2.0.6",
     "pagefind": "^1.5.2"
   },
   "overrides": {

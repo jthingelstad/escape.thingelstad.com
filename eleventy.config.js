@@ -5,7 +5,7 @@ const path = require("path");
 const crypto = require("crypto");
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 const { roomSlug, slugify } = require("./lib/catalog");
-const { isPlayed, playedAt } = require("./lib/feed");
+const { isPlayed, playedAt, summarizeRoom } = require("./lib/feed");
 
 function featuredEntityUrl(type, entity) {
   return `/${type}/${encodeURIComponent(entity.slug)}/`;
@@ -82,6 +82,8 @@ module.exports = function(eleventyConfig) {
   // date, as in the feeds (lib/feed.js).
   eleventyConfig.addFilter("isPlayed", isPlayed);
   eleventyConfig.addFilter("playedAt", playedAt);
+  // The h-entry's p-summary is the sentence its feed entry carries as summary.
+  eleventyConfig.addFilter("roomSummary", (room) => summarizeRoom(room).summary);
 
   eleventyConfig.addFilter("formatDate", (dateStr) => {
     if (!dateStr) return "";

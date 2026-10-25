@@ -2,8 +2,9 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const path = require('node:path');
 const { JSDOM } = require('jsdom');
+const { mf2 } = require('microformats-parser');
 const catalog = require('../src/_data/catalog');
-const { isPlayed, playedAt, SITE_URL } = require('../lib/feed');
+const { buildFeedEntry, isPlayed, playedAt, SITE_URL } = require('../lib/feed');
 
 // Rooms are the feed entries, so on the pages a played room is an h-entry (IndieWeb): its own page,
 // and its card on the home page and /rooms/, which are h-feeds. The only feeds the head advertises
@@ -81,6 +82,12 @@ test('each played room page is one h-entry, its hero, with no author and nothing
     assert.ok(entry.querySelector('h1').classList.contains('p-name'), `${where}: the h1 names it`);
     assertEntry(entry, room, where);
     assert.equal(entry.querySelector('.u-url').getAttribute('value'), doc.querySelector('link[rel="canonical"]').getAttribute('href'),`${where}: u-url is the canonical`);
+    // The summary is its feed entry's sentence, in a <data> beside the u-url: nothing a reader sees.
+    const summaries = entry.querySelectorAll('.p-summary');
+    assert.equal(summaries.length, 1, `${where}: one p-summary`);
+    assert.equal(summaries[0].tagName, 'DATA');
+    assert.equal(summaries[0].textContent, '', `${where}: the p-summary shows no text`);
+    assert.ok(entry.querySelector('.dt-published').contains(summaries[0]), `${where}: the p-summary sits in the date`);
     const content = [...entry.querySelectorAll('.e-content')].map((el) => el.className);
     assert.deepEqual(
       content,
@@ -92,6 +99,24 @@ test('each played room page is one h-entry, its hero, with no author and nothing
     const outside = [...doc.body.children].flatMap((el) => (el.contains(entry) ? [] : mfClasses(el)));
     const inMain = [...doc.querySelector('main').children].filter((el) => el !== entry).flatMap(mfClasses);
     assert.deepEqual([...outside, ...inMain], [], `${where}: no microformats outside the hero`);
+  }
+});
+
+test('a microformats parser reads content or a summary in every room page h-entry', async () => {
+  const played = catalog().rooms.filter(isPlayed);
+  assert.ok(played.length > 0, 'no played rooms');
+  for (const room of played) {
+    const where = `/room/${room.slug}/`;
+    const found = (await pages()).find((p) => p.url === where);
+    assert.ok(found, `no page at ${where}`);
+    const entries = mf2(found.content, { baseUrl: roomUrl(room) }).items.filter((item) => item.type.includes('h-entry'));
+    assert.equal(entries.length, 1, `${where}: one h-entry`);
+    const { properties } = entries[0];
+    // Most rooms have no write-up, so no e-content; the summary keeps the entry from reading empty.
+    assert.ok(properties.content?.length || properties.summary?.length, `${where}: no content and no summary`);
+    assert.deepEqual(properties.summary, [buildFeedEntry(room).summary], `${where}: p-summary is the feed entry's summary`);
+    assert.deepEqual(properties.url, [roomUrl(room)], `${where}: url`);
+    assert.deepEqual(properties.name, [room.game], `${where}: name`);
   }
 });
 

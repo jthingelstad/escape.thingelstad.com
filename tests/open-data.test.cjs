@@ -2,6 +2,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const path = require('node:path');
 const { buildLlmsTxt, buildRoomsExport } = require('../lib/open-data');
+const { llmsShapeProblems } = require('./llms-shape.cjs');
 
 function makeRoom({ number, date, status, game = `Room ${number}`, trips = [], photo = 'team.jpeg' }) {
   return {
@@ -63,21 +64,55 @@ test('llms.txt links the data files and every played room once', () => {
   assert.match(text, /\(https:\/\/escape\.thingelstad\.com\/feed\.json\)/);
   assert.match(text, /- \[Road Trip\]\(https:\/\/escape\.thingelstad\.com\/trip\/road-trip\/\): 1 room\n/);
   assert.equal(text.includes('Quiet'), false, 'only featured trips get a line');
-  assert.match(text, /- \[Favorites\]\(https:\/\/escape\.thingelstad\.com\/list\/1-favorites\/\) by Jamie\n/);
+  assert.match(text, /- \[Favorites\]\(https:\/\/escape\.thingelstad\.com\/list\/1-favorites\/\): by Jamie\n/);
   assert.equal(text.match(/\/room\/2024-01-01\/room-1\//g).length, 1);
   assert.equal(text.includes('2099-01-01'), false);
   assert.equal(text.includes('team.jpeg'), false);
 });
 
+test('llms.txt is in the shape the llmstxt.org parser reads, one link a line, names without brackets', () => {
+  const bracketed = {
+    ...catalog,
+    rooms: [...catalog.rooms, makeRoom({ number: 4, date: '2025-07-01', status: 'Escaped', game: 'The [Redacted] Files' })],
+    lists: [...catalog.lists, { slug: '2-plain', name: 'Plain [draft]' }]
+  };
+  const text = buildLlmsTxt(bracketed);
+
+  assert.deepEqual(llmsShapeProblems(text), []);
+  assert.match(text, /^- \[The \(Redacted\) Files\]\(https:\/\/escape\.thingelstad\.com\/room\/2025-07-01\/room-4\/\): /m);
+  assert.match(text, /^- \[Plain \(draft\)\]\(https:\/\/escape\.thingelstad\.com\/list\/2-plain\/\)$/m);
+  assert.match(text, /^- \[Atom feed\]\(https:\/\/escape\.thingelstad\.com\/feed\.xml\): /m);
+  assert.match(text.split('\n## ')[0], /newest first/, 'the order is said above the first heading');
+
+  assert.notDeepEqual(llmsShapeProblems('# T\n\n## Rooms\n\nNewest first.\n'), [], 'a line with no link fails');
+  assert.notDeepEqual(llmsShapeProblems('# T\n\n## Data\n\n- [A](https://a.example/) and [B](https://b.example/)\n'), []);
+  assert.notDeepEqual(llmsShapeProblems('# T\n\n## Lists\n\n- [A](https://a.example/) by Jamie\n'), []);
+  assert.notDeepEqual(llmsShapeProblems('# T\n\n### About\n\nProse.\n'), [], '"###" starts a section too');
+});
+
+let built;
+async function pages() {
+  if (!built) {
+    const { Eleventy } = await import('@11ty/eleventy');
+    const root = path.join(__dirname, '..');
+    const eleventy = new Eleventy(path.join(root, 'src'), path.join(root, '_site'), {
+      configPath: path.join(root, 'eleventy.config.js'),
+      quietMode: true
+    });
+    built = await eleventy.toJSON();
+  }
+  return built;
+}
+
+test('the built llms.txt is in the shape the llmstxt.org parser reads', async () => {
+  const llms = (await pages()).find((page) => page.url === '/llms.txt')?.content;
+  assert.ok(llms, 'no /llms.txt');
+  assert.deepEqual(llmsShapeProblems(llms), []);
+});
+
 test('the built JSON Feed carries the same entries as the Atom feed', async () => {
-  const { Eleventy } = await import('@11ty/eleventy');
-  const root = path.join(__dirname, '..');
-  const eleventy = new Eleventy(path.join(root, 'src'), path.join(root, '_site'), {
-    configPath: path.join(root, 'eleventy.config.js'),
-    quietMode: true
-  });
-  const pages = await eleventy.toJSON();
-  const content = (url) => pages.find((page) => page.url === url)?.content;
+  const site = await pages();
+  const content = (url) => site.find((page) => page.url === url)?.content;
 
   const feed = JSON.parse(content('/feed.json'));
   const atomIds = [...content('/feed.xml').matchAll(/<id>(tag:[^<]+)<\/id>/g)].map((match) => match[1]);
