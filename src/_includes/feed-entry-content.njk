@@ -1,0 +1,28 @@
+      <p>{{ entry.lede | e }} {{ entry.result | e }}</p>
+      {%- if entry.room.photo %}
+      <p><img src="https://escape.thingelstad.com/images/rooms/{{ entry.room.photo | e }}" alt="{{ entry.room.game | e }} at {{ entry.room.company.name | e if entry.room.company else 'an escape room' }}" style="max-width:100%;height:auto;border-radius:8px;"></p>
+      {%- endif %}
+      {%- if entry.room.commentary %}
+      <blockquote>{{ entry.room.commentary | richText | safe }}</blockquote>
+      {%- endif %}
+      {%- if entry.room.notes %}
+      <p><em>{{ entry.room.notes | e }}</em></p>
+      {%- endif %}
+      {%- if entry.room.ratingSummary and entry.room.ratingSummary.average != null %}
+      <p>The team rated this room <strong>{{ entry.room.ratingSummary.average | formatRating }}/5</strong> across {{ entry.room.ratingSummary.count }} review{% if entry.room.ratingSummary.count != 1 %}s{% endif %}{% if entry.room.ratingSummary.bestThingsCount > 0 %}, with {{ entry.room.ratingSummary.bestThingsCount }} “Best Things” vote{% if entry.room.ratingSummary.bestThingsCount != 1 %}s{% endif %}{% endif %}.</p>
+      {%- endif %}
+      {%- for experience in entry.room.experiences %}
+      {%- if experience.comments %}
+      <blockquote>
+        {{ experience.comments | richText | safe }}
+        <footer>— {{ experience.player.name | e }}{% if experience.rating != null %}, {{ experience.rating | formatRating }}/5{% endif %}</footer>
+      </blockquote>
+      {%- endif %}
+      {%- endfor %}
+      <p><a href="{{ entry.url | e }}">See photos, ratings, and room details &rarr;</a></p>
+      {%- if entry.room.blogUrl %}
+      <p><a href="{{ entry.room.blogUrl | e }}">Read the related blog post &rarr;</a></p>
+      {%- endif %}
+      {%- if entry.room.mortyId %}
+      <p><a href="https://morty.app/attraction/{{ entry.room.mortyId | e }}">Find this room on Morty &rarr;</a></p>
+      {%- endif %}

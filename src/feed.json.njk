@@ -1,0 +1,29 @@
+---
+permalink: /feed.json
+eleventyExcludeFromCollections: true
+---
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Escaping Things — Recent Rooms",
+  "description": "New escape rooms played by the Escaping Things team, with results, photos, and reflections.",
+  "home_page_url": "https://escape.thingelstad.com/",
+  "feed_url": "https://escape.thingelstad.com/feed.json",
+  "favicon": "https://escape.thingelstad.com/images/favicon.svg",
+  "language": "en",
+  "authors": [{ "name": "Escaping Things", "url": "https://escape.thingelstad.com/" }],
+  "items": [
+    {%- for entry in feed.entries %}
+    {%- set contentHtml %}{% include "feed-entry-content.njk" %}{% endset %}
+    {
+      "id": {{ entry.id | dump | safe }},
+      "url": {{ entry.url | dump | safe }},
+      "title": {{ entry.title | dump | safe }},
+      "summary": {{ entry.summary | dump | safe }},
+      "content_html": {{ contentHtml | trim | dump | safe }},
+      "date_published": {{ entry.publishedAt | dump | safe }},
+      "date_modified": {{ entry.updatedAt | dump | safe }},
+      "tags": {{ entry.tags | dump | safe }}
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
