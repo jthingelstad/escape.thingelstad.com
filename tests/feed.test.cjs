@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { buildFeed, describeResult, formatPeople } = require('../lib/feed');
+const { buildFeed, describeResult, formatPeople, isPlayed, playedAt } = require('../lib/feed');
 
 function makeRoom({
   number,
@@ -110,4 +110,13 @@ test('player names read naturally', () => {
   assert.equal(formatPeople(['Jamie']), 'Jamie');
   assert.equal(formatPeople(['Jamie', 'Tammy']), 'Jamie and Tammy');
   assert.equal(formatPeople(['Jamie', 'Tammy', 'Mazie']), 'Jamie, Tammy, and Mazie');
+});
+
+test('a room is played, and so a feed entry and an h-entry, once it is off the schedule and dated', () => {
+  assert.equal(isPlayed(makeRoom({ number: 1, date: '2025-01-01', status: 'Escaped' })), true);
+  assert.equal(isPlayed(makeRoom({ number: 2, date: '2025-01-01', status: 'Try again' })), true);
+  assert.equal(isPlayed(makeRoom({ number: 3, date: '2099-01-01', status: 'Scheduled' })), false);
+  assert.equal(isPlayed(makeRoom({ number: 4, date: null, status: 'Escaped' })), false);
+  assert.equal(playedAt('2025-01-01'), '2025-01-01T12:00:00Z');
+  assert.equal(buildFeed([makeRoom({ number: 1, date: '2025-01-01', status: 'Escaped' })]).entries[0].publishedAt, playedAt('2025-01-01'));
 });

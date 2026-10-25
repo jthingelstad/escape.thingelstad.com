@@ -186,6 +186,10 @@ The Atom feed includes only the 25 most recent non-scheduled rooms. Feed entries
 
 `/rooms.json` and `/llms.txt` are built by `lib/open-data.js` (through `src/_data/openData.js`) from the normalized catalog: played rooms only, newest first, no Airtable IDs. They leave out room photos on purpose, since `robots.txt` keeps `/images/rooms/` away from crawlers; the pages and both feeds still show photos to people. The published `/rooms.json` is an output, not a source: the site still builds from the Airtable snapshots.
 
+The head advertises only the two feeds (and `llms.txt`). `/rooms.json` is open data, not a feed, so it has no `rel=alternate`: `application/json` is JSON Feed 1.0's discovery type, and a reader could offer it as a feed. `llms.txt` names it.
+
+Played rooms are h-entries (IndieWeb microformats), using the same `isPlayed` test and noon-UTC `playedAt` date as the feeds (`lib/feed.js`, also Eleventy filters). A room page's hero is the h-entry: `p-name` on the h1, `dt-published` on the date's `<time>`, the commentary and notes as `e-content`. The home page `<main>` and the `/rooms/` grid are h-feeds, with an h-entry for each played room's card (`roomCard(room, { entry: true })`). Up Next cards, a room page's related rooms, and the trip, player and list pages carry no microformats. The `u-url` is a `<data>` holding the clean room address, because card links carry `?from=`. It sits inside the date's `<time>`, never in a heading: headings use `text-wrap: balance`, and an element inside one changes where Chrome breaks the line. There is no author property yet; who the author is waits on Jamie's call (open-web audit P13). `tests/microformats.test.cjs` pins all of this.
+
 ## Keyboard Shortcuts
 
 Global shortcuts are defined in `src/_includes/base.njk`. A `?` overlay lists all shortcuts for users.
