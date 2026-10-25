@@ -37,7 +37,13 @@ test('feed excludes scheduled rooms and publishes a bounded newest-first window'
 
   assert.equal(feed.entries.length, 1);
   assert.equal(feed.entries[0].room.number, 2);
-  assert.equal(feed.updatedAt, '2025-01-02T00:00:00.000Z');
+  assert.equal(feed.entries[0].publishedAt, '2025-01-02T12:00:00Z');
+  assert.equal(
+    new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago' }).format(new Date(feed.entries[0].publishedAt)),
+    '2025-01-02',
+    'a Central reader sees the day the room was played'
+  );
+  assert.equal(feed.updatedAt, '2025-01-02T12:00:00.000Z');
   assert.equal(feed.entries.some((entry) => entry.room.status === 'Scheduled'), false);
 });
 
