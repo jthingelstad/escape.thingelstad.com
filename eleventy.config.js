@@ -5,6 +5,7 @@ const path = require("path");
 const crypto = require("crypto");
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 const { roomSlug, slugify } = require("./lib/catalog");
+const { isPlayed, playedAt } = require("./lib/feed");
 
 function featuredEntityUrl(type, entity) {
   return `/${type}/${encodeURIComponent(entity.slug)}/`;
@@ -76,6 +77,11 @@ module.exports = function(eleventyConfig) {
     const slug = room?.slug || (room?.date && room?.game ? roomSlug(room.date, room.game) : "");
     return slug ? `/room/${slug}/` : "/";
   });
+
+  // A played room is a feed entry and, on the pages, an h-entry published at noon UTC on its play
+  // date, as in the feeds (lib/feed.js).
+  eleventyConfig.addFilter("isPlayed", isPlayed);
+  eleventyConfig.addFilter("playedAt", playedAt);
 
   eleventyConfig.addFilter("formatDate", (dateStr) => {
     if (!dateStr) return "";

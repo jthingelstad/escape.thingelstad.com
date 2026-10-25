@@ -58,10 +58,11 @@ permalink: /rooms/
     </section>
 
     <section>
-      <div class="room-grid" id="room-list">
+      {#- The list is an h-feed with an h-entry for each played room (IndieWeb). #}
+      <div class="room-grid h-feed" id="room-list">
         {% from "room-card.njk" import roomCard %}
         {% for room in catalog.rooms | reverse %}
-          {{ roomCard(room, { returnPath: '/rooms/' }) }}
+          {{ roomCard(room, { returnPath: '/rooms/', entry: true }) }}
         {% endfor %}
       </div>
     </section>

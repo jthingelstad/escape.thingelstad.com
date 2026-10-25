@@ -18,6 +18,13 @@ permalink: /room/{{ room.slug }}/
 {% block socialImage %}{% if room.photo %}https://escape.thingelstad.com/images/rooms/{{ room.photo }}{% else %}https://escape.thingelstad.com/images/room-no-photo.png{% endif %}{% endblock %}
 
 {% block content %}
+  {#- A played room is an h-entry (IndieWeb), as it is an entry in the feeds: the hero carries its
+      name, its address, its play date (noon UTC, as in the feeds) and its commentary and notes as
+      e-content. The address <data> sits inside the date's <time>: in the balanced h1 it moves line
+      breaks, and beside the <time> it would be one more gapped item in the inline-flex meta row.
+      The related rooms below sit outside it and carry no microformats. No author: who that is waits
+      on Jamie's call (open-web audit P13). -#}
+  {% set played = room | isPlayed %}
   <main class="container page-content room-detail-page" id="main-content" data-pagefind-body data-pagefind-meta="type:room">
     <nav class="room-nav" aria-label="Room navigation" data-pagefind-ignore>
       {% if room.nav.prev %}
@@ -45,7 +52,7 @@ permalink: /room/{{ room.slug }}/
       {% endif %}
     </nav>
 
-    <section class="room-hero" id="overview">
+    <section class="room-hero{{ ' h-entry' if played }}" id="overview">
       {% if room.photo %}
       <div class="room-hero-photo">
         <img src="/images/rooms/{{ room.photo }}" alt="{{ room.game }} at {{ room.company.name if room.company else 'Unknown Company' }}" fetchpriority="high" decoding="async" eleventy:widths="640,960,1280,1600" eleventy:formats="webp,auto" sizes="(max-width: 1040px) calc(100vw - 3rem), 52vw">
@@ -54,7 +61,7 @@ permalink: /room/{{ room.slug }}/
       <div class="room-hero-info">
         <div class="room-hero-header">
           <span class="room-number">#{{ room.number }}</span>
-          <h1>{{ room.game }}</h1>
+          <h1{% if played %} class="p-name"{% endif %}>{{ room.game }}</h1>
         </div>
         {% if room.company %}
         <div class="room-hero-company">
@@ -63,7 +70,7 @@ permalink: /room/{{ room.slug }}/
         {% endif %}
         <div class="room-hero-meta">
           <span class="room-hero-meta-item">
-            <span class="meta-icon" data-pagefind-ignore>📅</span> {{ room.date | formatDate }}
+            <span class="meta-icon" data-pagefind-ignore>📅</span> {% if played %}<time class="dt-published" datetime="{{ room.date | playedAt }}">{{ room.date | formatDate }}<data class="u-url" value="https://escape.thingelstad.com{{ room | roomPath }}"></data></time>{% else %}{{ room.date | formatDate }}{% endif %}
           </span>
           {% set roomLocation = room.location | formatLocation %}
           {% if roomLocation %}
@@ -107,11 +114,11 @@ permalink: /room/{{ room.slug }}/
         </div>
 
         {% if room.commentary %}
-        <div class="room-hero-commentary rich-text">{{ room.commentary | richText | safe }}</div>
+        <div class="room-hero-commentary rich-text{{ ' e-content' if played }}">{{ room.commentary | richText | safe }}</div>
         {% endif %}
 
         {% if room.notes %}
-        <div class="room-hero-notes rich-text">{{ room.notes | richText | safe }}</div>
+        <div class="room-hero-notes rich-text{{ ' e-content' if played }}">{{ room.notes | richText | safe }}</div>
         {% endif %}
 
         {% if room.officialUrl or room.blogUrl or room.mortyId %}

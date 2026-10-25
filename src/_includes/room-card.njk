@@ -1,5 +1,11 @@
 {#
   Shared room card macro — photo-backed room summary used across the site.
+
+  options.entry: the card sits in a list that is an h-feed, so a played room's card is an h-entry
+  (p-name, u-url, dt-published). u-url is the clean room address, since the link may carry ?from=,
+  and dt-published is noon UTC on the play date, as in the feeds. The u-url <data> sits in the date,
+  not the title: an element in a text-wrap: balance heading changes where Chrome breaks it. Without
+  it (Up Next, a room page's related rooms) the card carries no microformats.
 #}
 {% macro roomCard(room, options) %}
 {% set companyName = room.company.name if room.company else 'Unknown Company' %}
@@ -7,6 +13,7 @@
 {% set badgeLabel = options.badgeLabel if options and options.badgeLabel is defined else 'Room' %}
 {% set badgeNumber = options.badgeNumber if options and options.badgeNumber is defined else room.number %}
 {% set roomHref = room | roomPath %}
+{% set entry = options and options.entry and (room | isPlayed) %}
 {% if options and options.returnPath %}
   {% set roomHref = roomHref + '?from=' + (options.returnPath | queryValue) %}
 {% endif %}
@@ -23,7 +30,7 @@
     {% endif %}
   {% endif %}
 {% endif %}
-<div class="room-card{{ ' room-card-has-photo' if room.photo else ' room-card-no-photo' }}" id="room-{{ room.id or room.airtableId }}" data-airtable-id="{{ room.airtableId }}"{% if room.id %} data-room-id="{{ room.id }}"{% endif %} data-room-number="{{ room.number }}" data-pagefind-ignore>
+<div class="room-card{{ ' room-card-has-photo' if room.photo else ' room-card-no-photo' }}{{ ' h-entry' if entry }}" id="room-{{ room.id or room.airtableId }}" data-airtable-id="{{ room.airtableId }}"{% if room.id %} data-room-id="{{ room.id }}"{% endif %} data-room-number="{{ room.number }}" data-pagefind-ignore>
   <a href="{{ roomHref }}" data-room-path="{{ room | roomPath }}" class="room-card-link" data-tinylytics-event="card.view-room" data-tinylytics-event-value="{{ room.game }}">
     {% if room.photo %}
       <div class="room-card-thumb">
@@ -49,14 +56,14 @@
     </div>
     <div class="room-card-top-right">
       {% if room.date %}
-      <div class="room-card-date">{{ room.date | formatDate }}</div>
+      <div class="room-card-date">{% if entry %}<time class="dt-published" datetime="{{ room.date | playedAt }}">{{ room.date | formatDate }}<data class="u-url" value="https://escape.thingelstad.com{{ room | roomPath }}"></data></time>{% else %}{{ room.date | formatDate }}{% endif %}</div>
       {% endif %}
       {% if room.emojify %}
       <div class="room-card-emojify">{{ room.emojify }}</div>
       {% endif %}
     </div>
     <div class="room-card-bottom">
-      <h3 class="room-card-room">{{ room.game }}</h3>
+      <h3 class="room-card-room{{ ' p-name' if entry }}">{{ room.game }}</h3>
       <div class="room-card-company">{{ companyName }}</div>
       {% if (room.awards and room.awards.length) or (room.ratingSummary and room.ratingSummary.average) %}
       <div class="room-card-meta-row">

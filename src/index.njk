@@ -7,11 +7,13 @@ bodyClass: page-home
 {% extends "base.njk" %}
 
 {% block content %}
-  <main class="container page-content" id="main-content" data-pagefind-ignore>
+  {#- The page is an h-feed (IndieWeb), named by its title, with an h-entry for each recent room.
+      Up Next rooms are not played yet, so, as in the feeds, they are not entries. #}
+  <main class="container page-content h-feed" id="main-content" data-pagefind-ignore>
     <section class="page-intro page-intro-home">
       <div class="page-intro-copy">
         <div class="eyebrow">Escape room team log</div>
-        <h1 class="page-intro-title">Escaping Things</h1>
+        <h1 class="page-intro-title p-name">Escaping Things</h1>
         <p>Escaping Things is our escape room team log, following the rooms, trips, places, ratings, and standout moments that shaped the run.</p>
         <div class="page-intro-actions">
           <a href="/rooms/" class="btn btn-teal" data-tinylytics-event="home.browse-rooms">Browse Rooms</a>
@@ -60,7 +62,7 @@ bodyClass: page-home
       <div class="room-grid">
         {% from "room-card.njk" import roomCard %}
         {% for room in stats.recentCompleted %}
-          {{ roomCard(room, { returnPath: '/' }) }}
+          {{ roomCard(room, { returnPath: '/', entry: true }) }}
         {% endfor %}
       </div>
     </section>
