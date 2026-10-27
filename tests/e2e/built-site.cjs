@@ -1,6 +1,6 @@
 // Checks against the built site (_site/), so run after `npm run build` (`npm run test:e2e`; CI does).
-// What the S3 deploy publishes must match what GitHub Pages serves: the redirect map the deploy copies
-// into CloudFront's key value store is exactly the redirect pages, the viewer-request function knows
+// What the S3 deploy publishes must match the build: the redirect map the deploy copies into
+// CloudFront's key value store is exactly the redirect pages, the viewer-request function knows
 // every extensionless file, and every file has a content type chosen for it.
 const test = require('node:test');
 const assert = require('node:assert/strict');
@@ -34,7 +34,7 @@ test('the function knows every extensionless file, and every file is typed', asy
   const { publishPlan, isOpaque } = await import('../../scripts/publish-plan.mjs');
   const plan = publishPlan(ROOT);
   const keys = plan.map((file) => file.key);
-  assert.ok(!keys.includes('CNAME') && !keys.includes('_redirects.json'));
+  assert.ok(!keys.includes('_redirects.json'));
   const bare = keys.filter((key) => !key.split('/').pop().includes('.')).map((key) => '/' + key);
   assert.deepEqual(bare.sort(), [...FILES].sort());
   const untyped = plan.filter((file) => file.contentType === 'application/octet-stream' && !isOpaque(file.key));

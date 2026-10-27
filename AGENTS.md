@@ -15,7 +15,7 @@ The project now builds from a normalized Airtable-backed catalog, not from a sin
 - Leaflet + MarkerCluster on the map page
 - Chart.js on the stats page
 - Tinylytics for analytics and kudos
-- S3 and CloudFront for hosting (GitHub Pages too, until the DNS cutover; see "S3 and CloudFront")
+- S3 and CloudFront for hosting (see "S3 and CloudFront"; GitHub Pages until 2026-10-26)
 
 ## Development
 
@@ -195,9 +195,10 @@ Played rooms are h-entries (IndieWeb microformats), using the same `isPlayed` te
 
 ## S3 and CloudFront
 
-The site is moving from GitHub Pages to S3 and CloudFront (Jamie, 2026-10-26: "Approved: move
-escape.thingelstad.com to S3 and CloudFront with real 301 redirects, Pages kept until DNS cutover"). It
-copies the pattern weekly.thingelstad.com shipped the same day. Escaping Things shares the domain, not
+The site moved from GitHub Pages to S3 and CloudFront on 2026-10-26 (Jamie: "Approved: move
+escape.thingelstad.com to S3 and CloudFront with real 301 redirects, Pages kept until DNS cutover"),
+copying the pattern weekly.thingelstad.com shipped the same day. The `escape` record is a CNAME to the
+distribution's `cloudfront.net` name; once it moved, the Pages deploy and `src/CNAME` went. Escaping Things shares the domain, not
 the publishing system, and is not in the sites strip: the stacks say so in their descriptions and are
 tagged `Project=escape`, and nothing in WT Builder or librarian-thing touches them.
 
@@ -210,7 +211,7 @@ identity** with `npm run infra -- certificate|site|delivery` (`--plan` prints th
   Keep the validation record: renewal needs it. ACM checks CAA along the `escape` record's CNAME chain,
   and GitHub's CAA refuses Amazon, so while `escape` pointed at `jthingelstad.github.io` no certificate
   could issue. Jamie deleted the record for the validation (a short outage), letting the check fall
-  through to `thingelstad.com`'s CAA, which allows `amazon.com`.
+  through to `thingelstad.com`'s CAA, which allows `amazon.com`, then pointed it at CloudFront.
 - `escape-site`: a private, versioned bucket (old versions kept 90 days) behind CloudFront with origin
   access control; AWS's CachingOptimized policy (no query string in the key, so filter URLs and `?ref=`
   share one copy of a page); security headers plus `Access-Control-Allow-Origin: *` as Pages sent;
@@ -220,18 +221,17 @@ identity** with `npm run infra -- certificate|site|delivery` (`--plan` prints th
 - `escape-delivery`: the role GitHub Actions assumes (`vars.AWS_DEPLOY_ROLE_ARN`), `main` only. It can
   publish into the bucket, update the redirect store and clear the cache; it cannot change the stacks.
 
-Both workflows publish to S3 in a `deploy-aws` job beside the Pages deploy: `deploy.yml` on a push to
-`main`, and `sync-and-deploy.yml` (the Airtable sync, run by hand), whose job checks out the commit its
-build was made from (main after the sync's commit). `scripts/update.sh` pushes, so `deploy.yml` covers it.
+Both workflows publish the tested build in their `deploy` job: `deploy.yml` on a push to `main`, and
+`sync-and-deploy.yml` (the Airtable sync, run by hand), whose job checks out the commit its build was
+made from (main after the sync's commit). `scripts/update.sh` pushes, so `deploy.yml` covers it.
 
 **Legacy room routes are real 301s.** The build writes `_redirects.json` (`src/redirects-map.njk`, from
 the same `legacyRooms` data as `room-legacy.njk`): every `/room/<Room-ID>-<name>/` route and room route
 alias, path to room. Each deploy copies it into the distribution's CloudFront key value store, and the
 viewer-request function (`infra/viewer-request.mjs`) answers those paths with a 301 that keeps the query
 string. The same function sends a bare path to its slash form and serves `index.html` for directory
-URLs; the extensionless files it passes through are listed in its `FILES` (none: `CNAME` is for Pages
-and never published). The meta-refresh pages are still built (Pages serves them, and the test reads the
-map from them) but never reached on CloudFront. `tests/e2e/built-site.cjs` (`npm run test:e2e`, after
+URLs; the extensionless files it passes through are listed in its `FILES` (none today). The
+meta-refresh pages are still built (the test reads the map from them) but never reached. `tests/e2e/built-site.cjs` (`npm run test:e2e`, after
 `npm run build`; both workflows run it) keeps the map equal to the redirect pages and `FILES` equal to
 the build.
 
