@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: "pages"
+  group: deploy
   cancel-in-progress: false
 
 env:
@@ -94,36 +94,20 @@ jobs:
       - run: npm run build
       - run: npm run test:e2e
 
-      - uses: actions/upload-pages-artifact@v5
+      - uses: actions/upload-artifact@v7
         with:
+          name: site
           path: _site
+          retention-days: 7
 
+  # Publishes the tested build to S3 and CloudFront (scripts/deploy-aws.mjs), from the commit that
+  # build was made from (main after the sync's commit), so the deploy script and the templates it
+  # checks against match it.
   deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v5
-
-  # S3 and CloudFront (infra/, scripts/deploy-aws.mjs), beside Pages until escape.thingelstad.com's
-  # DNS moves to the distribution. A separate job, so a failure here never holds up Pages; it
-  # publishes the same tested build the Pages job does, from the commit that build was made from,
-  # so the deploy script and the templates it checks against match it.
-  deploy-aws:
     needs: build
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    concurrency:
-      group: aws
-      cancel-in-progress: false
     permissions:
       contents: read
       id-token: write
@@ -141,11 +125,8 @@ jobs:
 
       - uses: actions/download-artifact@v7
         with:
-          name: github-pages
-          path: .pages
-
-      - name: Unpack the build
-        run: mkdir _site && tar -xf .pages/artifact.tar -C _site
+          name: site
+          path: _site
 
       - uses: aws-actions/configure-aws-credentials@v5
         with:
