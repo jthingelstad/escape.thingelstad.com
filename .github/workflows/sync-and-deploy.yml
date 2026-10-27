@@ -53,6 +53,7 @@ jobs:
         run: |
           npm test
           npm run build
+          npm run test:e2e
 
       - name: Commit changes
         run: |
@@ -71,10 +72,16 @@ jobs:
     needs: sync
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    outputs:
+      sha: ${{ steps.commit.outputs.sha }}
     steps:
       - uses: actions/checkout@v7
         with:
           ref: main
+
+      # The commit this build is made from: main after the sync's commit, not the dispatch commit.
+      - id: commit
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@v7
         with:
@@ -85,6 +92,7 @@ jobs:
       - run: npm audit --audit-level=high
       - run: npm test
       - run: npm run build
+      - run: npm run test:e2e
 
       - uses: actions/upload-pages-artifact@v5
         with:
@@ -103,3 +111,46 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+
+  # S3 and CloudFront (infra/, scripts/deploy-aws.mjs), beside Pages until escape.thingelstad.com's
+  # DNS moves to the distribution. A separate job, so a failure here never holds up Pages; it
+  # publishes the same tested build the Pages job does, from the commit that build was made from,
+  # so the deploy script and the templates it checks against match it.
+  deploy-aws:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    concurrency:
+      group: aws
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ needs.build.outputs.sha }}
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - uses: actions/download-artifact@v7
+        with:
+          name: github-pages
+          path: .pages
+
+      - name: Unpack the build
+        run: mkdir _site && tar -xf .pages/artifact.tar -C _site
+
+      - uses: aws-actions/configure-aws-credentials@v5
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Publish to S3 and CloudFront
+        run: npm run deploy:aws

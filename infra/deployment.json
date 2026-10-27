@@ -1,0 +1,23 @@
+{
+  "account": "999153317627",
+  "region": "us-east-1",
+  "domain": "escape.thingelstad.com",
+  "stacks": {
+    "certificate": "escape-certificate",
+    "site": "escape-site",
+    "delivery": "escape-delivery"
+  },
+  "stackTags": {
+    "Application": "Thingelstad",
+    "Project": "escape",
+    "Repository": "jthingelstad/escape.thingelstad.com",
+    "ManagedBy": "cloudformation",
+    "Environment": "production"
+  },
+  "siteBucket": "escape-site-sitebucket-4aec2hvbkxwq",
+  "distributionId": "E31DWBTUJ13UIB",
+  "cloudfrontDomain": "d3k2wscuo45lq7.cloudfront.net",
+  "redirectStoreArn": "arn:aws:cloudfront::999153317627:key-value-store/cff1e8f5-005f-41bf-98ab-408f8e0890ff",
+  "certificateArn": "arn:aws:acm:us-east-1:999153317627:certificate/b4939beb-177b-4d13-91b3-f9ad46e42077",
+  "deploymentRoleArn": "arn:aws:iam::999153317627:role/escape-delivery-DeploymentRole-sJOTWjZTlN6F"
+}
