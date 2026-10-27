@@ -1,0 +1,14 @@
+---
+permalink: /_redirects.json
+eleventyExcludeFromCollections: true
+---
+{#- Every redirect page this build writes (room-legacy.njk), path to target: the legacy
+    /room/<Room-ID>-<name>/ routes and the room route aliases (src/_data/legacyRooms.js). The pages
+    serve GitHub Pages; on CloudFront each deploy copies this map into the distribution's key value
+    store and the viewer-request function answers these paths with a 301 (infra/viewer-request.mjs).
+    The deploy does not publish this file, and an e2e test keeps it equal to the pages. -#}
+{
+{%- for redirect in legacyRooms %}
+  {{ ("/room/" + redirect.from + "/") | dump | safe }}: {{ (redirect.room | roomPath) | dump | safe }}{% if not loop.last %},{% endif %}
+{%- endfor %}
+}

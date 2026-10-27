@@ -20,7 +20,7 @@ This is an Eleventy-powered static site built from a normalized Airtable dataset
 - Chart.js for stats
 - Pagefind for site-wide search
 - Tinylytics for analytics
-- GitHub Pages via GitHub Actions
+- S3 and CloudFront via GitHub Actions (GitHub Pages too, until the DNS cutover; see `AGENTS.md`)
 
 No framework, no client-side data fetching, no runtime backend.
 
@@ -180,9 +180,9 @@ Featured player and trip routes are pinned by Airtable record ID in `src/_data/p
 
 ## Deployment
 
-Pushes to `main` trigger the GitHub Pages workflow in `.github/workflows/deploy.yml`.
+Pushes to `main` trigger `.github/workflows/deploy.yml`, which tests and builds the site and publishes it to S3 and CloudFront (and to GitHub Pages until the DNS cutover). `AGENTS.md` ("S3 and CloudFront") has the stacks, the 301 redirects and the per-file content types.
 
-Airtable data refreshes are manual. The Sync Airtable & Deploy workflow (`.github/workflows/sync-and-deploy.yml`, run from the Actions tab via `workflow_dispatch`) syncs Airtable, validates and builds the site, commits any changed snapshots and images as `Update room data.`, and deploys. `scripts/update.sh` does the same refresh locally: it pulls, runs `npm run sync`, tests and builds, then commits and pushes any data changes so `deploy.yml` publishes them.
+Airtable data refreshes are manual. The Sync Airtable & Deploy workflow (`.github/workflows/sync-and-deploy.yml`, run from the Actions tab via `workflow_dispatch`) syncs Airtable, validates and builds the site, commits any changed snapshots and images as `Update room data.`, and deploys to both hosts. `scripts/update.sh` does the same refresh locally: it pulls, runs `npm run sync`, tests and builds, then commits and pushes any data changes so `deploy.yml` publishes them.
 
 ## License
 
