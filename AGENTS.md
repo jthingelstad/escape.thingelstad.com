@@ -216,8 +216,9 @@ identity** with `npm run infra -- certificate|site|delivery` (`--plan` prints th
   access control; AWS's CachingOptimized policy (no query string in the key, so filter URLs and `?ref=`
   share one copy of a page); security headers plus `Access-Control-Allow-Origin: *` as Pages sent;
   403/404 serve `/404.html`; a 5xx alarm to `weekly-thing-librarian-alarms` (the family topic poap,
-  nnxyz and thingelstad.xyz use too). The alias and certificate attach only once the certificate is
-  ISSUED (rerun `npm run infra -- site`).
+  nnxyz and thingelstad.xyz use too); access logs to the CloudWatch log group `/escape/web-access`,
+  kept 24 months (731 days), with no client IP or query string (the other sites' shape). The alias and
+  certificate attach only once the certificate is ISSUED (rerun `npm run infra -- site`).
 - `escape-delivery`: the role GitHub Actions assumes (`vars.AWS_DEPLOY_ROLE_ARN`), `main` only. It can
   publish into the bucket, update the redirect store and clear the cache; it cannot change the stacks.
 
