@@ -4,10 +4,15 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{#- Every <lastmod> is when what the page shows last changed (lib/lastmod.js),
+    never the build time; tests/sitemap.test.cjs fails on a url without one. -#}
 {%- for page in collections.all %}
 {%- if page.url and page.url != "/404.html" %}
   <url>
     <loc>https://escape.thingelstad.com{{ page.url }}</loc>
+    {%- if lastmod[page.url] %}
+    <lastmod>{{ lastmod[page.url] }}</lastmod>
+    {%- endif %}
   </url>
 {%- endif %}
 {%- endfor %}
