@@ -43,6 +43,10 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
+        with:
+          # Full history: an index page's sitemap <lastmod> is its template's
+          # last commit (lib/lastmod.js), and a shallow clone has only one.
+          fetch-depth: 0
       - uses: actions/setup-node@v7
         with:
           node-version: 24
