@@ -61,3 +61,19 @@ test('every sitemap url is a built page with a W3C lastmod from its content, not
   // One build-time stamp would make them all the same.
   assert.ok(new Set(urls.map(({ lastmod }) => lastmod)).size > 10);
 });
+
+test('every page loads the Tinylytics script once, and none the old embed', () => {
+  // Tinylytics' one script (2026-11-02): only data-site names the site; widgets and options live in its
+  // dashboard settings. Each tag sends its own page view, so the old /embed/ URL must be gone.
+  const pages = files.filter((f) => f.endsWith('.html'));
+  for (const file of pages) {
+    const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
+    assert.ok(!html.includes('tinylytics.app/embed'), `${file} still carries the old Tinylytics embed`);
+    if (html.includes('http-equiv="refresh"')) continue;
+    const tags = html.match(/<script\b[^>]*tinylytics\.app[^>]*>/g) ?? [];
+    assert.equal(tags.length, 1, `${file}: ${tags.length} Tinylytics tags`);
+    assert.match(tags[0], /src="?https:\/\/tinylytics\.app\/js\/script\.js"?[\s>]/, file);
+    assert.match(tags[0], /data-site="?jDupbLUKfFyNMs5d5WjD"?[\s>]/, file);
+    assert.match(tags[0], /\sdefer[\s=>]/, file);
+  }
+});
