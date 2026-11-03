@@ -14,7 +14,7 @@ The project now builds from a normalized Airtable-backed catalog, not from a sin
 - Eleventy Image responsive image transforms
 - Leaflet + MarkerCluster on the map page
 - Chart.js on the stats page
-- Tinylytics for analytics and kudos
+- Tinylytics for analytics and kudos: one tag in `src/_includes/base.njk`, `<script defer src="https://tinylytics.app/js/script.js" data-site="jDupbLUKfFyNMs5d5WjD">` (since 2026-11-02; the old `/embed/<id>.js?kudos=…&hits&countries&events` URL is gone). Kudos, hits, countries and events are set in the site's Tinylytics dashboard settings, not in the URL. The script counts `pushState`/`replaceState`/`popstate` itself, so the rooms and map filters' history entries count as views; nothing here re-injects it. `tests/e2e/built-site.cjs` fails on a page without exactly one such tag or with the old embed.
 - S3 and CloudFront for hosting (see "S3 and CloudFront"; GitHub Pages until 2026-10-26)
 
 ## Development
