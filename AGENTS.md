@@ -255,6 +255,7 @@ redirect store, deletes what the build no longer writes, clears the cache, and r
 through the CloudFront domain (the front page as built, `/feed.xml`'s type, a legacy room redirect, the
 slash form, a 404). Tinylytics refuses the `cloudfront.net` host, so analytics only count on the real
 domain. The deploy assumes the delivery role through GitHub's OIDC token; no AWS keys are stored.
+The redirect store is read and written only when `_redirects.json` differs from the record of the last finished sync (`scripts/redirect-record.mjs`, at `_deploy/redirects-synced` in the bucket, unreachable through the distribution); `npm run deploy:aws -- --sync-redirects` forces a full sync, which is what corrects a hand edit to the store.
 
 ## Keyboard Shortcuts
 
